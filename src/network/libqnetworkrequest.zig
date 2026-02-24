@@ -516,6 +516,10 @@ pub const qnetworkrequest = struct {
         qtc.QNetworkRequest_SetTransferTimeout1(@ptrCast(self), @bitCast(duration));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#dtor.QNetworkRequest)
     ///
     /// Delete this object from C++ memory.
@@ -524,7 +528,7 @@ pub const qnetworkrequest = struct {
     ///
     /// ` self: QtC.QNetworkRequest `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QNetworkRequest_Delete(@ptrCast(self));
     }
 };

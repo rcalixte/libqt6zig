@@ -42,6 +42,10 @@ pub const khamburgermenu = struct {
         qtc.KHamburgerMenu_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -50,8 +54,8 @@ pub const khamburgermenu = struct {
     ///
     /// ` self: QtC.KHamburgerMenu `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KHamburgerMenu_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KHamburgerMenu_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -77,6 +81,10 @@ pub const khamburgermenu = struct {
         qtc.KHamburgerMenu_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -85,9 +93,9 @@ pub const khamburgermenu = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KHamburgerMenu_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KHamburgerMenu_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -116,6 +124,10 @@ pub const khamburgermenu = struct {
         qtc.KHamburgerMenu_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -128,8 +140,8 @@ pub const khamburgermenu = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KHamburgerMenu_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KHamburgerMenu_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -303,6 +315,10 @@ pub const khamburgermenu = struct {
         qtc.KHamburgerMenu_OnCreateWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateWidget` instead
+    ///
+    pub const QBaseCreateWidget = SuperCreateWidget;
+
     /// ### [Upstream resources](https://api.kde.org/khamburgermenu.html#createWidget)
     ///
     /// Base class method implementation
@@ -313,8 +329,8 @@ pub const khamburgermenu = struct {
     ///
     /// ` parent: QtC.QWidget `
     ///
-    pub fn QBaseCreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.KHamburgerMenu_QBaseCreateWidget(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperCreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
+        return qtc.KHamburgerMenu_SuperCreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2163,6 +2179,10 @@ pub const khamburgermenu = struct {
         return qtc.KHamburgerMenu_Event(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QWidgetAction
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#event)
@@ -2175,8 +2195,8 @@ pub const khamburgermenu = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.KHamburgerMenu_QBaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
+        return qtc.KHamburgerMenu_SuperEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidgetAction
@@ -2213,6 +2233,10 @@ pub const khamburgermenu = struct {
         return qtc.KHamburgerMenu_EventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QWidgetAction
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#eventFilter)
@@ -2227,8 +2251,8 @@ pub const khamburgermenu = struct {
     ///
     /// ` param2: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.KHamburgerMenu_QBaseEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn SuperEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
+        return qtc.KHamburgerMenu_SuperEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QWidgetAction
@@ -2263,6 +2287,10 @@ pub const khamburgermenu = struct {
         qtc.KHamburgerMenu_DeleteWidget(@ptrCast(self), @ptrCast(widget));
     }
 
+    /// ### DEPRECATED: Use `SuperDeleteWidget` instead
+    ///
+    pub const QBaseDeleteWidget = SuperDeleteWidget;
+
     /// Inherited from QWidgetAction
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
@@ -2275,8 +2303,8 @@ pub const khamburgermenu = struct {
     ///
     /// ` widget: QtC.QWidget `
     ///
-    pub fn QBaseDeleteWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.KHamburgerMenu_QBaseDeleteWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn SuperDeleteWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
+        qtc.KHamburgerMenu_SuperDeleteWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from QWidgetAction
@@ -2311,6 +2339,10 @@ pub const khamburgermenu = struct {
         qtc.KHamburgerMenu_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -2323,8 +2355,8 @@ pub const khamburgermenu = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KHamburgerMenu_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KHamburgerMenu_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2359,6 +2391,10 @@ pub const khamburgermenu = struct {
         qtc.KHamburgerMenu_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -2371,8 +2407,8 @@ pub const khamburgermenu = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KHamburgerMenu_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KHamburgerMenu_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2407,6 +2443,10 @@ pub const khamburgermenu = struct {
         qtc.KHamburgerMenu_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -2419,8 +2459,8 @@ pub const khamburgermenu = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KHamburgerMenu_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KHamburgerMenu_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2455,6 +2495,10 @@ pub const khamburgermenu = struct {
         qtc.KHamburgerMenu_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2467,8 +2511,8 @@ pub const khamburgermenu = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KHamburgerMenu_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KHamburgerMenu_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2503,6 +2547,10 @@ pub const khamburgermenu = struct {
         qtc.KHamburgerMenu_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2515,8 +2563,8 @@ pub const khamburgermenu = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KHamburgerMenu_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KHamburgerMenu_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2556,6 +2604,10 @@ pub const khamburgermenu = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperCreatedWidgets` instead
+    ///
+    pub const QBaseCreatedWidgets = SuperCreatedWidgets;
+
     /// Inherited from QWidgetAction
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
@@ -2568,8 +2620,8 @@ pub const khamburgermenu = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseCreatedWidgets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWidget {
-        const _arr: qtc.libqt_list = qtc.KHamburgerMenu_QBaseCreatedWidgets(@ptrCast(self));
+    pub fn SuperCreatedWidgets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWidget {
+        const _arr: qtc.libqt_list = qtc.KHamburgerMenu_SuperCreatedWidgets(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("khamburgermenu.CreatedWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
@@ -2613,6 +2665,10 @@ pub const khamburgermenu = struct {
         return qtc.KHamburgerMenu_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2623,8 +2679,8 @@ pub const khamburgermenu = struct {
     ///
     /// ` self: QtC.KHamburgerMenu `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KHamburgerMenu_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KHamburgerMenu_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2657,6 +2713,10 @@ pub const khamburgermenu = struct {
         return qtc.KHamburgerMenu_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2667,8 +2727,8 @@ pub const khamburgermenu = struct {
     ///
     /// ` self: QtC.KHamburgerMenu `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KHamburgerMenu_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KHamburgerMenu_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2704,6 +2764,10 @@ pub const khamburgermenu = struct {
         return qtc.KHamburgerMenu_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2716,9 +2780,9 @@ pub const khamburgermenu = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KHamburgerMenu_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KHamburgerMenu_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2753,6 +2817,10 @@ pub const khamburgermenu = struct {
         return qtc.KHamburgerMenu_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2765,8 +2833,8 @@ pub const khamburgermenu = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KHamburgerMenu_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KHamburgerMenu_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2800,6 +2868,9 @@ pub const khamburgermenu = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/khamburgermenu.html#dtor.KHamburgerMenu)
     ///
@@ -2809,7 +2880,7 @@ pub const khamburgermenu = struct {
     ///
     /// ` self: QtC.KHamburgerMenu `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KHamburgerMenu_Delete(@ptrCast(self));
     }
 };

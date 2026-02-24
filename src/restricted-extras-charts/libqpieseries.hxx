@@ -347,23 +347,23 @@ class VirtualQPieSeries final : public QPieSeries {
 
     // Friend functions
     friend void QPieSeries_TimerEvent(QPieSeries* self, QTimerEvent* event);
-    friend void QPieSeries_QBaseTimerEvent(QPieSeries* self, QTimerEvent* event);
+    friend void QPieSeries_SuperTimerEvent(QPieSeries* self, QTimerEvent* event);
     friend void QPieSeries_ChildEvent(QPieSeries* self, QChildEvent* event);
-    friend void QPieSeries_QBaseChildEvent(QPieSeries* self, QChildEvent* event);
+    friend void QPieSeries_SuperChildEvent(QPieSeries* self, QChildEvent* event);
     friend void QPieSeries_CustomEvent(QPieSeries* self, QEvent* event);
-    friend void QPieSeries_QBaseCustomEvent(QPieSeries* self, QEvent* event);
+    friend void QPieSeries_SuperCustomEvent(QPieSeries* self, QEvent* event);
     friend void QPieSeries_ConnectNotify(QPieSeries* self, const QMetaMethod* signal);
-    friend void QPieSeries_QBaseConnectNotify(QPieSeries* self, const QMetaMethod* signal);
+    friend void QPieSeries_SuperConnectNotify(QPieSeries* self, const QMetaMethod* signal);
     friend void QPieSeries_DisconnectNotify(QPieSeries* self, const QMetaMethod* signal);
-    friend void QPieSeries_QBaseDisconnectNotify(QPieSeries* self, const QMetaMethod* signal);
+    friend void QPieSeries_SuperDisconnectNotify(QPieSeries* self, const QMetaMethod* signal);
     friend QObject* QPieSeries_Sender(const QPieSeries* self);
-    friend QObject* QPieSeries_QBaseSender(const QPieSeries* self);
+    friend QObject* QPieSeries_SuperSender(const QPieSeries* self);
     friend int QPieSeries_SenderSignalIndex(const QPieSeries* self);
-    friend int QPieSeries_QBaseSenderSignalIndex(const QPieSeries* self);
+    friend int QPieSeries_SuperSenderSignalIndex(const QPieSeries* self);
     friend int QPieSeries_Receivers(const QPieSeries* self, const char* signal);
-    friend int QPieSeries_QBaseReceivers(const QPieSeries* self, const char* signal);
+    friend int QPieSeries_SuperReceivers(const QPieSeries* self, const char* signal);
     friend bool QPieSeries_IsSignalConnected(const QPieSeries* self, const QMetaMethod* signal);
-    friend bool QPieSeries_QBaseIsSignalConnected(const QPieSeries* self, const QMetaMethod* signal);
+    friend bool QPieSeries_SuperIsSignalConnected(const QPieSeries* self, const QMetaMethod* signal);
 };
 
 #endif

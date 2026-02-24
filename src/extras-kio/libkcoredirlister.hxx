@@ -348,25 +348,25 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
 
     // Friend functions
     friend void KCoreDirLister_JobStarted(KCoreDirLister* self, KIO__ListJob* param1);
-    friend void KCoreDirLister_QBaseJobStarted(KCoreDirLister* self, KIO__ListJob* param1);
+    friend void KCoreDirLister_SuperJobStarted(KCoreDirLister* self, KIO__ListJob* param1);
     friend void KCoreDirLister_TimerEvent(KCoreDirLister* self, QTimerEvent* event);
-    friend void KCoreDirLister_QBaseTimerEvent(KCoreDirLister* self, QTimerEvent* event);
+    friend void KCoreDirLister_SuperTimerEvent(KCoreDirLister* self, QTimerEvent* event);
     friend void KCoreDirLister_ChildEvent(KCoreDirLister* self, QChildEvent* event);
-    friend void KCoreDirLister_QBaseChildEvent(KCoreDirLister* self, QChildEvent* event);
+    friend void KCoreDirLister_SuperChildEvent(KCoreDirLister* self, QChildEvent* event);
     friend void KCoreDirLister_CustomEvent(KCoreDirLister* self, QEvent* event);
-    friend void KCoreDirLister_QBaseCustomEvent(KCoreDirLister* self, QEvent* event);
+    friend void KCoreDirLister_SuperCustomEvent(KCoreDirLister* self, QEvent* event);
     friend void KCoreDirLister_ConnectNotify(KCoreDirLister* self, const QMetaMethod* signal);
-    friend void KCoreDirLister_QBaseConnectNotify(KCoreDirLister* self, const QMetaMethod* signal);
+    friend void KCoreDirLister_SuperConnectNotify(KCoreDirLister* self, const QMetaMethod* signal);
     friend void KCoreDirLister_DisconnectNotify(KCoreDirLister* self, const QMetaMethod* signal);
-    friend void KCoreDirLister_QBaseDisconnectNotify(KCoreDirLister* self, const QMetaMethod* signal);
+    friend void KCoreDirLister_SuperDisconnectNotify(KCoreDirLister* self, const QMetaMethod* signal);
     friend QObject* KCoreDirLister_Sender(const KCoreDirLister* self);
-    friend QObject* KCoreDirLister_QBaseSender(const KCoreDirLister* self);
+    friend QObject* KCoreDirLister_SuperSender(const KCoreDirLister* self);
     friend int KCoreDirLister_SenderSignalIndex(const KCoreDirLister* self);
-    friend int KCoreDirLister_QBaseSenderSignalIndex(const KCoreDirLister* self);
+    friend int KCoreDirLister_SuperSenderSignalIndex(const KCoreDirLister* self);
     friend int KCoreDirLister_Receivers(const KCoreDirLister* self, const char* signal);
-    friend int KCoreDirLister_QBaseReceivers(const KCoreDirLister* self, const char* signal);
+    friend int KCoreDirLister_SuperReceivers(const KCoreDirLister* self, const char* signal);
     friend bool KCoreDirLister_IsSignalConnected(const KCoreDirLister* self, const QMetaMethod* signal);
-    friend bool KCoreDirLister_QBaseIsSignalConnected(const KCoreDirLister* self, const QMetaMethod* signal);
+    friend bool KCoreDirLister_SuperIsSignalConnected(const KCoreDirLister* self, const QMetaMethod* signal);
 };
 
 #endif

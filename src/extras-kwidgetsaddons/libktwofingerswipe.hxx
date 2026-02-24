@@ -328,23 +328,23 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
 
     // Friend functions
     friend void KTwoFingerSwipe_TimerEvent(KTwoFingerSwipe* self, QTimerEvent* event);
-    friend void KTwoFingerSwipe_QBaseTimerEvent(KTwoFingerSwipe* self, QTimerEvent* event);
+    friend void KTwoFingerSwipe_SuperTimerEvent(KTwoFingerSwipe* self, QTimerEvent* event);
     friend void KTwoFingerSwipe_ChildEvent(KTwoFingerSwipe* self, QChildEvent* event);
-    friend void KTwoFingerSwipe_QBaseChildEvent(KTwoFingerSwipe* self, QChildEvent* event);
+    friend void KTwoFingerSwipe_SuperChildEvent(KTwoFingerSwipe* self, QChildEvent* event);
     friend void KTwoFingerSwipe_CustomEvent(KTwoFingerSwipe* self, QEvent* event);
-    friend void KTwoFingerSwipe_QBaseCustomEvent(KTwoFingerSwipe* self, QEvent* event);
+    friend void KTwoFingerSwipe_SuperCustomEvent(KTwoFingerSwipe* self, QEvent* event);
     friend void KTwoFingerSwipe_ConnectNotify(KTwoFingerSwipe* self, const QMetaMethod* signal);
-    friend void KTwoFingerSwipe_QBaseConnectNotify(KTwoFingerSwipe* self, const QMetaMethod* signal);
+    friend void KTwoFingerSwipe_SuperConnectNotify(KTwoFingerSwipe* self, const QMetaMethod* signal);
     friend void KTwoFingerSwipe_DisconnectNotify(KTwoFingerSwipe* self, const QMetaMethod* signal);
-    friend void KTwoFingerSwipe_QBaseDisconnectNotify(KTwoFingerSwipe* self, const QMetaMethod* signal);
+    friend void KTwoFingerSwipe_SuperDisconnectNotify(KTwoFingerSwipe* self, const QMetaMethod* signal);
     friend QObject* KTwoFingerSwipe_Sender(const KTwoFingerSwipe* self);
-    friend QObject* KTwoFingerSwipe_QBaseSender(const KTwoFingerSwipe* self);
+    friend QObject* KTwoFingerSwipe_SuperSender(const KTwoFingerSwipe* self);
     friend int KTwoFingerSwipe_SenderSignalIndex(const KTwoFingerSwipe* self);
-    friend int KTwoFingerSwipe_QBaseSenderSignalIndex(const KTwoFingerSwipe* self);
+    friend int KTwoFingerSwipe_SuperSenderSignalIndex(const KTwoFingerSwipe* self);
     friend int KTwoFingerSwipe_Receivers(const KTwoFingerSwipe* self, const char* signal);
-    friend int KTwoFingerSwipe_QBaseReceivers(const KTwoFingerSwipe* self, const char* signal);
+    friend int KTwoFingerSwipe_SuperReceivers(const KTwoFingerSwipe* self, const char* signal);
     friend bool KTwoFingerSwipe_IsSignalConnected(const KTwoFingerSwipe* self, const QMetaMethod* signal);
-    friend bool KTwoFingerSwipe_QBaseIsSignalConnected(const KTwoFingerSwipe* self, const QMetaMethod* signal);
+    friend bool KTwoFingerSwipe_SuperIsSignalConnected(const KTwoFingerSwipe* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of KTwoFingerSwipeRecognizer so that we can call protected methods

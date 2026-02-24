@@ -498,33 +498,33 @@ class VirtualKRcc final : public KRcc {
 
     // Friend functions
     friend bool KRcc_DoPrepareWriting(KRcc* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
-    friend bool KRcc_QBaseDoPrepareWriting(KRcc* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
+    friend bool KRcc_SuperDoPrepareWriting(KRcc* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
     friend bool KRcc_DoFinishWriting(KRcc* self, long long size);
-    friend bool KRcc_QBaseDoFinishWriting(KRcc* self, long long size);
+    friend bool KRcc_SuperDoFinishWriting(KRcc* self, long long size);
     friend bool KRcc_DoWriteDir(KRcc* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
-    friend bool KRcc_QBaseDoWriteDir(KRcc* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
+    friend bool KRcc_SuperDoWriteDir(KRcc* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
     friend bool KRcc_DoWriteSymLink(KRcc* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
-    friend bool KRcc_QBaseDoWriteSymLink(KRcc* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
+    friend bool KRcc_SuperDoWriteSymLink(KRcc* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
     friend bool KRcc_OpenArchive(KRcc* self, int mode);
-    friend bool KRcc_QBaseOpenArchive(KRcc* self, int mode);
+    friend bool KRcc_SuperOpenArchive(KRcc* self, int mode);
     friend bool KRcc_CloseArchive(KRcc* self);
-    friend bool KRcc_QBaseCloseArchive(KRcc* self);
+    friend bool KRcc_SuperCloseArchive(KRcc* self);
     friend void KRcc_VirtualHook(KRcc* self, int id, void* data);
-    friend void KRcc_QBaseVirtualHook(KRcc* self, int id, void* data);
+    friend void KRcc_SuperVirtualHook(KRcc* self, int id, void* data);
     friend KArchiveDirectory* KRcc_RootDir(KRcc* self);
-    friend KArchiveDirectory* KRcc_QBaseRootDir(KRcc* self);
+    friend KArchiveDirectory* KRcc_SuperRootDir(KRcc* self);
     friend bool KRcc_DoWriteData(KRcc* self, const char* data, long long size);
-    friend bool KRcc_QBaseDoWriteData(KRcc* self, const char* data, long long size);
+    friend bool KRcc_SuperDoWriteData(KRcc* self, const char* data, long long size);
     friend bool KRcc_CreateDevice(KRcc* self, int mode);
-    friend bool KRcc_QBaseCreateDevice(KRcc* self, int mode);
+    friend bool KRcc_SuperCreateDevice(KRcc* self, int mode);
     friend void KRcc_SetErrorString(KRcc* self, const libqt_string errorStr);
-    friend void KRcc_QBaseSetErrorString(KRcc* self, const libqt_string errorStr);
+    friend void KRcc_SuperSetErrorString(KRcc* self, const libqt_string errorStr);
     friend KArchiveDirectory* KRcc_FindOrCreate(KRcc* self, const libqt_string path);
-    friend KArchiveDirectory* KRcc_QBaseFindOrCreate(KRcc* self, const libqt_string path);
+    friend KArchiveDirectory* KRcc_SuperFindOrCreate(KRcc* self, const libqt_string path);
     friend void KRcc_SetDevice(KRcc* self, QIODevice* dev);
-    friend void KRcc_QBaseSetDevice(KRcc* self, QIODevice* dev);
+    friend void KRcc_SuperSetDevice(KRcc* self, QIODevice* dev);
     friend void KRcc_SetRootDir(KRcc* self, KArchiveDirectory* rootDir);
-    friend void KRcc_QBaseSetRootDir(KRcc* self, KArchiveDirectory* rootDir);
+    friend void KRcc_SuperSetRootDir(KRcc* self, KArchiveDirectory* rootDir);
 };
 
 #endif

@@ -621,6 +621,10 @@ pub const qcolorspace = struct {
         return qtc.QColorSpace_WithTransferFunction22(@ptrCast(self), @bitCast(transferFunction), @bitCast(gamma));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#dtor.QColorSpace)
     ///
     /// Delete this object from C++ memory.
@@ -629,7 +633,7 @@ pub const qcolorspace = struct {
     ///
     /// ` self: QtC.QColorSpace `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QColorSpace_Delete(@ptrCast(self));
     }
 };

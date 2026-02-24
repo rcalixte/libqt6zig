@@ -69,6 +69,10 @@ pub const qscopedpointerpoddeleter = struct {
         qtc.QScopedPointerPodDeleter_OperatorCall(@ptrCast(self), @ptrCast(pointer));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscopedpointerpoddeleter.html#dtor.QScopedPointerPodDeleter)
     ///
     /// Delete this object from C++ memory.
@@ -77,7 +81,7 @@ pub const qscopedpointerpoddeleter = struct {
     ///
     /// ` self: QtC.QScopedPointerPodDeleter `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QScopedPointerPodDeleter_Delete(@ptrCast(self));
     }
 };

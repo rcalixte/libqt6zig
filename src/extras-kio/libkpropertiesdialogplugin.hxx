@@ -364,25 +364,25 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
 
     // Friend functions
     friend void KPropertiesDialogPlugin_TimerEvent(KPropertiesDialogPlugin* self, QTimerEvent* event);
-    friend void KPropertiesDialogPlugin_QBaseTimerEvent(KPropertiesDialogPlugin* self, QTimerEvent* event);
+    friend void KPropertiesDialogPlugin_SuperTimerEvent(KPropertiesDialogPlugin* self, QTimerEvent* event);
     friend void KPropertiesDialogPlugin_ChildEvent(KPropertiesDialogPlugin* self, QChildEvent* event);
-    friend void KPropertiesDialogPlugin_QBaseChildEvent(KPropertiesDialogPlugin* self, QChildEvent* event);
+    friend void KPropertiesDialogPlugin_SuperChildEvent(KPropertiesDialogPlugin* self, QChildEvent* event);
     friend void KPropertiesDialogPlugin_CustomEvent(KPropertiesDialogPlugin* self, QEvent* event);
-    friend void KPropertiesDialogPlugin_QBaseCustomEvent(KPropertiesDialogPlugin* self, QEvent* event);
+    friend void KPropertiesDialogPlugin_SuperCustomEvent(KPropertiesDialogPlugin* self, QEvent* event);
     friend void KPropertiesDialogPlugin_ConnectNotify(KPropertiesDialogPlugin* self, const QMetaMethod* signal);
-    friend void KPropertiesDialogPlugin_QBaseConnectNotify(KPropertiesDialogPlugin* self, const QMetaMethod* signal);
+    friend void KPropertiesDialogPlugin_SuperConnectNotify(KPropertiesDialogPlugin* self, const QMetaMethod* signal);
     friend void KPropertiesDialogPlugin_DisconnectNotify(KPropertiesDialogPlugin* self, const QMetaMethod* signal);
-    friend void KPropertiesDialogPlugin_QBaseDisconnectNotify(KPropertiesDialogPlugin* self, const QMetaMethod* signal);
+    friend void KPropertiesDialogPlugin_SuperDisconnectNotify(KPropertiesDialogPlugin* self, const QMetaMethod* signal);
     friend int KPropertiesDialogPlugin_FontHeight(const KPropertiesDialogPlugin* self);
-    friend int KPropertiesDialogPlugin_QBaseFontHeight(const KPropertiesDialogPlugin* self);
+    friend int KPropertiesDialogPlugin_SuperFontHeight(const KPropertiesDialogPlugin* self);
     friend QObject* KPropertiesDialogPlugin_Sender(const KPropertiesDialogPlugin* self);
-    friend QObject* KPropertiesDialogPlugin_QBaseSender(const KPropertiesDialogPlugin* self);
+    friend QObject* KPropertiesDialogPlugin_SuperSender(const KPropertiesDialogPlugin* self);
     friend int KPropertiesDialogPlugin_SenderSignalIndex(const KPropertiesDialogPlugin* self);
-    friend int KPropertiesDialogPlugin_QBaseSenderSignalIndex(const KPropertiesDialogPlugin* self);
+    friend int KPropertiesDialogPlugin_SuperSenderSignalIndex(const KPropertiesDialogPlugin* self);
     friend int KPropertiesDialogPlugin_Receivers(const KPropertiesDialogPlugin* self, const char* signal);
-    friend int KPropertiesDialogPlugin_QBaseReceivers(const KPropertiesDialogPlugin* self, const char* signal);
+    friend int KPropertiesDialogPlugin_SuperReceivers(const KPropertiesDialogPlugin* self, const char* signal);
     friend bool KPropertiesDialogPlugin_IsSignalConnected(const KPropertiesDialogPlugin* self, const QMetaMethod* signal);
-    friend bool KPropertiesDialogPlugin_QBaseIsSignalConnected(const KPropertiesDialogPlugin* self, const QMetaMethod* signal);
+    friend bool KPropertiesDialogPlugin_SuperIsSignalConnected(const KPropertiesDialogPlugin* self, const QMetaMethod* signal);
 };
 
 #endif

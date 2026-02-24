@@ -172,7 +172,7 @@ int KPageView_ViewPosition(const KPageView* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KPageView_QBaseMetaObject(const KPageView* self) {
+QMetaObject* KPageView_SuperMetaObject(const KPageView* self) {
     auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_MetaObject_IsBase(true);
@@ -191,7 +191,7 @@ void KPageView_OnMetaObject(const KPageView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KPageView_QBaseMetacast(KPageView* self, const char* param1) {
+void* KPageView_SuperMetacast(KPageView* self, const char* param1) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_Metacast_IsBase(true);
@@ -210,7 +210,7 @@ void KPageView_OnMetacast(KPageView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KPageView_QBaseMetacall(KPageView* self, int param1, int param2, void** param3) {
+int KPageView_SuperMetacall(KPageView* self, int param1, int param2, void** param3) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_Metacall_IsBase(true);
@@ -229,7 +229,7 @@ void KPageView_OnMetacall(KPageView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QAbstractItemView* KPageView_QBaseCreateView(KPageView* self) {
+QAbstractItemView* KPageView_SuperCreateView(KPageView* self) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_CreateView_IsBase(true);
@@ -248,7 +248,7 @@ void KPageView_OnCreateView(KPageView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KPageView_QBaseShowPageHeader(const KPageView* self) {
+bool KPageView_SuperShowPageHeader(const KPageView* self) {
     auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_ShowPageHeader_IsBase(true);
@@ -267,7 +267,7 @@ void KPageView_OnShowPageHeader(const KPageView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KPageView_QBaseViewPosition(const KPageView* self) {
+int KPageView_SuperViewPosition(const KPageView* self) {
     auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_ViewPosition_IsBase(true);
@@ -296,7 +296,7 @@ int KPageView_DevType(const KPageView* self) {
 }
 
 // Base class handler implementation
-int KPageView_QBaseDevType(const KPageView* self) {
+int KPageView_SuperDevType(const KPageView* self) {
     auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_DevType_IsBase(true);
@@ -325,7 +325,7 @@ void KPageView_SetVisible(KPageView* self, bool visible) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseSetVisible(KPageView* self, bool visible) {
+void KPageView_SuperSetVisible(KPageView* self, bool visible) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_SetVisible_IsBase(true);
@@ -354,7 +354,7 @@ QSize* KPageView_SizeHint(const KPageView* self) {
 }
 
 // Base class handler implementation
-QSize* KPageView_QBaseSizeHint(const KPageView* self) {
+QSize* KPageView_SuperSizeHint(const KPageView* self) {
     auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_SizeHint_IsBase(true);
@@ -383,7 +383,7 @@ QSize* KPageView_MinimumSizeHint(const KPageView* self) {
 }
 
 // Base class handler implementation
-QSize* KPageView_QBaseMinimumSizeHint(const KPageView* self) {
+QSize* KPageView_SuperMinimumSizeHint(const KPageView* self) {
     auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_MinimumSizeHint_IsBase(true);
@@ -412,7 +412,7 @@ int KPageView_HeightForWidth(const KPageView* self, int param1) {
 }
 
 // Base class handler implementation
-int KPageView_QBaseHeightForWidth(const KPageView* self, int param1) {
+int KPageView_SuperHeightForWidth(const KPageView* self, int param1) {
     auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_HeightForWidth_IsBase(true);
@@ -441,7 +441,7 @@ bool KPageView_HasHeightForWidth(const KPageView* self) {
 }
 
 // Base class handler implementation
-bool KPageView_QBaseHasHeightForWidth(const KPageView* self) {
+bool KPageView_SuperHasHeightForWidth(const KPageView* self) {
     auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_HasHeightForWidth_IsBase(true);
@@ -470,7 +470,7 @@ QPaintEngine* KPageView_PaintEngine(const KPageView* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KPageView_QBasePaintEngine(const KPageView* self) {
+QPaintEngine* KPageView_SuperPaintEngine(const KPageView* self) {
     auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_PaintEngine_IsBase(true);
@@ -499,7 +499,7 @@ bool KPageView_Event(KPageView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KPageView_QBaseEvent(KPageView* self, QEvent* event) {
+bool KPageView_SuperEvent(KPageView* self, QEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_Event_IsBase(true);
@@ -528,7 +528,7 @@ void KPageView_MousePressEvent(KPageView* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseMousePressEvent(KPageView* self, QMouseEvent* event) {
+void KPageView_SuperMousePressEvent(KPageView* self, QMouseEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_MousePressEvent_IsBase(true);
@@ -557,7 +557,7 @@ void KPageView_MouseReleaseEvent(KPageView* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseMouseReleaseEvent(KPageView* self, QMouseEvent* event) {
+void KPageView_SuperMouseReleaseEvent(KPageView* self, QMouseEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_MouseReleaseEvent_IsBase(true);
@@ -586,7 +586,7 @@ void KPageView_MouseDoubleClickEvent(KPageView* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseMouseDoubleClickEvent(KPageView* self, QMouseEvent* event) {
+void KPageView_SuperMouseDoubleClickEvent(KPageView* self, QMouseEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_MouseDoubleClickEvent_IsBase(true);
@@ -615,7 +615,7 @@ void KPageView_MouseMoveEvent(KPageView* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseMouseMoveEvent(KPageView* self, QMouseEvent* event) {
+void KPageView_SuperMouseMoveEvent(KPageView* self, QMouseEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_MouseMoveEvent_IsBase(true);
@@ -644,7 +644,7 @@ void KPageView_WheelEvent(KPageView* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseWheelEvent(KPageView* self, QWheelEvent* event) {
+void KPageView_SuperWheelEvent(KPageView* self, QWheelEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_WheelEvent_IsBase(true);
@@ -673,7 +673,7 @@ void KPageView_KeyPressEvent(KPageView* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseKeyPressEvent(KPageView* self, QKeyEvent* event) {
+void KPageView_SuperKeyPressEvent(KPageView* self, QKeyEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_KeyPressEvent_IsBase(true);
@@ -702,7 +702,7 @@ void KPageView_KeyReleaseEvent(KPageView* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseKeyReleaseEvent(KPageView* self, QKeyEvent* event) {
+void KPageView_SuperKeyReleaseEvent(KPageView* self, QKeyEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_KeyReleaseEvent_IsBase(true);
@@ -731,7 +731,7 @@ void KPageView_FocusInEvent(KPageView* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseFocusInEvent(KPageView* self, QFocusEvent* event) {
+void KPageView_SuperFocusInEvent(KPageView* self, QFocusEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_FocusInEvent_IsBase(true);
@@ -760,7 +760,7 @@ void KPageView_FocusOutEvent(KPageView* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseFocusOutEvent(KPageView* self, QFocusEvent* event) {
+void KPageView_SuperFocusOutEvent(KPageView* self, QFocusEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_FocusOutEvent_IsBase(true);
@@ -789,7 +789,7 @@ void KPageView_EnterEvent(KPageView* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseEnterEvent(KPageView* self, QEnterEvent* event) {
+void KPageView_SuperEnterEvent(KPageView* self, QEnterEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_EnterEvent_IsBase(true);
@@ -818,7 +818,7 @@ void KPageView_LeaveEvent(KPageView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseLeaveEvent(KPageView* self, QEvent* event) {
+void KPageView_SuperLeaveEvent(KPageView* self, QEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_LeaveEvent_IsBase(true);
@@ -847,7 +847,7 @@ void KPageView_PaintEvent(KPageView* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBasePaintEvent(KPageView* self, QPaintEvent* event) {
+void KPageView_SuperPaintEvent(KPageView* self, QPaintEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_PaintEvent_IsBase(true);
@@ -876,7 +876,7 @@ void KPageView_MoveEvent(KPageView* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseMoveEvent(KPageView* self, QMoveEvent* event) {
+void KPageView_SuperMoveEvent(KPageView* self, QMoveEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_MoveEvent_IsBase(true);
@@ -905,7 +905,7 @@ void KPageView_ResizeEvent(KPageView* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseResizeEvent(KPageView* self, QResizeEvent* event) {
+void KPageView_SuperResizeEvent(KPageView* self, QResizeEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_ResizeEvent_IsBase(true);
@@ -934,7 +934,7 @@ void KPageView_CloseEvent(KPageView* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseCloseEvent(KPageView* self, QCloseEvent* event) {
+void KPageView_SuperCloseEvent(KPageView* self, QCloseEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_CloseEvent_IsBase(true);
@@ -963,7 +963,7 @@ void KPageView_ContextMenuEvent(KPageView* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseContextMenuEvent(KPageView* self, QContextMenuEvent* event) {
+void KPageView_SuperContextMenuEvent(KPageView* self, QContextMenuEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_ContextMenuEvent_IsBase(true);
@@ -992,7 +992,7 @@ void KPageView_TabletEvent(KPageView* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseTabletEvent(KPageView* self, QTabletEvent* event) {
+void KPageView_SuperTabletEvent(KPageView* self, QTabletEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_TabletEvent_IsBase(true);
@@ -1021,7 +1021,7 @@ void KPageView_ActionEvent(KPageView* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseActionEvent(KPageView* self, QActionEvent* event) {
+void KPageView_SuperActionEvent(KPageView* self, QActionEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_ActionEvent_IsBase(true);
@@ -1050,7 +1050,7 @@ void KPageView_DragEnterEvent(KPageView* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseDragEnterEvent(KPageView* self, QDragEnterEvent* event) {
+void KPageView_SuperDragEnterEvent(KPageView* self, QDragEnterEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_DragEnterEvent_IsBase(true);
@@ -1079,7 +1079,7 @@ void KPageView_DragMoveEvent(KPageView* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseDragMoveEvent(KPageView* self, QDragMoveEvent* event) {
+void KPageView_SuperDragMoveEvent(KPageView* self, QDragMoveEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_DragMoveEvent_IsBase(true);
@@ -1108,7 +1108,7 @@ void KPageView_DragLeaveEvent(KPageView* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseDragLeaveEvent(KPageView* self, QDragLeaveEvent* event) {
+void KPageView_SuperDragLeaveEvent(KPageView* self, QDragLeaveEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_DragLeaveEvent_IsBase(true);
@@ -1137,7 +1137,7 @@ void KPageView_DropEvent(KPageView* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseDropEvent(KPageView* self, QDropEvent* event) {
+void KPageView_SuperDropEvent(KPageView* self, QDropEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_DropEvent_IsBase(true);
@@ -1166,7 +1166,7 @@ void KPageView_ShowEvent(KPageView* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseShowEvent(KPageView* self, QShowEvent* event) {
+void KPageView_SuperShowEvent(KPageView* self, QShowEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_ShowEvent_IsBase(true);
@@ -1195,7 +1195,7 @@ void KPageView_HideEvent(KPageView* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseHideEvent(KPageView* self, QHideEvent* event) {
+void KPageView_SuperHideEvent(KPageView* self, QHideEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_HideEvent_IsBase(true);
@@ -1225,7 +1225,7 @@ bool KPageView_NativeEvent(KPageView* self, const libqt_string eventType, void* 
 }
 
 // Base class handler implementation
-bool KPageView_QBaseNativeEvent(KPageView* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KPageView_SuperNativeEvent(KPageView* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkpageview && vkpageview->isVirtualKPageView) {
@@ -1255,7 +1255,7 @@ void KPageView_ChangeEvent(KPageView* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseChangeEvent(KPageView* self, QEvent* param1) {
+void KPageView_SuperChangeEvent(KPageView* self, QEvent* param1) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_ChangeEvent_IsBase(true);
@@ -1284,7 +1284,7 @@ int KPageView_Metric(const KPageView* self, int param1) {
 }
 
 // Base class handler implementation
-int KPageView_QBaseMetric(const KPageView* self, int param1) {
+int KPageView_SuperMetric(const KPageView* self, int param1) {
     auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_Metric_IsBase(true);
@@ -1313,7 +1313,7 @@ void KPageView_InitPainter(const KPageView* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseInitPainter(const KPageView* self, QPainter* painter) {
+void KPageView_SuperInitPainter(const KPageView* self, QPainter* painter) {
     auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_InitPainter_IsBase(true);
@@ -1342,7 +1342,7 @@ QPaintDevice* KPageView_Redirected(const KPageView* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KPageView_QBaseRedirected(const KPageView* self, QPoint* offset) {
+QPaintDevice* KPageView_SuperRedirected(const KPageView* self, QPoint* offset) {
     auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_Redirected_IsBase(true);
@@ -1371,7 +1371,7 @@ QPainter* KPageView_SharedPainter(const KPageView* self) {
 }
 
 // Base class handler implementation
-QPainter* KPageView_QBaseSharedPainter(const KPageView* self) {
+QPainter* KPageView_SuperSharedPainter(const KPageView* self) {
     auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_SharedPainter_IsBase(true);
@@ -1400,7 +1400,7 @@ void KPageView_InputMethodEvent(KPageView* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseInputMethodEvent(KPageView* self, QInputMethodEvent* param1) {
+void KPageView_SuperInputMethodEvent(KPageView* self, QInputMethodEvent* param1) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_InputMethodEvent_IsBase(true);
@@ -1429,7 +1429,7 @@ QVariant* KPageView_InputMethodQuery(const KPageView* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KPageView_QBaseInputMethodQuery(const KPageView* self, int param1) {
+QVariant* KPageView_SuperInputMethodQuery(const KPageView* self, int param1) {
     auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_InputMethodQuery_IsBase(true);
@@ -1458,7 +1458,7 @@ bool KPageView_FocusNextPrevChild(KPageView* self, bool next) {
 }
 
 // Base class handler implementation
-bool KPageView_QBaseFocusNextPrevChild(KPageView* self, bool next) {
+bool KPageView_SuperFocusNextPrevChild(KPageView* self, bool next) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_FocusNextPrevChild_IsBase(true);
@@ -1487,7 +1487,7 @@ bool KPageView_EventFilter(KPageView* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KPageView_QBaseEventFilter(KPageView* self, QObject* watched, QEvent* event) {
+bool KPageView_SuperEventFilter(KPageView* self, QObject* watched, QEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_EventFilter_IsBase(true);
@@ -1516,7 +1516,7 @@ void KPageView_TimerEvent(KPageView* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseTimerEvent(KPageView* self, QTimerEvent* event) {
+void KPageView_SuperTimerEvent(KPageView* self, QTimerEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_TimerEvent_IsBase(true);
@@ -1545,7 +1545,7 @@ void KPageView_ChildEvent(KPageView* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseChildEvent(KPageView* self, QChildEvent* event) {
+void KPageView_SuperChildEvent(KPageView* self, QChildEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_ChildEvent_IsBase(true);
@@ -1574,7 +1574,7 @@ void KPageView_CustomEvent(KPageView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseCustomEvent(KPageView* self, QEvent* event) {
+void KPageView_SuperCustomEvent(KPageView* self, QEvent* event) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_CustomEvent_IsBase(true);
@@ -1603,7 +1603,7 @@ void KPageView_ConnectNotify(KPageView* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseConnectNotify(KPageView* self, const QMetaMethod* signal) {
+void KPageView_SuperConnectNotify(KPageView* self, const QMetaMethod* signal) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_ConnectNotify_IsBase(true);
@@ -1632,7 +1632,7 @@ void KPageView_DisconnectNotify(KPageView* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseDisconnectNotify(KPageView* self, const QMetaMethod* signal) {
+void KPageView_SuperDisconnectNotify(KPageView* self, const QMetaMethod* signal) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_DisconnectNotify_IsBase(true);
@@ -1661,7 +1661,7 @@ void KPageView_UpdateMicroFocus(KPageView* self) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseUpdateMicroFocus(KPageView* self) {
+void KPageView_SuperUpdateMicroFocus(KPageView* self) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_UpdateMicroFocus_IsBase(true);
@@ -1690,7 +1690,7 @@ void KPageView_Create(KPageView* self) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseCreate(KPageView* self) {
+void KPageView_SuperCreate(KPageView* self) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_Create_IsBase(true);
@@ -1719,7 +1719,7 @@ void KPageView_Destroy(KPageView* self) {
 }
 
 // Base class handler implementation
-void KPageView_QBaseDestroy(KPageView* self) {
+void KPageView_SuperDestroy(KPageView* self) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_Destroy_IsBase(true);
@@ -1748,7 +1748,7 @@ bool KPageView_FocusNextChild(KPageView* self) {
 }
 
 // Base class handler implementation
-bool KPageView_QBaseFocusNextChild(KPageView* self) {
+bool KPageView_SuperFocusNextChild(KPageView* self) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_FocusNextChild_IsBase(true);
@@ -1777,7 +1777,7 @@ bool KPageView_FocusPreviousChild(KPageView* self) {
 }
 
 // Base class handler implementation
-bool KPageView_QBaseFocusPreviousChild(KPageView* self) {
+bool KPageView_SuperFocusPreviousChild(KPageView* self) {
     auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_FocusPreviousChild_IsBase(true);
@@ -1806,7 +1806,7 @@ QObject* KPageView_Sender(const KPageView* self) {
 }
 
 // Base class handler implementation
-QObject* KPageView_QBaseSender(const KPageView* self) {
+QObject* KPageView_SuperSender(const KPageView* self) {
     auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_Sender_IsBase(true);
@@ -1835,7 +1835,7 @@ int KPageView_SenderSignalIndex(const KPageView* self) {
 }
 
 // Base class handler implementation
-int KPageView_QBaseSenderSignalIndex(const KPageView* self) {
+int KPageView_SuperSenderSignalIndex(const KPageView* self) {
     auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_SenderSignalIndex_IsBase(true);
@@ -1864,7 +1864,7 @@ int KPageView_Receivers(const KPageView* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KPageView_QBaseReceivers(const KPageView* self, const char* signal) {
+int KPageView_SuperReceivers(const KPageView* self, const char* signal) {
     auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_Receivers_IsBase(true);
@@ -1893,7 +1893,7 @@ bool KPageView_IsSignalConnected(const KPageView* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool KPageView_QBaseIsSignalConnected(const KPageView* self, const QMetaMethod* signal) {
+bool KPageView_SuperIsSignalConnected(const KPageView* self, const QMetaMethod* signal) {
     auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_IsSignalConnected_IsBase(true);
@@ -1922,7 +1922,7 @@ double KPageView_GetDecodedMetricF(const KPageView* self, int metricA, int metri
 }
 
 // Base class handler implementation
-double KPageView_QBaseGetDecodedMetricF(const KPageView* self, int metricA, int metricB) {
+double KPageView_SuperGetDecodedMetricF(const KPageView* self, int metricA, int metricB) {
     auto* vkpageview = const_cast<VirtualKPageView*>(dynamic_cast<const VirtualKPageView*>(self));
     if (vkpageview && vkpageview->isVirtualKPageView) {
         vkpageview->setKPageView_GetDecodedMetricF_IsBase(true);

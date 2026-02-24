@@ -329,23 +329,23 @@ class VirtualKNSCoreQuestion final : public KNSCore::Question {
 
     // Friend functions
     friend void KNSCore__Question_TimerEvent(KNSCore::Question* self, QTimerEvent* event);
-    friend void KNSCore__Question_QBaseTimerEvent(KNSCore::Question* self, QTimerEvent* event);
+    friend void KNSCore__Question_SuperTimerEvent(KNSCore::Question* self, QTimerEvent* event);
     friend void KNSCore__Question_ChildEvent(KNSCore::Question* self, QChildEvent* event);
-    friend void KNSCore__Question_QBaseChildEvent(KNSCore::Question* self, QChildEvent* event);
+    friend void KNSCore__Question_SuperChildEvent(KNSCore::Question* self, QChildEvent* event);
     friend void KNSCore__Question_CustomEvent(KNSCore::Question* self, QEvent* event);
-    friend void KNSCore__Question_QBaseCustomEvent(KNSCore::Question* self, QEvent* event);
+    friend void KNSCore__Question_SuperCustomEvent(KNSCore::Question* self, QEvent* event);
     friend void KNSCore__Question_ConnectNotify(KNSCore::Question* self, const QMetaMethod* signal);
-    friend void KNSCore__Question_QBaseConnectNotify(KNSCore::Question* self, const QMetaMethod* signal);
+    friend void KNSCore__Question_SuperConnectNotify(KNSCore::Question* self, const QMetaMethod* signal);
     friend void KNSCore__Question_DisconnectNotify(KNSCore::Question* self, const QMetaMethod* signal);
-    friend void KNSCore__Question_QBaseDisconnectNotify(KNSCore::Question* self, const QMetaMethod* signal);
+    friend void KNSCore__Question_SuperDisconnectNotify(KNSCore::Question* self, const QMetaMethod* signal);
     friend QObject* KNSCore__Question_Sender(const KNSCore::Question* self);
-    friend QObject* KNSCore__Question_QBaseSender(const KNSCore::Question* self);
+    friend QObject* KNSCore__Question_SuperSender(const KNSCore::Question* self);
     friend int KNSCore__Question_SenderSignalIndex(const KNSCore::Question* self);
-    friend int KNSCore__Question_QBaseSenderSignalIndex(const KNSCore::Question* self);
+    friend int KNSCore__Question_SuperSenderSignalIndex(const KNSCore::Question* self);
     friend int KNSCore__Question_Receivers(const KNSCore::Question* self, const char* signal);
-    friend int KNSCore__Question_QBaseReceivers(const KNSCore::Question* self, const char* signal);
+    friend int KNSCore__Question_SuperReceivers(const KNSCore::Question* self, const char* signal);
     friend bool KNSCore__Question_IsSignalConnected(const KNSCore::Question* self, const QMetaMethod* signal);
-    friend bool KNSCore__Question_QBaseIsSignalConnected(const KNSCore::Question* self, const QMetaMethod* signal);
+    friend bool KNSCore__Question_SuperIsSignalConnected(const KNSCore::Question* self, const QMetaMethod* signal);
 };
 
 #endif

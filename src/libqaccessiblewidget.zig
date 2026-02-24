@@ -71,6 +71,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnIsValid(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsValid` instead
+    ///
+    pub const QBaseIsValid = SuperIsValid;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#isValid)
     ///
     /// Base class method implementation
@@ -79,8 +83,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` self: QtC.QAccessibleWidget `
     ///
-    pub fn QBaseIsValid(self: ?*anyopaque) bool {
-        return qtc.QAccessibleWidget_QBaseIsValid(@ptrCast(self));
+    pub fn SuperIsValid(self: ?*anyopaque) bool {
+        return qtc.QAccessibleWidget_SuperIsValid(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#window)
@@ -107,6 +111,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWindow` instead
+    ///
+    pub const QBaseWindow = SuperWindow;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#window)
     ///
     /// Base class method implementation
@@ -115,8 +123,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` self: QtC.QAccessibleWidget `
     ///
-    pub fn QBaseWindow(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QAccessibleWidget_QBaseWindow(@ptrCast(self));
+    pub fn SuperWindow(self: ?*anyopaque) QtC.QWindow {
+        return qtc.QAccessibleWidget_SuperWindow(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#childCount)
@@ -143,6 +151,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnChildCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperChildCount` instead
+    ///
+    pub const QBaseChildCount = SuperChildCount;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#childCount)
     ///
     /// Base class method implementation
@@ -151,8 +163,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` self: QtC.QAccessibleWidget `
     ///
-    pub fn QBaseChildCount(self: ?*anyopaque) i32 {
-        return qtc.QAccessibleWidget_QBaseChildCount(@ptrCast(self));
+    pub fn SuperChildCount(self: ?*anyopaque) i32 {
+        return qtc.QAccessibleWidget_SuperChildCount(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#indexOfChild)
@@ -181,6 +193,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnIndexOfChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIndexOfChild` instead
+    ///
+    pub const QBaseIndexOfChild = SuperIndexOfChild;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#indexOfChild)
     ///
     /// Base class method implementation
@@ -191,8 +207,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` child: QtC.QAccessibleInterface `
     ///
-    pub fn QBaseIndexOfChild(self: ?*anyopaque, child: ?*anyopaque) i32 {
-        return qtc.QAccessibleWidget_QBaseIndexOfChild(@ptrCast(self), @ptrCast(child));
+    pub fn SuperIndexOfChild(self: ?*anyopaque, child: ?*anyopaque) i32 {
+        return qtc.QAccessibleWidget_SuperIndexOfChild(@ptrCast(self), @ptrCast(child));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#relations)
@@ -234,6 +250,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnRelations(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRelations` instead
+    ///
+    pub const QBaseRelations = SuperRelations;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#relations)
     ///
     /// Base class method implementation
@@ -246,8 +266,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseRelations(self: ?*anyopaque, match: i32, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i32 {
-        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_QBaseRelations(@ptrCast(self), @bitCast(match));
+    pub fn SuperRelations(self: ?*anyopaque, match: i32, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i32 {
+        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_SuperRelations(@ptrCast(self), @bitCast(match));
         const _data: [*]struct_qtcqaccessibleinterface_i32 = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i32, _arr.len) catch @panic("qaccessiblewidget.Relations: Memory allocation failed");
@@ -279,6 +299,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnFocusChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusChild` instead
+    ///
+    pub const QBaseFocusChild = SuperFocusChild;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#focusChild)
     ///
     /// Base class method implementation
@@ -287,8 +311,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` self: QtC.QAccessibleWidget `
     ///
-    pub fn QBaseFocusChild(self: ?*anyopaque) QtC.QAccessibleInterface {
-        return qtc.QAccessibleWidget_QBaseFocusChild(@ptrCast(self));
+    pub fn SuperFocusChild(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleWidget_SuperFocusChild(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#rect)
@@ -315,6 +339,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRect` instead
+    ///
+    pub const QBaseRect = SuperRect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#rect)
     ///
     /// Base class method implementation
@@ -323,8 +351,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` self: QtC.QAccessibleWidget `
     ///
-    pub fn QBaseRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QAccessibleWidget_QBaseRect(@ptrCast(self));
+    pub fn SuperRect(self: ?*anyopaque) QtC.QRect {
+        return qtc.QAccessibleWidget_SuperRect(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#parent)
@@ -351,6 +379,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnParent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperParent` instead
+    ///
+    pub const QBaseParent = SuperParent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#parent)
     ///
     /// Base class method implementation
@@ -359,8 +391,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` self: QtC.QAccessibleWidget `
     ///
-    pub fn QBaseParent(self: ?*anyopaque) QtC.QAccessibleInterface {
-        return qtc.QAccessibleWidget_QBaseParent(@ptrCast(self));
+    pub fn SuperParent(self: ?*anyopaque) QtC.QAccessibleInterface {
+        return qtc.QAccessibleWidget_SuperParent(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#child)
@@ -389,6 +421,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperChild` instead
+    ///
+    pub const QBaseChild = SuperChild;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#child)
     ///
     /// Base class method implementation
@@ -399,8 +435,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn QBaseChild(self: ?*anyopaque, index: i32) QtC.QAccessibleInterface {
-        return qtc.QAccessibleWidget_QBaseChild(@ptrCast(self), @bitCast(index));
+    pub fn SuperChild(self: ?*anyopaque, index: i32) QtC.QAccessibleInterface {
+        return qtc.QAccessibleWidget_SuperChild(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#text)
@@ -437,6 +473,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperText` instead
+    ///
+    pub const QBaseText = SuperText;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#text)
     ///
     /// Base class method implementation
@@ -449,8 +489,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseText(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAccessibleWidget_QBaseText(@ptrCast(self), @bitCast(t));
+    pub fn SuperText(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QAccessibleWidget_SuperText(@ptrCast(self), @bitCast(t));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessiblewidget.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -485,6 +525,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnRole(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRole` instead
+    ///
+    pub const QBaseRole = SuperRole;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#role)
     ///
     /// Base class method implementation
@@ -497,8 +541,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` qaccessible_base_enums.Role `
     ///
-    pub fn QBaseRole(self: ?*anyopaque) i32 {
-        return qtc.QAccessibleWidget_QBaseRole(@ptrCast(self));
+    pub fn SuperRole(self: ?*anyopaque) i32 {
+        return qtc.QAccessibleWidget_SuperRole(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#state)
@@ -525,6 +569,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperState` instead
+    ///
+    pub const QBaseState = SuperState;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#state)
     ///
     /// Base class method implementation
@@ -533,8 +581,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` self: QtC.QAccessibleWidget `
     ///
-    pub fn QBaseState(self: ?*anyopaque) QtC.QAccessible__State {
-        return qtc.QAccessibleWidget_QBaseState(@ptrCast(self));
+    pub fn SuperState(self: ?*anyopaque) QtC.QAccessible__State {
+        return qtc.QAccessibleWidget_SuperState(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#foregroundColor)
@@ -561,6 +609,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnForegroundColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperForegroundColor` instead
+    ///
+    pub const QBaseForegroundColor = SuperForegroundColor;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#foregroundColor)
     ///
     /// Base class method implementation
@@ -569,8 +621,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` self: QtC.QAccessibleWidget `
     ///
-    pub fn QBaseForegroundColor(self: ?*anyopaque) QtC.QColor {
-        return qtc.QAccessibleWidget_QBaseForegroundColor(@ptrCast(self));
+    pub fn SuperForegroundColor(self: ?*anyopaque) QtC.QColor {
+        return qtc.QAccessibleWidget_SuperForegroundColor(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#backgroundColor)
@@ -597,6 +649,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnBackgroundColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBackgroundColor` instead
+    ///
+    pub const QBaseBackgroundColor = SuperBackgroundColor;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#backgroundColor)
     ///
     /// Base class method implementation
@@ -605,8 +661,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` self: QtC.QAccessibleWidget `
     ///
-    pub fn QBaseBackgroundColor(self: ?*anyopaque) QtC.QColor {
-        return qtc.QAccessibleWidget_QBaseBackgroundColor(@ptrCast(self));
+    pub fn SuperBackgroundColor(self: ?*anyopaque) QtC.QColor {
+        return qtc.QAccessibleWidget_SuperBackgroundColor(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#interface_cast)
@@ -635,6 +691,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnInterfaceCast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInterfaceCast` instead
+    ///
+    pub const QBaseInterfaceCast = SuperInterfaceCast;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#interface_cast)
     ///
     /// Base class method implementation
@@ -645,8 +705,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` t: qaccessible_base_enums.InterfaceType `
     ///
-    pub fn QBaseInterfaceCast(self: ?*anyopaque, t: i32) ?*anyopaque {
-        return qtc.QAccessibleWidget_QBaseInterfaceCast(@ptrCast(self), @bitCast(t));
+    pub fn SuperInterfaceCast(self: ?*anyopaque, t: i32) ?*anyopaque {
+        return qtc.QAccessibleWidget_SuperInterfaceCast(@ptrCast(self), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#actionNames)
@@ -692,6 +752,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnActionNames(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperActionNames` instead
+    ///
+    pub const QBaseActionNames = SuperActionNames;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#actionNames)
     ///
     /// Base class method implementation
@@ -702,8 +766,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseActionNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_QBaseActionNames(@ptrCast(self));
+    pub fn SuperActionNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_SuperActionNames(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -751,6 +815,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnDoAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDoAction` instead
+    ///
+    pub const QBaseDoAction = SuperDoAction;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#doAction)
     ///
     /// Base class method implementation
@@ -761,12 +829,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` actionName: []const u8 `
     ///
-    pub fn QBaseDoAction(self: ?*anyopaque, actionName: []const u8) void {
+    pub fn SuperDoAction(self: ?*anyopaque, actionName: []const u8) void {
         const actionName_str = qtc.libqt_string{
             .len = actionName.len,
             .data = actionName.ptr,
         };
-        qtc.QAccessibleWidget_QBaseDoAction(@ptrCast(self), actionName_str);
+        qtc.QAccessibleWidget_SuperDoAction(@ptrCast(self), actionName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#keyBindingsForAction)
@@ -818,6 +886,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnKeyBindingsForAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyBindingsForAction` instead
+    ///
+    pub const QBaseKeyBindingsForAction = SuperKeyBindingsForAction;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#keyBindingsForAction)
     ///
     /// Base class method implementation
@@ -830,12 +902,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseKeyBindingsForAction(self: ?*anyopaque, actionName: []const u8, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn SuperKeyBindingsForAction(self: ?*anyopaque, actionName: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const actionName_str = qtc.libqt_string{
             .len = actionName.len,
             .data = actionName.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_QBaseKeyBindingsForAction(@ptrCast(self), actionName_str);
+        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_SuperKeyBindingsForAction(@ptrCast(self), actionName_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -877,6 +949,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWidget` instead
+    ///
+    pub const QBaseWidget = SuperWidget;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#widget)
     ///
     /// Base class method implementation
@@ -885,8 +961,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` self: QtC.QAccessibleWidget `
     ///
-    pub fn QBaseWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QAccessibleWidget_QBaseWidget(@ptrCast(self));
+    pub fn SuperWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QAccessibleWidget_SuperWidget(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#parentObject)
@@ -913,6 +989,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnParentObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperParentObject` instead
+    ///
+    pub const QBaseParentObject = SuperParentObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#parentObject)
     ///
     /// Base class method implementation
@@ -921,8 +1001,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` self: QtC.QAccessibleWidget `
     ///
-    pub fn QBaseParentObject(self: ?*anyopaque) QtC.QObject {
-        return qtc.QAccessibleWidget_QBaseParentObject(@ptrCast(self));
+    pub fn SuperParentObject(self: ?*anyopaque) QtC.QObject {
+        return qtc.QAccessibleWidget_SuperParentObject(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#addControllingSignal)
@@ -955,6 +1035,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_OnAddControllingSignal(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAddControllingSignal` instead
+    ///
+    pub const QBaseAddControllingSignal = SuperAddControllingSignal;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#addControllingSignal)
     ///
     /// Base class method implementation
@@ -965,12 +1049,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` signal: []const u8 `
     ///
-    pub fn QBaseAddControllingSignal(self: ?*anyopaque, signal: []const u8) void {
+    pub fn SuperAddControllingSignal(self: ?*anyopaque, signal: []const u8) void {
         const signal_str = qtc.libqt_string{
             .len = signal.len,
             .data = signal.ptr,
         };
-        qtc.QAccessibleWidget_QBaseAddControllingSignal(@ptrCast(self), signal_str);
+        qtc.QAccessibleWidget_SuperAddControllingSignal(@ptrCast(self), signal_str);
     }
 
     /// Inherited from QAccessibleInterface
@@ -1364,6 +1448,10 @@ pub const qaccessiblewidget = struct {
         return qtc.QAccessibleWidget_Object(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperObject` instead
+    ///
+    pub const QBaseObject = SuperObject;
+
     /// Inherited from QAccessibleObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#object)
@@ -1374,8 +1462,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` self: QtC.QAccessibleWidget `
     ///
-    pub fn QBaseObject(self: ?*anyopaque) QtC.QObject {
-        return qtc.QAccessibleWidget_QBaseObject(@ptrCast(self));
+    pub fn SuperObject(self: ?*anyopaque) QtC.QObject {
+        return qtc.QAccessibleWidget_SuperObject(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleObject
@@ -1416,6 +1504,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_SetText(@ptrCast(self), @bitCast(t), text_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSetText` instead
+    ///
+    pub const QBaseSetText = SuperSetText;
+
     /// Inherited from QAccessibleObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
@@ -1430,12 +1522,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn QBaseSetText(self: ?*anyopaque, t: i32, text: []const u8) void {
+    pub fn SuperSetText(self: ?*anyopaque, t: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QAccessibleWidget_QBaseSetText(@ptrCast(self), @bitCast(t), text_str);
+        qtc.QAccessibleWidget_SuperSetText(@ptrCast(self), @bitCast(t), text_str);
     }
 
     /// Inherited from QAccessibleObject
@@ -1472,6 +1564,10 @@ pub const qaccessiblewidget = struct {
         return qtc.QAccessibleWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
+    /// ### DEPRECATED: Use `SuperChildAt` instead
+    ///
+    pub const QBaseChildAt = SuperChildAt;
+
     /// Inherited from QAccessibleObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleobject.html#childAt)
@@ -1486,8 +1582,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` y: i32 `
     ///
-    pub fn QBaseChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QAccessibleInterface {
-        return qtc.QAccessibleWidget_QBaseChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn SuperChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QAccessibleInterface {
+        return qtc.QAccessibleWidget_SuperChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QAccessibleObject
@@ -1524,6 +1620,10 @@ pub const qaccessiblewidget = struct {
         qtc.QAccessibleWidget_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
+    /// ### DEPRECATED: Use `SuperVirtualHook` instead
+    ///
+    pub const QBaseVirtualHook = SuperVirtualHook;
+
     /// Inherited from QAccessibleInterface
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#virtual_hook)
@@ -1538,8 +1638,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.QAccessibleWidget_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
+    pub fn SuperVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
+        qtc.QAccessibleWidget_SuperVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from QAccessibleInterface
@@ -1584,6 +1684,10 @@ pub const qaccessiblewidget = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperLocalizedActionName` instead
+    ///
+    pub const QBaseLocalizedActionName = SuperLocalizedActionName;
+
     /// Inherited from QAccessibleActionInterface
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#localizedActionName)
@@ -1598,12 +1702,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseLocalizedActionName(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn SuperLocalizedActionName(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        var _str = qtc.QAccessibleWidget_QBaseLocalizedActionName(@ptrCast(self), name_str);
+        var _str = qtc.QAccessibleWidget_SuperLocalizedActionName(@ptrCast(self), name_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessiblewidget.LocalizedActionName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1654,6 +1758,10 @@ pub const qaccessiblewidget = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperLocalizedActionDescription` instead
+    ///
+    pub const QBaseLocalizedActionDescription = SuperLocalizedActionDescription;
+
     /// Inherited from QAccessibleActionInterface
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#localizedActionDescription)
@@ -1668,12 +1776,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseLocalizedActionDescription(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn SuperLocalizedActionDescription(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        var _str = qtc.QAccessibleWidget_QBaseLocalizedActionDescription(@ptrCast(self), name_str);
+        var _str = qtc.QAccessibleWidget_SuperLocalizedActionDescription(@ptrCast(self), name_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessiblewidget.LocalizedActionDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

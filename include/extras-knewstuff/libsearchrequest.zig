@@ -319,13 +319,17 @@ pub const knscore__searchrequest = struct {
         return qtc.KNSCore__SearchRequest_NextPage(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KNSCore__SearchRequest `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KNSCore__SearchRequest_Delete(@ptrCast(self));
     }
 };

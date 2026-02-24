@@ -742,7 +742,7 @@ int QMessageBox_Critical8(QWidget* parent, const libqt_string title, const libqt
 }
 
 // Base class handler implementation
-QMetaObject* QMessageBox_QBaseMetaObject(const QMessageBox* self) {
+QMetaObject* QMessageBox_SuperMetaObject(const QMessageBox* self) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_MetaObject_IsBase(true);
@@ -761,7 +761,7 @@ void QMessageBox_OnMetaObject(const QMessageBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QMessageBox_QBaseMetacast(QMessageBox* self, const char* param1) {
+void* QMessageBox_SuperMetacast(QMessageBox* self, const char* param1) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_Metacast_IsBase(true);
@@ -780,7 +780,7 @@ void QMessageBox_OnMetacast(QMessageBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QMessageBox_QBaseMetacall(QMessageBox* self, int param1, int param2, void** param3) {
+int QMessageBox_SuperMetacall(QMessageBox* self, int param1, int param2, void** param3) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_Metacall_IsBase(true);
@@ -799,7 +799,7 @@ void QMessageBox_OnMetacall(QMessageBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QMessageBox_QBaseEvent(QMessageBox* self, QEvent* e) {
+bool QMessageBox_SuperEvent(QMessageBox* self, QEvent* e) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_Event_IsBase(true);
@@ -818,7 +818,7 @@ void QMessageBox_OnEvent(QMessageBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseResizeEvent(QMessageBox* self, QResizeEvent* event) {
+void QMessageBox_SuperResizeEvent(QMessageBox* self, QResizeEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_ResizeEvent_IsBase(true);
@@ -837,7 +837,7 @@ void QMessageBox_OnResizeEvent(QMessageBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseShowEvent(QMessageBox* self, QShowEvent* event) {
+void QMessageBox_SuperShowEvent(QMessageBox* self, QShowEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_ShowEvent_IsBase(true);
@@ -856,7 +856,7 @@ void QMessageBox_OnShowEvent(QMessageBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseCloseEvent(QMessageBox* self, QCloseEvent* event) {
+void QMessageBox_SuperCloseEvent(QMessageBox* self, QCloseEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_CloseEvent_IsBase(true);
@@ -875,7 +875,7 @@ void QMessageBox_OnCloseEvent(QMessageBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseKeyPressEvent(QMessageBox* self, QKeyEvent* event) {
+void QMessageBox_SuperKeyPressEvent(QMessageBox* self, QKeyEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_KeyPressEvent_IsBase(true);
@@ -894,7 +894,7 @@ void QMessageBox_OnKeyPressEvent(QMessageBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseChangeEvent(QMessageBox* self, QEvent* event) {
+void QMessageBox_SuperChangeEvent(QMessageBox* self, QEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_ChangeEvent_IsBase(true);
@@ -923,7 +923,7 @@ void QMessageBox_SetVisible(QMessageBox* self, bool visible) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseSetVisible(QMessageBox* self, bool visible) {
+void QMessageBox_SuperSetVisible(QMessageBox* self, bool visible) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_SetVisible_IsBase(true);
@@ -952,7 +952,7 @@ QSize* QMessageBox_SizeHint(const QMessageBox* self) {
 }
 
 // Base class handler implementation
-QSize* QMessageBox_QBaseSizeHint(const QMessageBox* self) {
+QSize* QMessageBox_SuperSizeHint(const QMessageBox* self) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_SizeHint_IsBase(true);
@@ -981,7 +981,7 @@ QSize* QMessageBox_MinimumSizeHint(const QMessageBox* self) {
 }
 
 // Base class handler implementation
-QSize* QMessageBox_QBaseMinimumSizeHint(const QMessageBox* self) {
+QSize* QMessageBox_SuperMinimumSizeHint(const QMessageBox* self) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_MinimumSizeHint_IsBase(true);
@@ -1010,7 +1010,7 @@ void QMessageBox_Open(QMessageBox* self) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseOpen(QMessageBox* self) {
+void QMessageBox_SuperOpen(QMessageBox* self) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_Open_IsBase(true);
@@ -1039,7 +1039,7 @@ int QMessageBox_Exec(QMessageBox* self) {
 }
 
 // Base class handler implementation
-int QMessageBox_QBaseExec(QMessageBox* self) {
+int QMessageBox_SuperExec(QMessageBox* self) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_Exec_IsBase(true);
@@ -1068,7 +1068,7 @@ void QMessageBox_Done(QMessageBox* self, int param1) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseDone(QMessageBox* self, int param1) {
+void QMessageBox_SuperDone(QMessageBox* self, int param1) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_Done_IsBase(true);
@@ -1097,7 +1097,7 @@ void QMessageBox_Accept(QMessageBox* self) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseAccept(QMessageBox* self) {
+void QMessageBox_SuperAccept(QMessageBox* self) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_Accept_IsBase(true);
@@ -1126,7 +1126,7 @@ void QMessageBox_Reject(QMessageBox* self) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseReject(QMessageBox* self) {
+void QMessageBox_SuperReject(QMessageBox* self) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_Reject_IsBase(true);
@@ -1155,7 +1155,7 @@ void QMessageBox_ContextMenuEvent(QMessageBox* self, QContextMenuEvent* param1) 
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseContextMenuEvent(QMessageBox* self, QContextMenuEvent* param1) {
+void QMessageBox_SuperContextMenuEvent(QMessageBox* self, QContextMenuEvent* param1) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_ContextMenuEvent_IsBase(true);
@@ -1184,7 +1184,7 @@ bool QMessageBox_EventFilter(QMessageBox* self, QObject* param1, QEvent* param2)
 }
 
 // Base class handler implementation
-bool QMessageBox_QBaseEventFilter(QMessageBox* self, QObject* param1, QEvent* param2) {
+bool QMessageBox_SuperEventFilter(QMessageBox* self, QObject* param1, QEvent* param2) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_EventFilter_IsBase(true);
@@ -1213,7 +1213,7 @@ int QMessageBox_DevType(const QMessageBox* self) {
 }
 
 // Base class handler implementation
-int QMessageBox_QBaseDevType(const QMessageBox* self) {
+int QMessageBox_SuperDevType(const QMessageBox* self) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_DevType_IsBase(true);
@@ -1242,7 +1242,7 @@ int QMessageBox_HeightForWidth(const QMessageBox* self, int param1) {
 }
 
 // Base class handler implementation
-int QMessageBox_QBaseHeightForWidth(const QMessageBox* self, int param1) {
+int QMessageBox_SuperHeightForWidth(const QMessageBox* self, int param1) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_HeightForWidth_IsBase(true);
@@ -1271,7 +1271,7 @@ bool QMessageBox_HasHeightForWidth(const QMessageBox* self) {
 }
 
 // Base class handler implementation
-bool QMessageBox_QBaseHasHeightForWidth(const QMessageBox* self) {
+bool QMessageBox_SuperHasHeightForWidth(const QMessageBox* self) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_HasHeightForWidth_IsBase(true);
@@ -1300,7 +1300,7 @@ QPaintEngine* QMessageBox_PaintEngine(const QMessageBox* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QMessageBox_QBasePaintEngine(const QMessageBox* self) {
+QPaintEngine* QMessageBox_SuperPaintEngine(const QMessageBox* self) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_PaintEngine_IsBase(true);
@@ -1329,7 +1329,7 @@ void QMessageBox_MousePressEvent(QMessageBox* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseMousePressEvent(QMessageBox* self, QMouseEvent* event) {
+void QMessageBox_SuperMousePressEvent(QMessageBox* self, QMouseEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_MousePressEvent_IsBase(true);
@@ -1358,7 +1358,7 @@ void QMessageBox_MouseReleaseEvent(QMessageBox* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseMouseReleaseEvent(QMessageBox* self, QMouseEvent* event) {
+void QMessageBox_SuperMouseReleaseEvent(QMessageBox* self, QMouseEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_MouseReleaseEvent_IsBase(true);
@@ -1387,7 +1387,7 @@ void QMessageBox_MouseDoubleClickEvent(QMessageBox* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseMouseDoubleClickEvent(QMessageBox* self, QMouseEvent* event) {
+void QMessageBox_SuperMouseDoubleClickEvent(QMessageBox* self, QMouseEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_MouseDoubleClickEvent_IsBase(true);
@@ -1416,7 +1416,7 @@ void QMessageBox_MouseMoveEvent(QMessageBox* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseMouseMoveEvent(QMessageBox* self, QMouseEvent* event) {
+void QMessageBox_SuperMouseMoveEvent(QMessageBox* self, QMouseEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_MouseMoveEvent_IsBase(true);
@@ -1445,7 +1445,7 @@ void QMessageBox_WheelEvent(QMessageBox* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseWheelEvent(QMessageBox* self, QWheelEvent* event) {
+void QMessageBox_SuperWheelEvent(QMessageBox* self, QWheelEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_WheelEvent_IsBase(true);
@@ -1474,7 +1474,7 @@ void QMessageBox_KeyReleaseEvent(QMessageBox* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseKeyReleaseEvent(QMessageBox* self, QKeyEvent* event) {
+void QMessageBox_SuperKeyReleaseEvent(QMessageBox* self, QKeyEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_KeyReleaseEvent_IsBase(true);
@@ -1503,7 +1503,7 @@ void QMessageBox_FocusInEvent(QMessageBox* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseFocusInEvent(QMessageBox* self, QFocusEvent* event) {
+void QMessageBox_SuperFocusInEvent(QMessageBox* self, QFocusEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_FocusInEvent_IsBase(true);
@@ -1532,7 +1532,7 @@ void QMessageBox_FocusOutEvent(QMessageBox* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseFocusOutEvent(QMessageBox* self, QFocusEvent* event) {
+void QMessageBox_SuperFocusOutEvent(QMessageBox* self, QFocusEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_FocusOutEvent_IsBase(true);
@@ -1561,7 +1561,7 @@ void QMessageBox_EnterEvent(QMessageBox* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseEnterEvent(QMessageBox* self, QEnterEvent* event) {
+void QMessageBox_SuperEnterEvent(QMessageBox* self, QEnterEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_EnterEvent_IsBase(true);
@@ -1590,7 +1590,7 @@ void QMessageBox_LeaveEvent(QMessageBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseLeaveEvent(QMessageBox* self, QEvent* event) {
+void QMessageBox_SuperLeaveEvent(QMessageBox* self, QEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_LeaveEvent_IsBase(true);
@@ -1619,7 +1619,7 @@ void QMessageBox_PaintEvent(QMessageBox* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBasePaintEvent(QMessageBox* self, QPaintEvent* event) {
+void QMessageBox_SuperPaintEvent(QMessageBox* self, QPaintEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_PaintEvent_IsBase(true);
@@ -1648,7 +1648,7 @@ void QMessageBox_MoveEvent(QMessageBox* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseMoveEvent(QMessageBox* self, QMoveEvent* event) {
+void QMessageBox_SuperMoveEvent(QMessageBox* self, QMoveEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_MoveEvent_IsBase(true);
@@ -1677,7 +1677,7 @@ void QMessageBox_TabletEvent(QMessageBox* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseTabletEvent(QMessageBox* self, QTabletEvent* event) {
+void QMessageBox_SuperTabletEvent(QMessageBox* self, QTabletEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_TabletEvent_IsBase(true);
@@ -1706,7 +1706,7 @@ void QMessageBox_ActionEvent(QMessageBox* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseActionEvent(QMessageBox* self, QActionEvent* event) {
+void QMessageBox_SuperActionEvent(QMessageBox* self, QActionEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_ActionEvent_IsBase(true);
@@ -1735,7 +1735,7 @@ void QMessageBox_DragEnterEvent(QMessageBox* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseDragEnterEvent(QMessageBox* self, QDragEnterEvent* event) {
+void QMessageBox_SuperDragEnterEvent(QMessageBox* self, QDragEnterEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_DragEnterEvent_IsBase(true);
@@ -1764,7 +1764,7 @@ void QMessageBox_DragMoveEvent(QMessageBox* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseDragMoveEvent(QMessageBox* self, QDragMoveEvent* event) {
+void QMessageBox_SuperDragMoveEvent(QMessageBox* self, QDragMoveEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_DragMoveEvent_IsBase(true);
@@ -1793,7 +1793,7 @@ void QMessageBox_DragLeaveEvent(QMessageBox* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseDragLeaveEvent(QMessageBox* self, QDragLeaveEvent* event) {
+void QMessageBox_SuperDragLeaveEvent(QMessageBox* self, QDragLeaveEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_DragLeaveEvent_IsBase(true);
@@ -1822,7 +1822,7 @@ void QMessageBox_DropEvent(QMessageBox* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseDropEvent(QMessageBox* self, QDropEvent* event) {
+void QMessageBox_SuperDropEvent(QMessageBox* self, QDropEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_DropEvent_IsBase(true);
@@ -1851,7 +1851,7 @@ void QMessageBox_HideEvent(QMessageBox* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseHideEvent(QMessageBox* self, QHideEvent* event) {
+void QMessageBox_SuperHideEvent(QMessageBox* self, QHideEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_HideEvent_IsBase(true);
@@ -1881,7 +1881,7 @@ bool QMessageBox_NativeEvent(QMessageBox* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool QMessageBox_QBaseNativeEvent(QMessageBox* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QMessageBox_SuperNativeEvent(QMessageBox* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
@@ -1911,7 +1911,7 @@ int QMessageBox_Metric(const QMessageBox* self, int param1) {
 }
 
 // Base class handler implementation
-int QMessageBox_QBaseMetric(const QMessageBox* self, int param1) {
+int QMessageBox_SuperMetric(const QMessageBox* self, int param1) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_Metric_IsBase(true);
@@ -1940,7 +1940,7 @@ void QMessageBox_InitPainter(const QMessageBox* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseInitPainter(const QMessageBox* self, QPainter* painter) {
+void QMessageBox_SuperInitPainter(const QMessageBox* self, QPainter* painter) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_InitPainter_IsBase(true);
@@ -1969,7 +1969,7 @@ QPaintDevice* QMessageBox_Redirected(const QMessageBox* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QMessageBox_QBaseRedirected(const QMessageBox* self, QPoint* offset) {
+QPaintDevice* QMessageBox_SuperRedirected(const QMessageBox* self, QPoint* offset) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_Redirected_IsBase(true);
@@ -1998,7 +1998,7 @@ QPainter* QMessageBox_SharedPainter(const QMessageBox* self) {
 }
 
 // Base class handler implementation
-QPainter* QMessageBox_QBaseSharedPainter(const QMessageBox* self) {
+QPainter* QMessageBox_SuperSharedPainter(const QMessageBox* self) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_SharedPainter_IsBase(true);
@@ -2027,7 +2027,7 @@ void QMessageBox_InputMethodEvent(QMessageBox* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseInputMethodEvent(QMessageBox* self, QInputMethodEvent* param1) {
+void QMessageBox_SuperInputMethodEvent(QMessageBox* self, QInputMethodEvent* param1) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_InputMethodEvent_IsBase(true);
@@ -2056,7 +2056,7 @@ QVariant* QMessageBox_InputMethodQuery(const QMessageBox* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QMessageBox_QBaseInputMethodQuery(const QMessageBox* self, int param1) {
+QVariant* QMessageBox_SuperInputMethodQuery(const QMessageBox* self, int param1) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_InputMethodQuery_IsBase(true);
@@ -2085,7 +2085,7 @@ bool QMessageBox_FocusNextPrevChild(QMessageBox* self, bool next) {
 }
 
 // Base class handler implementation
-bool QMessageBox_QBaseFocusNextPrevChild(QMessageBox* self, bool next) {
+bool QMessageBox_SuperFocusNextPrevChild(QMessageBox* self, bool next) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_FocusNextPrevChild_IsBase(true);
@@ -2114,7 +2114,7 @@ void QMessageBox_TimerEvent(QMessageBox* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseTimerEvent(QMessageBox* self, QTimerEvent* event) {
+void QMessageBox_SuperTimerEvent(QMessageBox* self, QTimerEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_TimerEvent_IsBase(true);
@@ -2143,7 +2143,7 @@ void QMessageBox_ChildEvent(QMessageBox* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseChildEvent(QMessageBox* self, QChildEvent* event) {
+void QMessageBox_SuperChildEvent(QMessageBox* self, QChildEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_ChildEvent_IsBase(true);
@@ -2172,7 +2172,7 @@ void QMessageBox_CustomEvent(QMessageBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseCustomEvent(QMessageBox* self, QEvent* event) {
+void QMessageBox_SuperCustomEvent(QMessageBox* self, QEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_CustomEvent_IsBase(true);
@@ -2201,7 +2201,7 @@ void QMessageBox_ConnectNotify(QMessageBox* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseConnectNotify(QMessageBox* self, const QMetaMethod* signal) {
+void QMessageBox_SuperConnectNotify(QMessageBox* self, const QMetaMethod* signal) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_ConnectNotify_IsBase(true);
@@ -2230,7 +2230,7 @@ void QMessageBox_DisconnectNotify(QMessageBox* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseDisconnectNotify(QMessageBox* self, const QMetaMethod* signal) {
+void QMessageBox_SuperDisconnectNotify(QMessageBox* self, const QMetaMethod* signal) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_DisconnectNotify_IsBase(true);
@@ -2259,7 +2259,7 @@ void QMessageBox_AdjustPosition(QMessageBox* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseAdjustPosition(QMessageBox* self, QWidget* param1) {
+void QMessageBox_SuperAdjustPosition(QMessageBox* self, QWidget* param1) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_AdjustPosition_IsBase(true);
@@ -2288,7 +2288,7 @@ void QMessageBox_UpdateMicroFocus(QMessageBox* self) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseUpdateMicroFocus(QMessageBox* self) {
+void QMessageBox_SuperUpdateMicroFocus(QMessageBox* self) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_UpdateMicroFocus_IsBase(true);
@@ -2317,7 +2317,7 @@ void QMessageBox_Create(QMessageBox* self) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseCreate(QMessageBox* self) {
+void QMessageBox_SuperCreate(QMessageBox* self) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_Create_IsBase(true);
@@ -2346,7 +2346,7 @@ void QMessageBox_Destroy(QMessageBox* self) {
 }
 
 // Base class handler implementation
-void QMessageBox_QBaseDestroy(QMessageBox* self) {
+void QMessageBox_SuperDestroy(QMessageBox* self) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_Destroy_IsBase(true);
@@ -2375,7 +2375,7 @@ bool QMessageBox_FocusNextChild(QMessageBox* self) {
 }
 
 // Base class handler implementation
-bool QMessageBox_QBaseFocusNextChild(QMessageBox* self) {
+bool QMessageBox_SuperFocusNextChild(QMessageBox* self) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_FocusNextChild_IsBase(true);
@@ -2404,7 +2404,7 @@ bool QMessageBox_FocusPreviousChild(QMessageBox* self) {
 }
 
 // Base class handler implementation
-bool QMessageBox_QBaseFocusPreviousChild(QMessageBox* self) {
+bool QMessageBox_SuperFocusPreviousChild(QMessageBox* self) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_FocusPreviousChild_IsBase(true);
@@ -2433,7 +2433,7 @@ QObject* QMessageBox_Sender(const QMessageBox* self) {
 }
 
 // Base class handler implementation
-QObject* QMessageBox_QBaseSender(const QMessageBox* self) {
+QObject* QMessageBox_SuperSender(const QMessageBox* self) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_Sender_IsBase(true);
@@ -2462,7 +2462,7 @@ int QMessageBox_SenderSignalIndex(const QMessageBox* self) {
 }
 
 // Base class handler implementation
-int QMessageBox_QBaseSenderSignalIndex(const QMessageBox* self) {
+int QMessageBox_SuperSenderSignalIndex(const QMessageBox* self) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_SenderSignalIndex_IsBase(true);
@@ -2491,7 +2491,7 @@ int QMessageBox_Receivers(const QMessageBox* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QMessageBox_QBaseReceivers(const QMessageBox* self, const char* signal) {
+int QMessageBox_SuperReceivers(const QMessageBox* self, const char* signal) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_Receivers_IsBase(true);
@@ -2520,7 +2520,7 @@ bool QMessageBox_IsSignalConnected(const QMessageBox* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QMessageBox_QBaseIsSignalConnected(const QMessageBox* self, const QMetaMethod* signal) {
+bool QMessageBox_SuperIsSignalConnected(const QMessageBox* self, const QMetaMethod* signal) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_IsSignalConnected_IsBase(true);
@@ -2549,7 +2549,7 @@ double QMessageBox_GetDecodedMetricF(const QMessageBox* self, int metricA, int m
 }
 
 // Base class handler implementation
-double QMessageBox_QBaseGetDecodedMetricF(const QMessageBox* self, int metricA, int metricB) {
+double QMessageBox_SuperGetDecodedMetricF(const QMessageBox* self, int metricA, int metricB) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
     if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
         vqmessagebox->setQMessageBox_GetDecodedMetricF_IsBase(true);

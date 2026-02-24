@@ -90,6 +90,10 @@ pub const qprintengine = struct {
         qtc.QPrintEngine_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#dtor.QPrintEngine)
     ///
     /// Delete this object from C++ memory.
@@ -98,7 +102,7 @@ pub const qprintengine = struct {
     ///
     /// ` self: QtC.QPrintEngine `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPrintEngine_Delete(@ptrCast(self));
     }
 };

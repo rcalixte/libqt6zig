@@ -46,6 +46,10 @@ pub const ktexteditor__texthintprovider = struct {
         qtc.KTextEditor__TextHintProvider_OnTextHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperTextHint` instead
+    ///
+    pub const QBaseTextHint = SuperTextHint;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-texthintprovider.html#textHint)
     ///
     /// Base class method implementation
@@ -60,13 +64,16 @@ pub const ktexteditor__texthintprovider = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseTextHint(self: ?*anyopaque, view: ?*anyopaque, position: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KTextEditor__TextHintProvider_QBaseTextHint(@ptrCast(self), @ptrCast(view), @ptrCast(position));
+    pub fn SuperTextHint(self: ?*anyopaque, view: ?*anyopaque, position: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KTextEditor__TextHintProvider_SuperTextHint(@ptrCast(self), @ptrCast(view), @ptrCast(position));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__texthintprovider.TextHint: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -74,7 +81,7 @@ pub const ktexteditor__texthintprovider = struct {
     ///
     /// ` self: QtC.KTextEditor__TextHintProvider `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KTextEditor__TextHintProvider_Delete(@ptrCast(self));
     }
 };

@@ -70,7 +70,7 @@ void QSctpServer_IncomingConnection(QSctpServer* self, intptr_t handle) {
 }
 
 // Base class handler implementation
-QMetaObject* QSctpServer_QBaseMetaObject(const QSctpServer* self) {
+QMetaObject* QSctpServer_SuperMetaObject(const QSctpServer* self) {
     auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
     if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
         vqsctpserver->setQSctpServer_MetaObject_IsBase(true);
@@ -89,7 +89,7 @@ void QSctpServer_OnMetaObject(const QSctpServer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QSctpServer_QBaseMetacast(QSctpServer* self, const char* param1) {
+void* QSctpServer_SuperMetacast(QSctpServer* self, const char* param1) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
     if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
         vqsctpserver->setQSctpServer_Metacast_IsBase(true);
@@ -108,7 +108,7 @@ void QSctpServer_OnMetacast(QSctpServer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSctpServer_QBaseMetacall(QSctpServer* self, int param1, int param2, void** param3) {
+int QSctpServer_SuperMetacall(QSctpServer* self, int param1, int param2, void** param3) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
     if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
         vqsctpserver->setQSctpServer_Metacall_IsBase(true);
@@ -127,7 +127,7 @@ void QSctpServer_OnMetacall(QSctpServer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSctpServer_QBaseIncomingConnection(QSctpServer* self, intptr_t handle) {
+void QSctpServer_SuperIncomingConnection(QSctpServer* self, intptr_t handle) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
     if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
         vqsctpserver->setQSctpServer_IncomingConnection_IsBase(true);
@@ -156,7 +156,7 @@ bool QSctpServer_HasPendingConnections(const QSctpServer* self) {
 }
 
 // Base class handler implementation
-bool QSctpServer_QBaseHasPendingConnections(const QSctpServer* self) {
+bool QSctpServer_SuperHasPendingConnections(const QSctpServer* self) {
     auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
     if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
         vqsctpserver->setQSctpServer_HasPendingConnections_IsBase(true);
@@ -185,7 +185,7 @@ QTcpSocket* QSctpServer_NextPendingConnection(QSctpServer* self) {
 }
 
 // Base class handler implementation
-QTcpSocket* QSctpServer_QBaseNextPendingConnection(QSctpServer* self) {
+QTcpSocket* QSctpServer_SuperNextPendingConnection(QSctpServer* self) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
     if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
         vqsctpserver->setQSctpServer_NextPendingConnection_IsBase(true);
@@ -214,7 +214,7 @@ bool QSctpServer_Event(QSctpServer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSctpServer_QBaseEvent(QSctpServer* self, QEvent* event) {
+bool QSctpServer_SuperEvent(QSctpServer* self, QEvent* event) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
     if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
         vqsctpserver->setQSctpServer_Event_IsBase(true);
@@ -243,7 +243,7 @@ bool QSctpServer_EventFilter(QSctpServer* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QSctpServer_QBaseEventFilter(QSctpServer* self, QObject* watched, QEvent* event) {
+bool QSctpServer_SuperEventFilter(QSctpServer* self, QObject* watched, QEvent* event) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
     if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
         vqsctpserver->setQSctpServer_EventFilter_IsBase(true);
@@ -272,7 +272,7 @@ void QSctpServer_TimerEvent(QSctpServer* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QSctpServer_QBaseTimerEvent(QSctpServer* self, QTimerEvent* event) {
+void QSctpServer_SuperTimerEvent(QSctpServer* self, QTimerEvent* event) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
     if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
         vqsctpserver->setQSctpServer_TimerEvent_IsBase(true);
@@ -301,7 +301,7 @@ void QSctpServer_ChildEvent(QSctpServer* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QSctpServer_QBaseChildEvent(QSctpServer* self, QChildEvent* event) {
+void QSctpServer_SuperChildEvent(QSctpServer* self, QChildEvent* event) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
     if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
         vqsctpserver->setQSctpServer_ChildEvent_IsBase(true);
@@ -330,7 +330,7 @@ void QSctpServer_CustomEvent(QSctpServer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSctpServer_QBaseCustomEvent(QSctpServer* self, QEvent* event) {
+void QSctpServer_SuperCustomEvent(QSctpServer* self, QEvent* event) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
     if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
         vqsctpserver->setQSctpServer_CustomEvent_IsBase(true);
@@ -359,7 +359,7 @@ void QSctpServer_ConnectNotify(QSctpServer* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSctpServer_QBaseConnectNotify(QSctpServer* self, const QMetaMethod* signal) {
+void QSctpServer_SuperConnectNotify(QSctpServer* self, const QMetaMethod* signal) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
     if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
         vqsctpserver->setQSctpServer_ConnectNotify_IsBase(true);
@@ -388,7 +388,7 @@ void QSctpServer_DisconnectNotify(QSctpServer* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QSctpServer_QBaseDisconnectNotify(QSctpServer* self, const QMetaMethod* signal) {
+void QSctpServer_SuperDisconnectNotify(QSctpServer* self, const QMetaMethod* signal) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
     if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
         vqsctpserver->setQSctpServer_DisconnectNotify_IsBase(true);
@@ -417,7 +417,7 @@ void QSctpServer_AddPendingConnection(QSctpServer* self, QTcpSocket* socket) {
 }
 
 // Base class handler implementation
-void QSctpServer_QBaseAddPendingConnection(QSctpServer* self, QTcpSocket* socket) {
+void QSctpServer_SuperAddPendingConnection(QSctpServer* self, QTcpSocket* socket) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
     if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
         vqsctpserver->setQSctpServer_AddPendingConnection_IsBase(true);
@@ -446,7 +446,7 @@ QObject* QSctpServer_Sender(const QSctpServer* self) {
 }
 
 // Base class handler implementation
-QObject* QSctpServer_QBaseSender(const QSctpServer* self) {
+QObject* QSctpServer_SuperSender(const QSctpServer* self) {
     auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
     if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
         vqsctpserver->setQSctpServer_Sender_IsBase(true);
@@ -475,7 +475,7 @@ int QSctpServer_SenderSignalIndex(const QSctpServer* self) {
 }
 
 // Base class handler implementation
-int QSctpServer_QBaseSenderSignalIndex(const QSctpServer* self) {
+int QSctpServer_SuperSenderSignalIndex(const QSctpServer* self) {
     auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
     if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
         vqsctpserver->setQSctpServer_SenderSignalIndex_IsBase(true);
@@ -504,7 +504,7 @@ int QSctpServer_Receivers(const QSctpServer* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QSctpServer_QBaseReceivers(const QSctpServer* self, const char* signal) {
+int QSctpServer_SuperReceivers(const QSctpServer* self, const char* signal) {
     auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
     if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
         vqsctpserver->setQSctpServer_Receivers_IsBase(true);
@@ -533,7 +533,7 @@ bool QSctpServer_IsSignalConnected(const QSctpServer* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QSctpServer_QBaseIsSignalConnected(const QSctpServer* self, const QMetaMethod* signal) {
+bool QSctpServer_SuperIsSignalConnected(const QSctpServer* self, const QMetaMethod* signal) {
     auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
     if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
         vqsctpserver->setQSctpServer_IsSignalConnected_IsBase(true);

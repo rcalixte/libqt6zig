@@ -27,7 +27,7 @@ void KTextEditor__SessionConfigInterface_WriteSessionConfig(KTextEditor__Session
 }
 
 // Base class handler implementation
-void KTextEditor__SessionConfigInterface_QBaseReadSessionConfig(KTextEditor__SessionConfigInterface* self, const KConfigGroup* config) {
+void KTextEditor__SessionConfigInterface_SuperReadSessionConfig(KTextEditor__SessionConfigInterface* self, const KConfigGroup* config) {
     auto* vktexteditorsessionconfiginterface = dynamic_cast<VirtualKTextEditorSessionConfigInterface*>(self);
     if (vktexteditorsessionconfiginterface && vktexteditorsessionconfiginterface->isVirtualKTextEditorSessionConfigInterface) {
         vktexteditorsessionconfiginterface->setKTextEditor__SessionConfigInterface_ReadSessionConfig_IsBase(true);
@@ -46,7 +46,7 @@ void KTextEditor__SessionConfigInterface_OnReadSessionConfig(KTextEditor__Sessio
 }
 
 // Base class handler implementation
-void KTextEditor__SessionConfigInterface_QBaseWriteSessionConfig(KTextEditor__SessionConfigInterface* self, KConfigGroup* config) {
+void KTextEditor__SessionConfigInterface_SuperWriteSessionConfig(KTextEditor__SessionConfigInterface* self, KConfigGroup* config) {
     auto* vktexteditorsessionconfiginterface = dynamic_cast<VirtualKTextEditorSessionConfigInterface*>(self);
     if (vktexteditorsessionconfiginterface && vktexteditorsessionconfiginterface->isVirtualKTextEditorSessionConfigInterface) {
         vktexteditorsessionconfiginterface->setKTextEditor__SessionConfigInterface_WriteSessionConfig_IsBase(true);

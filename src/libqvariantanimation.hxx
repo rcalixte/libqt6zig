@@ -457,35 +457,35 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
 
     // Friend functions
     friend bool QVariantAnimation_Event(QVariantAnimation* self, QEvent* event);
-    friend bool QVariantAnimation_QBaseEvent(QVariantAnimation* self, QEvent* event);
+    friend bool QVariantAnimation_SuperEvent(QVariantAnimation* self, QEvent* event);
     friend void QVariantAnimation_UpdateCurrentTime(QVariantAnimation* self, int param1);
-    friend void QVariantAnimation_QBaseUpdateCurrentTime(QVariantAnimation* self, int param1);
+    friend void QVariantAnimation_SuperUpdateCurrentTime(QVariantAnimation* self, int param1);
     friend void QVariantAnimation_UpdateState(QVariantAnimation* self, int newState, int oldState);
-    friend void QVariantAnimation_QBaseUpdateState(QVariantAnimation* self, int newState, int oldState);
+    friend void QVariantAnimation_SuperUpdateState(QVariantAnimation* self, int newState, int oldState);
     friend void QVariantAnimation_UpdateCurrentValue(QVariantAnimation* self, const QVariant* value);
-    friend void QVariantAnimation_QBaseUpdateCurrentValue(QVariantAnimation* self, const QVariant* value);
+    friend void QVariantAnimation_SuperUpdateCurrentValue(QVariantAnimation* self, const QVariant* value);
     friend QVariant* QVariantAnimation_Interpolated(const QVariantAnimation* self, const QVariant* from, const QVariant* to, double progress);
-    friend QVariant* QVariantAnimation_QBaseInterpolated(const QVariantAnimation* self, const QVariant* from, const QVariant* to, double progress);
+    friend QVariant* QVariantAnimation_SuperInterpolated(const QVariantAnimation* self, const QVariant* from, const QVariant* to, double progress);
     friend void QVariantAnimation_UpdateDirection(QVariantAnimation* self, int direction);
-    friend void QVariantAnimation_QBaseUpdateDirection(QVariantAnimation* self, int direction);
+    friend void QVariantAnimation_SuperUpdateDirection(QVariantAnimation* self, int direction);
     friend void QVariantAnimation_TimerEvent(QVariantAnimation* self, QTimerEvent* event);
-    friend void QVariantAnimation_QBaseTimerEvent(QVariantAnimation* self, QTimerEvent* event);
+    friend void QVariantAnimation_SuperTimerEvent(QVariantAnimation* self, QTimerEvent* event);
     friend void QVariantAnimation_ChildEvent(QVariantAnimation* self, QChildEvent* event);
-    friend void QVariantAnimation_QBaseChildEvent(QVariantAnimation* self, QChildEvent* event);
+    friend void QVariantAnimation_SuperChildEvent(QVariantAnimation* self, QChildEvent* event);
     friend void QVariantAnimation_CustomEvent(QVariantAnimation* self, QEvent* event);
-    friend void QVariantAnimation_QBaseCustomEvent(QVariantAnimation* self, QEvent* event);
+    friend void QVariantAnimation_SuperCustomEvent(QVariantAnimation* self, QEvent* event);
     friend void QVariantAnimation_ConnectNotify(QVariantAnimation* self, const QMetaMethod* signal);
-    friend void QVariantAnimation_QBaseConnectNotify(QVariantAnimation* self, const QMetaMethod* signal);
+    friend void QVariantAnimation_SuperConnectNotify(QVariantAnimation* self, const QMetaMethod* signal);
     friend void QVariantAnimation_DisconnectNotify(QVariantAnimation* self, const QMetaMethod* signal);
-    friend void QVariantAnimation_QBaseDisconnectNotify(QVariantAnimation* self, const QMetaMethod* signal);
+    friend void QVariantAnimation_SuperDisconnectNotify(QVariantAnimation* self, const QMetaMethod* signal);
     friend QObject* QVariantAnimation_Sender(const QVariantAnimation* self);
-    friend QObject* QVariantAnimation_QBaseSender(const QVariantAnimation* self);
+    friend QObject* QVariantAnimation_SuperSender(const QVariantAnimation* self);
     friend int QVariantAnimation_SenderSignalIndex(const QVariantAnimation* self);
-    friend int QVariantAnimation_QBaseSenderSignalIndex(const QVariantAnimation* self);
+    friend int QVariantAnimation_SuperSenderSignalIndex(const QVariantAnimation* self);
     friend int QVariantAnimation_Receivers(const QVariantAnimation* self, const char* signal);
-    friend int QVariantAnimation_QBaseReceivers(const QVariantAnimation* self, const char* signal);
+    friend int QVariantAnimation_SuperReceivers(const QVariantAnimation* self, const char* signal);
     friend bool QVariantAnimation_IsSignalConnected(const QVariantAnimation* self, const QMetaMethod* signal);
-    friend bool QVariantAnimation_QBaseIsSignalConnected(const QVariantAnimation* self, const QMetaMethod* signal);
+    friend bool QVariantAnimation_SuperIsSignalConnected(const QVariantAnimation* self, const QMetaMethod* signal);
 };
 
 #endif

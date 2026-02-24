@@ -42,6 +42,10 @@ pub const qwidgetaction = struct {
         qtc.QWidgetAction_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -50,8 +54,8 @@ pub const qwidgetaction = struct {
     ///
     /// ` self: QtC.QWidgetAction `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QWidgetAction_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QWidgetAction_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -77,6 +81,10 @@ pub const qwidgetaction = struct {
         qtc.QWidgetAction_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -85,9 +93,9 @@ pub const qwidgetaction = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QWidgetAction_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QWidgetAction_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -116,6 +124,10 @@ pub const qwidgetaction = struct {
         qtc.QWidgetAction_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -128,8 +140,8 @@ pub const qwidgetaction = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QWidgetAction_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QWidgetAction_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -221,6 +233,10 @@ pub const qwidgetaction = struct {
         qtc.QWidgetAction_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#event)
     ///
     /// Base class method implementation
@@ -231,8 +247,8 @@ pub const qwidgetaction = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidgetAction_QBaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
+        return qtc.QWidgetAction_SuperEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#eventFilter)
@@ -263,6 +279,10 @@ pub const qwidgetaction = struct {
         qtc.QWidgetAction_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#eventFilter)
     ///
     /// Base class method implementation
@@ -275,8 +295,8 @@ pub const qwidgetaction = struct {
     ///
     /// ` param2: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.QWidgetAction_QBaseEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn SuperEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
+        return qtc.QWidgetAction_SuperEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createWidget)
@@ -305,6 +325,10 @@ pub const qwidgetaction = struct {
         qtc.QWidgetAction_OnCreateWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateWidget` instead
+    ///
+    pub const QBaseCreateWidget = SuperCreateWidget;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createWidget)
     ///
     /// Base class method implementation
@@ -315,8 +339,8 @@ pub const qwidgetaction = struct {
     ///
     /// ` parent: QtC.QWidget `
     ///
-    pub fn QBaseCreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidgetAction_QBaseCreateWidget(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperCreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidgetAction_SuperCreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
@@ -345,6 +369,10 @@ pub const qwidgetaction = struct {
         qtc.QWidgetAction_OnDeleteWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDeleteWidget` instead
+    ///
+    pub const QBaseDeleteWidget = SuperDeleteWidget;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#deleteWidget)
     ///
     /// Base class method implementation
@@ -355,8 +383,8 @@ pub const qwidgetaction = struct {
     ///
     /// ` widget: QtC.QWidget `
     ///
-    pub fn QBaseDeleteWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QWidgetAction_QBaseDeleteWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn SuperDeleteWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
+        qtc.QWidgetAction_SuperDeleteWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
@@ -396,6 +424,10 @@ pub const qwidgetaction = struct {
         qtc.QWidgetAction_OnCreatedWidgets(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreatedWidgets` instead
+    ///
+    pub const QBaseCreatedWidgets = SuperCreatedWidgets;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
     ///
     /// Base class method implementation
@@ -406,8 +438,8 @@ pub const qwidgetaction = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseCreatedWidgets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWidget {
-        const _arr: qtc.libqt_list = qtc.QWidgetAction_QBaseCreatedWidgets(@ptrCast(self));
+    pub fn SuperCreatedWidgets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWidget {
+        const _arr: qtc.libqt_list = qtc.QWidgetAction_SuperCreatedWidgets(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("qwidgetaction.CreatedWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
@@ -2207,6 +2239,10 @@ pub const qwidgetaction = struct {
         qtc.QWidgetAction_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -2219,8 +2255,8 @@ pub const qwidgetaction = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWidgetAction_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QWidgetAction_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2255,6 +2291,10 @@ pub const qwidgetaction = struct {
         qtc.QWidgetAction_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -2267,8 +2307,8 @@ pub const qwidgetaction = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWidgetAction_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QWidgetAction_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2303,6 +2343,10 @@ pub const qwidgetaction = struct {
         qtc.QWidgetAction_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -2315,8 +2359,8 @@ pub const qwidgetaction = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWidgetAction_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QWidgetAction_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2351,6 +2395,10 @@ pub const qwidgetaction = struct {
         qtc.QWidgetAction_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2363,8 +2411,8 @@ pub const qwidgetaction = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWidgetAction_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QWidgetAction_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2399,6 +2447,10 @@ pub const qwidgetaction = struct {
         qtc.QWidgetAction_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2411,8 +2463,8 @@ pub const qwidgetaction = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWidgetAction_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QWidgetAction_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2445,6 +2497,10 @@ pub const qwidgetaction = struct {
         return qtc.QWidgetAction_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2455,8 +2511,8 @@ pub const qwidgetaction = struct {
     ///
     /// ` self: QtC.QWidgetAction `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QWidgetAction_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QWidgetAction_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2489,6 +2545,10 @@ pub const qwidgetaction = struct {
         return qtc.QWidgetAction_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2499,8 +2559,8 @@ pub const qwidgetaction = struct {
     ///
     /// ` self: QtC.QWidgetAction `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QWidgetAction_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QWidgetAction_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2536,6 +2596,10 @@ pub const qwidgetaction = struct {
         return qtc.QWidgetAction_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2548,9 +2612,9 @@ pub const qwidgetaction = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QWidgetAction_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QWidgetAction_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2585,6 +2649,10 @@ pub const qwidgetaction = struct {
         return qtc.QWidgetAction_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2597,8 +2665,8 @@ pub const qwidgetaction = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QWidgetAction_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QWidgetAction_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2632,6 +2700,9 @@ pub const qwidgetaction = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#dtor.QWidgetAction)
     ///
@@ -2641,7 +2712,7 @@ pub const qwidgetaction = struct {
     ///
     /// ` self: QtC.QWidgetAction `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWidgetAction_Delete(@ptrCast(self));
     }
 };

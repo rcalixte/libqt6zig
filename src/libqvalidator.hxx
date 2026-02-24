@@ -383,23 +383,23 @@ class VirtualQValidator : public QValidator {
 
     // Friend functions
     friend void QValidator_TimerEvent(QValidator* self, QTimerEvent* event);
-    friend void QValidator_QBaseTimerEvent(QValidator* self, QTimerEvent* event);
+    friend void QValidator_SuperTimerEvent(QValidator* self, QTimerEvent* event);
     friend void QValidator_ChildEvent(QValidator* self, QChildEvent* event);
-    friend void QValidator_QBaseChildEvent(QValidator* self, QChildEvent* event);
+    friend void QValidator_SuperChildEvent(QValidator* self, QChildEvent* event);
     friend void QValidator_CustomEvent(QValidator* self, QEvent* event);
-    friend void QValidator_QBaseCustomEvent(QValidator* self, QEvent* event);
+    friend void QValidator_SuperCustomEvent(QValidator* self, QEvent* event);
     friend void QValidator_ConnectNotify(QValidator* self, const QMetaMethod* signal);
-    friend void QValidator_QBaseConnectNotify(QValidator* self, const QMetaMethod* signal);
+    friend void QValidator_SuperConnectNotify(QValidator* self, const QMetaMethod* signal);
     friend void QValidator_DisconnectNotify(QValidator* self, const QMetaMethod* signal);
-    friend void QValidator_QBaseDisconnectNotify(QValidator* self, const QMetaMethod* signal);
+    friend void QValidator_SuperDisconnectNotify(QValidator* self, const QMetaMethod* signal);
     friend QObject* QValidator_Sender(const QValidator* self);
-    friend QObject* QValidator_QBaseSender(const QValidator* self);
+    friend QObject* QValidator_SuperSender(const QValidator* self);
     friend int QValidator_SenderSignalIndex(const QValidator* self);
-    friend int QValidator_QBaseSenderSignalIndex(const QValidator* self);
+    friend int QValidator_SuperSenderSignalIndex(const QValidator* self);
     friend int QValidator_Receivers(const QValidator* self, const char* signal);
-    friend int QValidator_QBaseReceivers(const QValidator* self, const char* signal);
+    friend int QValidator_SuperReceivers(const QValidator* self, const char* signal);
     friend bool QValidator_IsSignalConnected(const QValidator* self, const QMetaMethod* signal);
-    friend bool QValidator_QBaseIsSignalConnected(const QValidator* self, const QMetaMethod* signal);
+    friend bool QValidator_SuperIsSignalConnected(const QValidator* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QIntValidator so that we can call protected methods
@@ -781,23 +781,23 @@ class VirtualQIntValidator final : public QIntValidator {
 
     // Friend functions
     friend void QIntValidator_TimerEvent(QIntValidator* self, QTimerEvent* event);
-    friend void QIntValidator_QBaseTimerEvent(QIntValidator* self, QTimerEvent* event);
+    friend void QIntValidator_SuperTimerEvent(QIntValidator* self, QTimerEvent* event);
     friend void QIntValidator_ChildEvent(QIntValidator* self, QChildEvent* event);
-    friend void QIntValidator_QBaseChildEvent(QIntValidator* self, QChildEvent* event);
+    friend void QIntValidator_SuperChildEvent(QIntValidator* self, QChildEvent* event);
     friend void QIntValidator_CustomEvent(QIntValidator* self, QEvent* event);
-    friend void QIntValidator_QBaseCustomEvent(QIntValidator* self, QEvent* event);
+    friend void QIntValidator_SuperCustomEvent(QIntValidator* self, QEvent* event);
     friend void QIntValidator_ConnectNotify(QIntValidator* self, const QMetaMethod* signal);
-    friend void QIntValidator_QBaseConnectNotify(QIntValidator* self, const QMetaMethod* signal);
+    friend void QIntValidator_SuperConnectNotify(QIntValidator* self, const QMetaMethod* signal);
     friend void QIntValidator_DisconnectNotify(QIntValidator* self, const QMetaMethod* signal);
-    friend void QIntValidator_QBaseDisconnectNotify(QIntValidator* self, const QMetaMethod* signal);
+    friend void QIntValidator_SuperDisconnectNotify(QIntValidator* self, const QMetaMethod* signal);
     friend QObject* QIntValidator_Sender(const QIntValidator* self);
-    friend QObject* QIntValidator_QBaseSender(const QIntValidator* self);
+    friend QObject* QIntValidator_SuperSender(const QIntValidator* self);
     friend int QIntValidator_SenderSignalIndex(const QIntValidator* self);
-    friend int QIntValidator_QBaseSenderSignalIndex(const QIntValidator* self);
+    friend int QIntValidator_SuperSenderSignalIndex(const QIntValidator* self);
     friend int QIntValidator_Receivers(const QIntValidator* self, const char* signal);
-    friend int QIntValidator_QBaseReceivers(const QIntValidator* self, const char* signal);
+    friend int QIntValidator_SuperReceivers(const QIntValidator* self, const char* signal);
     friend bool QIntValidator_IsSignalConnected(const QIntValidator* self, const QMetaMethod* signal);
-    friend bool QIntValidator_QBaseIsSignalConnected(const QIntValidator* self, const QMetaMethod* signal);
+    friend bool QIntValidator_SuperIsSignalConnected(const QIntValidator* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QDoubleValidator so that we can call protected methods
@@ -1179,23 +1179,23 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
 
     // Friend functions
     friend void QDoubleValidator_TimerEvent(QDoubleValidator* self, QTimerEvent* event);
-    friend void QDoubleValidator_QBaseTimerEvent(QDoubleValidator* self, QTimerEvent* event);
+    friend void QDoubleValidator_SuperTimerEvent(QDoubleValidator* self, QTimerEvent* event);
     friend void QDoubleValidator_ChildEvent(QDoubleValidator* self, QChildEvent* event);
-    friend void QDoubleValidator_QBaseChildEvent(QDoubleValidator* self, QChildEvent* event);
+    friend void QDoubleValidator_SuperChildEvent(QDoubleValidator* self, QChildEvent* event);
     friend void QDoubleValidator_CustomEvent(QDoubleValidator* self, QEvent* event);
-    friend void QDoubleValidator_QBaseCustomEvent(QDoubleValidator* self, QEvent* event);
+    friend void QDoubleValidator_SuperCustomEvent(QDoubleValidator* self, QEvent* event);
     friend void QDoubleValidator_ConnectNotify(QDoubleValidator* self, const QMetaMethod* signal);
-    friend void QDoubleValidator_QBaseConnectNotify(QDoubleValidator* self, const QMetaMethod* signal);
+    friend void QDoubleValidator_SuperConnectNotify(QDoubleValidator* self, const QMetaMethod* signal);
     friend void QDoubleValidator_DisconnectNotify(QDoubleValidator* self, const QMetaMethod* signal);
-    friend void QDoubleValidator_QBaseDisconnectNotify(QDoubleValidator* self, const QMetaMethod* signal);
+    friend void QDoubleValidator_SuperDisconnectNotify(QDoubleValidator* self, const QMetaMethod* signal);
     friend QObject* QDoubleValidator_Sender(const QDoubleValidator* self);
-    friend QObject* QDoubleValidator_QBaseSender(const QDoubleValidator* self);
+    friend QObject* QDoubleValidator_SuperSender(const QDoubleValidator* self);
     friend int QDoubleValidator_SenderSignalIndex(const QDoubleValidator* self);
-    friend int QDoubleValidator_QBaseSenderSignalIndex(const QDoubleValidator* self);
+    friend int QDoubleValidator_SuperSenderSignalIndex(const QDoubleValidator* self);
     friend int QDoubleValidator_Receivers(const QDoubleValidator* self, const char* signal);
-    friend int QDoubleValidator_QBaseReceivers(const QDoubleValidator* self, const char* signal);
+    friend int QDoubleValidator_SuperReceivers(const QDoubleValidator* self, const char* signal);
     friend bool QDoubleValidator_IsSignalConnected(const QDoubleValidator* self, const QMetaMethod* signal);
-    friend bool QDoubleValidator_QBaseIsSignalConnected(const QDoubleValidator* self, const QMetaMethod* signal);
+    friend bool QDoubleValidator_SuperIsSignalConnected(const QDoubleValidator* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QRegularExpressionValidator so that we can call protected methods
@@ -1577,23 +1577,23 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
 
     // Friend functions
     friend void QRegularExpressionValidator_TimerEvent(QRegularExpressionValidator* self, QTimerEvent* event);
-    friend void QRegularExpressionValidator_QBaseTimerEvent(QRegularExpressionValidator* self, QTimerEvent* event);
+    friend void QRegularExpressionValidator_SuperTimerEvent(QRegularExpressionValidator* self, QTimerEvent* event);
     friend void QRegularExpressionValidator_ChildEvent(QRegularExpressionValidator* self, QChildEvent* event);
-    friend void QRegularExpressionValidator_QBaseChildEvent(QRegularExpressionValidator* self, QChildEvent* event);
+    friend void QRegularExpressionValidator_SuperChildEvent(QRegularExpressionValidator* self, QChildEvent* event);
     friend void QRegularExpressionValidator_CustomEvent(QRegularExpressionValidator* self, QEvent* event);
-    friend void QRegularExpressionValidator_QBaseCustomEvent(QRegularExpressionValidator* self, QEvent* event);
+    friend void QRegularExpressionValidator_SuperCustomEvent(QRegularExpressionValidator* self, QEvent* event);
     friend void QRegularExpressionValidator_ConnectNotify(QRegularExpressionValidator* self, const QMetaMethod* signal);
-    friend void QRegularExpressionValidator_QBaseConnectNotify(QRegularExpressionValidator* self, const QMetaMethod* signal);
+    friend void QRegularExpressionValidator_SuperConnectNotify(QRegularExpressionValidator* self, const QMetaMethod* signal);
     friend void QRegularExpressionValidator_DisconnectNotify(QRegularExpressionValidator* self, const QMetaMethod* signal);
-    friend void QRegularExpressionValidator_QBaseDisconnectNotify(QRegularExpressionValidator* self, const QMetaMethod* signal);
+    friend void QRegularExpressionValidator_SuperDisconnectNotify(QRegularExpressionValidator* self, const QMetaMethod* signal);
     friend QObject* QRegularExpressionValidator_Sender(const QRegularExpressionValidator* self);
-    friend QObject* QRegularExpressionValidator_QBaseSender(const QRegularExpressionValidator* self);
+    friend QObject* QRegularExpressionValidator_SuperSender(const QRegularExpressionValidator* self);
     friend int QRegularExpressionValidator_SenderSignalIndex(const QRegularExpressionValidator* self);
-    friend int QRegularExpressionValidator_QBaseSenderSignalIndex(const QRegularExpressionValidator* self);
+    friend int QRegularExpressionValidator_SuperSenderSignalIndex(const QRegularExpressionValidator* self);
     friend int QRegularExpressionValidator_Receivers(const QRegularExpressionValidator* self, const char* signal);
-    friend int QRegularExpressionValidator_QBaseReceivers(const QRegularExpressionValidator* self, const char* signal);
+    friend int QRegularExpressionValidator_SuperReceivers(const QRegularExpressionValidator* self, const char* signal);
     friend bool QRegularExpressionValidator_IsSignalConnected(const QRegularExpressionValidator* self, const QMetaMethod* signal);
-    friend bool QRegularExpressionValidator_QBaseIsSignalConnected(const QRegularExpressionValidator* self, const QMetaMethod* signal);
+    friend bool QRegularExpressionValidator_SuperIsSignalConnected(const QRegularExpressionValidator* self, const QMetaMethod* signal);
 };
 
 #endif

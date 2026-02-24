@@ -334,23 +334,23 @@ class VirtualQLibrary final : public QLibrary {
 
     // Friend functions
     friend void QLibrary_TimerEvent(QLibrary* self, QTimerEvent* event);
-    friend void QLibrary_QBaseTimerEvent(QLibrary* self, QTimerEvent* event);
+    friend void QLibrary_SuperTimerEvent(QLibrary* self, QTimerEvent* event);
     friend void QLibrary_ChildEvent(QLibrary* self, QChildEvent* event);
-    friend void QLibrary_QBaseChildEvent(QLibrary* self, QChildEvent* event);
+    friend void QLibrary_SuperChildEvent(QLibrary* self, QChildEvent* event);
     friend void QLibrary_CustomEvent(QLibrary* self, QEvent* event);
-    friend void QLibrary_QBaseCustomEvent(QLibrary* self, QEvent* event);
+    friend void QLibrary_SuperCustomEvent(QLibrary* self, QEvent* event);
     friend void QLibrary_ConnectNotify(QLibrary* self, const QMetaMethod* signal);
-    friend void QLibrary_QBaseConnectNotify(QLibrary* self, const QMetaMethod* signal);
+    friend void QLibrary_SuperConnectNotify(QLibrary* self, const QMetaMethod* signal);
     friend void QLibrary_DisconnectNotify(QLibrary* self, const QMetaMethod* signal);
-    friend void QLibrary_QBaseDisconnectNotify(QLibrary* self, const QMetaMethod* signal);
+    friend void QLibrary_SuperDisconnectNotify(QLibrary* self, const QMetaMethod* signal);
     friend QObject* QLibrary_Sender(const QLibrary* self);
-    friend QObject* QLibrary_QBaseSender(const QLibrary* self);
+    friend QObject* QLibrary_SuperSender(const QLibrary* self);
     friend int QLibrary_SenderSignalIndex(const QLibrary* self);
-    friend int QLibrary_QBaseSenderSignalIndex(const QLibrary* self);
+    friend int QLibrary_SuperSenderSignalIndex(const QLibrary* self);
     friend int QLibrary_Receivers(const QLibrary* self, const char* signal);
-    friend int QLibrary_QBaseReceivers(const QLibrary* self, const char* signal);
+    friend int QLibrary_SuperReceivers(const QLibrary* self, const char* signal);
     friend bool QLibrary_IsSignalConnected(const QLibrary* self, const QMetaMethod* signal);
-    friend bool QLibrary_QBaseIsSignalConnected(const QLibrary* self, const QMetaMethod* signal);
+    friend bool QLibrary_SuperIsSignalConnected(const QLibrary* self, const QMetaMethod* signal);
 };
 
 #endif

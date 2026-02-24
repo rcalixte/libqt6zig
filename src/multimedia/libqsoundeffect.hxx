@@ -330,23 +330,23 @@ class VirtualQSoundEffect final : public QSoundEffect {
 
     // Friend functions
     friend void QSoundEffect_TimerEvent(QSoundEffect* self, QTimerEvent* event);
-    friend void QSoundEffect_QBaseTimerEvent(QSoundEffect* self, QTimerEvent* event);
+    friend void QSoundEffect_SuperTimerEvent(QSoundEffect* self, QTimerEvent* event);
     friend void QSoundEffect_ChildEvent(QSoundEffect* self, QChildEvent* event);
-    friend void QSoundEffect_QBaseChildEvent(QSoundEffect* self, QChildEvent* event);
+    friend void QSoundEffect_SuperChildEvent(QSoundEffect* self, QChildEvent* event);
     friend void QSoundEffect_CustomEvent(QSoundEffect* self, QEvent* event);
-    friend void QSoundEffect_QBaseCustomEvent(QSoundEffect* self, QEvent* event);
+    friend void QSoundEffect_SuperCustomEvent(QSoundEffect* self, QEvent* event);
     friend void QSoundEffect_ConnectNotify(QSoundEffect* self, const QMetaMethod* signal);
-    friend void QSoundEffect_QBaseConnectNotify(QSoundEffect* self, const QMetaMethod* signal);
+    friend void QSoundEffect_SuperConnectNotify(QSoundEffect* self, const QMetaMethod* signal);
     friend void QSoundEffect_DisconnectNotify(QSoundEffect* self, const QMetaMethod* signal);
-    friend void QSoundEffect_QBaseDisconnectNotify(QSoundEffect* self, const QMetaMethod* signal);
+    friend void QSoundEffect_SuperDisconnectNotify(QSoundEffect* self, const QMetaMethod* signal);
     friend QObject* QSoundEffect_Sender(const QSoundEffect* self);
-    friend QObject* QSoundEffect_QBaseSender(const QSoundEffect* self);
+    friend QObject* QSoundEffect_SuperSender(const QSoundEffect* self);
     friend int QSoundEffect_SenderSignalIndex(const QSoundEffect* self);
-    friend int QSoundEffect_QBaseSenderSignalIndex(const QSoundEffect* self);
+    friend int QSoundEffect_SuperSenderSignalIndex(const QSoundEffect* self);
     friend int QSoundEffect_Receivers(const QSoundEffect* self, const char* signal);
-    friend int QSoundEffect_QBaseReceivers(const QSoundEffect* self, const char* signal);
+    friend int QSoundEffect_SuperReceivers(const QSoundEffect* self, const char* signal);
     friend bool QSoundEffect_IsSignalConnected(const QSoundEffect* self, const QMetaMethod* signal);
-    friend bool QSoundEffect_QBaseIsSignalConnected(const QSoundEffect* self, const QMetaMethod* signal);
+    friend bool QSoundEffect_SuperIsSignalConnected(const QSoundEffect* self, const QMetaMethod* signal);
 };
 
 #endif

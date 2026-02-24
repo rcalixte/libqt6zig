@@ -44,6 +44,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -52,8 +56,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` self: QtC.QAbstractSocket `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QAbstractSocket_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QAbstractSocket_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -79,6 +83,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -87,9 +95,9 @@ pub const qabstractsocket = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QAbstractSocket_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QAbstractSocket_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -118,6 +126,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -130,8 +142,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAbstractSocket_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QAbstractSocket_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -175,6 +187,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnResume(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperResume` instead
+    ///
+    pub const QBaseResume = SuperResume;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#resume)
     ///
     /// Base class method implementation
@@ -183,8 +199,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` self: QtC.QAbstractSocket `
     ///
-    pub fn QBaseResume(self: ?*anyopaque) void {
-        qtc.QAbstractSocket_QBaseResume(@ptrCast(self));
+    pub fn SuperResume(self: ?*anyopaque) void {
+        qtc.QAbstractSocket_SuperResume(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#pauseMode)
@@ -243,6 +259,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnBind(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBind` instead
+    ///
+    pub const QBaseBind = SuperBind;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
     ///
     /// Base class method implementation
@@ -257,8 +277,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` mode: flag of qabstractsocket_enums.BindFlag `
     ///
-    pub fn QBaseBind(self: ?*anyopaque, address: ?*anyopaque, port: u16, mode: i32) bool {
-        return qtc.QAbstractSocket_QBaseBind(@ptrCast(self), @ptrCast(address), @bitCast(port), @bitCast(mode));
+    pub fn SuperBind(self: ?*anyopaque, address: ?*anyopaque, port: u16, mode: i32) bool {
+        return qtc.QAbstractSocket_SuperBind(@ptrCast(self), @ptrCast(address), @bitCast(port), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
@@ -307,6 +327,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnConnectToHost(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectToHost` instead
+    ///
+    pub const QBaseConnectToHost = SuperConnectToHost;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
     ///
     /// Base class method implementation
@@ -323,12 +347,12 @@ pub const qabstractsocket = struct {
     ///
     /// ` protocol: qabstractsocket_enums.NetworkLayerProtocol `
     ///
-    pub fn QBaseConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i32, protocol: i32) void {
+    pub fn SuperConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i32, protocol: i32) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
-        qtc.QAbstractSocket_QBaseConnectToHost(@ptrCast(self), hostName_str, @bitCast(port), @bitCast(mode), @bitCast(protocol));
+        qtc.QAbstractSocket_SuperConnectToHost(@ptrCast(self), hostName_str, @bitCast(port), @bitCast(mode), @bitCast(protocol));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
@@ -369,6 +393,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnDisconnectFromHost(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectFromHost` instead
+    ///
+    pub const QBaseDisconnectFromHost = SuperDisconnectFromHost;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#disconnectFromHost)
     ///
     /// Base class method implementation
@@ -377,8 +405,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` self: QtC.QAbstractSocket `
     ///
-    pub fn QBaseDisconnectFromHost(self: ?*anyopaque) void {
-        qtc.QAbstractSocket_QBaseDisconnectFromHost(@ptrCast(self));
+    pub fn SuperDisconnectFromHost(self: ?*anyopaque) void {
+        qtc.QAbstractSocket_SuperDisconnectFromHost(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#isValid)
@@ -415,6 +443,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnBytesAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBytesAvailable` instead
+    ///
+    pub const QBaseBytesAvailable = SuperBytesAvailable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bytesAvailable)
     ///
     /// Base class method implementation
@@ -423,8 +455,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` self: QtC.QAbstractSocket `
     ///
-    pub fn QBaseBytesAvailable(self: ?*anyopaque) i64 {
-        return qtc.QAbstractSocket_QBaseBytesAvailable(@ptrCast(self));
+    pub fn SuperBytesAvailable(self: ?*anyopaque) i64 {
+        return qtc.QAbstractSocket_SuperBytesAvailable(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bytesToWrite)
@@ -451,6 +483,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnBytesToWrite(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBytesToWrite` instead
+    ///
+    pub const QBaseBytesToWrite = SuperBytesToWrite;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#bytesToWrite)
     ///
     /// Base class method implementation
@@ -459,8 +495,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` self: QtC.QAbstractSocket `
     ///
-    pub fn QBaseBytesToWrite(self: ?*anyopaque) i64 {
-        return qtc.QAbstractSocket_QBaseBytesToWrite(@ptrCast(self));
+    pub fn SuperBytesToWrite(self: ?*anyopaque) i64 {
+        return qtc.QAbstractSocket_SuperBytesToWrite(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#localPort)
@@ -555,6 +591,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSetReadBufferSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetReadBufferSize` instead
+    ///
+    pub const QBaseSetReadBufferSize = SuperSetReadBufferSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setReadBufferSize)
     ///
     /// Base class method implementation
@@ -565,8 +605,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` size: i64 `
     ///
-    pub fn QBaseSetReadBufferSize(self: ?*anyopaque, size: i64) void {
-        qtc.QAbstractSocket_QBaseSetReadBufferSize(@ptrCast(self), @bitCast(size));
+    pub fn SuperSetReadBufferSize(self: ?*anyopaque, size: i64) void {
+        qtc.QAbstractSocket_SuperSetReadBufferSize(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#abort)
@@ -603,6 +643,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSocketDescriptor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSocketDescriptor` instead
+    ///
+    pub const QBaseSocketDescriptor = SuperSocketDescriptor;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketDescriptor)
     ///
     /// Base class method implementation
@@ -611,8 +655,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` self: QtC.QAbstractSocket `
     ///
-    pub fn QBaseSocketDescriptor(self: ?*anyopaque) isize {
-        return qtc.QAbstractSocket_QBaseSocketDescriptor(@ptrCast(self));
+    pub fn SuperSocketDescriptor(self: ?*anyopaque) isize {
+        return qtc.QAbstractSocket_SuperSocketDescriptor(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketDescriptor)
@@ -645,6 +689,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSetSocketDescriptor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetSocketDescriptor` instead
+    ///
+    pub const QBaseSetSocketDescriptor = SuperSetSocketDescriptor;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketDescriptor)
     ///
     /// Base class method implementation
@@ -659,8 +707,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn QBaseSetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize, state: i32, openMode: i32) bool {
-        return qtc.QAbstractSocket_QBaseSetSocketDescriptor(@ptrCast(self), @bitCast(socketDescriptor), @bitCast(state), @bitCast(openMode));
+    pub fn SuperSetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize, state: i32, openMode: i32) bool {
+        return qtc.QAbstractSocket_SuperSetSocketDescriptor(@ptrCast(self), @bitCast(socketDescriptor), @bitCast(state), @bitCast(openMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketOption)
@@ -691,6 +739,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSetSocketOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetSocketOption` instead
+    ///
+    pub const QBaseSetSocketOption = SuperSetSocketOption;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketOption)
     ///
     /// Base class method implementation
@@ -703,8 +755,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn QBaseSetSocketOption(self: ?*anyopaque, option: i32, value: ?*anyopaque) void {
-        qtc.QAbstractSocket_QBaseSetSocketOption(@ptrCast(self), @bitCast(option), @ptrCast(value));
+    pub fn SuperSetSocketOption(self: ?*anyopaque, option: i32, value: ?*anyopaque) void {
+        qtc.QAbstractSocket_SuperSetSocketOption(@ptrCast(self), @bitCast(option), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketOption)
@@ -733,6 +785,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSocketOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSocketOption` instead
+    ///
+    pub const QBaseSocketOption = SuperSocketOption;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketOption)
     ///
     /// Base class method implementation
@@ -743,8 +799,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` option: qabstractsocket_enums.SocketOption `
     ///
-    pub fn QBaseSocketOption(self: ?*anyopaque, option: i32) QtC.QVariant {
-        return qtc.QAbstractSocket_QBaseSocketOption(@ptrCast(self), @bitCast(option));
+    pub fn SuperSocketOption(self: ?*anyopaque, option: i32) QtC.QVariant {
+        return qtc.QAbstractSocket_SuperSocketOption(@ptrCast(self), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#socketType)
@@ -813,6 +869,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClose` instead
+    ///
+    pub const QBaseClose = SuperClose;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#close)
     ///
     /// Base class method implementation
@@ -821,8 +881,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` self: QtC.QAbstractSocket `
     ///
-    pub fn QBaseClose(self: ?*anyopaque) void {
-        qtc.QAbstractSocket_QBaseClose(@ptrCast(self));
+    pub fn SuperClose(self: ?*anyopaque) void {
+        qtc.QAbstractSocket_SuperClose(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#isSequential)
@@ -849,6 +909,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnIsSequential(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSequential` instead
+    ///
+    pub const QBaseIsSequential = SuperIsSequential;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#isSequential)
     ///
     /// Base class method implementation
@@ -857,8 +921,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` self: QtC.QAbstractSocket `
     ///
-    pub fn QBaseIsSequential(self: ?*anyopaque) bool {
-        return qtc.QAbstractSocket_QBaseIsSequential(@ptrCast(self));
+    pub fn SuperIsSequential(self: ?*anyopaque) bool {
+        return qtc.QAbstractSocket_SuperIsSequential(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#flush)
@@ -897,6 +961,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnWaitForConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWaitForConnected` instead
+    ///
+    pub const QBaseWaitForConnected = SuperWaitForConnected;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForConnected)
     ///
     /// Base class method implementation
@@ -907,8 +975,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn QBaseWaitForConnected(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QAbstractSocket_QBaseWaitForConnected(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForConnected(self: ?*anyopaque, msecs: i32) bool {
+        return qtc.QAbstractSocket_SuperWaitForConnected(@ptrCast(self), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForReadyRead)
@@ -937,6 +1005,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnWaitForReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWaitForReadyRead` instead
+    ///
+    pub const QBaseWaitForReadyRead = SuperWaitForReadyRead;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForReadyRead)
     ///
     /// Base class method implementation
@@ -947,8 +1019,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn QBaseWaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QAbstractSocket_QBaseWaitForReadyRead(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
+        return qtc.QAbstractSocket_SuperWaitForReadyRead(@ptrCast(self), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForBytesWritten)
@@ -977,6 +1049,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnWaitForBytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWaitForBytesWritten` instead
+    ///
+    pub const QBaseWaitForBytesWritten = SuperWaitForBytesWritten;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForBytesWritten)
     ///
     /// Base class method implementation
@@ -987,8 +1063,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn QBaseWaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QAbstractSocket_QBaseWaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
+        return qtc.QAbstractSocket_SuperWaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForDisconnected)
@@ -1017,6 +1093,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnWaitForDisconnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWaitForDisconnected` instead
+    ///
+    pub const QBaseWaitForDisconnected = SuperWaitForDisconnected;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#waitForDisconnected)
     ///
     /// Base class method implementation
@@ -1027,8 +1107,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn QBaseWaitForDisconnected(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QAbstractSocket_QBaseWaitForDisconnected(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForDisconnected(self: ?*anyopaque, msecs: i32) bool {
+        return qtc.QAbstractSocket_SuperWaitForDisconnected(@ptrCast(self), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setProxy)
@@ -1254,6 +1334,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnReadData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperReadData` instead
+    ///
+    pub const QBaseReadData = SuperReadData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readData)
     ///
     /// Base class method implementation
@@ -1266,9 +1350,9 @@ pub const qabstractsocket = struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn QBaseReadData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn SuperReadData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QAbstractSocket_QBaseReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QAbstractSocket_SuperReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readLineData)
@@ -1300,6 +1384,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnReadLineData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperReadLineData` instead
+    ///
+    pub const QBaseReadLineData = SuperReadLineData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#readLineData)
     ///
     /// Base class method implementation
@@ -1312,9 +1400,9 @@ pub const qabstractsocket = struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn QBaseReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn SuperReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QAbstractSocket_QBaseReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QAbstractSocket_SuperReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#skipData)
@@ -1343,6 +1431,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSkipData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSkipData` instead
+    ///
+    pub const QBaseSkipData = SuperSkipData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#skipData)
     ///
     /// Base class method implementation
@@ -1353,8 +1445,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn QBaseSkipData(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QAbstractSocket_QBaseSkipData(@ptrCast(self), @bitCast(maxSize));
+    pub fn SuperSkipData(self: ?*anyopaque, maxSize: i64) i64 {
+        return qtc.QAbstractSocket_SuperSkipData(@ptrCast(self), @bitCast(maxSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#writeData)
@@ -1386,6 +1478,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnWriteData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWriteData` instead
+    ///
+    pub const QBaseWriteData = SuperWriteData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#writeData)
     ///
     /// Base class method implementation
@@ -1398,9 +1494,9 @@ pub const qabstractsocket = struct {
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn QBaseWriteData(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn SuperWriteData(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QAbstractSocket_QBaseWriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
+        return qtc.QAbstractSocket_SuperWriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
@@ -1429,6 +1525,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSetSocketState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetSocketState` instead
+    ///
+    pub const QBaseSetSocketState = SuperSetSocketState;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
     ///
     /// Base class method implementation
@@ -1439,8 +1539,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` state: qabstractsocket_enums.SocketState `
     ///
-    pub fn QBaseSetSocketState(self: ?*anyopaque, state: i32) void {
-        qtc.QAbstractSocket_QBaseSetSocketState(@ptrCast(self), @bitCast(state));
+    pub fn SuperSetSocketState(self: ?*anyopaque, state: i32) void {
+        qtc.QAbstractSocket_SuperSetSocketState(@ptrCast(self), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
@@ -1469,6 +1569,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSetSocketError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetSocketError` instead
+    ///
+    pub const QBaseSetSocketError = SuperSetSocketError;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
     ///
     /// Base class method implementation
@@ -1479,8 +1583,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` socketError: qabstractsocket_enums.SocketError `
     ///
-    pub fn QBaseSetSocketError(self: ?*anyopaque, socketError: i32) void {
-        qtc.QAbstractSocket_QBaseSetSocketError(@ptrCast(self), @bitCast(socketError));
+    pub fn SuperSetSocketError(self: ?*anyopaque, socketError: i32) void {
+        qtc.QAbstractSocket_SuperSetSocketError(@ptrCast(self), @bitCast(socketError));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
@@ -1509,6 +1613,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSetLocalPort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetLocalPort` instead
+    ///
+    pub const QBaseSetLocalPort = SuperSetLocalPort;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalPort)
     ///
     /// Base class method implementation
@@ -1519,8 +1627,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` port: u16 `
     ///
-    pub fn QBaseSetLocalPort(self: ?*anyopaque, port: u16) void {
-        qtc.QAbstractSocket_QBaseSetLocalPort(@ptrCast(self), @bitCast(port));
+    pub fn SuperSetLocalPort(self: ?*anyopaque, port: u16) void {
+        qtc.QAbstractSocket_SuperSetLocalPort(@ptrCast(self), @bitCast(port));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
@@ -1549,6 +1657,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSetLocalAddress(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetLocalAddress` instead
+    ///
+    pub const QBaseSetLocalAddress = SuperSetLocalAddress;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setLocalAddress)
     ///
     /// Base class method implementation
@@ -1559,8 +1671,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` address: QtC.QHostAddress `
     ///
-    pub fn QBaseSetLocalAddress(self: ?*anyopaque, address: ?*anyopaque) void {
-        qtc.QAbstractSocket_QBaseSetLocalAddress(@ptrCast(self), @ptrCast(address));
+    pub fn SuperSetLocalAddress(self: ?*anyopaque, address: ?*anyopaque) void {
+        qtc.QAbstractSocket_SuperSetLocalAddress(@ptrCast(self), @ptrCast(address));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
@@ -1589,6 +1701,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSetPeerPort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPeerPort` instead
+    ///
+    pub const QBaseSetPeerPort = SuperSetPeerPort;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerPort)
     ///
     /// Base class method implementation
@@ -1599,8 +1715,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` port: u16 `
     ///
-    pub fn QBaseSetPeerPort(self: ?*anyopaque, port: u16) void {
-        qtc.QAbstractSocket_QBaseSetPeerPort(@ptrCast(self), @bitCast(port));
+    pub fn SuperSetPeerPort(self: ?*anyopaque, port: u16) void {
+        qtc.QAbstractSocket_SuperSetPeerPort(@ptrCast(self), @bitCast(port));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
@@ -1629,6 +1745,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSetPeerAddress(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPeerAddress` instead
+    ///
+    pub const QBaseSetPeerAddress = SuperSetPeerAddress;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerAddress)
     ///
     /// Base class method implementation
@@ -1639,8 +1759,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` address: QtC.QHostAddress `
     ///
-    pub fn QBaseSetPeerAddress(self: ?*anyopaque, address: ?*anyopaque) void {
-        qtc.QAbstractSocket_QBaseSetPeerAddress(@ptrCast(self), @ptrCast(address));
+    pub fn SuperSetPeerAddress(self: ?*anyopaque, address: ?*anyopaque) void {
+        qtc.QAbstractSocket_SuperSetPeerAddress(@ptrCast(self), @ptrCast(address));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
@@ -1673,6 +1793,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_OnSetPeerName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPeerName` instead
+    ///
+    pub const QBaseSetPeerName = SuperSetPeerName;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#setPeerName)
     ///
     /// Base class method implementation
@@ -1683,12 +1807,12 @@ pub const qabstractsocket = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn QBaseSetPeerName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SuperSetPeerName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QAbstractSocket_QBaseSetPeerName(@ptrCast(self), name_str);
+        qtc.QAbstractSocket_SuperSetPeerName(@ptrCast(self), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -3167,6 +3291,10 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_Open(@ptrCast(self), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `SuperOpen` instead
+    ///
+    pub const QBaseOpen = SuperOpen;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#open)
@@ -3179,8 +3307,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn QBaseOpen(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QAbstractSocket_QBaseOpen(@ptrCast(self), @bitCast(mode));
+    pub fn SuperOpen(self: ?*anyopaque, mode: i32) bool {
+        return qtc.QAbstractSocket_SuperOpen(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from QIODevice
@@ -3213,6 +3341,10 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_Pos(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPos` instead
+    ///
+    pub const QBasePos = SuperPos;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
@@ -3223,8 +3355,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` self: QtC.QAbstractSocket `
     ///
-    pub fn QBasePos(self: ?*anyopaque) i64 {
-        return qtc.QAbstractSocket_QBasePos(@ptrCast(self));
+    pub fn SuperPos(self: ?*anyopaque) i64 {
+        return qtc.QAbstractSocket_SuperPos(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -3257,6 +3389,10 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_Size(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSize` instead
+    ///
+    pub const QBaseSize = SuperSize;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#size)
@@ -3267,8 +3403,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` self: QtC.QAbstractSocket `
     ///
-    pub fn QBaseSize(self: ?*anyopaque) i64 {
-        return qtc.QAbstractSocket_QBaseSize(@ptrCast(self));
+    pub fn SuperSize(self: ?*anyopaque) i64 {
+        return qtc.QAbstractSocket_SuperSize(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -3303,6 +3439,10 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_Seek(@ptrCast(self), @bitCast(pos));
     }
 
+    /// ### DEPRECATED: Use `SuperSeek` instead
+    ///
+    pub const QBaseSeek = SuperSeek;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#seek)
@@ -3315,8 +3455,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` pos: i64 `
     ///
-    pub fn QBaseSeek(self: ?*anyopaque, pos: i64) bool {
-        return qtc.QAbstractSocket_QBaseSeek(@ptrCast(self), @bitCast(pos));
+    pub fn SuperSeek(self: ?*anyopaque, pos: i64) bool {
+        return qtc.QAbstractSocket_SuperSeek(@ptrCast(self), @bitCast(pos));
     }
 
     /// Inherited from QIODevice
@@ -3349,6 +3489,10 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_AtEnd(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperAtEnd` instead
+    ///
+    pub const QBaseAtEnd = SuperAtEnd;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
@@ -3359,8 +3503,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` self: QtC.QAbstractSocket `
     ///
-    pub fn QBaseAtEnd(self: ?*anyopaque) bool {
-        return qtc.QAbstractSocket_QBaseAtEnd(@ptrCast(self));
+    pub fn SuperAtEnd(self: ?*anyopaque) bool {
+        return qtc.QAbstractSocket_SuperAtEnd(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -3393,6 +3537,10 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_Reset(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperReset` instead
+    ///
+    pub const QBaseReset = SuperReset;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
@@ -3403,8 +3551,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` self: QtC.QAbstractSocket `
     ///
-    pub fn QBaseReset(self: ?*anyopaque) bool {
-        return qtc.QAbstractSocket_QBaseReset(@ptrCast(self));
+    pub fn SuperReset(self: ?*anyopaque) bool {
+        return qtc.QAbstractSocket_SuperReset(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -3437,6 +3585,10 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_CanReadLine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCanReadLine` instead
+    ///
+    pub const QBaseCanReadLine = SuperCanReadLine;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
@@ -3447,8 +3599,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` self: QtC.QAbstractSocket `
     ///
-    pub fn QBaseCanReadLine(self: ?*anyopaque) bool {
-        return qtc.QAbstractSocket_QBaseCanReadLine(@ptrCast(self));
+    pub fn SuperCanReadLine(self: ?*anyopaque) bool {
+        return qtc.QAbstractSocket_SuperCanReadLine(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -3483,6 +3635,10 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -3495,8 +3651,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QAbstractSocket_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QAbstractSocket_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3533,6 +3689,10 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -3547,8 +3707,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QAbstractSocket_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QAbstractSocket_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3583,6 +3743,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -3595,8 +3759,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSocket_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSocket_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3631,6 +3795,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -3643,8 +3811,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSocket_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSocket_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3679,6 +3847,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -3691,8 +3863,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSocket_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSocket_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3727,6 +3899,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3739,8 +3915,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QAbstractSocket_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QAbstractSocket_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3775,6 +3951,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -3787,8 +3967,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QAbstractSocket_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QAbstractSocket_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3823,6 +4003,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_SetOpenMode(@ptrCast(self), @bitCast(openMode));
     }
 
+    /// ### DEPRECATED: Use `SuperSetOpenMode` instead
+    ///
+    pub const QBaseSetOpenMode = SuperSetOpenMode;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
@@ -3835,8 +4019,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i32) void {
-        qtc.QAbstractSocket_QBaseSetOpenMode(@ptrCast(self), @bitCast(openMode));
+    pub fn SuperSetOpenMode(self: ?*anyopaque, openMode: i32) void {
+        qtc.QAbstractSocket_SuperSetOpenMode(@ptrCast(self), @bitCast(openMode));
     }
 
     /// Inherited from QIODevice
@@ -3875,6 +4059,10 @@ pub const qabstractsocket = struct {
         qtc.QAbstractSocket_SetErrorString(@ptrCast(self), errorString_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSetErrorString` instead
+    ///
+    pub const QBaseSetErrorString = SuperSetErrorString;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
@@ -3887,12 +4075,12 @@ pub const qabstractsocket = struct {
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn QBaseSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
+    pub fn SuperSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QAbstractSocket_QBaseSetErrorString(@ptrCast(self), errorString_str);
+        qtc.QAbstractSocket_SuperSetErrorString(@ptrCast(self), errorString_str);
     }
 
     /// Inherited from QIODevice
@@ -3925,6 +4113,10 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -3935,8 +4127,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` self: QtC.QAbstractSocket `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QAbstractSocket_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QAbstractSocket_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3969,6 +4161,10 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -3979,8 +4175,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` self: QtC.QAbstractSocket `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSocket_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QAbstractSocket_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -4016,6 +4212,10 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -4028,9 +4228,9 @@ pub const qabstractsocket = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QAbstractSocket_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QAbstractSocket_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -4065,6 +4265,10 @@ pub const qabstractsocket = struct {
         return qtc.QAbstractSocket_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -4077,8 +4281,8 @@ pub const qabstractsocket = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QAbstractSocket_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QAbstractSocket_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4112,6 +4316,9 @@ pub const qabstractsocket = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractsocket.html#dtor.QAbstractSocket)
     ///
@@ -4121,7 +4328,7 @@ pub const qabstractsocket = struct {
     ///
     /// ` self: QtC.QAbstractSocket `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAbstractSocket_Delete(@ptrCast(self));
     }
 };

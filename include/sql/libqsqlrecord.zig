@@ -390,6 +390,10 @@ pub const qsqlrecord = struct {
         return qtc.QSqlRecord_KeyValues(@ptrCast(self), @ptrCast(keyFields));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlrecord.html#dtor.QSqlRecord)
     ///
     /// Delete this object from C++ memory.
@@ -398,7 +402,7 @@ pub const qsqlrecord = struct {
     ///
     /// ` self: QtC.QSqlRecord `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSqlRecord_Delete(@ptrCast(self));
     }
 };

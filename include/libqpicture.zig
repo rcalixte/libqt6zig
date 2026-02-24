@@ -65,6 +65,10 @@ pub const qpicture = struct {
         qtc.QPicture_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#devType)
     ///
     /// Base class method implementation
@@ -73,8 +77,8 @@ pub const qpicture = struct {
     ///
     /// ` self: QtC.QPicture `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.QPicture_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.QPicture_SuperDevType(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#size)
@@ -127,6 +131,10 @@ pub const qpicture = struct {
         qtc.QPicture_OnSetData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetData` instead
+    ///
+    pub const QBaseSetData = SuperSetData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#setData)
     ///
     /// Base class method implementation
@@ -139,9 +147,9 @@ pub const qpicture = struct {
     ///
     /// ` size: u32 `
     ///
-    pub fn QBaseSetData(self: ?*anyopaque, data: [:0]const u8, size: u32) void {
+    pub fn SuperSetData(self: ?*anyopaque, data: [:0]const u8, size: u32) void {
         const data_Cstring = data.ptr;
-        qtc.QPicture_QBaseSetData(@ptrCast(self), data_Cstring, @bitCast(size));
+        qtc.QPicture_SuperSetData(@ptrCast(self), data_Cstring, @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#play)
@@ -302,6 +310,10 @@ pub const qpicture = struct {
         qtc.QPicture_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#paintEngine)
     ///
     /// Base class method implementation
@@ -310,8 +322,8 @@ pub const qpicture = struct {
     ///
     /// ` self: QtC.QPicture `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QPicture_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.QPicture_SuperPaintEngine(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#metric)
@@ -340,6 +352,10 @@ pub const qpicture = struct {
         qtc.QPicture_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#metric)
     ///
     /// Base class method implementation
@@ -350,8 +366,8 @@ pub const qpicture = struct {
     ///
     /// ` m: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, m: i32) i32 {
-        return qtc.QPicture_QBaseMetric(@ptrCast(self), @bitCast(m));
+    pub fn SuperMetric(self: ?*anyopaque, m: i32) i32 {
+        return qtc.QPicture_SuperMetric(@ptrCast(self), @bitCast(m));
     }
 
     /// Inherited from QPaintDevice
@@ -548,6 +564,10 @@ pub const qpicture = struct {
         qtc.QPicture_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
@@ -560,8 +580,8 @@ pub const qpicture = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QPicture_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QPicture_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QPaintDevice
@@ -596,6 +616,10 @@ pub const qpicture = struct {
         return qtc.QPicture_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
@@ -608,8 +632,8 @@ pub const qpicture = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QPicture_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.QPicture_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QPaintDevice
@@ -642,6 +666,10 @@ pub const qpicture = struct {
         return qtc.QPicture_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
@@ -652,8 +680,8 @@ pub const qpicture = struct {
     ///
     /// ` self: QtC.QPicture `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QPicture_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.QPicture_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
@@ -690,6 +718,10 @@ pub const qpicture = struct {
         return qtc.QPicture_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -704,8 +736,8 @@ pub const qpicture = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QPicture_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.QPicture_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -723,6 +755,9 @@ pub const qpicture = struct {
     pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
         qtc.QPicture_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#dtor.QPicture)
     ///
@@ -732,7 +767,7 @@ pub const qpicture = struct {
     ///
     /// ` self: QtC.QPicture `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPicture_Delete(@ptrCast(self));
     }
 };

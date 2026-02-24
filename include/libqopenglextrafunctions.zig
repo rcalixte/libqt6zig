@@ -6026,6 +6026,10 @@ pub const qopenglextrafunctions = struct {
         qtc.QOpenGLFunctions_GlVertexAttribPointer(@ptrCast(self), @bitCast(indx), @bitCast(size), @bitCast(typeVal), @bitCast(normalized), @bitCast(stride), @ptrCast(ptr));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#dtor.QOpenGLExtraFunctions)
     ///
     /// Delete this object from C++ memory.
@@ -6034,7 +6038,7 @@ pub const qopenglextrafunctions = struct {
     ///
     /// ` self: QtC.QOpenGLExtraFunctions `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QOpenGLExtraFunctions_Delete(@ptrCast(self));
     }
 };

@@ -1098,31 +1098,31 @@ class VirtualQsciLexerEDIFACT final : public QsciLexerEDIFACT {
 
     // Friend functions
     friend bool QsciLexerEDIFACT_ReadProperties(QsciLexerEDIFACT* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerEDIFACT_QBaseReadProperties(QsciLexerEDIFACT* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerEDIFACT_SuperReadProperties(QsciLexerEDIFACT* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerEDIFACT_WriteProperties(const QsciLexerEDIFACT* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerEDIFACT_QBaseWriteProperties(const QsciLexerEDIFACT* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerEDIFACT_SuperWriteProperties(const QsciLexerEDIFACT* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerEDIFACT_TimerEvent(QsciLexerEDIFACT* self, QTimerEvent* event);
-    friend void QsciLexerEDIFACT_QBaseTimerEvent(QsciLexerEDIFACT* self, QTimerEvent* event);
+    friend void QsciLexerEDIFACT_SuperTimerEvent(QsciLexerEDIFACT* self, QTimerEvent* event);
     friend void QsciLexerEDIFACT_ChildEvent(QsciLexerEDIFACT* self, QChildEvent* event);
-    friend void QsciLexerEDIFACT_QBaseChildEvent(QsciLexerEDIFACT* self, QChildEvent* event);
+    friend void QsciLexerEDIFACT_SuperChildEvent(QsciLexerEDIFACT* self, QChildEvent* event);
     friend void QsciLexerEDIFACT_CustomEvent(QsciLexerEDIFACT* self, QEvent* event);
-    friend void QsciLexerEDIFACT_QBaseCustomEvent(QsciLexerEDIFACT* self, QEvent* event);
+    friend void QsciLexerEDIFACT_SuperCustomEvent(QsciLexerEDIFACT* self, QEvent* event);
     friend void QsciLexerEDIFACT_ConnectNotify(QsciLexerEDIFACT* self, const QMetaMethod* signal);
-    friend void QsciLexerEDIFACT_QBaseConnectNotify(QsciLexerEDIFACT* self, const QMetaMethod* signal);
+    friend void QsciLexerEDIFACT_SuperConnectNotify(QsciLexerEDIFACT* self, const QMetaMethod* signal);
     friend void QsciLexerEDIFACT_DisconnectNotify(QsciLexerEDIFACT* self, const QMetaMethod* signal);
-    friend void QsciLexerEDIFACT_QBaseDisconnectNotify(QsciLexerEDIFACT* self, const QMetaMethod* signal);
+    friend void QsciLexerEDIFACT_SuperDisconnectNotify(QsciLexerEDIFACT* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerEDIFACT_TextAsBytes(const QsciLexerEDIFACT* self, const libqt_string text);
-    friend libqt_string QsciLexerEDIFACT_QBaseTextAsBytes(const QsciLexerEDIFACT* self, const libqt_string text);
+    friend libqt_string QsciLexerEDIFACT_SuperTextAsBytes(const QsciLexerEDIFACT* self, const libqt_string text);
     friend libqt_string QsciLexerEDIFACT_BytesAsText(const QsciLexerEDIFACT* self, const char* bytes, int size);
-    friend libqt_string QsciLexerEDIFACT_QBaseBytesAsText(const QsciLexerEDIFACT* self, const char* bytes, int size);
+    friend libqt_string QsciLexerEDIFACT_SuperBytesAsText(const QsciLexerEDIFACT* self, const char* bytes, int size);
     friend QObject* QsciLexerEDIFACT_Sender(const QsciLexerEDIFACT* self);
-    friend QObject* QsciLexerEDIFACT_QBaseSender(const QsciLexerEDIFACT* self);
+    friend QObject* QsciLexerEDIFACT_SuperSender(const QsciLexerEDIFACT* self);
     friend int QsciLexerEDIFACT_SenderSignalIndex(const QsciLexerEDIFACT* self);
-    friend int QsciLexerEDIFACT_QBaseSenderSignalIndex(const QsciLexerEDIFACT* self);
+    friend int QsciLexerEDIFACT_SuperSenderSignalIndex(const QsciLexerEDIFACT* self);
     friend int QsciLexerEDIFACT_Receivers(const QsciLexerEDIFACT* self, const char* signal);
-    friend int QsciLexerEDIFACT_QBaseReceivers(const QsciLexerEDIFACT* self, const char* signal);
+    friend int QsciLexerEDIFACT_SuperReceivers(const QsciLexerEDIFACT* self, const char* signal);
     friend bool QsciLexerEDIFACT_IsSignalConnected(const QsciLexerEDIFACT* self, const QMetaMethod* signal);
-    friend bool QsciLexerEDIFACT_QBaseIsSignalConnected(const QsciLexerEDIFACT* self, const QMetaMethod* signal);
+    friend bool QsciLexerEDIFACT_SuperIsSignalConnected(const QsciLexerEDIFACT* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -36,7 +36,7 @@ unsigned int QMaskGenerator_NextMask(QMaskGenerator* self) {
 }
 
 // Base class handler implementation
-bool QMaskGenerator_QBaseSeed(QMaskGenerator* self) {
+bool QMaskGenerator_SuperSeed(QMaskGenerator* self) {
     auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
     if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
         vqmaskgenerator->setQMaskGenerator_Seed_IsBase(true);
@@ -55,7 +55,7 @@ void QMaskGenerator_OnSeed(QMaskGenerator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-unsigned int QMaskGenerator_QBaseNextMask(QMaskGenerator* self) {
+unsigned int QMaskGenerator_SuperNextMask(QMaskGenerator* self) {
     auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
     if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
         vqmaskgenerator->setQMaskGenerator_NextMask_IsBase(true);
@@ -84,7 +84,7 @@ QMetaObject* QMaskGenerator_MetaObject(const QMaskGenerator* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QMaskGenerator_QBaseMetaObject(const QMaskGenerator* self) {
+QMetaObject* QMaskGenerator_SuperMetaObject(const QMaskGenerator* self) {
     auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self));
     if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
         vqmaskgenerator->setQMaskGenerator_MetaObject_IsBase(true);
@@ -113,7 +113,7 @@ void* QMaskGenerator_Metacast(QMaskGenerator* self, const char* param1) {
 }
 
 // Base class handler implementation
-void* QMaskGenerator_QBaseMetacast(QMaskGenerator* self, const char* param1) {
+void* QMaskGenerator_SuperMetacast(QMaskGenerator* self, const char* param1) {
     auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
     if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
         vqmaskgenerator->setQMaskGenerator_Metacast_IsBase(true);
@@ -142,7 +142,7 @@ int QMaskGenerator_Metacall(QMaskGenerator* self, int param1, int param2, void**
 }
 
 // Base class handler implementation
-int QMaskGenerator_QBaseMetacall(QMaskGenerator* self, int param1, int param2, void** param3) {
+int QMaskGenerator_SuperMetacall(QMaskGenerator* self, int param1, int param2, void** param3) {
     auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
     if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
         vqmaskgenerator->setQMaskGenerator_Metacall_IsBase(true);
@@ -171,7 +171,7 @@ bool QMaskGenerator_Event(QMaskGenerator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QMaskGenerator_QBaseEvent(QMaskGenerator* self, QEvent* event) {
+bool QMaskGenerator_SuperEvent(QMaskGenerator* self, QEvent* event) {
     auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
     if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
         vqmaskgenerator->setQMaskGenerator_Event_IsBase(true);
@@ -200,7 +200,7 @@ bool QMaskGenerator_EventFilter(QMaskGenerator* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QMaskGenerator_QBaseEventFilter(QMaskGenerator* self, QObject* watched, QEvent* event) {
+bool QMaskGenerator_SuperEventFilter(QMaskGenerator* self, QObject* watched, QEvent* event) {
     auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
     if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
         vqmaskgenerator->setQMaskGenerator_EventFilter_IsBase(true);
@@ -229,7 +229,7 @@ void QMaskGenerator_TimerEvent(QMaskGenerator* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QMaskGenerator_QBaseTimerEvent(QMaskGenerator* self, QTimerEvent* event) {
+void QMaskGenerator_SuperTimerEvent(QMaskGenerator* self, QTimerEvent* event) {
     auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
     if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
         vqmaskgenerator->setQMaskGenerator_TimerEvent_IsBase(true);
@@ -258,7 +258,7 @@ void QMaskGenerator_ChildEvent(QMaskGenerator* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QMaskGenerator_QBaseChildEvent(QMaskGenerator* self, QChildEvent* event) {
+void QMaskGenerator_SuperChildEvent(QMaskGenerator* self, QChildEvent* event) {
     auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
     if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
         vqmaskgenerator->setQMaskGenerator_ChildEvent_IsBase(true);
@@ -287,7 +287,7 @@ void QMaskGenerator_CustomEvent(QMaskGenerator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QMaskGenerator_QBaseCustomEvent(QMaskGenerator* self, QEvent* event) {
+void QMaskGenerator_SuperCustomEvent(QMaskGenerator* self, QEvent* event) {
     auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
     if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
         vqmaskgenerator->setQMaskGenerator_CustomEvent_IsBase(true);
@@ -316,7 +316,7 @@ void QMaskGenerator_ConnectNotify(QMaskGenerator* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QMaskGenerator_QBaseConnectNotify(QMaskGenerator* self, const QMetaMethod* signal) {
+void QMaskGenerator_SuperConnectNotify(QMaskGenerator* self, const QMetaMethod* signal) {
     auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
     if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
         vqmaskgenerator->setQMaskGenerator_ConnectNotify_IsBase(true);
@@ -345,7 +345,7 @@ void QMaskGenerator_DisconnectNotify(QMaskGenerator* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QMaskGenerator_QBaseDisconnectNotify(QMaskGenerator* self, const QMetaMethod* signal) {
+void QMaskGenerator_SuperDisconnectNotify(QMaskGenerator* self, const QMetaMethod* signal) {
     auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
     if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
         vqmaskgenerator->setQMaskGenerator_DisconnectNotify_IsBase(true);
@@ -374,7 +374,7 @@ QObject* QMaskGenerator_Sender(const QMaskGenerator* self) {
 }
 
 // Base class handler implementation
-QObject* QMaskGenerator_QBaseSender(const QMaskGenerator* self) {
+QObject* QMaskGenerator_SuperSender(const QMaskGenerator* self) {
     auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self));
     if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
         vqmaskgenerator->setQMaskGenerator_Sender_IsBase(true);
@@ -403,7 +403,7 @@ int QMaskGenerator_SenderSignalIndex(const QMaskGenerator* self) {
 }
 
 // Base class handler implementation
-int QMaskGenerator_QBaseSenderSignalIndex(const QMaskGenerator* self) {
+int QMaskGenerator_SuperSenderSignalIndex(const QMaskGenerator* self) {
     auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self));
     if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
         vqmaskgenerator->setQMaskGenerator_SenderSignalIndex_IsBase(true);
@@ -432,7 +432,7 @@ int QMaskGenerator_Receivers(const QMaskGenerator* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QMaskGenerator_QBaseReceivers(const QMaskGenerator* self, const char* signal) {
+int QMaskGenerator_SuperReceivers(const QMaskGenerator* self, const char* signal) {
     auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self));
     if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
         vqmaskgenerator->setQMaskGenerator_Receivers_IsBase(true);
@@ -461,7 +461,7 @@ bool QMaskGenerator_IsSignalConnected(const QMaskGenerator* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QMaskGenerator_QBaseIsSignalConnected(const QMaskGenerator* self, const QMetaMethod* signal) {
+bool QMaskGenerator_SuperIsSignalConnected(const QMaskGenerator* self, const QMetaMethod* signal) {
     auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self));
     if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
         vqmaskgenerator->setQMaskGenerator_IsSignalConnected_IsBase(true);

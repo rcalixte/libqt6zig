@@ -328,23 +328,23 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
 
     // Friend functions
     friend void KFilePreviewGenerator_TimerEvent(KFilePreviewGenerator* self, QTimerEvent* event);
-    friend void KFilePreviewGenerator_QBaseTimerEvent(KFilePreviewGenerator* self, QTimerEvent* event);
+    friend void KFilePreviewGenerator_SuperTimerEvent(KFilePreviewGenerator* self, QTimerEvent* event);
     friend void KFilePreviewGenerator_ChildEvent(KFilePreviewGenerator* self, QChildEvent* event);
-    friend void KFilePreviewGenerator_QBaseChildEvent(KFilePreviewGenerator* self, QChildEvent* event);
+    friend void KFilePreviewGenerator_SuperChildEvent(KFilePreviewGenerator* self, QChildEvent* event);
     friend void KFilePreviewGenerator_CustomEvent(KFilePreviewGenerator* self, QEvent* event);
-    friend void KFilePreviewGenerator_QBaseCustomEvent(KFilePreviewGenerator* self, QEvent* event);
+    friend void KFilePreviewGenerator_SuperCustomEvent(KFilePreviewGenerator* self, QEvent* event);
     friend void KFilePreviewGenerator_ConnectNotify(KFilePreviewGenerator* self, const QMetaMethod* signal);
-    friend void KFilePreviewGenerator_QBaseConnectNotify(KFilePreviewGenerator* self, const QMetaMethod* signal);
+    friend void KFilePreviewGenerator_SuperConnectNotify(KFilePreviewGenerator* self, const QMetaMethod* signal);
     friend void KFilePreviewGenerator_DisconnectNotify(KFilePreviewGenerator* self, const QMetaMethod* signal);
-    friend void KFilePreviewGenerator_QBaseDisconnectNotify(KFilePreviewGenerator* self, const QMetaMethod* signal);
+    friend void KFilePreviewGenerator_SuperDisconnectNotify(KFilePreviewGenerator* self, const QMetaMethod* signal);
     friend QObject* KFilePreviewGenerator_Sender(const KFilePreviewGenerator* self);
-    friend QObject* KFilePreviewGenerator_QBaseSender(const KFilePreviewGenerator* self);
+    friend QObject* KFilePreviewGenerator_SuperSender(const KFilePreviewGenerator* self);
     friend int KFilePreviewGenerator_SenderSignalIndex(const KFilePreviewGenerator* self);
-    friend int KFilePreviewGenerator_QBaseSenderSignalIndex(const KFilePreviewGenerator* self);
+    friend int KFilePreviewGenerator_SuperSenderSignalIndex(const KFilePreviewGenerator* self);
     friend int KFilePreviewGenerator_Receivers(const KFilePreviewGenerator* self, const char* signal);
-    friend int KFilePreviewGenerator_QBaseReceivers(const KFilePreviewGenerator* self, const char* signal);
+    friend int KFilePreviewGenerator_SuperReceivers(const KFilePreviewGenerator* self, const char* signal);
     friend bool KFilePreviewGenerator_IsSignalConnected(const KFilePreviewGenerator* self, const QMetaMethod* signal);
-    friend bool KFilePreviewGenerator_QBaseIsSignalConnected(const KFilePreviewGenerator* self, const QMetaMethod* signal);
+    friend bool KFilePreviewGenerator_SuperIsSignalConnected(const KFilePreviewGenerator* self, const QMetaMethod* signal);
 };
 
 #endif

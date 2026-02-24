@@ -292,13 +292,17 @@ pub const attica__metadata = struct {
         qtc.Attica__Metadata_SetHeaders(@ptrCast(self), headers_list);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Attica__Metadata `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Attica__Metadata_Delete(@ptrCast(self));
     }
 };

@@ -44,6 +44,10 @@ pub const qitemeditorcreatorbase = struct {
         qtc.QItemEditorCreatorBase_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorcreatorbase.html#dtor.QItemEditorCreatorBase)
     ///
     /// Delete this object from C++ memory.
@@ -52,7 +56,7 @@ pub const qitemeditorcreatorbase = struct {
     ///
     /// ` self: QtC.QItemEditorCreatorBase `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QItemEditorCreatorBase_Delete(@ptrCast(self));
     }
 };
@@ -103,6 +107,10 @@ pub const qitemeditorfactory = struct {
         qtc.QItemEditorFactory_OnCreateEditor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateEditor` instead
+    ///
+    pub const QBaseCreateEditor = SuperCreateEditor;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#createEditor)
     ///
     /// Base class method implementation
@@ -115,8 +123,8 @@ pub const qitemeditorfactory = struct {
     ///
     /// ` parent: QtC.QWidget `
     ///
-    pub fn QBaseCreateEditor(self: ?*anyopaque, userType: i32, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QItemEditorFactory_QBaseCreateEditor(@ptrCast(self), @bitCast(userType), @ptrCast(parent));
+    pub fn SuperCreateEditor(self: ?*anyopaque, userType: i32, parent: ?*anyopaque) QtC.QWidget {
+        return qtc.QItemEditorFactory_SuperCreateEditor(@ptrCast(self), @bitCast(userType), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#valuePropertyName)
@@ -151,6 +159,10 @@ pub const qitemeditorfactory = struct {
         qtc.QItemEditorFactory_OnValuePropertyName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperValuePropertyName` instead
+    ///
+    pub const QBaseValuePropertyName = SuperValuePropertyName;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#valuePropertyName)
     ///
     /// Base class method implementation
@@ -163,8 +175,8 @@ pub const qitemeditorfactory = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseValuePropertyName(self: ?*anyopaque, userType: i32, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QItemEditorFactory_QBaseValuePropertyName(@ptrCast(self), @bitCast(userType));
+    pub fn SuperValuePropertyName(self: ?*anyopaque, userType: i32, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QItemEditorFactory_SuperValuePropertyName(@ptrCast(self), @bitCast(userType));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qitemeditorfactory.ValuePropertyName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -201,6 +213,10 @@ pub const qitemeditorfactory = struct {
         qtc.QItemEditorFactory_SetDefaultFactory(@ptrCast(factory));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#dtor.QItemEditorFactory)
     ///
     /// Delete this object from C++ memory.
@@ -209,7 +225,7 @@ pub const qitemeditorfactory = struct {
     ///
     /// ` self: QtC.QItemEditorFactory `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QItemEditorFactory_Delete(@ptrCast(self));
     }
 };

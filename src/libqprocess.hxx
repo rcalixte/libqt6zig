@@ -737,37 +737,37 @@ class VirtualQProcess final : public QProcess {
 
     // Friend functions
     friend long long QProcess_ReadData(QProcess* self, char* data, long long maxlen);
-    friend long long QProcess_QBaseReadData(QProcess* self, char* data, long long maxlen);
+    friend long long QProcess_SuperReadData(QProcess* self, char* data, long long maxlen);
     friend long long QProcess_WriteData(QProcess* self, const char* data, long long lenVal);
-    friend long long QProcess_QBaseWriteData(QProcess* self, const char* data, long long lenVal);
+    friend long long QProcess_SuperWriteData(QProcess* self, const char* data, long long lenVal);
     friend long long QProcess_ReadLineData(QProcess* self, char* data, long long maxlen);
-    friend long long QProcess_QBaseReadLineData(QProcess* self, char* data, long long maxlen);
+    friend long long QProcess_SuperReadLineData(QProcess* self, char* data, long long maxlen);
     friend long long QProcess_SkipData(QProcess* self, long long maxSize);
-    friend long long QProcess_QBaseSkipData(QProcess* self, long long maxSize);
+    friend long long QProcess_SuperSkipData(QProcess* self, long long maxSize);
     friend void QProcess_TimerEvent(QProcess* self, QTimerEvent* event);
-    friend void QProcess_QBaseTimerEvent(QProcess* self, QTimerEvent* event);
+    friend void QProcess_SuperTimerEvent(QProcess* self, QTimerEvent* event);
     friend void QProcess_ChildEvent(QProcess* self, QChildEvent* event);
-    friend void QProcess_QBaseChildEvent(QProcess* self, QChildEvent* event);
+    friend void QProcess_SuperChildEvent(QProcess* self, QChildEvent* event);
     friend void QProcess_CustomEvent(QProcess* self, QEvent* event);
-    friend void QProcess_QBaseCustomEvent(QProcess* self, QEvent* event);
+    friend void QProcess_SuperCustomEvent(QProcess* self, QEvent* event);
     friend void QProcess_ConnectNotify(QProcess* self, const QMetaMethod* signal);
-    friend void QProcess_QBaseConnectNotify(QProcess* self, const QMetaMethod* signal);
+    friend void QProcess_SuperConnectNotify(QProcess* self, const QMetaMethod* signal);
     friend void QProcess_DisconnectNotify(QProcess* self, const QMetaMethod* signal);
-    friend void QProcess_QBaseDisconnectNotify(QProcess* self, const QMetaMethod* signal);
+    friend void QProcess_SuperDisconnectNotify(QProcess* self, const QMetaMethod* signal);
     friend void QProcess_SetProcessState(QProcess* self, int state);
-    friend void QProcess_QBaseSetProcessState(QProcess* self, int state);
+    friend void QProcess_SuperSetProcessState(QProcess* self, int state);
     friend void QProcess_SetOpenMode(QProcess* self, int openMode);
-    friend void QProcess_QBaseSetOpenMode(QProcess* self, int openMode);
+    friend void QProcess_SuperSetOpenMode(QProcess* self, int openMode);
     friend void QProcess_SetErrorString(QProcess* self, const libqt_string errorString);
-    friend void QProcess_QBaseSetErrorString(QProcess* self, const libqt_string errorString);
+    friend void QProcess_SuperSetErrorString(QProcess* self, const libqt_string errorString);
     friend QObject* QProcess_Sender(const QProcess* self);
-    friend QObject* QProcess_QBaseSender(const QProcess* self);
+    friend QObject* QProcess_SuperSender(const QProcess* self);
     friend int QProcess_SenderSignalIndex(const QProcess* self);
-    friend int QProcess_QBaseSenderSignalIndex(const QProcess* self);
+    friend int QProcess_SuperSenderSignalIndex(const QProcess* self);
     friend int QProcess_Receivers(const QProcess* self, const char* signal);
-    friend int QProcess_QBaseReceivers(const QProcess* self, const char* signal);
+    friend int QProcess_SuperReceivers(const QProcess* self, const char* signal);
     friend bool QProcess_IsSignalConnected(const QProcess* self, const QMetaMethod* signal);
-    friend bool QProcess_QBaseIsSignalConnected(const QProcess* self, const QMetaMethod* signal);
+    friend bool QProcess_SuperIsSignalConnected(const QProcess* self, const QMetaMethod* signal);
 };
 
 #endif

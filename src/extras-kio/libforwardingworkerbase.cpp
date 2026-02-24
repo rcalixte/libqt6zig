@@ -177,7 +177,7 @@ void KIO__ForwardingWorkerBase_AdjustUDSEntry(const KIO__ForwardingWorkerBase* s
 }
 
 // Base class handler implementation
-QMetaObject* KIO__ForwardingWorkerBase_QBaseMetaObject(const KIO__ForwardingWorkerBase* self) {
+QMetaObject* KIO__ForwardingWorkerBase_SuperMetaObject(const KIO__ForwardingWorkerBase* self) {
     auto* vkioforwardingworkerbase = const_cast<VirtualKIOForwardingWorkerBase*>(dynamic_cast<const VirtualKIOForwardingWorkerBase*>(self));
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_MetaObject_IsBase(true);
@@ -196,7 +196,7 @@ void KIO__ForwardingWorkerBase_OnMetaObject(const KIO__ForwardingWorkerBase* sel
 }
 
 // Base class handler implementation
-void* KIO__ForwardingWorkerBase_QBaseMetacast(KIO__ForwardingWorkerBase* self, const char* param1) {
+void* KIO__ForwardingWorkerBase_SuperMetacast(KIO__ForwardingWorkerBase* self, const char* param1) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Metacast_IsBase(true);
@@ -215,7 +215,7 @@ void KIO__ForwardingWorkerBase_OnMetacast(KIO__ForwardingWorkerBase* self, intpt
 }
 
 // Base class handler implementation
-int KIO__ForwardingWorkerBase_QBaseMetacall(KIO__ForwardingWorkerBase* self, int param1, int param2, void** param3) {
+int KIO__ForwardingWorkerBase_SuperMetacall(KIO__ForwardingWorkerBase* self, int param1, int param2, void** param3) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Metacall_IsBase(true);
@@ -234,7 +234,7 @@ void KIO__ForwardingWorkerBase_OnMetacall(KIO__ForwardingWorkerBase* self, intpt
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBaseGet(KIO__ForwardingWorkerBase* self, const QUrl* url) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperGet(KIO__ForwardingWorkerBase* self, const QUrl* url) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Get_IsBase(true);
@@ -253,7 +253,7 @@ void KIO__ForwardingWorkerBase_OnGet(KIO__ForwardingWorkerBase* self, intptr_t s
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBasePut(KIO__ForwardingWorkerBase* self, const QUrl* url, int permissions, int flags) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperPut(KIO__ForwardingWorkerBase* self, const QUrl* url, int permissions, int flags) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Put_IsBase(true);
@@ -272,7 +272,7 @@ void KIO__ForwardingWorkerBase_OnPut(KIO__ForwardingWorkerBase* self, intptr_t s
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBaseStat(KIO__ForwardingWorkerBase* self, const QUrl* url) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperStat(KIO__ForwardingWorkerBase* self, const QUrl* url) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Stat_IsBase(true);
@@ -291,7 +291,7 @@ void KIO__ForwardingWorkerBase_OnStat(KIO__ForwardingWorkerBase* self, intptr_t 
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBaseMimetype(KIO__ForwardingWorkerBase* self, const QUrl* url) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperMimetype(KIO__ForwardingWorkerBase* self, const QUrl* url) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Mimetype_IsBase(true);
@@ -310,7 +310,7 @@ void KIO__ForwardingWorkerBase_OnMimetype(KIO__ForwardingWorkerBase* self, intpt
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBaseListDir(KIO__ForwardingWorkerBase* self, const QUrl* url) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperListDir(KIO__ForwardingWorkerBase* self, const QUrl* url) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_ListDir_IsBase(true);
@@ -329,7 +329,7 @@ void KIO__ForwardingWorkerBase_OnListDir(KIO__ForwardingWorkerBase* self, intptr
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBaseMkdir(KIO__ForwardingWorkerBase* self, const QUrl* url, int permissions) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperMkdir(KIO__ForwardingWorkerBase* self, const QUrl* url, int permissions) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Mkdir_IsBase(true);
@@ -348,7 +348,7 @@ void KIO__ForwardingWorkerBase_OnMkdir(KIO__ForwardingWorkerBase* self, intptr_t
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBaseRename(KIO__ForwardingWorkerBase* self, const QUrl* src, const QUrl* dest, int flags) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperRename(KIO__ForwardingWorkerBase* self, const QUrl* src, const QUrl* dest, int flags) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Rename_IsBase(true);
@@ -367,7 +367,7 @@ void KIO__ForwardingWorkerBase_OnRename(KIO__ForwardingWorkerBase* self, intptr_
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBaseSymlink(KIO__ForwardingWorkerBase* self, const libqt_string target, const QUrl* dest, int flags) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperSymlink(KIO__ForwardingWorkerBase* self, const libqt_string target, const QUrl* dest, int flags) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     QString target_QString = QString::fromUtf8(target.data, target.len);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
@@ -387,7 +387,7 @@ void KIO__ForwardingWorkerBase_OnSymlink(KIO__ForwardingWorkerBase* self, intptr
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBaseChmod(KIO__ForwardingWorkerBase* self, const QUrl* url, int permissions) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperChmod(KIO__ForwardingWorkerBase* self, const QUrl* url, int permissions) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Chmod_IsBase(true);
@@ -406,7 +406,7 @@ void KIO__ForwardingWorkerBase_OnChmod(KIO__ForwardingWorkerBase* self, intptr_t
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBaseSetModificationTime(KIO__ForwardingWorkerBase* self, const QUrl* url, const QDateTime* mtime) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperSetModificationTime(KIO__ForwardingWorkerBase* self, const QUrl* url, const QDateTime* mtime) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_SetModificationTime_IsBase(true);
@@ -425,7 +425,7 @@ void KIO__ForwardingWorkerBase_OnSetModificationTime(KIO__ForwardingWorkerBase* 
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBaseCopy(KIO__ForwardingWorkerBase* self, const QUrl* src, const QUrl* dest, int permissions, int flags) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperCopy(KIO__ForwardingWorkerBase* self, const QUrl* src, const QUrl* dest, int permissions, int flags) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Copy_IsBase(true);
@@ -444,7 +444,7 @@ void KIO__ForwardingWorkerBase_OnCopy(KIO__ForwardingWorkerBase* self, intptr_t 
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBaseDel(KIO__ForwardingWorkerBase* self, const QUrl* url, bool isfile) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperDel(KIO__ForwardingWorkerBase* self, const QUrl* url, bool isfile) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Del_IsBase(true);
@@ -463,7 +463,7 @@ void KIO__ForwardingWorkerBase_OnDel(KIO__ForwardingWorkerBase* self, intptr_t s
 }
 
 // Base class handler implementation
-bool KIO__ForwardingWorkerBase_QBaseRewriteUrl(KIO__ForwardingWorkerBase* self, const QUrl* url, QUrl* newURL) {
+bool KIO__ForwardingWorkerBase_SuperRewriteUrl(KIO__ForwardingWorkerBase* self, const QUrl* url, QUrl* newURL) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_RewriteUrl_IsBase(true);
@@ -482,7 +482,7 @@ void KIO__ForwardingWorkerBase_OnRewriteUrl(KIO__ForwardingWorkerBase* self, int
 }
 
 // Base class handler implementation
-void KIO__ForwardingWorkerBase_QBaseAdjustUDSEntry(const KIO__ForwardingWorkerBase* self, KIO__UDSEntry* entry, int creationMode) {
+void KIO__ForwardingWorkerBase_SuperAdjustUDSEntry(const KIO__ForwardingWorkerBase* self, KIO__UDSEntry* entry, int creationMode) {
     auto* vkioforwardingworkerbase = const_cast<VirtualKIOForwardingWorkerBase*>(dynamic_cast<const VirtualKIOForwardingWorkerBase*>(self));
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_AdjustUDSEntry_IsBase(true);
@@ -511,7 +511,7 @@ bool KIO__ForwardingWorkerBase_Event(KIO__ForwardingWorkerBase* self, QEvent* ev
 }
 
 // Base class handler implementation
-bool KIO__ForwardingWorkerBase_QBaseEvent(KIO__ForwardingWorkerBase* self, QEvent* event) {
+bool KIO__ForwardingWorkerBase_SuperEvent(KIO__ForwardingWorkerBase* self, QEvent* event) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Event_IsBase(true);
@@ -540,7 +540,7 @@ bool KIO__ForwardingWorkerBase_EventFilter(KIO__ForwardingWorkerBase* self, QObj
 }
 
 // Base class handler implementation
-bool KIO__ForwardingWorkerBase_QBaseEventFilter(KIO__ForwardingWorkerBase* self, QObject* watched, QEvent* event) {
+bool KIO__ForwardingWorkerBase_SuperEventFilter(KIO__ForwardingWorkerBase* self, QObject* watched, QEvent* event) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_EventFilter_IsBase(true);
@@ -569,7 +569,7 @@ void KIO__ForwardingWorkerBase_TimerEvent(KIO__ForwardingWorkerBase* self, QTime
 }
 
 // Base class handler implementation
-void KIO__ForwardingWorkerBase_QBaseTimerEvent(KIO__ForwardingWorkerBase* self, QTimerEvent* event) {
+void KIO__ForwardingWorkerBase_SuperTimerEvent(KIO__ForwardingWorkerBase* self, QTimerEvent* event) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_TimerEvent_IsBase(true);
@@ -598,7 +598,7 @@ void KIO__ForwardingWorkerBase_ChildEvent(KIO__ForwardingWorkerBase* self, QChil
 }
 
 // Base class handler implementation
-void KIO__ForwardingWorkerBase_QBaseChildEvent(KIO__ForwardingWorkerBase* self, QChildEvent* event) {
+void KIO__ForwardingWorkerBase_SuperChildEvent(KIO__ForwardingWorkerBase* self, QChildEvent* event) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_ChildEvent_IsBase(true);
@@ -627,7 +627,7 @@ void KIO__ForwardingWorkerBase_CustomEvent(KIO__ForwardingWorkerBase* self, QEve
 }
 
 // Base class handler implementation
-void KIO__ForwardingWorkerBase_QBaseCustomEvent(KIO__ForwardingWorkerBase* self, QEvent* event) {
+void KIO__ForwardingWorkerBase_SuperCustomEvent(KIO__ForwardingWorkerBase* self, QEvent* event) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_CustomEvent_IsBase(true);
@@ -656,7 +656,7 @@ void KIO__ForwardingWorkerBase_ConnectNotify(KIO__ForwardingWorkerBase* self, co
 }
 
 // Base class handler implementation
-void KIO__ForwardingWorkerBase_QBaseConnectNotify(KIO__ForwardingWorkerBase* self, const QMetaMethod* signal) {
+void KIO__ForwardingWorkerBase_SuperConnectNotify(KIO__ForwardingWorkerBase* self, const QMetaMethod* signal) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_ConnectNotify_IsBase(true);
@@ -685,7 +685,7 @@ void KIO__ForwardingWorkerBase_DisconnectNotify(KIO__ForwardingWorkerBase* self,
 }
 
 // Base class handler implementation
-void KIO__ForwardingWorkerBase_QBaseDisconnectNotify(KIO__ForwardingWorkerBase* self, const QMetaMethod* signal) {
+void KIO__ForwardingWorkerBase_SuperDisconnectNotify(KIO__ForwardingWorkerBase* self, const QMetaMethod* signal) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_DisconnectNotify_IsBase(true);
@@ -714,7 +714,7 @@ void KIO__ForwardingWorkerBase_AppConnectionMade(KIO__ForwardingWorkerBase* self
 }
 
 // Base class handler implementation
-void KIO__ForwardingWorkerBase_QBaseAppConnectionMade(KIO__ForwardingWorkerBase* self) {
+void KIO__ForwardingWorkerBase_SuperAppConnectionMade(KIO__ForwardingWorkerBase* self) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_AppConnectionMade_IsBase(true);
@@ -746,7 +746,7 @@ void KIO__ForwardingWorkerBase_SetHost(KIO__ForwardingWorkerBase* self, const li
 }
 
 // Base class handler implementation
-void KIO__ForwardingWorkerBase_QBaseSetHost(KIO__ForwardingWorkerBase* self, const libqt_string host, uint16_t port, const libqt_string user, const libqt_string pass) {
+void KIO__ForwardingWorkerBase_SuperSetHost(KIO__ForwardingWorkerBase* self, const libqt_string host, uint16_t port, const libqt_string user, const libqt_string pass) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     QString host_QString = QString::fromUtf8(host.data, host.len);
     QString user_QString = QString::fromUtf8(user.data, user.len);
@@ -778,7 +778,7 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_OpenConnection(KIO__ForwardingWorke
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBaseOpenConnection(KIO__ForwardingWorkerBase* self) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperOpenConnection(KIO__ForwardingWorkerBase* self) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_OpenConnection_IsBase(true);
@@ -807,7 +807,7 @@ void KIO__ForwardingWorkerBase_CloseConnection(KIO__ForwardingWorkerBase* self) 
 }
 
 // Base class handler implementation
-void KIO__ForwardingWorkerBase_QBaseCloseConnection(KIO__ForwardingWorkerBase* self) {
+void KIO__ForwardingWorkerBase_SuperCloseConnection(KIO__ForwardingWorkerBase* self) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_CloseConnection_IsBase(true);
@@ -836,7 +836,7 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_Open(KIO__ForwardingWorkerBase* sel
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBaseOpen(KIO__ForwardingWorkerBase* self, const QUrl* url, int mode) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperOpen(KIO__ForwardingWorkerBase* self, const QUrl* url, int mode) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Open_IsBase(true);
@@ -865,7 +865,7 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_Read(KIO__ForwardingWorkerBase* sel
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBaseRead(KIO__ForwardingWorkerBase* self, unsigned long long size) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperRead(KIO__ForwardingWorkerBase* self, unsigned long long size) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Read_IsBase(true);
@@ -895,7 +895,7 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_Write(KIO__ForwardingWorkerBase* se
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBaseWrite(KIO__ForwardingWorkerBase* self, const libqt_string data) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperWrite(KIO__ForwardingWorkerBase* self, const libqt_string data) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     QByteArray data_QByteArray(data.data, data.len);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
@@ -925,7 +925,7 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_Seek(KIO__ForwardingWorkerBase* sel
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBaseSeek(KIO__ForwardingWorkerBase* self, unsigned long long offset) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperSeek(KIO__ForwardingWorkerBase* self, unsigned long long offset) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Seek_IsBase(true);
@@ -954,7 +954,7 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_Truncate(KIO__ForwardingWorkerBase*
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBaseTruncate(KIO__ForwardingWorkerBase* self, unsigned long long size) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperTruncate(KIO__ForwardingWorkerBase* self, unsigned long long size) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Truncate_IsBase(true);
@@ -983,7 +983,7 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_Close(KIO__ForwardingWorkerBase* se
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBaseClose(KIO__ForwardingWorkerBase* self) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperClose(KIO__ForwardingWorkerBase* self) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Close_IsBase(true);
@@ -1014,7 +1014,7 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_Chown(KIO__ForwardingWorkerBase* se
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBaseChown(KIO__ForwardingWorkerBase* self, const QUrl* url, const libqt_string owner, const libqt_string group) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperChown(KIO__ForwardingWorkerBase* self, const QUrl* url, const libqt_string owner, const libqt_string group) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     QString owner_QString = QString::fromUtf8(owner.data, owner.len);
     QString group_QString = QString::fromUtf8(group.data, group.len);
@@ -1046,7 +1046,7 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_Special(KIO__ForwardingWorkerBase* 
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBaseSpecial(KIO__ForwardingWorkerBase* self, const libqt_string data) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperSpecial(KIO__ForwardingWorkerBase* self, const libqt_string data) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     QByteArray data_QByteArray(data.data, data.len);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
@@ -1076,7 +1076,7 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_FileSystemFreeSpace(KIO__Forwarding
 }
 
 // Base class handler implementation
-KIO__WorkerResult* KIO__ForwardingWorkerBase_QBaseFileSystemFreeSpace(KIO__ForwardingWorkerBase* self, const QUrl* url) {
+KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperFileSystemFreeSpace(KIO__ForwardingWorkerBase* self, const QUrl* url) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_FileSystemFreeSpace_IsBase(true);
@@ -1105,7 +1105,7 @@ void KIO__ForwardingWorkerBase_WorkerStatus2(KIO__ForwardingWorkerBase* self) {
 }
 
 // Base class handler implementation
-void KIO__ForwardingWorkerBase_QBaseWorkerStatus2(KIO__ForwardingWorkerBase* self) {
+void KIO__ForwardingWorkerBase_SuperWorkerStatus2(KIO__ForwardingWorkerBase* self) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_WorkerStatus2_IsBase(true);
@@ -1134,7 +1134,7 @@ void KIO__ForwardingWorkerBase_ReparseConfiguration(KIO__ForwardingWorkerBase* s
 }
 
 // Base class handler implementation
-void KIO__ForwardingWorkerBase_QBaseReparseConfiguration(KIO__ForwardingWorkerBase* self) {
+void KIO__ForwardingWorkerBase_SuperReparseConfiguration(KIO__ForwardingWorkerBase* self) {
     auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_ReparseConfiguration_IsBase(true);
@@ -1162,7 +1162,7 @@ QUrl* KIO__ForwardingWorkerBase_ProcessedUrl(const KIO__ForwardingWorkerBase* se
 }
 
 // Base class handler implementation
-QUrl* KIO__ForwardingWorkerBase_QBaseProcessedUrl(const KIO__ForwardingWorkerBase* self) {
+QUrl* KIO__ForwardingWorkerBase_SuperProcessedUrl(const KIO__ForwardingWorkerBase* self) {
     auto* vkioforwardingworkerbase = const_cast<VirtualKIOForwardingWorkerBase*>(dynamic_cast<const VirtualKIOForwardingWorkerBase*>(self));
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_ProcessedUrl_IsBase(true);
@@ -1189,7 +1189,7 @@ QUrl* KIO__ForwardingWorkerBase_RequestedUrl(const KIO__ForwardingWorkerBase* se
 }
 
 // Base class handler implementation
-QUrl* KIO__ForwardingWorkerBase_QBaseRequestedUrl(const KIO__ForwardingWorkerBase* self) {
+QUrl* KIO__ForwardingWorkerBase_SuperRequestedUrl(const KIO__ForwardingWorkerBase* self) {
     auto* vkioforwardingworkerbase = const_cast<VirtualKIOForwardingWorkerBase*>(dynamic_cast<const VirtualKIOForwardingWorkerBase*>(self));
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_RequestedUrl_IsBase(true);
@@ -1217,7 +1217,7 @@ QObject* KIO__ForwardingWorkerBase_Sender(const KIO__ForwardingWorkerBase* self)
 }
 
 // Base class handler implementation
-QObject* KIO__ForwardingWorkerBase_QBaseSender(const KIO__ForwardingWorkerBase* self) {
+QObject* KIO__ForwardingWorkerBase_SuperSender(const KIO__ForwardingWorkerBase* self) {
     auto* vkioforwardingworkerbase = const_cast<VirtualKIOForwardingWorkerBase*>(dynamic_cast<const VirtualKIOForwardingWorkerBase*>(self));
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Sender_IsBase(true);
@@ -1246,7 +1246,7 @@ int KIO__ForwardingWorkerBase_SenderSignalIndex(const KIO__ForwardingWorkerBase*
 }
 
 // Base class handler implementation
-int KIO__ForwardingWorkerBase_QBaseSenderSignalIndex(const KIO__ForwardingWorkerBase* self) {
+int KIO__ForwardingWorkerBase_SuperSenderSignalIndex(const KIO__ForwardingWorkerBase* self) {
     auto* vkioforwardingworkerbase = const_cast<VirtualKIOForwardingWorkerBase*>(dynamic_cast<const VirtualKIOForwardingWorkerBase*>(self));
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_SenderSignalIndex_IsBase(true);
@@ -1275,7 +1275,7 @@ int KIO__ForwardingWorkerBase_Receivers(const KIO__ForwardingWorkerBase* self, c
 }
 
 // Base class handler implementation
-int KIO__ForwardingWorkerBase_QBaseReceivers(const KIO__ForwardingWorkerBase* self, const char* signal) {
+int KIO__ForwardingWorkerBase_SuperReceivers(const KIO__ForwardingWorkerBase* self, const char* signal) {
     auto* vkioforwardingworkerbase = const_cast<VirtualKIOForwardingWorkerBase*>(dynamic_cast<const VirtualKIOForwardingWorkerBase*>(self));
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Receivers_IsBase(true);
@@ -1304,7 +1304,7 @@ bool KIO__ForwardingWorkerBase_IsSignalConnected(const KIO__ForwardingWorkerBase
 }
 
 // Base class handler implementation
-bool KIO__ForwardingWorkerBase_QBaseIsSignalConnected(const KIO__ForwardingWorkerBase* self, const QMetaMethod* signal) {
+bool KIO__ForwardingWorkerBase_SuperIsSignalConnected(const KIO__ForwardingWorkerBase* self, const QMetaMethod* signal) {
     auto* vkioforwardingworkerbase = const_cast<VirtualKIOForwardingWorkerBase*>(dynamic_cast<const VirtualKIOForwardingWorkerBase*>(self));
     if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_IsSignalConnected_IsBase(true);

@@ -251,7 +251,7 @@ void KToolBar_MouseReleaseEvent(KToolBar* self, QMouseEvent* param1) {
 }
 
 // Base class handler implementation
-QMetaObject* KToolBar_QBaseMetaObject(const KToolBar* self) {
+QMetaObject* KToolBar_SuperMetaObject(const KToolBar* self) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_MetaObject_IsBase(true);
@@ -270,7 +270,7 @@ void KToolBar_OnMetaObject(const KToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KToolBar_QBaseMetacast(KToolBar* self, const char* param1) {
+void* KToolBar_SuperMetacast(KToolBar* self, const char* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_Metacast_IsBase(true);
@@ -289,7 +289,7 @@ void KToolBar_OnMetacast(KToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KToolBar_QBaseMetacall(KToolBar* self, int param1, int param2, void** param3) {
+int KToolBar_SuperMetacall(KToolBar* self, int param1, int param2, void** param3) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_Metacall_IsBase(true);
@@ -308,7 +308,7 @@ void KToolBar_OnMetacall(KToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KToolBar_QBaseEventFilter(KToolBar* self, QObject* watched, QEvent* event) {
+bool KToolBar_SuperEventFilter(KToolBar* self, QObject* watched, QEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_EventFilter_IsBase(true);
@@ -327,7 +327,7 @@ void KToolBar_OnEventFilter(KToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseSlotMovableChanged(KToolBar* self, bool movable) {
+void KToolBar_SuperSlotMovableChanged(KToolBar* self, bool movable) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_SlotMovableChanged_IsBase(true);
@@ -346,7 +346,7 @@ void KToolBar_OnSlotMovableChanged(KToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseContextMenuEvent(KToolBar* self, QContextMenuEvent* param1) {
+void KToolBar_SuperContextMenuEvent(KToolBar* self, QContextMenuEvent* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_ContextMenuEvent_IsBase(true);
@@ -365,7 +365,7 @@ void KToolBar_OnContextMenuEvent(KToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseActionEvent(KToolBar* self, QActionEvent* param1) {
+void KToolBar_SuperActionEvent(KToolBar* self, QActionEvent* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_ActionEvent_IsBase(true);
@@ -384,7 +384,7 @@ void KToolBar_OnActionEvent(KToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseDragEnterEvent(KToolBar* self, QDragEnterEvent* param1) {
+void KToolBar_SuperDragEnterEvent(KToolBar* self, QDragEnterEvent* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_DragEnterEvent_IsBase(true);
@@ -403,7 +403,7 @@ void KToolBar_OnDragEnterEvent(KToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseDragMoveEvent(KToolBar* self, QDragMoveEvent* param1) {
+void KToolBar_SuperDragMoveEvent(KToolBar* self, QDragMoveEvent* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_DragMoveEvent_IsBase(true);
@@ -422,7 +422,7 @@ void KToolBar_OnDragMoveEvent(KToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseDragLeaveEvent(KToolBar* self, QDragLeaveEvent* param1) {
+void KToolBar_SuperDragLeaveEvent(KToolBar* self, QDragLeaveEvent* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_DragLeaveEvent_IsBase(true);
@@ -441,7 +441,7 @@ void KToolBar_OnDragLeaveEvent(KToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseDropEvent(KToolBar* self, QDropEvent* param1) {
+void KToolBar_SuperDropEvent(KToolBar* self, QDropEvent* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_DropEvent_IsBase(true);
@@ -460,7 +460,7 @@ void KToolBar_OnDropEvent(KToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseMousePressEvent(KToolBar* self, QMouseEvent* param1) {
+void KToolBar_SuperMousePressEvent(KToolBar* self, QMouseEvent* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_MousePressEvent_IsBase(true);
@@ -479,7 +479,7 @@ void KToolBar_OnMousePressEvent(KToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseMouseMoveEvent(KToolBar* self, QMouseEvent* param1) {
+void KToolBar_SuperMouseMoveEvent(KToolBar* self, QMouseEvent* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_MouseMoveEvent_IsBase(true);
@@ -498,7 +498,7 @@ void KToolBar_OnMouseMoveEvent(KToolBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseMouseReleaseEvent(KToolBar* self, QMouseEvent* param1) {
+void KToolBar_SuperMouseReleaseEvent(KToolBar* self, QMouseEvent* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_MouseReleaseEvent_IsBase(true);
@@ -527,7 +527,7 @@ void KToolBar_ChangeEvent(KToolBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseChangeEvent(KToolBar* self, QEvent* event) {
+void KToolBar_SuperChangeEvent(KToolBar* self, QEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_ChangeEvent_IsBase(true);
@@ -556,7 +556,7 @@ void KToolBar_PaintEvent(KToolBar* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KToolBar_QBasePaintEvent(KToolBar* self, QPaintEvent* event) {
+void KToolBar_SuperPaintEvent(KToolBar* self, QPaintEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_PaintEvent_IsBase(true);
@@ -585,7 +585,7 @@ bool KToolBar_Event(KToolBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KToolBar_QBaseEvent(KToolBar* self, QEvent* event) {
+bool KToolBar_SuperEvent(KToolBar* self, QEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_Event_IsBase(true);
@@ -614,7 +614,7 @@ void KToolBar_InitStyleOption(const KToolBar* self, QStyleOptionToolBar* option)
 }
 
 // Base class handler implementation
-void KToolBar_QBaseInitStyleOption(const KToolBar* self, QStyleOptionToolBar* option) {
+void KToolBar_SuperInitStyleOption(const KToolBar* self, QStyleOptionToolBar* option) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_InitStyleOption_IsBase(true);
@@ -643,7 +643,7 @@ int KToolBar_DevType(const KToolBar* self) {
 }
 
 // Base class handler implementation
-int KToolBar_QBaseDevType(const KToolBar* self) {
+int KToolBar_SuperDevType(const KToolBar* self) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_DevType_IsBase(true);
@@ -672,7 +672,7 @@ void KToolBar_SetVisible(KToolBar* self, bool visible) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseSetVisible(KToolBar* self, bool visible) {
+void KToolBar_SuperSetVisible(KToolBar* self, bool visible) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_SetVisible_IsBase(true);
@@ -701,7 +701,7 @@ QSize* KToolBar_SizeHint(const KToolBar* self) {
 }
 
 // Base class handler implementation
-QSize* KToolBar_QBaseSizeHint(const KToolBar* self) {
+QSize* KToolBar_SuperSizeHint(const KToolBar* self) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_SizeHint_IsBase(true);
@@ -730,7 +730,7 @@ QSize* KToolBar_MinimumSizeHint(const KToolBar* self) {
 }
 
 // Base class handler implementation
-QSize* KToolBar_QBaseMinimumSizeHint(const KToolBar* self) {
+QSize* KToolBar_SuperMinimumSizeHint(const KToolBar* self) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_MinimumSizeHint_IsBase(true);
@@ -759,7 +759,7 @@ int KToolBar_HeightForWidth(const KToolBar* self, int param1) {
 }
 
 // Base class handler implementation
-int KToolBar_QBaseHeightForWidth(const KToolBar* self, int param1) {
+int KToolBar_SuperHeightForWidth(const KToolBar* self, int param1) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_HeightForWidth_IsBase(true);
@@ -788,7 +788,7 @@ bool KToolBar_HasHeightForWidth(const KToolBar* self) {
 }
 
 // Base class handler implementation
-bool KToolBar_QBaseHasHeightForWidth(const KToolBar* self) {
+bool KToolBar_SuperHasHeightForWidth(const KToolBar* self) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_HasHeightForWidth_IsBase(true);
@@ -817,7 +817,7 @@ QPaintEngine* KToolBar_PaintEngine(const KToolBar* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KToolBar_QBasePaintEngine(const KToolBar* self) {
+QPaintEngine* KToolBar_SuperPaintEngine(const KToolBar* self) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_PaintEngine_IsBase(true);
@@ -846,7 +846,7 @@ void KToolBar_MouseDoubleClickEvent(KToolBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseMouseDoubleClickEvent(KToolBar* self, QMouseEvent* event) {
+void KToolBar_SuperMouseDoubleClickEvent(KToolBar* self, QMouseEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_MouseDoubleClickEvent_IsBase(true);
@@ -875,7 +875,7 @@ void KToolBar_WheelEvent(KToolBar* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseWheelEvent(KToolBar* self, QWheelEvent* event) {
+void KToolBar_SuperWheelEvent(KToolBar* self, QWheelEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_WheelEvent_IsBase(true);
@@ -904,7 +904,7 @@ void KToolBar_KeyPressEvent(KToolBar* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseKeyPressEvent(KToolBar* self, QKeyEvent* event) {
+void KToolBar_SuperKeyPressEvent(KToolBar* self, QKeyEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_KeyPressEvent_IsBase(true);
@@ -933,7 +933,7 @@ void KToolBar_KeyReleaseEvent(KToolBar* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseKeyReleaseEvent(KToolBar* self, QKeyEvent* event) {
+void KToolBar_SuperKeyReleaseEvent(KToolBar* self, QKeyEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_KeyReleaseEvent_IsBase(true);
@@ -962,7 +962,7 @@ void KToolBar_FocusInEvent(KToolBar* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseFocusInEvent(KToolBar* self, QFocusEvent* event) {
+void KToolBar_SuperFocusInEvent(KToolBar* self, QFocusEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_FocusInEvent_IsBase(true);
@@ -991,7 +991,7 @@ void KToolBar_FocusOutEvent(KToolBar* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseFocusOutEvent(KToolBar* self, QFocusEvent* event) {
+void KToolBar_SuperFocusOutEvent(KToolBar* self, QFocusEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_FocusOutEvent_IsBase(true);
@@ -1020,7 +1020,7 @@ void KToolBar_EnterEvent(KToolBar* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseEnterEvent(KToolBar* self, QEnterEvent* event) {
+void KToolBar_SuperEnterEvent(KToolBar* self, QEnterEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_EnterEvent_IsBase(true);
@@ -1049,7 +1049,7 @@ void KToolBar_LeaveEvent(KToolBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseLeaveEvent(KToolBar* self, QEvent* event) {
+void KToolBar_SuperLeaveEvent(KToolBar* self, QEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_LeaveEvent_IsBase(true);
@@ -1078,7 +1078,7 @@ void KToolBar_MoveEvent(KToolBar* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseMoveEvent(KToolBar* self, QMoveEvent* event) {
+void KToolBar_SuperMoveEvent(KToolBar* self, QMoveEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_MoveEvent_IsBase(true);
@@ -1107,7 +1107,7 @@ void KToolBar_ResizeEvent(KToolBar* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseResizeEvent(KToolBar* self, QResizeEvent* event) {
+void KToolBar_SuperResizeEvent(KToolBar* self, QResizeEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_ResizeEvent_IsBase(true);
@@ -1136,7 +1136,7 @@ void KToolBar_CloseEvent(KToolBar* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseCloseEvent(KToolBar* self, QCloseEvent* event) {
+void KToolBar_SuperCloseEvent(KToolBar* self, QCloseEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_CloseEvent_IsBase(true);
@@ -1165,7 +1165,7 @@ void KToolBar_TabletEvent(KToolBar* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseTabletEvent(KToolBar* self, QTabletEvent* event) {
+void KToolBar_SuperTabletEvent(KToolBar* self, QTabletEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_TabletEvent_IsBase(true);
@@ -1194,7 +1194,7 @@ void KToolBar_ShowEvent(KToolBar* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseShowEvent(KToolBar* self, QShowEvent* event) {
+void KToolBar_SuperShowEvent(KToolBar* self, QShowEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_ShowEvent_IsBase(true);
@@ -1223,7 +1223,7 @@ void KToolBar_HideEvent(KToolBar* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseHideEvent(KToolBar* self, QHideEvent* event) {
+void KToolBar_SuperHideEvent(KToolBar* self, QHideEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_HideEvent_IsBase(true);
@@ -1253,7 +1253,7 @@ bool KToolBar_NativeEvent(KToolBar* self, const libqt_string eventType, void* me
 }
 
 // Base class handler implementation
-bool KToolBar_QBaseNativeEvent(KToolBar* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KToolBar_SuperNativeEvent(KToolBar* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
@@ -1283,7 +1283,7 @@ int KToolBar_Metric(const KToolBar* self, int param1) {
 }
 
 // Base class handler implementation
-int KToolBar_QBaseMetric(const KToolBar* self, int param1) {
+int KToolBar_SuperMetric(const KToolBar* self, int param1) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_Metric_IsBase(true);
@@ -1312,7 +1312,7 @@ void KToolBar_InitPainter(const KToolBar* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseInitPainter(const KToolBar* self, QPainter* painter) {
+void KToolBar_SuperInitPainter(const KToolBar* self, QPainter* painter) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_InitPainter_IsBase(true);
@@ -1341,7 +1341,7 @@ QPaintDevice* KToolBar_Redirected(const KToolBar* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KToolBar_QBaseRedirected(const KToolBar* self, QPoint* offset) {
+QPaintDevice* KToolBar_SuperRedirected(const KToolBar* self, QPoint* offset) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_Redirected_IsBase(true);
@@ -1370,7 +1370,7 @@ QPainter* KToolBar_SharedPainter(const KToolBar* self) {
 }
 
 // Base class handler implementation
-QPainter* KToolBar_QBaseSharedPainter(const KToolBar* self) {
+QPainter* KToolBar_SuperSharedPainter(const KToolBar* self) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_SharedPainter_IsBase(true);
@@ -1399,7 +1399,7 @@ void KToolBar_InputMethodEvent(KToolBar* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseInputMethodEvent(KToolBar* self, QInputMethodEvent* param1) {
+void KToolBar_SuperInputMethodEvent(KToolBar* self, QInputMethodEvent* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_InputMethodEvent_IsBase(true);
@@ -1428,7 +1428,7 @@ QVariant* KToolBar_InputMethodQuery(const KToolBar* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KToolBar_QBaseInputMethodQuery(const KToolBar* self, int param1) {
+QVariant* KToolBar_SuperInputMethodQuery(const KToolBar* self, int param1) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_InputMethodQuery_IsBase(true);
@@ -1457,7 +1457,7 @@ bool KToolBar_FocusNextPrevChild(KToolBar* self, bool next) {
 }
 
 // Base class handler implementation
-bool KToolBar_QBaseFocusNextPrevChild(KToolBar* self, bool next) {
+bool KToolBar_SuperFocusNextPrevChild(KToolBar* self, bool next) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_FocusNextPrevChild_IsBase(true);
@@ -1486,7 +1486,7 @@ void KToolBar_TimerEvent(KToolBar* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseTimerEvent(KToolBar* self, QTimerEvent* event) {
+void KToolBar_SuperTimerEvent(KToolBar* self, QTimerEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_TimerEvent_IsBase(true);
@@ -1515,7 +1515,7 @@ void KToolBar_ChildEvent(KToolBar* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseChildEvent(KToolBar* self, QChildEvent* event) {
+void KToolBar_SuperChildEvent(KToolBar* self, QChildEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_ChildEvent_IsBase(true);
@@ -1544,7 +1544,7 @@ void KToolBar_CustomEvent(KToolBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseCustomEvent(KToolBar* self, QEvent* event) {
+void KToolBar_SuperCustomEvent(KToolBar* self, QEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_CustomEvent_IsBase(true);
@@ -1573,7 +1573,7 @@ void KToolBar_ConnectNotify(KToolBar* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseConnectNotify(KToolBar* self, const QMetaMethod* signal) {
+void KToolBar_SuperConnectNotify(KToolBar* self, const QMetaMethod* signal) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_ConnectNotify_IsBase(true);
@@ -1602,7 +1602,7 @@ void KToolBar_DisconnectNotify(KToolBar* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseDisconnectNotify(KToolBar* self, const QMetaMethod* signal) {
+void KToolBar_SuperDisconnectNotify(KToolBar* self, const QMetaMethod* signal) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_DisconnectNotify_IsBase(true);
@@ -1631,7 +1631,7 @@ void KToolBar_UpdateMicroFocus(KToolBar* self) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseUpdateMicroFocus(KToolBar* self) {
+void KToolBar_SuperUpdateMicroFocus(KToolBar* self) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_UpdateMicroFocus_IsBase(true);
@@ -1660,7 +1660,7 @@ void KToolBar_Create(KToolBar* self) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseCreate(KToolBar* self) {
+void KToolBar_SuperCreate(KToolBar* self) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_Create_IsBase(true);
@@ -1689,7 +1689,7 @@ void KToolBar_Destroy(KToolBar* self) {
 }
 
 // Base class handler implementation
-void KToolBar_QBaseDestroy(KToolBar* self) {
+void KToolBar_SuperDestroy(KToolBar* self) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_Destroy_IsBase(true);
@@ -1718,7 +1718,7 @@ bool KToolBar_FocusNextChild(KToolBar* self) {
 }
 
 // Base class handler implementation
-bool KToolBar_QBaseFocusNextChild(KToolBar* self) {
+bool KToolBar_SuperFocusNextChild(KToolBar* self) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_FocusNextChild_IsBase(true);
@@ -1747,7 +1747,7 @@ bool KToolBar_FocusPreviousChild(KToolBar* self) {
 }
 
 // Base class handler implementation
-bool KToolBar_QBaseFocusPreviousChild(KToolBar* self) {
+bool KToolBar_SuperFocusPreviousChild(KToolBar* self) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_FocusPreviousChild_IsBase(true);
@@ -1776,7 +1776,7 @@ QObject* KToolBar_Sender(const KToolBar* self) {
 }
 
 // Base class handler implementation
-QObject* KToolBar_QBaseSender(const KToolBar* self) {
+QObject* KToolBar_SuperSender(const KToolBar* self) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_Sender_IsBase(true);
@@ -1805,7 +1805,7 @@ int KToolBar_SenderSignalIndex(const KToolBar* self) {
 }
 
 // Base class handler implementation
-int KToolBar_QBaseSenderSignalIndex(const KToolBar* self) {
+int KToolBar_SuperSenderSignalIndex(const KToolBar* self) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_SenderSignalIndex_IsBase(true);
@@ -1834,7 +1834,7 @@ int KToolBar_Receivers(const KToolBar* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KToolBar_QBaseReceivers(const KToolBar* self, const char* signal) {
+int KToolBar_SuperReceivers(const KToolBar* self, const char* signal) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_Receivers_IsBase(true);
@@ -1863,7 +1863,7 @@ bool KToolBar_IsSignalConnected(const KToolBar* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-bool KToolBar_QBaseIsSignalConnected(const KToolBar* self, const QMetaMethod* signal) {
+bool KToolBar_SuperIsSignalConnected(const KToolBar* self, const QMetaMethod* signal) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_IsSignalConnected_IsBase(true);
@@ -1892,7 +1892,7 @@ double KToolBar_GetDecodedMetricF(const KToolBar* self, int metricA, int metricB
 }
 
 // Base class handler implementation
-double KToolBar_QBaseGetDecodedMetricF(const KToolBar* self, int metricA, int metricB) {
+double KToolBar_SuperGetDecodedMetricF(const KToolBar* self, int metricA, int metricB) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->setKToolBar_GetDecodedMetricF_IsBase(true);

@@ -354,23 +354,23 @@ class VirtualQStylePlugin : public QStylePlugin {
 
     // Friend functions
     friend void QStylePlugin_TimerEvent(QStylePlugin* self, QTimerEvent* event);
-    friend void QStylePlugin_QBaseTimerEvent(QStylePlugin* self, QTimerEvent* event);
+    friend void QStylePlugin_SuperTimerEvent(QStylePlugin* self, QTimerEvent* event);
     friend void QStylePlugin_ChildEvent(QStylePlugin* self, QChildEvent* event);
-    friend void QStylePlugin_QBaseChildEvent(QStylePlugin* self, QChildEvent* event);
+    friend void QStylePlugin_SuperChildEvent(QStylePlugin* self, QChildEvent* event);
     friend void QStylePlugin_CustomEvent(QStylePlugin* self, QEvent* event);
-    friend void QStylePlugin_QBaseCustomEvent(QStylePlugin* self, QEvent* event);
+    friend void QStylePlugin_SuperCustomEvent(QStylePlugin* self, QEvent* event);
     friend void QStylePlugin_ConnectNotify(QStylePlugin* self, const QMetaMethod* signal);
-    friend void QStylePlugin_QBaseConnectNotify(QStylePlugin* self, const QMetaMethod* signal);
+    friend void QStylePlugin_SuperConnectNotify(QStylePlugin* self, const QMetaMethod* signal);
     friend void QStylePlugin_DisconnectNotify(QStylePlugin* self, const QMetaMethod* signal);
-    friend void QStylePlugin_QBaseDisconnectNotify(QStylePlugin* self, const QMetaMethod* signal);
+    friend void QStylePlugin_SuperDisconnectNotify(QStylePlugin* self, const QMetaMethod* signal);
     friend QObject* QStylePlugin_Sender(const QStylePlugin* self);
-    friend QObject* QStylePlugin_QBaseSender(const QStylePlugin* self);
+    friend QObject* QStylePlugin_SuperSender(const QStylePlugin* self);
     friend int QStylePlugin_SenderSignalIndex(const QStylePlugin* self);
-    friend int QStylePlugin_QBaseSenderSignalIndex(const QStylePlugin* self);
+    friend int QStylePlugin_SuperSenderSignalIndex(const QStylePlugin* self);
     friend int QStylePlugin_Receivers(const QStylePlugin* self, const char* signal);
-    friend int QStylePlugin_QBaseReceivers(const QStylePlugin* self, const char* signal);
+    friend int QStylePlugin_SuperReceivers(const QStylePlugin* self, const char* signal);
     friend bool QStylePlugin_IsSignalConnected(const QStylePlugin* self, const QMetaMethod* signal);
-    friend bool QStylePlugin_QBaseIsSignalConnected(const QStylePlugin* self, const QMetaMethod* signal);
+    friend bool QStylePlugin_SuperIsSignalConnected(const QStylePlugin* self, const QMetaMethod* signal);
 };
 
 #endif

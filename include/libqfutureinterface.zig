@@ -593,6 +593,10 @@ pub const qfutureinterfacebase = struct {
         return qtc.QFutureInterfaceBase_IsChainCanceled(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#dtor.QFutureInterfaceBase)
     ///
     /// Delete this object from C++ memory.
@@ -601,7 +605,7 @@ pub const qfutureinterfacebase = struct {
     ///
     /// ` self: QtC.QFutureInterfaceBase `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QFutureInterfaceBase_Delete(@ptrCast(self));
     }
 };

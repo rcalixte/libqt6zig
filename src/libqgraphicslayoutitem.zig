@@ -335,6 +335,10 @@ pub const qgraphicslayoutitem = struct {
         qtc.QGraphicsLayoutItem_OnSetGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetGeometry` instead
+    ///
+    pub const QBaseSetGeometry = SuperSetGeometry;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGeometry)
     ///
     /// Base class method implementation
@@ -345,8 +349,8 @@ pub const qgraphicslayoutitem = struct {
     ///
     /// ` rect: QtC.QRectF `
     ///
-    pub fn QBaseSetGeometry(self: ?*anyopaque, rect: ?*anyopaque) void {
-        qtc.QGraphicsLayoutItem_QBaseSetGeometry(@ptrCast(self), @ptrCast(rect));
+    pub fn SuperSetGeometry(self: ?*anyopaque, rect: ?*anyopaque) void {
+        qtc.QGraphicsLayoutItem_SuperSetGeometry(@ptrCast(self), @ptrCast(rect));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#geometry)
@@ -391,6 +395,10 @@ pub const qgraphicslayoutitem = struct {
         qtc.QGraphicsLayoutItem_OnGetContentsMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGetContentsMargins` instead
+    ///
+    pub const QBaseGetContentsMargins = SuperGetContentsMargins;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#getContentsMargins)
     ///
     /// Base class method implementation
@@ -407,8 +415,8 @@ pub const qgraphicslayoutitem = struct {
     ///
     /// ` bottom: *f64 `
     ///
-    pub fn QBaseGetContentsMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
-        qtc.QGraphicsLayoutItem_QBaseGetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
+    pub fn SuperGetContentsMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
+        qtc.QGraphicsLayoutItem_SuperGetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#contentsRect)
@@ -457,6 +465,10 @@ pub const qgraphicslayoutitem = struct {
         qtc.QGraphicsLayoutItem_OnUpdateGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateGeometry` instead
+    ///
+    pub const QBaseUpdateGeometry = SuperUpdateGeometry;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#updateGeometry)
     ///
     /// Base class method implementation
@@ -465,8 +477,8 @@ pub const qgraphicslayoutitem = struct {
     ///
     /// ` self: QtC.QGraphicsLayoutItem `
     ///
-    pub fn QBaseUpdateGeometry(self: ?*anyopaque) void {
-        qtc.QGraphicsLayoutItem_QBaseUpdateGeometry(@ptrCast(self));
+    pub fn SuperUpdateGeometry(self: ?*anyopaque) void {
+        qtc.QGraphicsLayoutItem_SuperUpdateGeometry(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
@@ -493,6 +505,10 @@ pub const qgraphicslayoutitem = struct {
         qtc.QGraphicsLayoutItem_OnIsEmpty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsEmpty` instead
+    ///
+    pub const QBaseIsEmpty = SuperIsEmpty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
     ///
     /// Base class method implementation
@@ -501,8 +517,8 @@ pub const qgraphicslayoutitem = struct {
     ///
     /// ` self: QtC.QGraphicsLayoutItem `
     ///
-    pub fn QBaseIsEmpty(self: ?*anyopaque) bool {
-        return qtc.QGraphicsLayoutItem_QBaseIsEmpty(@ptrCast(self));
+    pub fn SuperIsEmpty(self: ?*anyopaque) bool {
+        return qtc.QGraphicsLayoutItem_SuperIsEmpty(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#parentLayoutItem)
@@ -583,6 +599,10 @@ pub const qgraphicslayoutitem = struct {
         qtc.QGraphicsLayoutItem_OnSetGraphicsItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetGraphicsItem` instead
+    ///
+    pub const QBaseSetGraphicsItem = SuperSetGraphicsItem;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
     ///
     /// Base class method implementation
@@ -593,8 +613,8 @@ pub const qgraphicslayoutitem = struct {
     ///
     /// ` item: QtC.QGraphicsItem `
     ///
-    pub fn QBaseSetGraphicsItem(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QGraphicsLayoutItem_QBaseSetGraphicsItem(@ptrCast(self), @ptrCast(item));
+    pub fn SuperSetGraphicsItem(self: ?*anyopaque, item: ?*anyopaque) void {
+        qtc.QGraphicsLayoutItem_SuperSetGraphicsItem(@ptrCast(self), @ptrCast(item));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
@@ -623,6 +643,10 @@ pub const qgraphicslayoutitem = struct {
         qtc.QGraphicsLayoutItem_OnSetOwnedByLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetOwnedByLayout` instead
+    ///
+    pub const QBaseSetOwnedByLayout = SuperSetOwnedByLayout;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
     ///
     /// Base class method implementation
@@ -633,8 +657,8 @@ pub const qgraphicslayoutitem = struct {
     ///
     /// ` ownedByLayout: bool `
     ///
-    pub fn QBaseSetOwnedByLayout(self: ?*anyopaque, ownedByLayout: bool) void {
-        qtc.QGraphicsLayoutItem_QBaseSetOwnedByLayout(@ptrCast(self), ownedByLayout);
+    pub fn SuperSetOwnedByLayout(self: ?*anyopaque, ownedByLayout: bool) void {
+        qtc.QGraphicsLayoutItem_SuperSetOwnedByLayout(@ptrCast(self), ownedByLayout);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#sizeHint)
@@ -665,6 +689,10 @@ pub const qgraphicslayoutitem = struct {
         qtc.QGraphicsLayoutItem_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#sizeHint)
     ///
     /// Base class method implementation
@@ -677,8 +705,8 @@ pub const qgraphicslayoutitem = struct {
     ///
     /// ` constraint: QtC.QSizeF `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
-        return qtc.QGraphicsLayoutItem_QBaseSizeHint(@ptrCast(self), @bitCast(which), @ptrCast(constraint));
+    pub fn SuperSizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
+        return qtc.QGraphicsLayoutItem_SuperSizeHint(@ptrCast(self), @bitCast(which), @ptrCast(constraint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
@@ -711,6 +739,10 @@ pub const qgraphicslayoutitem = struct {
         return qtc.QGraphicsLayoutItem_EffectiveSizeHint2(@ptrCast(self), @bitCast(which), @ptrCast(constraint));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#dtor.QGraphicsLayoutItem)
     ///
     /// Delete this object from C++ memory.
@@ -719,7 +751,7 @@ pub const qgraphicslayoutitem = struct {
     ///
     /// ` self: QtC.QGraphicsLayoutItem `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGraphicsLayoutItem_Delete(@ptrCast(self));
     }
 };

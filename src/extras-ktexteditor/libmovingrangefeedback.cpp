@@ -64,7 +64,7 @@ void KTextEditor__MovingRangeFeedback_CaretExitedRange(KTextEditor__MovingRangeF
 }
 
 // Base class handler implementation
-void KTextEditor__MovingRangeFeedback_QBaseRangeEmpty(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range) {
+void KTextEditor__MovingRangeFeedback_SuperRangeEmpty(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range) {
     auto* vktexteditormovingrangefeedback = dynamic_cast<VirtualKTextEditorMovingRangeFeedback*>(self);
     if (vktexteditormovingrangefeedback && vktexteditormovingrangefeedback->isVirtualKTextEditorMovingRangeFeedback) {
         vktexteditormovingrangefeedback->setKTextEditor__MovingRangeFeedback_RangeEmpty_IsBase(true);
@@ -83,7 +83,7 @@ void KTextEditor__MovingRangeFeedback_OnRangeEmpty(KTextEditor__MovingRangeFeedb
 }
 
 // Base class handler implementation
-void KTextEditor__MovingRangeFeedback_QBaseRangeInvalid(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range) {
+void KTextEditor__MovingRangeFeedback_SuperRangeInvalid(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range) {
     auto* vktexteditormovingrangefeedback = dynamic_cast<VirtualKTextEditorMovingRangeFeedback*>(self);
     if (vktexteditormovingrangefeedback && vktexteditormovingrangefeedback->isVirtualKTextEditorMovingRangeFeedback) {
         vktexteditormovingrangefeedback->setKTextEditor__MovingRangeFeedback_RangeInvalid_IsBase(true);
@@ -102,7 +102,7 @@ void KTextEditor__MovingRangeFeedback_OnRangeInvalid(KTextEditor__MovingRangeFee
 }
 
 // Base class handler implementation
-void KTextEditor__MovingRangeFeedback_QBaseMouseEnteredRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view) {
+void KTextEditor__MovingRangeFeedback_SuperMouseEnteredRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view) {
     auto* vktexteditormovingrangefeedback = dynamic_cast<VirtualKTextEditorMovingRangeFeedback*>(self);
     if (vktexteditormovingrangefeedback && vktexteditormovingrangefeedback->isVirtualKTextEditorMovingRangeFeedback) {
         vktexteditormovingrangefeedback->setKTextEditor__MovingRangeFeedback_MouseEnteredRange_IsBase(true);
@@ -121,7 +121,7 @@ void KTextEditor__MovingRangeFeedback_OnMouseEnteredRange(KTextEditor__MovingRan
 }
 
 // Base class handler implementation
-void KTextEditor__MovingRangeFeedback_QBaseMouseExitedRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view) {
+void KTextEditor__MovingRangeFeedback_SuperMouseExitedRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view) {
     auto* vktexteditormovingrangefeedback = dynamic_cast<VirtualKTextEditorMovingRangeFeedback*>(self);
     if (vktexteditormovingrangefeedback && vktexteditormovingrangefeedback->isVirtualKTextEditorMovingRangeFeedback) {
         vktexteditormovingrangefeedback->setKTextEditor__MovingRangeFeedback_MouseExitedRange_IsBase(true);
@@ -140,7 +140,7 @@ void KTextEditor__MovingRangeFeedback_OnMouseExitedRange(KTextEditor__MovingRang
 }
 
 // Base class handler implementation
-void KTextEditor__MovingRangeFeedback_QBaseCaretEnteredRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view) {
+void KTextEditor__MovingRangeFeedback_SuperCaretEnteredRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view) {
     auto* vktexteditormovingrangefeedback = dynamic_cast<VirtualKTextEditorMovingRangeFeedback*>(self);
     if (vktexteditormovingrangefeedback && vktexteditormovingrangefeedback->isVirtualKTextEditorMovingRangeFeedback) {
         vktexteditormovingrangefeedback->setKTextEditor__MovingRangeFeedback_CaretEnteredRange_IsBase(true);
@@ -159,7 +159,7 @@ void KTextEditor__MovingRangeFeedback_OnCaretEnteredRange(KTextEditor__MovingRan
 }
 
 // Base class handler implementation
-void KTextEditor__MovingRangeFeedback_QBaseCaretExitedRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view) {
+void KTextEditor__MovingRangeFeedback_SuperCaretExitedRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view) {
     auto* vktexteditormovingrangefeedback = dynamic_cast<VirtualKTextEditorMovingRangeFeedback*>(self);
     if (vktexteditormovingrangefeedback && vktexteditormovingrangefeedback->isVirtualKTextEditorMovingRangeFeedback) {
         vktexteditormovingrangefeedback->setKTextEditor__MovingRangeFeedback_CaretExitedRange_IsBase(true);

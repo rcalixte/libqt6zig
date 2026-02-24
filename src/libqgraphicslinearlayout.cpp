@@ -156,7 +156,7 @@ void QGraphicsLinearLayout_Dump1(const QGraphicsLinearLayout* self, int indent) 
 }
 
 // Base class handler implementation
-void QGraphicsLinearLayout_QBaseRemoveAt(QGraphicsLinearLayout* self, int index) {
+void QGraphicsLinearLayout_SuperRemoveAt(QGraphicsLinearLayout* self, int index) {
     auto* vqgraphicslinearlayout = dynamic_cast<VirtualQGraphicsLinearLayout*>(self);
     if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
         vqgraphicslinearlayout->setQGraphicsLinearLayout_RemoveAt_IsBase(true);
@@ -175,7 +175,7 @@ void QGraphicsLinearLayout_OnRemoveAt(QGraphicsLinearLayout* self, intptr_t slot
 }
 
 // Base class handler implementation
-void QGraphicsLinearLayout_QBaseSetGeometry(QGraphicsLinearLayout* self, const QRectF* rect) {
+void QGraphicsLinearLayout_SuperSetGeometry(QGraphicsLinearLayout* self, const QRectF* rect) {
     auto* vqgraphicslinearlayout = dynamic_cast<VirtualQGraphicsLinearLayout*>(self);
     if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
         vqgraphicslinearlayout->setQGraphicsLinearLayout_SetGeometry_IsBase(true);
@@ -194,7 +194,7 @@ void QGraphicsLinearLayout_OnSetGeometry(QGraphicsLinearLayout* self, intptr_t s
 }
 
 // Base class handler implementation
-int QGraphicsLinearLayout_QBaseCount(const QGraphicsLinearLayout* self) {
+int QGraphicsLinearLayout_SuperCount(const QGraphicsLinearLayout* self) {
     auto* vqgraphicslinearlayout = const_cast<VirtualQGraphicsLinearLayout*>(dynamic_cast<const VirtualQGraphicsLinearLayout*>(self));
     if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
         vqgraphicslinearlayout->setQGraphicsLinearLayout_Count_IsBase(true);
@@ -213,7 +213,7 @@ void QGraphicsLinearLayout_OnCount(const QGraphicsLinearLayout* self, intptr_t s
 }
 
 // Base class handler implementation
-QGraphicsLayoutItem* QGraphicsLinearLayout_QBaseItemAt(const QGraphicsLinearLayout* self, int index) {
+QGraphicsLayoutItem* QGraphicsLinearLayout_SuperItemAt(const QGraphicsLinearLayout* self, int index) {
     auto* vqgraphicslinearlayout = const_cast<VirtualQGraphicsLinearLayout*>(dynamic_cast<const VirtualQGraphicsLinearLayout*>(self));
     if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
         vqgraphicslinearlayout->setQGraphicsLinearLayout_ItemAt_IsBase(true);
@@ -232,7 +232,7 @@ void QGraphicsLinearLayout_OnItemAt(const QGraphicsLinearLayout* self, intptr_t 
 }
 
 // Base class handler implementation
-void QGraphicsLinearLayout_QBaseInvalidate(QGraphicsLinearLayout* self) {
+void QGraphicsLinearLayout_SuperInvalidate(QGraphicsLinearLayout* self) {
     auto* vqgraphicslinearlayout = dynamic_cast<VirtualQGraphicsLinearLayout*>(self);
     if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
         vqgraphicslinearlayout->setQGraphicsLinearLayout_Invalidate_IsBase(true);
@@ -251,7 +251,7 @@ void QGraphicsLinearLayout_OnInvalidate(QGraphicsLinearLayout* self, intptr_t sl
 }
 
 // Base class handler implementation
-QSizeF* QGraphicsLinearLayout_QBaseSizeHint(const QGraphicsLinearLayout* self, int which, const QSizeF* constraint) {
+QSizeF* QGraphicsLinearLayout_SuperSizeHint(const QGraphicsLinearLayout* self, int which, const QSizeF* constraint) {
     auto* vqgraphicslinearlayout = const_cast<VirtualQGraphicsLinearLayout*>(dynamic_cast<const VirtualQGraphicsLinearLayout*>(self));
     if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
         vqgraphicslinearlayout->setQGraphicsLinearLayout_SizeHint_IsBase(true);
@@ -280,7 +280,7 @@ void QGraphicsLinearLayout_GetContentsMargins(const QGraphicsLinearLayout* self,
 }
 
 // Base class handler implementation
-void QGraphicsLinearLayout_QBaseGetContentsMargins(const QGraphicsLinearLayout* self, double* left, double* top, double* right, double* bottom) {
+void QGraphicsLinearLayout_SuperGetContentsMargins(const QGraphicsLinearLayout* self, double* left, double* top, double* right, double* bottom) {
     auto* vqgraphicslinearlayout = const_cast<VirtualQGraphicsLinearLayout*>(dynamic_cast<const VirtualQGraphicsLinearLayout*>(self));
     if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
         vqgraphicslinearlayout->setQGraphicsLinearLayout_GetContentsMargins_IsBase(true);
@@ -309,7 +309,7 @@ void QGraphicsLinearLayout_UpdateGeometry(QGraphicsLinearLayout* self) {
 }
 
 // Base class handler implementation
-void QGraphicsLinearLayout_QBaseUpdateGeometry(QGraphicsLinearLayout* self) {
+void QGraphicsLinearLayout_SuperUpdateGeometry(QGraphicsLinearLayout* self) {
     auto* vqgraphicslinearlayout = dynamic_cast<VirtualQGraphicsLinearLayout*>(self);
     if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
         vqgraphicslinearlayout->setQGraphicsLinearLayout_UpdateGeometry_IsBase(true);
@@ -338,7 +338,7 @@ void QGraphicsLinearLayout_WidgetEvent(QGraphicsLinearLayout* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void QGraphicsLinearLayout_QBaseWidgetEvent(QGraphicsLinearLayout* self, QEvent* e) {
+void QGraphicsLinearLayout_SuperWidgetEvent(QGraphicsLinearLayout* self, QEvent* e) {
     auto* vqgraphicslinearlayout = dynamic_cast<VirtualQGraphicsLinearLayout*>(self);
     if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
         vqgraphicslinearlayout->setQGraphicsLinearLayout_WidgetEvent_IsBase(true);
@@ -367,7 +367,7 @@ bool QGraphicsLinearLayout_IsEmpty(const QGraphicsLinearLayout* self) {
 }
 
 // Base class handler implementation
-bool QGraphicsLinearLayout_QBaseIsEmpty(const QGraphicsLinearLayout* self) {
+bool QGraphicsLinearLayout_SuperIsEmpty(const QGraphicsLinearLayout* self) {
     auto* vqgraphicslinearlayout = const_cast<VirtualQGraphicsLinearLayout*>(dynamic_cast<const VirtualQGraphicsLinearLayout*>(self));
     if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
         vqgraphicslinearlayout->setQGraphicsLinearLayout_IsEmpty_IsBase(true);
@@ -396,7 +396,7 @@ void QGraphicsLinearLayout_AddChildLayoutItem(QGraphicsLinearLayout* self, QGrap
 }
 
 // Base class handler implementation
-void QGraphicsLinearLayout_QBaseAddChildLayoutItem(QGraphicsLinearLayout* self, QGraphicsLayoutItem* layoutItem) {
+void QGraphicsLinearLayout_SuperAddChildLayoutItem(QGraphicsLinearLayout* self, QGraphicsLayoutItem* layoutItem) {
     auto* vqgraphicslinearlayout = dynamic_cast<VirtualQGraphicsLinearLayout*>(self);
     if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
         vqgraphicslinearlayout->setQGraphicsLinearLayout_AddChildLayoutItem_IsBase(true);
@@ -425,7 +425,7 @@ void QGraphicsLinearLayout_SetGraphicsItem(QGraphicsLinearLayout* self, QGraphic
 }
 
 // Base class handler implementation
-void QGraphicsLinearLayout_QBaseSetGraphicsItem(QGraphicsLinearLayout* self, QGraphicsItem* item) {
+void QGraphicsLinearLayout_SuperSetGraphicsItem(QGraphicsLinearLayout* self, QGraphicsItem* item) {
     auto* vqgraphicslinearlayout = dynamic_cast<VirtualQGraphicsLinearLayout*>(self);
     if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
         vqgraphicslinearlayout->setQGraphicsLinearLayout_SetGraphicsItem_IsBase(true);
@@ -454,7 +454,7 @@ void QGraphicsLinearLayout_SetOwnedByLayout(QGraphicsLinearLayout* self, bool ow
 }
 
 // Base class handler implementation
-void QGraphicsLinearLayout_QBaseSetOwnedByLayout(QGraphicsLinearLayout* self, bool ownedByLayout) {
+void QGraphicsLinearLayout_SuperSetOwnedByLayout(QGraphicsLinearLayout* self, bool ownedByLayout) {
     auto* vqgraphicslinearlayout = dynamic_cast<VirtualQGraphicsLinearLayout*>(self);
     if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
         vqgraphicslinearlayout->setQGraphicsLinearLayout_SetOwnedByLayout_IsBase(true);

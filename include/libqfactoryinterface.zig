@@ -31,6 +31,10 @@ pub const qfactoryinterface = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfactoryinterface.html#dtor.QFactoryInterface)
     ///
     /// Delete this object from C++ memory.
@@ -39,7 +43,7 @@ pub const qfactoryinterface = struct {
     ///
     /// ` self: QtC.QFactoryInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QFactoryInterface_Delete(@ptrCast(self));
     }
 };

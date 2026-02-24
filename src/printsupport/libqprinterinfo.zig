@@ -369,6 +369,10 @@ pub const qprinterinfo = struct {
         return qtc.QPrinterInfo_PrinterInfo(printerName_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinterinfo.html#dtor.QPrinterInfo)
     ///
     /// Delete this object from C++ memory.
@@ -377,7 +381,7 @@ pub const qprinterinfo = struct {
     ///
     /// ` self: QtC.QPrinterInfo `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPrinterInfo_Delete(@ptrCast(self));
     }
 };

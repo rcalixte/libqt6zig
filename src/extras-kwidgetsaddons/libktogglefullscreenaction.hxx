@@ -348,29 +348,29 @@ class VirtualKToggleFullScreenAction final : public KToggleFullScreenAction {
 
     // Friend functions
     friend bool KToggleFullScreenAction_EventFilter(KToggleFullScreenAction* self, QObject* object, QEvent* event);
-    friend bool KToggleFullScreenAction_QBaseEventFilter(KToggleFullScreenAction* self, QObject* object, QEvent* event);
+    friend bool KToggleFullScreenAction_SuperEventFilter(KToggleFullScreenAction* self, QObject* object, QEvent* event);
     friend void KToggleFullScreenAction_SlotToggled(KToggleFullScreenAction* self, bool checked);
-    friend void KToggleFullScreenAction_QBaseSlotToggled(KToggleFullScreenAction* self, bool checked);
+    friend void KToggleFullScreenAction_SuperSlotToggled(KToggleFullScreenAction* self, bool checked);
     friend bool KToggleFullScreenAction_Event(KToggleFullScreenAction* self, QEvent* param1);
-    friend bool KToggleFullScreenAction_QBaseEvent(KToggleFullScreenAction* self, QEvent* param1);
+    friend bool KToggleFullScreenAction_SuperEvent(KToggleFullScreenAction* self, QEvent* param1);
     friend void KToggleFullScreenAction_TimerEvent(KToggleFullScreenAction* self, QTimerEvent* event);
-    friend void KToggleFullScreenAction_QBaseTimerEvent(KToggleFullScreenAction* self, QTimerEvent* event);
+    friend void KToggleFullScreenAction_SuperTimerEvent(KToggleFullScreenAction* self, QTimerEvent* event);
     friend void KToggleFullScreenAction_ChildEvent(KToggleFullScreenAction* self, QChildEvent* event);
-    friend void KToggleFullScreenAction_QBaseChildEvent(KToggleFullScreenAction* self, QChildEvent* event);
+    friend void KToggleFullScreenAction_SuperChildEvent(KToggleFullScreenAction* self, QChildEvent* event);
     friend void KToggleFullScreenAction_CustomEvent(KToggleFullScreenAction* self, QEvent* event);
-    friend void KToggleFullScreenAction_QBaseCustomEvent(KToggleFullScreenAction* self, QEvent* event);
+    friend void KToggleFullScreenAction_SuperCustomEvent(KToggleFullScreenAction* self, QEvent* event);
     friend void KToggleFullScreenAction_ConnectNotify(KToggleFullScreenAction* self, const QMetaMethod* signal);
-    friend void KToggleFullScreenAction_QBaseConnectNotify(KToggleFullScreenAction* self, const QMetaMethod* signal);
+    friend void KToggleFullScreenAction_SuperConnectNotify(KToggleFullScreenAction* self, const QMetaMethod* signal);
     friend void KToggleFullScreenAction_DisconnectNotify(KToggleFullScreenAction* self, const QMetaMethod* signal);
-    friend void KToggleFullScreenAction_QBaseDisconnectNotify(KToggleFullScreenAction* self, const QMetaMethod* signal);
+    friend void KToggleFullScreenAction_SuperDisconnectNotify(KToggleFullScreenAction* self, const QMetaMethod* signal);
     friend QObject* KToggleFullScreenAction_Sender(const KToggleFullScreenAction* self);
-    friend QObject* KToggleFullScreenAction_QBaseSender(const KToggleFullScreenAction* self);
+    friend QObject* KToggleFullScreenAction_SuperSender(const KToggleFullScreenAction* self);
     friend int KToggleFullScreenAction_SenderSignalIndex(const KToggleFullScreenAction* self);
-    friend int KToggleFullScreenAction_QBaseSenderSignalIndex(const KToggleFullScreenAction* self);
+    friend int KToggleFullScreenAction_SuperSenderSignalIndex(const KToggleFullScreenAction* self);
     friend int KToggleFullScreenAction_Receivers(const KToggleFullScreenAction* self, const char* signal);
-    friend int KToggleFullScreenAction_QBaseReceivers(const KToggleFullScreenAction* self, const char* signal);
+    friend int KToggleFullScreenAction_SuperReceivers(const KToggleFullScreenAction* self, const char* signal);
     friend bool KToggleFullScreenAction_IsSignalConnected(const KToggleFullScreenAction* self, const QMetaMethod* signal);
-    friend bool KToggleFullScreenAction_QBaseIsSignalConnected(const KToggleFullScreenAction* self, const QMetaMethod* signal);
+    friend bool KToggleFullScreenAction_SuperIsSignalConnected(const KToggleFullScreenAction* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -701,6 +701,10 @@ pub const qfontmetrics = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#dtor.QFontMetrics)
     ///
     /// Delete this object from C++ memory.
@@ -709,7 +713,7 @@ pub const qfontmetrics = struct {
     ///
     /// ` self: QtC.QFontMetrics `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QFontMetrics_Delete(@ptrCast(self));
     }
 };
@@ -1350,6 +1354,10 @@ pub const qfontmetricsf = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetricsf.html#dtor.QFontMetricsF)
     ///
     /// Delete this object from C++ memory.
@@ -1358,7 +1366,7 @@ pub const qfontmetricsf = struct {
     ///
     /// ` self: QtC.QFontMetricsF `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QFontMetricsF_Delete(@ptrCast(self));
     }
 };

@@ -478,37 +478,37 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
 
     // Friend functions
     friend void KFontSizeAction_SlotActionTriggered(KFontSizeAction* self, QAction* action);
-    friend void KFontSizeAction_QBaseSlotActionTriggered(KFontSizeAction* self, QAction* action);
+    friend void KFontSizeAction_SuperSlotActionTriggered(KFontSizeAction* self, QAction* action);
     friend QWidget* KFontSizeAction_CreateWidget(KFontSizeAction* self, QWidget* parent);
-    friend QWidget* KFontSizeAction_QBaseCreateWidget(KFontSizeAction* self, QWidget* parent);
+    friend QWidget* KFontSizeAction_SuperCreateWidget(KFontSizeAction* self, QWidget* parent);
     friend void KFontSizeAction_DeleteWidget(KFontSizeAction* self, QWidget* widget);
-    friend void KFontSizeAction_QBaseDeleteWidget(KFontSizeAction* self, QWidget* widget);
+    friend void KFontSizeAction_SuperDeleteWidget(KFontSizeAction* self, QWidget* widget);
     friend bool KFontSizeAction_Event(KFontSizeAction* self, QEvent* event);
-    friend bool KFontSizeAction_QBaseEvent(KFontSizeAction* self, QEvent* event);
+    friend bool KFontSizeAction_SuperEvent(KFontSizeAction* self, QEvent* event);
     friend bool KFontSizeAction_EventFilter(KFontSizeAction* self, QObject* watched, QEvent* event);
-    friend bool KFontSizeAction_QBaseEventFilter(KFontSizeAction* self, QObject* watched, QEvent* event);
+    friend bool KFontSizeAction_SuperEventFilter(KFontSizeAction* self, QObject* watched, QEvent* event);
     friend void KFontSizeAction_TimerEvent(KFontSizeAction* self, QTimerEvent* event);
-    friend void KFontSizeAction_QBaseTimerEvent(KFontSizeAction* self, QTimerEvent* event);
+    friend void KFontSizeAction_SuperTimerEvent(KFontSizeAction* self, QTimerEvent* event);
     friend void KFontSizeAction_ChildEvent(KFontSizeAction* self, QChildEvent* event);
-    friend void KFontSizeAction_QBaseChildEvent(KFontSizeAction* self, QChildEvent* event);
+    friend void KFontSizeAction_SuperChildEvent(KFontSizeAction* self, QChildEvent* event);
     friend void KFontSizeAction_CustomEvent(KFontSizeAction* self, QEvent* event);
-    friend void KFontSizeAction_QBaseCustomEvent(KFontSizeAction* self, QEvent* event);
+    friend void KFontSizeAction_SuperCustomEvent(KFontSizeAction* self, QEvent* event);
     friend void KFontSizeAction_ConnectNotify(KFontSizeAction* self, const QMetaMethod* signal);
-    friend void KFontSizeAction_QBaseConnectNotify(KFontSizeAction* self, const QMetaMethod* signal);
+    friend void KFontSizeAction_SuperConnectNotify(KFontSizeAction* self, const QMetaMethod* signal);
     friend void KFontSizeAction_DisconnectNotify(KFontSizeAction* self, const QMetaMethod* signal);
-    friend void KFontSizeAction_QBaseDisconnectNotify(KFontSizeAction* self, const QMetaMethod* signal);
+    friend void KFontSizeAction_SuperDisconnectNotify(KFontSizeAction* self, const QMetaMethod* signal);
     friend void KFontSizeAction_SlotToggled(KFontSizeAction* self, bool param1);
-    friend void KFontSizeAction_QBaseSlotToggled(KFontSizeAction* self, bool param1);
+    friend void KFontSizeAction_SuperSlotToggled(KFontSizeAction* self, bool param1);
     friend libqt_list /* of QWidget* */ KFontSizeAction_CreatedWidgets(const KFontSizeAction* self);
-    friend libqt_list /* of QWidget* */ KFontSizeAction_QBaseCreatedWidgets(const KFontSizeAction* self);
+    friend libqt_list /* of QWidget* */ KFontSizeAction_SuperCreatedWidgets(const KFontSizeAction* self);
     friend QObject* KFontSizeAction_Sender(const KFontSizeAction* self);
-    friend QObject* KFontSizeAction_QBaseSender(const KFontSizeAction* self);
+    friend QObject* KFontSizeAction_SuperSender(const KFontSizeAction* self);
     friend int KFontSizeAction_SenderSignalIndex(const KFontSizeAction* self);
-    friend int KFontSizeAction_QBaseSenderSignalIndex(const KFontSizeAction* self);
+    friend int KFontSizeAction_SuperSenderSignalIndex(const KFontSizeAction* self);
     friend int KFontSizeAction_Receivers(const KFontSizeAction* self, const char* signal);
-    friend int KFontSizeAction_QBaseReceivers(const KFontSizeAction* self, const char* signal);
+    friend int KFontSizeAction_SuperReceivers(const KFontSizeAction* self, const char* signal);
     friend bool KFontSizeAction_IsSignalConnected(const KFontSizeAction* self, const QMetaMethod* signal);
-    friend bool KFontSizeAction_QBaseIsSignalConnected(const KFontSizeAction* self, const QMetaMethod* signal);
+    friend bool KFontSizeAction_SuperIsSignalConnected(const KFontSizeAction* self, const QMetaMethod* signal);
 };
 
 #endif

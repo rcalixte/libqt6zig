@@ -53,6 +53,10 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -61,8 +65,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` self: QtC.KParts__PartManager `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KParts__PartManager_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KParts__PartManager_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -88,6 +92,10 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -96,9 +104,9 @@ pub const kparts__partmanager = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KParts__PartManager_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KParts__PartManager_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -127,6 +135,10 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -139,8 +151,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KParts__PartManager_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KParts__PartManager_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -280,6 +292,10 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#eventFilter)
     ///
     /// Base class method implementation
@@ -292,8 +308,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` ev: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, obj: ?*anyopaque, ev: ?*anyopaque) bool {
-        return qtc.KParts__PartManager_QBaseEventFilter(@ptrCast(self), @ptrCast(obj), @ptrCast(ev));
+    pub fn SuperEventFilter(self: ?*anyopaque, obj: ?*anyopaque, ev: ?*anyopaque) bool {
+        return qtc.KParts__PartManager_SuperEventFilter(@ptrCast(self), @ptrCast(obj), @ptrCast(ev));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#addPart)
@@ -324,6 +340,10 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnAddPart(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAddPart` instead
+    ///
+    pub const QBaseAddPart = SuperAddPart;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#addPart)
     ///
     /// Base class method implementation
@@ -336,8 +356,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` setActive: bool `
     ///
-    pub fn QBaseAddPart(self: ?*anyopaque, part: ?*anyopaque, setActive: bool) void {
-        qtc.KParts__PartManager_QBaseAddPart(@ptrCast(self), @ptrCast(part), setActive);
+    pub fn SuperAddPart(self: ?*anyopaque, part: ?*anyopaque, setActive: bool) void {
+        qtc.KParts__PartManager_SuperAddPart(@ptrCast(self), @ptrCast(part), setActive);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#removePart)
@@ -366,6 +386,10 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnRemovePart(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRemovePart` instead
+    ///
+    pub const QBaseRemovePart = SuperRemovePart;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#removePart)
     ///
     /// Base class method implementation
@@ -376,8 +400,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` part: QtC.KParts__Part `
     ///
-    pub fn QBaseRemovePart(self: ?*anyopaque, part: ?*anyopaque) void {
-        qtc.KParts__PartManager_QBaseRemovePart(@ptrCast(self), @ptrCast(part));
+    pub fn SuperRemovePart(self: ?*anyopaque, part: ?*anyopaque) void {
+        qtc.KParts__PartManager_SuperRemovePart(@ptrCast(self), @ptrCast(part));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#replacePart)
@@ -410,6 +434,10 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnReplacePart(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperReplacePart` instead
+    ///
+    pub const QBaseReplacePart = SuperReplacePart;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#replacePart)
     ///
     /// Base class method implementation
@@ -424,8 +452,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` setActive: bool `
     ///
-    pub fn QBaseReplacePart(self: ?*anyopaque, oldPart: ?*anyopaque, newPart: ?*anyopaque, setActive: bool) void {
-        qtc.KParts__PartManager_QBaseReplacePart(@ptrCast(self), @ptrCast(oldPart), @ptrCast(newPart), setActive);
+    pub fn SuperReplacePart(self: ?*anyopaque, oldPart: ?*anyopaque, newPart: ?*anyopaque, setActive: bool) void {
+        qtc.KParts__PartManager_SuperReplacePart(@ptrCast(self), @ptrCast(oldPart), @ptrCast(newPart), setActive);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#setActivePart)
@@ -456,6 +484,10 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnSetActivePart(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetActivePart` instead
+    ///
+    pub const QBaseSetActivePart = SuperSetActivePart;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#setActivePart)
     ///
     /// Base class method implementation
@@ -468,8 +500,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` widget: QtC.QWidget `
     ///
-    pub fn QBaseSetActivePart(self: ?*anyopaque, part: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.KParts__PartManager_QBaseSetActivePart(@ptrCast(self), @ptrCast(part), @ptrCast(widget));
+    pub fn SuperSetActivePart(self: ?*anyopaque, part: ?*anyopaque, widget: ?*anyopaque) void {
+        qtc.KParts__PartManager_SuperSetActivePart(@ptrCast(self), @ptrCast(part), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#activePart)
@@ -496,6 +528,10 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnActivePart(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperActivePart` instead
+    ///
+    pub const QBaseActivePart = SuperActivePart;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#activePart)
     ///
     /// Base class method implementation
@@ -504,8 +540,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` self: QtC.KParts__PartManager `
     ///
-    pub fn QBaseActivePart(self: ?*anyopaque) QtC.KParts__Part {
-        return qtc.KParts__PartManager_QBaseActivePart(@ptrCast(self));
+    pub fn SuperActivePart(self: ?*anyopaque) QtC.KParts__Part {
+        return qtc.KParts__PartManager_SuperActivePart(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#activeWidget)
@@ -532,6 +568,10 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnActiveWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperActiveWidget` instead
+    ///
+    pub const QBaseActiveWidget = SuperActiveWidget;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#activeWidget)
     ///
     /// Base class method implementation
@@ -540,8 +580,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` self: QtC.KParts__PartManager `
     ///
-    pub fn QBaseActiveWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.KParts__PartManager_QBaseActiveWidget(@ptrCast(self));
+    pub fn SuperActiveWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.KParts__PartManager_SuperActiveWidget(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#parts)
@@ -693,6 +733,10 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnSetIgnoreExplictFocusRequests(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetIgnoreExplictFocusRequests` instead
+    ///
+    pub const QBaseSetIgnoreExplictFocusRequests = SuperSetIgnoreExplictFocusRequests;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#setIgnoreExplictFocusRequests)
     ///
     /// Base class method implementation
@@ -703,8 +747,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` ignoreExplictFocusRequests: bool `
     ///
-    pub fn QBaseSetIgnoreExplictFocusRequests(self: ?*anyopaque, ignoreExplictFocusRequests: bool) void {
-        qtc.KParts__PartManager_QBaseSetIgnoreExplictFocusRequests(@ptrCast(self), ignoreExplictFocusRequests);
+    pub fn SuperSetIgnoreExplictFocusRequests(self: ?*anyopaque, ignoreExplictFocusRequests: bool) void {
+        qtc.KParts__PartManager_SuperSetIgnoreExplictFocusRequests(@ptrCast(self), ignoreExplictFocusRequests);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#slotObjectDestroyed)
@@ -731,6 +775,10 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnSlotObjectDestroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotObjectDestroyed` instead
+    ///
+    pub const QBaseSlotObjectDestroyed = SuperSlotObjectDestroyed;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#slotObjectDestroyed)
     ///
     /// Base class method implementation
@@ -739,8 +787,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` self: QtC.KParts__PartManager `
     ///
-    pub fn QBaseSlotObjectDestroyed(self: ?*anyopaque) void {
-        qtc.KParts__PartManager_QBaseSlotObjectDestroyed(@ptrCast(self));
+    pub fn SuperSlotObjectDestroyed(self: ?*anyopaque) void {
+        qtc.KParts__PartManager_SuperSlotObjectDestroyed(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#slotWidgetDestroyed)
@@ -767,6 +815,10 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnSlotWidgetDestroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotWidgetDestroyed` instead
+    ///
+    pub const QBaseSlotWidgetDestroyed = SuperSlotWidgetDestroyed;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#slotWidgetDestroyed)
     ///
     /// Base class method implementation
@@ -775,8 +827,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` self: QtC.KParts__PartManager `
     ///
-    pub fn QBaseSlotWidgetDestroyed(self: ?*anyopaque) void {
-        qtc.KParts__PartManager_QBaseSlotWidgetDestroyed(@ptrCast(self));
+    pub fn SuperSlotWidgetDestroyed(self: ?*anyopaque) void {
+        qtc.KParts__PartManager_SuperSlotWidgetDestroyed(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#slotManagedTopLevelWidgetDestroyed)
@@ -803,6 +855,10 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_OnSlotManagedTopLevelWidgetDestroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotManagedTopLevelWidgetDestroyed` instead
+    ///
+    pub const QBaseSlotManagedTopLevelWidgetDestroyed = SuperSlotManagedTopLevelWidgetDestroyed;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#slotManagedTopLevelWidgetDestroyed)
     ///
     /// Base class method implementation
@@ -811,8 +867,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` self: QtC.KParts__PartManager `
     ///
-    pub fn QBaseSlotManagedTopLevelWidgetDestroyed(self: ?*anyopaque) void {
-        qtc.KParts__PartManager_QBaseSlotManagedTopLevelWidgetDestroyed(@ptrCast(self));
+    pub fn SuperSlotManagedTopLevelWidgetDestroyed(self: ?*anyopaque) void {
+        qtc.KParts__PartManager_SuperSlotManagedTopLevelWidgetDestroyed(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1611,6 +1667,10 @@ pub const kparts__partmanager = struct {
         return qtc.KParts__PartManager_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1623,8 +1683,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KParts__PartManager_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KParts__PartManager_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1659,6 +1719,10 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1671,8 +1735,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__PartManager_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KParts__PartManager_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1707,6 +1771,10 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1719,8 +1787,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__PartManager_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KParts__PartManager_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1755,6 +1823,10 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1767,8 +1839,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__PartManager_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KParts__PartManager_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1803,6 +1875,10 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1815,8 +1891,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KParts__PartManager_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KParts__PartManager_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1851,6 +1927,10 @@ pub const kparts__partmanager = struct {
         qtc.KParts__PartManager_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1863,8 +1943,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KParts__PartManager_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KParts__PartManager_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1897,6 +1977,10 @@ pub const kparts__partmanager = struct {
         return qtc.KParts__PartManager_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1907,8 +1991,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` self: QtC.KParts__PartManager `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KParts__PartManager_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KParts__PartManager_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1941,6 +2025,10 @@ pub const kparts__partmanager = struct {
         return qtc.KParts__PartManager_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1951,8 +2039,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` self: QtC.KParts__PartManager `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KParts__PartManager_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KParts__PartManager_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1988,6 +2076,10 @@ pub const kparts__partmanager = struct {
         return qtc.KParts__PartManager_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2000,9 +2092,9 @@ pub const kparts__partmanager = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KParts__PartManager_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KParts__PartManager_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2037,6 +2129,10 @@ pub const kparts__partmanager = struct {
         return qtc.KParts__PartManager_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2049,8 +2145,8 @@ pub const kparts__partmanager = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KParts__PartManager_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KParts__PartManager_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2084,6 +2180,9 @@ pub const kparts__partmanager = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -2091,7 +2190,7 @@ pub const kparts__partmanager = struct {
     ///
     /// ` self: QtC.KParts__PartManager `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KParts__PartManager_Delete(@ptrCast(self));
     }
 };

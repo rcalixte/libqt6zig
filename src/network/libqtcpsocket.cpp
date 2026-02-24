@@ -65,7 +65,7 @@ bool QTcpSocket_Bind3(QTcpSocket* self, int addr, uint16_t port, int mode) {
 }
 
 // Base class handler implementation
-QMetaObject* QTcpSocket_QBaseMetaObject(const QTcpSocket* self) {
+QMetaObject* QTcpSocket_SuperMetaObject(const QTcpSocket* self) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_MetaObject_IsBase(true);
@@ -84,7 +84,7 @@ void QTcpSocket_OnMetaObject(const QTcpSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QTcpSocket_QBaseMetacast(QTcpSocket* self, const char* param1) {
+void* QTcpSocket_SuperMetacast(QTcpSocket* self, const char* param1) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_Metacast_IsBase(true);
@@ -103,7 +103,7 @@ void QTcpSocket_OnMetacast(QTcpSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTcpSocket_QBaseMetacall(QTcpSocket* self, int param1, int param2, void** param3) {
+int QTcpSocket_SuperMetacall(QTcpSocket* self, int param1, int param2, void** param3) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_Metacall_IsBase(true);
@@ -132,7 +132,7 @@ void QTcpSocket_Resume(QTcpSocket* self) {
 }
 
 // Base class handler implementation
-void QTcpSocket_QBaseResume(QTcpSocket* self) {
+void QTcpSocket_SuperResume(QTcpSocket* self) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_Resume_IsBase(true);
@@ -162,7 +162,7 @@ void QTcpSocket_ConnectToHost(QTcpSocket* self, const libqt_string hostName, uin
 }
 
 // Base class handler implementation
-void QTcpSocket_QBaseConnectToHost(QTcpSocket* self, const libqt_string hostName, uint16_t port, int mode, int protocol) {
+void QTcpSocket_SuperConnectToHost(QTcpSocket* self, const libqt_string hostName, uint16_t port, int mode, int protocol) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     QString hostName_QString = QString::fromUtf8(hostName.data, hostName.len);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
@@ -192,7 +192,7 @@ void QTcpSocket_DisconnectFromHost(QTcpSocket* self) {
 }
 
 // Base class handler implementation
-void QTcpSocket_QBaseDisconnectFromHost(QTcpSocket* self) {
+void QTcpSocket_SuperDisconnectFromHost(QTcpSocket* self) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_DisconnectFromHost_IsBase(true);
@@ -221,7 +221,7 @@ long long QTcpSocket_BytesAvailable(const QTcpSocket* self) {
 }
 
 // Base class handler implementation
-long long QTcpSocket_QBaseBytesAvailable(const QTcpSocket* self) {
+long long QTcpSocket_SuperBytesAvailable(const QTcpSocket* self) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_BytesAvailable_IsBase(true);
@@ -250,7 +250,7 @@ long long QTcpSocket_BytesToWrite(const QTcpSocket* self) {
 }
 
 // Base class handler implementation
-long long QTcpSocket_QBaseBytesToWrite(const QTcpSocket* self) {
+long long QTcpSocket_SuperBytesToWrite(const QTcpSocket* self) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_BytesToWrite_IsBase(true);
@@ -279,7 +279,7 @@ void QTcpSocket_SetReadBufferSize(QTcpSocket* self, long long size) {
 }
 
 // Base class handler implementation
-void QTcpSocket_QBaseSetReadBufferSize(QTcpSocket* self, long long size) {
+void QTcpSocket_SuperSetReadBufferSize(QTcpSocket* self, long long size) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_SetReadBufferSize_IsBase(true);
@@ -310,7 +310,7 @@ intptr_t QTcpSocket_SocketDescriptor(const QTcpSocket* self) {
 }
 
 // Base class handler implementation
-intptr_t QTcpSocket_QBaseSocketDescriptor(const QTcpSocket* self) {
+intptr_t QTcpSocket_SuperSocketDescriptor(const QTcpSocket* self) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_SocketDescriptor_IsBase(true);
@@ -341,7 +341,7 @@ bool QTcpSocket_SetSocketDescriptor(QTcpSocket* self, intptr_t socketDescriptor,
 }
 
 // Base class handler implementation
-bool QTcpSocket_QBaseSetSocketDescriptor(QTcpSocket* self, intptr_t socketDescriptor, int state, int openMode) {
+bool QTcpSocket_SuperSetSocketDescriptor(QTcpSocket* self, intptr_t socketDescriptor, int state, int openMode) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_SetSocketDescriptor_IsBase(true);
@@ -370,7 +370,7 @@ void QTcpSocket_SetSocketOption(QTcpSocket* self, int option, const QVariant* va
 }
 
 // Base class handler implementation
-void QTcpSocket_QBaseSetSocketOption(QTcpSocket* self, int option, const QVariant* value) {
+void QTcpSocket_SuperSetSocketOption(QTcpSocket* self, int option, const QVariant* value) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_SetSocketOption_IsBase(true);
@@ -399,7 +399,7 @@ QVariant* QTcpSocket_SocketOption(QTcpSocket* self, int option) {
 }
 
 // Base class handler implementation
-QVariant* QTcpSocket_QBaseSocketOption(QTcpSocket* self, int option) {
+QVariant* QTcpSocket_SuperSocketOption(QTcpSocket* self, int option) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_SocketOption_IsBase(true);
@@ -428,7 +428,7 @@ void QTcpSocket_Close(QTcpSocket* self) {
 }
 
 // Base class handler implementation
-void QTcpSocket_QBaseClose(QTcpSocket* self) {
+void QTcpSocket_SuperClose(QTcpSocket* self) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_Close_IsBase(true);
@@ -457,7 +457,7 @@ bool QTcpSocket_IsSequential(const QTcpSocket* self) {
 }
 
 // Base class handler implementation
-bool QTcpSocket_QBaseIsSequential(const QTcpSocket* self) {
+bool QTcpSocket_SuperIsSequential(const QTcpSocket* self) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_IsSequential_IsBase(true);
@@ -486,7 +486,7 @@ bool QTcpSocket_WaitForConnected(QTcpSocket* self, int msecs) {
 }
 
 // Base class handler implementation
-bool QTcpSocket_QBaseWaitForConnected(QTcpSocket* self, int msecs) {
+bool QTcpSocket_SuperWaitForConnected(QTcpSocket* self, int msecs) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_WaitForConnected_IsBase(true);
@@ -515,7 +515,7 @@ bool QTcpSocket_WaitForReadyRead(QTcpSocket* self, int msecs) {
 }
 
 // Base class handler implementation
-bool QTcpSocket_QBaseWaitForReadyRead(QTcpSocket* self, int msecs) {
+bool QTcpSocket_SuperWaitForReadyRead(QTcpSocket* self, int msecs) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_WaitForReadyRead_IsBase(true);
@@ -544,7 +544,7 @@ bool QTcpSocket_WaitForBytesWritten(QTcpSocket* self, int msecs) {
 }
 
 // Base class handler implementation
-bool QTcpSocket_QBaseWaitForBytesWritten(QTcpSocket* self, int msecs) {
+bool QTcpSocket_SuperWaitForBytesWritten(QTcpSocket* self, int msecs) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_WaitForBytesWritten_IsBase(true);
@@ -573,7 +573,7 @@ bool QTcpSocket_WaitForDisconnected(QTcpSocket* self, int msecs) {
 }
 
 // Base class handler implementation
-bool QTcpSocket_QBaseWaitForDisconnected(QTcpSocket* self, int msecs) {
+bool QTcpSocket_SuperWaitForDisconnected(QTcpSocket* self, int msecs) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_WaitForDisconnected_IsBase(true);
@@ -602,7 +602,7 @@ long long QTcpSocket_ReadData(QTcpSocket* self, char* data, long long maxlen) {
 }
 
 // Base class handler implementation
-long long QTcpSocket_QBaseReadData(QTcpSocket* self, char* data, long long maxlen) {
+long long QTcpSocket_SuperReadData(QTcpSocket* self, char* data, long long maxlen) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_ReadData_IsBase(true);
@@ -631,7 +631,7 @@ long long QTcpSocket_ReadLineData(QTcpSocket* self, char* data, long long maxlen
 }
 
 // Base class handler implementation
-long long QTcpSocket_QBaseReadLineData(QTcpSocket* self, char* data, long long maxlen) {
+long long QTcpSocket_SuperReadLineData(QTcpSocket* self, char* data, long long maxlen) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_ReadLineData_IsBase(true);
@@ -660,7 +660,7 @@ long long QTcpSocket_SkipData(QTcpSocket* self, long long maxSize) {
 }
 
 // Base class handler implementation
-long long QTcpSocket_QBaseSkipData(QTcpSocket* self, long long maxSize) {
+long long QTcpSocket_SuperSkipData(QTcpSocket* self, long long maxSize) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_SkipData_IsBase(true);
@@ -689,7 +689,7 @@ long long QTcpSocket_WriteData(QTcpSocket* self, const char* data, long long len
 }
 
 // Base class handler implementation
-long long QTcpSocket_QBaseWriteData(QTcpSocket* self, const char* data, long long lenVal) {
+long long QTcpSocket_SuperWriteData(QTcpSocket* self, const char* data, long long lenVal) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_WriteData_IsBase(true);
@@ -718,7 +718,7 @@ bool QTcpSocket_Open(QTcpSocket* self, int mode) {
 }
 
 // Base class handler implementation
-bool QTcpSocket_QBaseOpen(QTcpSocket* self, int mode) {
+bool QTcpSocket_SuperOpen(QTcpSocket* self, int mode) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_Open_IsBase(true);
@@ -747,7 +747,7 @@ long long QTcpSocket_Pos(const QTcpSocket* self) {
 }
 
 // Base class handler implementation
-long long QTcpSocket_QBasePos(const QTcpSocket* self) {
+long long QTcpSocket_SuperPos(const QTcpSocket* self) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_Pos_IsBase(true);
@@ -776,7 +776,7 @@ long long QTcpSocket_Size(const QTcpSocket* self) {
 }
 
 // Base class handler implementation
-long long QTcpSocket_QBaseSize(const QTcpSocket* self) {
+long long QTcpSocket_SuperSize(const QTcpSocket* self) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_Size_IsBase(true);
@@ -805,7 +805,7 @@ bool QTcpSocket_Seek(QTcpSocket* self, long long pos) {
 }
 
 // Base class handler implementation
-bool QTcpSocket_QBaseSeek(QTcpSocket* self, long long pos) {
+bool QTcpSocket_SuperSeek(QTcpSocket* self, long long pos) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_Seek_IsBase(true);
@@ -834,7 +834,7 @@ bool QTcpSocket_AtEnd(const QTcpSocket* self) {
 }
 
 // Base class handler implementation
-bool QTcpSocket_QBaseAtEnd(const QTcpSocket* self) {
+bool QTcpSocket_SuperAtEnd(const QTcpSocket* self) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_AtEnd_IsBase(true);
@@ -863,7 +863,7 @@ bool QTcpSocket_Reset(QTcpSocket* self) {
 }
 
 // Base class handler implementation
-bool QTcpSocket_QBaseReset(QTcpSocket* self) {
+bool QTcpSocket_SuperReset(QTcpSocket* self) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_Reset_IsBase(true);
@@ -892,7 +892,7 @@ bool QTcpSocket_CanReadLine(const QTcpSocket* self) {
 }
 
 // Base class handler implementation
-bool QTcpSocket_QBaseCanReadLine(const QTcpSocket* self) {
+bool QTcpSocket_SuperCanReadLine(const QTcpSocket* self) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_CanReadLine_IsBase(true);
@@ -921,7 +921,7 @@ bool QTcpSocket_Event(QTcpSocket* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTcpSocket_QBaseEvent(QTcpSocket* self, QEvent* event) {
+bool QTcpSocket_SuperEvent(QTcpSocket* self, QEvent* event) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_Event_IsBase(true);
@@ -950,7 +950,7 @@ bool QTcpSocket_EventFilter(QTcpSocket* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTcpSocket_QBaseEventFilter(QTcpSocket* self, QObject* watched, QEvent* event) {
+bool QTcpSocket_SuperEventFilter(QTcpSocket* self, QObject* watched, QEvent* event) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_EventFilter_IsBase(true);
@@ -979,7 +979,7 @@ void QTcpSocket_TimerEvent(QTcpSocket* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QTcpSocket_QBaseTimerEvent(QTcpSocket* self, QTimerEvent* event) {
+void QTcpSocket_SuperTimerEvent(QTcpSocket* self, QTimerEvent* event) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_TimerEvent_IsBase(true);
@@ -1008,7 +1008,7 @@ void QTcpSocket_ChildEvent(QTcpSocket* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QTcpSocket_QBaseChildEvent(QTcpSocket* self, QChildEvent* event) {
+void QTcpSocket_SuperChildEvent(QTcpSocket* self, QChildEvent* event) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_ChildEvent_IsBase(true);
@@ -1037,7 +1037,7 @@ void QTcpSocket_CustomEvent(QTcpSocket* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTcpSocket_QBaseCustomEvent(QTcpSocket* self, QEvent* event) {
+void QTcpSocket_SuperCustomEvent(QTcpSocket* self, QEvent* event) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_CustomEvent_IsBase(true);
@@ -1066,7 +1066,7 @@ void QTcpSocket_ConnectNotify(QTcpSocket* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTcpSocket_QBaseConnectNotify(QTcpSocket* self, const QMetaMethod* signal) {
+void QTcpSocket_SuperConnectNotify(QTcpSocket* self, const QMetaMethod* signal) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_ConnectNotify_IsBase(true);
@@ -1095,7 +1095,7 @@ void QTcpSocket_DisconnectNotify(QTcpSocket* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTcpSocket_QBaseDisconnectNotify(QTcpSocket* self, const QMetaMethod* signal) {
+void QTcpSocket_SuperDisconnectNotify(QTcpSocket* self, const QMetaMethod* signal) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_DisconnectNotify_IsBase(true);
@@ -1124,7 +1124,7 @@ void QTcpSocket_SetSocketState(QTcpSocket* self, int state) {
 }
 
 // Base class handler implementation
-void QTcpSocket_QBaseSetSocketState(QTcpSocket* self, int state) {
+void QTcpSocket_SuperSetSocketState(QTcpSocket* self, int state) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_SetSocketState_IsBase(true);
@@ -1153,7 +1153,7 @@ void QTcpSocket_SetSocketError(QTcpSocket* self, int socketError) {
 }
 
 // Base class handler implementation
-void QTcpSocket_QBaseSetSocketError(QTcpSocket* self, int socketError) {
+void QTcpSocket_SuperSetSocketError(QTcpSocket* self, int socketError) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_SetSocketError_IsBase(true);
@@ -1182,7 +1182,7 @@ void QTcpSocket_SetLocalPort(QTcpSocket* self, uint16_t port) {
 }
 
 // Base class handler implementation
-void QTcpSocket_QBaseSetLocalPort(QTcpSocket* self, uint16_t port) {
+void QTcpSocket_SuperSetLocalPort(QTcpSocket* self, uint16_t port) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_SetLocalPort_IsBase(true);
@@ -1211,7 +1211,7 @@ void QTcpSocket_SetLocalAddress(QTcpSocket* self, const QHostAddress* address) {
 }
 
 // Base class handler implementation
-void QTcpSocket_QBaseSetLocalAddress(QTcpSocket* self, const QHostAddress* address) {
+void QTcpSocket_SuperSetLocalAddress(QTcpSocket* self, const QHostAddress* address) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_SetLocalAddress_IsBase(true);
@@ -1240,7 +1240,7 @@ void QTcpSocket_SetPeerPort(QTcpSocket* self, uint16_t port) {
 }
 
 // Base class handler implementation
-void QTcpSocket_QBaseSetPeerPort(QTcpSocket* self, uint16_t port) {
+void QTcpSocket_SuperSetPeerPort(QTcpSocket* self, uint16_t port) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_SetPeerPort_IsBase(true);
@@ -1269,7 +1269,7 @@ void QTcpSocket_SetPeerAddress(QTcpSocket* self, const QHostAddress* address) {
 }
 
 // Base class handler implementation
-void QTcpSocket_QBaseSetPeerAddress(QTcpSocket* self, const QHostAddress* address) {
+void QTcpSocket_SuperSetPeerAddress(QTcpSocket* self, const QHostAddress* address) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_SetPeerAddress_IsBase(true);
@@ -1299,7 +1299,7 @@ void QTcpSocket_SetPeerName(QTcpSocket* self, const libqt_string name) {
 }
 
 // Base class handler implementation
-void QTcpSocket_QBaseSetPeerName(QTcpSocket* self, const libqt_string name) {
+void QTcpSocket_SuperSetPeerName(QTcpSocket* self, const libqt_string name) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
@@ -1329,7 +1329,7 @@ void QTcpSocket_SetOpenMode(QTcpSocket* self, int openMode) {
 }
 
 // Base class handler implementation
-void QTcpSocket_QBaseSetOpenMode(QTcpSocket* self, int openMode) {
+void QTcpSocket_SuperSetOpenMode(QTcpSocket* self, int openMode) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_SetOpenMode_IsBase(true);
@@ -1359,7 +1359,7 @@ void QTcpSocket_SetErrorString(QTcpSocket* self, const libqt_string errorString)
 }
 
 // Base class handler implementation
-void QTcpSocket_QBaseSetErrorString(QTcpSocket* self, const libqt_string errorString) {
+void QTcpSocket_SuperSetErrorString(QTcpSocket* self, const libqt_string errorString) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
@@ -1389,7 +1389,7 @@ QObject* QTcpSocket_Sender(const QTcpSocket* self) {
 }
 
 // Base class handler implementation
-QObject* QTcpSocket_QBaseSender(const QTcpSocket* self) {
+QObject* QTcpSocket_SuperSender(const QTcpSocket* self) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_Sender_IsBase(true);
@@ -1418,7 +1418,7 @@ int QTcpSocket_SenderSignalIndex(const QTcpSocket* self) {
 }
 
 // Base class handler implementation
-int QTcpSocket_QBaseSenderSignalIndex(const QTcpSocket* self) {
+int QTcpSocket_SuperSenderSignalIndex(const QTcpSocket* self) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_SenderSignalIndex_IsBase(true);
@@ -1447,7 +1447,7 @@ int QTcpSocket_Receivers(const QTcpSocket* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QTcpSocket_QBaseReceivers(const QTcpSocket* self, const char* signal) {
+int QTcpSocket_SuperReceivers(const QTcpSocket* self, const char* signal) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_Receivers_IsBase(true);
@@ -1476,7 +1476,7 @@ bool QTcpSocket_IsSignalConnected(const QTcpSocket* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QTcpSocket_QBaseIsSignalConnected(const QTcpSocket* self, const QMetaMethod* signal) {
+bool QTcpSocket_SuperIsSignalConnected(const QTcpSocket* self, const QMetaMethod* signal) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
     if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
         vqtcpsocket->setQTcpSocket_IsSignalConnected_IsBase(true);

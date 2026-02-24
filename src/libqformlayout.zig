@@ -49,6 +49,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -57,8 +61,8 @@ pub const qformlayout = struct {
     ///
     /// ` self: QtC.QFormLayout `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QFormLayout_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QFormLayout_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -84,6 +88,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -92,9 +100,9 @@ pub const qformlayout = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QFormLayout_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QFormLayout_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -123,6 +131,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -135,8 +147,8 @@ pub const qformlayout = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QFormLayout_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QFormLayout_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -328,6 +340,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnSpacing(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSpacing` instead
+    ///
+    pub const QBaseSpacing = SuperSpacing;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#spacing)
     ///
     /// Base class method implementation
@@ -336,8 +352,8 @@ pub const qformlayout = struct {
     ///
     /// ` self: QtC.QFormLayout `
     ///
-    pub fn QBaseSpacing(self: ?*anyopaque) i32 {
-        return qtc.QFormLayout_QBaseSpacing(@ptrCast(self));
+    pub fn SuperSpacing(self: ?*anyopaque) i32 {
+        return qtc.QFormLayout_SuperSpacing(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setSpacing)
@@ -366,6 +382,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnSetSpacing(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetSpacing` instead
+    ///
+    pub const QBaseSetSpacing = SuperSetSpacing;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setSpacing)
     ///
     /// Base class method implementation
@@ -376,8 +396,8 @@ pub const qformlayout = struct {
     ///
     /// ` spacing: i32 `
     ///
-    pub fn QBaseSetSpacing(self: ?*anyopaque, spacing: i32) void {
-        qtc.QFormLayout_QBaseSetSpacing(@ptrCast(self), @bitCast(spacing));
+    pub fn SuperSetSpacing(self: ?*anyopaque, spacing: i32) void {
+        qtc.QFormLayout_SuperSetSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addRow)
@@ -878,6 +898,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnAddItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAddItem` instead
+    ///
+    pub const QBaseAddItem = SuperAddItem;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#addItem)
     ///
     /// Base class method implementation
@@ -888,8 +912,8 @@ pub const qformlayout = struct {
     ///
     /// ` item: QtC.QLayoutItem `
     ///
-    pub fn QBaseAddItem(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QFormLayout_QBaseAddItem(@ptrCast(self), @ptrCast(item));
+    pub fn SuperAddItem(self: ?*anyopaque, item: ?*anyopaque) void {
+        qtc.QFormLayout_SuperAddItem(@ptrCast(self), @ptrCast(item));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#itemAt)
@@ -918,6 +942,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnItemAt2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperItemAt2` instead
+    ///
+    pub const QBaseItemAt2 = SuperItemAt2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#itemAt)
     ///
     /// Base class method implementation
@@ -928,8 +956,8 @@ pub const qformlayout = struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn QBaseItemAt2(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
-        return qtc.QFormLayout_QBaseItemAt2(@ptrCast(self), @bitCast(index));
+    pub fn SuperItemAt2(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
+        return qtc.QFormLayout_SuperItemAt2(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#takeAt)
@@ -958,6 +986,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnTakeAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperTakeAt` instead
+    ///
+    pub const QBaseTakeAt = SuperTakeAt;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#takeAt)
     ///
     /// Base class method implementation
@@ -968,8 +1000,8 @@ pub const qformlayout = struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn QBaseTakeAt(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
-        return qtc.QFormLayout_QBaseTakeAt(@ptrCast(self), @bitCast(index));
+    pub fn SuperTakeAt(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
+        return qtc.QFormLayout_SuperTakeAt(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setGeometry)
@@ -998,6 +1030,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnSetGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetGeometry` instead
+    ///
+    pub const QBaseSetGeometry = SuperSetGeometry;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#setGeometry)
     ///
     /// Base class method implementation
@@ -1008,8 +1044,8 @@ pub const qformlayout = struct {
     ///
     /// ` rect: QtC.QRect `
     ///
-    pub fn QBaseSetGeometry(self: ?*anyopaque, rect: ?*anyopaque) void {
-        qtc.QFormLayout_QBaseSetGeometry(@ptrCast(self), @ptrCast(rect));
+    pub fn SuperSetGeometry(self: ?*anyopaque, rect: ?*anyopaque) void {
+        qtc.QFormLayout_SuperSetGeometry(@ptrCast(self), @ptrCast(rect));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#minimumSize)
@@ -1036,6 +1072,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnMinimumSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSize` instead
+    ///
+    pub const QBaseMinimumSize = SuperMinimumSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#minimumSize)
     ///
     /// Base class method implementation
@@ -1044,8 +1084,8 @@ pub const qformlayout = struct {
     ///
     /// ` self: QtC.QFormLayout `
     ///
-    pub fn QBaseMinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QFormLayout_QBaseMinimumSize(@ptrCast(self));
+    pub fn SuperMinimumSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QFormLayout_SuperMinimumSize(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#sizeHint)
@@ -1072,6 +1112,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#sizeHint)
     ///
     /// Base class method implementation
@@ -1080,8 +1124,8 @@ pub const qformlayout = struct {
     ///
     /// ` self: QtC.QFormLayout `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QFormLayout_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QFormLayout_SuperSizeHint(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#invalidate)
@@ -1108,6 +1152,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnInvalidate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInvalidate` instead
+    ///
+    pub const QBaseInvalidate = SuperInvalidate;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#invalidate)
     ///
     /// Base class method implementation
@@ -1116,8 +1164,8 @@ pub const qformlayout = struct {
     ///
     /// ` self: QtC.QFormLayout `
     ///
-    pub fn QBaseInvalidate(self: ?*anyopaque) void {
-        qtc.QFormLayout_QBaseInvalidate(@ptrCast(self));
+    pub fn SuperInvalidate(self: ?*anyopaque) void {
+        qtc.QFormLayout_SuperInvalidate(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#hasHeightForWidth)
@@ -1144,6 +1192,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#hasHeightForWidth)
     ///
     /// Base class method implementation
@@ -1152,8 +1204,8 @@ pub const qformlayout = struct {
     ///
     /// ` self: QtC.QFormLayout `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QFormLayout_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.QFormLayout_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#heightForWidth)
@@ -1182,6 +1234,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#heightForWidth)
     ///
     /// Base class method implementation
@@ -1192,8 +1248,8 @@ pub const qformlayout = struct {
     ///
     /// ` width: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, width: i32) i32 {
-        return qtc.QFormLayout_QBaseHeightForWidth(@ptrCast(self), @bitCast(width));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, width: i32) i32 {
+        return qtc.QFormLayout_SuperHeightForWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#expandingDirections)
@@ -1224,6 +1280,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnExpandingDirections(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperExpandingDirections` instead
+    ///
+    pub const QBaseExpandingDirections = SuperExpandingDirections;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#expandingDirections)
     ///
     /// Base class method implementation
@@ -1236,8 +1296,8 @@ pub const qformlayout = struct {
     ///
     /// ` flag of qnamespace_enums.Orientation `
     ///
-    pub fn QBaseExpandingDirections(self: ?*anyopaque) i32 {
-        return qtc.QFormLayout_QBaseExpandingDirections(@ptrCast(self));
+    pub fn SuperExpandingDirections(self: ?*anyopaque) i32 {
+        return qtc.QFormLayout_SuperExpandingDirections(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#count)
@@ -1264,6 +1324,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_OnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCount` instead
+    ///
+    pub const QBaseCount = SuperCount;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#count)
     ///
     /// Base class method implementation
@@ -1272,8 +1336,8 @@ pub const qformlayout = struct {
     ///
     /// ` self: QtC.QFormLayout `
     ///
-    pub fn QBaseCount(self: ?*anyopaque) i32 {
-        return qtc.QFormLayout_QBaseCount(@ptrCast(self));
+    pub fn SuperCount(self: ?*anyopaque) i32 {
+        return qtc.QFormLayout_SuperCount(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#rowCount)
@@ -1614,6 +1678,10 @@ pub const qformlayout = struct {
         qtc.QLayout_OnIndexOf2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIndexOf2` instead
+    ///
+    pub const QBaseIndexOf2 = SuperIndexOf2;
+
     /// Inherited from QLayout
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
@@ -1626,8 +1694,8 @@ pub const qformlayout = struct {
     ///
     /// ` param1: QtC.QLayoutItem `
     ///
-    pub fn QBaseIndexOf2(self: ?*anyopaque, param1: ?*anyopaque) i32 {
-        return qtc.QLayout_QBaseIndexOf2(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperIndexOf2(self: ?*anyopaque, param1: ?*anyopaque) i32 {
+        return qtc.QLayout_SuperIndexOf2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLayout
@@ -2502,6 +2570,10 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_Geometry(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperGeometry` instead
+    ///
+    pub const QBaseGeometry = SuperGeometry;
+
     /// Inherited from QLayout
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#geometry)
@@ -2512,8 +2584,8 @@ pub const qformlayout = struct {
     ///
     /// ` self: QtC.QFormLayout `
     ///
-    pub fn QBaseGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QFormLayout_QBaseGeometry(@ptrCast(self));
+    pub fn SuperGeometry(self: ?*anyopaque) QtC.QRect {
+        return qtc.QFormLayout_SuperGeometry(@ptrCast(self));
     }
 
     /// Inherited from QLayout
@@ -2546,6 +2618,10 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_MaximumSize(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMaximumSize` instead
+    ///
+    pub const QBaseMaximumSize = SuperMaximumSize;
+
     /// Inherited from QLayout
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#maximumSize)
@@ -2556,8 +2632,8 @@ pub const qformlayout = struct {
     ///
     /// ` self: QtC.QFormLayout `
     ///
-    pub fn QBaseMaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QFormLayout_QBaseMaximumSize(@ptrCast(self));
+    pub fn SuperMaximumSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QFormLayout_SuperMaximumSize(@ptrCast(self));
     }
 
     /// Inherited from QLayout
@@ -2592,6 +2668,10 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_IndexOf(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperIndexOf` instead
+    ///
+    pub const QBaseIndexOf = SuperIndexOf;
+
     /// Inherited from QLayout
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
@@ -2604,8 +2684,8 @@ pub const qformlayout = struct {
     ///
     /// ` param1: QtC.QWidget `
     ///
-    pub fn QBaseIndexOf(self: ?*anyopaque, param1: ?*anyopaque) i32 {
-        return qtc.QFormLayout_QBaseIndexOf(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperIndexOf(self: ?*anyopaque, param1: ?*anyopaque) i32 {
+        return qtc.QFormLayout_SuperIndexOf(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLayout
@@ -2638,6 +2718,10 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_IsEmpty(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsEmpty` instead
+    ///
+    pub const QBaseIsEmpty = SuperIsEmpty;
+
     /// Inherited from QLayout
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
@@ -2648,8 +2732,8 @@ pub const qformlayout = struct {
     ///
     /// ` self: QtC.QFormLayout `
     ///
-    pub fn QBaseIsEmpty(self: ?*anyopaque) bool {
-        return qtc.QFormLayout_QBaseIsEmpty(@ptrCast(self));
+    pub fn SuperIsEmpty(self: ?*anyopaque) bool {
+        return qtc.QFormLayout_SuperIsEmpty(@ptrCast(self));
     }
 
     /// Inherited from QLayout
@@ -2686,6 +2770,10 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_ControlTypes(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperControlTypes` instead
+    ///
+    pub const QBaseControlTypes = SuperControlTypes;
+
     /// Inherited from QLayout
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
@@ -2700,8 +2788,8 @@ pub const qformlayout = struct {
     ///
     /// ` flag of qsizepolicy_enums.ControlType `
     ///
-    pub fn QBaseControlTypes(self: ?*anyopaque) i32 {
-        return qtc.QFormLayout_QBaseControlTypes(@ptrCast(self));
+    pub fn SuperControlTypes(self: ?*anyopaque) i32 {
+        return qtc.QFormLayout_SuperControlTypes(@ptrCast(self));
     }
 
     /// Inherited from QLayout
@@ -2740,6 +2828,10 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_ReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @bitCast(options));
     }
 
+    /// ### DEPRECATED: Use `SuperReplaceWidget` instead
+    ///
+    pub const QBaseReplaceWidget = SuperReplaceWidget;
+
     /// Inherited from QLayout
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
@@ -2756,8 +2848,8 @@ pub const qformlayout = struct {
     ///
     /// ` options: flag of qnamespace_enums.FindChildOption `
     ///
-    pub fn QBaseReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i32) QtC.QLayoutItem {
-        return qtc.QFormLayout_QBaseReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @bitCast(options));
+    pub fn SuperReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i32) QtC.QLayoutItem {
+        return qtc.QFormLayout_SuperReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @bitCast(options));
     }
 
     /// Inherited from QLayout
@@ -2790,6 +2882,10 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_Layout(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperLayout` instead
+    ///
+    pub const QBaseLayout = SuperLayout;
+
     /// Inherited from QLayout
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#layout)
@@ -2800,8 +2896,8 @@ pub const qformlayout = struct {
     ///
     /// ` self: QtC.QFormLayout `
     ///
-    pub fn QBaseLayout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QFormLayout_QBaseLayout(@ptrCast(self));
+    pub fn SuperLayout(self: ?*anyopaque) QtC.QLayout {
+        return qtc.QFormLayout_SuperLayout(@ptrCast(self));
     }
 
     /// Inherited from QLayout
@@ -2836,6 +2932,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_ChildEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QLayout
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#childEvent)
@@ -2848,8 +2948,8 @@ pub const qformlayout = struct {
     ///
     /// ` e: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QFormLayout_QBaseChildEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperChildEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QFormLayout_SuperChildEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QLayout
@@ -2884,6 +2984,10 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -2896,8 +3000,8 @@ pub const qformlayout = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QFormLayout_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QFormLayout_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2934,6 +3038,10 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -2948,8 +3056,8 @@ pub const qformlayout = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QFormLayout_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QFormLayout_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2984,6 +3092,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -2996,8 +3108,8 @@ pub const qformlayout = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFormLayout_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QFormLayout_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3032,6 +3144,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -3044,8 +3160,8 @@ pub const qformlayout = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFormLayout_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QFormLayout_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3080,6 +3196,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3092,8 +3212,8 @@ pub const qformlayout = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFormLayout_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QFormLayout_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3128,6 +3248,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -3140,8 +3264,8 @@ pub const qformlayout = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFormLayout_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QFormLayout_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3176,6 +3300,10 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_MinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumHeightForWidth` instead
+    ///
+    pub const QBaseMinimumHeightForWidth = SuperMinimumHeightForWidth;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
@@ -3188,8 +3316,8 @@ pub const qformlayout = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseMinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QFormLayout_QBaseMinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QFormLayout_SuperMinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QLayoutItem
@@ -3222,6 +3350,10 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_Widget(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperWidget` instead
+    ///
+    pub const QBaseWidget = SuperWidget;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
@@ -3232,8 +3364,8 @@ pub const qformlayout = struct {
     ///
     /// ` self: QtC.QFormLayout `
     ///
-    pub fn QBaseWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QFormLayout_QBaseWidget(@ptrCast(self));
+    pub fn SuperWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QFormLayout_SuperWidget(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
@@ -3266,6 +3398,10 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_SpacerItem(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSpacerItem` instead
+    ///
+    pub const QBaseSpacerItem = SuperSpacerItem;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
@@ -3276,8 +3412,8 @@ pub const qformlayout = struct {
     ///
     /// ` self: QtC.QFormLayout `
     ///
-    pub fn QBaseSpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
-        return qtc.QFormLayout_QBaseSpacerItem(@ptrCast(self));
+    pub fn SuperSpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
+        return qtc.QFormLayout_SuperSpacerItem(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
@@ -3312,6 +3448,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_WidgetEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperWidgetEvent` instead
+    ///
+    pub const QBaseWidgetEvent = SuperWidgetEvent;
+
     /// Inherited from QLayout
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
@@ -3324,8 +3464,8 @@ pub const qformlayout = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseWidgetEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFormLayout_QBaseWidgetEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperWidgetEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QFormLayout_SuperWidgetEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLayout
@@ -3360,6 +3500,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_AddChildLayout(@ptrCast(self), @ptrCast(l));
     }
 
+    /// ### DEPRECATED: Use `SuperAddChildLayout` instead
+    ///
+    pub const QBaseAddChildLayout = SuperAddChildLayout;
+
     /// Inherited from QLayout
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
@@ -3372,8 +3516,8 @@ pub const qformlayout = struct {
     ///
     /// ` l: QtC.QLayout `
     ///
-    pub fn QBaseAddChildLayout(self: ?*anyopaque, l: ?*anyopaque) void {
-        qtc.QFormLayout_QBaseAddChildLayout(@ptrCast(self), @ptrCast(l));
+    pub fn SuperAddChildLayout(self: ?*anyopaque, l: ?*anyopaque) void {
+        qtc.QFormLayout_SuperAddChildLayout(@ptrCast(self), @ptrCast(l));
     }
 
     /// Inherited from QLayout
@@ -3408,6 +3552,10 @@ pub const qformlayout = struct {
         qtc.QFormLayout_AddChildWidget(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `SuperAddChildWidget` instead
+    ///
+    pub const QBaseAddChildWidget = SuperAddChildWidget;
+
     /// Inherited from QLayout
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
@@ -3420,8 +3568,8 @@ pub const qformlayout = struct {
     ///
     /// ` w: QtC.QWidget `
     ///
-    pub fn QBaseAddChildWidget(self: ?*anyopaque, w: ?*anyopaque) void {
-        qtc.QFormLayout_QBaseAddChildWidget(@ptrCast(self), @ptrCast(w));
+    pub fn SuperAddChildWidget(self: ?*anyopaque, w: ?*anyopaque) void {
+        qtc.QFormLayout_SuperAddChildWidget(@ptrCast(self), @ptrCast(w));
     }
 
     /// Inherited from QLayout
@@ -3456,6 +3604,10 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_AdoptLayout(@ptrCast(self), @ptrCast(layout));
     }
 
+    /// ### DEPRECATED: Use `SuperAdoptLayout` instead
+    ///
+    pub const QBaseAdoptLayout = SuperAdoptLayout;
+
     /// Inherited from QLayout
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
@@ -3468,8 +3620,8 @@ pub const qformlayout = struct {
     ///
     /// ` layout: QtC.QLayout `
     ///
-    pub fn QBaseAdoptLayout(self: ?*anyopaque, layout: ?*anyopaque) bool {
-        return qtc.QFormLayout_QBaseAdoptLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SuperAdoptLayout(self: ?*anyopaque, layout: ?*anyopaque) bool {
+        return qtc.QFormLayout_SuperAdoptLayout(@ptrCast(self), @ptrCast(layout));
     }
 
     /// Inherited from QLayout
@@ -3504,6 +3656,10 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_AlignmentRect(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperAlignmentRect` instead
+    ///
+    pub const QBaseAlignmentRect = SuperAlignmentRect;
+
     /// Inherited from QLayout
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
@@ -3516,8 +3672,8 @@ pub const qformlayout = struct {
     ///
     /// ` param1: QtC.QRect `
     ///
-    pub fn QBaseAlignmentRect(self: ?*anyopaque, param1: ?*anyopaque) QtC.QRect {
-        return qtc.QFormLayout_QBaseAlignmentRect(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperAlignmentRect(self: ?*anyopaque, param1: ?*anyopaque) QtC.QRect {
+        return qtc.QFormLayout_SuperAlignmentRect(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLayout
@@ -3550,6 +3706,10 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -3560,8 +3720,8 @@ pub const qformlayout = struct {
     ///
     /// ` self: QtC.QFormLayout `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QFormLayout_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QFormLayout_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3594,6 +3754,10 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -3604,8 +3768,8 @@ pub const qformlayout = struct {
     ///
     /// ` self: QtC.QFormLayout `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QFormLayout_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QFormLayout_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3641,6 +3805,10 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -3653,9 +3821,9 @@ pub const qformlayout = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QFormLayout_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QFormLayout_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3690,6 +3858,10 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -3702,8 +3874,8 @@ pub const qformlayout = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QFormLayout_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QFormLayout_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3737,6 +3909,9 @@ pub const qformlayout = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#dtor.QFormLayout)
     ///
@@ -3746,7 +3921,7 @@ pub const qformlayout = struct {
     ///
     /// ` self: QtC.QFormLayout `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QFormLayout_Delete(@ptrCast(self));
     }
 };
@@ -3813,13 +3988,17 @@ pub const qformlayout__takerowresult = struct {
         qtc.QFormLayout__TakeRowResult_SetFieldItem(@ptrCast(self), @ptrCast(fieldItem));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QFormLayout__TakeRowResult `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QFormLayout__TakeRowResult_Delete(@ptrCast(self));
     }
 };

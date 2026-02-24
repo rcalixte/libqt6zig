@@ -457,6 +457,10 @@ pub const qcommandlineoption = struct {
         qtc.QCommandLineOption_SetFlags(@ptrCast(self), @bitCast(aflags));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineoption.html#dtor.QCommandLineOption)
     ///
     /// Delete this object from C++ memory.
@@ -465,7 +469,7 @@ pub const qcommandlineoption = struct {
     ///
     /// ` self: QtC.QCommandLineOption `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCommandLineOption_Delete(@ptrCast(self));
     }
 };

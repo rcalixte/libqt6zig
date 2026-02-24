@@ -131,7 +131,7 @@ void KPopupFrame_Connect_LeaveModality(KPopupFrame* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* KPopupFrame_QBaseMetaObject(const KPopupFrame* self) {
+QMetaObject* KPopupFrame_SuperMetaObject(const KPopupFrame* self) {
     auto* vkpopupframe = const_cast<VirtualKPopupFrame*>(dynamic_cast<const VirtualKPopupFrame*>(self));
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_MetaObject_IsBase(true);
@@ -150,7 +150,7 @@ void KPopupFrame_OnMetaObject(const KPopupFrame* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KPopupFrame_QBaseMetacast(KPopupFrame* self, const char* param1) {
+void* KPopupFrame_SuperMetacast(KPopupFrame* self, const char* param1) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_Metacast_IsBase(true);
@@ -169,7 +169,7 @@ void KPopupFrame_OnMetacast(KPopupFrame* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KPopupFrame_QBaseMetacall(KPopupFrame* self, int param1, int param2, void** param3) {
+int KPopupFrame_SuperMetacall(KPopupFrame* self, int param1, int param2, void** param3) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_Metacall_IsBase(true);
@@ -188,7 +188,7 @@ void KPopupFrame_OnMetacall(KPopupFrame* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseKeyPressEvent(KPopupFrame* self, QKeyEvent* e) {
+void KPopupFrame_SuperKeyPressEvent(KPopupFrame* self, QKeyEvent* e) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_KeyPressEvent_IsBase(true);
@@ -207,7 +207,7 @@ void KPopupFrame_OnKeyPressEvent(KPopupFrame* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseHideEvent(KPopupFrame* self, QHideEvent* e) {
+void KPopupFrame_SuperHideEvent(KPopupFrame* self, QHideEvent* e) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_HideEvent_IsBase(true);
@@ -226,7 +226,7 @@ void KPopupFrame_OnHideEvent(KPopupFrame* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseResizeEvent(KPopupFrame* self, QResizeEvent* resize) {
+void KPopupFrame_SuperResizeEvent(KPopupFrame* self, QResizeEvent* resize) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_ResizeEvent_IsBase(true);
@@ -255,7 +255,7 @@ QSize* KPopupFrame_SizeHint(const KPopupFrame* self) {
 }
 
 // Base class handler implementation
-QSize* KPopupFrame_QBaseSizeHint(const KPopupFrame* self) {
+QSize* KPopupFrame_SuperSizeHint(const KPopupFrame* self) {
     auto* vkpopupframe = const_cast<VirtualKPopupFrame*>(dynamic_cast<const VirtualKPopupFrame*>(self));
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_SizeHint_IsBase(true);
@@ -284,7 +284,7 @@ bool KPopupFrame_Event(KPopupFrame* self, QEvent* e) {
 }
 
 // Base class handler implementation
-bool KPopupFrame_QBaseEvent(KPopupFrame* self, QEvent* e) {
+bool KPopupFrame_SuperEvent(KPopupFrame* self, QEvent* e) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_Event_IsBase(true);
@@ -313,7 +313,7 @@ void KPopupFrame_PaintEvent(KPopupFrame* self, QPaintEvent* param1) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBasePaintEvent(KPopupFrame* self, QPaintEvent* param1) {
+void KPopupFrame_SuperPaintEvent(KPopupFrame* self, QPaintEvent* param1) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_PaintEvent_IsBase(true);
@@ -342,7 +342,7 @@ void KPopupFrame_ChangeEvent(KPopupFrame* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseChangeEvent(KPopupFrame* self, QEvent* param1) {
+void KPopupFrame_SuperChangeEvent(KPopupFrame* self, QEvent* param1) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_ChangeEvent_IsBase(true);
@@ -371,7 +371,7 @@ void KPopupFrame_InitStyleOption(const KPopupFrame* self, QStyleOptionFrame* opt
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseInitStyleOption(const KPopupFrame* self, QStyleOptionFrame* option) {
+void KPopupFrame_SuperInitStyleOption(const KPopupFrame* self, QStyleOptionFrame* option) {
     auto* vkpopupframe = const_cast<VirtualKPopupFrame*>(dynamic_cast<const VirtualKPopupFrame*>(self));
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_InitStyleOption_IsBase(true);
@@ -400,7 +400,7 @@ int KPopupFrame_DevType(const KPopupFrame* self) {
 }
 
 // Base class handler implementation
-int KPopupFrame_QBaseDevType(const KPopupFrame* self) {
+int KPopupFrame_SuperDevType(const KPopupFrame* self) {
     auto* vkpopupframe = const_cast<VirtualKPopupFrame*>(dynamic_cast<const VirtualKPopupFrame*>(self));
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_DevType_IsBase(true);
@@ -429,7 +429,7 @@ void KPopupFrame_SetVisible(KPopupFrame* self, bool visible) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseSetVisible(KPopupFrame* self, bool visible) {
+void KPopupFrame_SuperSetVisible(KPopupFrame* self, bool visible) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_SetVisible_IsBase(true);
@@ -458,7 +458,7 @@ QSize* KPopupFrame_MinimumSizeHint(const KPopupFrame* self) {
 }
 
 // Base class handler implementation
-QSize* KPopupFrame_QBaseMinimumSizeHint(const KPopupFrame* self) {
+QSize* KPopupFrame_SuperMinimumSizeHint(const KPopupFrame* self) {
     auto* vkpopupframe = const_cast<VirtualKPopupFrame*>(dynamic_cast<const VirtualKPopupFrame*>(self));
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_MinimumSizeHint_IsBase(true);
@@ -487,7 +487,7 @@ int KPopupFrame_HeightForWidth(const KPopupFrame* self, int param1) {
 }
 
 // Base class handler implementation
-int KPopupFrame_QBaseHeightForWidth(const KPopupFrame* self, int param1) {
+int KPopupFrame_SuperHeightForWidth(const KPopupFrame* self, int param1) {
     auto* vkpopupframe = const_cast<VirtualKPopupFrame*>(dynamic_cast<const VirtualKPopupFrame*>(self));
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_HeightForWidth_IsBase(true);
@@ -516,7 +516,7 @@ bool KPopupFrame_HasHeightForWidth(const KPopupFrame* self) {
 }
 
 // Base class handler implementation
-bool KPopupFrame_QBaseHasHeightForWidth(const KPopupFrame* self) {
+bool KPopupFrame_SuperHasHeightForWidth(const KPopupFrame* self) {
     auto* vkpopupframe = const_cast<VirtualKPopupFrame*>(dynamic_cast<const VirtualKPopupFrame*>(self));
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_HasHeightForWidth_IsBase(true);
@@ -545,7 +545,7 @@ QPaintEngine* KPopupFrame_PaintEngine(const KPopupFrame* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KPopupFrame_QBasePaintEngine(const KPopupFrame* self) {
+QPaintEngine* KPopupFrame_SuperPaintEngine(const KPopupFrame* self) {
     auto* vkpopupframe = const_cast<VirtualKPopupFrame*>(dynamic_cast<const VirtualKPopupFrame*>(self));
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_PaintEngine_IsBase(true);
@@ -574,7 +574,7 @@ void KPopupFrame_MousePressEvent(KPopupFrame* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseMousePressEvent(KPopupFrame* self, QMouseEvent* event) {
+void KPopupFrame_SuperMousePressEvent(KPopupFrame* self, QMouseEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_MousePressEvent_IsBase(true);
@@ -603,7 +603,7 @@ void KPopupFrame_MouseReleaseEvent(KPopupFrame* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseMouseReleaseEvent(KPopupFrame* self, QMouseEvent* event) {
+void KPopupFrame_SuperMouseReleaseEvent(KPopupFrame* self, QMouseEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_MouseReleaseEvent_IsBase(true);
@@ -632,7 +632,7 @@ void KPopupFrame_MouseDoubleClickEvent(KPopupFrame* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseMouseDoubleClickEvent(KPopupFrame* self, QMouseEvent* event) {
+void KPopupFrame_SuperMouseDoubleClickEvent(KPopupFrame* self, QMouseEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_MouseDoubleClickEvent_IsBase(true);
@@ -661,7 +661,7 @@ void KPopupFrame_MouseMoveEvent(KPopupFrame* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseMouseMoveEvent(KPopupFrame* self, QMouseEvent* event) {
+void KPopupFrame_SuperMouseMoveEvent(KPopupFrame* self, QMouseEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_MouseMoveEvent_IsBase(true);
@@ -690,7 +690,7 @@ void KPopupFrame_WheelEvent(KPopupFrame* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseWheelEvent(KPopupFrame* self, QWheelEvent* event) {
+void KPopupFrame_SuperWheelEvent(KPopupFrame* self, QWheelEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_WheelEvent_IsBase(true);
@@ -719,7 +719,7 @@ void KPopupFrame_KeyReleaseEvent(KPopupFrame* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseKeyReleaseEvent(KPopupFrame* self, QKeyEvent* event) {
+void KPopupFrame_SuperKeyReleaseEvent(KPopupFrame* self, QKeyEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_KeyReleaseEvent_IsBase(true);
@@ -748,7 +748,7 @@ void KPopupFrame_FocusInEvent(KPopupFrame* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseFocusInEvent(KPopupFrame* self, QFocusEvent* event) {
+void KPopupFrame_SuperFocusInEvent(KPopupFrame* self, QFocusEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_FocusInEvent_IsBase(true);
@@ -777,7 +777,7 @@ void KPopupFrame_FocusOutEvent(KPopupFrame* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseFocusOutEvent(KPopupFrame* self, QFocusEvent* event) {
+void KPopupFrame_SuperFocusOutEvent(KPopupFrame* self, QFocusEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_FocusOutEvent_IsBase(true);
@@ -806,7 +806,7 @@ void KPopupFrame_EnterEvent(KPopupFrame* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseEnterEvent(KPopupFrame* self, QEnterEvent* event) {
+void KPopupFrame_SuperEnterEvent(KPopupFrame* self, QEnterEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_EnterEvent_IsBase(true);
@@ -835,7 +835,7 @@ void KPopupFrame_LeaveEvent(KPopupFrame* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseLeaveEvent(KPopupFrame* self, QEvent* event) {
+void KPopupFrame_SuperLeaveEvent(KPopupFrame* self, QEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_LeaveEvent_IsBase(true);
@@ -864,7 +864,7 @@ void KPopupFrame_MoveEvent(KPopupFrame* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseMoveEvent(KPopupFrame* self, QMoveEvent* event) {
+void KPopupFrame_SuperMoveEvent(KPopupFrame* self, QMoveEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_MoveEvent_IsBase(true);
@@ -893,7 +893,7 @@ void KPopupFrame_CloseEvent(KPopupFrame* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseCloseEvent(KPopupFrame* self, QCloseEvent* event) {
+void KPopupFrame_SuperCloseEvent(KPopupFrame* self, QCloseEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_CloseEvent_IsBase(true);
@@ -922,7 +922,7 @@ void KPopupFrame_ContextMenuEvent(KPopupFrame* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseContextMenuEvent(KPopupFrame* self, QContextMenuEvent* event) {
+void KPopupFrame_SuperContextMenuEvent(KPopupFrame* self, QContextMenuEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_ContextMenuEvent_IsBase(true);
@@ -951,7 +951,7 @@ void KPopupFrame_TabletEvent(KPopupFrame* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseTabletEvent(KPopupFrame* self, QTabletEvent* event) {
+void KPopupFrame_SuperTabletEvent(KPopupFrame* self, QTabletEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_TabletEvent_IsBase(true);
@@ -980,7 +980,7 @@ void KPopupFrame_ActionEvent(KPopupFrame* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseActionEvent(KPopupFrame* self, QActionEvent* event) {
+void KPopupFrame_SuperActionEvent(KPopupFrame* self, QActionEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_ActionEvent_IsBase(true);
@@ -1009,7 +1009,7 @@ void KPopupFrame_DragEnterEvent(KPopupFrame* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseDragEnterEvent(KPopupFrame* self, QDragEnterEvent* event) {
+void KPopupFrame_SuperDragEnterEvent(KPopupFrame* self, QDragEnterEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_DragEnterEvent_IsBase(true);
@@ -1038,7 +1038,7 @@ void KPopupFrame_DragMoveEvent(KPopupFrame* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseDragMoveEvent(KPopupFrame* self, QDragMoveEvent* event) {
+void KPopupFrame_SuperDragMoveEvent(KPopupFrame* self, QDragMoveEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_DragMoveEvent_IsBase(true);
@@ -1067,7 +1067,7 @@ void KPopupFrame_DragLeaveEvent(KPopupFrame* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseDragLeaveEvent(KPopupFrame* self, QDragLeaveEvent* event) {
+void KPopupFrame_SuperDragLeaveEvent(KPopupFrame* self, QDragLeaveEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_DragLeaveEvent_IsBase(true);
@@ -1096,7 +1096,7 @@ void KPopupFrame_DropEvent(KPopupFrame* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseDropEvent(KPopupFrame* self, QDropEvent* event) {
+void KPopupFrame_SuperDropEvent(KPopupFrame* self, QDropEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_DropEvent_IsBase(true);
@@ -1125,7 +1125,7 @@ void KPopupFrame_ShowEvent(KPopupFrame* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseShowEvent(KPopupFrame* self, QShowEvent* event) {
+void KPopupFrame_SuperShowEvent(KPopupFrame* self, QShowEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_ShowEvent_IsBase(true);
@@ -1155,7 +1155,7 @@ bool KPopupFrame_NativeEvent(KPopupFrame* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool KPopupFrame_QBaseNativeEvent(KPopupFrame* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KPopupFrame_SuperNativeEvent(KPopupFrame* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
@@ -1185,7 +1185,7 @@ int KPopupFrame_Metric(const KPopupFrame* self, int param1) {
 }
 
 // Base class handler implementation
-int KPopupFrame_QBaseMetric(const KPopupFrame* self, int param1) {
+int KPopupFrame_SuperMetric(const KPopupFrame* self, int param1) {
     auto* vkpopupframe = const_cast<VirtualKPopupFrame*>(dynamic_cast<const VirtualKPopupFrame*>(self));
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_Metric_IsBase(true);
@@ -1214,7 +1214,7 @@ void KPopupFrame_InitPainter(const KPopupFrame* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseInitPainter(const KPopupFrame* self, QPainter* painter) {
+void KPopupFrame_SuperInitPainter(const KPopupFrame* self, QPainter* painter) {
     auto* vkpopupframe = const_cast<VirtualKPopupFrame*>(dynamic_cast<const VirtualKPopupFrame*>(self));
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_InitPainter_IsBase(true);
@@ -1243,7 +1243,7 @@ QPaintDevice* KPopupFrame_Redirected(const KPopupFrame* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KPopupFrame_QBaseRedirected(const KPopupFrame* self, QPoint* offset) {
+QPaintDevice* KPopupFrame_SuperRedirected(const KPopupFrame* self, QPoint* offset) {
     auto* vkpopupframe = const_cast<VirtualKPopupFrame*>(dynamic_cast<const VirtualKPopupFrame*>(self));
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_Redirected_IsBase(true);
@@ -1272,7 +1272,7 @@ QPainter* KPopupFrame_SharedPainter(const KPopupFrame* self) {
 }
 
 // Base class handler implementation
-QPainter* KPopupFrame_QBaseSharedPainter(const KPopupFrame* self) {
+QPainter* KPopupFrame_SuperSharedPainter(const KPopupFrame* self) {
     auto* vkpopupframe = const_cast<VirtualKPopupFrame*>(dynamic_cast<const VirtualKPopupFrame*>(self));
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_SharedPainter_IsBase(true);
@@ -1301,7 +1301,7 @@ void KPopupFrame_InputMethodEvent(KPopupFrame* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseInputMethodEvent(KPopupFrame* self, QInputMethodEvent* param1) {
+void KPopupFrame_SuperInputMethodEvent(KPopupFrame* self, QInputMethodEvent* param1) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_InputMethodEvent_IsBase(true);
@@ -1330,7 +1330,7 @@ QVariant* KPopupFrame_InputMethodQuery(const KPopupFrame* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KPopupFrame_QBaseInputMethodQuery(const KPopupFrame* self, int param1) {
+QVariant* KPopupFrame_SuperInputMethodQuery(const KPopupFrame* self, int param1) {
     auto* vkpopupframe = const_cast<VirtualKPopupFrame*>(dynamic_cast<const VirtualKPopupFrame*>(self));
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_InputMethodQuery_IsBase(true);
@@ -1359,7 +1359,7 @@ bool KPopupFrame_FocusNextPrevChild(KPopupFrame* self, bool next) {
 }
 
 // Base class handler implementation
-bool KPopupFrame_QBaseFocusNextPrevChild(KPopupFrame* self, bool next) {
+bool KPopupFrame_SuperFocusNextPrevChild(KPopupFrame* self, bool next) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_FocusNextPrevChild_IsBase(true);
@@ -1388,7 +1388,7 @@ bool KPopupFrame_EventFilter(KPopupFrame* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool KPopupFrame_QBaseEventFilter(KPopupFrame* self, QObject* watched, QEvent* event) {
+bool KPopupFrame_SuperEventFilter(KPopupFrame* self, QObject* watched, QEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_EventFilter_IsBase(true);
@@ -1417,7 +1417,7 @@ void KPopupFrame_TimerEvent(KPopupFrame* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseTimerEvent(KPopupFrame* self, QTimerEvent* event) {
+void KPopupFrame_SuperTimerEvent(KPopupFrame* self, QTimerEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_TimerEvent_IsBase(true);
@@ -1446,7 +1446,7 @@ void KPopupFrame_ChildEvent(KPopupFrame* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseChildEvent(KPopupFrame* self, QChildEvent* event) {
+void KPopupFrame_SuperChildEvent(KPopupFrame* self, QChildEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_ChildEvent_IsBase(true);
@@ -1475,7 +1475,7 @@ void KPopupFrame_CustomEvent(KPopupFrame* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseCustomEvent(KPopupFrame* self, QEvent* event) {
+void KPopupFrame_SuperCustomEvent(KPopupFrame* self, QEvent* event) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_CustomEvent_IsBase(true);
@@ -1504,7 +1504,7 @@ void KPopupFrame_ConnectNotify(KPopupFrame* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseConnectNotify(KPopupFrame* self, const QMetaMethod* signal) {
+void KPopupFrame_SuperConnectNotify(KPopupFrame* self, const QMetaMethod* signal) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_ConnectNotify_IsBase(true);
@@ -1533,7 +1533,7 @@ void KPopupFrame_DisconnectNotify(KPopupFrame* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseDisconnectNotify(KPopupFrame* self, const QMetaMethod* signal) {
+void KPopupFrame_SuperDisconnectNotify(KPopupFrame* self, const QMetaMethod* signal) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_DisconnectNotify_IsBase(true);
@@ -1562,7 +1562,7 @@ void KPopupFrame_DrawFrame(KPopupFrame* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseDrawFrame(KPopupFrame* self, QPainter* param1) {
+void KPopupFrame_SuperDrawFrame(KPopupFrame* self, QPainter* param1) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_DrawFrame_IsBase(true);
@@ -1591,7 +1591,7 @@ void KPopupFrame_UpdateMicroFocus(KPopupFrame* self) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseUpdateMicroFocus(KPopupFrame* self) {
+void KPopupFrame_SuperUpdateMicroFocus(KPopupFrame* self) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_UpdateMicroFocus_IsBase(true);
@@ -1620,7 +1620,7 @@ void KPopupFrame_Create(KPopupFrame* self) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseCreate(KPopupFrame* self) {
+void KPopupFrame_SuperCreate(KPopupFrame* self) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_Create_IsBase(true);
@@ -1649,7 +1649,7 @@ void KPopupFrame_Destroy(KPopupFrame* self) {
 }
 
 // Base class handler implementation
-void KPopupFrame_QBaseDestroy(KPopupFrame* self) {
+void KPopupFrame_SuperDestroy(KPopupFrame* self) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_Destroy_IsBase(true);
@@ -1678,7 +1678,7 @@ bool KPopupFrame_FocusNextChild(KPopupFrame* self) {
 }
 
 // Base class handler implementation
-bool KPopupFrame_QBaseFocusNextChild(KPopupFrame* self) {
+bool KPopupFrame_SuperFocusNextChild(KPopupFrame* self) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_FocusNextChild_IsBase(true);
@@ -1707,7 +1707,7 @@ bool KPopupFrame_FocusPreviousChild(KPopupFrame* self) {
 }
 
 // Base class handler implementation
-bool KPopupFrame_QBaseFocusPreviousChild(KPopupFrame* self) {
+bool KPopupFrame_SuperFocusPreviousChild(KPopupFrame* self) {
     auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_FocusPreviousChild_IsBase(true);
@@ -1736,7 +1736,7 @@ QObject* KPopupFrame_Sender(const KPopupFrame* self) {
 }
 
 // Base class handler implementation
-QObject* KPopupFrame_QBaseSender(const KPopupFrame* self) {
+QObject* KPopupFrame_SuperSender(const KPopupFrame* self) {
     auto* vkpopupframe = const_cast<VirtualKPopupFrame*>(dynamic_cast<const VirtualKPopupFrame*>(self));
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_Sender_IsBase(true);
@@ -1765,7 +1765,7 @@ int KPopupFrame_SenderSignalIndex(const KPopupFrame* self) {
 }
 
 // Base class handler implementation
-int KPopupFrame_QBaseSenderSignalIndex(const KPopupFrame* self) {
+int KPopupFrame_SuperSenderSignalIndex(const KPopupFrame* self) {
     auto* vkpopupframe = const_cast<VirtualKPopupFrame*>(dynamic_cast<const VirtualKPopupFrame*>(self));
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_SenderSignalIndex_IsBase(true);
@@ -1794,7 +1794,7 @@ int KPopupFrame_Receivers(const KPopupFrame* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KPopupFrame_QBaseReceivers(const KPopupFrame* self, const char* signal) {
+int KPopupFrame_SuperReceivers(const KPopupFrame* self, const char* signal) {
     auto* vkpopupframe = const_cast<VirtualKPopupFrame*>(dynamic_cast<const VirtualKPopupFrame*>(self));
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_Receivers_IsBase(true);
@@ -1823,7 +1823,7 @@ bool KPopupFrame_IsSignalConnected(const KPopupFrame* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool KPopupFrame_QBaseIsSignalConnected(const KPopupFrame* self, const QMetaMethod* signal) {
+bool KPopupFrame_SuperIsSignalConnected(const KPopupFrame* self, const QMetaMethod* signal) {
     auto* vkpopupframe = const_cast<VirtualKPopupFrame*>(dynamic_cast<const VirtualKPopupFrame*>(self));
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_IsSignalConnected_IsBase(true);
@@ -1852,7 +1852,7 @@ double KPopupFrame_GetDecodedMetricF(const KPopupFrame* self, int metricA, int m
 }
 
 // Base class handler implementation
-double KPopupFrame_QBaseGetDecodedMetricF(const KPopupFrame* self, int metricA, int metricB) {
+double KPopupFrame_SuperGetDecodedMetricF(const KPopupFrame* self, int metricA, int metricB) {
     auto* vkpopupframe = const_cast<VirtualKPopupFrame*>(dynamic_cast<const VirtualKPopupFrame*>(self));
     if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
         vkpopupframe->setKPopupFrame_GetDecodedMetricF_IsBase(true);

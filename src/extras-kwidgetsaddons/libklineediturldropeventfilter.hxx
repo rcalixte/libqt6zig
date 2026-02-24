@@ -328,25 +328,25 @@ class VirtualKLineEditUrlDropEventFilter final : public KLineEditUrlDropEventFil
 
     // Friend functions
     friend bool KLineEditUrlDropEventFilter_EventFilter(KLineEditUrlDropEventFilter* self, QObject* object, QEvent* event);
-    friend bool KLineEditUrlDropEventFilter_QBaseEventFilter(KLineEditUrlDropEventFilter* self, QObject* object, QEvent* event);
+    friend bool KLineEditUrlDropEventFilter_SuperEventFilter(KLineEditUrlDropEventFilter* self, QObject* object, QEvent* event);
     friend void KLineEditUrlDropEventFilter_TimerEvent(KLineEditUrlDropEventFilter* self, QTimerEvent* event);
-    friend void KLineEditUrlDropEventFilter_QBaseTimerEvent(KLineEditUrlDropEventFilter* self, QTimerEvent* event);
+    friend void KLineEditUrlDropEventFilter_SuperTimerEvent(KLineEditUrlDropEventFilter* self, QTimerEvent* event);
     friend void KLineEditUrlDropEventFilter_ChildEvent(KLineEditUrlDropEventFilter* self, QChildEvent* event);
-    friend void KLineEditUrlDropEventFilter_QBaseChildEvent(KLineEditUrlDropEventFilter* self, QChildEvent* event);
+    friend void KLineEditUrlDropEventFilter_SuperChildEvent(KLineEditUrlDropEventFilter* self, QChildEvent* event);
     friend void KLineEditUrlDropEventFilter_CustomEvent(KLineEditUrlDropEventFilter* self, QEvent* event);
-    friend void KLineEditUrlDropEventFilter_QBaseCustomEvent(KLineEditUrlDropEventFilter* self, QEvent* event);
+    friend void KLineEditUrlDropEventFilter_SuperCustomEvent(KLineEditUrlDropEventFilter* self, QEvent* event);
     friend void KLineEditUrlDropEventFilter_ConnectNotify(KLineEditUrlDropEventFilter* self, const QMetaMethod* signal);
-    friend void KLineEditUrlDropEventFilter_QBaseConnectNotify(KLineEditUrlDropEventFilter* self, const QMetaMethod* signal);
+    friend void KLineEditUrlDropEventFilter_SuperConnectNotify(KLineEditUrlDropEventFilter* self, const QMetaMethod* signal);
     friend void KLineEditUrlDropEventFilter_DisconnectNotify(KLineEditUrlDropEventFilter* self, const QMetaMethod* signal);
-    friend void KLineEditUrlDropEventFilter_QBaseDisconnectNotify(KLineEditUrlDropEventFilter* self, const QMetaMethod* signal);
+    friend void KLineEditUrlDropEventFilter_SuperDisconnectNotify(KLineEditUrlDropEventFilter* self, const QMetaMethod* signal);
     friend QObject* KLineEditUrlDropEventFilter_Sender(const KLineEditUrlDropEventFilter* self);
-    friend QObject* KLineEditUrlDropEventFilter_QBaseSender(const KLineEditUrlDropEventFilter* self);
+    friend QObject* KLineEditUrlDropEventFilter_SuperSender(const KLineEditUrlDropEventFilter* self);
     friend int KLineEditUrlDropEventFilter_SenderSignalIndex(const KLineEditUrlDropEventFilter* self);
-    friend int KLineEditUrlDropEventFilter_QBaseSenderSignalIndex(const KLineEditUrlDropEventFilter* self);
+    friend int KLineEditUrlDropEventFilter_SuperSenderSignalIndex(const KLineEditUrlDropEventFilter* self);
     friend int KLineEditUrlDropEventFilter_Receivers(const KLineEditUrlDropEventFilter* self, const char* signal);
-    friend int KLineEditUrlDropEventFilter_QBaseReceivers(const KLineEditUrlDropEventFilter* self, const char* signal);
+    friend int KLineEditUrlDropEventFilter_SuperReceivers(const KLineEditUrlDropEventFilter* self, const char* signal);
     friend bool KLineEditUrlDropEventFilter_IsSignalConnected(const KLineEditUrlDropEventFilter* self, const QMetaMethod* signal);
-    friend bool KLineEditUrlDropEventFilter_QBaseIsSignalConnected(const KLineEditUrlDropEventFilter* self, const QMetaMethod* signal);
+    friend bool KLineEditUrlDropEventFilter_SuperIsSignalConnected(const KLineEditUrlDropEventFilter* self, const QMetaMethod* signal);
 };
 
 #endif

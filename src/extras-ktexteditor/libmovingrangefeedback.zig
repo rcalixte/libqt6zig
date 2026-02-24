@@ -35,6 +35,10 @@ pub const ktexteditor__movingrangefeedback = struct {
         qtc.KTextEditor__MovingRangeFeedback_OnRangeEmpty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRangeEmpty` instead
+    ///
+    pub const QBaseRangeEmpty = SuperRangeEmpty;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#rangeEmpty)
     ///
     /// Base class method implementation
@@ -45,8 +49,8 @@ pub const ktexteditor__movingrangefeedback = struct {
     ///
     /// ` range: QtC.KTextEditor__MovingRange `
     ///
-    pub fn QBaseRangeEmpty(self: ?*anyopaque, range: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRangeFeedback_QBaseRangeEmpty(@ptrCast(self), @ptrCast(range));
+    pub fn SuperRangeEmpty(self: ?*anyopaque, range: ?*anyopaque) void {
+        qtc.KTextEditor__MovingRangeFeedback_SuperRangeEmpty(@ptrCast(self), @ptrCast(range));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#rangeInvalid)
@@ -75,6 +79,10 @@ pub const ktexteditor__movingrangefeedback = struct {
         qtc.KTextEditor__MovingRangeFeedback_OnRangeInvalid(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRangeInvalid` instead
+    ///
+    pub const QBaseRangeInvalid = SuperRangeInvalid;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#rangeInvalid)
     ///
     /// Base class method implementation
@@ -85,8 +93,8 @@ pub const ktexteditor__movingrangefeedback = struct {
     ///
     /// ` range: QtC.KTextEditor__MovingRange `
     ///
-    pub fn QBaseRangeInvalid(self: ?*anyopaque, range: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRangeFeedback_QBaseRangeInvalid(@ptrCast(self), @ptrCast(range));
+    pub fn SuperRangeInvalid(self: ?*anyopaque, range: ?*anyopaque) void {
+        qtc.KTextEditor__MovingRangeFeedback_SuperRangeInvalid(@ptrCast(self), @ptrCast(range));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseEnteredRange)
@@ -117,6 +125,10 @@ pub const ktexteditor__movingrangefeedback = struct {
         qtc.KTextEditor__MovingRangeFeedback_OnMouseEnteredRange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseEnteredRange` instead
+    ///
+    pub const QBaseMouseEnteredRange = SuperMouseEnteredRange;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseEnteredRange)
     ///
     /// Base class method implementation
@@ -129,8 +141,8 @@ pub const ktexteditor__movingrangefeedback = struct {
     ///
     /// ` view: QtC.KTextEditor__View `
     ///
-    pub fn QBaseMouseEnteredRange(self: ?*anyopaque, range: ?*anyopaque, view: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRangeFeedback_QBaseMouseEnteredRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
+    pub fn SuperMouseEnteredRange(self: ?*anyopaque, range: ?*anyopaque, view: ?*anyopaque) void {
+        qtc.KTextEditor__MovingRangeFeedback_SuperMouseEnteredRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseExitedRange)
@@ -161,6 +173,10 @@ pub const ktexteditor__movingrangefeedback = struct {
         qtc.KTextEditor__MovingRangeFeedback_OnMouseExitedRange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseExitedRange` instead
+    ///
+    pub const QBaseMouseExitedRange = SuperMouseExitedRange;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseExitedRange)
     ///
     /// Base class method implementation
@@ -173,8 +189,8 @@ pub const ktexteditor__movingrangefeedback = struct {
     ///
     /// ` view: QtC.KTextEditor__View `
     ///
-    pub fn QBaseMouseExitedRange(self: ?*anyopaque, range: ?*anyopaque, view: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRangeFeedback_QBaseMouseExitedRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
+    pub fn SuperMouseExitedRange(self: ?*anyopaque, range: ?*anyopaque, view: ?*anyopaque) void {
+        qtc.KTextEditor__MovingRangeFeedback_SuperMouseExitedRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretEnteredRange)
@@ -205,6 +221,10 @@ pub const ktexteditor__movingrangefeedback = struct {
         qtc.KTextEditor__MovingRangeFeedback_OnCaretEnteredRange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCaretEnteredRange` instead
+    ///
+    pub const QBaseCaretEnteredRange = SuperCaretEnteredRange;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretEnteredRange)
     ///
     /// Base class method implementation
@@ -217,8 +237,8 @@ pub const ktexteditor__movingrangefeedback = struct {
     ///
     /// ` view: QtC.KTextEditor__View `
     ///
-    pub fn QBaseCaretEnteredRange(self: ?*anyopaque, range: ?*anyopaque, view: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRangeFeedback_QBaseCaretEnteredRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
+    pub fn SuperCaretEnteredRange(self: ?*anyopaque, range: ?*anyopaque, view: ?*anyopaque) void {
+        qtc.KTextEditor__MovingRangeFeedback_SuperCaretEnteredRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretExitedRange)
@@ -249,6 +269,10 @@ pub const ktexteditor__movingrangefeedback = struct {
         qtc.KTextEditor__MovingRangeFeedback_OnCaretExitedRange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCaretExitedRange` instead
+    ///
+    pub const QBaseCaretExitedRange = SuperCaretExitedRange;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretExitedRange)
     ///
     /// Base class method implementation
@@ -261,9 +285,12 @@ pub const ktexteditor__movingrangefeedback = struct {
     ///
     /// ` view: QtC.KTextEditor__View `
     ///
-    pub fn QBaseCaretExitedRange(self: ?*anyopaque, range: ?*anyopaque, view: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRangeFeedback_QBaseCaretExitedRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
+    pub fn SuperCaretExitedRange(self: ?*anyopaque, range: ?*anyopaque, view: ?*anyopaque) void {
+        qtc.KTextEditor__MovingRangeFeedback_SuperCaretExitedRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -271,7 +298,7 @@ pub const ktexteditor__movingrangefeedback = struct {
     ///
     /// ` self: QtC.KTextEditor__MovingRangeFeedback `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KTextEditor__MovingRangeFeedback_Delete(@ptrCast(self));
     }
 };

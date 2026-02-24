@@ -56,6 +56,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -64,8 +68,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QTextBrowser_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QTextBrowser_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -91,6 +95,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -99,9 +107,9 @@ pub const qtextbrowser = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QTextBrowser_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QTextBrowser_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -130,6 +138,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -142,8 +154,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTextBrowser_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QTextBrowser_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -268,6 +280,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_OnLoadResource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperLoadResource` instead
+    ///
+    pub const QBaseLoadResource = SuperLoadResource;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#loadResource)
     ///
     /// Base class method implementation
@@ -280,8 +296,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` name: QtC.QUrl `
     ///
-    pub fn QBaseLoadResource(self: ?*anyopaque, typeVal: i32, name: ?*anyopaque) QtC.QVariant {
-        return qtc.QTextBrowser_QBaseLoadResource(@ptrCast(self), @bitCast(typeVal), @ptrCast(name));
+    pub fn SuperLoadResource(self: ?*anyopaque, typeVal: i32, name: ?*anyopaque) QtC.QVariant {
+        return qtc.QTextBrowser_SuperLoadResource(@ptrCast(self), @bitCast(typeVal), @ptrCast(name));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#isBackwardAvailable)
@@ -444,6 +460,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_OnBackward(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBackward` instead
+    ///
+    pub const QBaseBackward = SuperBackward;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#backward)
     ///
     /// Base class method implementation
@@ -452,8 +472,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QBaseBackward(self: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseBackward(@ptrCast(self));
+    pub fn SuperBackward(self: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperBackward(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#forward)
@@ -480,6 +500,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_OnForward(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperForward` instead
+    ///
+    pub const QBaseForward = SuperForward;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#forward)
     ///
     /// Base class method implementation
@@ -488,8 +512,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QBaseForward(self: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseForward(@ptrCast(self));
+    pub fn SuperForward(self: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperForward(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#home)
@@ -516,6 +540,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_OnHome(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHome` instead
+    ///
+    pub const QBaseHome = SuperHome;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#home)
     ///
     /// Base class method implementation
@@ -524,8 +552,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QBaseHome(self: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseHome(@ptrCast(self));
+    pub fn SuperHome(self: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperHome(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#reload)
@@ -552,6 +580,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_OnReload(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperReload` instead
+    ///
+    pub const QBaseReload = SuperReload;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#reload)
     ///
     /// Base class method implementation
@@ -560,8 +592,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QBaseReload(self: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseReload(@ptrCast(self));
+    pub fn SuperReload(self: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperReload(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#backwardAvailable)
@@ -732,6 +764,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#event)
     ///
     /// Base class method implementation
@@ -742,8 +778,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` e: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QTextBrowser_QBaseEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
+        return qtc.QTextBrowser_SuperEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#keyPressEvent)
@@ -772,6 +808,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#keyPressEvent)
     ///
     /// Base class method implementation
@@ -782,8 +822,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` ev: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperKeyPressEvent(@ptrCast(self), @ptrCast(ev));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#mouseMoveEvent)
@@ -812,6 +852,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#mouseMoveEvent)
     ///
     /// Base class method implementation
@@ -822,8 +866,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` ev: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(ev));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#mousePressEvent)
@@ -852,6 +896,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#mousePressEvent)
     ///
     /// Base class method implementation
@@ -862,8 +910,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` ev: QtC.QMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseMousePressEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperMousePressEvent(@ptrCast(self), @ptrCast(ev));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#mouseReleaseEvent)
@@ -892,6 +940,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
@@ -902,8 +954,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` ev: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(ev));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#focusOutEvent)
@@ -932,6 +984,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#focusOutEvent)
     ///
     /// Base class method implementation
@@ -942,8 +998,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` ev: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperFocusOutEvent(@ptrCast(self), @ptrCast(ev));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#focusNextPrevChild)
@@ -972,6 +1028,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    ///
+    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#focusNextPrevChild)
     ///
     /// Base class method implementation
@@ -982,8 +1042,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` next: bool `
     ///
-    pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QTextBrowser_QBaseFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
+        return qtc.QTextBrowser_SuperFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#paintEvent)
@@ -1012,6 +1072,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    ///
+    pub const QBasePaintEvent = SuperPaintEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#paintEvent)
     ///
     /// Base class method implementation
@@ -1022,8 +1086,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` e: QtC.QPaintEvent `
     ///
-    pub fn QBasePaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_QBasePaintEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperPaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperPaintEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#doSetSource)
@@ -1054,6 +1118,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_OnDoSetSource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDoSetSource` instead
+    ///
+    pub const QBaseDoSetSource = SuperDoSetSource;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#doSetSource)
     ///
     /// Base class method implementation
@@ -1066,8 +1134,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` typeVal: qtextdocument_enums.ResourceType `
     ///
-    pub fn QBaseDoSetSource(self: ?*anyopaque, name: ?*anyopaque, typeVal: i32) void {
-        qtc.QTextBrowser_QBaseDoSetSource(@ptrCast(self), @ptrCast(name), @bitCast(typeVal));
+    pub fn SuperDoSetSource(self: ?*anyopaque, name: ?*anyopaque, typeVal: i32) void {
+        qtc.QTextBrowser_SuperDoSetSource(@ptrCast(self), @ptrCast(name), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -7831,6 +7899,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_InputMethodQuery(@ptrCast(self), @bitCast(property));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodQuery)
@@ -7843,8 +7915,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` property: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, property: i32) QtC.QVariant {
-        return qtc.QTextBrowser_QBaseInputMethodQuery(@ptrCast(self), @bitCast(property));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, property: i32) QtC.QVariant {
+        return qtc.QTextBrowser_SuperInputMethodQuery(@ptrCast(self), @bitCast(property));
     }
 
     /// Inherited from QTextEdit
@@ -7879,6 +7951,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_TimerEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#timerEvent)
@@ -7891,8 +7967,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` e: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseTimerEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperTimerEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperTimerEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -7927,6 +8003,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_KeyReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#keyReleaseEvent)
@@ -7939,8 +8019,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` e: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -7975,6 +8055,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_ResizeEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#resizeEvent)
@@ -7987,8 +8071,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` e: QtC.QResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseResizeEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperResizeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperResizeEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8023,6 +8107,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseDoubleClickEvent)
@@ -8035,8 +8123,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` e: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8071,6 +8159,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_ContextMenuEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#contextMenuEvent)
@@ -8083,8 +8175,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` e: QtC.QContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperContextMenuEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8119,6 +8211,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_DragEnterEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragEnterEvent)
@@ -8131,8 +8227,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` e: QtC.QDragEnterEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperDragEnterEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8167,6 +8263,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_DragLeaveEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragLeaveEvent)
@@ -8179,8 +8279,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` e: QtC.QDragLeaveEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8215,6 +8315,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_DragMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dragMoveEvent)
@@ -8227,8 +8331,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` e: QtC.QDragMoveEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperDragMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8263,6 +8367,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_DropEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#dropEvent)
@@ -8275,8 +8383,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` e: QtC.QDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseDropEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDropEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperDropEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8311,6 +8419,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_FocusInEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#focusInEvent)
@@ -8323,8 +8435,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` e: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseFocusInEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperFocusInEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8359,6 +8471,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_ShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#showEvent)
@@ -8371,8 +8487,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` param1: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseShowEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QTextEdit
@@ -8407,6 +8523,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_ChangeEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    ///
+    pub const QBaseChangeEvent = SuperChangeEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#changeEvent)
@@ -8419,8 +8539,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` e: QtC.QEvent `
     ///
-    pub fn QBaseChangeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseChangeEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperChangeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperChangeEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8455,6 +8575,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_WheelEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#wheelEvent)
@@ -8467,8 +8591,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` e: QtC.QWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseWheelEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperWheelEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperWheelEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QTextEdit
@@ -8501,6 +8625,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_CreateMimeDataFromSelection(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateMimeDataFromSelection` instead
+    ///
+    pub const QBaseCreateMimeDataFromSelection = SuperCreateMimeDataFromSelection;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#createMimeDataFromSelection)
@@ -8511,8 +8639,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QBaseCreateMimeDataFromSelection(self: ?*anyopaque) QtC.QMimeData {
-        return qtc.QTextBrowser_QBaseCreateMimeDataFromSelection(@ptrCast(self));
+    pub fn SuperCreateMimeDataFromSelection(self: ?*anyopaque) QtC.QMimeData {
+        return qtc.QTextBrowser_SuperCreateMimeDataFromSelection(@ptrCast(self));
     }
 
     /// Inherited from QTextEdit
@@ -8547,6 +8675,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_CanInsertFromMimeData(@ptrCast(self), @ptrCast(source));
     }
 
+    /// ### DEPRECATED: Use `SuperCanInsertFromMimeData` instead
+    ///
+    pub const QBaseCanInsertFromMimeData = SuperCanInsertFromMimeData;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#canInsertFromMimeData)
@@ -8559,8 +8691,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` source: QtC.QMimeData `
     ///
-    pub fn QBaseCanInsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) bool {
-        return qtc.QTextBrowser_QBaseCanInsertFromMimeData(@ptrCast(self), @ptrCast(source));
+    pub fn SuperCanInsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) bool {
+        return qtc.QTextBrowser_SuperCanInsertFromMimeData(@ptrCast(self), @ptrCast(source));
     }
 
     /// Inherited from QTextEdit
@@ -8595,6 +8727,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_InsertFromMimeData(@ptrCast(self), @ptrCast(source));
     }
 
+    /// ### DEPRECATED: Use `SuperInsertFromMimeData` instead
+    ///
+    pub const QBaseInsertFromMimeData = SuperInsertFromMimeData;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#insertFromMimeData)
@@ -8607,8 +8743,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` source: QtC.QMimeData `
     ///
-    pub fn QBaseInsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseInsertFromMimeData(@ptrCast(self), @ptrCast(source));
+    pub fn SuperInsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperInsertFromMimeData(@ptrCast(self), @ptrCast(source));
     }
 
     /// Inherited from QTextEdit
@@ -8643,6 +8779,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#inputMethodEvent)
@@ -8655,8 +8795,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` param1: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QTextEdit
@@ -8693,6 +8833,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_ScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
+    /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
+    ///
+    pub const QBaseScrollContentsBy = SuperScrollContentsBy;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#scrollContentsBy)
@@ -8707,8 +8851,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn QBaseScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QTextBrowser_QBaseScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn SuperScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
+        qtc.QTextBrowser_SuperScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QTextEdit
@@ -8743,6 +8887,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_DoSetTextCursor(@ptrCast(self), @ptrCast(cursor));
     }
 
+    /// ### DEPRECATED: Use `SuperDoSetTextCursor` instead
+    ///
+    pub const QBaseDoSetTextCursor = SuperDoSetTextCursor;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#doSetTextCursor)
@@ -8755,8 +8903,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` cursor: QtC.QTextCursor `
     ///
-    pub fn QBaseDoSetTextCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseDoSetTextCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SuperDoSetTextCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperDoSetTextCursor(@ptrCast(self), @ptrCast(cursor));
     }
 
     /// Inherited from QTextEdit
@@ -8789,6 +8937,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_MinimumSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    ///
+    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
@@ -8799,8 +8951,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTextBrowser_QBaseMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QTextBrowser_SuperMinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8833,6 +8985,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_SizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
@@ -8843,8 +8999,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTextBrowser_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QTextBrowser_SuperSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8879,6 +9035,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_SetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
+    /// ### DEPRECATED: Use `SuperSetupViewport` instead
+    ///
+    pub const QBaseSetupViewport = SuperSetupViewport;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
@@ -8891,8 +9051,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` viewport: QtC.QWidget `
     ///
-    pub fn QBaseSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseSetupViewport(@ptrCast(self), @ptrCast(viewport));
+    pub fn SuperSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperSetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8929,6 +9089,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_EventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
@@ -8943,8 +9107,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` param2: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.QTextBrowser_QBaseEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn SuperEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
+        return qtc.QTextBrowser_SuperEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8979,6 +9143,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_ViewportEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperViewportEvent` instead
+    ///
+    pub const QBaseViewportEvent = SuperViewportEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
@@ -8991,8 +9159,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseViewportEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QTextBrowser_QBaseViewportEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperViewportEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
+        return qtc.QTextBrowser_SuperViewportEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9025,6 +9193,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_ViewportSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
+    ///
+    pub const QBaseViewportSizeHint = SuperViewportSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
@@ -9035,8 +9207,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QBaseViewportSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTextBrowser_QBaseViewportSizeHint(@ptrCast(self));
+    pub fn SuperViewportSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QTextBrowser_SuperViewportSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9071,6 +9243,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_InitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
+    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    ///
+    pub const QBaseInitStyleOption = SuperInitStyleOption;
+
     /// Inherited from QFrame
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
@@ -9083,8 +9259,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` option: QtC.QStyleOptionFrame `
     ///
-    pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// Inherited from QFrame
@@ -9117,6 +9293,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_DevType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
@@ -9127,8 +9307,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.QTextBrowser_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.QTextBrowser_SuperDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9163,6 +9343,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_SetVisible(@ptrCast(self), visible);
     }
 
+    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    ///
+    pub const QBaseSetVisible = SuperSetVisible;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
@@ -9175,8 +9359,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QTextBrowser_QBaseSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
+        qtc.QTextBrowser_SuperSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
@@ -9211,6 +9395,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
@@ -9223,8 +9411,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTextBrowser_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QTextBrowser_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -9257,6 +9445,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
@@ -9267,8 +9459,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QTextBrowser_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.QTextBrowser_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9301,6 +9493,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_PaintEngine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
@@ -9311,8 +9507,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QTextBrowser_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.QTextBrowser_SuperPaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9347,6 +9543,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    ///
+    pub const QBaseEnterEvent = SuperEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
@@ -9359,8 +9559,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` event: QtC.QEnterEvent `
     ///
-    pub fn QBaseEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9395,6 +9595,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    ///
+    pub const QBaseLeaveEvent = SuperLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
@@ -9407,8 +9611,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9443,6 +9647,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
@@ -9455,8 +9663,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` event: QtC.QMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9491,6 +9699,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
@@ -9503,8 +9715,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` event: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9539,6 +9751,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    ///
+    pub const QBaseTabletEvent = SuperTabletEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
@@ -9551,8 +9767,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` event: QtC.QTabletEvent `
     ///
-    pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9587,6 +9803,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_ActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    ///
+    pub const QBaseActionEvent = SuperActionEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
@@ -9599,8 +9819,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` event: QtC.QActionEvent `
     ///
-    pub fn QBaseActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9635,6 +9855,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
@@ -9647,8 +9871,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` event: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9691,6 +9915,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    ///
+    pub const QBaseNativeEvent = SuperNativeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
@@ -9707,12 +9935,12 @@ pub const qtextbrowser = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QTextBrowser_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QTextBrowser_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -9747,6 +9975,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_Metric(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
@@ -9759,8 +9991,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTextBrowser_QBaseMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QTextBrowser_SuperMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -9795,6 +10027,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
@@ -9807,8 +10043,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
@@ -9843,6 +10079,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
@@ -9855,8 +10095,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QTextBrowser_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.QTextBrowser_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
@@ -9889,6 +10129,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
@@ -9899,8 +10143,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QTextBrowser_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.QTextBrowser_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9935,6 +10179,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -9947,8 +10195,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -9983,6 +10231,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -9995,8 +10247,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -10031,6 +10283,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -10043,8 +10299,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -10079,6 +10335,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -10091,8 +10351,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -10127,6 +10387,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_ZoomInF(@ptrCast(self), @bitCast(range));
     }
 
+    /// ### DEPRECATED: Use `SuperZoomInF` instead
+    ///
+    pub const QBaseZoomInF = SuperZoomInF;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
@@ -10139,8 +10403,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` range: f32 `
     ///
-    pub fn QBaseZoomInF(self: ?*anyopaque, range: f32) void {
-        qtc.QTextBrowser_QBaseZoomInF(@ptrCast(self), @bitCast(range));
+    pub fn SuperZoomInF(self: ?*anyopaque, range: f32) void {
+        qtc.QTextBrowser_SuperZoomInF(@ptrCast(self), @bitCast(range));
     }
 
     /// Inherited from QTextEdit
@@ -10181,6 +10445,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_SetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
+    /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
+    ///
+    pub const QBaseSetViewportMargins = SuperSetViewportMargins;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
@@ -10199,8 +10467,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn QBaseSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QTextBrowser_QBaseSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SuperSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QTextBrowser_SuperSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10233,6 +10501,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_ViewportMargins(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperViewportMargins` instead
+    ///
+    pub const QBaseViewportMargins = SuperViewportMargins;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
@@ -10243,8 +10515,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QBaseViewportMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QTextBrowser_QBaseViewportMargins(@ptrCast(self));
+    pub fn SuperViewportMargins(self: ?*anyopaque) QtC.QMargins {
+        return qtc.QTextBrowser_SuperViewportMargins(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10279,6 +10551,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_DrawFrame(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    ///
+    pub const QBaseDrawFrame = SuperDrawFrame;
+
     /// Inherited from QFrame
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
@@ -10291,8 +10567,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` param1: QtC.QPainter `
     ///
-    pub fn QBaseDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseDrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperDrawFrame(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QFrame
@@ -10325,6 +10601,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -10335,8 +10615,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10369,6 +10649,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_Create(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreate` instead
+    ///
+    pub const QBaseCreate = SuperCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -10379,8 +10663,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QBaseCreate(self: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseCreate(@ptrCast(self));
+    pub fn SuperCreate(self: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10413,6 +10697,10 @@ pub const qtextbrowser = struct {
         qtc.QTextBrowser_Destroy(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroy` instead
+    ///
+    pub const QBaseDestroy = SuperDestroy;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
@@ -10423,8 +10711,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QBaseDestroy(self: ?*anyopaque) void {
-        qtc.QTextBrowser_QBaseDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: ?*anyopaque) void {
+        qtc.QTextBrowser_SuperDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10457,6 +10745,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_FocusNextChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    ///
+    pub const QBaseFocusNextChild = SuperFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -10467,8 +10759,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QTextBrowser_QBaseFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
+        return qtc.QTextBrowser_SuperFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10501,6 +10793,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_FocusPreviousChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    ///
+    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
@@ -10511,8 +10807,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QTextBrowser_QBaseFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
+        return qtc.QTextBrowser_SuperFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10545,6 +10841,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -10555,8 +10855,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QTextBrowser_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QTextBrowser_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -10589,6 +10889,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -10599,8 +10903,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QTextBrowser_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QTextBrowser_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -10636,6 +10940,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -10648,9 +10956,9 @@ pub const qtextbrowser = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QTextBrowser_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTextBrowser_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -10685,6 +10993,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -10697,8 +11009,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QTextBrowser_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QTextBrowser_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -10735,6 +11047,10 @@ pub const qtextbrowser = struct {
         return qtc.QTextBrowser_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -10749,8 +11065,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QTextBrowser_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.QTextBrowser_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -10784,6 +11100,9 @@ pub const qtextbrowser = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#dtor.QTextBrowser)
     ///
@@ -10793,7 +11112,7 @@ pub const qtextbrowser = struct {
     ///
     /// ` self: QtC.QTextBrowser `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTextBrowser_Delete(@ptrCast(self));
     }
 };

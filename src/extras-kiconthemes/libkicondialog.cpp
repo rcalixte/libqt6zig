@@ -271,7 +271,7 @@ libqt_string KIconDialog_GetIcon7(int group, int context, bool strictIconSize, i
 }
 
 // Base class handler implementation
-QMetaObject* KIconDialog_QBaseMetaObject(const KIconDialog* self) {
+QMetaObject* KIconDialog_SuperMetaObject(const KIconDialog* self) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_MetaObject_IsBase(true);
@@ -290,7 +290,7 @@ void KIconDialog_OnMetaObject(const KIconDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KIconDialog_QBaseMetacast(KIconDialog* self, const char* param1) {
+void* KIconDialog_SuperMetacast(KIconDialog* self, const char* param1) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_Metacast_IsBase(true);
@@ -309,7 +309,7 @@ void KIconDialog_OnMetacast(KIconDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KIconDialog_QBaseMetacall(KIconDialog* self, int param1, int param2, void** param3) {
+int KIconDialog_SuperMetacall(KIconDialog* self, int param1, int param2, void** param3) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_Metacall_IsBase(true);
@@ -328,7 +328,7 @@ void KIconDialog_OnMetacall(KIconDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseShowEvent(KIconDialog* self, QShowEvent* event) {
+void KIconDialog_SuperShowEvent(KIconDialog* self, QShowEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_ShowEvent_IsBase(true);
@@ -357,7 +357,7 @@ void KIconDialog_SetVisible(KIconDialog* self, bool visible) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseSetVisible(KIconDialog* self, bool visible) {
+void KIconDialog_SuperSetVisible(KIconDialog* self, bool visible) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_SetVisible_IsBase(true);
@@ -386,7 +386,7 @@ QSize* KIconDialog_SizeHint(const KIconDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KIconDialog_QBaseSizeHint(const KIconDialog* self) {
+QSize* KIconDialog_SuperSizeHint(const KIconDialog* self) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_SizeHint_IsBase(true);
@@ -415,7 +415,7 @@ QSize* KIconDialog_MinimumSizeHint(const KIconDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KIconDialog_QBaseMinimumSizeHint(const KIconDialog* self) {
+QSize* KIconDialog_SuperMinimumSizeHint(const KIconDialog* self) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_MinimumSizeHint_IsBase(true);
@@ -444,7 +444,7 @@ void KIconDialog_Open(KIconDialog* self) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseOpen(KIconDialog* self) {
+void KIconDialog_SuperOpen(KIconDialog* self) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_Open_IsBase(true);
@@ -473,7 +473,7 @@ int KIconDialog_Exec(KIconDialog* self) {
 }
 
 // Base class handler implementation
-int KIconDialog_QBaseExec(KIconDialog* self) {
+int KIconDialog_SuperExec(KIconDialog* self) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_Exec_IsBase(true);
@@ -502,7 +502,7 @@ void KIconDialog_Done(KIconDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseDone(KIconDialog* self, int param1) {
+void KIconDialog_SuperDone(KIconDialog* self, int param1) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_Done_IsBase(true);
@@ -531,7 +531,7 @@ void KIconDialog_Accept(KIconDialog* self) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseAccept(KIconDialog* self) {
+void KIconDialog_SuperAccept(KIconDialog* self) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_Accept_IsBase(true);
@@ -560,7 +560,7 @@ void KIconDialog_Reject(KIconDialog* self) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseReject(KIconDialog* self) {
+void KIconDialog_SuperReject(KIconDialog* self) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_Reject_IsBase(true);
@@ -589,7 +589,7 @@ void KIconDialog_KeyPressEvent(KIconDialog* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseKeyPressEvent(KIconDialog* self, QKeyEvent* param1) {
+void KIconDialog_SuperKeyPressEvent(KIconDialog* self, QKeyEvent* param1) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_KeyPressEvent_IsBase(true);
@@ -618,7 +618,7 @@ void KIconDialog_CloseEvent(KIconDialog* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseCloseEvent(KIconDialog* self, QCloseEvent* param1) {
+void KIconDialog_SuperCloseEvent(KIconDialog* self, QCloseEvent* param1) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_CloseEvent_IsBase(true);
@@ -647,7 +647,7 @@ void KIconDialog_ResizeEvent(KIconDialog* self, QResizeEvent* param1) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseResizeEvent(KIconDialog* self, QResizeEvent* param1) {
+void KIconDialog_SuperResizeEvent(KIconDialog* self, QResizeEvent* param1) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_ResizeEvent_IsBase(true);
@@ -676,7 +676,7 @@ void KIconDialog_ContextMenuEvent(KIconDialog* self, QContextMenuEvent* param1) 
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseContextMenuEvent(KIconDialog* self, QContextMenuEvent* param1) {
+void KIconDialog_SuperContextMenuEvent(KIconDialog* self, QContextMenuEvent* param1) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_ContextMenuEvent_IsBase(true);
@@ -705,7 +705,7 @@ bool KIconDialog_EventFilter(KIconDialog* self, QObject* param1, QEvent* param2)
 }
 
 // Base class handler implementation
-bool KIconDialog_QBaseEventFilter(KIconDialog* self, QObject* param1, QEvent* param2) {
+bool KIconDialog_SuperEventFilter(KIconDialog* self, QObject* param1, QEvent* param2) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_EventFilter_IsBase(true);
@@ -734,7 +734,7 @@ int KIconDialog_DevType(const KIconDialog* self) {
 }
 
 // Base class handler implementation
-int KIconDialog_QBaseDevType(const KIconDialog* self) {
+int KIconDialog_SuperDevType(const KIconDialog* self) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_DevType_IsBase(true);
@@ -763,7 +763,7 @@ int KIconDialog_HeightForWidth(const KIconDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KIconDialog_QBaseHeightForWidth(const KIconDialog* self, int param1) {
+int KIconDialog_SuperHeightForWidth(const KIconDialog* self, int param1) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_HeightForWidth_IsBase(true);
@@ -792,7 +792,7 @@ bool KIconDialog_HasHeightForWidth(const KIconDialog* self) {
 }
 
 // Base class handler implementation
-bool KIconDialog_QBaseHasHeightForWidth(const KIconDialog* self) {
+bool KIconDialog_SuperHasHeightForWidth(const KIconDialog* self) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_HasHeightForWidth_IsBase(true);
@@ -821,7 +821,7 @@ QPaintEngine* KIconDialog_PaintEngine(const KIconDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KIconDialog_QBasePaintEngine(const KIconDialog* self) {
+QPaintEngine* KIconDialog_SuperPaintEngine(const KIconDialog* self) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_PaintEngine_IsBase(true);
@@ -850,7 +850,7 @@ bool KIconDialog_Event(KIconDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KIconDialog_QBaseEvent(KIconDialog* self, QEvent* event) {
+bool KIconDialog_SuperEvent(KIconDialog* self, QEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_Event_IsBase(true);
@@ -879,7 +879,7 @@ void KIconDialog_MousePressEvent(KIconDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseMousePressEvent(KIconDialog* self, QMouseEvent* event) {
+void KIconDialog_SuperMousePressEvent(KIconDialog* self, QMouseEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_MousePressEvent_IsBase(true);
@@ -908,7 +908,7 @@ void KIconDialog_MouseReleaseEvent(KIconDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseMouseReleaseEvent(KIconDialog* self, QMouseEvent* event) {
+void KIconDialog_SuperMouseReleaseEvent(KIconDialog* self, QMouseEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_MouseReleaseEvent_IsBase(true);
@@ -937,7 +937,7 @@ void KIconDialog_MouseDoubleClickEvent(KIconDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseMouseDoubleClickEvent(KIconDialog* self, QMouseEvent* event) {
+void KIconDialog_SuperMouseDoubleClickEvent(KIconDialog* self, QMouseEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_MouseDoubleClickEvent_IsBase(true);
@@ -966,7 +966,7 @@ void KIconDialog_MouseMoveEvent(KIconDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseMouseMoveEvent(KIconDialog* self, QMouseEvent* event) {
+void KIconDialog_SuperMouseMoveEvent(KIconDialog* self, QMouseEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_MouseMoveEvent_IsBase(true);
@@ -995,7 +995,7 @@ void KIconDialog_WheelEvent(KIconDialog* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseWheelEvent(KIconDialog* self, QWheelEvent* event) {
+void KIconDialog_SuperWheelEvent(KIconDialog* self, QWheelEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_WheelEvent_IsBase(true);
@@ -1024,7 +1024,7 @@ void KIconDialog_KeyReleaseEvent(KIconDialog* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseKeyReleaseEvent(KIconDialog* self, QKeyEvent* event) {
+void KIconDialog_SuperKeyReleaseEvent(KIconDialog* self, QKeyEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_KeyReleaseEvent_IsBase(true);
@@ -1053,7 +1053,7 @@ void KIconDialog_FocusInEvent(KIconDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseFocusInEvent(KIconDialog* self, QFocusEvent* event) {
+void KIconDialog_SuperFocusInEvent(KIconDialog* self, QFocusEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_FocusInEvent_IsBase(true);
@@ -1082,7 +1082,7 @@ void KIconDialog_FocusOutEvent(KIconDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseFocusOutEvent(KIconDialog* self, QFocusEvent* event) {
+void KIconDialog_SuperFocusOutEvent(KIconDialog* self, QFocusEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_FocusOutEvent_IsBase(true);
@@ -1111,7 +1111,7 @@ void KIconDialog_EnterEvent(KIconDialog* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseEnterEvent(KIconDialog* self, QEnterEvent* event) {
+void KIconDialog_SuperEnterEvent(KIconDialog* self, QEnterEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_EnterEvent_IsBase(true);
@@ -1140,7 +1140,7 @@ void KIconDialog_LeaveEvent(KIconDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseLeaveEvent(KIconDialog* self, QEvent* event) {
+void KIconDialog_SuperLeaveEvent(KIconDialog* self, QEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_LeaveEvent_IsBase(true);
@@ -1169,7 +1169,7 @@ void KIconDialog_PaintEvent(KIconDialog* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBasePaintEvent(KIconDialog* self, QPaintEvent* event) {
+void KIconDialog_SuperPaintEvent(KIconDialog* self, QPaintEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_PaintEvent_IsBase(true);
@@ -1198,7 +1198,7 @@ void KIconDialog_MoveEvent(KIconDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseMoveEvent(KIconDialog* self, QMoveEvent* event) {
+void KIconDialog_SuperMoveEvent(KIconDialog* self, QMoveEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_MoveEvent_IsBase(true);
@@ -1227,7 +1227,7 @@ void KIconDialog_TabletEvent(KIconDialog* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseTabletEvent(KIconDialog* self, QTabletEvent* event) {
+void KIconDialog_SuperTabletEvent(KIconDialog* self, QTabletEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_TabletEvent_IsBase(true);
@@ -1256,7 +1256,7 @@ void KIconDialog_ActionEvent(KIconDialog* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseActionEvent(KIconDialog* self, QActionEvent* event) {
+void KIconDialog_SuperActionEvent(KIconDialog* self, QActionEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_ActionEvent_IsBase(true);
@@ -1285,7 +1285,7 @@ void KIconDialog_DragEnterEvent(KIconDialog* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseDragEnterEvent(KIconDialog* self, QDragEnterEvent* event) {
+void KIconDialog_SuperDragEnterEvent(KIconDialog* self, QDragEnterEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_DragEnterEvent_IsBase(true);
@@ -1314,7 +1314,7 @@ void KIconDialog_DragMoveEvent(KIconDialog* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseDragMoveEvent(KIconDialog* self, QDragMoveEvent* event) {
+void KIconDialog_SuperDragMoveEvent(KIconDialog* self, QDragMoveEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_DragMoveEvent_IsBase(true);
@@ -1343,7 +1343,7 @@ void KIconDialog_DragLeaveEvent(KIconDialog* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseDragLeaveEvent(KIconDialog* self, QDragLeaveEvent* event) {
+void KIconDialog_SuperDragLeaveEvent(KIconDialog* self, QDragLeaveEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_DragLeaveEvent_IsBase(true);
@@ -1372,7 +1372,7 @@ void KIconDialog_DropEvent(KIconDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseDropEvent(KIconDialog* self, QDropEvent* event) {
+void KIconDialog_SuperDropEvent(KIconDialog* self, QDropEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_DropEvent_IsBase(true);
@@ -1401,7 +1401,7 @@ void KIconDialog_HideEvent(KIconDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseHideEvent(KIconDialog* self, QHideEvent* event) {
+void KIconDialog_SuperHideEvent(KIconDialog* self, QHideEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_HideEvent_IsBase(true);
@@ -1431,7 +1431,7 @@ bool KIconDialog_NativeEvent(KIconDialog* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool KIconDialog_QBaseNativeEvent(KIconDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KIconDialog_SuperNativeEvent(KIconDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
@@ -1461,7 +1461,7 @@ void KIconDialog_ChangeEvent(KIconDialog* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseChangeEvent(KIconDialog* self, QEvent* param1) {
+void KIconDialog_SuperChangeEvent(KIconDialog* self, QEvent* param1) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_ChangeEvent_IsBase(true);
@@ -1490,7 +1490,7 @@ int KIconDialog_Metric(const KIconDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KIconDialog_QBaseMetric(const KIconDialog* self, int param1) {
+int KIconDialog_SuperMetric(const KIconDialog* self, int param1) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_Metric_IsBase(true);
@@ -1519,7 +1519,7 @@ void KIconDialog_InitPainter(const KIconDialog* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseInitPainter(const KIconDialog* self, QPainter* painter) {
+void KIconDialog_SuperInitPainter(const KIconDialog* self, QPainter* painter) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_InitPainter_IsBase(true);
@@ -1548,7 +1548,7 @@ QPaintDevice* KIconDialog_Redirected(const KIconDialog* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KIconDialog_QBaseRedirected(const KIconDialog* self, QPoint* offset) {
+QPaintDevice* KIconDialog_SuperRedirected(const KIconDialog* self, QPoint* offset) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_Redirected_IsBase(true);
@@ -1577,7 +1577,7 @@ QPainter* KIconDialog_SharedPainter(const KIconDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* KIconDialog_QBaseSharedPainter(const KIconDialog* self) {
+QPainter* KIconDialog_SuperSharedPainter(const KIconDialog* self) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_SharedPainter_IsBase(true);
@@ -1606,7 +1606,7 @@ void KIconDialog_InputMethodEvent(KIconDialog* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseInputMethodEvent(KIconDialog* self, QInputMethodEvent* param1) {
+void KIconDialog_SuperInputMethodEvent(KIconDialog* self, QInputMethodEvent* param1) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_InputMethodEvent_IsBase(true);
@@ -1635,7 +1635,7 @@ QVariant* KIconDialog_InputMethodQuery(const KIconDialog* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KIconDialog_QBaseInputMethodQuery(const KIconDialog* self, int param1) {
+QVariant* KIconDialog_SuperInputMethodQuery(const KIconDialog* self, int param1) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_InputMethodQuery_IsBase(true);
@@ -1664,7 +1664,7 @@ bool KIconDialog_FocusNextPrevChild(KIconDialog* self, bool next) {
 }
 
 // Base class handler implementation
-bool KIconDialog_QBaseFocusNextPrevChild(KIconDialog* self, bool next) {
+bool KIconDialog_SuperFocusNextPrevChild(KIconDialog* self, bool next) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_FocusNextPrevChild_IsBase(true);
@@ -1693,7 +1693,7 @@ void KIconDialog_TimerEvent(KIconDialog* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseTimerEvent(KIconDialog* self, QTimerEvent* event) {
+void KIconDialog_SuperTimerEvent(KIconDialog* self, QTimerEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_TimerEvent_IsBase(true);
@@ -1722,7 +1722,7 @@ void KIconDialog_ChildEvent(KIconDialog* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseChildEvent(KIconDialog* self, QChildEvent* event) {
+void KIconDialog_SuperChildEvent(KIconDialog* self, QChildEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_ChildEvent_IsBase(true);
@@ -1751,7 +1751,7 @@ void KIconDialog_CustomEvent(KIconDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseCustomEvent(KIconDialog* self, QEvent* event) {
+void KIconDialog_SuperCustomEvent(KIconDialog* self, QEvent* event) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_CustomEvent_IsBase(true);
@@ -1780,7 +1780,7 @@ void KIconDialog_ConnectNotify(KIconDialog* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseConnectNotify(KIconDialog* self, const QMetaMethod* signal) {
+void KIconDialog_SuperConnectNotify(KIconDialog* self, const QMetaMethod* signal) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_ConnectNotify_IsBase(true);
@@ -1809,7 +1809,7 @@ void KIconDialog_DisconnectNotify(KIconDialog* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseDisconnectNotify(KIconDialog* self, const QMetaMethod* signal) {
+void KIconDialog_SuperDisconnectNotify(KIconDialog* self, const QMetaMethod* signal) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_DisconnectNotify_IsBase(true);
@@ -1838,7 +1838,7 @@ void KIconDialog_SlotOk(KIconDialog* self) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseSlotOk(KIconDialog* self) {
+void KIconDialog_SuperSlotOk(KIconDialog* self) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_SlotOk_IsBase(true);
@@ -1867,7 +1867,7 @@ void KIconDialog_AdjustPosition(KIconDialog* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseAdjustPosition(KIconDialog* self, QWidget* param1) {
+void KIconDialog_SuperAdjustPosition(KIconDialog* self, QWidget* param1) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_AdjustPosition_IsBase(true);
@@ -1896,7 +1896,7 @@ void KIconDialog_UpdateMicroFocus(KIconDialog* self) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseUpdateMicroFocus(KIconDialog* self) {
+void KIconDialog_SuperUpdateMicroFocus(KIconDialog* self) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_UpdateMicroFocus_IsBase(true);
@@ -1925,7 +1925,7 @@ void KIconDialog_Create(KIconDialog* self) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseCreate(KIconDialog* self) {
+void KIconDialog_SuperCreate(KIconDialog* self) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_Create_IsBase(true);
@@ -1954,7 +1954,7 @@ void KIconDialog_Destroy(KIconDialog* self) {
 }
 
 // Base class handler implementation
-void KIconDialog_QBaseDestroy(KIconDialog* self) {
+void KIconDialog_SuperDestroy(KIconDialog* self) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_Destroy_IsBase(true);
@@ -1983,7 +1983,7 @@ bool KIconDialog_FocusNextChild(KIconDialog* self) {
 }
 
 // Base class handler implementation
-bool KIconDialog_QBaseFocusNextChild(KIconDialog* self) {
+bool KIconDialog_SuperFocusNextChild(KIconDialog* self) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_FocusNextChild_IsBase(true);
@@ -2012,7 +2012,7 @@ bool KIconDialog_FocusPreviousChild(KIconDialog* self) {
 }
 
 // Base class handler implementation
-bool KIconDialog_QBaseFocusPreviousChild(KIconDialog* self) {
+bool KIconDialog_SuperFocusPreviousChild(KIconDialog* self) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_FocusPreviousChild_IsBase(true);
@@ -2041,7 +2041,7 @@ QObject* KIconDialog_Sender(const KIconDialog* self) {
 }
 
 // Base class handler implementation
-QObject* KIconDialog_QBaseSender(const KIconDialog* self) {
+QObject* KIconDialog_SuperSender(const KIconDialog* self) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_Sender_IsBase(true);
@@ -2070,7 +2070,7 @@ int KIconDialog_SenderSignalIndex(const KIconDialog* self) {
 }
 
 // Base class handler implementation
-int KIconDialog_QBaseSenderSignalIndex(const KIconDialog* self) {
+int KIconDialog_SuperSenderSignalIndex(const KIconDialog* self) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_SenderSignalIndex_IsBase(true);
@@ -2099,7 +2099,7 @@ int KIconDialog_Receivers(const KIconDialog* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KIconDialog_QBaseReceivers(const KIconDialog* self, const char* signal) {
+int KIconDialog_SuperReceivers(const KIconDialog* self, const char* signal) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_Receivers_IsBase(true);
@@ -2128,7 +2128,7 @@ bool KIconDialog_IsSignalConnected(const KIconDialog* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool KIconDialog_QBaseIsSignalConnected(const KIconDialog* self, const QMetaMethod* signal) {
+bool KIconDialog_SuperIsSignalConnected(const KIconDialog* self, const QMetaMethod* signal) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_IsSignalConnected_IsBase(true);
@@ -2157,7 +2157,7 @@ double KIconDialog_GetDecodedMetricF(const KIconDialog* self, int metricA, int m
 }
 
 // Base class handler implementation
-double KIconDialog_QBaseGetDecodedMetricF(const KIconDialog* self, int metricA, int metricB) {
+double KIconDialog_SuperGetDecodedMetricF(const KIconDialog* self, int metricA, int metricB) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
     if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
         vkicondialog->setKIconDialog_GetDecodedMetricF_IsBase(true);

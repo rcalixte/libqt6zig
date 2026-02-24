@@ -351,6 +351,10 @@ pub const qmetacontainer = struct {
         return qtc.QMetaContainer_DiffConstIterator(@ptrCast(self), @ptrCast(i), @ptrCast(j));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#dtor.QMetaContainer)
     ///
     /// Delete this object from C++ memory.
@@ -359,7 +363,7 @@ pub const qmetacontainer = struct {
     ///
     /// ` self: QtC.QMetaContainer `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMetaContainer_Delete(@ptrCast(self));
     }
 };
@@ -1110,6 +1114,10 @@ pub const qmetasequence = struct {
         return qtc.QMetaContainer_DiffConstIterator(@ptrCast(self), @ptrCast(i), @ptrCast(j));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetasequence.html#dtor.QMetaSequence)
     ///
     /// Delete this object from C++ memory.
@@ -1118,7 +1126,7 @@ pub const qmetasequence = struct {
     ///
     /// ` self: QtC.QMetaSequence `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMetaSequence_Delete(@ptrCast(self));
     }
 };
@@ -1823,6 +1831,10 @@ pub const qmetaassociation = struct {
         return qtc.QMetaContainer_DiffConstIterator(@ptrCast(self), @ptrCast(i), @ptrCast(j));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaassociation.html#dtor.QMetaAssociation)
     ///
     /// Delete this object from C++ memory.
@@ -1831,7 +1843,7 @@ pub const qmetaassociation = struct {
     ///
     /// ` self: QtC.QMetaAssociation `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMetaAssociation_Delete(@ptrCast(self));
     }
 };

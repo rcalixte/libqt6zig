@@ -328,23 +328,23 @@ class VirtualQOpenGLVertexArrayObject final : public QOpenGLVertexArrayObject {
 
     // Friend functions
     friend void QOpenGLVertexArrayObject_TimerEvent(QOpenGLVertexArrayObject* self, QTimerEvent* event);
-    friend void QOpenGLVertexArrayObject_QBaseTimerEvent(QOpenGLVertexArrayObject* self, QTimerEvent* event);
+    friend void QOpenGLVertexArrayObject_SuperTimerEvent(QOpenGLVertexArrayObject* self, QTimerEvent* event);
     friend void QOpenGLVertexArrayObject_ChildEvent(QOpenGLVertexArrayObject* self, QChildEvent* event);
-    friend void QOpenGLVertexArrayObject_QBaseChildEvent(QOpenGLVertexArrayObject* self, QChildEvent* event);
+    friend void QOpenGLVertexArrayObject_SuperChildEvent(QOpenGLVertexArrayObject* self, QChildEvent* event);
     friend void QOpenGLVertexArrayObject_CustomEvent(QOpenGLVertexArrayObject* self, QEvent* event);
-    friend void QOpenGLVertexArrayObject_QBaseCustomEvent(QOpenGLVertexArrayObject* self, QEvent* event);
+    friend void QOpenGLVertexArrayObject_SuperCustomEvent(QOpenGLVertexArrayObject* self, QEvent* event);
     friend void QOpenGLVertexArrayObject_ConnectNotify(QOpenGLVertexArrayObject* self, const QMetaMethod* signal);
-    friend void QOpenGLVertexArrayObject_QBaseConnectNotify(QOpenGLVertexArrayObject* self, const QMetaMethod* signal);
+    friend void QOpenGLVertexArrayObject_SuperConnectNotify(QOpenGLVertexArrayObject* self, const QMetaMethod* signal);
     friend void QOpenGLVertexArrayObject_DisconnectNotify(QOpenGLVertexArrayObject* self, const QMetaMethod* signal);
-    friend void QOpenGLVertexArrayObject_QBaseDisconnectNotify(QOpenGLVertexArrayObject* self, const QMetaMethod* signal);
+    friend void QOpenGLVertexArrayObject_SuperDisconnectNotify(QOpenGLVertexArrayObject* self, const QMetaMethod* signal);
     friend QObject* QOpenGLVertexArrayObject_Sender(const QOpenGLVertexArrayObject* self);
-    friend QObject* QOpenGLVertexArrayObject_QBaseSender(const QOpenGLVertexArrayObject* self);
+    friend QObject* QOpenGLVertexArrayObject_SuperSender(const QOpenGLVertexArrayObject* self);
     friend int QOpenGLVertexArrayObject_SenderSignalIndex(const QOpenGLVertexArrayObject* self);
-    friend int QOpenGLVertexArrayObject_QBaseSenderSignalIndex(const QOpenGLVertexArrayObject* self);
+    friend int QOpenGLVertexArrayObject_SuperSenderSignalIndex(const QOpenGLVertexArrayObject* self);
     friend int QOpenGLVertexArrayObject_Receivers(const QOpenGLVertexArrayObject* self, const char* signal);
-    friend int QOpenGLVertexArrayObject_QBaseReceivers(const QOpenGLVertexArrayObject* self, const char* signal);
+    friend int QOpenGLVertexArrayObject_SuperReceivers(const QOpenGLVertexArrayObject* self, const char* signal);
     friend bool QOpenGLVertexArrayObject_IsSignalConnected(const QOpenGLVertexArrayObject* self, const QMetaMethod* signal);
-    friend bool QOpenGLVertexArrayObject_QBaseIsSignalConnected(const QOpenGLVertexArrayObject* self, const QMetaMethod* signal);
+    friend bool QOpenGLVertexArrayObject_SuperIsSignalConnected(const QOpenGLVertexArrayObject* self, const QMetaMethod* signal);
 };
 
 #endif

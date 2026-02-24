@@ -221,13 +221,17 @@ pub const kio__udsentry = struct {
         return qtc.KIO__UDSEntry_NumberValue2(@ptrCast(self), @bitCast(field), @bitCast(defaultValue));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KIO__UDSEntry `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KIO__UDSEntry_Delete(@ptrCast(self));
     }
 };

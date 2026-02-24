@@ -106,6 +106,10 @@ pub const qsslcertificateextension = struct {
         return qtc.QSslCertificateExtension_IsSupported(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificateextension.html#dtor.QSslCertificateExtension)
     ///
     /// Delete this object from C++ memory.
@@ -114,7 +118,7 @@ pub const qsslcertificateextension = struct {
     ///
     /// ` self: QtC.QSslCertificateExtension `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSslCertificateExtension_Delete(@ptrCast(self));
     }
 };

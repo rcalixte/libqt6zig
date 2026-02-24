@@ -900,6 +900,10 @@ pub const kfileitem = struct {
         return qtc.KFileItem_MostLocalUrl1(@ptrCast(self), @ptrCast(local));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kfileitem.html#dtor.KFileItem)
     ///
     /// Delete this object from C++ memory.
@@ -908,7 +912,7 @@ pub const kfileitem = struct {
     ///
     /// ` self: QtC.KFileItem `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KFileItem_Delete(@ptrCast(self));
     }
 };
@@ -1000,6 +1004,10 @@ pub const kfileitemlist = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kfileitemlist.html#dtor.KFileItemList)
     ///
     /// Delete this object from C++ memory.
@@ -1008,7 +1016,7 @@ pub const kfileitemlist = struct {
     ///
     /// ` self: QtC.KFileItemList `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KFileItemList_Delete(@ptrCast(self));
     }
 };
@@ -1081,13 +1089,17 @@ pub const kfileitem__mostlocalurlresult = struct {
         qtc.KFileItem__MostLocalUrlResult_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KFileItem__MostLocalUrlResult `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KFileItem__MostLocalUrlResult_Delete(@ptrCast(self));
     }
 };

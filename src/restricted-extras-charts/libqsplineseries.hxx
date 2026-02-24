@@ -432,23 +432,23 @@ class VirtualQSplineSeries final : public QSplineSeries {
 
     // Friend functions
     friend void QSplineSeries_TimerEvent(QSplineSeries* self, QTimerEvent* event);
-    friend void QSplineSeries_QBaseTimerEvent(QSplineSeries* self, QTimerEvent* event);
+    friend void QSplineSeries_SuperTimerEvent(QSplineSeries* self, QTimerEvent* event);
     friend void QSplineSeries_ChildEvent(QSplineSeries* self, QChildEvent* event);
-    friend void QSplineSeries_QBaseChildEvent(QSplineSeries* self, QChildEvent* event);
+    friend void QSplineSeries_SuperChildEvent(QSplineSeries* self, QChildEvent* event);
     friend void QSplineSeries_CustomEvent(QSplineSeries* self, QEvent* event);
-    friend void QSplineSeries_QBaseCustomEvent(QSplineSeries* self, QEvent* event);
+    friend void QSplineSeries_SuperCustomEvent(QSplineSeries* self, QEvent* event);
     friend void QSplineSeries_ConnectNotify(QSplineSeries* self, const QMetaMethod* signal);
-    friend void QSplineSeries_QBaseConnectNotify(QSplineSeries* self, const QMetaMethod* signal);
+    friend void QSplineSeries_SuperConnectNotify(QSplineSeries* self, const QMetaMethod* signal);
     friend void QSplineSeries_DisconnectNotify(QSplineSeries* self, const QMetaMethod* signal);
-    friend void QSplineSeries_QBaseDisconnectNotify(QSplineSeries* self, const QMetaMethod* signal);
+    friend void QSplineSeries_SuperDisconnectNotify(QSplineSeries* self, const QMetaMethod* signal);
     friend QObject* QSplineSeries_Sender(const QSplineSeries* self);
-    friend QObject* QSplineSeries_QBaseSender(const QSplineSeries* self);
+    friend QObject* QSplineSeries_SuperSender(const QSplineSeries* self);
     friend int QSplineSeries_SenderSignalIndex(const QSplineSeries* self);
-    friend int QSplineSeries_QBaseSenderSignalIndex(const QSplineSeries* self);
+    friend int QSplineSeries_SuperSenderSignalIndex(const QSplineSeries* self);
     friend int QSplineSeries_Receivers(const QSplineSeries* self, const char* signal);
-    friend int QSplineSeries_QBaseReceivers(const QSplineSeries* self, const char* signal);
+    friend int QSplineSeries_SuperReceivers(const QSplineSeries* self, const char* signal);
     friend bool QSplineSeries_IsSignalConnected(const QSplineSeries* self, const QMetaMethod* signal);
-    friend bool QSplineSeries_QBaseIsSignalConnected(const QSplineSeries* self, const QMetaMethod* signal);
+    friend bool QSplineSeries_SuperIsSignalConnected(const QSplineSeries* self, const QMetaMethod* signal);
 };
 
 #endif

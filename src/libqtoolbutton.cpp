@@ -254,7 +254,7 @@ void QToolButton_InitStyleOption(const QToolButton* self, QStyleOptionToolButton
 }
 
 // Base class handler implementation
-QMetaObject* QToolButton_QBaseMetaObject(const QToolButton* self) {
+QMetaObject* QToolButton_SuperMetaObject(const QToolButton* self) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_MetaObject_IsBase(true);
@@ -273,7 +273,7 @@ void QToolButton_OnMetaObject(const QToolButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QToolButton_QBaseMetacast(QToolButton* self, const char* param1) {
+void* QToolButton_SuperMetacast(QToolButton* self, const char* param1) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_Metacast_IsBase(true);
@@ -292,7 +292,7 @@ void QToolButton_OnMetacast(QToolButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QToolButton_QBaseMetacall(QToolButton* self, int param1, int param2, void** param3) {
+int QToolButton_SuperMetacall(QToolButton* self, int param1, int param2, void** param3) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_Metacall_IsBase(true);
@@ -311,7 +311,7 @@ void QToolButton_OnMetacall(QToolButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QToolButton_QBaseSizeHint(const QToolButton* self) {
+QSize* QToolButton_SuperSizeHint(const QToolButton* self) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_SizeHint_IsBase(true);
@@ -330,7 +330,7 @@ void QToolButton_OnSizeHint(const QToolButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QToolButton_QBaseMinimumSizeHint(const QToolButton* self) {
+QSize* QToolButton_SuperMinimumSizeHint(const QToolButton* self) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_MinimumSizeHint_IsBase(true);
@@ -349,7 +349,7 @@ void QToolButton_OnMinimumSizeHint(const QToolButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QToolButton_QBaseEvent(QToolButton* self, QEvent* e) {
+bool QToolButton_SuperEvent(QToolButton* self, QEvent* e) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_Event_IsBase(true);
@@ -368,7 +368,7 @@ void QToolButton_OnEvent(QToolButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseMousePressEvent(QToolButton* self, QMouseEvent* param1) {
+void QToolButton_SuperMousePressEvent(QToolButton* self, QMouseEvent* param1) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_MousePressEvent_IsBase(true);
@@ -387,7 +387,7 @@ void QToolButton_OnMousePressEvent(QToolButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseMouseReleaseEvent(QToolButton* self, QMouseEvent* param1) {
+void QToolButton_SuperMouseReleaseEvent(QToolButton* self, QMouseEvent* param1) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_MouseReleaseEvent_IsBase(true);
@@ -406,7 +406,7 @@ void QToolButton_OnMouseReleaseEvent(QToolButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QToolButton_QBasePaintEvent(QToolButton* self, QPaintEvent* param1) {
+void QToolButton_SuperPaintEvent(QToolButton* self, QPaintEvent* param1) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_PaintEvent_IsBase(true);
@@ -425,7 +425,7 @@ void QToolButton_OnPaintEvent(QToolButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseActionEvent(QToolButton* self, QActionEvent* param1) {
+void QToolButton_SuperActionEvent(QToolButton* self, QActionEvent* param1) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_ActionEvent_IsBase(true);
@@ -444,7 +444,7 @@ void QToolButton_OnActionEvent(QToolButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseEnterEvent(QToolButton* self, QEnterEvent* param1) {
+void QToolButton_SuperEnterEvent(QToolButton* self, QEnterEvent* param1) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_EnterEvent_IsBase(true);
@@ -463,7 +463,7 @@ void QToolButton_OnEnterEvent(QToolButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseLeaveEvent(QToolButton* self, QEvent* param1) {
+void QToolButton_SuperLeaveEvent(QToolButton* self, QEvent* param1) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_LeaveEvent_IsBase(true);
@@ -482,7 +482,7 @@ void QToolButton_OnLeaveEvent(QToolButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseTimerEvent(QToolButton* self, QTimerEvent* param1) {
+void QToolButton_SuperTimerEvent(QToolButton* self, QTimerEvent* param1) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_TimerEvent_IsBase(true);
@@ -501,7 +501,7 @@ void QToolButton_OnTimerEvent(QToolButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseChangeEvent(QToolButton* self, QEvent* param1) {
+void QToolButton_SuperChangeEvent(QToolButton* self, QEvent* param1) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_ChangeEvent_IsBase(true);
@@ -520,7 +520,7 @@ void QToolButton_OnChangeEvent(QToolButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QToolButton_QBaseHitButton(const QToolButton* self, const QPoint* pos) {
+bool QToolButton_SuperHitButton(const QToolButton* self, const QPoint* pos) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_HitButton_IsBase(true);
@@ -539,7 +539,7 @@ void QToolButton_OnHitButton(const QToolButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseCheckStateSet(QToolButton* self) {
+void QToolButton_SuperCheckStateSet(QToolButton* self) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_CheckStateSet_IsBase(true);
@@ -558,7 +558,7 @@ void QToolButton_OnCheckStateSet(QToolButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseNextCheckState(QToolButton* self) {
+void QToolButton_SuperNextCheckState(QToolButton* self) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_NextCheckState_IsBase(true);
@@ -577,7 +577,7 @@ void QToolButton_OnNextCheckState(QToolButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseInitStyleOption(const QToolButton* self, QStyleOptionToolButton* option) {
+void QToolButton_SuperInitStyleOption(const QToolButton* self, QStyleOptionToolButton* option) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_InitStyleOption_IsBase(true);
@@ -606,7 +606,7 @@ void QToolButton_KeyPressEvent(QToolButton* self, QKeyEvent* e) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseKeyPressEvent(QToolButton* self, QKeyEvent* e) {
+void QToolButton_SuperKeyPressEvent(QToolButton* self, QKeyEvent* e) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_KeyPressEvent_IsBase(true);
@@ -635,7 +635,7 @@ void QToolButton_KeyReleaseEvent(QToolButton* self, QKeyEvent* e) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseKeyReleaseEvent(QToolButton* self, QKeyEvent* e) {
+void QToolButton_SuperKeyReleaseEvent(QToolButton* self, QKeyEvent* e) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_KeyReleaseEvent_IsBase(true);
@@ -664,7 +664,7 @@ void QToolButton_MouseMoveEvent(QToolButton* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseMouseMoveEvent(QToolButton* self, QMouseEvent* e) {
+void QToolButton_SuperMouseMoveEvent(QToolButton* self, QMouseEvent* e) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_MouseMoveEvent_IsBase(true);
@@ -693,7 +693,7 @@ void QToolButton_FocusInEvent(QToolButton* self, QFocusEvent* e) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseFocusInEvent(QToolButton* self, QFocusEvent* e) {
+void QToolButton_SuperFocusInEvent(QToolButton* self, QFocusEvent* e) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_FocusInEvent_IsBase(true);
@@ -722,7 +722,7 @@ void QToolButton_FocusOutEvent(QToolButton* self, QFocusEvent* e) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseFocusOutEvent(QToolButton* self, QFocusEvent* e) {
+void QToolButton_SuperFocusOutEvent(QToolButton* self, QFocusEvent* e) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_FocusOutEvent_IsBase(true);
@@ -751,7 +751,7 @@ int QToolButton_DevType(const QToolButton* self) {
 }
 
 // Base class handler implementation
-int QToolButton_QBaseDevType(const QToolButton* self) {
+int QToolButton_SuperDevType(const QToolButton* self) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_DevType_IsBase(true);
@@ -780,7 +780,7 @@ void QToolButton_SetVisible(QToolButton* self, bool visible) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseSetVisible(QToolButton* self, bool visible) {
+void QToolButton_SuperSetVisible(QToolButton* self, bool visible) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_SetVisible_IsBase(true);
@@ -809,7 +809,7 @@ int QToolButton_HeightForWidth(const QToolButton* self, int param1) {
 }
 
 // Base class handler implementation
-int QToolButton_QBaseHeightForWidth(const QToolButton* self, int param1) {
+int QToolButton_SuperHeightForWidth(const QToolButton* self, int param1) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_HeightForWidth_IsBase(true);
@@ -838,7 +838,7 @@ bool QToolButton_HasHeightForWidth(const QToolButton* self) {
 }
 
 // Base class handler implementation
-bool QToolButton_QBaseHasHeightForWidth(const QToolButton* self) {
+bool QToolButton_SuperHasHeightForWidth(const QToolButton* self) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_HasHeightForWidth_IsBase(true);
@@ -867,7 +867,7 @@ QPaintEngine* QToolButton_PaintEngine(const QToolButton* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QToolButton_QBasePaintEngine(const QToolButton* self) {
+QPaintEngine* QToolButton_SuperPaintEngine(const QToolButton* self) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_PaintEngine_IsBase(true);
@@ -896,7 +896,7 @@ void QToolButton_MouseDoubleClickEvent(QToolButton* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseMouseDoubleClickEvent(QToolButton* self, QMouseEvent* event) {
+void QToolButton_SuperMouseDoubleClickEvent(QToolButton* self, QMouseEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_MouseDoubleClickEvent_IsBase(true);
@@ -925,7 +925,7 @@ void QToolButton_WheelEvent(QToolButton* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseWheelEvent(QToolButton* self, QWheelEvent* event) {
+void QToolButton_SuperWheelEvent(QToolButton* self, QWheelEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_WheelEvent_IsBase(true);
@@ -954,7 +954,7 @@ void QToolButton_MoveEvent(QToolButton* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseMoveEvent(QToolButton* self, QMoveEvent* event) {
+void QToolButton_SuperMoveEvent(QToolButton* self, QMoveEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_MoveEvent_IsBase(true);
@@ -983,7 +983,7 @@ void QToolButton_ResizeEvent(QToolButton* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseResizeEvent(QToolButton* self, QResizeEvent* event) {
+void QToolButton_SuperResizeEvent(QToolButton* self, QResizeEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_ResizeEvent_IsBase(true);
@@ -1012,7 +1012,7 @@ void QToolButton_CloseEvent(QToolButton* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseCloseEvent(QToolButton* self, QCloseEvent* event) {
+void QToolButton_SuperCloseEvent(QToolButton* self, QCloseEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_CloseEvent_IsBase(true);
@@ -1041,7 +1041,7 @@ void QToolButton_ContextMenuEvent(QToolButton* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseContextMenuEvent(QToolButton* self, QContextMenuEvent* event) {
+void QToolButton_SuperContextMenuEvent(QToolButton* self, QContextMenuEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_ContextMenuEvent_IsBase(true);
@@ -1070,7 +1070,7 @@ void QToolButton_TabletEvent(QToolButton* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseTabletEvent(QToolButton* self, QTabletEvent* event) {
+void QToolButton_SuperTabletEvent(QToolButton* self, QTabletEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_TabletEvent_IsBase(true);
@@ -1099,7 +1099,7 @@ void QToolButton_DragEnterEvent(QToolButton* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseDragEnterEvent(QToolButton* self, QDragEnterEvent* event) {
+void QToolButton_SuperDragEnterEvent(QToolButton* self, QDragEnterEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_DragEnterEvent_IsBase(true);
@@ -1128,7 +1128,7 @@ void QToolButton_DragMoveEvent(QToolButton* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseDragMoveEvent(QToolButton* self, QDragMoveEvent* event) {
+void QToolButton_SuperDragMoveEvent(QToolButton* self, QDragMoveEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_DragMoveEvent_IsBase(true);
@@ -1157,7 +1157,7 @@ void QToolButton_DragLeaveEvent(QToolButton* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseDragLeaveEvent(QToolButton* self, QDragLeaveEvent* event) {
+void QToolButton_SuperDragLeaveEvent(QToolButton* self, QDragLeaveEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_DragLeaveEvent_IsBase(true);
@@ -1186,7 +1186,7 @@ void QToolButton_DropEvent(QToolButton* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseDropEvent(QToolButton* self, QDropEvent* event) {
+void QToolButton_SuperDropEvent(QToolButton* self, QDropEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_DropEvent_IsBase(true);
@@ -1215,7 +1215,7 @@ void QToolButton_ShowEvent(QToolButton* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseShowEvent(QToolButton* self, QShowEvent* event) {
+void QToolButton_SuperShowEvent(QToolButton* self, QShowEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_ShowEvent_IsBase(true);
@@ -1244,7 +1244,7 @@ void QToolButton_HideEvent(QToolButton* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseHideEvent(QToolButton* self, QHideEvent* event) {
+void QToolButton_SuperHideEvent(QToolButton* self, QHideEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_HideEvent_IsBase(true);
@@ -1274,7 +1274,7 @@ bool QToolButton_NativeEvent(QToolButton* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool QToolButton_QBaseNativeEvent(QToolButton* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QToolButton_SuperNativeEvent(QToolButton* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
@@ -1304,7 +1304,7 @@ int QToolButton_Metric(const QToolButton* self, int param1) {
 }
 
 // Base class handler implementation
-int QToolButton_QBaseMetric(const QToolButton* self, int param1) {
+int QToolButton_SuperMetric(const QToolButton* self, int param1) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_Metric_IsBase(true);
@@ -1333,7 +1333,7 @@ void QToolButton_InitPainter(const QToolButton* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseInitPainter(const QToolButton* self, QPainter* painter) {
+void QToolButton_SuperInitPainter(const QToolButton* self, QPainter* painter) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_InitPainter_IsBase(true);
@@ -1362,7 +1362,7 @@ QPaintDevice* QToolButton_Redirected(const QToolButton* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QToolButton_QBaseRedirected(const QToolButton* self, QPoint* offset) {
+QPaintDevice* QToolButton_SuperRedirected(const QToolButton* self, QPoint* offset) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_Redirected_IsBase(true);
@@ -1391,7 +1391,7 @@ QPainter* QToolButton_SharedPainter(const QToolButton* self) {
 }
 
 // Base class handler implementation
-QPainter* QToolButton_QBaseSharedPainter(const QToolButton* self) {
+QPainter* QToolButton_SuperSharedPainter(const QToolButton* self) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_SharedPainter_IsBase(true);
@@ -1420,7 +1420,7 @@ void QToolButton_InputMethodEvent(QToolButton* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void QToolButton_QBaseInputMethodEvent(QToolButton* self, QInputMethodEvent* param1) {
+void QToolButton_SuperInputMethodEvent(QToolButton* self, QInputMethodEvent* param1) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_InputMethodEvent_IsBase(true);
@@ -1449,7 +1449,7 @@ QVariant* QToolButton_InputMethodQuery(const QToolButton* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QToolButton_QBaseInputMethodQuery(const QToolButton* self, int param1) {
+QVariant* QToolButton_SuperInputMethodQuery(const QToolButton* self, int param1) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_InputMethodQuery_IsBase(true);
@@ -1478,7 +1478,7 @@ bool QToolButton_FocusNextPrevChild(QToolButton* self, bool next) {
 }
 
 // Base class handler implementation
-bool QToolButton_QBaseFocusNextPrevChild(QToolButton* self, bool next) {
+bool QToolButton_SuperFocusNextPrevChild(QToolButton* self, bool next) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_FocusNextPrevChild_IsBase(true);
@@ -1507,7 +1507,7 @@ bool QToolButton_EventFilter(QToolButton* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QToolButton_QBaseEventFilter(QToolButton* self, QObject* watched, QEvent* event) {
+bool QToolButton_SuperEventFilter(QToolButton* self, QObject* watched, QEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_EventFilter_IsBase(true);
@@ -1536,7 +1536,7 @@ void QToolButton_ChildEvent(QToolButton* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseChildEvent(QToolButton* self, QChildEvent* event) {
+void QToolButton_SuperChildEvent(QToolButton* self, QChildEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_ChildEvent_IsBase(true);
@@ -1565,7 +1565,7 @@ void QToolButton_CustomEvent(QToolButton* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseCustomEvent(QToolButton* self, QEvent* event) {
+void QToolButton_SuperCustomEvent(QToolButton* self, QEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_CustomEvent_IsBase(true);
@@ -1594,7 +1594,7 @@ void QToolButton_ConnectNotify(QToolButton* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseConnectNotify(QToolButton* self, const QMetaMethod* signal) {
+void QToolButton_SuperConnectNotify(QToolButton* self, const QMetaMethod* signal) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_ConnectNotify_IsBase(true);
@@ -1623,7 +1623,7 @@ void QToolButton_DisconnectNotify(QToolButton* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QToolButton_QBaseDisconnectNotify(QToolButton* self, const QMetaMethod* signal) {
+void QToolButton_SuperDisconnectNotify(QToolButton* self, const QMetaMethod* signal) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_DisconnectNotify_IsBase(true);
@@ -1652,7 +1652,7 @@ void QToolButton_UpdateMicroFocus(QToolButton* self) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseUpdateMicroFocus(QToolButton* self) {
+void QToolButton_SuperUpdateMicroFocus(QToolButton* self) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_UpdateMicroFocus_IsBase(true);
@@ -1681,7 +1681,7 @@ void QToolButton_Create(QToolButton* self) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseCreate(QToolButton* self) {
+void QToolButton_SuperCreate(QToolButton* self) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_Create_IsBase(true);
@@ -1710,7 +1710,7 @@ void QToolButton_Destroy(QToolButton* self) {
 }
 
 // Base class handler implementation
-void QToolButton_QBaseDestroy(QToolButton* self) {
+void QToolButton_SuperDestroy(QToolButton* self) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_Destroy_IsBase(true);
@@ -1739,7 +1739,7 @@ bool QToolButton_FocusNextChild(QToolButton* self) {
 }
 
 // Base class handler implementation
-bool QToolButton_QBaseFocusNextChild(QToolButton* self) {
+bool QToolButton_SuperFocusNextChild(QToolButton* self) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_FocusNextChild_IsBase(true);
@@ -1768,7 +1768,7 @@ bool QToolButton_FocusPreviousChild(QToolButton* self) {
 }
 
 // Base class handler implementation
-bool QToolButton_QBaseFocusPreviousChild(QToolButton* self) {
+bool QToolButton_SuperFocusPreviousChild(QToolButton* self) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_FocusPreviousChild_IsBase(true);
@@ -1797,7 +1797,7 @@ QObject* QToolButton_Sender(const QToolButton* self) {
 }
 
 // Base class handler implementation
-QObject* QToolButton_QBaseSender(const QToolButton* self) {
+QObject* QToolButton_SuperSender(const QToolButton* self) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_Sender_IsBase(true);
@@ -1826,7 +1826,7 @@ int QToolButton_SenderSignalIndex(const QToolButton* self) {
 }
 
 // Base class handler implementation
-int QToolButton_QBaseSenderSignalIndex(const QToolButton* self) {
+int QToolButton_SuperSenderSignalIndex(const QToolButton* self) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_SenderSignalIndex_IsBase(true);
@@ -1855,7 +1855,7 @@ int QToolButton_Receivers(const QToolButton* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QToolButton_QBaseReceivers(const QToolButton* self, const char* signal) {
+int QToolButton_SuperReceivers(const QToolButton* self, const char* signal) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_Receivers_IsBase(true);
@@ -1884,7 +1884,7 @@ bool QToolButton_IsSignalConnected(const QToolButton* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QToolButton_QBaseIsSignalConnected(const QToolButton* self, const QMetaMethod* signal) {
+bool QToolButton_SuperIsSignalConnected(const QToolButton* self, const QMetaMethod* signal) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_IsSignalConnected_IsBase(true);
@@ -1913,7 +1913,7 @@ double QToolButton_GetDecodedMetricF(const QToolButton* self, int metricA, int m
 }
 
 // Base class handler implementation
-double QToolButton_QBaseGetDecodedMetricF(const QToolButton* self, int metricA, int metricB) {
+double QToolButton_SuperGetDecodedMetricF(const QToolButton* self, int metricA, int metricB) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->setQToolButton_GetDecodedMetricF_IsBase(true);

@@ -213,7 +213,7 @@ void KDirWatch_StartScan2(KDirWatch* self, bool notify, bool skippedToo) {
 }
 
 // Base class handler implementation
-QMetaObject* KDirWatch_QBaseMetaObject(const KDirWatch* self) {
+QMetaObject* KDirWatch_SuperMetaObject(const KDirWatch* self) {
     auto* vkdirwatch = const_cast<VirtualKDirWatch*>(dynamic_cast<const VirtualKDirWatch*>(self));
     if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
         vkdirwatch->setKDirWatch_MetaObject_IsBase(true);
@@ -232,7 +232,7 @@ void KDirWatch_OnMetaObject(const KDirWatch* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KDirWatch_QBaseMetacast(KDirWatch* self, const char* param1) {
+void* KDirWatch_SuperMetacast(KDirWatch* self, const char* param1) {
     auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
     if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
         vkdirwatch->setKDirWatch_Metacast_IsBase(true);
@@ -251,7 +251,7 @@ void KDirWatch_OnMetacast(KDirWatch* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KDirWatch_QBaseMetacall(KDirWatch* self, int param1, int param2, void** param3) {
+int KDirWatch_SuperMetacall(KDirWatch* self, int param1, int param2, void** param3) {
     auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
     if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
         vkdirwatch->setKDirWatch_Metacall_IsBase(true);
@@ -270,7 +270,7 @@ void KDirWatch_OnMetacall(KDirWatch* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KDirWatch_QBaseEvent(KDirWatch* self, QEvent* event) {
+bool KDirWatch_SuperEvent(KDirWatch* self, QEvent* event) {
     auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
     if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
         vkdirwatch->setKDirWatch_Event_IsBase(true);
@@ -299,7 +299,7 @@ bool KDirWatch_EventFilter(KDirWatch* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KDirWatch_QBaseEventFilter(KDirWatch* self, QObject* watched, QEvent* event) {
+bool KDirWatch_SuperEventFilter(KDirWatch* self, QObject* watched, QEvent* event) {
     auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
     if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
         vkdirwatch->setKDirWatch_EventFilter_IsBase(true);
@@ -328,7 +328,7 @@ void KDirWatch_TimerEvent(KDirWatch* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KDirWatch_QBaseTimerEvent(KDirWatch* self, QTimerEvent* event) {
+void KDirWatch_SuperTimerEvent(KDirWatch* self, QTimerEvent* event) {
     auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
     if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
         vkdirwatch->setKDirWatch_TimerEvent_IsBase(true);
@@ -357,7 +357,7 @@ void KDirWatch_ChildEvent(KDirWatch* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KDirWatch_QBaseChildEvent(KDirWatch* self, QChildEvent* event) {
+void KDirWatch_SuperChildEvent(KDirWatch* self, QChildEvent* event) {
     auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
     if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
         vkdirwatch->setKDirWatch_ChildEvent_IsBase(true);
@@ -386,7 +386,7 @@ void KDirWatch_CustomEvent(KDirWatch* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KDirWatch_QBaseCustomEvent(KDirWatch* self, QEvent* event) {
+void KDirWatch_SuperCustomEvent(KDirWatch* self, QEvent* event) {
     auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
     if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
         vkdirwatch->setKDirWatch_CustomEvent_IsBase(true);
@@ -415,7 +415,7 @@ void KDirWatch_ConnectNotify(KDirWatch* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KDirWatch_QBaseConnectNotify(KDirWatch* self, const QMetaMethod* signal) {
+void KDirWatch_SuperConnectNotify(KDirWatch* self, const QMetaMethod* signal) {
     auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
     if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
         vkdirwatch->setKDirWatch_ConnectNotify_IsBase(true);
@@ -444,7 +444,7 @@ void KDirWatch_DisconnectNotify(KDirWatch* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KDirWatch_QBaseDisconnectNotify(KDirWatch* self, const QMetaMethod* signal) {
+void KDirWatch_SuperDisconnectNotify(KDirWatch* self, const QMetaMethod* signal) {
     auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
     if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
         vkdirwatch->setKDirWatch_DisconnectNotify_IsBase(true);
@@ -473,7 +473,7 @@ QObject* KDirWatch_Sender(const KDirWatch* self) {
 }
 
 // Base class handler implementation
-QObject* KDirWatch_QBaseSender(const KDirWatch* self) {
+QObject* KDirWatch_SuperSender(const KDirWatch* self) {
     auto* vkdirwatch = const_cast<VirtualKDirWatch*>(dynamic_cast<const VirtualKDirWatch*>(self));
     if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
         vkdirwatch->setKDirWatch_Sender_IsBase(true);
@@ -502,7 +502,7 @@ int KDirWatch_SenderSignalIndex(const KDirWatch* self) {
 }
 
 // Base class handler implementation
-int KDirWatch_QBaseSenderSignalIndex(const KDirWatch* self) {
+int KDirWatch_SuperSenderSignalIndex(const KDirWatch* self) {
     auto* vkdirwatch = const_cast<VirtualKDirWatch*>(dynamic_cast<const VirtualKDirWatch*>(self));
     if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
         vkdirwatch->setKDirWatch_SenderSignalIndex_IsBase(true);
@@ -531,7 +531,7 @@ int KDirWatch_Receivers(const KDirWatch* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KDirWatch_QBaseReceivers(const KDirWatch* self, const char* signal) {
+int KDirWatch_SuperReceivers(const KDirWatch* self, const char* signal) {
     auto* vkdirwatch = const_cast<VirtualKDirWatch*>(dynamic_cast<const VirtualKDirWatch*>(self));
     if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
         vkdirwatch->setKDirWatch_Receivers_IsBase(true);
@@ -560,7 +560,7 @@ bool KDirWatch_IsSignalConnected(const KDirWatch* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool KDirWatch_QBaseIsSignalConnected(const KDirWatch* self, const QMetaMethod* signal) {
+bool KDirWatch_SuperIsSignalConnected(const KDirWatch* self, const QMetaMethod* signal) {
     auto* vkdirwatch = const_cast<VirtualKDirWatch*>(dynamic_cast<const VirtualKDirWatch*>(self));
     if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
         vkdirwatch->setKDirWatch_IsSignalConnected_IsBase(true);

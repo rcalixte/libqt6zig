@@ -53,6 +53,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -61,8 +65,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` self: QtC.QDesignerIntegrationInterface `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QDesignerIntegrationInterface_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QDesignerIntegrationInterface_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -88,6 +92,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -96,9 +104,9 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QDesignerIntegrationInterface_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QDesignerIntegrationInterface_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -127,6 +135,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -139,8 +151,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDesignerIntegrationInterface_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QDesignerIntegrationInterface_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -196,6 +208,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnContainerWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperContainerWindow` instead
+    ///
+    pub const QBaseContainerWindow = SuperContainerWindow;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#containerWindow)
     ///
     /// Base class method implementation
@@ -206,8 +222,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` widget: QtC.QWidget `
     ///
-    pub fn QBaseContainerWindow(self: ?*anyopaque, widget: ?*anyopaque) QtC.QWidget {
-        return qtc.QDesignerIntegrationInterface_QBaseContainerWindow(@ptrCast(self), @ptrCast(widget));
+    pub fn SuperContainerWindow(self: ?*anyopaque, widget: ?*anyopaque) QtC.QWidget {
+        return qtc.QDesignerIntegrationInterface_SuperContainerWindow(@ptrCast(self), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#createResourceBrowser)
@@ -236,6 +252,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnCreateResourceBrowser(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateResourceBrowser` instead
+    ///
+    pub const QBaseCreateResourceBrowser = SuperCreateResourceBrowser;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#createResourceBrowser)
     ///
     /// Base class method implementation
@@ -246,8 +266,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` parent: QtC.QWidget `
     ///
-    pub fn QBaseCreateResourceBrowser(self: ?*anyopaque, parent: ?*anyopaque) QtC.QDesignerResourceBrowserInterface {
-        return qtc.QDesignerIntegrationInterface_QBaseCreateResourceBrowser(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperCreateResourceBrowser(self: ?*anyopaque, parent: ?*anyopaque) QtC.QDesignerResourceBrowserInterface {
+        return qtc.QDesignerIntegrationInterface_SuperCreateResourceBrowser(@ptrCast(self), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#headerSuffix)
@@ -282,6 +302,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnHeaderSuffix(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHeaderSuffix` instead
+    ///
+    pub const QBaseHeaderSuffix = SuperHeaderSuffix;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#headerSuffix)
     ///
     /// Base class method implementation
@@ -292,8 +316,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseHeaderSuffix(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerIntegrationInterface_QBaseHeaderSuffix(@ptrCast(self));
+    pub fn SuperHeaderSuffix(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerIntegrationInterface_SuperHeaderSuffix(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegrationinterface.HeaderSuffix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -330,6 +354,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnSetHeaderSuffix(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetHeaderSuffix` instead
+    ///
+    pub const QBaseSetHeaderSuffix = SuperSetHeaderSuffix;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setHeaderSuffix)
     ///
     /// Base class method implementation
@@ -340,12 +368,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` headerSuffix: []const u8 `
     ///
-    pub fn QBaseSetHeaderSuffix(self: ?*anyopaque, headerSuffix: []const u8) void {
+    pub fn SuperSetHeaderSuffix(self: ?*anyopaque, headerSuffix: []const u8) void {
         const headerSuffix_str = qtc.libqt_string{
             .len = headerSuffix.len,
             .data = headerSuffix.ptr,
         };
-        qtc.QDesignerIntegrationInterface_QBaseSetHeaderSuffix(@ptrCast(self), headerSuffix_str);
+        qtc.QDesignerIntegrationInterface_SuperSetHeaderSuffix(@ptrCast(self), headerSuffix_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#isHeaderLowercase)
@@ -372,6 +400,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnIsHeaderLowercase(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsHeaderLowercase` instead
+    ///
+    pub const QBaseIsHeaderLowercase = SuperIsHeaderLowercase;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#isHeaderLowercase)
     ///
     /// Base class method implementation
@@ -380,8 +412,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` self: QtC.QDesignerIntegrationInterface `
     ///
-    pub fn QBaseIsHeaderLowercase(self: ?*anyopaque) bool {
-        return qtc.QDesignerIntegrationInterface_QBaseIsHeaderLowercase(@ptrCast(self));
+    pub fn SuperIsHeaderLowercase(self: ?*anyopaque) bool {
+        return qtc.QDesignerIntegrationInterface_SuperIsHeaderLowercase(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setHeaderLowercase)
@@ -410,6 +442,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnSetHeaderLowercase(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetHeaderLowercase` instead
+    ///
+    pub const QBaseSetHeaderLowercase = SuperSetHeaderLowercase;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setHeaderLowercase)
     ///
     /// Base class method implementation
@@ -420,8 +456,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` headerLowerCase: bool `
     ///
-    pub fn QBaseSetHeaderLowercase(self: ?*anyopaque, headerLowerCase: bool) void {
-        qtc.QDesignerIntegrationInterface_QBaseSetHeaderLowercase(@ptrCast(self), headerLowerCase);
+    pub fn SuperSetHeaderLowercase(self: ?*anyopaque, headerLowerCase: bool) void {
+        qtc.QDesignerIntegrationInterface_SuperSetHeaderLowercase(@ptrCast(self), headerLowerCase);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#features)
@@ -452,6 +488,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnFeatures(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFeatures` instead
+    ///
+    pub const QBaseFeatures = SuperFeatures;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#features)
     ///
     /// Base class method implementation
@@ -464,8 +504,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` flag of abstractintegration_enums.FeatureFlag `
     ///
-    pub fn QBaseFeatures(self: ?*anyopaque) i32 {
-        return qtc.QDesignerIntegrationInterface_QBaseFeatures(@ptrCast(self));
+    pub fn SuperFeatures(self: ?*anyopaque) i32 {
+        return qtc.QDesignerIntegrationInterface_SuperFeatures(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#hasFeature)
@@ -508,6 +548,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperResourceFileWatcherBehaviour` instead
+    ///
+    pub const QBaseResourceFileWatcherBehaviour = SuperResourceFileWatcherBehaviour;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#resourceFileWatcherBehaviour)
     ///
     /// Base class method implementation
@@ -520,8 +564,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` abstractintegration_enums.ResourceFileWatcherBehaviour `
     ///
-    pub fn QBaseResourceFileWatcherBehaviour(self: ?*anyopaque) i32 {
-        return qtc.QDesignerIntegrationInterface_QBaseResourceFileWatcherBehaviour(@ptrCast(self));
+    pub fn SuperResourceFileWatcherBehaviour(self: ?*anyopaque) i32 {
+        return qtc.QDesignerIntegrationInterface_SuperResourceFileWatcherBehaviour(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setResourceFileWatcherBehaviour)
@@ -550,6 +594,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnSetResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetResourceFileWatcherBehaviour` instead
+    ///
+    pub const QBaseSetResourceFileWatcherBehaviour = SuperSetResourceFileWatcherBehaviour;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setResourceFileWatcherBehaviour)
     ///
     /// Base class method implementation
@@ -560,8 +608,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` behaviour: abstractintegration_enums.ResourceFileWatcherBehaviour `
     ///
-    pub fn QBaseSetResourceFileWatcherBehaviour(self: ?*anyopaque, behaviour: i32) void {
-        qtc.QDesignerIntegrationInterface_QBaseSetResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(behaviour));
+    pub fn SuperSetResourceFileWatcherBehaviour(self: ?*anyopaque, behaviour: i32) void {
+        qtc.QDesignerIntegrationInterface_SuperSetResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(behaviour));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#contextHelpId)
@@ -596,6 +644,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnContextHelpId(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperContextHelpId` instead
+    ///
+    pub const QBaseContextHelpId = SuperContextHelpId;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#contextHelpId)
     ///
     /// Base class method implementation
@@ -606,8 +658,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseContextHelpId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerIntegrationInterface_QBaseContextHelpId(@ptrCast(self));
+    pub fn SuperContextHelpId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerIntegrationInterface_SuperContextHelpId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegrationinterface.ContextHelpId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -864,6 +916,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnSetFeatures(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFeatures` instead
+    ///
+    pub const QBaseSetFeatures = SuperSetFeatures;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setFeatures)
     ///
     /// Base class method implementation
@@ -874,8 +930,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` f: flag of abstractintegration_enums.FeatureFlag `
     ///
-    pub fn QBaseSetFeatures(self: ?*anyopaque, f: i32) void {
-        qtc.QDesignerIntegrationInterface_QBaseSetFeatures(@ptrCast(self), @bitCast(f));
+    pub fn SuperSetFeatures(self: ?*anyopaque, f: i32) void {
+        qtc.QDesignerIntegrationInterface_SuperSetFeatures(@ptrCast(self), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateProperty)
@@ -912,6 +968,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnUpdateProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateProperty` instead
+    ///
+    pub const QBaseUpdateProperty = SuperUpdateProperty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateProperty)
     ///
     /// Base class method implementation
@@ -926,12 +986,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` enableSubPropertyHandling: bool `
     ///
-    pub fn QBaseUpdateProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque, enableSubPropertyHandling: bool) void {
+    pub fn SuperUpdateProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque, enableSubPropertyHandling: bool) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegrationInterface_QBaseUpdateProperty(@ptrCast(self), name_str, @ptrCast(value), enableSubPropertyHandling);
+        qtc.QDesignerIntegrationInterface_SuperUpdateProperty(@ptrCast(self), name_str, @ptrCast(value), enableSubPropertyHandling);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateProperty)
@@ -966,6 +1026,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnUpdateProperty2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateProperty2` instead
+    ///
+    pub const QBaseUpdateProperty2 = SuperUpdateProperty2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateProperty)
     ///
     /// Base class method implementation
@@ -978,12 +1042,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn QBaseUpdateProperty2(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn SuperUpdateProperty2(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegrationInterface_QBaseUpdateProperty2(@ptrCast(self), name_str, @ptrCast(value));
+        qtc.QDesignerIntegrationInterface_SuperUpdateProperty2(@ptrCast(self), name_str, @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#resetProperty)
@@ -1016,6 +1080,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnResetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperResetProperty` instead
+    ///
+    pub const QBaseResetProperty = SuperResetProperty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#resetProperty)
     ///
     /// Base class method implementation
@@ -1026,12 +1094,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn QBaseResetProperty(self: ?*anyopaque, name: []const u8) void {
+    pub fn SuperResetProperty(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegrationInterface_QBaseResetProperty(@ptrCast(self), name_str);
+        qtc.QDesignerIntegrationInterface_SuperResetProperty(@ptrCast(self), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#addDynamicProperty)
@@ -1066,6 +1134,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnAddDynamicProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAddDynamicProperty` instead
+    ///
+    pub const QBaseAddDynamicProperty = SuperAddDynamicProperty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#addDynamicProperty)
     ///
     /// Base class method implementation
@@ -1078,12 +1150,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn QBaseAddDynamicProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn SuperAddDynamicProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegrationInterface_QBaseAddDynamicProperty(@ptrCast(self), name_str, @ptrCast(value));
+        qtc.QDesignerIntegrationInterface_SuperAddDynamicProperty(@ptrCast(self), name_str, @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#removeDynamicProperty)
@@ -1116,6 +1188,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnRemoveDynamicProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRemoveDynamicProperty` instead
+    ///
+    pub const QBaseRemoveDynamicProperty = SuperRemoveDynamicProperty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#removeDynamicProperty)
     ///
     /// Base class method implementation
@@ -1126,12 +1202,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn QBaseRemoveDynamicProperty(self: ?*anyopaque, name: []const u8) void {
+    pub fn SuperRemoveDynamicProperty(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegrationInterface_QBaseRemoveDynamicProperty(@ptrCast(self), name_str);
+        qtc.QDesignerIntegrationInterface_SuperRemoveDynamicProperty(@ptrCast(self), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateActiveFormWindow)
@@ -1160,6 +1236,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnUpdateActiveFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateActiveFormWindow` instead
+    ///
+    pub const QBaseUpdateActiveFormWindow = SuperUpdateActiveFormWindow;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateActiveFormWindow)
     ///
     /// Base class method implementation
@@ -1170,8 +1250,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` formWindow: QtC.QDesignerFormWindowInterface `
     ///
-    pub fn QBaseUpdateActiveFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_QBaseUpdateActiveFormWindow(@ptrCast(self), @ptrCast(formWindow));
+    pub fn SuperUpdateActiveFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
+        qtc.QDesignerIntegrationInterface_SuperUpdateActiveFormWindow(@ptrCast(self), @ptrCast(formWindow));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setupFormWindow)
@@ -1200,6 +1280,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnSetupFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetupFormWindow` instead
+    ///
+    pub const QBaseSetupFormWindow = SuperSetupFormWindow;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setupFormWindow)
     ///
     /// Base class method implementation
@@ -1210,8 +1294,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` formWindow: QtC.QDesignerFormWindowInterface `
     ///
-    pub fn QBaseSetupFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_QBaseSetupFormWindow(@ptrCast(self), @ptrCast(formWindow));
+    pub fn SuperSetupFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
+        qtc.QDesignerIntegrationInterface_SuperSetupFormWindow(@ptrCast(self), @ptrCast(formWindow));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateSelection)
@@ -1238,6 +1322,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnUpdateSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateSelection` instead
+    ///
+    pub const QBaseUpdateSelection = SuperUpdateSelection;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateSelection)
     ///
     /// Base class method implementation
@@ -1246,8 +1334,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` self: QtC.QDesignerIntegrationInterface `
     ///
-    pub fn QBaseUpdateSelection(self: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_QBaseUpdateSelection(@ptrCast(self));
+    pub fn SuperUpdateSelection(self: ?*anyopaque) void {
+        qtc.QDesignerIntegrationInterface_SuperUpdateSelection(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateCustomWidgetPlugins)
@@ -1274,6 +1362,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_OnUpdateCustomWidgetPlugins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateCustomWidgetPlugins` instead
+    ///
+    pub const QBaseUpdateCustomWidgetPlugins = SuperUpdateCustomWidgetPlugins;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateCustomWidgetPlugins)
     ///
     /// Base class method implementation
@@ -1282,8 +1374,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` self: QtC.QDesignerIntegrationInterface `
     ///
-    pub fn QBaseUpdateCustomWidgetPlugins(self: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_QBaseUpdateCustomWidgetPlugins(@ptrCast(self));
+    pub fn SuperUpdateCustomWidgetPlugins(self: ?*anyopaque) void {
+        qtc.QDesignerIntegrationInterface_SuperUpdateCustomWidgetPlugins(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2082,6 +2174,10 @@ pub const qdesignerintegrationinterface = struct {
         return qtc.QDesignerIntegrationInterface_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -2094,8 +2190,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDesignerIntegrationInterface_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QDesignerIntegrationInterface_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2132,6 +2228,10 @@ pub const qdesignerintegrationinterface = struct {
         return qtc.QDesignerIntegrationInterface_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -2146,8 +2246,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDesignerIntegrationInterface_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QDesignerIntegrationInterface_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2182,6 +2282,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -2194,8 +2298,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QDesignerIntegrationInterface_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2230,6 +2334,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -2242,8 +2350,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QDesignerIntegrationInterface_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2278,6 +2386,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -2290,8 +2402,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QDesignerIntegrationInterface_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2326,6 +2438,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2338,8 +2454,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QDesignerIntegrationInterface_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2374,6 +2490,10 @@ pub const qdesignerintegrationinterface = struct {
         qtc.QDesignerIntegrationInterface_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2386,8 +2506,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QDesignerIntegrationInterface_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2420,6 +2540,10 @@ pub const qdesignerintegrationinterface = struct {
         return qtc.QDesignerIntegrationInterface_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2430,8 +2554,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` self: QtC.QDesignerIntegrationInterface `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QDesignerIntegrationInterface_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QDesignerIntegrationInterface_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2464,6 +2588,10 @@ pub const qdesignerintegrationinterface = struct {
         return qtc.QDesignerIntegrationInterface_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2474,8 +2602,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` self: QtC.QDesignerIntegrationInterface `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QDesignerIntegrationInterface_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QDesignerIntegrationInterface_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2511,6 +2639,10 @@ pub const qdesignerintegrationinterface = struct {
         return qtc.QDesignerIntegrationInterface_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2523,9 +2655,9 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QDesignerIntegrationInterface_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QDesignerIntegrationInterface_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2560,6 +2692,10 @@ pub const qdesignerintegrationinterface = struct {
         return qtc.QDesignerIntegrationInterface_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2572,8 +2708,8 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QDesignerIntegrationInterface_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QDesignerIntegrationInterface_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2591,6 +2727,9 @@ pub const qdesignerintegrationinterface = struct {
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QDesignerIntegrationInterface_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#dtor.QDesignerIntegrationInterface)
     ///
@@ -2600,7 +2739,7 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` self: QtC.QDesignerIntegrationInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDesignerIntegrationInterface_Delete(@ptrCast(self));
     }
 };
@@ -2653,6 +2792,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -2661,8 +2804,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` self: QtC.QDesignerIntegration `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QDesignerIntegration_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QDesignerIntegration_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -2688,6 +2831,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -2696,9 +2843,9 @@ pub const qdesignerintegration = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QDesignerIntegration_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QDesignerIntegration_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -2727,6 +2874,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -2739,8 +2890,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDesignerIntegration_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QDesignerIntegration_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2792,6 +2943,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnHeaderSuffix(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHeaderSuffix` instead
+    ///
+    pub const QBaseHeaderSuffix = SuperHeaderSuffix;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#headerSuffix)
     ///
     /// Base class method implementation
@@ -2802,8 +2957,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseHeaderSuffix(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerIntegration_QBaseHeaderSuffix(@ptrCast(self));
+    pub fn SuperHeaderSuffix(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerIntegration_SuperHeaderSuffix(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegration.HeaderSuffix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2840,6 +2995,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnSetHeaderSuffix(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetHeaderSuffix` instead
+    ///
+    pub const QBaseSetHeaderSuffix = SuperSetHeaderSuffix;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setHeaderSuffix)
     ///
     /// Base class method implementation
@@ -2850,12 +3009,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ` headerSuffix: []const u8 `
     ///
-    pub fn QBaseSetHeaderSuffix(self: ?*anyopaque, headerSuffix: []const u8) void {
+    pub fn SuperSetHeaderSuffix(self: ?*anyopaque, headerSuffix: []const u8) void {
         const headerSuffix_str = qtc.libqt_string{
             .len = headerSuffix.len,
             .data = headerSuffix.ptr,
         };
-        qtc.QDesignerIntegration_QBaseSetHeaderSuffix(@ptrCast(self), headerSuffix_str);
+        qtc.QDesignerIntegration_SuperSetHeaderSuffix(@ptrCast(self), headerSuffix_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#isHeaderLowercase)
@@ -2882,6 +3041,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnIsHeaderLowercase(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsHeaderLowercase` instead
+    ///
+    pub const QBaseIsHeaderLowercase = SuperIsHeaderLowercase;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#isHeaderLowercase)
     ///
     /// Base class method implementation
@@ -2890,8 +3053,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` self: QtC.QDesignerIntegration `
     ///
-    pub fn QBaseIsHeaderLowercase(self: ?*anyopaque) bool {
-        return qtc.QDesignerIntegration_QBaseIsHeaderLowercase(@ptrCast(self));
+    pub fn SuperIsHeaderLowercase(self: ?*anyopaque) bool {
+        return qtc.QDesignerIntegration_SuperIsHeaderLowercase(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setHeaderLowercase)
@@ -2920,6 +3083,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnSetHeaderLowercase(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetHeaderLowercase` instead
+    ///
+    pub const QBaseSetHeaderLowercase = SuperSetHeaderLowercase;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setHeaderLowercase)
     ///
     /// Base class method implementation
@@ -2930,8 +3097,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` headerLowerCase: bool `
     ///
-    pub fn QBaseSetHeaderLowercase(self: ?*anyopaque, headerLowerCase: bool) void {
-        qtc.QDesignerIntegration_QBaseSetHeaderLowercase(@ptrCast(self), headerLowerCase);
+    pub fn SuperSetHeaderLowercase(self: ?*anyopaque, headerLowerCase: bool) void {
+        qtc.QDesignerIntegration_SuperSetHeaderLowercase(@ptrCast(self), headerLowerCase);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#features)
@@ -2962,6 +3129,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnFeatures(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFeatures` instead
+    ///
+    pub const QBaseFeatures = SuperFeatures;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#features)
     ///
     /// Base class method implementation
@@ -2974,8 +3145,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` flag of abstractintegration_enums.FeatureFlag `
     ///
-    pub fn QBaseFeatures(self: ?*anyopaque) i32 {
-        return qtc.QDesignerIntegration_QBaseFeatures(@ptrCast(self));
+    pub fn SuperFeatures(self: ?*anyopaque) i32 {
+        return qtc.QDesignerIntegration_SuperFeatures(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setFeatures)
@@ -3004,6 +3175,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnSetFeatures(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFeatures` instead
+    ///
+    pub const QBaseSetFeatures = SuperSetFeatures;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setFeatures)
     ///
     /// Base class method implementation
@@ -3014,8 +3189,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` f: flag of abstractintegration_enums.FeatureFlag `
     ///
-    pub fn QBaseSetFeatures(self: ?*anyopaque, f: i32) void {
-        qtc.QDesignerIntegration_QBaseSetFeatures(@ptrCast(self), @bitCast(f));
+    pub fn SuperSetFeatures(self: ?*anyopaque, f: i32) void {
+        qtc.QDesignerIntegration_SuperSetFeatures(@ptrCast(self), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#resourceFileWatcherBehaviour)
@@ -3046,6 +3221,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperResourceFileWatcherBehaviour` instead
+    ///
+    pub const QBaseResourceFileWatcherBehaviour = SuperResourceFileWatcherBehaviour;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#resourceFileWatcherBehaviour)
     ///
     /// Base class method implementation
@@ -3058,8 +3237,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` abstractintegration_enums.ResourceFileWatcherBehaviour `
     ///
-    pub fn QBaseResourceFileWatcherBehaviour(self: ?*anyopaque) i32 {
-        return qtc.QDesignerIntegration_QBaseResourceFileWatcherBehaviour(@ptrCast(self));
+    pub fn SuperResourceFileWatcherBehaviour(self: ?*anyopaque) i32 {
+        return qtc.QDesignerIntegration_SuperResourceFileWatcherBehaviour(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setResourceFileWatcherBehaviour)
@@ -3088,6 +3267,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnSetResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetResourceFileWatcherBehaviour` instead
+    ///
+    pub const QBaseSetResourceFileWatcherBehaviour = SuperSetResourceFileWatcherBehaviour;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setResourceFileWatcherBehaviour)
     ///
     /// Base class method implementation
@@ -3098,8 +3281,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` behaviour: abstractintegration_enums.ResourceFileWatcherBehaviour `
     ///
-    pub fn QBaseSetResourceFileWatcherBehaviour(self: ?*anyopaque, behaviour: i32) void {
-        qtc.QDesignerIntegration_QBaseSetResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(behaviour));
+    pub fn SuperSetResourceFileWatcherBehaviour(self: ?*anyopaque, behaviour: i32) void {
+        qtc.QDesignerIntegration_SuperSetResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(behaviour));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#containerWindow)
@@ -3128,6 +3311,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnContainerWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperContainerWindow` instead
+    ///
+    pub const QBaseContainerWindow = SuperContainerWindow;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#containerWindow)
     ///
     /// Base class method implementation
@@ -3138,8 +3325,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` widget: QtC.QWidget `
     ///
-    pub fn QBaseContainerWindow(self: ?*anyopaque, widget: ?*anyopaque) QtC.QWidget {
-        return qtc.QDesignerIntegration_QBaseContainerWindow(@ptrCast(self), @ptrCast(widget));
+    pub fn SuperContainerWindow(self: ?*anyopaque, widget: ?*anyopaque) QtC.QWidget {
+        return qtc.QDesignerIntegration_SuperContainerWindow(@ptrCast(self), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#initializePlugins)
@@ -3178,6 +3365,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnCreateResourceBrowser(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateResourceBrowser` instead
+    ///
+    pub const QBaseCreateResourceBrowser = SuperCreateResourceBrowser;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#createResourceBrowser)
     ///
     /// Base class method implementation
@@ -3188,8 +3379,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` parent: QtC.QWidget `
     ///
-    pub fn QBaseCreateResourceBrowser(self: ?*anyopaque, parent: ?*anyopaque) QtC.QDesignerResourceBrowserInterface {
-        return qtc.QDesignerIntegration_QBaseCreateResourceBrowser(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperCreateResourceBrowser(self: ?*anyopaque, parent: ?*anyopaque) QtC.QDesignerResourceBrowserInterface {
+        return qtc.QDesignerIntegration_SuperCreateResourceBrowser(@ptrCast(self), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#contextHelpId)
@@ -3224,6 +3415,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnContextHelpId(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperContextHelpId` instead
+    ///
+    pub const QBaseContextHelpId = SuperContextHelpId;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#contextHelpId)
     ///
     /// Base class method implementation
@@ -3234,8 +3429,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseContextHelpId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerIntegration_QBaseContextHelpId(@ptrCast(self));
+    pub fn SuperContextHelpId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerIntegration_SuperContextHelpId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegration.ContextHelpId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3276,6 +3471,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnUpdateProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateProperty` instead
+    ///
+    pub const QBaseUpdateProperty = SuperUpdateProperty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateProperty)
     ///
     /// Base class method implementation
@@ -3290,12 +3489,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ` enableSubPropertyHandling: bool `
     ///
-    pub fn QBaseUpdateProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque, enableSubPropertyHandling: bool) void {
+    pub fn SuperUpdateProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque, enableSubPropertyHandling: bool) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegration_QBaseUpdateProperty(@ptrCast(self), name_str, @ptrCast(value), enableSubPropertyHandling);
+        qtc.QDesignerIntegration_SuperUpdateProperty(@ptrCast(self), name_str, @ptrCast(value), enableSubPropertyHandling);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateProperty)
@@ -3330,6 +3529,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnUpdateProperty2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateProperty2` instead
+    ///
+    pub const QBaseUpdateProperty2 = SuperUpdateProperty2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateProperty)
     ///
     /// Base class method implementation
@@ -3342,12 +3545,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn QBaseUpdateProperty2(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn SuperUpdateProperty2(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegration_QBaseUpdateProperty2(@ptrCast(self), name_str, @ptrCast(value));
+        qtc.QDesignerIntegration_SuperUpdateProperty2(@ptrCast(self), name_str, @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#resetProperty)
@@ -3380,6 +3583,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnResetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperResetProperty` instead
+    ///
+    pub const QBaseResetProperty = SuperResetProperty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#resetProperty)
     ///
     /// Base class method implementation
@@ -3390,12 +3597,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn QBaseResetProperty(self: ?*anyopaque, name: []const u8) void {
+    pub fn SuperResetProperty(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegration_QBaseResetProperty(@ptrCast(self), name_str);
+        qtc.QDesignerIntegration_SuperResetProperty(@ptrCast(self), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#addDynamicProperty)
@@ -3430,6 +3637,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnAddDynamicProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAddDynamicProperty` instead
+    ///
+    pub const QBaseAddDynamicProperty = SuperAddDynamicProperty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#addDynamicProperty)
     ///
     /// Base class method implementation
@@ -3442,12 +3653,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn QBaseAddDynamicProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn SuperAddDynamicProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegration_QBaseAddDynamicProperty(@ptrCast(self), name_str, @ptrCast(value));
+        qtc.QDesignerIntegration_SuperAddDynamicProperty(@ptrCast(self), name_str, @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#removeDynamicProperty)
@@ -3480,6 +3691,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnRemoveDynamicProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRemoveDynamicProperty` instead
+    ///
+    pub const QBaseRemoveDynamicProperty = SuperRemoveDynamicProperty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#removeDynamicProperty)
     ///
     /// Base class method implementation
@@ -3490,12 +3705,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn QBaseRemoveDynamicProperty(self: ?*anyopaque, name: []const u8) void {
+    pub fn SuperRemoveDynamicProperty(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegration_QBaseRemoveDynamicProperty(@ptrCast(self), name_str);
+        qtc.QDesignerIntegration_SuperRemoveDynamicProperty(@ptrCast(self), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateActiveFormWindow)
@@ -3524,6 +3739,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnUpdateActiveFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateActiveFormWindow` instead
+    ///
+    pub const QBaseUpdateActiveFormWindow = SuperUpdateActiveFormWindow;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateActiveFormWindow)
     ///
     /// Base class method implementation
@@ -3534,8 +3753,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` formWindow: QtC.QDesignerFormWindowInterface `
     ///
-    pub fn QBaseUpdateActiveFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
-        qtc.QDesignerIntegration_QBaseUpdateActiveFormWindow(@ptrCast(self), @ptrCast(formWindow));
+    pub fn SuperUpdateActiveFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
+        qtc.QDesignerIntegration_SuperUpdateActiveFormWindow(@ptrCast(self), @ptrCast(formWindow));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setupFormWindow)
@@ -3564,6 +3783,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnSetupFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetupFormWindow` instead
+    ///
+    pub const QBaseSetupFormWindow = SuperSetupFormWindow;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setupFormWindow)
     ///
     /// Base class method implementation
@@ -3574,8 +3797,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` formWindow: QtC.QDesignerFormWindowInterface `
     ///
-    pub fn QBaseSetupFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
-        qtc.QDesignerIntegration_QBaseSetupFormWindow(@ptrCast(self), @ptrCast(formWindow));
+    pub fn SuperSetupFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
+        qtc.QDesignerIntegration_SuperSetupFormWindow(@ptrCast(self), @ptrCast(formWindow));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateSelection)
@@ -3602,6 +3825,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnUpdateSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateSelection` instead
+    ///
+    pub const QBaseUpdateSelection = SuperUpdateSelection;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateSelection)
     ///
     /// Base class method implementation
@@ -3610,8 +3837,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` self: QtC.QDesignerIntegration `
     ///
-    pub fn QBaseUpdateSelection(self: ?*anyopaque) void {
-        qtc.QDesignerIntegration_QBaseUpdateSelection(@ptrCast(self));
+    pub fn SuperUpdateSelection(self: ?*anyopaque) void {
+        qtc.QDesignerIntegration_SuperUpdateSelection(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateCustomWidgetPlugins)
@@ -3638,6 +3865,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_OnUpdateCustomWidgetPlugins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateCustomWidgetPlugins` instead
+    ///
+    pub const QBaseUpdateCustomWidgetPlugins = SuperUpdateCustomWidgetPlugins;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateCustomWidgetPlugins)
     ///
     /// Base class method implementation
@@ -3646,8 +3877,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` self: QtC.QDesignerIntegration `
     ///
-    pub fn QBaseUpdateCustomWidgetPlugins(self: ?*anyopaque) void {
-        qtc.QDesignerIntegration_QBaseUpdateCustomWidgetPlugins(@ptrCast(self));
+    pub fn SuperUpdateCustomWidgetPlugins(self: ?*anyopaque) void {
+        qtc.QDesignerIntegration_SuperUpdateCustomWidgetPlugins(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -4714,6 +4945,10 @@ pub const qdesignerintegration = struct {
         return qtc.QDesignerIntegration_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -4726,8 +4961,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDesignerIntegration_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QDesignerIntegration_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4764,6 +4999,10 @@ pub const qdesignerintegration = struct {
         return qtc.QDesignerIntegration_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -4778,8 +5017,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDesignerIntegration_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QDesignerIntegration_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4814,6 +5053,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -4826,8 +5069,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerIntegration_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QDesignerIntegration_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4862,6 +5105,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -4874,8 +5121,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerIntegration_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QDesignerIntegration_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4910,6 +5157,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -4922,8 +5173,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerIntegration_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QDesignerIntegration_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4958,6 +5209,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -4970,8 +5225,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDesignerIntegration_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QDesignerIntegration_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -5006,6 +5261,10 @@ pub const qdesignerintegration = struct {
         qtc.QDesignerIntegration_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -5018,8 +5277,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDesignerIntegration_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QDesignerIntegration_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -5052,6 +5311,10 @@ pub const qdesignerintegration = struct {
         return qtc.QDesignerIntegration_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -5062,8 +5325,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` self: QtC.QDesignerIntegration `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QDesignerIntegration_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QDesignerIntegration_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -5096,6 +5359,10 @@ pub const qdesignerintegration = struct {
         return qtc.QDesignerIntegration_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -5106,8 +5373,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` self: QtC.QDesignerIntegration `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QDesignerIntegration_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QDesignerIntegration_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -5143,6 +5410,10 @@ pub const qdesignerintegration = struct {
         return qtc.QDesignerIntegration_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -5155,9 +5426,9 @@ pub const qdesignerintegration = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QDesignerIntegration_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QDesignerIntegration_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5192,6 +5463,10 @@ pub const qdesignerintegration = struct {
         return qtc.QDesignerIntegration_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -5204,8 +5479,8 @@ pub const qdesignerintegration = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QDesignerIntegration_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QDesignerIntegration_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -5223,6 +5498,9 @@ pub const qdesignerintegration = struct {
     pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QDesignerIntegration_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#dtor.QDesignerIntegration)
     ///
@@ -5232,7 +5510,7 @@ pub const qdesignerintegration = struct {
     ///
     /// ` self: QtC.QDesignerIntegration `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDesignerIntegration_Delete(@ptrCast(self));
     }
 };

@@ -130,6 +130,10 @@ pub const kacceleratormanager = struct {
         qtc.KAcceleratorManager_Manage2(@ptrCast(widget), programmers_mode);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kacceleratormanager.html#dtor.KAcceleratorManager)
     ///
     /// Delete this object from C++ memory.
@@ -138,7 +142,7 @@ pub const kacceleratormanager = struct {
     ///
     /// ` self: QtC.KAcceleratorManager `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KAcceleratorManager_Delete(@ptrCast(self));
     }
 };

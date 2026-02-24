@@ -120,7 +120,7 @@ bool QsciLexerJSON_FoldCompact(const QsciLexerJSON* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QsciLexerJSON_QBaseMetaObject(const QsciLexerJSON* self) {
+QMetaObject* QsciLexerJSON_SuperMetaObject(const QsciLexerJSON* self) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_MetaObject_IsBase(true);
@@ -139,7 +139,7 @@ void QsciLexerJSON_OnMetaObject(const QsciLexerJSON* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QsciLexerJSON_QBaseMetacast(QsciLexerJSON* self, const char* param1) {
+void* QsciLexerJSON_SuperMetacast(QsciLexerJSON* self, const char* param1) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_Metacast_IsBase(true);
@@ -158,7 +158,7 @@ void QsciLexerJSON_OnMetacast(QsciLexerJSON* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QsciLexerJSON_QBaseMetacall(QsciLexerJSON* self, int param1, int param2, void** param3) {
+int QsciLexerJSON_SuperMetacall(QsciLexerJSON* self, int param1, int param2, void** param3) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_Metacall_IsBase(true);
@@ -187,7 +187,7 @@ int QsciLexerJSON_LexerId(const QsciLexerJSON* self) {
 }
 
 // Base class handler implementation
-int QsciLexerJSON_QBaseLexerId(const QsciLexerJSON* self) {
+int QsciLexerJSON_SuperLexerId(const QsciLexerJSON* self) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_LexerId_IsBase(true);
@@ -216,7 +216,7 @@ const char* QsciLexerJSON_AutoCompletionFillups(const QsciLexerJSON* self) {
 }
 
 // Base class handler implementation
-const char* QsciLexerJSON_QBaseAutoCompletionFillups(const QsciLexerJSON* self) {
+const char* QsciLexerJSON_SuperAutoCompletionFillups(const QsciLexerJSON* self) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_AutoCompletionFillups_IsBase(true);
@@ -279,7 +279,7 @@ libqt_list /* of libqt_string */ QsciLexerJSON_AutoCompletionWordSeparators(cons
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QsciLexerJSON_QBaseAutoCompletionWordSeparators(const QsciLexerJSON* self) {
+libqt_list /* of libqt_string */ QsciLexerJSON_SuperAutoCompletionWordSeparators(const QsciLexerJSON* self) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_AutoCompletionWordSeparators_IsBase(true);
@@ -342,7 +342,7 @@ const char* QsciLexerJSON_BlockEnd(const QsciLexerJSON* self, int* style) {
 }
 
 // Base class handler implementation
-const char* QsciLexerJSON_QBaseBlockEnd(const QsciLexerJSON* self, int* style) {
+const char* QsciLexerJSON_SuperBlockEnd(const QsciLexerJSON* self, int* style) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_BlockEnd_IsBase(true);
@@ -371,7 +371,7 @@ int QsciLexerJSON_BlockLookback(const QsciLexerJSON* self) {
 }
 
 // Base class handler implementation
-int QsciLexerJSON_QBaseBlockLookback(const QsciLexerJSON* self) {
+int QsciLexerJSON_SuperBlockLookback(const QsciLexerJSON* self) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_BlockLookback_IsBase(true);
@@ -400,7 +400,7 @@ const char* QsciLexerJSON_BlockStart(const QsciLexerJSON* self, int* style) {
 }
 
 // Base class handler implementation
-const char* QsciLexerJSON_QBaseBlockStart(const QsciLexerJSON* self, int* style) {
+const char* QsciLexerJSON_SuperBlockStart(const QsciLexerJSON* self, int* style) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_BlockStart_IsBase(true);
@@ -429,7 +429,7 @@ const char* QsciLexerJSON_BlockStartKeyword(const QsciLexerJSON* self, int* styl
 }
 
 // Base class handler implementation
-const char* QsciLexerJSON_QBaseBlockStartKeyword(const QsciLexerJSON* self, int* style) {
+const char* QsciLexerJSON_SuperBlockStartKeyword(const QsciLexerJSON* self, int* style) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_BlockStartKeyword_IsBase(true);
@@ -458,7 +458,7 @@ int QsciLexerJSON_BraceStyle(const QsciLexerJSON* self) {
 }
 
 // Base class handler implementation
-int QsciLexerJSON_QBaseBraceStyle(const QsciLexerJSON* self) {
+int QsciLexerJSON_SuperBraceStyle(const QsciLexerJSON* self) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_BraceStyle_IsBase(true);
@@ -487,7 +487,7 @@ bool QsciLexerJSON_CaseSensitive(const QsciLexerJSON* self) {
 }
 
 // Base class handler implementation
-bool QsciLexerJSON_QBaseCaseSensitive(const QsciLexerJSON* self) {
+bool QsciLexerJSON_SuperCaseSensitive(const QsciLexerJSON* self) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_CaseSensitive_IsBase(true);
@@ -516,7 +516,7 @@ QColor* QsciLexerJSON_Color(const QsciLexerJSON* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerJSON_QBaseColor(const QsciLexerJSON* self, int style) {
+QColor* QsciLexerJSON_SuperColor(const QsciLexerJSON* self, int style) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_Color_IsBase(true);
@@ -545,7 +545,7 @@ bool QsciLexerJSON_EolFill(const QsciLexerJSON* self, int style) {
 }
 
 // Base class handler implementation
-bool QsciLexerJSON_QBaseEolFill(const QsciLexerJSON* self, int style) {
+bool QsciLexerJSON_SuperEolFill(const QsciLexerJSON* self, int style) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_EolFill_IsBase(true);
@@ -574,7 +574,7 @@ QFont* QsciLexerJSON_Font(const QsciLexerJSON* self, int style) {
 }
 
 // Base class handler implementation
-QFont* QsciLexerJSON_QBaseFont(const QsciLexerJSON* self, int style) {
+QFont* QsciLexerJSON_SuperFont(const QsciLexerJSON* self, int style) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_Font_IsBase(true);
@@ -603,7 +603,7 @@ int QsciLexerJSON_IndentationGuideView(const QsciLexerJSON* self) {
 }
 
 // Base class handler implementation
-int QsciLexerJSON_QBaseIndentationGuideView(const QsciLexerJSON* self) {
+int QsciLexerJSON_SuperIndentationGuideView(const QsciLexerJSON* self) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_IndentationGuideView_IsBase(true);
@@ -632,7 +632,7 @@ int QsciLexerJSON_DefaultStyle(const QsciLexerJSON* self) {
 }
 
 // Base class handler implementation
-int QsciLexerJSON_QBaseDefaultStyle(const QsciLexerJSON* self) {
+int QsciLexerJSON_SuperDefaultStyle(const QsciLexerJSON* self) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_DefaultStyle_IsBase(true);
@@ -661,7 +661,7 @@ QColor* QsciLexerJSON_Paper(const QsciLexerJSON* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerJSON_QBasePaper(const QsciLexerJSON* self, int style) {
+QColor* QsciLexerJSON_SuperPaper(const QsciLexerJSON* self, int style) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_Paper_IsBase(true);
@@ -690,7 +690,7 @@ QColor* QsciLexerJSON_DefaultColor2(const QsciLexerJSON* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerJSON_QBaseDefaultColor2(const QsciLexerJSON* self, int style) {
+QColor* QsciLexerJSON_SuperDefaultColor2(const QsciLexerJSON* self, int style) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_DefaultColor2_IsBase(true);
@@ -719,7 +719,7 @@ QFont* QsciLexerJSON_DefaultFont2(const QsciLexerJSON* self, int style) {
 }
 
 // Base class handler implementation
-QFont* QsciLexerJSON_QBaseDefaultFont2(const QsciLexerJSON* self, int style) {
+QFont* QsciLexerJSON_SuperDefaultFont2(const QsciLexerJSON* self, int style) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_DefaultFont2_IsBase(true);
@@ -748,7 +748,7 @@ QColor* QsciLexerJSON_DefaultPaper2(const QsciLexerJSON* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerJSON_QBaseDefaultPaper2(const QsciLexerJSON* self, int style) {
+QColor* QsciLexerJSON_SuperDefaultPaper2(const QsciLexerJSON* self, int style) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_DefaultPaper2_IsBase(true);
@@ -777,7 +777,7 @@ void QsciLexerJSON_SetEditor(QsciLexerJSON* self, QsciScintilla* editor) {
 }
 
 // Base class handler implementation
-void QsciLexerJSON_QBaseSetEditor(QsciLexerJSON* self, QsciScintilla* editor) {
+void QsciLexerJSON_SuperSetEditor(QsciLexerJSON* self, QsciScintilla* editor) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_SetEditor_IsBase(true);
@@ -806,7 +806,7 @@ int QsciLexerJSON_StyleBitsNeeded(const QsciLexerJSON* self) {
 }
 
 // Base class handler implementation
-int QsciLexerJSON_QBaseStyleBitsNeeded(const QsciLexerJSON* self) {
+int QsciLexerJSON_SuperStyleBitsNeeded(const QsciLexerJSON* self) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_StyleBitsNeeded_IsBase(true);
@@ -835,7 +835,7 @@ const char* QsciLexerJSON_WordCharacters(const QsciLexerJSON* self) {
 }
 
 // Base class handler implementation
-const char* QsciLexerJSON_QBaseWordCharacters(const QsciLexerJSON* self) {
+const char* QsciLexerJSON_SuperWordCharacters(const QsciLexerJSON* self) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_WordCharacters_IsBase(true);
@@ -864,7 +864,7 @@ void QsciLexerJSON_SetAutoIndentStyle(QsciLexerJSON* self, int autoindentstyle) 
 }
 
 // Base class handler implementation
-void QsciLexerJSON_QBaseSetAutoIndentStyle(QsciLexerJSON* self, int autoindentstyle) {
+void QsciLexerJSON_SuperSetAutoIndentStyle(QsciLexerJSON* self, int autoindentstyle) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_SetAutoIndentStyle_IsBase(true);
@@ -893,7 +893,7 @@ void QsciLexerJSON_SetColor(QsciLexerJSON* self, const QColor* c, int style) {
 }
 
 // Base class handler implementation
-void QsciLexerJSON_QBaseSetColor(QsciLexerJSON* self, const QColor* c, int style) {
+void QsciLexerJSON_SuperSetColor(QsciLexerJSON* self, const QColor* c, int style) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_SetColor_IsBase(true);
@@ -922,7 +922,7 @@ void QsciLexerJSON_SetEolFill(QsciLexerJSON* self, bool eoffill, int style) {
 }
 
 // Base class handler implementation
-void QsciLexerJSON_QBaseSetEolFill(QsciLexerJSON* self, bool eoffill, int style) {
+void QsciLexerJSON_SuperSetEolFill(QsciLexerJSON* self, bool eoffill, int style) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_SetEolFill_IsBase(true);
@@ -951,7 +951,7 @@ void QsciLexerJSON_SetFont(QsciLexerJSON* self, const QFont* f, int style) {
 }
 
 // Base class handler implementation
-void QsciLexerJSON_QBaseSetFont(QsciLexerJSON* self, const QFont* f, int style) {
+void QsciLexerJSON_SuperSetFont(QsciLexerJSON* self, const QFont* f, int style) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_SetFont_IsBase(true);
@@ -980,7 +980,7 @@ void QsciLexerJSON_SetPaper(QsciLexerJSON* self, const QColor* c, int style) {
 }
 
 // Base class handler implementation
-void QsciLexerJSON_QBaseSetPaper(QsciLexerJSON* self, const QColor* c, int style) {
+void QsciLexerJSON_SuperSetPaper(QsciLexerJSON* self, const QColor* c, int style) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_SetPaper_IsBase(true);
@@ -1010,7 +1010,7 @@ bool QsciLexerJSON_ReadProperties(QsciLexerJSON* self, QSettings* qs, const libq
 }
 
 // Base class handler implementation
-bool QsciLexerJSON_QBaseReadProperties(QsciLexerJSON* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerJSON_SuperReadProperties(QsciLexerJSON* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
@@ -1041,7 +1041,7 @@ bool QsciLexerJSON_WriteProperties(const QsciLexerJSON* self, QSettings* qs, con
 }
 
 // Base class handler implementation
-bool QsciLexerJSON_QBaseWriteProperties(const QsciLexerJSON* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerJSON_SuperWriteProperties(const QsciLexerJSON* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
@@ -1071,7 +1071,7 @@ bool QsciLexerJSON_Event(QsciLexerJSON* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QsciLexerJSON_QBaseEvent(QsciLexerJSON* self, QEvent* event) {
+bool QsciLexerJSON_SuperEvent(QsciLexerJSON* self, QEvent* event) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_Event_IsBase(true);
@@ -1100,7 +1100,7 @@ bool QsciLexerJSON_EventFilter(QsciLexerJSON* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QsciLexerJSON_QBaseEventFilter(QsciLexerJSON* self, QObject* watched, QEvent* event) {
+bool QsciLexerJSON_SuperEventFilter(QsciLexerJSON* self, QObject* watched, QEvent* event) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_EventFilter_IsBase(true);
@@ -1129,7 +1129,7 @@ void QsciLexerJSON_TimerEvent(QsciLexerJSON* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerJSON_QBaseTimerEvent(QsciLexerJSON* self, QTimerEvent* event) {
+void QsciLexerJSON_SuperTimerEvent(QsciLexerJSON* self, QTimerEvent* event) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_TimerEvent_IsBase(true);
@@ -1158,7 +1158,7 @@ void QsciLexerJSON_ChildEvent(QsciLexerJSON* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerJSON_QBaseChildEvent(QsciLexerJSON* self, QChildEvent* event) {
+void QsciLexerJSON_SuperChildEvent(QsciLexerJSON* self, QChildEvent* event) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_ChildEvent_IsBase(true);
@@ -1187,7 +1187,7 @@ void QsciLexerJSON_CustomEvent(QsciLexerJSON* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerJSON_QBaseCustomEvent(QsciLexerJSON* self, QEvent* event) {
+void QsciLexerJSON_SuperCustomEvent(QsciLexerJSON* self, QEvent* event) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_CustomEvent_IsBase(true);
@@ -1216,7 +1216,7 @@ void QsciLexerJSON_ConnectNotify(QsciLexerJSON* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QsciLexerJSON_QBaseConnectNotify(QsciLexerJSON* self, const QMetaMethod* signal) {
+void QsciLexerJSON_SuperConnectNotify(QsciLexerJSON* self, const QMetaMethod* signal) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_ConnectNotify_IsBase(true);
@@ -1245,7 +1245,7 @@ void QsciLexerJSON_DisconnectNotify(QsciLexerJSON* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QsciLexerJSON_QBaseDisconnectNotify(QsciLexerJSON* self, const QMetaMethod* signal) {
+void QsciLexerJSON_SuperDisconnectNotify(QsciLexerJSON* self, const QMetaMethod* signal) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_DisconnectNotify_IsBase(true);
@@ -1285,7 +1285,7 @@ libqt_string QsciLexerJSON_TextAsBytes(const QsciLexerJSON* self, const libqt_st
 }
 
 // Base class handler implementation
-libqt_string QsciLexerJSON_QBaseTextAsBytes(const QsciLexerJSON* self, const libqt_string text) {
+libqt_string QsciLexerJSON_SuperTextAsBytes(const QsciLexerJSON* self, const libqt_string text) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
@@ -1341,7 +1341,7 @@ libqt_string QsciLexerJSON_BytesAsText(const QsciLexerJSON* self, const char* by
 }
 
 // Base class handler implementation
-libqt_string QsciLexerJSON_QBaseBytesAsText(const QsciLexerJSON* self, const char* bytes, int size) {
+libqt_string QsciLexerJSON_SuperBytesAsText(const QsciLexerJSON* self, const char* bytes, int size) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_BytesAsText_IsBase(true);
@@ -1386,7 +1386,7 @@ QObject* QsciLexerJSON_Sender(const QsciLexerJSON* self) {
 }
 
 // Base class handler implementation
-QObject* QsciLexerJSON_QBaseSender(const QsciLexerJSON* self) {
+QObject* QsciLexerJSON_SuperSender(const QsciLexerJSON* self) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_Sender_IsBase(true);
@@ -1415,7 +1415,7 @@ int QsciLexerJSON_SenderSignalIndex(const QsciLexerJSON* self) {
 }
 
 // Base class handler implementation
-int QsciLexerJSON_QBaseSenderSignalIndex(const QsciLexerJSON* self) {
+int QsciLexerJSON_SuperSenderSignalIndex(const QsciLexerJSON* self) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_SenderSignalIndex_IsBase(true);
@@ -1444,7 +1444,7 @@ int QsciLexerJSON_Receivers(const QsciLexerJSON* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QsciLexerJSON_QBaseReceivers(const QsciLexerJSON* self, const char* signal) {
+int QsciLexerJSON_SuperReceivers(const QsciLexerJSON* self, const char* signal) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_Receivers_IsBase(true);
@@ -1473,7 +1473,7 @@ bool QsciLexerJSON_IsSignalConnected(const QsciLexerJSON* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QsciLexerJSON_QBaseIsSignalConnected(const QsciLexerJSON* self, const QMetaMethod* signal) {
+bool QsciLexerJSON_SuperIsSignalConnected(const QsciLexerJSON* self, const QMetaMethod* signal) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         vqscilexerjson->setQsciLexerJSON_IsSignalConnected_IsBase(true);

@@ -266,7 +266,7 @@ void QTransposeProxyModel_Sort(QTransposeProxyModel* self, int column, int order
 }
 
 // Base class handler implementation
-QMetaObject* QTransposeProxyModel_QBaseMetaObject(const QTransposeProxyModel* self) {
+QMetaObject* QTransposeProxyModel_SuperMetaObject(const QTransposeProxyModel* self) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_MetaObject_IsBase(true);
@@ -285,7 +285,7 @@ void QTransposeProxyModel_OnMetaObject(const QTransposeProxyModel* self, intptr_
 }
 
 // Base class handler implementation
-void* QTransposeProxyModel_QBaseMetacast(QTransposeProxyModel* self, const char* param1) {
+void* QTransposeProxyModel_SuperMetacast(QTransposeProxyModel* self, const char* param1) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_Metacast_IsBase(true);
@@ -304,7 +304,7 @@ void QTransposeProxyModel_OnMetacast(QTransposeProxyModel* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int QTransposeProxyModel_QBaseMetacall(QTransposeProxyModel* self, int param1, int param2, void** param3) {
+int QTransposeProxyModel_SuperMetacall(QTransposeProxyModel* self, int param1, int param2, void** param3) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_Metacall_IsBase(true);
@@ -323,7 +323,7 @@ void QTransposeProxyModel_OnMetacall(QTransposeProxyModel* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseSetSourceModel(QTransposeProxyModel* self, QAbstractItemModel* newSourceModel) {
+void QTransposeProxyModel_SuperSetSourceModel(QTransposeProxyModel* self, QAbstractItemModel* newSourceModel) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_SetSourceModel_IsBase(true);
@@ -342,7 +342,7 @@ void QTransposeProxyModel_OnSetSourceModel(QTransposeProxyModel* self, intptr_t 
 }
 
 // Base class handler implementation
-int QTransposeProxyModel_QBaseRowCount(const QTransposeProxyModel* self, const QModelIndex* parent) {
+int QTransposeProxyModel_SuperRowCount(const QTransposeProxyModel* self, const QModelIndex* parent) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_RowCount_IsBase(true);
@@ -361,7 +361,7 @@ void QTransposeProxyModel_OnRowCount(const QTransposeProxyModel* self, intptr_t 
 }
 
 // Base class handler implementation
-int QTransposeProxyModel_QBaseColumnCount(const QTransposeProxyModel* self, const QModelIndex* parent) {
+int QTransposeProxyModel_SuperColumnCount(const QTransposeProxyModel* self, const QModelIndex* parent) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_ColumnCount_IsBase(true);
@@ -380,7 +380,7 @@ void QTransposeProxyModel_OnColumnCount(const QTransposeProxyModel* self, intptr
 }
 
 // Base class handler implementation
-QVariant* QTransposeProxyModel_QBaseHeaderData(const QTransposeProxyModel* self, int section, int orientation, int role) {
+QVariant* QTransposeProxyModel_SuperHeaderData(const QTransposeProxyModel* self, int section, int orientation, int role) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_HeaderData_IsBase(true);
@@ -399,7 +399,7 @@ void QTransposeProxyModel_OnHeaderData(const QTransposeProxyModel* self, intptr_
 }
 
 // Base class handler implementation
-bool QTransposeProxyModel_QBaseSetHeaderData(QTransposeProxyModel* self, int section, int orientation, const QVariant* value, int role) {
+bool QTransposeProxyModel_SuperSetHeaderData(QTransposeProxyModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_SetHeaderData_IsBase(true);
@@ -418,7 +418,7 @@ void QTransposeProxyModel_OnSetHeaderData(QTransposeProxyModel* self, intptr_t s
 }
 
 // Base class handler implementation
-bool QTransposeProxyModel_QBaseSetItemData(QTransposeProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool QTransposeProxyModel_SuperSetItemData(QTransposeProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -443,7 +443,7 @@ void QTransposeProxyModel_OnSetItemData(QTransposeProxyModel* self, intptr_t slo
 }
 
 // Base class handler implementation
-QSize* QTransposeProxyModel_QBaseSpan(const QTransposeProxyModel* self, const QModelIndex* index) {
+QSize* QTransposeProxyModel_SuperSpan(const QTransposeProxyModel* self, const QModelIndex* index) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_Span_IsBase(true);
@@ -462,7 +462,7 @@ void QTransposeProxyModel_OnSpan(const QTransposeProxyModel* self, intptr_t slot
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ QTransposeProxyModel_QBaseItemData(const QTransposeProxyModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ QTransposeProxyModel_SuperItemData(const QTransposeProxyModel* self, const QModelIndex* index) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_ItemData_IsBase(true);
@@ -509,7 +509,7 @@ void QTransposeProxyModel_OnItemData(const QTransposeProxyModel* self, intptr_t 
 }
 
 // Base class handler implementation
-QModelIndex* QTransposeProxyModel_QBaseMapFromSource(const QTransposeProxyModel* self, const QModelIndex* sourceIndex) {
+QModelIndex* QTransposeProxyModel_SuperMapFromSource(const QTransposeProxyModel* self, const QModelIndex* sourceIndex) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_MapFromSource_IsBase(true);
@@ -528,7 +528,7 @@ void QTransposeProxyModel_OnMapFromSource(const QTransposeProxyModel* self, intp
 }
 
 // Base class handler implementation
-QModelIndex* QTransposeProxyModel_QBaseMapToSource(const QTransposeProxyModel* self, const QModelIndex* proxyIndex) {
+QModelIndex* QTransposeProxyModel_SuperMapToSource(const QTransposeProxyModel* self, const QModelIndex* proxyIndex) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_MapToSource_IsBase(true);
@@ -547,7 +547,7 @@ void QTransposeProxyModel_OnMapToSource(const QTransposeProxyModel* self, intptr
 }
 
 // Base class handler implementation
-QModelIndex* QTransposeProxyModel_QBaseParent(const QTransposeProxyModel* self, const QModelIndex* index) {
+QModelIndex* QTransposeProxyModel_SuperParent(const QTransposeProxyModel* self, const QModelIndex* index) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_Parent_IsBase(true);
@@ -566,7 +566,7 @@ void QTransposeProxyModel_OnParent(const QTransposeProxyModel* self, intptr_t sl
 }
 
 // Base class handler implementation
-QModelIndex* QTransposeProxyModel_QBaseIndex(const QTransposeProxyModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* QTransposeProxyModel_SuperIndex(const QTransposeProxyModel* self, int row, int column, const QModelIndex* parent) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_Index_IsBase(true);
@@ -585,7 +585,7 @@ void QTransposeProxyModel_OnIndex(const QTransposeProxyModel* self, intptr_t slo
 }
 
 // Base class handler implementation
-bool QTransposeProxyModel_QBaseInsertRows(QTransposeProxyModel* self, int row, int count, const QModelIndex* parent) {
+bool QTransposeProxyModel_SuperInsertRows(QTransposeProxyModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_InsertRows_IsBase(true);
@@ -604,7 +604,7 @@ void QTransposeProxyModel_OnInsertRows(QTransposeProxyModel* self, intptr_t slot
 }
 
 // Base class handler implementation
-bool QTransposeProxyModel_QBaseRemoveRows(QTransposeProxyModel* self, int row, int count, const QModelIndex* parent) {
+bool QTransposeProxyModel_SuperRemoveRows(QTransposeProxyModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_RemoveRows_IsBase(true);
@@ -623,7 +623,7 @@ void QTransposeProxyModel_OnRemoveRows(QTransposeProxyModel* self, intptr_t slot
 }
 
 // Base class handler implementation
-bool QTransposeProxyModel_QBaseMoveRows(QTransposeProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QTransposeProxyModel_SuperMoveRows(QTransposeProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_MoveRows_IsBase(true);
@@ -642,7 +642,7 @@ void QTransposeProxyModel_OnMoveRows(QTransposeProxyModel* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-bool QTransposeProxyModel_QBaseInsertColumns(QTransposeProxyModel* self, int column, int count, const QModelIndex* parent) {
+bool QTransposeProxyModel_SuperInsertColumns(QTransposeProxyModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_InsertColumns_IsBase(true);
@@ -661,7 +661,7 @@ void QTransposeProxyModel_OnInsertColumns(QTransposeProxyModel* self, intptr_t s
 }
 
 // Base class handler implementation
-bool QTransposeProxyModel_QBaseRemoveColumns(QTransposeProxyModel* self, int column, int count, const QModelIndex* parent) {
+bool QTransposeProxyModel_SuperRemoveColumns(QTransposeProxyModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_RemoveColumns_IsBase(true);
@@ -680,7 +680,7 @@ void QTransposeProxyModel_OnRemoveColumns(QTransposeProxyModel* self, intptr_t s
 }
 
 // Base class handler implementation
-bool QTransposeProxyModel_QBaseMoveColumns(QTransposeProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QTransposeProxyModel_SuperMoveColumns(QTransposeProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_MoveColumns_IsBase(true);
@@ -699,7 +699,7 @@ void QTransposeProxyModel_OnMoveColumns(QTransposeProxyModel* self, intptr_t slo
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseSort(QTransposeProxyModel* self, int column, int order) {
+void QTransposeProxyModel_SuperSort(QTransposeProxyModel* self, int column, int order) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_Sort_IsBase(true);
@@ -728,7 +728,7 @@ QItemSelection* QTransposeProxyModel_MapSelectionToSource(const QTransposeProxyM
 }
 
 // Base class handler implementation
-QItemSelection* QTransposeProxyModel_QBaseMapSelectionToSource(const QTransposeProxyModel* self, const QItemSelection* selection) {
+QItemSelection* QTransposeProxyModel_SuperMapSelectionToSource(const QTransposeProxyModel* self, const QItemSelection* selection) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_MapSelectionToSource_IsBase(true);
@@ -757,7 +757,7 @@ QItemSelection* QTransposeProxyModel_MapSelectionFromSource(const QTransposeProx
 }
 
 // Base class handler implementation
-QItemSelection* QTransposeProxyModel_QBaseMapSelectionFromSource(const QTransposeProxyModel* self, const QItemSelection* selection) {
+QItemSelection* QTransposeProxyModel_SuperMapSelectionFromSource(const QTransposeProxyModel* self, const QItemSelection* selection) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_MapSelectionFromSource_IsBase(true);
@@ -786,7 +786,7 @@ bool QTransposeProxyModel_Submit(QTransposeProxyModel* self) {
 }
 
 // Base class handler implementation
-bool QTransposeProxyModel_QBaseSubmit(QTransposeProxyModel* self) {
+bool QTransposeProxyModel_SuperSubmit(QTransposeProxyModel* self) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_Submit_IsBase(true);
@@ -815,7 +815,7 @@ void QTransposeProxyModel_Revert(QTransposeProxyModel* self) {
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseRevert(QTransposeProxyModel* self) {
+void QTransposeProxyModel_SuperRevert(QTransposeProxyModel* self) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_Revert_IsBase(true);
@@ -844,7 +844,7 @@ QVariant* QTransposeProxyModel_Data(const QTransposeProxyModel* self, const QMod
 }
 
 // Base class handler implementation
-QVariant* QTransposeProxyModel_QBaseData(const QTransposeProxyModel* self, const QModelIndex* proxyIndex, int role) {
+QVariant* QTransposeProxyModel_SuperData(const QTransposeProxyModel* self, const QModelIndex* proxyIndex, int role) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_Data_IsBase(true);
@@ -873,7 +873,7 @@ int QTransposeProxyModel_Flags(const QTransposeProxyModel* self, const QModelInd
 }
 
 // Base class handler implementation
-int QTransposeProxyModel_QBaseFlags(const QTransposeProxyModel* self, const QModelIndex* index) {
+int QTransposeProxyModel_SuperFlags(const QTransposeProxyModel* self, const QModelIndex* index) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_Flags_IsBase(true);
@@ -902,7 +902,7 @@ bool QTransposeProxyModel_SetData(QTransposeProxyModel* self, const QModelIndex*
 }
 
 // Base class handler implementation
-bool QTransposeProxyModel_QBaseSetData(QTransposeProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool QTransposeProxyModel_SuperSetData(QTransposeProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_SetData_IsBase(true);
@@ -931,7 +931,7 @@ bool QTransposeProxyModel_ClearItemData(QTransposeProxyModel* self, const QModel
 }
 
 // Base class handler implementation
-bool QTransposeProxyModel_QBaseClearItemData(QTransposeProxyModel* self, const QModelIndex* index) {
+bool QTransposeProxyModel_SuperClearItemData(QTransposeProxyModel* self, const QModelIndex* index) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_ClearItemData_IsBase(true);
@@ -960,7 +960,7 @@ QModelIndex* QTransposeProxyModel_Buddy(const QTransposeProxyModel* self, const 
 }
 
 // Base class handler implementation
-QModelIndex* QTransposeProxyModel_QBaseBuddy(const QTransposeProxyModel* self, const QModelIndex* index) {
+QModelIndex* QTransposeProxyModel_SuperBuddy(const QTransposeProxyModel* self, const QModelIndex* index) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_Buddy_IsBase(true);
@@ -989,7 +989,7 @@ bool QTransposeProxyModel_CanFetchMore(const QTransposeProxyModel* self, const Q
 }
 
 // Base class handler implementation
-bool QTransposeProxyModel_QBaseCanFetchMore(const QTransposeProxyModel* self, const QModelIndex* parent) {
+bool QTransposeProxyModel_SuperCanFetchMore(const QTransposeProxyModel* self, const QModelIndex* parent) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_CanFetchMore_IsBase(true);
@@ -1018,7 +1018,7 @@ void QTransposeProxyModel_FetchMore(QTransposeProxyModel* self, const QModelInde
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseFetchMore(QTransposeProxyModel* self, const QModelIndex* parent) {
+void QTransposeProxyModel_SuperFetchMore(QTransposeProxyModel* self, const QModelIndex* parent) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_FetchMore_IsBase(true);
@@ -1047,7 +1047,7 @@ bool QTransposeProxyModel_HasChildren(const QTransposeProxyModel* self, const QM
 }
 
 // Base class handler implementation
-bool QTransposeProxyModel_QBaseHasChildren(const QTransposeProxyModel* self, const QModelIndex* parent) {
+bool QTransposeProxyModel_SuperHasChildren(const QTransposeProxyModel* self, const QModelIndex* parent) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_HasChildren_IsBase(true);
@@ -1076,7 +1076,7 @@ QModelIndex* QTransposeProxyModel_Sibling(const QTransposeProxyModel* self, int 
 }
 
 // Base class handler implementation
-QModelIndex* QTransposeProxyModel_QBaseSibling(const QTransposeProxyModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* QTransposeProxyModel_SuperSibling(const QTransposeProxyModel* self, int row, int column, const QModelIndex* idx) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_Sibling_IsBase(true);
@@ -1111,7 +1111,7 @@ QMimeData* QTransposeProxyModel_MimeData(const QTransposeProxyModel* self, const
 }
 
 // Base class handler implementation
-QMimeData* QTransposeProxyModel_QBaseMimeData(const QTransposeProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* QTransposeProxyModel_SuperMimeData(const QTransposeProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -1146,7 +1146,7 @@ bool QTransposeProxyModel_CanDropMimeData(const QTransposeProxyModel* self, cons
 }
 
 // Base class handler implementation
-bool QTransposeProxyModel_QBaseCanDropMimeData(const QTransposeProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QTransposeProxyModel_SuperCanDropMimeData(const QTransposeProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_CanDropMimeData_IsBase(true);
@@ -1175,7 +1175,7 @@ bool QTransposeProxyModel_DropMimeData(QTransposeProxyModel* self, const QMimeDa
 }
 
 // Base class handler implementation
-bool QTransposeProxyModel_QBaseDropMimeData(QTransposeProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QTransposeProxyModel_SuperDropMimeData(QTransposeProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_DropMimeData_IsBase(true);
@@ -1238,7 +1238,7 @@ libqt_list /* of libqt_string */ QTransposeProxyModel_MimeTypes(const QTranspose
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QTransposeProxyModel_QBaseMimeTypes(const QTransposeProxyModel* self) {
+libqt_list /* of libqt_string */ QTransposeProxyModel_SuperMimeTypes(const QTransposeProxyModel* self) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_MimeTypes_IsBase(true);
@@ -1301,7 +1301,7 @@ int QTransposeProxyModel_SupportedDragActions(const QTransposeProxyModel* self) 
 }
 
 // Base class handler implementation
-int QTransposeProxyModel_QBaseSupportedDragActions(const QTransposeProxyModel* self) {
+int QTransposeProxyModel_SuperSupportedDragActions(const QTransposeProxyModel* self) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_SupportedDragActions_IsBase(true);
@@ -1330,7 +1330,7 @@ int QTransposeProxyModel_SupportedDropActions(const QTransposeProxyModel* self) 
 }
 
 // Base class handler implementation
-int QTransposeProxyModel_QBaseSupportedDropActions(const QTransposeProxyModel* self) {
+int QTransposeProxyModel_SuperSupportedDropActions(const QTransposeProxyModel* self) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_SupportedDropActions_IsBase(true);
@@ -1397,7 +1397,7 @@ libqt_map /* of int to libqt_string */ QTransposeProxyModel_RoleNames(const QTra
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ QTransposeProxyModel_QBaseRoleNames(const QTransposeProxyModel* self) {
+libqt_map /* of int to libqt_string */ QTransposeProxyModel_SuperRoleNames(const QTransposeProxyModel* self) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_RoleNames_IsBase(true);
@@ -1482,7 +1482,7 @@ libqt_list /* of QModelIndex* */ QTransposeProxyModel_Match(const QTransposeProx
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QTransposeProxyModel_QBaseMatch(const QTransposeProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ QTransposeProxyModel_SuperMatch(const QTransposeProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_Match_IsBase(true);
@@ -1529,7 +1529,7 @@ void QTransposeProxyModel_MultiData(const QTransposeProxyModel* self, const QMod
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseMultiData(const QTransposeProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void QTransposeProxyModel_SuperMultiData(const QTransposeProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_MultiData_IsBase(true);
@@ -1558,7 +1558,7 @@ void QTransposeProxyModel_ResetInternalData(QTransposeProxyModel* self) {
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseResetInternalData(QTransposeProxyModel* self) {
+void QTransposeProxyModel_SuperResetInternalData(QTransposeProxyModel* self) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_ResetInternalData_IsBase(true);
@@ -1587,7 +1587,7 @@ bool QTransposeProxyModel_Event(QTransposeProxyModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTransposeProxyModel_QBaseEvent(QTransposeProxyModel* self, QEvent* event) {
+bool QTransposeProxyModel_SuperEvent(QTransposeProxyModel* self, QEvent* event) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_Event_IsBase(true);
@@ -1616,7 +1616,7 @@ bool QTransposeProxyModel_EventFilter(QTransposeProxyModel* self, QObject* watch
 }
 
 // Base class handler implementation
-bool QTransposeProxyModel_QBaseEventFilter(QTransposeProxyModel* self, QObject* watched, QEvent* event) {
+bool QTransposeProxyModel_SuperEventFilter(QTransposeProxyModel* self, QObject* watched, QEvent* event) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_EventFilter_IsBase(true);
@@ -1645,7 +1645,7 @@ void QTransposeProxyModel_TimerEvent(QTransposeProxyModel* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseTimerEvent(QTransposeProxyModel* self, QTimerEvent* event) {
+void QTransposeProxyModel_SuperTimerEvent(QTransposeProxyModel* self, QTimerEvent* event) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_TimerEvent_IsBase(true);
@@ -1674,7 +1674,7 @@ void QTransposeProxyModel_ChildEvent(QTransposeProxyModel* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseChildEvent(QTransposeProxyModel* self, QChildEvent* event) {
+void QTransposeProxyModel_SuperChildEvent(QTransposeProxyModel* self, QChildEvent* event) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_ChildEvent_IsBase(true);
@@ -1703,7 +1703,7 @@ void QTransposeProxyModel_CustomEvent(QTransposeProxyModel* self, QEvent* event)
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseCustomEvent(QTransposeProxyModel* self, QEvent* event) {
+void QTransposeProxyModel_SuperCustomEvent(QTransposeProxyModel* self, QEvent* event) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_CustomEvent_IsBase(true);
@@ -1732,7 +1732,7 @@ void QTransposeProxyModel_ConnectNotify(QTransposeProxyModel* self, const QMetaM
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseConnectNotify(QTransposeProxyModel* self, const QMetaMethod* signal) {
+void QTransposeProxyModel_SuperConnectNotify(QTransposeProxyModel* self, const QMetaMethod* signal) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_ConnectNotify_IsBase(true);
@@ -1761,7 +1761,7 @@ void QTransposeProxyModel_DisconnectNotify(QTransposeProxyModel* self, const QMe
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseDisconnectNotify(QTransposeProxyModel* self, const QMetaMethod* signal) {
+void QTransposeProxyModel_SuperDisconnectNotify(QTransposeProxyModel* self, const QMetaMethod* signal) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_DisconnectNotify_IsBase(true);
@@ -1789,7 +1789,7 @@ QModelIndex* QTransposeProxyModel_CreateSourceIndex(const QTransposeProxyModel* 
 }
 
 // Base class handler implementation
-QModelIndex* QTransposeProxyModel_QBaseCreateSourceIndex(const QTransposeProxyModel* self, int row, int col, void* internalPtr) {
+QModelIndex* QTransposeProxyModel_SuperCreateSourceIndex(const QTransposeProxyModel* self, int row, int col, void* internalPtr) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_CreateSourceIndex_IsBase(true);
@@ -1816,7 +1816,7 @@ QModelIndex* QTransposeProxyModel_CreateIndex(const QTransposeProxyModel* self, 
 }
 
 // Base class handler implementation
-QModelIndex* QTransposeProxyModel_QBaseCreateIndex(const QTransposeProxyModel* self, int row, int column) {
+QModelIndex* QTransposeProxyModel_SuperCreateIndex(const QTransposeProxyModel* self, int row, int column) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_CreateIndex_IsBase(true);
@@ -1850,7 +1850,7 @@ void QTransposeProxyModel_EncodeData(const QTransposeProxyModel* self, const lib
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseEncodeData(const QTransposeProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void QTransposeProxyModel_SuperEncodeData(const QTransposeProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -1885,7 +1885,7 @@ bool QTransposeProxyModel_DecodeData(QTransposeProxyModel* self, int row, int co
 }
 
 // Base class handler implementation
-bool QTransposeProxyModel_QBaseDecodeData(QTransposeProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool QTransposeProxyModel_SuperDecodeData(QTransposeProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_DecodeData_IsBase(true);
@@ -1914,7 +1914,7 @@ void QTransposeProxyModel_BeginInsertRows(QTransposeProxyModel* self, const QMod
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseBeginInsertRows(QTransposeProxyModel* self, const QModelIndex* parent, int first, int last) {
+void QTransposeProxyModel_SuperBeginInsertRows(QTransposeProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_BeginInsertRows_IsBase(true);
@@ -1943,7 +1943,7 @@ void QTransposeProxyModel_EndInsertRows(QTransposeProxyModel* self) {
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseEndInsertRows(QTransposeProxyModel* self) {
+void QTransposeProxyModel_SuperEndInsertRows(QTransposeProxyModel* self) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_EndInsertRows_IsBase(true);
@@ -1972,7 +1972,7 @@ void QTransposeProxyModel_BeginRemoveRows(QTransposeProxyModel* self, const QMod
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseBeginRemoveRows(QTransposeProxyModel* self, const QModelIndex* parent, int first, int last) {
+void QTransposeProxyModel_SuperBeginRemoveRows(QTransposeProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_BeginRemoveRows_IsBase(true);
@@ -2001,7 +2001,7 @@ void QTransposeProxyModel_EndRemoveRows(QTransposeProxyModel* self) {
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseEndRemoveRows(QTransposeProxyModel* self) {
+void QTransposeProxyModel_SuperEndRemoveRows(QTransposeProxyModel* self) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_EndRemoveRows_IsBase(true);
@@ -2030,7 +2030,7 @@ bool QTransposeProxyModel_BeginMoveRows(QTransposeProxyModel* self, const QModel
 }
 
 // Base class handler implementation
-bool QTransposeProxyModel_QBaseBeginMoveRows(QTransposeProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool QTransposeProxyModel_SuperBeginMoveRows(QTransposeProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_BeginMoveRows_IsBase(true);
@@ -2059,7 +2059,7 @@ void QTransposeProxyModel_EndMoveRows(QTransposeProxyModel* self) {
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseEndMoveRows(QTransposeProxyModel* self) {
+void QTransposeProxyModel_SuperEndMoveRows(QTransposeProxyModel* self) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_EndMoveRows_IsBase(true);
@@ -2088,7 +2088,7 @@ void QTransposeProxyModel_BeginInsertColumns(QTransposeProxyModel* self, const Q
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseBeginInsertColumns(QTransposeProxyModel* self, const QModelIndex* parent, int first, int last) {
+void QTransposeProxyModel_SuperBeginInsertColumns(QTransposeProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_BeginInsertColumns_IsBase(true);
@@ -2117,7 +2117,7 @@ void QTransposeProxyModel_EndInsertColumns(QTransposeProxyModel* self) {
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseEndInsertColumns(QTransposeProxyModel* self) {
+void QTransposeProxyModel_SuperEndInsertColumns(QTransposeProxyModel* self) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_EndInsertColumns_IsBase(true);
@@ -2146,7 +2146,7 @@ void QTransposeProxyModel_BeginRemoveColumns(QTransposeProxyModel* self, const Q
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseBeginRemoveColumns(QTransposeProxyModel* self, const QModelIndex* parent, int first, int last) {
+void QTransposeProxyModel_SuperBeginRemoveColumns(QTransposeProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_BeginRemoveColumns_IsBase(true);
@@ -2175,7 +2175,7 @@ void QTransposeProxyModel_EndRemoveColumns(QTransposeProxyModel* self) {
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseEndRemoveColumns(QTransposeProxyModel* self) {
+void QTransposeProxyModel_SuperEndRemoveColumns(QTransposeProxyModel* self) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_EndRemoveColumns_IsBase(true);
@@ -2204,7 +2204,7 @@ bool QTransposeProxyModel_BeginMoveColumns(QTransposeProxyModel* self, const QMo
 }
 
 // Base class handler implementation
-bool QTransposeProxyModel_QBaseBeginMoveColumns(QTransposeProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool QTransposeProxyModel_SuperBeginMoveColumns(QTransposeProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_BeginMoveColumns_IsBase(true);
@@ -2233,7 +2233,7 @@ void QTransposeProxyModel_EndMoveColumns(QTransposeProxyModel* self) {
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseEndMoveColumns(QTransposeProxyModel* self) {
+void QTransposeProxyModel_SuperEndMoveColumns(QTransposeProxyModel* self) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_EndMoveColumns_IsBase(true);
@@ -2262,7 +2262,7 @@ void QTransposeProxyModel_BeginResetModel(QTransposeProxyModel* self) {
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseBeginResetModel(QTransposeProxyModel* self) {
+void QTransposeProxyModel_SuperBeginResetModel(QTransposeProxyModel* self) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_BeginResetModel_IsBase(true);
@@ -2291,7 +2291,7 @@ void QTransposeProxyModel_EndResetModel(QTransposeProxyModel* self) {
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseEndResetModel(QTransposeProxyModel* self) {
+void QTransposeProxyModel_SuperEndResetModel(QTransposeProxyModel* self) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_EndResetModel_IsBase(true);
@@ -2320,7 +2320,7 @@ void QTransposeProxyModel_ChangePersistentIndex(QTransposeProxyModel* self, cons
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseChangePersistentIndex(QTransposeProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
+void QTransposeProxyModel_SuperChangePersistentIndex(QTransposeProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_ChangePersistentIndex_IsBase(true);
@@ -2361,7 +2361,7 @@ void QTransposeProxyModel_ChangePersistentIndexList(QTransposeProxyModel* self, 
 }
 
 // Base class handler implementation
-void QTransposeProxyModel_QBaseChangePersistentIndexList(QTransposeProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void QTransposeProxyModel_SuperChangePersistentIndexList(QTransposeProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2420,7 +2420,7 @@ libqt_list /* of QModelIndex* */ QTransposeProxyModel_PersistentIndexList(const 
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QTransposeProxyModel_QBasePersistentIndexList(const QTransposeProxyModel* self) {
+libqt_list /* of QModelIndex* */ QTransposeProxyModel_SuperPersistentIndexList(const QTransposeProxyModel* self) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_PersistentIndexList_IsBase(true);
@@ -2467,7 +2467,7 @@ QObject* QTransposeProxyModel_Sender(const QTransposeProxyModel* self) {
 }
 
 // Base class handler implementation
-QObject* QTransposeProxyModel_QBaseSender(const QTransposeProxyModel* self) {
+QObject* QTransposeProxyModel_SuperSender(const QTransposeProxyModel* self) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_Sender_IsBase(true);
@@ -2496,7 +2496,7 @@ int QTransposeProxyModel_SenderSignalIndex(const QTransposeProxyModel* self) {
 }
 
 // Base class handler implementation
-int QTransposeProxyModel_QBaseSenderSignalIndex(const QTransposeProxyModel* self) {
+int QTransposeProxyModel_SuperSenderSignalIndex(const QTransposeProxyModel* self) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_SenderSignalIndex_IsBase(true);
@@ -2525,7 +2525,7 @@ int QTransposeProxyModel_Receivers(const QTransposeProxyModel* self, const char*
 }
 
 // Base class handler implementation
-int QTransposeProxyModel_QBaseReceivers(const QTransposeProxyModel* self, const char* signal) {
+int QTransposeProxyModel_SuperReceivers(const QTransposeProxyModel* self, const char* signal) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_Receivers_IsBase(true);
@@ -2554,7 +2554,7 @@ bool QTransposeProxyModel_IsSignalConnected(const QTransposeProxyModel* self, co
 }
 
 // Base class handler implementation
-bool QTransposeProxyModel_QBaseIsSignalConnected(const QTransposeProxyModel* self, const QMetaMethod* signal) {
+bool QTransposeProxyModel_SuperIsSignalConnected(const QTransposeProxyModel* self, const QMetaMethod* signal) {
     auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
     if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
         vqtransposeproxymodel->setQTransposeProxyModel_IsSignalConnected_IsBase(true);

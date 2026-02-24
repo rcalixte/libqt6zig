@@ -52,6 +52,10 @@ pub const qscatterseries = struct {
         qtc.QScatterSeries_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -60,8 +64,8 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QScatterSeries_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QScatterSeries_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -87,6 +91,10 @@ pub const qscatterseries = struct {
         qtc.QScatterSeries_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -95,9 +103,9 @@ pub const qscatterseries = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QScatterSeries_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QScatterSeries_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -126,6 +134,10 @@ pub const qscatterseries = struct {
         qtc.QScatterSeries_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -138,8 +150,8 @@ pub const qscatterseries = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QScatterSeries_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QScatterSeries_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -187,6 +199,10 @@ pub const qscatterseries = struct {
         qtc.QScatterSeries_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperType` instead
+    ///
+    pub const QBaseType = SuperType;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscatterseries-qtcharts.html#type)
     ///
     /// Base class method implementation
@@ -199,8 +215,8 @@ pub const qscatterseries = struct {
     ///
     /// ` qabstractseries_enums.SeriesType `
     ///
-    pub fn QBaseType(self: ?*anyopaque) i32 {
-        return qtc.QScatterSeries_QBaseType(@ptrCast(self));
+    pub fn SuperType(self: ?*anyopaque) i32 {
+        return qtc.QScatterSeries_SuperType(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscatterseries-qtcharts.html#setPen)
@@ -229,6 +245,10 @@ pub const qscatterseries = struct {
         qtc.QScatterSeries_OnSetPen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPen` instead
+    ///
+    pub const QBaseSetPen = SuperSetPen;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscatterseries-qtcharts.html#setPen)
     ///
     /// Base class method implementation
@@ -239,8 +259,8 @@ pub const qscatterseries = struct {
     ///
     /// ` pen: QtC.QPen `
     ///
-    pub fn QBaseSetPen(self: ?*anyopaque, pen: ?*anyopaque) void {
-        qtc.QScatterSeries_QBaseSetPen(@ptrCast(self), @ptrCast(pen));
+    pub fn SuperSetPen(self: ?*anyopaque, pen: ?*anyopaque) void {
+        qtc.QScatterSeries_SuperSetPen(@ptrCast(self), @ptrCast(pen));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscatterseries-qtcharts.html#setBrush)
@@ -269,6 +289,10 @@ pub const qscatterseries = struct {
         qtc.QScatterSeries_OnSetBrush(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetBrush` instead
+    ///
+    pub const QBaseSetBrush = SuperSetBrush;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscatterseries-qtcharts.html#setBrush)
     ///
     /// Base class method implementation
@@ -279,8 +303,8 @@ pub const qscatterseries = struct {
     ///
     /// ` brush: QtC.QBrush `
     ///
-    pub fn QBaseSetBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
-        qtc.QScatterSeries_QBaseSetBrush(@ptrCast(self), @ptrCast(brush));
+    pub fn SuperSetBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
+        qtc.QScatterSeries_SuperSetBrush(@ptrCast(self), @ptrCast(brush));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscatterseries-qtcharts.html#brush)
@@ -319,6 +343,10 @@ pub const qscatterseries = struct {
         qtc.QScatterSeries_OnSetColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetColor` instead
+    ///
+    pub const QBaseSetColor = SuperSetColor;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscatterseries-qtcharts.html#setColor)
     ///
     /// Base class method implementation
@@ -329,8 +357,8 @@ pub const qscatterseries = struct {
     ///
     /// ` color: QtC.QColor `
     ///
-    pub fn QBaseSetColor(self: ?*anyopaque, color: ?*anyopaque) void {
-        qtc.QScatterSeries_QBaseSetColor(@ptrCast(self), @ptrCast(color));
+    pub fn SuperSetColor(self: ?*anyopaque, color: ?*anyopaque) void {
+        qtc.QScatterSeries_SuperSetColor(@ptrCast(self), @ptrCast(color));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscatterseries-qtcharts.html#color)
@@ -357,6 +385,10 @@ pub const qscatterseries = struct {
         qtc.QScatterSeries_OnColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperColor` instead
+    ///
+    pub const QBaseColor = SuperColor;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscatterseries-qtcharts.html#color)
     ///
     /// Base class method implementation
@@ -365,8 +397,8 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    pub fn QBaseColor(self: ?*anyopaque) QtC.QColor {
-        return qtc.QScatterSeries_QBaseColor(@ptrCast(self));
+    pub fn SuperColor(self: ?*anyopaque) QtC.QColor {
+        return qtc.QScatterSeries_SuperColor(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscatterseries-qtcharts.html#setBorderColor)
@@ -3487,6 +3519,10 @@ pub const qscatterseries = struct {
         return qtc.QScatterSeries_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -3499,8 +3535,8 @@ pub const qscatterseries = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QScatterSeries_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QScatterSeries_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3537,6 +3573,10 @@ pub const qscatterseries = struct {
         return qtc.QScatterSeries_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -3551,8 +3591,8 @@ pub const qscatterseries = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QScatterSeries_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QScatterSeries_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3587,6 +3627,10 @@ pub const qscatterseries = struct {
         qtc.QScatterSeries_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -3599,8 +3643,8 @@ pub const qscatterseries = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QScatterSeries_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QScatterSeries_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3635,6 +3679,10 @@ pub const qscatterseries = struct {
         qtc.QScatterSeries_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -3647,8 +3695,8 @@ pub const qscatterseries = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QScatterSeries_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QScatterSeries_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3683,6 +3731,10 @@ pub const qscatterseries = struct {
         qtc.QScatterSeries_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -3695,8 +3747,8 @@ pub const qscatterseries = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QScatterSeries_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QScatterSeries_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3731,6 +3783,10 @@ pub const qscatterseries = struct {
         qtc.QScatterSeries_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3743,8 +3799,8 @@ pub const qscatterseries = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QScatterSeries_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QScatterSeries_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3779,6 +3835,10 @@ pub const qscatterseries = struct {
         qtc.QScatterSeries_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -3791,8 +3851,8 @@ pub const qscatterseries = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QScatterSeries_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QScatterSeries_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3825,6 +3885,10 @@ pub const qscatterseries = struct {
         return qtc.QScatterSeries_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -3835,8 +3899,8 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QScatterSeries_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QScatterSeries_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3869,6 +3933,10 @@ pub const qscatterseries = struct {
         return qtc.QScatterSeries_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -3879,8 +3947,8 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QScatterSeries_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QScatterSeries_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3916,6 +3984,10 @@ pub const qscatterseries = struct {
         return qtc.QScatterSeries_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -3928,9 +4000,9 @@ pub const qscatterseries = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QScatterSeries_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QScatterSeries_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3965,6 +4037,10 @@ pub const qscatterseries = struct {
         return qtc.QScatterSeries_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -3977,8 +4053,8 @@ pub const qscatterseries = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QScatterSeries_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QScatterSeries_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4012,6 +4088,9 @@ pub const qscatterseries = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscatterseries-qtcharts.html#dtor.QScatterSeries)
     ///
@@ -4021,7 +4100,7 @@ pub const qscatterseries = struct {
     ///
     /// ` self: QtC.QScatterSeries `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QScatterSeries_Delete(@ptrCast(self));
     }
 };

@@ -478,25 +478,25 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
 
     // Friend functions
     friend void KBreadcrumbSelectionModel_TimerEvent(KBreadcrumbSelectionModel* self, QTimerEvent* event);
-    friend void KBreadcrumbSelectionModel_QBaseTimerEvent(KBreadcrumbSelectionModel* self, QTimerEvent* event);
+    friend void KBreadcrumbSelectionModel_SuperTimerEvent(KBreadcrumbSelectionModel* self, QTimerEvent* event);
     friend void KBreadcrumbSelectionModel_ChildEvent(KBreadcrumbSelectionModel* self, QChildEvent* event);
-    friend void KBreadcrumbSelectionModel_QBaseChildEvent(KBreadcrumbSelectionModel* self, QChildEvent* event);
+    friend void KBreadcrumbSelectionModel_SuperChildEvent(KBreadcrumbSelectionModel* self, QChildEvent* event);
     friend void KBreadcrumbSelectionModel_CustomEvent(KBreadcrumbSelectionModel* self, QEvent* event);
-    friend void KBreadcrumbSelectionModel_QBaseCustomEvent(KBreadcrumbSelectionModel* self, QEvent* event);
+    friend void KBreadcrumbSelectionModel_SuperCustomEvent(KBreadcrumbSelectionModel* self, QEvent* event);
     friend void KBreadcrumbSelectionModel_ConnectNotify(KBreadcrumbSelectionModel* self, const QMetaMethod* signal);
-    friend void KBreadcrumbSelectionModel_QBaseConnectNotify(KBreadcrumbSelectionModel* self, const QMetaMethod* signal);
+    friend void KBreadcrumbSelectionModel_SuperConnectNotify(KBreadcrumbSelectionModel* self, const QMetaMethod* signal);
     friend void KBreadcrumbSelectionModel_DisconnectNotify(KBreadcrumbSelectionModel* self, const QMetaMethod* signal);
-    friend void KBreadcrumbSelectionModel_QBaseDisconnectNotify(KBreadcrumbSelectionModel* self, const QMetaMethod* signal);
+    friend void KBreadcrumbSelectionModel_SuperDisconnectNotify(KBreadcrumbSelectionModel* self, const QMetaMethod* signal);
     friend void KBreadcrumbSelectionModel_EmitSelectionChanged(KBreadcrumbSelectionModel* self, const QItemSelection* newSelection, const QItemSelection* oldSelection);
-    friend void KBreadcrumbSelectionModel_QBaseEmitSelectionChanged(KBreadcrumbSelectionModel* self, const QItemSelection* newSelection, const QItemSelection* oldSelection);
+    friend void KBreadcrumbSelectionModel_SuperEmitSelectionChanged(KBreadcrumbSelectionModel* self, const QItemSelection* newSelection, const QItemSelection* oldSelection);
     friend QObject* KBreadcrumbSelectionModel_Sender(const KBreadcrumbSelectionModel* self);
-    friend QObject* KBreadcrumbSelectionModel_QBaseSender(const KBreadcrumbSelectionModel* self);
+    friend QObject* KBreadcrumbSelectionModel_SuperSender(const KBreadcrumbSelectionModel* self);
     friend int KBreadcrumbSelectionModel_SenderSignalIndex(const KBreadcrumbSelectionModel* self);
-    friend int KBreadcrumbSelectionModel_QBaseSenderSignalIndex(const KBreadcrumbSelectionModel* self);
+    friend int KBreadcrumbSelectionModel_SuperSenderSignalIndex(const KBreadcrumbSelectionModel* self);
     friend int KBreadcrumbSelectionModel_Receivers(const KBreadcrumbSelectionModel* self, const char* signal);
-    friend int KBreadcrumbSelectionModel_QBaseReceivers(const KBreadcrumbSelectionModel* self, const char* signal);
+    friend int KBreadcrumbSelectionModel_SuperReceivers(const KBreadcrumbSelectionModel* self, const char* signal);
     friend bool KBreadcrumbSelectionModel_IsSignalConnected(const KBreadcrumbSelectionModel* self, const QMetaMethod* signal);
-    friend bool KBreadcrumbSelectionModel_QBaseIsSignalConnected(const KBreadcrumbSelectionModel* self, const QMetaMethod* signal);
+    friend bool KBreadcrumbSelectionModel_SuperIsSignalConnected(const KBreadcrumbSelectionModel* self, const QMetaMethod* signal);
 };
 
 #endif

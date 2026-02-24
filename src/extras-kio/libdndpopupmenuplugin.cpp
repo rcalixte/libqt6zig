@@ -75,7 +75,7 @@ libqt_list /* of QAction* */ KIO__DndPopupMenuPlugin_Setup(KIO__DndPopupMenuPlug
 }
 
 // Base class handler implementation
-QMetaObject* KIO__DndPopupMenuPlugin_QBaseMetaObject(const KIO__DndPopupMenuPlugin* self) {
+QMetaObject* KIO__DndPopupMenuPlugin_SuperMetaObject(const KIO__DndPopupMenuPlugin* self) {
     auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self));
     if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
         vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_MetaObject_IsBase(true);
@@ -94,7 +94,7 @@ void KIO__DndPopupMenuPlugin_OnMetaObject(const KIO__DndPopupMenuPlugin* self, i
 }
 
 // Base class handler implementation
-void* KIO__DndPopupMenuPlugin_QBaseMetacast(KIO__DndPopupMenuPlugin* self, const char* param1) {
+void* KIO__DndPopupMenuPlugin_SuperMetacast(KIO__DndPopupMenuPlugin* self, const char* param1) {
     auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
     if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
         vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_Metacast_IsBase(true);
@@ -113,7 +113,7 @@ void KIO__DndPopupMenuPlugin_OnMetacast(KIO__DndPopupMenuPlugin* self, intptr_t 
 }
 
 // Base class handler implementation
-int KIO__DndPopupMenuPlugin_QBaseMetacall(KIO__DndPopupMenuPlugin* self, int param1, int param2, void** param3) {
+int KIO__DndPopupMenuPlugin_SuperMetacall(KIO__DndPopupMenuPlugin* self, int param1, int param2, void** param3) {
     auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
     if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
         vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_Metacall_IsBase(true);
@@ -132,7 +132,7 @@ void KIO__DndPopupMenuPlugin_OnMetacall(KIO__DndPopupMenuPlugin* self, intptr_t 
 }
 
 // Base class handler implementation
-libqt_list /* of QAction* */ KIO__DndPopupMenuPlugin_QBaseSetup(KIO__DndPopupMenuPlugin* self, const KFileItemListProperties* popupMenuInfo, const QUrl* destination) {
+libqt_list /* of QAction* */ KIO__DndPopupMenuPlugin_SuperSetup(KIO__DndPopupMenuPlugin* self, const KFileItemListProperties* popupMenuInfo, const QUrl* destination) {
     auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
     if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
         vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_Setup_IsBase(true);
@@ -179,7 +179,7 @@ bool KIO__DndPopupMenuPlugin_Event(KIO__DndPopupMenuPlugin* self, QEvent* event)
 }
 
 // Base class handler implementation
-bool KIO__DndPopupMenuPlugin_QBaseEvent(KIO__DndPopupMenuPlugin* self, QEvent* event) {
+bool KIO__DndPopupMenuPlugin_SuperEvent(KIO__DndPopupMenuPlugin* self, QEvent* event) {
     auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
     if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
         vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_Event_IsBase(true);
@@ -208,7 +208,7 @@ bool KIO__DndPopupMenuPlugin_EventFilter(KIO__DndPopupMenuPlugin* self, QObject*
 }
 
 // Base class handler implementation
-bool KIO__DndPopupMenuPlugin_QBaseEventFilter(KIO__DndPopupMenuPlugin* self, QObject* watched, QEvent* event) {
+bool KIO__DndPopupMenuPlugin_SuperEventFilter(KIO__DndPopupMenuPlugin* self, QObject* watched, QEvent* event) {
     auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
     if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
         vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_EventFilter_IsBase(true);
@@ -237,7 +237,7 @@ void KIO__DndPopupMenuPlugin_TimerEvent(KIO__DndPopupMenuPlugin* self, QTimerEve
 }
 
 // Base class handler implementation
-void KIO__DndPopupMenuPlugin_QBaseTimerEvent(KIO__DndPopupMenuPlugin* self, QTimerEvent* event) {
+void KIO__DndPopupMenuPlugin_SuperTimerEvent(KIO__DndPopupMenuPlugin* self, QTimerEvent* event) {
     auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
     if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
         vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_TimerEvent_IsBase(true);
@@ -266,7 +266,7 @@ void KIO__DndPopupMenuPlugin_ChildEvent(KIO__DndPopupMenuPlugin* self, QChildEve
 }
 
 // Base class handler implementation
-void KIO__DndPopupMenuPlugin_QBaseChildEvent(KIO__DndPopupMenuPlugin* self, QChildEvent* event) {
+void KIO__DndPopupMenuPlugin_SuperChildEvent(KIO__DndPopupMenuPlugin* self, QChildEvent* event) {
     auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
     if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
         vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_ChildEvent_IsBase(true);
@@ -295,7 +295,7 @@ void KIO__DndPopupMenuPlugin_CustomEvent(KIO__DndPopupMenuPlugin* self, QEvent* 
 }
 
 // Base class handler implementation
-void KIO__DndPopupMenuPlugin_QBaseCustomEvent(KIO__DndPopupMenuPlugin* self, QEvent* event) {
+void KIO__DndPopupMenuPlugin_SuperCustomEvent(KIO__DndPopupMenuPlugin* self, QEvent* event) {
     auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
     if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
         vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_CustomEvent_IsBase(true);
@@ -324,7 +324,7 @@ void KIO__DndPopupMenuPlugin_ConnectNotify(KIO__DndPopupMenuPlugin* self, const 
 }
 
 // Base class handler implementation
-void KIO__DndPopupMenuPlugin_QBaseConnectNotify(KIO__DndPopupMenuPlugin* self, const QMetaMethod* signal) {
+void KIO__DndPopupMenuPlugin_SuperConnectNotify(KIO__DndPopupMenuPlugin* self, const QMetaMethod* signal) {
     auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
     if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
         vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_ConnectNotify_IsBase(true);
@@ -353,7 +353,7 @@ void KIO__DndPopupMenuPlugin_DisconnectNotify(KIO__DndPopupMenuPlugin* self, con
 }
 
 // Base class handler implementation
-void KIO__DndPopupMenuPlugin_QBaseDisconnectNotify(KIO__DndPopupMenuPlugin* self, const QMetaMethod* signal) {
+void KIO__DndPopupMenuPlugin_SuperDisconnectNotify(KIO__DndPopupMenuPlugin* self, const QMetaMethod* signal) {
     auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
     if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
         vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_DisconnectNotify_IsBase(true);
@@ -382,7 +382,7 @@ QObject* KIO__DndPopupMenuPlugin_Sender(const KIO__DndPopupMenuPlugin* self) {
 }
 
 // Base class handler implementation
-QObject* KIO__DndPopupMenuPlugin_QBaseSender(const KIO__DndPopupMenuPlugin* self) {
+QObject* KIO__DndPopupMenuPlugin_SuperSender(const KIO__DndPopupMenuPlugin* self) {
     auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self));
     if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
         vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_Sender_IsBase(true);
@@ -411,7 +411,7 @@ int KIO__DndPopupMenuPlugin_SenderSignalIndex(const KIO__DndPopupMenuPlugin* sel
 }
 
 // Base class handler implementation
-int KIO__DndPopupMenuPlugin_QBaseSenderSignalIndex(const KIO__DndPopupMenuPlugin* self) {
+int KIO__DndPopupMenuPlugin_SuperSenderSignalIndex(const KIO__DndPopupMenuPlugin* self) {
     auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self));
     if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
         vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_SenderSignalIndex_IsBase(true);
@@ -440,7 +440,7 @@ int KIO__DndPopupMenuPlugin_Receivers(const KIO__DndPopupMenuPlugin* self, const
 }
 
 // Base class handler implementation
-int KIO__DndPopupMenuPlugin_QBaseReceivers(const KIO__DndPopupMenuPlugin* self, const char* signal) {
+int KIO__DndPopupMenuPlugin_SuperReceivers(const KIO__DndPopupMenuPlugin* self, const char* signal) {
     auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self));
     if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
         vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_Receivers_IsBase(true);
@@ -469,7 +469,7 @@ bool KIO__DndPopupMenuPlugin_IsSignalConnected(const KIO__DndPopupMenuPlugin* se
 }
 
 // Base class handler implementation
-bool KIO__DndPopupMenuPlugin_QBaseIsSignalConnected(const KIO__DndPopupMenuPlugin* self, const QMetaMethod* signal) {
+bool KIO__DndPopupMenuPlugin_SuperIsSignalConnected(const KIO__DndPopupMenuPlugin* self, const QMetaMethod* signal) {
     auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self));
     if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
         vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_IsSignalConnected_IsBase(true);

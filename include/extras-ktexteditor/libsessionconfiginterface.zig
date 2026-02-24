@@ -35,6 +35,10 @@ pub const ktexteditor__sessionconfiginterface = struct {
         qtc.KTextEditor__SessionConfigInterface_OnReadSessionConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperReadSessionConfig` instead
+    ///
+    pub const QBaseReadSessionConfig = SuperReadSessionConfig;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-sessionconfiginterface.html#readSessionConfig)
     ///
     /// Base class method implementation
@@ -45,8 +49,8 @@ pub const ktexteditor__sessionconfiginterface = struct {
     ///
     /// ` config: QtC.KConfigGroup `
     ///
-    pub fn QBaseReadSessionConfig(self: ?*anyopaque, config: ?*anyopaque) void {
-        qtc.KTextEditor__SessionConfigInterface_QBaseReadSessionConfig(@ptrCast(self), @ptrCast(config));
+    pub fn SuperReadSessionConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KTextEditor__SessionConfigInterface_SuperReadSessionConfig(@ptrCast(self), @ptrCast(config));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-sessionconfiginterface.html#writeSessionConfig)
@@ -75,6 +79,10 @@ pub const ktexteditor__sessionconfiginterface = struct {
         qtc.KTextEditor__SessionConfigInterface_OnWriteSessionConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWriteSessionConfig` instead
+    ///
+    pub const QBaseWriteSessionConfig = SuperWriteSessionConfig;
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-sessionconfiginterface.html#writeSessionConfig)
     ///
     /// Base class method implementation
@@ -85,9 +93,12 @@ pub const ktexteditor__sessionconfiginterface = struct {
     ///
     /// ` config: QtC.KConfigGroup `
     ///
-    pub fn QBaseWriteSessionConfig(self: ?*anyopaque, config: ?*anyopaque) void {
-        qtc.KTextEditor__SessionConfigInterface_QBaseWriteSessionConfig(@ptrCast(self), @ptrCast(config));
+    pub fn SuperWriteSessionConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KTextEditor__SessionConfigInterface_SuperWriteSessionConfig(@ptrCast(self), @ptrCast(config));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -95,7 +106,7 @@ pub const ktexteditor__sessionconfiginterface = struct {
     ///
     /// ` self: QtC.KTextEditor__SessionConfigInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KTextEditor__SessionConfigInterface_Delete(@ptrCast(self));
     }
 };

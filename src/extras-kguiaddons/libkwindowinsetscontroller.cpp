@@ -87,7 +87,7 @@ void KWindowInsetsController_Connect_NavigationBarBackgroundColorChanged(KWindow
 }
 
 // Base class handler implementation
-QMetaObject* KWindowInsetsController_QBaseMetaObject(const KWindowInsetsController* self) {
+QMetaObject* KWindowInsetsController_SuperMetaObject(const KWindowInsetsController* self) {
     auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
     if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
         vkwindowinsetscontroller->setKWindowInsetsController_MetaObject_IsBase(true);
@@ -106,7 +106,7 @@ void KWindowInsetsController_OnMetaObject(const KWindowInsetsController* self, i
 }
 
 // Base class handler implementation
-void* KWindowInsetsController_QBaseMetacast(KWindowInsetsController* self, const char* param1) {
+void* KWindowInsetsController_SuperMetacast(KWindowInsetsController* self, const char* param1) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
     if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
         vkwindowinsetscontroller->setKWindowInsetsController_Metacast_IsBase(true);
@@ -125,7 +125,7 @@ void KWindowInsetsController_OnMetacast(KWindowInsetsController* self, intptr_t 
 }
 
 // Base class handler implementation
-int KWindowInsetsController_QBaseMetacall(KWindowInsetsController* self, int param1, int param2, void** param3) {
+int KWindowInsetsController_SuperMetacall(KWindowInsetsController* self, int param1, int param2, void** param3) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
     if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
         vkwindowinsetscontroller->setKWindowInsetsController_Metacall_IsBase(true);
@@ -154,7 +154,7 @@ bool KWindowInsetsController_Event(KWindowInsetsController* self, QEvent* event)
 }
 
 // Base class handler implementation
-bool KWindowInsetsController_QBaseEvent(KWindowInsetsController* self, QEvent* event) {
+bool KWindowInsetsController_SuperEvent(KWindowInsetsController* self, QEvent* event) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
     if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
         vkwindowinsetscontroller->setKWindowInsetsController_Event_IsBase(true);
@@ -183,7 +183,7 @@ bool KWindowInsetsController_EventFilter(KWindowInsetsController* self, QObject*
 }
 
 // Base class handler implementation
-bool KWindowInsetsController_QBaseEventFilter(KWindowInsetsController* self, QObject* watched, QEvent* event) {
+bool KWindowInsetsController_SuperEventFilter(KWindowInsetsController* self, QObject* watched, QEvent* event) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
     if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
         vkwindowinsetscontroller->setKWindowInsetsController_EventFilter_IsBase(true);
@@ -212,7 +212,7 @@ void KWindowInsetsController_TimerEvent(KWindowInsetsController* self, QTimerEve
 }
 
 // Base class handler implementation
-void KWindowInsetsController_QBaseTimerEvent(KWindowInsetsController* self, QTimerEvent* event) {
+void KWindowInsetsController_SuperTimerEvent(KWindowInsetsController* self, QTimerEvent* event) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
     if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
         vkwindowinsetscontroller->setKWindowInsetsController_TimerEvent_IsBase(true);
@@ -241,7 +241,7 @@ void KWindowInsetsController_ChildEvent(KWindowInsetsController* self, QChildEve
 }
 
 // Base class handler implementation
-void KWindowInsetsController_QBaseChildEvent(KWindowInsetsController* self, QChildEvent* event) {
+void KWindowInsetsController_SuperChildEvent(KWindowInsetsController* self, QChildEvent* event) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
     if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
         vkwindowinsetscontroller->setKWindowInsetsController_ChildEvent_IsBase(true);
@@ -270,7 +270,7 @@ void KWindowInsetsController_CustomEvent(KWindowInsetsController* self, QEvent* 
 }
 
 // Base class handler implementation
-void KWindowInsetsController_QBaseCustomEvent(KWindowInsetsController* self, QEvent* event) {
+void KWindowInsetsController_SuperCustomEvent(KWindowInsetsController* self, QEvent* event) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
     if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
         vkwindowinsetscontroller->setKWindowInsetsController_CustomEvent_IsBase(true);
@@ -299,7 +299,7 @@ void KWindowInsetsController_ConnectNotify(KWindowInsetsController* self, const 
 }
 
 // Base class handler implementation
-void KWindowInsetsController_QBaseConnectNotify(KWindowInsetsController* self, const QMetaMethod* signal) {
+void KWindowInsetsController_SuperConnectNotify(KWindowInsetsController* self, const QMetaMethod* signal) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
     if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
         vkwindowinsetscontroller->setKWindowInsetsController_ConnectNotify_IsBase(true);
@@ -328,7 +328,7 @@ void KWindowInsetsController_DisconnectNotify(KWindowInsetsController* self, con
 }
 
 // Base class handler implementation
-void KWindowInsetsController_QBaseDisconnectNotify(KWindowInsetsController* self, const QMetaMethod* signal) {
+void KWindowInsetsController_SuperDisconnectNotify(KWindowInsetsController* self, const QMetaMethod* signal) {
     auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
     if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
         vkwindowinsetscontroller->setKWindowInsetsController_DisconnectNotify_IsBase(true);
@@ -357,7 +357,7 @@ QObject* KWindowInsetsController_Sender(const KWindowInsetsController* self) {
 }
 
 // Base class handler implementation
-QObject* KWindowInsetsController_QBaseSender(const KWindowInsetsController* self) {
+QObject* KWindowInsetsController_SuperSender(const KWindowInsetsController* self) {
     auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
     if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
         vkwindowinsetscontroller->setKWindowInsetsController_Sender_IsBase(true);
@@ -386,7 +386,7 @@ int KWindowInsetsController_SenderSignalIndex(const KWindowInsetsController* sel
 }
 
 // Base class handler implementation
-int KWindowInsetsController_QBaseSenderSignalIndex(const KWindowInsetsController* self) {
+int KWindowInsetsController_SuperSenderSignalIndex(const KWindowInsetsController* self) {
     auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
     if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
         vkwindowinsetscontroller->setKWindowInsetsController_SenderSignalIndex_IsBase(true);
@@ -415,7 +415,7 @@ int KWindowInsetsController_Receivers(const KWindowInsetsController* self, const
 }
 
 // Base class handler implementation
-int KWindowInsetsController_QBaseReceivers(const KWindowInsetsController* self, const char* signal) {
+int KWindowInsetsController_SuperReceivers(const KWindowInsetsController* self, const char* signal) {
     auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
     if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
         vkwindowinsetscontroller->setKWindowInsetsController_Receivers_IsBase(true);
@@ -444,7 +444,7 @@ bool KWindowInsetsController_IsSignalConnected(const KWindowInsetsController* se
 }
 
 // Base class handler implementation
-bool KWindowInsetsController_QBaseIsSignalConnected(const KWindowInsetsController* self, const QMetaMethod* signal) {
+bool KWindowInsetsController_SuperIsSignalConnected(const KWindowInsetsController* self, const QMetaMethod* signal) {
     auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
     if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
         vkwindowinsetscontroller->setKWindowInsetsController_IsSignalConnected_IsBase(true);

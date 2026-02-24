@@ -376,7 +376,7 @@ void QCalendarWidget_Connect_CurrentPageChanged(QCalendarWidget* self, intptr_t 
 }
 
 // Base class handler implementation
-QMetaObject* QCalendarWidget_QBaseMetaObject(const QCalendarWidget* self) {
+QMetaObject* QCalendarWidget_SuperMetaObject(const QCalendarWidget* self) {
     auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_MetaObject_IsBase(true);
@@ -395,7 +395,7 @@ void QCalendarWidget_OnMetaObject(const QCalendarWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCalendarWidget_QBaseMetacast(QCalendarWidget* self, const char* param1) {
+void* QCalendarWidget_SuperMetacast(QCalendarWidget* self, const char* param1) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_Metacast_IsBase(true);
@@ -414,7 +414,7 @@ void QCalendarWidget_OnMetacast(QCalendarWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCalendarWidget_QBaseMetacall(QCalendarWidget* self, int param1, int param2, void** param3) {
+int QCalendarWidget_SuperMetacall(QCalendarWidget* self, int param1, int param2, void** param3) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_Metacall_IsBase(true);
@@ -433,7 +433,7 @@ void QCalendarWidget_OnMetacall(QCalendarWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QCalendarWidget_QBaseSizeHint(const QCalendarWidget* self) {
+QSize* QCalendarWidget_SuperSizeHint(const QCalendarWidget* self) {
     auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_SizeHint_IsBase(true);
@@ -452,7 +452,7 @@ void QCalendarWidget_OnSizeHint(const QCalendarWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QCalendarWidget_QBaseMinimumSizeHint(const QCalendarWidget* self) {
+QSize* QCalendarWidget_SuperMinimumSizeHint(const QCalendarWidget* self) {
     auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_MinimumSizeHint_IsBase(true);
@@ -471,7 +471,7 @@ void QCalendarWidget_OnMinimumSizeHint(const QCalendarWidget* self, intptr_t slo
 }
 
 // Base class handler implementation
-bool QCalendarWidget_QBaseEvent(QCalendarWidget* self, QEvent* event) {
+bool QCalendarWidget_SuperEvent(QCalendarWidget* self, QEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_Event_IsBase(true);
@@ -490,7 +490,7 @@ void QCalendarWidget_OnEvent(QCalendarWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QCalendarWidget_QBaseEventFilter(QCalendarWidget* self, QObject* watched, QEvent* event) {
+bool QCalendarWidget_SuperEventFilter(QCalendarWidget* self, QObject* watched, QEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_EventFilter_IsBase(true);
@@ -509,7 +509,7 @@ void QCalendarWidget_OnEventFilter(QCalendarWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseMousePressEvent(QCalendarWidget* self, QMouseEvent* event) {
+void QCalendarWidget_SuperMousePressEvent(QCalendarWidget* self, QMouseEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_MousePressEvent_IsBase(true);
@@ -528,7 +528,7 @@ void QCalendarWidget_OnMousePressEvent(QCalendarWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseResizeEvent(QCalendarWidget* self, QResizeEvent* event) {
+void QCalendarWidget_SuperResizeEvent(QCalendarWidget* self, QResizeEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_ResizeEvent_IsBase(true);
@@ -547,7 +547,7 @@ void QCalendarWidget_OnResizeEvent(QCalendarWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseKeyPressEvent(QCalendarWidget* self, QKeyEvent* event) {
+void QCalendarWidget_SuperKeyPressEvent(QCalendarWidget* self, QKeyEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_KeyPressEvent_IsBase(true);
@@ -566,7 +566,7 @@ void QCalendarWidget_OnKeyPressEvent(QCalendarWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBasePaintCell(const QCalendarWidget* self, QPainter* painter, const QRect* rect, QDate* date) {
+void QCalendarWidget_SuperPaintCell(const QCalendarWidget* self, QPainter* painter, const QRect* rect, QDate* date) {
     auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_PaintCell_IsBase(true);
@@ -595,7 +595,7 @@ int QCalendarWidget_DevType(const QCalendarWidget* self) {
 }
 
 // Base class handler implementation
-int QCalendarWidget_QBaseDevType(const QCalendarWidget* self) {
+int QCalendarWidget_SuperDevType(const QCalendarWidget* self) {
     auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_DevType_IsBase(true);
@@ -624,7 +624,7 @@ void QCalendarWidget_SetVisible(QCalendarWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseSetVisible(QCalendarWidget* self, bool visible) {
+void QCalendarWidget_SuperSetVisible(QCalendarWidget* self, bool visible) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_SetVisible_IsBase(true);
@@ -653,7 +653,7 @@ int QCalendarWidget_HeightForWidth(const QCalendarWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int QCalendarWidget_QBaseHeightForWidth(const QCalendarWidget* self, int param1) {
+int QCalendarWidget_SuperHeightForWidth(const QCalendarWidget* self, int param1) {
     auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_HeightForWidth_IsBase(true);
@@ -682,7 +682,7 @@ bool QCalendarWidget_HasHeightForWidth(const QCalendarWidget* self) {
 }
 
 // Base class handler implementation
-bool QCalendarWidget_QBaseHasHeightForWidth(const QCalendarWidget* self) {
+bool QCalendarWidget_SuperHasHeightForWidth(const QCalendarWidget* self) {
     auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_HasHeightForWidth_IsBase(true);
@@ -711,7 +711,7 @@ QPaintEngine* QCalendarWidget_PaintEngine(const QCalendarWidget* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QCalendarWidget_QBasePaintEngine(const QCalendarWidget* self) {
+QPaintEngine* QCalendarWidget_SuperPaintEngine(const QCalendarWidget* self) {
     auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_PaintEngine_IsBase(true);
@@ -740,7 +740,7 @@ void QCalendarWidget_MouseReleaseEvent(QCalendarWidget* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseMouseReleaseEvent(QCalendarWidget* self, QMouseEvent* event) {
+void QCalendarWidget_SuperMouseReleaseEvent(QCalendarWidget* self, QMouseEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_MouseReleaseEvent_IsBase(true);
@@ -769,7 +769,7 @@ void QCalendarWidget_MouseDoubleClickEvent(QCalendarWidget* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseMouseDoubleClickEvent(QCalendarWidget* self, QMouseEvent* event) {
+void QCalendarWidget_SuperMouseDoubleClickEvent(QCalendarWidget* self, QMouseEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_MouseDoubleClickEvent_IsBase(true);
@@ -798,7 +798,7 @@ void QCalendarWidget_MouseMoveEvent(QCalendarWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseMouseMoveEvent(QCalendarWidget* self, QMouseEvent* event) {
+void QCalendarWidget_SuperMouseMoveEvent(QCalendarWidget* self, QMouseEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_MouseMoveEvent_IsBase(true);
@@ -827,7 +827,7 @@ void QCalendarWidget_WheelEvent(QCalendarWidget* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseWheelEvent(QCalendarWidget* self, QWheelEvent* event) {
+void QCalendarWidget_SuperWheelEvent(QCalendarWidget* self, QWheelEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_WheelEvent_IsBase(true);
@@ -856,7 +856,7 @@ void QCalendarWidget_KeyReleaseEvent(QCalendarWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseKeyReleaseEvent(QCalendarWidget* self, QKeyEvent* event) {
+void QCalendarWidget_SuperKeyReleaseEvent(QCalendarWidget* self, QKeyEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_KeyReleaseEvent_IsBase(true);
@@ -885,7 +885,7 @@ void QCalendarWidget_FocusInEvent(QCalendarWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseFocusInEvent(QCalendarWidget* self, QFocusEvent* event) {
+void QCalendarWidget_SuperFocusInEvent(QCalendarWidget* self, QFocusEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_FocusInEvent_IsBase(true);
@@ -914,7 +914,7 @@ void QCalendarWidget_FocusOutEvent(QCalendarWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseFocusOutEvent(QCalendarWidget* self, QFocusEvent* event) {
+void QCalendarWidget_SuperFocusOutEvent(QCalendarWidget* self, QFocusEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_FocusOutEvent_IsBase(true);
@@ -943,7 +943,7 @@ void QCalendarWidget_EnterEvent(QCalendarWidget* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseEnterEvent(QCalendarWidget* self, QEnterEvent* event) {
+void QCalendarWidget_SuperEnterEvent(QCalendarWidget* self, QEnterEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_EnterEvent_IsBase(true);
@@ -972,7 +972,7 @@ void QCalendarWidget_LeaveEvent(QCalendarWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseLeaveEvent(QCalendarWidget* self, QEvent* event) {
+void QCalendarWidget_SuperLeaveEvent(QCalendarWidget* self, QEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_LeaveEvent_IsBase(true);
@@ -1001,7 +1001,7 @@ void QCalendarWidget_PaintEvent(QCalendarWidget* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBasePaintEvent(QCalendarWidget* self, QPaintEvent* event) {
+void QCalendarWidget_SuperPaintEvent(QCalendarWidget* self, QPaintEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_PaintEvent_IsBase(true);
@@ -1030,7 +1030,7 @@ void QCalendarWidget_MoveEvent(QCalendarWidget* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseMoveEvent(QCalendarWidget* self, QMoveEvent* event) {
+void QCalendarWidget_SuperMoveEvent(QCalendarWidget* self, QMoveEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_MoveEvent_IsBase(true);
@@ -1059,7 +1059,7 @@ void QCalendarWidget_CloseEvent(QCalendarWidget* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseCloseEvent(QCalendarWidget* self, QCloseEvent* event) {
+void QCalendarWidget_SuperCloseEvent(QCalendarWidget* self, QCloseEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_CloseEvent_IsBase(true);
@@ -1088,7 +1088,7 @@ void QCalendarWidget_ContextMenuEvent(QCalendarWidget* self, QContextMenuEvent* 
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseContextMenuEvent(QCalendarWidget* self, QContextMenuEvent* event) {
+void QCalendarWidget_SuperContextMenuEvent(QCalendarWidget* self, QContextMenuEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_ContextMenuEvent_IsBase(true);
@@ -1117,7 +1117,7 @@ void QCalendarWidget_TabletEvent(QCalendarWidget* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseTabletEvent(QCalendarWidget* self, QTabletEvent* event) {
+void QCalendarWidget_SuperTabletEvent(QCalendarWidget* self, QTabletEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_TabletEvent_IsBase(true);
@@ -1146,7 +1146,7 @@ void QCalendarWidget_ActionEvent(QCalendarWidget* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseActionEvent(QCalendarWidget* self, QActionEvent* event) {
+void QCalendarWidget_SuperActionEvent(QCalendarWidget* self, QActionEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_ActionEvent_IsBase(true);
@@ -1175,7 +1175,7 @@ void QCalendarWidget_DragEnterEvent(QCalendarWidget* self, QDragEnterEvent* even
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseDragEnterEvent(QCalendarWidget* self, QDragEnterEvent* event) {
+void QCalendarWidget_SuperDragEnterEvent(QCalendarWidget* self, QDragEnterEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_DragEnterEvent_IsBase(true);
@@ -1204,7 +1204,7 @@ void QCalendarWidget_DragMoveEvent(QCalendarWidget* self, QDragMoveEvent* event)
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseDragMoveEvent(QCalendarWidget* self, QDragMoveEvent* event) {
+void QCalendarWidget_SuperDragMoveEvent(QCalendarWidget* self, QDragMoveEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_DragMoveEvent_IsBase(true);
@@ -1233,7 +1233,7 @@ void QCalendarWidget_DragLeaveEvent(QCalendarWidget* self, QDragLeaveEvent* even
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseDragLeaveEvent(QCalendarWidget* self, QDragLeaveEvent* event) {
+void QCalendarWidget_SuperDragLeaveEvent(QCalendarWidget* self, QDragLeaveEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_DragLeaveEvent_IsBase(true);
@@ -1262,7 +1262,7 @@ void QCalendarWidget_DropEvent(QCalendarWidget* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseDropEvent(QCalendarWidget* self, QDropEvent* event) {
+void QCalendarWidget_SuperDropEvent(QCalendarWidget* self, QDropEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_DropEvent_IsBase(true);
@@ -1291,7 +1291,7 @@ void QCalendarWidget_ShowEvent(QCalendarWidget* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseShowEvent(QCalendarWidget* self, QShowEvent* event) {
+void QCalendarWidget_SuperShowEvent(QCalendarWidget* self, QShowEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_ShowEvent_IsBase(true);
@@ -1320,7 +1320,7 @@ void QCalendarWidget_HideEvent(QCalendarWidget* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseHideEvent(QCalendarWidget* self, QHideEvent* event) {
+void QCalendarWidget_SuperHideEvent(QCalendarWidget* self, QHideEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_HideEvent_IsBase(true);
@@ -1350,7 +1350,7 @@ bool QCalendarWidget_NativeEvent(QCalendarWidget* self, const libqt_string event
 }
 
 // Base class handler implementation
-bool QCalendarWidget_QBaseNativeEvent(QCalendarWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QCalendarWidget_SuperNativeEvent(QCalendarWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
@@ -1380,7 +1380,7 @@ void QCalendarWidget_ChangeEvent(QCalendarWidget* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseChangeEvent(QCalendarWidget* self, QEvent* param1) {
+void QCalendarWidget_SuperChangeEvent(QCalendarWidget* self, QEvent* param1) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_ChangeEvent_IsBase(true);
@@ -1409,7 +1409,7 @@ int QCalendarWidget_Metric(const QCalendarWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int QCalendarWidget_QBaseMetric(const QCalendarWidget* self, int param1) {
+int QCalendarWidget_SuperMetric(const QCalendarWidget* self, int param1) {
     auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_Metric_IsBase(true);
@@ -1438,7 +1438,7 @@ void QCalendarWidget_InitPainter(const QCalendarWidget* self, QPainter* painter)
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseInitPainter(const QCalendarWidget* self, QPainter* painter) {
+void QCalendarWidget_SuperInitPainter(const QCalendarWidget* self, QPainter* painter) {
     auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_InitPainter_IsBase(true);
@@ -1467,7 +1467,7 @@ QPaintDevice* QCalendarWidget_Redirected(const QCalendarWidget* self, QPoint* of
 }
 
 // Base class handler implementation
-QPaintDevice* QCalendarWidget_QBaseRedirected(const QCalendarWidget* self, QPoint* offset) {
+QPaintDevice* QCalendarWidget_SuperRedirected(const QCalendarWidget* self, QPoint* offset) {
     auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_Redirected_IsBase(true);
@@ -1496,7 +1496,7 @@ QPainter* QCalendarWidget_SharedPainter(const QCalendarWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* QCalendarWidget_QBaseSharedPainter(const QCalendarWidget* self) {
+QPainter* QCalendarWidget_SuperSharedPainter(const QCalendarWidget* self) {
     auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_SharedPainter_IsBase(true);
@@ -1525,7 +1525,7 @@ void QCalendarWidget_InputMethodEvent(QCalendarWidget* self, QInputMethodEvent* 
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseInputMethodEvent(QCalendarWidget* self, QInputMethodEvent* param1) {
+void QCalendarWidget_SuperInputMethodEvent(QCalendarWidget* self, QInputMethodEvent* param1) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_InputMethodEvent_IsBase(true);
@@ -1554,7 +1554,7 @@ QVariant* QCalendarWidget_InputMethodQuery(const QCalendarWidget* self, int para
 }
 
 // Base class handler implementation
-QVariant* QCalendarWidget_QBaseInputMethodQuery(const QCalendarWidget* self, int param1) {
+QVariant* QCalendarWidget_SuperInputMethodQuery(const QCalendarWidget* self, int param1) {
     auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_InputMethodQuery_IsBase(true);
@@ -1583,7 +1583,7 @@ bool QCalendarWidget_FocusNextPrevChild(QCalendarWidget* self, bool next) {
 }
 
 // Base class handler implementation
-bool QCalendarWidget_QBaseFocusNextPrevChild(QCalendarWidget* self, bool next) {
+bool QCalendarWidget_SuperFocusNextPrevChild(QCalendarWidget* self, bool next) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_FocusNextPrevChild_IsBase(true);
@@ -1612,7 +1612,7 @@ void QCalendarWidget_TimerEvent(QCalendarWidget* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseTimerEvent(QCalendarWidget* self, QTimerEvent* event) {
+void QCalendarWidget_SuperTimerEvent(QCalendarWidget* self, QTimerEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_TimerEvent_IsBase(true);
@@ -1641,7 +1641,7 @@ void QCalendarWidget_ChildEvent(QCalendarWidget* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseChildEvent(QCalendarWidget* self, QChildEvent* event) {
+void QCalendarWidget_SuperChildEvent(QCalendarWidget* self, QChildEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_ChildEvent_IsBase(true);
@@ -1670,7 +1670,7 @@ void QCalendarWidget_CustomEvent(QCalendarWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseCustomEvent(QCalendarWidget* self, QEvent* event) {
+void QCalendarWidget_SuperCustomEvent(QCalendarWidget* self, QEvent* event) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_CustomEvent_IsBase(true);
@@ -1699,7 +1699,7 @@ void QCalendarWidget_ConnectNotify(QCalendarWidget* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseConnectNotify(QCalendarWidget* self, const QMetaMethod* signal) {
+void QCalendarWidget_SuperConnectNotify(QCalendarWidget* self, const QMetaMethod* signal) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_ConnectNotify_IsBase(true);
@@ -1728,7 +1728,7 @@ void QCalendarWidget_DisconnectNotify(QCalendarWidget* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseDisconnectNotify(QCalendarWidget* self, const QMetaMethod* signal) {
+void QCalendarWidget_SuperDisconnectNotify(QCalendarWidget* self, const QMetaMethod* signal) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_DisconnectNotify_IsBase(true);
@@ -1757,7 +1757,7 @@ void QCalendarWidget_UpdateCell(QCalendarWidget* self, QDate* date) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseUpdateCell(QCalendarWidget* self, QDate* date) {
+void QCalendarWidget_SuperUpdateCell(QCalendarWidget* self, QDate* date) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_UpdateCell_IsBase(true);
@@ -1786,7 +1786,7 @@ void QCalendarWidget_UpdateCells(QCalendarWidget* self) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseUpdateCells(QCalendarWidget* self) {
+void QCalendarWidget_SuperUpdateCells(QCalendarWidget* self) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_UpdateCells_IsBase(true);
@@ -1815,7 +1815,7 @@ void QCalendarWidget_UpdateMicroFocus(QCalendarWidget* self) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseUpdateMicroFocus(QCalendarWidget* self) {
+void QCalendarWidget_SuperUpdateMicroFocus(QCalendarWidget* self) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_UpdateMicroFocus_IsBase(true);
@@ -1844,7 +1844,7 @@ void QCalendarWidget_Create(QCalendarWidget* self) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseCreate(QCalendarWidget* self) {
+void QCalendarWidget_SuperCreate(QCalendarWidget* self) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_Create_IsBase(true);
@@ -1873,7 +1873,7 @@ void QCalendarWidget_Destroy(QCalendarWidget* self) {
 }
 
 // Base class handler implementation
-void QCalendarWidget_QBaseDestroy(QCalendarWidget* self) {
+void QCalendarWidget_SuperDestroy(QCalendarWidget* self) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_Destroy_IsBase(true);
@@ -1902,7 +1902,7 @@ bool QCalendarWidget_FocusNextChild(QCalendarWidget* self) {
 }
 
 // Base class handler implementation
-bool QCalendarWidget_QBaseFocusNextChild(QCalendarWidget* self) {
+bool QCalendarWidget_SuperFocusNextChild(QCalendarWidget* self) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_FocusNextChild_IsBase(true);
@@ -1931,7 +1931,7 @@ bool QCalendarWidget_FocusPreviousChild(QCalendarWidget* self) {
 }
 
 // Base class handler implementation
-bool QCalendarWidget_QBaseFocusPreviousChild(QCalendarWidget* self) {
+bool QCalendarWidget_SuperFocusPreviousChild(QCalendarWidget* self) {
     auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_FocusPreviousChild_IsBase(true);
@@ -1960,7 +1960,7 @@ QObject* QCalendarWidget_Sender(const QCalendarWidget* self) {
 }
 
 // Base class handler implementation
-QObject* QCalendarWidget_QBaseSender(const QCalendarWidget* self) {
+QObject* QCalendarWidget_SuperSender(const QCalendarWidget* self) {
     auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_Sender_IsBase(true);
@@ -1989,7 +1989,7 @@ int QCalendarWidget_SenderSignalIndex(const QCalendarWidget* self) {
 }
 
 // Base class handler implementation
-int QCalendarWidget_QBaseSenderSignalIndex(const QCalendarWidget* self) {
+int QCalendarWidget_SuperSenderSignalIndex(const QCalendarWidget* self) {
     auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_SenderSignalIndex_IsBase(true);
@@ -2018,7 +2018,7 @@ int QCalendarWidget_Receivers(const QCalendarWidget* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCalendarWidget_QBaseReceivers(const QCalendarWidget* self, const char* signal) {
+int QCalendarWidget_SuperReceivers(const QCalendarWidget* self, const char* signal) {
     auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_Receivers_IsBase(true);
@@ -2047,7 +2047,7 @@ bool QCalendarWidget_IsSignalConnected(const QCalendarWidget* self, const QMetaM
 }
 
 // Base class handler implementation
-bool QCalendarWidget_QBaseIsSignalConnected(const QCalendarWidget* self, const QMetaMethod* signal) {
+bool QCalendarWidget_SuperIsSignalConnected(const QCalendarWidget* self, const QMetaMethod* signal) {
     auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_IsSignalConnected_IsBase(true);
@@ -2076,7 +2076,7 @@ double QCalendarWidget_GetDecodedMetricF(const QCalendarWidget* self, int metric
 }
 
 // Base class handler implementation
-double QCalendarWidget_QBaseGetDecodedMetricF(const QCalendarWidget* self, int metricA, int metricB) {
+double QCalendarWidget_SuperGetDecodedMetricF(const QCalendarWidget* self, int metricA, int metricB) {
     auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_GetDecodedMetricF_IsBase(true);

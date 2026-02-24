@@ -34,10 +34,10 @@ QWidget* KParts__PartActivateEvent_Widget(const KParts__PartActivateEvent* self)
 bool KParts__PartActivateEvent_Test(const QEvent* event);
 void KParts__PartActivateEvent_SetAccepted(KParts__PartActivateEvent* self, bool accepted);
 void KParts__PartActivateEvent_OnSetAccepted(KParts__PartActivateEvent* self, intptr_t slot);
-void KParts__PartActivateEvent_QBaseSetAccepted(KParts__PartActivateEvent* self, bool accepted);
+void KParts__PartActivateEvent_SuperSetAccepted(KParts__PartActivateEvent* self, bool accepted);
 QEvent* KParts__PartActivateEvent_Clone(const KParts__PartActivateEvent* self);
 void KParts__PartActivateEvent_OnClone(const KParts__PartActivateEvent* self, intptr_t slot);
-QEvent* KParts__PartActivateEvent_QBaseClone(const KParts__PartActivateEvent* self);
+QEvent* KParts__PartActivateEvent_SuperClone(const KParts__PartActivateEvent* self);
 void KParts__PartActivateEvent_Delete(KParts__PartActivateEvent* self);
 
 #ifdef __cplusplus

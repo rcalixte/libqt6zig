@@ -90,7 +90,7 @@ void KJobUiDelegate_SlotWarning(KJobUiDelegate* self, KJob* job, const libqt_str
 }
 
 // Base class handler implementation
-QMetaObject* KJobUiDelegate_QBaseMetaObject(const KJobUiDelegate* self) {
+QMetaObject* KJobUiDelegate_SuperMetaObject(const KJobUiDelegate* self) {
     auto* vkjobuidelegate = const_cast<VirtualKJobUiDelegate*>(dynamic_cast<const VirtualKJobUiDelegate*>(self));
     if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
         vkjobuidelegate->setKJobUiDelegate_MetaObject_IsBase(true);
@@ -109,7 +109,7 @@ void KJobUiDelegate_OnMetaObject(const KJobUiDelegate* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KJobUiDelegate_QBaseMetacast(KJobUiDelegate* self, const char* param1) {
+void* KJobUiDelegate_SuperMetacast(KJobUiDelegate* self, const char* param1) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
     if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
         vkjobuidelegate->setKJobUiDelegate_Metacast_IsBase(true);
@@ -128,7 +128,7 @@ void KJobUiDelegate_OnMetacast(KJobUiDelegate* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KJobUiDelegate_QBaseMetacall(KJobUiDelegate* self, int param1, int param2, void** param3) {
+int KJobUiDelegate_SuperMetacall(KJobUiDelegate* self, int param1, int param2, void** param3) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
     if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
         vkjobuidelegate->setKJobUiDelegate_Metacall_IsBase(true);
@@ -147,7 +147,7 @@ void KJobUiDelegate_OnMetacall(KJobUiDelegate* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KJobUiDelegate_QBaseSetJob(KJobUiDelegate* self, KJob* job) {
+bool KJobUiDelegate_SuperSetJob(KJobUiDelegate* self, KJob* job) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
     if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
         vkjobuidelegate->setKJobUiDelegate_SetJob_IsBase(true);
@@ -166,7 +166,7 @@ void KJobUiDelegate_OnSetJob(KJobUiDelegate* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KJobUiDelegate_QBaseShowErrorMessage(KJobUiDelegate* self) {
+void KJobUiDelegate_SuperShowErrorMessage(KJobUiDelegate* self) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
     if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
         vkjobuidelegate->setKJobUiDelegate_ShowErrorMessage_IsBase(true);
@@ -185,7 +185,7 @@ void KJobUiDelegate_OnShowErrorMessage(KJobUiDelegate* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KJobUiDelegate_QBaseSlotWarning(KJobUiDelegate* self, KJob* job, const libqt_string message) {
+void KJobUiDelegate_SuperSlotWarning(KJobUiDelegate* self, KJob* job, const libqt_string message) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
     QString message_QString = QString::fromUtf8(message.data, message.len);
     if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
@@ -215,7 +215,7 @@ bool KJobUiDelegate_Event(KJobUiDelegate* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KJobUiDelegate_QBaseEvent(KJobUiDelegate* self, QEvent* event) {
+bool KJobUiDelegate_SuperEvent(KJobUiDelegate* self, QEvent* event) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
     if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
         vkjobuidelegate->setKJobUiDelegate_Event_IsBase(true);
@@ -244,7 +244,7 @@ bool KJobUiDelegate_EventFilter(KJobUiDelegate* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool KJobUiDelegate_QBaseEventFilter(KJobUiDelegate* self, QObject* watched, QEvent* event) {
+bool KJobUiDelegate_SuperEventFilter(KJobUiDelegate* self, QObject* watched, QEvent* event) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
     if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
         vkjobuidelegate->setKJobUiDelegate_EventFilter_IsBase(true);
@@ -273,7 +273,7 @@ void KJobUiDelegate_TimerEvent(KJobUiDelegate* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KJobUiDelegate_QBaseTimerEvent(KJobUiDelegate* self, QTimerEvent* event) {
+void KJobUiDelegate_SuperTimerEvent(KJobUiDelegate* self, QTimerEvent* event) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
     if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
         vkjobuidelegate->setKJobUiDelegate_TimerEvent_IsBase(true);
@@ -302,7 +302,7 @@ void KJobUiDelegate_ChildEvent(KJobUiDelegate* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KJobUiDelegate_QBaseChildEvent(KJobUiDelegate* self, QChildEvent* event) {
+void KJobUiDelegate_SuperChildEvent(KJobUiDelegate* self, QChildEvent* event) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
     if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
         vkjobuidelegate->setKJobUiDelegate_ChildEvent_IsBase(true);
@@ -331,7 +331,7 @@ void KJobUiDelegate_CustomEvent(KJobUiDelegate* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KJobUiDelegate_QBaseCustomEvent(KJobUiDelegate* self, QEvent* event) {
+void KJobUiDelegate_SuperCustomEvent(KJobUiDelegate* self, QEvent* event) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
     if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
         vkjobuidelegate->setKJobUiDelegate_CustomEvent_IsBase(true);
@@ -360,7 +360,7 @@ void KJobUiDelegate_ConnectNotify(KJobUiDelegate* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void KJobUiDelegate_QBaseConnectNotify(KJobUiDelegate* self, const QMetaMethod* signal) {
+void KJobUiDelegate_SuperConnectNotify(KJobUiDelegate* self, const QMetaMethod* signal) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
     if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
         vkjobuidelegate->setKJobUiDelegate_ConnectNotify_IsBase(true);
@@ -389,7 +389,7 @@ void KJobUiDelegate_DisconnectNotify(KJobUiDelegate* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void KJobUiDelegate_QBaseDisconnectNotify(KJobUiDelegate* self, const QMetaMethod* signal) {
+void KJobUiDelegate_SuperDisconnectNotify(KJobUiDelegate* self, const QMetaMethod* signal) {
     auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
     if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
         vkjobuidelegate->setKJobUiDelegate_DisconnectNotify_IsBase(true);
@@ -418,7 +418,7 @@ KJob* KJobUiDelegate_Job(const KJobUiDelegate* self) {
 }
 
 // Base class handler implementation
-KJob* KJobUiDelegate_QBaseJob(const KJobUiDelegate* self) {
+KJob* KJobUiDelegate_SuperJob(const KJobUiDelegate* self) {
     auto* vkjobuidelegate = const_cast<VirtualKJobUiDelegate*>(dynamic_cast<const VirtualKJobUiDelegate*>(self));
     if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
         vkjobuidelegate->setKJobUiDelegate_Job_IsBase(true);
@@ -447,7 +447,7 @@ QObject* KJobUiDelegate_Sender(const KJobUiDelegate* self) {
 }
 
 // Base class handler implementation
-QObject* KJobUiDelegate_QBaseSender(const KJobUiDelegate* self) {
+QObject* KJobUiDelegate_SuperSender(const KJobUiDelegate* self) {
     auto* vkjobuidelegate = const_cast<VirtualKJobUiDelegate*>(dynamic_cast<const VirtualKJobUiDelegate*>(self));
     if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
         vkjobuidelegate->setKJobUiDelegate_Sender_IsBase(true);
@@ -476,7 +476,7 @@ int KJobUiDelegate_SenderSignalIndex(const KJobUiDelegate* self) {
 }
 
 // Base class handler implementation
-int KJobUiDelegate_QBaseSenderSignalIndex(const KJobUiDelegate* self) {
+int KJobUiDelegate_SuperSenderSignalIndex(const KJobUiDelegate* self) {
     auto* vkjobuidelegate = const_cast<VirtualKJobUiDelegate*>(dynamic_cast<const VirtualKJobUiDelegate*>(self));
     if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
         vkjobuidelegate->setKJobUiDelegate_SenderSignalIndex_IsBase(true);
@@ -505,7 +505,7 @@ int KJobUiDelegate_Receivers(const KJobUiDelegate* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KJobUiDelegate_QBaseReceivers(const KJobUiDelegate* self, const char* signal) {
+int KJobUiDelegate_SuperReceivers(const KJobUiDelegate* self, const char* signal) {
     auto* vkjobuidelegate = const_cast<VirtualKJobUiDelegate*>(dynamic_cast<const VirtualKJobUiDelegate*>(self));
     if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
         vkjobuidelegate->setKJobUiDelegate_Receivers_IsBase(true);
@@ -534,7 +534,7 @@ bool KJobUiDelegate_IsSignalConnected(const KJobUiDelegate* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool KJobUiDelegate_QBaseIsSignalConnected(const KJobUiDelegate* self, const QMetaMethod* signal) {
+bool KJobUiDelegate_SuperIsSignalConnected(const KJobUiDelegate* self, const QMetaMethod* signal) {
     auto* vkjobuidelegate = const_cast<VirtualKJobUiDelegate*>(dynamic_cast<const VirtualKJobUiDelegate*>(self));
     if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
         vkjobuidelegate->setKJobUiDelegate_IsSignalConnected_IsBase(true);

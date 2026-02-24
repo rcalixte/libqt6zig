@@ -92,7 +92,7 @@ void KFileCopyToMenu_Connect_Error(KFileCopyToMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* KFileCopyToMenu_QBaseMetaObject(const KFileCopyToMenu* self) {
+QMetaObject* KFileCopyToMenu_SuperMetaObject(const KFileCopyToMenu* self) {
     auto* vkfilecopytomenu = const_cast<VirtualKFileCopyToMenu*>(dynamic_cast<const VirtualKFileCopyToMenu*>(self));
     if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
         vkfilecopytomenu->setKFileCopyToMenu_MetaObject_IsBase(true);
@@ -111,7 +111,7 @@ void KFileCopyToMenu_OnMetaObject(const KFileCopyToMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KFileCopyToMenu_QBaseMetacast(KFileCopyToMenu* self, const char* param1) {
+void* KFileCopyToMenu_SuperMetacast(KFileCopyToMenu* self, const char* param1) {
     auto* vkfilecopytomenu = dynamic_cast<VirtualKFileCopyToMenu*>(self);
     if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
         vkfilecopytomenu->setKFileCopyToMenu_Metacast_IsBase(true);
@@ -130,7 +130,7 @@ void KFileCopyToMenu_OnMetacast(KFileCopyToMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFileCopyToMenu_QBaseMetacall(KFileCopyToMenu* self, int param1, int param2, void** param3) {
+int KFileCopyToMenu_SuperMetacall(KFileCopyToMenu* self, int param1, int param2, void** param3) {
     auto* vkfilecopytomenu = dynamic_cast<VirtualKFileCopyToMenu*>(self);
     if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
         vkfilecopytomenu->setKFileCopyToMenu_Metacall_IsBase(true);
@@ -159,7 +159,7 @@ bool KFileCopyToMenu_Event(KFileCopyToMenu* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KFileCopyToMenu_QBaseEvent(KFileCopyToMenu* self, QEvent* event) {
+bool KFileCopyToMenu_SuperEvent(KFileCopyToMenu* self, QEvent* event) {
     auto* vkfilecopytomenu = dynamic_cast<VirtualKFileCopyToMenu*>(self);
     if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
         vkfilecopytomenu->setKFileCopyToMenu_Event_IsBase(true);
@@ -188,7 +188,7 @@ bool KFileCopyToMenu_EventFilter(KFileCopyToMenu* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool KFileCopyToMenu_QBaseEventFilter(KFileCopyToMenu* self, QObject* watched, QEvent* event) {
+bool KFileCopyToMenu_SuperEventFilter(KFileCopyToMenu* self, QObject* watched, QEvent* event) {
     auto* vkfilecopytomenu = dynamic_cast<VirtualKFileCopyToMenu*>(self);
     if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
         vkfilecopytomenu->setKFileCopyToMenu_EventFilter_IsBase(true);
@@ -217,7 +217,7 @@ void KFileCopyToMenu_TimerEvent(KFileCopyToMenu* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KFileCopyToMenu_QBaseTimerEvent(KFileCopyToMenu* self, QTimerEvent* event) {
+void KFileCopyToMenu_SuperTimerEvent(KFileCopyToMenu* self, QTimerEvent* event) {
     auto* vkfilecopytomenu = dynamic_cast<VirtualKFileCopyToMenu*>(self);
     if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
         vkfilecopytomenu->setKFileCopyToMenu_TimerEvent_IsBase(true);
@@ -246,7 +246,7 @@ void KFileCopyToMenu_ChildEvent(KFileCopyToMenu* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KFileCopyToMenu_QBaseChildEvent(KFileCopyToMenu* self, QChildEvent* event) {
+void KFileCopyToMenu_SuperChildEvent(KFileCopyToMenu* self, QChildEvent* event) {
     auto* vkfilecopytomenu = dynamic_cast<VirtualKFileCopyToMenu*>(self);
     if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
         vkfilecopytomenu->setKFileCopyToMenu_ChildEvent_IsBase(true);
@@ -275,7 +275,7 @@ void KFileCopyToMenu_CustomEvent(KFileCopyToMenu* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFileCopyToMenu_QBaseCustomEvent(KFileCopyToMenu* self, QEvent* event) {
+void KFileCopyToMenu_SuperCustomEvent(KFileCopyToMenu* self, QEvent* event) {
     auto* vkfilecopytomenu = dynamic_cast<VirtualKFileCopyToMenu*>(self);
     if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
         vkfilecopytomenu->setKFileCopyToMenu_CustomEvent_IsBase(true);
@@ -304,7 +304,7 @@ void KFileCopyToMenu_ConnectNotify(KFileCopyToMenu* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KFileCopyToMenu_QBaseConnectNotify(KFileCopyToMenu* self, const QMetaMethod* signal) {
+void KFileCopyToMenu_SuperConnectNotify(KFileCopyToMenu* self, const QMetaMethod* signal) {
     auto* vkfilecopytomenu = dynamic_cast<VirtualKFileCopyToMenu*>(self);
     if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
         vkfilecopytomenu->setKFileCopyToMenu_ConnectNotify_IsBase(true);
@@ -333,7 +333,7 @@ void KFileCopyToMenu_DisconnectNotify(KFileCopyToMenu* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KFileCopyToMenu_QBaseDisconnectNotify(KFileCopyToMenu* self, const QMetaMethod* signal) {
+void KFileCopyToMenu_SuperDisconnectNotify(KFileCopyToMenu* self, const QMetaMethod* signal) {
     auto* vkfilecopytomenu = dynamic_cast<VirtualKFileCopyToMenu*>(self);
     if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
         vkfilecopytomenu->setKFileCopyToMenu_DisconnectNotify_IsBase(true);
@@ -362,7 +362,7 @@ QObject* KFileCopyToMenu_Sender(const KFileCopyToMenu* self) {
 }
 
 // Base class handler implementation
-QObject* KFileCopyToMenu_QBaseSender(const KFileCopyToMenu* self) {
+QObject* KFileCopyToMenu_SuperSender(const KFileCopyToMenu* self) {
     auto* vkfilecopytomenu = const_cast<VirtualKFileCopyToMenu*>(dynamic_cast<const VirtualKFileCopyToMenu*>(self));
     if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
         vkfilecopytomenu->setKFileCopyToMenu_Sender_IsBase(true);
@@ -391,7 +391,7 @@ int KFileCopyToMenu_SenderSignalIndex(const KFileCopyToMenu* self) {
 }
 
 // Base class handler implementation
-int KFileCopyToMenu_QBaseSenderSignalIndex(const KFileCopyToMenu* self) {
+int KFileCopyToMenu_SuperSenderSignalIndex(const KFileCopyToMenu* self) {
     auto* vkfilecopytomenu = const_cast<VirtualKFileCopyToMenu*>(dynamic_cast<const VirtualKFileCopyToMenu*>(self));
     if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
         vkfilecopytomenu->setKFileCopyToMenu_SenderSignalIndex_IsBase(true);
@@ -420,7 +420,7 @@ int KFileCopyToMenu_Receivers(const KFileCopyToMenu* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KFileCopyToMenu_QBaseReceivers(const KFileCopyToMenu* self, const char* signal) {
+int KFileCopyToMenu_SuperReceivers(const KFileCopyToMenu* self, const char* signal) {
     auto* vkfilecopytomenu = const_cast<VirtualKFileCopyToMenu*>(dynamic_cast<const VirtualKFileCopyToMenu*>(self));
     if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
         vkfilecopytomenu->setKFileCopyToMenu_Receivers_IsBase(true);
@@ -449,7 +449,7 @@ bool KFileCopyToMenu_IsSignalConnected(const KFileCopyToMenu* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KFileCopyToMenu_QBaseIsSignalConnected(const KFileCopyToMenu* self, const QMetaMethod* signal) {
+bool KFileCopyToMenu_SuperIsSignalConnected(const KFileCopyToMenu* self, const QMetaMethod* signal) {
     auto* vkfilecopytomenu = const_cast<VirtualKFileCopyToMenu*>(dynamic_cast<const VirtualKFileCopyToMenu*>(self));
     if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
         vkfilecopytomenu->setKFileCopyToMenu_IsSignalConnected_IsBase(true);

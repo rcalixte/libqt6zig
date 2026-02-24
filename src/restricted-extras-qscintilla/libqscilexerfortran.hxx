@@ -1118,31 +1118,31 @@ class VirtualQsciLexerFortran final : public QsciLexerFortran {
 
     // Friend functions
     friend bool QsciLexerFortran_ReadProperties(QsciLexerFortran* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerFortran_QBaseReadProperties(QsciLexerFortran* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerFortran_SuperReadProperties(QsciLexerFortran* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerFortran_WriteProperties(const QsciLexerFortran* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerFortran_QBaseWriteProperties(const QsciLexerFortran* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerFortran_SuperWriteProperties(const QsciLexerFortran* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerFortran_TimerEvent(QsciLexerFortran* self, QTimerEvent* event);
-    friend void QsciLexerFortran_QBaseTimerEvent(QsciLexerFortran* self, QTimerEvent* event);
+    friend void QsciLexerFortran_SuperTimerEvent(QsciLexerFortran* self, QTimerEvent* event);
     friend void QsciLexerFortran_ChildEvent(QsciLexerFortran* self, QChildEvent* event);
-    friend void QsciLexerFortran_QBaseChildEvent(QsciLexerFortran* self, QChildEvent* event);
+    friend void QsciLexerFortran_SuperChildEvent(QsciLexerFortran* self, QChildEvent* event);
     friend void QsciLexerFortran_CustomEvent(QsciLexerFortran* self, QEvent* event);
-    friend void QsciLexerFortran_QBaseCustomEvent(QsciLexerFortran* self, QEvent* event);
+    friend void QsciLexerFortran_SuperCustomEvent(QsciLexerFortran* self, QEvent* event);
     friend void QsciLexerFortran_ConnectNotify(QsciLexerFortran* self, const QMetaMethod* signal);
-    friend void QsciLexerFortran_QBaseConnectNotify(QsciLexerFortran* self, const QMetaMethod* signal);
+    friend void QsciLexerFortran_SuperConnectNotify(QsciLexerFortran* self, const QMetaMethod* signal);
     friend void QsciLexerFortran_DisconnectNotify(QsciLexerFortran* self, const QMetaMethod* signal);
-    friend void QsciLexerFortran_QBaseDisconnectNotify(QsciLexerFortran* self, const QMetaMethod* signal);
+    friend void QsciLexerFortran_SuperDisconnectNotify(QsciLexerFortran* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerFortran_TextAsBytes(const QsciLexerFortran* self, const libqt_string text);
-    friend libqt_string QsciLexerFortran_QBaseTextAsBytes(const QsciLexerFortran* self, const libqt_string text);
+    friend libqt_string QsciLexerFortran_SuperTextAsBytes(const QsciLexerFortran* self, const libqt_string text);
     friend libqt_string QsciLexerFortran_BytesAsText(const QsciLexerFortran* self, const char* bytes, int size);
-    friend libqt_string QsciLexerFortran_QBaseBytesAsText(const QsciLexerFortran* self, const char* bytes, int size);
+    friend libqt_string QsciLexerFortran_SuperBytesAsText(const QsciLexerFortran* self, const char* bytes, int size);
     friend QObject* QsciLexerFortran_Sender(const QsciLexerFortran* self);
-    friend QObject* QsciLexerFortran_QBaseSender(const QsciLexerFortran* self);
+    friend QObject* QsciLexerFortran_SuperSender(const QsciLexerFortran* self);
     friend int QsciLexerFortran_SenderSignalIndex(const QsciLexerFortran* self);
-    friend int QsciLexerFortran_QBaseSenderSignalIndex(const QsciLexerFortran* self);
+    friend int QsciLexerFortran_SuperSenderSignalIndex(const QsciLexerFortran* self);
     friend int QsciLexerFortran_Receivers(const QsciLexerFortran* self, const char* signal);
-    friend int QsciLexerFortran_QBaseReceivers(const QsciLexerFortran* self, const char* signal);
+    friend int QsciLexerFortran_SuperReceivers(const QsciLexerFortran* self, const char* signal);
     friend bool QsciLexerFortran_IsSignalConnected(const QsciLexerFortran* self, const QMetaMethod* signal);
-    friend bool QsciLexerFortran_QBaseIsSignalConnected(const QsciLexerFortran* self, const QMetaMethod* signal);
+    friend bool QsciLexerFortran_SuperIsSignalConnected(const QsciLexerFortran* self, const QMetaMethod* signal);
 };
 
 #endif

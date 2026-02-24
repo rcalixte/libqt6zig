@@ -402,29 +402,29 @@ class VirtualKonsoleFilter : public Konsole::Filter {
 
     // Friend functions
     friend void Konsole__Filter_TimerEvent(Konsole::Filter* self, QTimerEvent* event);
-    friend void Konsole__Filter_QBaseTimerEvent(Konsole::Filter* self, QTimerEvent* event);
+    friend void Konsole__Filter_SuperTimerEvent(Konsole::Filter* self, QTimerEvent* event);
     friend void Konsole__Filter_ChildEvent(Konsole::Filter* self, QChildEvent* event);
-    friend void Konsole__Filter_QBaseChildEvent(Konsole::Filter* self, QChildEvent* event);
+    friend void Konsole__Filter_SuperChildEvent(Konsole::Filter* self, QChildEvent* event);
     friend void Konsole__Filter_CustomEvent(Konsole::Filter* self, QEvent* event);
-    friend void Konsole__Filter_QBaseCustomEvent(Konsole::Filter* self, QEvent* event);
+    friend void Konsole__Filter_SuperCustomEvent(Konsole::Filter* self, QEvent* event);
     friend void Konsole__Filter_ConnectNotify(Konsole::Filter* self, const QMetaMethod* signal);
-    friend void Konsole__Filter_QBaseConnectNotify(Konsole::Filter* self, const QMetaMethod* signal);
+    friend void Konsole__Filter_SuperConnectNotify(Konsole::Filter* self, const QMetaMethod* signal);
     friend void Konsole__Filter_DisconnectNotify(Konsole::Filter* self, const QMetaMethod* signal);
-    friend void Konsole__Filter_QBaseDisconnectNotify(Konsole::Filter* self, const QMetaMethod* signal);
+    friend void Konsole__Filter_SuperDisconnectNotify(Konsole::Filter* self, const QMetaMethod* signal);
     friend void Konsole__Filter_AddHotSpot(Konsole::Filter* self, Konsole__Filter__HotSpot* param1);
-    friend void Konsole__Filter_QBaseAddHotSpot(Konsole::Filter* self, Konsole__Filter__HotSpot* param1);
+    friend void Konsole__Filter_SuperAddHotSpot(Konsole::Filter* self, Konsole__Filter__HotSpot* param1);
     friend libqt_string Konsole__Filter_Buffer(Konsole::Filter* self);
-    friend libqt_string Konsole__Filter_QBaseBuffer(Konsole::Filter* self);
+    friend libqt_string Konsole__Filter_SuperBuffer(Konsole::Filter* self);
     friend void Konsole__Filter_GetLineColumn(Konsole::Filter* self, int position, int* startLine, int* startColumn);
-    friend void Konsole__Filter_QBaseGetLineColumn(Konsole::Filter* self, int position, int* startLine, int* startColumn);
+    friend void Konsole__Filter_SuperGetLineColumn(Konsole::Filter* self, int position, int* startLine, int* startColumn);
     friend QObject* Konsole__Filter_Sender(const Konsole::Filter* self);
-    friend QObject* Konsole__Filter_QBaseSender(const Konsole::Filter* self);
+    friend QObject* Konsole__Filter_SuperSender(const Konsole::Filter* self);
     friend int Konsole__Filter_SenderSignalIndex(const Konsole::Filter* self);
-    friend int Konsole__Filter_QBaseSenderSignalIndex(const Konsole::Filter* self);
+    friend int Konsole__Filter_SuperSenderSignalIndex(const Konsole::Filter* self);
     friend int Konsole__Filter_Receivers(const Konsole::Filter* self, const char* signal);
-    friend int Konsole__Filter_QBaseReceivers(const Konsole::Filter* self, const char* signal);
+    friend int Konsole__Filter_SuperReceivers(const Konsole::Filter* self, const char* signal);
     friend bool Konsole__Filter_IsSignalConnected(const Konsole::Filter* self, const QMetaMethod* signal);
-    friend bool Konsole__Filter_QBaseIsSignalConnected(const Konsole::Filter* self, const QMetaMethod* signal);
+    friend bool Konsole__Filter_SuperIsSignalConnected(const Konsole::Filter* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of Konsole::RegExpFilter so that we can call protected methods
@@ -849,31 +849,31 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
 
     // Friend functions
     friend Konsole__RegExpFilter__HotSpot* Konsole__RegExpFilter_NewHotSpot(Konsole::RegExpFilter* self, int startLine, int startColumn, int endLine, int endColumn);
-    friend Konsole__RegExpFilter__HotSpot* Konsole__RegExpFilter_QBaseNewHotSpot(Konsole::RegExpFilter* self, int startLine, int startColumn, int endLine, int endColumn);
+    friend Konsole__RegExpFilter__HotSpot* Konsole__RegExpFilter_SuperNewHotSpot(Konsole::RegExpFilter* self, int startLine, int startColumn, int endLine, int endColumn);
     friend void Konsole__RegExpFilter_TimerEvent(Konsole::RegExpFilter* self, QTimerEvent* event);
-    friend void Konsole__RegExpFilter_QBaseTimerEvent(Konsole::RegExpFilter* self, QTimerEvent* event);
+    friend void Konsole__RegExpFilter_SuperTimerEvent(Konsole::RegExpFilter* self, QTimerEvent* event);
     friend void Konsole__RegExpFilter_ChildEvent(Konsole::RegExpFilter* self, QChildEvent* event);
-    friend void Konsole__RegExpFilter_QBaseChildEvent(Konsole::RegExpFilter* self, QChildEvent* event);
+    friend void Konsole__RegExpFilter_SuperChildEvent(Konsole::RegExpFilter* self, QChildEvent* event);
     friend void Konsole__RegExpFilter_CustomEvent(Konsole::RegExpFilter* self, QEvent* event);
-    friend void Konsole__RegExpFilter_QBaseCustomEvent(Konsole::RegExpFilter* self, QEvent* event);
+    friend void Konsole__RegExpFilter_SuperCustomEvent(Konsole::RegExpFilter* self, QEvent* event);
     friend void Konsole__RegExpFilter_ConnectNotify(Konsole::RegExpFilter* self, const QMetaMethod* signal);
-    friend void Konsole__RegExpFilter_QBaseConnectNotify(Konsole::RegExpFilter* self, const QMetaMethod* signal);
+    friend void Konsole__RegExpFilter_SuperConnectNotify(Konsole::RegExpFilter* self, const QMetaMethod* signal);
     friend void Konsole__RegExpFilter_DisconnectNotify(Konsole::RegExpFilter* self, const QMetaMethod* signal);
-    friend void Konsole__RegExpFilter_QBaseDisconnectNotify(Konsole::RegExpFilter* self, const QMetaMethod* signal);
+    friend void Konsole__RegExpFilter_SuperDisconnectNotify(Konsole::RegExpFilter* self, const QMetaMethod* signal);
     friend void Konsole__RegExpFilter_AddHotSpot(Konsole::RegExpFilter* self, Konsole__Filter__HotSpot* param1);
-    friend void Konsole__RegExpFilter_QBaseAddHotSpot(Konsole::RegExpFilter* self, Konsole__Filter__HotSpot* param1);
+    friend void Konsole__RegExpFilter_SuperAddHotSpot(Konsole::RegExpFilter* self, Konsole__Filter__HotSpot* param1);
     friend libqt_string Konsole__RegExpFilter_Buffer(Konsole::RegExpFilter* self);
-    friend libqt_string Konsole__RegExpFilter_QBaseBuffer(Konsole::RegExpFilter* self);
+    friend libqt_string Konsole__RegExpFilter_SuperBuffer(Konsole::RegExpFilter* self);
     friend void Konsole__RegExpFilter_GetLineColumn(Konsole::RegExpFilter* self, int position, int* startLine, int* startColumn);
-    friend void Konsole__RegExpFilter_QBaseGetLineColumn(Konsole::RegExpFilter* self, int position, int* startLine, int* startColumn);
+    friend void Konsole__RegExpFilter_SuperGetLineColumn(Konsole::RegExpFilter* self, int position, int* startLine, int* startColumn);
     friend QObject* Konsole__RegExpFilter_Sender(const Konsole::RegExpFilter* self);
-    friend QObject* Konsole__RegExpFilter_QBaseSender(const Konsole::RegExpFilter* self);
+    friend QObject* Konsole__RegExpFilter_SuperSender(const Konsole::RegExpFilter* self);
     friend int Konsole__RegExpFilter_SenderSignalIndex(const Konsole::RegExpFilter* self);
-    friend int Konsole__RegExpFilter_QBaseSenderSignalIndex(const Konsole::RegExpFilter* self);
+    friend int Konsole__RegExpFilter_SuperSenderSignalIndex(const Konsole::RegExpFilter* self);
     friend int Konsole__RegExpFilter_Receivers(const Konsole::RegExpFilter* self, const char* signal);
-    friend int Konsole__RegExpFilter_QBaseReceivers(const Konsole::RegExpFilter* self, const char* signal);
+    friend int Konsole__RegExpFilter_SuperReceivers(const Konsole::RegExpFilter* self, const char* signal);
     friend bool Konsole__RegExpFilter_IsSignalConnected(const Konsole::RegExpFilter* self, const QMetaMethod* signal);
-    friend bool Konsole__RegExpFilter_QBaseIsSignalConnected(const Konsole::RegExpFilter* self, const QMetaMethod* signal);
+    friend bool Konsole__RegExpFilter_SuperIsSignalConnected(const Konsole::RegExpFilter* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of Konsole::UrlFilter so that we can call protected methods
@@ -1298,31 +1298,31 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
 
     // Friend functions
     friend Konsole__RegExpFilter__HotSpot* Konsole__UrlFilter_NewHotSpot(Konsole::UrlFilter* self, int param1, int param2, int param3, int param4);
-    friend Konsole__RegExpFilter__HotSpot* Konsole__UrlFilter_QBaseNewHotSpot(Konsole::UrlFilter* self, int param1, int param2, int param3, int param4);
+    friend Konsole__RegExpFilter__HotSpot* Konsole__UrlFilter_SuperNewHotSpot(Konsole::UrlFilter* self, int param1, int param2, int param3, int param4);
     friend void Konsole__UrlFilter_TimerEvent(Konsole::UrlFilter* self, QTimerEvent* event);
-    friend void Konsole__UrlFilter_QBaseTimerEvent(Konsole::UrlFilter* self, QTimerEvent* event);
+    friend void Konsole__UrlFilter_SuperTimerEvent(Konsole::UrlFilter* self, QTimerEvent* event);
     friend void Konsole__UrlFilter_ChildEvent(Konsole::UrlFilter* self, QChildEvent* event);
-    friend void Konsole__UrlFilter_QBaseChildEvent(Konsole::UrlFilter* self, QChildEvent* event);
+    friend void Konsole__UrlFilter_SuperChildEvent(Konsole::UrlFilter* self, QChildEvent* event);
     friend void Konsole__UrlFilter_CustomEvent(Konsole::UrlFilter* self, QEvent* event);
-    friend void Konsole__UrlFilter_QBaseCustomEvent(Konsole::UrlFilter* self, QEvent* event);
+    friend void Konsole__UrlFilter_SuperCustomEvent(Konsole::UrlFilter* self, QEvent* event);
     friend void Konsole__UrlFilter_ConnectNotify(Konsole::UrlFilter* self, const QMetaMethod* signal);
-    friend void Konsole__UrlFilter_QBaseConnectNotify(Konsole::UrlFilter* self, const QMetaMethod* signal);
+    friend void Konsole__UrlFilter_SuperConnectNotify(Konsole::UrlFilter* self, const QMetaMethod* signal);
     friend void Konsole__UrlFilter_DisconnectNotify(Konsole::UrlFilter* self, const QMetaMethod* signal);
-    friend void Konsole__UrlFilter_QBaseDisconnectNotify(Konsole::UrlFilter* self, const QMetaMethod* signal);
+    friend void Konsole__UrlFilter_SuperDisconnectNotify(Konsole::UrlFilter* self, const QMetaMethod* signal);
     friend void Konsole__UrlFilter_AddHotSpot(Konsole::UrlFilter* self, Konsole__Filter__HotSpot* param1);
-    friend void Konsole__UrlFilter_QBaseAddHotSpot(Konsole::UrlFilter* self, Konsole__Filter__HotSpot* param1);
+    friend void Konsole__UrlFilter_SuperAddHotSpot(Konsole::UrlFilter* self, Konsole__Filter__HotSpot* param1);
     friend libqt_string Konsole__UrlFilter_Buffer(Konsole::UrlFilter* self);
-    friend libqt_string Konsole__UrlFilter_QBaseBuffer(Konsole::UrlFilter* self);
+    friend libqt_string Konsole__UrlFilter_SuperBuffer(Konsole::UrlFilter* self);
     friend void Konsole__UrlFilter_GetLineColumn(Konsole::UrlFilter* self, int position, int* startLine, int* startColumn);
-    friend void Konsole__UrlFilter_QBaseGetLineColumn(Konsole::UrlFilter* self, int position, int* startLine, int* startColumn);
+    friend void Konsole__UrlFilter_SuperGetLineColumn(Konsole::UrlFilter* self, int position, int* startLine, int* startColumn);
     friend QObject* Konsole__UrlFilter_Sender(const Konsole::UrlFilter* self);
-    friend QObject* Konsole__UrlFilter_QBaseSender(const Konsole::UrlFilter* self);
+    friend QObject* Konsole__UrlFilter_SuperSender(const Konsole::UrlFilter* self);
     friend int Konsole__UrlFilter_SenderSignalIndex(const Konsole::UrlFilter* self);
-    friend int Konsole__UrlFilter_QBaseSenderSignalIndex(const Konsole::UrlFilter* self);
+    friend int Konsole__UrlFilter_SuperSenderSignalIndex(const Konsole::UrlFilter* self);
     friend int Konsole__UrlFilter_Receivers(const Konsole::UrlFilter* self, const char* signal);
-    friend int Konsole__UrlFilter_QBaseReceivers(const Konsole::UrlFilter* self, const char* signal);
+    friend int Konsole__UrlFilter_SuperReceivers(const Konsole::UrlFilter* self, const char* signal);
     friend bool Konsole__UrlFilter_IsSignalConnected(const Konsole::UrlFilter* self, const QMetaMethod* signal);
-    friend bool Konsole__UrlFilter_QBaseIsSignalConnected(const Konsole::UrlFilter* self, const QMetaMethod* signal);
+    friend bool Konsole__UrlFilter_SuperIsSignalConnected(const Konsole::UrlFilter* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of Konsole::FilterObject so that we can call protected methods
@@ -1643,23 +1643,23 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
 
     // Friend functions
     friend void Konsole__FilterObject_TimerEvent(Konsole::FilterObject* self, QTimerEvent* event);
-    friend void Konsole__FilterObject_QBaseTimerEvent(Konsole::FilterObject* self, QTimerEvent* event);
+    friend void Konsole__FilterObject_SuperTimerEvent(Konsole::FilterObject* self, QTimerEvent* event);
     friend void Konsole__FilterObject_ChildEvent(Konsole::FilterObject* self, QChildEvent* event);
-    friend void Konsole__FilterObject_QBaseChildEvent(Konsole::FilterObject* self, QChildEvent* event);
+    friend void Konsole__FilterObject_SuperChildEvent(Konsole::FilterObject* self, QChildEvent* event);
     friend void Konsole__FilterObject_CustomEvent(Konsole::FilterObject* self, QEvent* event);
-    friend void Konsole__FilterObject_QBaseCustomEvent(Konsole::FilterObject* self, QEvent* event);
+    friend void Konsole__FilterObject_SuperCustomEvent(Konsole::FilterObject* self, QEvent* event);
     friend void Konsole__FilterObject_ConnectNotify(Konsole::FilterObject* self, const QMetaMethod* signal);
-    friend void Konsole__FilterObject_QBaseConnectNotify(Konsole::FilterObject* self, const QMetaMethod* signal);
+    friend void Konsole__FilterObject_SuperConnectNotify(Konsole::FilterObject* self, const QMetaMethod* signal);
     friend void Konsole__FilterObject_DisconnectNotify(Konsole::FilterObject* self, const QMetaMethod* signal);
-    friend void Konsole__FilterObject_QBaseDisconnectNotify(Konsole::FilterObject* self, const QMetaMethod* signal);
+    friend void Konsole__FilterObject_SuperDisconnectNotify(Konsole::FilterObject* self, const QMetaMethod* signal);
     friend QObject* Konsole__FilterObject_Sender(const Konsole::FilterObject* self);
-    friend QObject* Konsole__FilterObject_QBaseSender(const Konsole::FilterObject* self);
+    friend QObject* Konsole__FilterObject_SuperSender(const Konsole::FilterObject* self);
     friend int Konsole__FilterObject_SenderSignalIndex(const Konsole::FilterObject* self);
-    friend int Konsole__FilterObject_QBaseSenderSignalIndex(const Konsole::FilterObject* self);
+    friend int Konsole__FilterObject_SuperSenderSignalIndex(const Konsole::FilterObject* self);
     friend int Konsole__FilterObject_Receivers(const Konsole::FilterObject* self, const char* signal);
-    friend int Konsole__FilterObject_QBaseReceivers(const Konsole::FilterObject* self, const char* signal);
+    friend int Konsole__FilterObject_SuperReceivers(const Konsole::FilterObject* self, const char* signal);
     friend bool Konsole__FilterObject_IsSignalConnected(const Konsole::FilterObject* self, const QMetaMethod* signal);
-    friend bool Konsole__FilterObject_QBaseIsSignalConnected(const Konsole::FilterObject* self, const QMetaMethod* signal);
+    friend bool Konsole__FilterObject_SuperIsSignalConnected(const Konsole::FilterObject* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of Konsole::Filter::HotSpot so that we can call protected methods
@@ -1758,7 +1758,7 @@ class VirtualKonsoleFilterHotSpot : public Konsole::Filter::HotSpot {
 
     // Friend functions
     friend void Konsole__Filter__HotSpot_SetType(Konsole::Filter::HotSpot* self, int typeVal);
-    friend void Konsole__Filter__HotSpot_QBaseSetType(Konsole::Filter::HotSpot* self, int typeVal);
+    friend void Konsole__Filter__HotSpot_SuperSetType(Konsole::Filter::HotSpot* self, int typeVal);
 };
 
 // This class is a subclass of Konsole::RegExpFilter::HotSpot so that we can call protected methods
@@ -1862,7 +1862,7 @@ class VirtualKonsoleRegExpFilterHotSpot final : public Konsole::RegExpFilter::Ho
 
     // Friend functions
     friend void Konsole__RegExpFilter__HotSpot_SetType(Konsole::RegExpFilter::HotSpot* self, int typeVal);
-    friend void Konsole__RegExpFilter__HotSpot_QBaseSetType(Konsole::RegExpFilter::HotSpot* self, int typeVal);
+    friend void Konsole__RegExpFilter__HotSpot_SuperSetType(Konsole::RegExpFilter::HotSpot* self, int typeVal);
 };
 
 // This class is a subclass of Konsole::UrlFilter::HotSpot so that we can call protected methods
@@ -1965,7 +1965,7 @@ class VirtualKonsoleUrlFilterHotSpot final : public Konsole::UrlFilter::HotSpot 
 
     // Friend functions
     friend void Konsole__UrlFilter__HotSpot_SetType(Konsole::UrlFilter::HotSpot* self, int typeVal);
-    friend void Konsole__UrlFilter__HotSpot_QBaseSetType(Konsole::UrlFilter::HotSpot* self, int typeVal);
+    friend void Konsole__UrlFilter__HotSpot_SuperSetType(Konsole::UrlFilter::HotSpot* self, int typeVal);
 };
 
 #endif

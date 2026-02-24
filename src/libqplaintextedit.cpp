@@ -768,7 +768,7 @@ void QPlainTextEdit_ZoomOut1(QPlainTextEdit* self, int range) {
 }
 
 // Base class handler implementation
-QMetaObject* QPlainTextEdit_QBaseMetaObject(const QPlainTextEdit* self) {
+QMetaObject* QPlainTextEdit_SuperMetaObject(const QPlainTextEdit* self) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_MetaObject_IsBase(true);
@@ -787,7 +787,7 @@ void QPlainTextEdit_OnMetaObject(const QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QPlainTextEdit_QBaseMetacast(QPlainTextEdit* self, const char* param1) {
+void* QPlainTextEdit_SuperMetacast(QPlainTextEdit* self, const char* param1) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_Metacast_IsBase(true);
@@ -806,7 +806,7 @@ void QPlainTextEdit_OnMetacast(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPlainTextEdit_QBaseMetacall(QPlainTextEdit* self, int param1, int param2, void** param3) {
+int QPlainTextEdit_SuperMetacall(QPlainTextEdit* self, int param1, int param2, void** param3) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_Metacall_IsBase(true);
@@ -825,7 +825,7 @@ void QPlainTextEdit_OnMetacall(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QPlainTextEdit_QBaseLoadResource(QPlainTextEdit* self, int typeVal, const QUrl* name) {
+QVariant* QPlainTextEdit_SuperLoadResource(QPlainTextEdit* self, int typeVal, const QUrl* name) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_LoadResource_IsBase(true);
@@ -844,7 +844,7 @@ void QPlainTextEdit_OnLoadResource(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QPlainTextEdit_QBaseInputMethodQuery(const QPlainTextEdit* self, int property) {
+QVariant* QPlainTextEdit_SuperInputMethodQuery(const QPlainTextEdit* self, int property) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_InputMethodQuery_IsBase(true);
@@ -863,7 +863,7 @@ void QPlainTextEdit_OnInputMethodQuery(const QPlainTextEdit* self, intptr_t slot
 }
 
 // Base class handler implementation
-bool QPlainTextEdit_QBaseEvent(QPlainTextEdit* self, QEvent* e) {
+bool QPlainTextEdit_SuperEvent(QPlainTextEdit* self, QEvent* e) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_Event_IsBase(true);
@@ -882,7 +882,7 @@ void QPlainTextEdit_OnEvent(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseTimerEvent(QPlainTextEdit* self, QTimerEvent* e) {
+void QPlainTextEdit_SuperTimerEvent(QPlainTextEdit* self, QTimerEvent* e) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_TimerEvent_IsBase(true);
@@ -901,7 +901,7 @@ void QPlainTextEdit_OnTimerEvent(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseKeyPressEvent(QPlainTextEdit* self, QKeyEvent* e) {
+void QPlainTextEdit_SuperKeyPressEvent(QPlainTextEdit* self, QKeyEvent* e) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_KeyPressEvent_IsBase(true);
@@ -920,7 +920,7 @@ void QPlainTextEdit_OnKeyPressEvent(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseKeyReleaseEvent(QPlainTextEdit* self, QKeyEvent* e) {
+void QPlainTextEdit_SuperKeyReleaseEvent(QPlainTextEdit* self, QKeyEvent* e) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_KeyReleaseEvent_IsBase(true);
@@ -939,7 +939,7 @@ void QPlainTextEdit_OnKeyReleaseEvent(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseResizeEvent(QPlainTextEdit* self, QResizeEvent* e) {
+void QPlainTextEdit_SuperResizeEvent(QPlainTextEdit* self, QResizeEvent* e) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_ResizeEvent_IsBase(true);
@@ -958,7 +958,7 @@ void QPlainTextEdit_OnResizeEvent(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBasePaintEvent(QPlainTextEdit* self, QPaintEvent* e) {
+void QPlainTextEdit_SuperPaintEvent(QPlainTextEdit* self, QPaintEvent* e) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_PaintEvent_IsBase(true);
@@ -977,7 +977,7 @@ void QPlainTextEdit_OnPaintEvent(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseMousePressEvent(QPlainTextEdit* self, QMouseEvent* e) {
+void QPlainTextEdit_SuperMousePressEvent(QPlainTextEdit* self, QMouseEvent* e) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_MousePressEvent_IsBase(true);
@@ -996,7 +996,7 @@ void QPlainTextEdit_OnMousePressEvent(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseMouseMoveEvent(QPlainTextEdit* self, QMouseEvent* e) {
+void QPlainTextEdit_SuperMouseMoveEvent(QPlainTextEdit* self, QMouseEvent* e) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_MouseMoveEvent_IsBase(true);
@@ -1015,7 +1015,7 @@ void QPlainTextEdit_OnMouseMoveEvent(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseMouseReleaseEvent(QPlainTextEdit* self, QMouseEvent* e) {
+void QPlainTextEdit_SuperMouseReleaseEvent(QPlainTextEdit* self, QMouseEvent* e) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_MouseReleaseEvent_IsBase(true);
@@ -1034,7 +1034,7 @@ void QPlainTextEdit_OnMouseReleaseEvent(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseMouseDoubleClickEvent(QPlainTextEdit* self, QMouseEvent* e) {
+void QPlainTextEdit_SuperMouseDoubleClickEvent(QPlainTextEdit* self, QMouseEvent* e) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_MouseDoubleClickEvent_IsBase(true);
@@ -1053,7 +1053,7 @@ void QPlainTextEdit_OnMouseDoubleClickEvent(QPlainTextEdit* self, intptr_t slot)
 }
 
 // Base class handler implementation
-bool QPlainTextEdit_QBaseFocusNextPrevChild(QPlainTextEdit* self, bool next) {
+bool QPlainTextEdit_SuperFocusNextPrevChild(QPlainTextEdit* self, bool next) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_FocusNextPrevChild_IsBase(true);
@@ -1072,7 +1072,7 @@ void QPlainTextEdit_OnFocusNextPrevChild(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseContextMenuEvent(QPlainTextEdit* self, QContextMenuEvent* e) {
+void QPlainTextEdit_SuperContextMenuEvent(QPlainTextEdit* self, QContextMenuEvent* e) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_ContextMenuEvent_IsBase(true);
@@ -1091,7 +1091,7 @@ void QPlainTextEdit_OnContextMenuEvent(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseDragEnterEvent(QPlainTextEdit* self, QDragEnterEvent* e) {
+void QPlainTextEdit_SuperDragEnterEvent(QPlainTextEdit* self, QDragEnterEvent* e) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_DragEnterEvent_IsBase(true);
@@ -1110,7 +1110,7 @@ void QPlainTextEdit_OnDragEnterEvent(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseDragLeaveEvent(QPlainTextEdit* self, QDragLeaveEvent* e) {
+void QPlainTextEdit_SuperDragLeaveEvent(QPlainTextEdit* self, QDragLeaveEvent* e) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_DragLeaveEvent_IsBase(true);
@@ -1129,7 +1129,7 @@ void QPlainTextEdit_OnDragLeaveEvent(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseDragMoveEvent(QPlainTextEdit* self, QDragMoveEvent* e) {
+void QPlainTextEdit_SuperDragMoveEvent(QPlainTextEdit* self, QDragMoveEvent* e) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_DragMoveEvent_IsBase(true);
@@ -1148,7 +1148,7 @@ void QPlainTextEdit_OnDragMoveEvent(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseDropEvent(QPlainTextEdit* self, QDropEvent* e) {
+void QPlainTextEdit_SuperDropEvent(QPlainTextEdit* self, QDropEvent* e) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_DropEvent_IsBase(true);
@@ -1167,7 +1167,7 @@ void QPlainTextEdit_OnDropEvent(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseFocusInEvent(QPlainTextEdit* self, QFocusEvent* e) {
+void QPlainTextEdit_SuperFocusInEvent(QPlainTextEdit* self, QFocusEvent* e) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_FocusInEvent_IsBase(true);
@@ -1186,7 +1186,7 @@ void QPlainTextEdit_OnFocusInEvent(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseFocusOutEvent(QPlainTextEdit* self, QFocusEvent* e) {
+void QPlainTextEdit_SuperFocusOutEvent(QPlainTextEdit* self, QFocusEvent* e) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_FocusOutEvent_IsBase(true);
@@ -1205,7 +1205,7 @@ void QPlainTextEdit_OnFocusOutEvent(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseShowEvent(QPlainTextEdit* self, QShowEvent* param1) {
+void QPlainTextEdit_SuperShowEvent(QPlainTextEdit* self, QShowEvent* param1) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_ShowEvent_IsBase(true);
@@ -1224,7 +1224,7 @@ void QPlainTextEdit_OnShowEvent(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseChangeEvent(QPlainTextEdit* self, QEvent* e) {
+void QPlainTextEdit_SuperChangeEvent(QPlainTextEdit* self, QEvent* e) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_ChangeEvent_IsBase(true);
@@ -1243,7 +1243,7 @@ void QPlainTextEdit_OnChangeEvent(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseWheelEvent(QPlainTextEdit* self, QWheelEvent* e) {
+void QPlainTextEdit_SuperWheelEvent(QPlainTextEdit* self, QWheelEvent* e) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_WheelEvent_IsBase(true);
@@ -1262,7 +1262,7 @@ void QPlainTextEdit_OnWheelEvent(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMimeData* QPlainTextEdit_QBaseCreateMimeDataFromSelection(const QPlainTextEdit* self) {
+QMimeData* QPlainTextEdit_SuperCreateMimeDataFromSelection(const QPlainTextEdit* self) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_CreateMimeDataFromSelection_IsBase(true);
@@ -1281,7 +1281,7 @@ void QPlainTextEdit_OnCreateMimeDataFromSelection(const QPlainTextEdit* self, in
 }
 
 // Base class handler implementation
-bool QPlainTextEdit_QBaseCanInsertFromMimeData(const QPlainTextEdit* self, const QMimeData* source) {
+bool QPlainTextEdit_SuperCanInsertFromMimeData(const QPlainTextEdit* self, const QMimeData* source) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_CanInsertFromMimeData_IsBase(true);
@@ -1300,7 +1300,7 @@ void QPlainTextEdit_OnCanInsertFromMimeData(const QPlainTextEdit* self, intptr_t
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseInsertFromMimeData(QPlainTextEdit* self, const QMimeData* source) {
+void QPlainTextEdit_SuperInsertFromMimeData(QPlainTextEdit* self, const QMimeData* source) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_InsertFromMimeData_IsBase(true);
@@ -1319,7 +1319,7 @@ void QPlainTextEdit_OnInsertFromMimeData(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseInputMethodEvent(QPlainTextEdit* self, QInputMethodEvent* param1) {
+void QPlainTextEdit_SuperInputMethodEvent(QPlainTextEdit* self, QInputMethodEvent* param1) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_InputMethodEvent_IsBase(true);
@@ -1338,7 +1338,7 @@ void QPlainTextEdit_OnInputMethodEvent(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseScrollContentsBy(QPlainTextEdit* self, int dx, int dy) {
+void QPlainTextEdit_SuperScrollContentsBy(QPlainTextEdit* self, int dx, int dy) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_ScrollContentsBy_IsBase(true);
@@ -1357,7 +1357,7 @@ void QPlainTextEdit_OnScrollContentsBy(QPlainTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseDoSetTextCursor(QPlainTextEdit* self, const QTextCursor* cursor) {
+void QPlainTextEdit_SuperDoSetTextCursor(QPlainTextEdit* self, const QTextCursor* cursor) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_DoSetTextCursor_IsBase(true);
@@ -1386,7 +1386,7 @@ QSize* QPlainTextEdit_MinimumSizeHint(const QPlainTextEdit* self) {
 }
 
 // Base class handler implementation
-QSize* QPlainTextEdit_QBaseMinimumSizeHint(const QPlainTextEdit* self) {
+QSize* QPlainTextEdit_SuperMinimumSizeHint(const QPlainTextEdit* self) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_MinimumSizeHint_IsBase(true);
@@ -1415,7 +1415,7 @@ QSize* QPlainTextEdit_SizeHint(const QPlainTextEdit* self) {
 }
 
 // Base class handler implementation
-QSize* QPlainTextEdit_QBaseSizeHint(const QPlainTextEdit* self) {
+QSize* QPlainTextEdit_SuperSizeHint(const QPlainTextEdit* self) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_SizeHint_IsBase(true);
@@ -1444,7 +1444,7 @@ void QPlainTextEdit_SetupViewport(QPlainTextEdit* self, QWidget* viewport) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseSetupViewport(QPlainTextEdit* self, QWidget* viewport) {
+void QPlainTextEdit_SuperSetupViewport(QPlainTextEdit* self, QWidget* viewport) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_SetupViewport_IsBase(true);
@@ -1473,7 +1473,7 @@ bool QPlainTextEdit_EventFilter(QPlainTextEdit* self, QObject* param1, QEvent* p
 }
 
 // Base class handler implementation
-bool QPlainTextEdit_QBaseEventFilter(QPlainTextEdit* self, QObject* param1, QEvent* param2) {
+bool QPlainTextEdit_SuperEventFilter(QPlainTextEdit* self, QObject* param1, QEvent* param2) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_EventFilter_IsBase(true);
@@ -1502,7 +1502,7 @@ bool QPlainTextEdit_ViewportEvent(QPlainTextEdit* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool QPlainTextEdit_QBaseViewportEvent(QPlainTextEdit* self, QEvent* param1) {
+bool QPlainTextEdit_SuperViewportEvent(QPlainTextEdit* self, QEvent* param1) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_ViewportEvent_IsBase(true);
@@ -1530,7 +1530,7 @@ QSize* QPlainTextEdit_ViewportSizeHint(const QPlainTextEdit* self) {
 }
 
 // Base class handler implementation
-QSize* QPlainTextEdit_QBaseViewportSizeHint(const QPlainTextEdit* self) {
+QSize* QPlainTextEdit_SuperViewportSizeHint(const QPlainTextEdit* self) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_ViewportSizeHint_IsBase(true);
@@ -1558,7 +1558,7 @@ void QPlainTextEdit_InitStyleOption(const QPlainTextEdit* self, QStyleOptionFram
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseInitStyleOption(const QPlainTextEdit* self, QStyleOptionFrame* option) {
+void QPlainTextEdit_SuperInitStyleOption(const QPlainTextEdit* self, QStyleOptionFrame* option) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_InitStyleOption_IsBase(true);
@@ -1587,7 +1587,7 @@ int QPlainTextEdit_DevType(const QPlainTextEdit* self) {
 }
 
 // Base class handler implementation
-int QPlainTextEdit_QBaseDevType(const QPlainTextEdit* self) {
+int QPlainTextEdit_SuperDevType(const QPlainTextEdit* self) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_DevType_IsBase(true);
@@ -1616,7 +1616,7 @@ void QPlainTextEdit_SetVisible(QPlainTextEdit* self, bool visible) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseSetVisible(QPlainTextEdit* self, bool visible) {
+void QPlainTextEdit_SuperSetVisible(QPlainTextEdit* self, bool visible) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_SetVisible_IsBase(true);
@@ -1645,7 +1645,7 @@ int QPlainTextEdit_HeightForWidth(const QPlainTextEdit* self, int param1) {
 }
 
 // Base class handler implementation
-int QPlainTextEdit_QBaseHeightForWidth(const QPlainTextEdit* self, int param1) {
+int QPlainTextEdit_SuperHeightForWidth(const QPlainTextEdit* self, int param1) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_HeightForWidth_IsBase(true);
@@ -1674,7 +1674,7 @@ bool QPlainTextEdit_HasHeightForWidth(const QPlainTextEdit* self) {
 }
 
 // Base class handler implementation
-bool QPlainTextEdit_QBaseHasHeightForWidth(const QPlainTextEdit* self) {
+bool QPlainTextEdit_SuperHasHeightForWidth(const QPlainTextEdit* self) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_HasHeightForWidth_IsBase(true);
@@ -1703,7 +1703,7 @@ QPaintEngine* QPlainTextEdit_PaintEngine(const QPlainTextEdit* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QPlainTextEdit_QBasePaintEngine(const QPlainTextEdit* self) {
+QPaintEngine* QPlainTextEdit_SuperPaintEngine(const QPlainTextEdit* self) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_PaintEngine_IsBase(true);
@@ -1732,7 +1732,7 @@ void QPlainTextEdit_EnterEvent(QPlainTextEdit* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseEnterEvent(QPlainTextEdit* self, QEnterEvent* event) {
+void QPlainTextEdit_SuperEnterEvent(QPlainTextEdit* self, QEnterEvent* event) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_EnterEvent_IsBase(true);
@@ -1761,7 +1761,7 @@ void QPlainTextEdit_LeaveEvent(QPlainTextEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseLeaveEvent(QPlainTextEdit* self, QEvent* event) {
+void QPlainTextEdit_SuperLeaveEvent(QPlainTextEdit* self, QEvent* event) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_LeaveEvent_IsBase(true);
@@ -1790,7 +1790,7 @@ void QPlainTextEdit_MoveEvent(QPlainTextEdit* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseMoveEvent(QPlainTextEdit* self, QMoveEvent* event) {
+void QPlainTextEdit_SuperMoveEvent(QPlainTextEdit* self, QMoveEvent* event) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_MoveEvent_IsBase(true);
@@ -1819,7 +1819,7 @@ void QPlainTextEdit_CloseEvent(QPlainTextEdit* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseCloseEvent(QPlainTextEdit* self, QCloseEvent* event) {
+void QPlainTextEdit_SuperCloseEvent(QPlainTextEdit* self, QCloseEvent* event) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_CloseEvent_IsBase(true);
@@ -1848,7 +1848,7 @@ void QPlainTextEdit_TabletEvent(QPlainTextEdit* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseTabletEvent(QPlainTextEdit* self, QTabletEvent* event) {
+void QPlainTextEdit_SuperTabletEvent(QPlainTextEdit* self, QTabletEvent* event) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_TabletEvent_IsBase(true);
@@ -1877,7 +1877,7 @@ void QPlainTextEdit_ActionEvent(QPlainTextEdit* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseActionEvent(QPlainTextEdit* self, QActionEvent* event) {
+void QPlainTextEdit_SuperActionEvent(QPlainTextEdit* self, QActionEvent* event) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_ActionEvent_IsBase(true);
@@ -1906,7 +1906,7 @@ void QPlainTextEdit_HideEvent(QPlainTextEdit* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseHideEvent(QPlainTextEdit* self, QHideEvent* event) {
+void QPlainTextEdit_SuperHideEvent(QPlainTextEdit* self, QHideEvent* event) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_HideEvent_IsBase(true);
@@ -1936,7 +1936,7 @@ bool QPlainTextEdit_NativeEvent(QPlainTextEdit* self, const libqt_string eventTy
 }
 
 // Base class handler implementation
-bool QPlainTextEdit_QBaseNativeEvent(QPlainTextEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QPlainTextEdit_SuperNativeEvent(QPlainTextEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
@@ -1966,7 +1966,7 @@ int QPlainTextEdit_Metric(const QPlainTextEdit* self, int param1) {
 }
 
 // Base class handler implementation
-int QPlainTextEdit_QBaseMetric(const QPlainTextEdit* self, int param1) {
+int QPlainTextEdit_SuperMetric(const QPlainTextEdit* self, int param1) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_Metric_IsBase(true);
@@ -1995,7 +1995,7 @@ void QPlainTextEdit_InitPainter(const QPlainTextEdit* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseInitPainter(const QPlainTextEdit* self, QPainter* painter) {
+void QPlainTextEdit_SuperInitPainter(const QPlainTextEdit* self, QPainter* painter) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_InitPainter_IsBase(true);
@@ -2024,7 +2024,7 @@ QPaintDevice* QPlainTextEdit_Redirected(const QPlainTextEdit* self, QPoint* offs
 }
 
 // Base class handler implementation
-QPaintDevice* QPlainTextEdit_QBaseRedirected(const QPlainTextEdit* self, QPoint* offset) {
+QPaintDevice* QPlainTextEdit_SuperRedirected(const QPlainTextEdit* self, QPoint* offset) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_Redirected_IsBase(true);
@@ -2053,7 +2053,7 @@ QPainter* QPlainTextEdit_SharedPainter(const QPlainTextEdit* self) {
 }
 
 // Base class handler implementation
-QPainter* QPlainTextEdit_QBaseSharedPainter(const QPlainTextEdit* self) {
+QPainter* QPlainTextEdit_SuperSharedPainter(const QPlainTextEdit* self) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_SharedPainter_IsBase(true);
@@ -2082,7 +2082,7 @@ void QPlainTextEdit_ChildEvent(QPlainTextEdit* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseChildEvent(QPlainTextEdit* self, QChildEvent* event) {
+void QPlainTextEdit_SuperChildEvent(QPlainTextEdit* self, QChildEvent* event) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_ChildEvent_IsBase(true);
@@ -2111,7 +2111,7 @@ void QPlainTextEdit_CustomEvent(QPlainTextEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseCustomEvent(QPlainTextEdit* self, QEvent* event) {
+void QPlainTextEdit_SuperCustomEvent(QPlainTextEdit* self, QEvent* event) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_CustomEvent_IsBase(true);
@@ -2140,7 +2140,7 @@ void QPlainTextEdit_ConnectNotify(QPlainTextEdit* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseConnectNotify(QPlainTextEdit* self, const QMetaMethod* signal) {
+void QPlainTextEdit_SuperConnectNotify(QPlainTextEdit* self, const QMetaMethod* signal) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_ConnectNotify_IsBase(true);
@@ -2169,7 +2169,7 @@ void QPlainTextEdit_DisconnectNotify(QPlainTextEdit* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseDisconnectNotify(QPlainTextEdit* self, const QMetaMethod* signal) {
+void QPlainTextEdit_SuperDisconnectNotify(QPlainTextEdit* self, const QMetaMethod* signal) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_DisconnectNotify_IsBase(true);
@@ -2197,7 +2197,7 @@ QTextBlock* QPlainTextEdit_FirstVisibleBlock(const QPlainTextEdit* self) {
 }
 
 // Base class handler implementation
-QTextBlock* QPlainTextEdit_QBaseFirstVisibleBlock(const QPlainTextEdit* self) {
+QTextBlock* QPlainTextEdit_SuperFirstVisibleBlock(const QPlainTextEdit* self) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_FirstVisibleBlock_IsBase(true);
@@ -2224,7 +2224,7 @@ QPointF* QPlainTextEdit_ContentOffset(const QPlainTextEdit* self) {
 }
 
 // Base class handler implementation
-QPointF* QPlainTextEdit_QBaseContentOffset(const QPlainTextEdit* self) {
+QPointF* QPlainTextEdit_SuperContentOffset(const QPlainTextEdit* self) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_ContentOffset_IsBase(true);
@@ -2251,7 +2251,7 @@ QRectF* QPlainTextEdit_BlockBoundingRect(const QPlainTextEdit* self, const QText
 }
 
 // Base class handler implementation
-QRectF* QPlainTextEdit_QBaseBlockBoundingRect(const QPlainTextEdit* self, const QTextBlock* block) {
+QRectF* QPlainTextEdit_SuperBlockBoundingRect(const QPlainTextEdit* self, const QTextBlock* block) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_BlockBoundingRect_IsBase(true);
@@ -2278,7 +2278,7 @@ QRectF* QPlainTextEdit_BlockBoundingGeometry(const QPlainTextEdit* self, const Q
 }
 
 // Base class handler implementation
-QRectF* QPlainTextEdit_QBaseBlockBoundingGeometry(const QPlainTextEdit* self, const QTextBlock* block) {
+QRectF* QPlainTextEdit_SuperBlockBoundingGeometry(const QPlainTextEdit* self, const QTextBlock* block) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_BlockBoundingGeometry_IsBase(true);
@@ -2305,7 +2305,7 @@ QAbstractTextDocumentLayout__PaintContext* QPlainTextEdit_GetPaintContext(const 
 }
 
 // Base class handler implementation
-QAbstractTextDocumentLayout__PaintContext* QPlainTextEdit_QBaseGetPaintContext(const QPlainTextEdit* self) {
+QAbstractTextDocumentLayout__PaintContext* QPlainTextEdit_SuperGetPaintContext(const QPlainTextEdit* self) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_GetPaintContext_IsBase(true);
@@ -2333,7 +2333,7 @@ void QPlainTextEdit_ZoomInF(QPlainTextEdit* self, float range) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseZoomInF(QPlainTextEdit* self, float range) {
+void QPlainTextEdit_SuperZoomInF(QPlainTextEdit* self, float range) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_ZoomInF_IsBase(true);
@@ -2362,7 +2362,7 @@ void QPlainTextEdit_SetViewportMargins(QPlainTextEdit* self, int left, int top, 
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseSetViewportMargins(QPlainTextEdit* self, int left, int top, int right, int bottom) {
+void QPlainTextEdit_SuperSetViewportMargins(QPlainTextEdit* self, int left, int top, int right, int bottom) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_SetViewportMargins_IsBase(true);
@@ -2390,7 +2390,7 @@ QMargins* QPlainTextEdit_ViewportMargins(const QPlainTextEdit* self) {
 }
 
 // Base class handler implementation
-QMargins* QPlainTextEdit_QBaseViewportMargins(const QPlainTextEdit* self) {
+QMargins* QPlainTextEdit_SuperViewportMargins(const QPlainTextEdit* self) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_ViewportMargins_IsBase(true);
@@ -2418,7 +2418,7 @@ void QPlainTextEdit_DrawFrame(QPlainTextEdit* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseDrawFrame(QPlainTextEdit* self, QPainter* param1) {
+void QPlainTextEdit_SuperDrawFrame(QPlainTextEdit* self, QPainter* param1) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_DrawFrame_IsBase(true);
@@ -2447,7 +2447,7 @@ void QPlainTextEdit_UpdateMicroFocus(QPlainTextEdit* self) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseUpdateMicroFocus(QPlainTextEdit* self) {
+void QPlainTextEdit_SuperUpdateMicroFocus(QPlainTextEdit* self) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_UpdateMicroFocus_IsBase(true);
@@ -2476,7 +2476,7 @@ void QPlainTextEdit_Create(QPlainTextEdit* self) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseCreate(QPlainTextEdit* self) {
+void QPlainTextEdit_SuperCreate(QPlainTextEdit* self) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_Create_IsBase(true);
@@ -2505,7 +2505,7 @@ void QPlainTextEdit_Destroy(QPlainTextEdit* self) {
 }
 
 // Base class handler implementation
-void QPlainTextEdit_QBaseDestroy(QPlainTextEdit* self) {
+void QPlainTextEdit_SuperDestroy(QPlainTextEdit* self) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_Destroy_IsBase(true);
@@ -2534,7 +2534,7 @@ bool QPlainTextEdit_FocusNextChild(QPlainTextEdit* self) {
 }
 
 // Base class handler implementation
-bool QPlainTextEdit_QBaseFocusNextChild(QPlainTextEdit* self) {
+bool QPlainTextEdit_SuperFocusNextChild(QPlainTextEdit* self) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_FocusNextChild_IsBase(true);
@@ -2563,7 +2563,7 @@ bool QPlainTextEdit_FocusPreviousChild(QPlainTextEdit* self) {
 }
 
 // Base class handler implementation
-bool QPlainTextEdit_QBaseFocusPreviousChild(QPlainTextEdit* self) {
+bool QPlainTextEdit_SuperFocusPreviousChild(QPlainTextEdit* self) {
     auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_FocusPreviousChild_IsBase(true);
@@ -2592,7 +2592,7 @@ QObject* QPlainTextEdit_Sender(const QPlainTextEdit* self) {
 }
 
 // Base class handler implementation
-QObject* QPlainTextEdit_QBaseSender(const QPlainTextEdit* self) {
+QObject* QPlainTextEdit_SuperSender(const QPlainTextEdit* self) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_Sender_IsBase(true);
@@ -2621,7 +2621,7 @@ int QPlainTextEdit_SenderSignalIndex(const QPlainTextEdit* self) {
 }
 
 // Base class handler implementation
-int QPlainTextEdit_QBaseSenderSignalIndex(const QPlainTextEdit* self) {
+int QPlainTextEdit_SuperSenderSignalIndex(const QPlainTextEdit* self) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_SenderSignalIndex_IsBase(true);
@@ -2650,7 +2650,7 @@ int QPlainTextEdit_Receivers(const QPlainTextEdit* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QPlainTextEdit_QBaseReceivers(const QPlainTextEdit* self, const char* signal) {
+int QPlainTextEdit_SuperReceivers(const QPlainTextEdit* self, const char* signal) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_Receivers_IsBase(true);
@@ -2679,7 +2679,7 @@ bool QPlainTextEdit_IsSignalConnected(const QPlainTextEdit* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QPlainTextEdit_QBaseIsSignalConnected(const QPlainTextEdit* self, const QMetaMethod* signal) {
+bool QPlainTextEdit_SuperIsSignalConnected(const QPlainTextEdit* self, const QMetaMethod* signal) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_IsSignalConnected_IsBase(true);
@@ -2708,7 +2708,7 @@ double QPlainTextEdit_GetDecodedMetricF(const QPlainTextEdit* self, int metricA,
 }
 
 // Base class handler implementation
-double QPlainTextEdit_QBaseGetDecodedMetricF(const QPlainTextEdit* self, int metricA, int metricB) {
+double QPlainTextEdit_SuperGetDecodedMetricF(const QPlainTextEdit* self, int metricA, int metricB) {
     auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
     if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
         vqplaintextedit->setQPlainTextEdit_GetDecodedMetricF_IsBase(true);
@@ -2839,7 +2839,7 @@ void QPlainTextDocumentLayout_DocumentChanged(QPlainTextDocumentLayout* self, in
 }
 
 // Base class handler implementation
-QMetaObject* QPlainTextDocumentLayout_QBaseMetaObject(const QPlainTextDocumentLayout* self) {
+QMetaObject* QPlainTextDocumentLayout_SuperMetaObject(const QPlainTextDocumentLayout* self) {
     auto* vqplaintextdocumentlayout = const_cast<VirtualQPlainTextDocumentLayout*>(dynamic_cast<const VirtualQPlainTextDocumentLayout*>(self));
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_MetaObject_IsBase(true);
@@ -2858,7 +2858,7 @@ void QPlainTextDocumentLayout_OnMetaObject(const QPlainTextDocumentLayout* self,
 }
 
 // Base class handler implementation
-void* QPlainTextDocumentLayout_QBaseMetacast(QPlainTextDocumentLayout* self, const char* param1) {
+void* QPlainTextDocumentLayout_SuperMetacast(QPlainTextDocumentLayout* self, const char* param1) {
     auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_Metacast_IsBase(true);
@@ -2877,7 +2877,7 @@ void QPlainTextDocumentLayout_OnMetacast(QPlainTextDocumentLayout* self, intptr_
 }
 
 // Base class handler implementation
-int QPlainTextDocumentLayout_QBaseMetacall(QPlainTextDocumentLayout* self, int param1, int param2, void** param3) {
+int QPlainTextDocumentLayout_SuperMetacall(QPlainTextDocumentLayout* self, int param1, int param2, void** param3) {
     auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_Metacall_IsBase(true);
@@ -2896,7 +2896,7 @@ void QPlainTextDocumentLayout_OnMetacall(QPlainTextDocumentLayout* self, intptr_
 }
 
 // Base class handler implementation
-void QPlainTextDocumentLayout_QBaseDraw(QPlainTextDocumentLayout* self, QPainter* param1, const QAbstractTextDocumentLayout__PaintContext* param2) {
+void QPlainTextDocumentLayout_SuperDraw(QPlainTextDocumentLayout* self, QPainter* param1, const QAbstractTextDocumentLayout__PaintContext* param2) {
     auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_Draw_IsBase(true);
@@ -2915,7 +2915,7 @@ void QPlainTextDocumentLayout_OnDraw(QPlainTextDocumentLayout* self, intptr_t sl
 }
 
 // Base class handler implementation
-int QPlainTextDocumentLayout_QBaseHitTest(const QPlainTextDocumentLayout* self, const QPointF* param1, int param2) {
+int QPlainTextDocumentLayout_SuperHitTest(const QPlainTextDocumentLayout* self, const QPointF* param1, int param2) {
     auto* vqplaintextdocumentlayout = const_cast<VirtualQPlainTextDocumentLayout*>(dynamic_cast<const VirtualQPlainTextDocumentLayout*>(self));
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_HitTest_IsBase(true);
@@ -2934,7 +2934,7 @@ void QPlainTextDocumentLayout_OnHitTest(const QPlainTextDocumentLayout* self, in
 }
 
 // Base class handler implementation
-int QPlainTextDocumentLayout_QBasePageCount(const QPlainTextDocumentLayout* self) {
+int QPlainTextDocumentLayout_SuperPageCount(const QPlainTextDocumentLayout* self) {
     auto* vqplaintextdocumentlayout = const_cast<VirtualQPlainTextDocumentLayout*>(dynamic_cast<const VirtualQPlainTextDocumentLayout*>(self));
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_PageCount_IsBase(true);
@@ -2953,7 +2953,7 @@ void QPlainTextDocumentLayout_OnPageCount(const QPlainTextDocumentLayout* self, 
 }
 
 // Base class handler implementation
-QSizeF* QPlainTextDocumentLayout_QBaseDocumentSize(const QPlainTextDocumentLayout* self) {
+QSizeF* QPlainTextDocumentLayout_SuperDocumentSize(const QPlainTextDocumentLayout* self) {
     auto* vqplaintextdocumentlayout = const_cast<VirtualQPlainTextDocumentLayout*>(dynamic_cast<const VirtualQPlainTextDocumentLayout*>(self));
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_DocumentSize_IsBase(true);
@@ -2972,7 +2972,7 @@ void QPlainTextDocumentLayout_OnDocumentSize(const QPlainTextDocumentLayout* sel
 }
 
 // Base class handler implementation
-QRectF* QPlainTextDocumentLayout_QBaseFrameBoundingRect(const QPlainTextDocumentLayout* self, QTextFrame* param1) {
+QRectF* QPlainTextDocumentLayout_SuperFrameBoundingRect(const QPlainTextDocumentLayout* self, QTextFrame* param1) {
     auto* vqplaintextdocumentlayout = const_cast<VirtualQPlainTextDocumentLayout*>(dynamic_cast<const VirtualQPlainTextDocumentLayout*>(self));
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_FrameBoundingRect_IsBase(true);
@@ -2991,7 +2991,7 @@ void QPlainTextDocumentLayout_OnFrameBoundingRect(const QPlainTextDocumentLayout
 }
 
 // Base class handler implementation
-QRectF* QPlainTextDocumentLayout_QBaseBlockBoundingRect(const QPlainTextDocumentLayout* self, const QTextBlock* block) {
+QRectF* QPlainTextDocumentLayout_SuperBlockBoundingRect(const QPlainTextDocumentLayout* self, const QTextBlock* block) {
     auto* vqplaintextdocumentlayout = const_cast<VirtualQPlainTextDocumentLayout*>(dynamic_cast<const VirtualQPlainTextDocumentLayout*>(self));
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_BlockBoundingRect_IsBase(true);
@@ -3010,7 +3010,7 @@ void QPlainTextDocumentLayout_OnBlockBoundingRect(const QPlainTextDocumentLayout
 }
 
 // Base class handler implementation
-void QPlainTextDocumentLayout_QBaseDocumentChanged(QPlainTextDocumentLayout* self, int from, int param2, int charsAdded) {
+void QPlainTextDocumentLayout_SuperDocumentChanged(QPlainTextDocumentLayout* self, int from, int param2, int charsAdded) {
     auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_DocumentChanged_IsBase(true);
@@ -3039,7 +3039,7 @@ void QPlainTextDocumentLayout_ResizeInlineObject(QPlainTextDocumentLayout* self,
 }
 
 // Base class handler implementation
-void QPlainTextDocumentLayout_QBaseResizeInlineObject(QPlainTextDocumentLayout* self, QTextInlineObject* item, int posInDocument, const QTextFormat* format) {
+void QPlainTextDocumentLayout_SuperResizeInlineObject(QPlainTextDocumentLayout* self, QTextInlineObject* item, int posInDocument, const QTextFormat* format) {
     auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_ResizeInlineObject_IsBase(true);
@@ -3068,7 +3068,7 @@ void QPlainTextDocumentLayout_PositionInlineObject(QPlainTextDocumentLayout* sel
 }
 
 // Base class handler implementation
-void QPlainTextDocumentLayout_QBasePositionInlineObject(QPlainTextDocumentLayout* self, QTextInlineObject* item, int posInDocument, const QTextFormat* format) {
+void QPlainTextDocumentLayout_SuperPositionInlineObject(QPlainTextDocumentLayout* self, QTextInlineObject* item, int posInDocument, const QTextFormat* format) {
     auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_PositionInlineObject_IsBase(true);
@@ -3097,7 +3097,7 @@ void QPlainTextDocumentLayout_DrawInlineObject(QPlainTextDocumentLayout* self, Q
 }
 
 // Base class handler implementation
-void QPlainTextDocumentLayout_QBaseDrawInlineObject(QPlainTextDocumentLayout* self, QPainter* painter, const QRectF* rect, QTextInlineObject* object, int posInDocument, const QTextFormat* format) {
+void QPlainTextDocumentLayout_SuperDrawInlineObject(QPlainTextDocumentLayout* self, QPainter* painter, const QRectF* rect, QTextInlineObject* object, int posInDocument, const QTextFormat* format) {
     auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_DrawInlineObject_IsBase(true);
@@ -3126,7 +3126,7 @@ bool QPlainTextDocumentLayout_Event(QPlainTextDocumentLayout* self, QEvent* even
 }
 
 // Base class handler implementation
-bool QPlainTextDocumentLayout_QBaseEvent(QPlainTextDocumentLayout* self, QEvent* event) {
+bool QPlainTextDocumentLayout_SuperEvent(QPlainTextDocumentLayout* self, QEvent* event) {
     auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_Event_IsBase(true);
@@ -3155,7 +3155,7 @@ bool QPlainTextDocumentLayout_EventFilter(QPlainTextDocumentLayout* self, QObjec
 }
 
 // Base class handler implementation
-bool QPlainTextDocumentLayout_QBaseEventFilter(QPlainTextDocumentLayout* self, QObject* watched, QEvent* event) {
+bool QPlainTextDocumentLayout_SuperEventFilter(QPlainTextDocumentLayout* self, QObject* watched, QEvent* event) {
     auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_EventFilter_IsBase(true);
@@ -3184,7 +3184,7 @@ void QPlainTextDocumentLayout_TimerEvent(QPlainTextDocumentLayout* self, QTimerE
 }
 
 // Base class handler implementation
-void QPlainTextDocumentLayout_QBaseTimerEvent(QPlainTextDocumentLayout* self, QTimerEvent* event) {
+void QPlainTextDocumentLayout_SuperTimerEvent(QPlainTextDocumentLayout* self, QTimerEvent* event) {
     auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_TimerEvent_IsBase(true);
@@ -3213,7 +3213,7 @@ void QPlainTextDocumentLayout_ChildEvent(QPlainTextDocumentLayout* self, QChildE
 }
 
 // Base class handler implementation
-void QPlainTextDocumentLayout_QBaseChildEvent(QPlainTextDocumentLayout* self, QChildEvent* event) {
+void QPlainTextDocumentLayout_SuperChildEvent(QPlainTextDocumentLayout* self, QChildEvent* event) {
     auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_ChildEvent_IsBase(true);
@@ -3242,7 +3242,7 @@ void QPlainTextDocumentLayout_CustomEvent(QPlainTextDocumentLayout* self, QEvent
 }
 
 // Base class handler implementation
-void QPlainTextDocumentLayout_QBaseCustomEvent(QPlainTextDocumentLayout* self, QEvent* event) {
+void QPlainTextDocumentLayout_SuperCustomEvent(QPlainTextDocumentLayout* self, QEvent* event) {
     auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_CustomEvent_IsBase(true);
@@ -3271,7 +3271,7 @@ void QPlainTextDocumentLayout_ConnectNotify(QPlainTextDocumentLayout* self, cons
 }
 
 // Base class handler implementation
-void QPlainTextDocumentLayout_QBaseConnectNotify(QPlainTextDocumentLayout* self, const QMetaMethod* signal) {
+void QPlainTextDocumentLayout_SuperConnectNotify(QPlainTextDocumentLayout* self, const QMetaMethod* signal) {
     auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_ConnectNotify_IsBase(true);
@@ -3300,7 +3300,7 @@ void QPlainTextDocumentLayout_DisconnectNotify(QPlainTextDocumentLayout* self, c
 }
 
 // Base class handler implementation
-void QPlainTextDocumentLayout_QBaseDisconnectNotify(QPlainTextDocumentLayout* self, const QMetaMethod* signal) {
+void QPlainTextDocumentLayout_SuperDisconnectNotify(QPlainTextDocumentLayout* self, const QMetaMethod* signal) {
     auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_DisconnectNotify_IsBase(true);
@@ -3329,7 +3329,7 @@ int QPlainTextDocumentLayout_FormatIndex(QPlainTextDocumentLayout* self, int pos
 }
 
 // Base class handler implementation
-int QPlainTextDocumentLayout_QBaseFormatIndex(QPlainTextDocumentLayout* self, int pos) {
+int QPlainTextDocumentLayout_SuperFormatIndex(QPlainTextDocumentLayout* self, int pos) {
     auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_FormatIndex_IsBase(true);
@@ -3357,7 +3357,7 @@ QTextCharFormat* QPlainTextDocumentLayout_Format(QPlainTextDocumentLayout* self,
 }
 
 // Base class handler implementation
-QTextCharFormat* QPlainTextDocumentLayout_QBaseFormat(QPlainTextDocumentLayout* self, int pos) {
+QTextCharFormat* QPlainTextDocumentLayout_SuperFormat(QPlainTextDocumentLayout* self, int pos) {
     auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_Format_IsBase(true);
@@ -3385,7 +3385,7 @@ QObject* QPlainTextDocumentLayout_Sender(const QPlainTextDocumentLayout* self) {
 }
 
 // Base class handler implementation
-QObject* QPlainTextDocumentLayout_QBaseSender(const QPlainTextDocumentLayout* self) {
+QObject* QPlainTextDocumentLayout_SuperSender(const QPlainTextDocumentLayout* self) {
     auto* vqplaintextdocumentlayout = const_cast<VirtualQPlainTextDocumentLayout*>(dynamic_cast<const VirtualQPlainTextDocumentLayout*>(self));
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_Sender_IsBase(true);
@@ -3414,7 +3414,7 @@ int QPlainTextDocumentLayout_SenderSignalIndex(const QPlainTextDocumentLayout* s
 }
 
 // Base class handler implementation
-int QPlainTextDocumentLayout_QBaseSenderSignalIndex(const QPlainTextDocumentLayout* self) {
+int QPlainTextDocumentLayout_SuperSenderSignalIndex(const QPlainTextDocumentLayout* self) {
     auto* vqplaintextdocumentlayout = const_cast<VirtualQPlainTextDocumentLayout*>(dynamic_cast<const VirtualQPlainTextDocumentLayout*>(self));
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_SenderSignalIndex_IsBase(true);
@@ -3443,7 +3443,7 @@ int QPlainTextDocumentLayout_Receivers(const QPlainTextDocumentLayout* self, con
 }
 
 // Base class handler implementation
-int QPlainTextDocumentLayout_QBaseReceivers(const QPlainTextDocumentLayout* self, const char* signal) {
+int QPlainTextDocumentLayout_SuperReceivers(const QPlainTextDocumentLayout* self, const char* signal) {
     auto* vqplaintextdocumentlayout = const_cast<VirtualQPlainTextDocumentLayout*>(dynamic_cast<const VirtualQPlainTextDocumentLayout*>(self));
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_Receivers_IsBase(true);
@@ -3472,7 +3472,7 @@ bool QPlainTextDocumentLayout_IsSignalConnected(const QPlainTextDocumentLayout* 
 }
 
 // Base class handler implementation
-bool QPlainTextDocumentLayout_QBaseIsSignalConnected(const QPlainTextDocumentLayout* self, const QMetaMethod* signal) {
+bool QPlainTextDocumentLayout_SuperIsSignalConnected(const QPlainTextDocumentLayout* self, const QMetaMethod* signal) {
     auto* vqplaintextdocumentlayout = const_cast<VirtualQPlainTextDocumentLayout*>(dynamic_cast<const VirtualQPlainTextDocumentLayout*>(self));
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->setQPlainTextDocumentLayout_IsSignalConnected_IsBase(true);

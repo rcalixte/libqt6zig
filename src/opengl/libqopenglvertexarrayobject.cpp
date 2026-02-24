@@ -73,7 +73,7 @@ void QOpenGLVertexArrayObject_Release(QOpenGLVertexArrayObject* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QOpenGLVertexArrayObject_QBaseMetaObject(const QOpenGLVertexArrayObject* self) {
+QMetaObject* QOpenGLVertexArrayObject_SuperMetaObject(const QOpenGLVertexArrayObject* self) {
     auto* vqopenglvertexarrayobject = const_cast<VirtualQOpenGLVertexArrayObject*>(dynamic_cast<const VirtualQOpenGLVertexArrayObject*>(self));
     if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_MetaObject_IsBase(true);
@@ -92,7 +92,7 @@ void QOpenGLVertexArrayObject_OnMetaObject(const QOpenGLVertexArrayObject* self,
 }
 
 // Base class handler implementation
-void* QOpenGLVertexArrayObject_QBaseMetacast(QOpenGLVertexArrayObject* self, const char* param1) {
+void* QOpenGLVertexArrayObject_SuperMetacast(QOpenGLVertexArrayObject* self, const char* param1) {
     auto* vqopenglvertexarrayobject = dynamic_cast<VirtualQOpenGLVertexArrayObject*>(self);
     if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_Metacast_IsBase(true);
@@ -111,7 +111,7 @@ void QOpenGLVertexArrayObject_OnMetacast(QOpenGLVertexArrayObject* self, intptr_
 }
 
 // Base class handler implementation
-int QOpenGLVertexArrayObject_QBaseMetacall(QOpenGLVertexArrayObject* self, int param1, int param2, void** param3) {
+int QOpenGLVertexArrayObject_SuperMetacall(QOpenGLVertexArrayObject* self, int param1, int param2, void** param3) {
     auto* vqopenglvertexarrayobject = dynamic_cast<VirtualQOpenGLVertexArrayObject*>(self);
     if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_Metacall_IsBase(true);
@@ -140,7 +140,7 @@ bool QOpenGLVertexArrayObject_Event(QOpenGLVertexArrayObject* self, QEvent* even
 }
 
 // Base class handler implementation
-bool QOpenGLVertexArrayObject_QBaseEvent(QOpenGLVertexArrayObject* self, QEvent* event) {
+bool QOpenGLVertexArrayObject_SuperEvent(QOpenGLVertexArrayObject* self, QEvent* event) {
     auto* vqopenglvertexarrayobject = dynamic_cast<VirtualQOpenGLVertexArrayObject*>(self);
     if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_Event_IsBase(true);
@@ -169,7 +169,7 @@ bool QOpenGLVertexArrayObject_EventFilter(QOpenGLVertexArrayObject* self, QObjec
 }
 
 // Base class handler implementation
-bool QOpenGLVertexArrayObject_QBaseEventFilter(QOpenGLVertexArrayObject* self, QObject* watched, QEvent* event) {
+bool QOpenGLVertexArrayObject_SuperEventFilter(QOpenGLVertexArrayObject* self, QObject* watched, QEvent* event) {
     auto* vqopenglvertexarrayobject = dynamic_cast<VirtualQOpenGLVertexArrayObject*>(self);
     if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_EventFilter_IsBase(true);
@@ -198,7 +198,7 @@ void QOpenGLVertexArrayObject_TimerEvent(QOpenGLVertexArrayObject* self, QTimerE
 }
 
 // Base class handler implementation
-void QOpenGLVertexArrayObject_QBaseTimerEvent(QOpenGLVertexArrayObject* self, QTimerEvent* event) {
+void QOpenGLVertexArrayObject_SuperTimerEvent(QOpenGLVertexArrayObject* self, QTimerEvent* event) {
     auto* vqopenglvertexarrayobject = dynamic_cast<VirtualQOpenGLVertexArrayObject*>(self);
     if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_TimerEvent_IsBase(true);
@@ -227,7 +227,7 @@ void QOpenGLVertexArrayObject_ChildEvent(QOpenGLVertexArrayObject* self, QChildE
 }
 
 // Base class handler implementation
-void QOpenGLVertexArrayObject_QBaseChildEvent(QOpenGLVertexArrayObject* self, QChildEvent* event) {
+void QOpenGLVertexArrayObject_SuperChildEvent(QOpenGLVertexArrayObject* self, QChildEvent* event) {
     auto* vqopenglvertexarrayobject = dynamic_cast<VirtualQOpenGLVertexArrayObject*>(self);
     if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_ChildEvent_IsBase(true);
@@ -256,7 +256,7 @@ void QOpenGLVertexArrayObject_CustomEvent(QOpenGLVertexArrayObject* self, QEvent
 }
 
 // Base class handler implementation
-void QOpenGLVertexArrayObject_QBaseCustomEvent(QOpenGLVertexArrayObject* self, QEvent* event) {
+void QOpenGLVertexArrayObject_SuperCustomEvent(QOpenGLVertexArrayObject* self, QEvent* event) {
     auto* vqopenglvertexarrayobject = dynamic_cast<VirtualQOpenGLVertexArrayObject*>(self);
     if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_CustomEvent_IsBase(true);
@@ -285,7 +285,7 @@ void QOpenGLVertexArrayObject_ConnectNotify(QOpenGLVertexArrayObject* self, cons
 }
 
 // Base class handler implementation
-void QOpenGLVertexArrayObject_QBaseConnectNotify(QOpenGLVertexArrayObject* self, const QMetaMethod* signal) {
+void QOpenGLVertexArrayObject_SuperConnectNotify(QOpenGLVertexArrayObject* self, const QMetaMethod* signal) {
     auto* vqopenglvertexarrayobject = dynamic_cast<VirtualQOpenGLVertexArrayObject*>(self);
     if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_ConnectNotify_IsBase(true);
@@ -314,7 +314,7 @@ void QOpenGLVertexArrayObject_DisconnectNotify(QOpenGLVertexArrayObject* self, c
 }
 
 // Base class handler implementation
-void QOpenGLVertexArrayObject_QBaseDisconnectNotify(QOpenGLVertexArrayObject* self, const QMetaMethod* signal) {
+void QOpenGLVertexArrayObject_SuperDisconnectNotify(QOpenGLVertexArrayObject* self, const QMetaMethod* signal) {
     auto* vqopenglvertexarrayobject = dynamic_cast<VirtualQOpenGLVertexArrayObject*>(self);
     if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_DisconnectNotify_IsBase(true);
@@ -343,7 +343,7 @@ QObject* QOpenGLVertexArrayObject_Sender(const QOpenGLVertexArrayObject* self) {
 }
 
 // Base class handler implementation
-QObject* QOpenGLVertexArrayObject_QBaseSender(const QOpenGLVertexArrayObject* self) {
+QObject* QOpenGLVertexArrayObject_SuperSender(const QOpenGLVertexArrayObject* self) {
     auto* vqopenglvertexarrayobject = const_cast<VirtualQOpenGLVertexArrayObject*>(dynamic_cast<const VirtualQOpenGLVertexArrayObject*>(self));
     if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_Sender_IsBase(true);
@@ -372,7 +372,7 @@ int QOpenGLVertexArrayObject_SenderSignalIndex(const QOpenGLVertexArrayObject* s
 }
 
 // Base class handler implementation
-int QOpenGLVertexArrayObject_QBaseSenderSignalIndex(const QOpenGLVertexArrayObject* self) {
+int QOpenGLVertexArrayObject_SuperSenderSignalIndex(const QOpenGLVertexArrayObject* self) {
     auto* vqopenglvertexarrayobject = const_cast<VirtualQOpenGLVertexArrayObject*>(dynamic_cast<const VirtualQOpenGLVertexArrayObject*>(self));
     if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_SenderSignalIndex_IsBase(true);
@@ -401,7 +401,7 @@ int QOpenGLVertexArrayObject_Receivers(const QOpenGLVertexArrayObject* self, con
 }
 
 // Base class handler implementation
-int QOpenGLVertexArrayObject_QBaseReceivers(const QOpenGLVertexArrayObject* self, const char* signal) {
+int QOpenGLVertexArrayObject_SuperReceivers(const QOpenGLVertexArrayObject* self, const char* signal) {
     auto* vqopenglvertexarrayobject = const_cast<VirtualQOpenGLVertexArrayObject*>(dynamic_cast<const VirtualQOpenGLVertexArrayObject*>(self));
     if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_Receivers_IsBase(true);
@@ -430,7 +430,7 @@ bool QOpenGLVertexArrayObject_IsSignalConnected(const QOpenGLVertexArrayObject* 
 }
 
 // Base class handler implementation
-bool QOpenGLVertexArrayObject_QBaseIsSignalConnected(const QOpenGLVertexArrayObject* self, const QMetaMethod* signal) {
+bool QOpenGLVertexArrayObject_SuperIsSignalConnected(const QOpenGLVertexArrayObject* self, const QMetaMethod* signal) {
     auto* vqopenglvertexarrayobject = const_cast<VirtualQOpenGLVertexArrayObject*>(dynamic_cast<const VirtualQOpenGLVertexArrayObject*>(self));
     if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_IsSignalConnected_IsBase(true);

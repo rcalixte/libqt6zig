@@ -179,7 +179,7 @@ void KPasswordLineEdit_Connect_PasswordChanged(KPasswordLineEdit* self, intptr_t
 }
 
 // Base class handler implementation
-QMetaObject* KPasswordLineEdit_QBaseMetaObject(const KPasswordLineEdit* self) {
+QMetaObject* KPasswordLineEdit_SuperMetaObject(const KPasswordLineEdit* self) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_MetaObject_IsBase(true);
@@ -198,7 +198,7 @@ void KPasswordLineEdit_OnMetaObject(const KPasswordLineEdit* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* KPasswordLineEdit_QBaseMetacast(KPasswordLineEdit* self, const char* param1) {
+void* KPasswordLineEdit_SuperMetacast(KPasswordLineEdit* self, const char* param1) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_Metacast_IsBase(true);
@@ -217,7 +217,7 @@ void KPasswordLineEdit_OnMetacast(KPasswordLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KPasswordLineEdit_QBaseMetacall(KPasswordLineEdit* self, int param1, int param2, void** param3) {
+int KPasswordLineEdit_SuperMetacall(KPasswordLineEdit* self, int param1, int param2, void** param3) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_Metacall_IsBase(true);
@@ -246,7 +246,7 @@ int KPasswordLineEdit_DevType(const KPasswordLineEdit* self) {
 }
 
 // Base class handler implementation
-int KPasswordLineEdit_QBaseDevType(const KPasswordLineEdit* self) {
+int KPasswordLineEdit_SuperDevType(const KPasswordLineEdit* self) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_DevType_IsBase(true);
@@ -275,7 +275,7 @@ void KPasswordLineEdit_SetVisible(KPasswordLineEdit* self, bool visible) {
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseSetVisible(KPasswordLineEdit* self, bool visible) {
+void KPasswordLineEdit_SuperSetVisible(KPasswordLineEdit* self, bool visible) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_SetVisible_IsBase(true);
@@ -304,7 +304,7 @@ QSize* KPasswordLineEdit_SizeHint(const KPasswordLineEdit* self) {
 }
 
 // Base class handler implementation
-QSize* KPasswordLineEdit_QBaseSizeHint(const KPasswordLineEdit* self) {
+QSize* KPasswordLineEdit_SuperSizeHint(const KPasswordLineEdit* self) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_SizeHint_IsBase(true);
@@ -333,7 +333,7 @@ QSize* KPasswordLineEdit_MinimumSizeHint(const KPasswordLineEdit* self) {
 }
 
 // Base class handler implementation
-QSize* KPasswordLineEdit_QBaseMinimumSizeHint(const KPasswordLineEdit* self) {
+QSize* KPasswordLineEdit_SuperMinimumSizeHint(const KPasswordLineEdit* self) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_MinimumSizeHint_IsBase(true);
@@ -362,7 +362,7 @@ int KPasswordLineEdit_HeightForWidth(const KPasswordLineEdit* self, int param1) 
 }
 
 // Base class handler implementation
-int KPasswordLineEdit_QBaseHeightForWidth(const KPasswordLineEdit* self, int param1) {
+int KPasswordLineEdit_SuperHeightForWidth(const KPasswordLineEdit* self, int param1) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_HeightForWidth_IsBase(true);
@@ -391,7 +391,7 @@ bool KPasswordLineEdit_HasHeightForWidth(const KPasswordLineEdit* self) {
 }
 
 // Base class handler implementation
-bool KPasswordLineEdit_QBaseHasHeightForWidth(const KPasswordLineEdit* self) {
+bool KPasswordLineEdit_SuperHasHeightForWidth(const KPasswordLineEdit* self) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_HasHeightForWidth_IsBase(true);
@@ -420,7 +420,7 @@ QPaintEngine* KPasswordLineEdit_PaintEngine(const KPasswordLineEdit* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KPasswordLineEdit_QBasePaintEngine(const KPasswordLineEdit* self) {
+QPaintEngine* KPasswordLineEdit_SuperPaintEngine(const KPasswordLineEdit* self) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_PaintEngine_IsBase(true);
@@ -449,7 +449,7 @@ bool KPasswordLineEdit_Event(KPasswordLineEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KPasswordLineEdit_QBaseEvent(KPasswordLineEdit* self, QEvent* event) {
+bool KPasswordLineEdit_SuperEvent(KPasswordLineEdit* self, QEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_Event_IsBase(true);
@@ -478,7 +478,7 @@ void KPasswordLineEdit_MousePressEvent(KPasswordLineEdit* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseMousePressEvent(KPasswordLineEdit* self, QMouseEvent* event) {
+void KPasswordLineEdit_SuperMousePressEvent(KPasswordLineEdit* self, QMouseEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_MousePressEvent_IsBase(true);
@@ -507,7 +507,7 @@ void KPasswordLineEdit_MouseReleaseEvent(KPasswordLineEdit* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseMouseReleaseEvent(KPasswordLineEdit* self, QMouseEvent* event) {
+void KPasswordLineEdit_SuperMouseReleaseEvent(KPasswordLineEdit* self, QMouseEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_MouseReleaseEvent_IsBase(true);
@@ -536,7 +536,7 @@ void KPasswordLineEdit_MouseDoubleClickEvent(KPasswordLineEdit* self, QMouseEven
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseMouseDoubleClickEvent(KPasswordLineEdit* self, QMouseEvent* event) {
+void KPasswordLineEdit_SuperMouseDoubleClickEvent(KPasswordLineEdit* self, QMouseEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_MouseDoubleClickEvent_IsBase(true);
@@ -565,7 +565,7 @@ void KPasswordLineEdit_MouseMoveEvent(KPasswordLineEdit* self, QMouseEvent* even
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseMouseMoveEvent(KPasswordLineEdit* self, QMouseEvent* event) {
+void KPasswordLineEdit_SuperMouseMoveEvent(KPasswordLineEdit* self, QMouseEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_MouseMoveEvent_IsBase(true);
@@ -594,7 +594,7 @@ void KPasswordLineEdit_WheelEvent(KPasswordLineEdit* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseWheelEvent(KPasswordLineEdit* self, QWheelEvent* event) {
+void KPasswordLineEdit_SuperWheelEvent(KPasswordLineEdit* self, QWheelEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_WheelEvent_IsBase(true);
@@ -623,7 +623,7 @@ void KPasswordLineEdit_KeyPressEvent(KPasswordLineEdit* self, QKeyEvent* event) 
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseKeyPressEvent(KPasswordLineEdit* self, QKeyEvent* event) {
+void KPasswordLineEdit_SuperKeyPressEvent(KPasswordLineEdit* self, QKeyEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_KeyPressEvent_IsBase(true);
@@ -652,7 +652,7 @@ void KPasswordLineEdit_KeyReleaseEvent(KPasswordLineEdit* self, QKeyEvent* event
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseKeyReleaseEvent(KPasswordLineEdit* self, QKeyEvent* event) {
+void KPasswordLineEdit_SuperKeyReleaseEvent(KPasswordLineEdit* self, QKeyEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_KeyReleaseEvent_IsBase(true);
@@ -681,7 +681,7 @@ void KPasswordLineEdit_FocusInEvent(KPasswordLineEdit* self, QFocusEvent* event)
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseFocusInEvent(KPasswordLineEdit* self, QFocusEvent* event) {
+void KPasswordLineEdit_SuperFocusInEvent(KPasswordLineEdit* self, QFocusEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_FocusInEvent_IsBase(true);
@@ -710,7 +710,7 @@ void KPasswordLineEdit_FocusOutEvent(KPasswordLineEdit* self, QFocusEvent* event
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseFocusOutEvent(KPasswordLineEdit* self, QFocusEvent* event) {
+void KPasswordLineEdit_SuperFocusOutEvent(KPasswordLineEdit* self, QFocusEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_FocusOutEvent_IsBase(true);
@@ -739,7 +739,7 @@ void KPasswordLineEdit_EnterEvent(KPasswordLineEdit* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseEnterEvent(KPasswordLineEdit* self, QEnterEvent* event) {
+void KPasswordLineEdit_SuperEnterEvent(KPasswordLineEdit* self, QEnterEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_EnterEvent_IsBase(true);
@@ -768,7 +768,7 @@ void KPasswordLineEdit_LeaveEvent(KPasswordLineEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseLeaveEvent(KPasswordLineEdit* self, QEvent* event) {
+void KPasswordLineEdit_SuperLeaveEvent(KPasswordLineEdit* self, QEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_LeaveEvent_IsBase(true);
@@ -797,7 +797,7 @@ void KPasswordLineEdit_PaintEvent(KPasswordLineEdit* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBasePaintEvent(KPasswordLineEdit* self, QPaintEvent* event) {
+void KPasswordLineEdit_SuperPaintEvent(KPasswordLineEdit* self, QPaintEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_PaintEvent_IsBase(true);
@@ -826,7 +826,7 @@ void KPasswordLineEdit_MoveEvent(KPasswordLineEdit* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseMoveEvent(KPasswordLineEdit* self, QMoveEvent* event) {
+void KPasswordLineEdit_SuperMoveEvent(KPasswordLineEdit* self, QMoveEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_MoveEvent_IsBase(true);
@@ -855,7 +855,7 @@ void KPasswordLineEdit_ResizeEvent(KPasswordLineEdit* self, QResizeEvent* event)
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseResizeEvent(KPasswordLineEdit* self, QResizeEvent* event) {
+void KPasswordLineEdit_SuperResizeEvent(KPasswordLineEdit* self, QResizeEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_ResizeEvent_IsBase(true);
@@ -884,7 +884,7 @@ void KPasswordLineEdit_CloseEvent(KPasswordLineEdit* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseCloseEvent(KPasswordLineEdit* self, QCloseEvent* event) {
+void KPasswordLineEdit_SuperCloseEvent(KPasswordLineEdit* self, QCloseEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_CloseEvent_IsBase(true);
@@ -913,7 +913,7 @@ void KPasswordLineEdit_ContextMenuEvent(KPasswordLineEdit* self, QContextMenuEve
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseContextMenuEvent(KPasswordLineEdit* self, QContextMenuEvent* event) {
+void KPasswordLineEdit_SuperContextMenuEvent(KPasswordLineEdit* self, QContextMenuEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_ContextMenuEvent_IsBase(true);
@@ -942,7 +942,7 @@ void KPasswordLineEdit_TabletEvent(KPasswordLineEdit* self, QTabletEvent* event)
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseTabletEvent(KPasswordLineEdit* self, QTabletEvent* event) {
+void KPasswordLineEdit_SuperTabletEvent(KPasswordLineEdit* self, QTabletEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_TabletEvent_IsBase(true);
@@ -971,7 +971,7 @@ void KPasswordLineEdit_ActionEvent(KPasswordLineEdit* self, QActionEvent* event)
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseActionEvent(KPasswordLineEdit* self, QActionEvent* event) {
+void KPasswordLineEdit_SuperActionEvent(KPasswordLineEdit* self, QActionEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_ActionEvent_IsBase(true);
@@ -1000,7 +1000,7 @@ void KPasswordLineEdit_DragEnterEvent(KPasswordLineEdit* self, QDragEnterEvent* 
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseDragEnterEvent(KPasswordLineEdit* self, QDragEnterEvent* event) {
+void KPasswordLineEdit_SuperDragEnterEvent(KPasswordLineEdit* self, QDragEnterEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_DragEnterEvent_IsBase(true);
@@ -1029,7 +1029,7 @@ void KPasswordLineEdit_DragMoveEvent(KPasswordLineEdit* self, QDragMoveEvent* ev
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseDragMoveEvent(KPasswordLineEdit* self, QDragMoveEvent* event) {
+void KPasswordLineEdit_SuperDragMoveEvent(KPasswordLineEdit* self, QDragMoveEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_DragMoveEvent_IsBase(true);
@@ -1058,7 +1058,7 @@ void KPasswordLineEdit_DragLeaveEvent(KPasswordLineEdit* self, QDragLeaveEvent* 
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseDragLeaveEvent(KPasswordLineEdit* self, QDragLeaveEvent* event) {
+void KPasswordLineEdit_SuperDragLeaveEvent(KPasswordLineEdit* self, QDragLeaveEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_DragLeaveEvent_IsBase(true);
@@ -1087,7 +1087,7 @@ void KPasswordLineEdit_DropEvent(KPasswordLineEdit* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseDropEvent(KPasswordLineEdit* self, QDropEvent* event) {
+void KPasswordLineEdit_SuperDropEvent(KPasswordLineEdit* self, QDropEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_DropEvent_IsBase(true);
@@ -1116,7 +1116,7 @@ void KPasswordLineEdit_ShowEvent(KPasswordLineEdit* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseShowEvent(KPasswordLineEdit* self, QShowEvent* event) {
+void KPasswordLineEdit_SuperShowEvent(KPasswordLineEdit* self, QShowEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_ShowEvent_IsBase(true);
@@ -1145,7 +1145,7 @@ void KPasswordLineEdit_HideEvent(KPasswordLineEdit* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseHideEvent(KPasswordLineEdit* self, QHideEvent* event) {
+void KPasswordLineEdit_SuperHideEvent(KPasswordLineEdit* self, QHideEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_HideEvent_IsBase(true);
@@ -1175,7 +1175,7 @@ bool KPasswordLineEdit_NativeEvent(KPasswordLineEdit* self, const libqt_string e
 }
 
 // Base class handler implementation
-bool KPasswordLineEdit_QBaseNativeEvent(KPasswordLineEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KPasswordLineEdit_SuperNativeEvent(KPasswordLineEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
@@ -1205,7 +1205,7 @@ void KPasswordLineEdit_ChangeEvent(KPasswordLineEdit* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseChangeEvent(KPasswordLineEdit* self, QEvent* param1) {
+void KPasswordLineEdit_SuperChangeEvent(KPasswordLineEdit* self, QEvent* param1) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_ChangeEvent_IsBase(true);
@@ -1234,7 +1234,7 @@ int KPasswordLineEdit_Metric(const KPasswordLineEdit* self, int param1) {
 }
 
 // Base class handler implementation
-int KPasswordLineEdit_QBaseMetric(const KPasswordLineEdit* self, int param1) {
+int KPasswordLineEdit_SuperMetric(const KPasswordLineEdit* self, int param1) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_Metric_IsBase(true);
@@ -1263,7 +1263,7 @@ void KPasswordLineEdit_InitPainter(const KPasswordLineEdit* self, QPainter* pain
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseInitPainter(const KPasswordLineEdit* self, QPainter* painter) {
+void KPasswordLineEdit_SuperInitPainter(const KPasswordLineEdit* self, QPainter* painter) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_InitPainter_IsBase(true);
@@ -1292,7 +1292,7 @@ QPaintDevice* KPasswordLineEdit_Redirected(const KPasswordLineEdit* self, QPoint
 }
 
 // Base class handler implementation
-QPaintDevice* KPasswordLineEdit_QBaseRedirected(const KPasswordLineEdit* self, QPoint* offset) {
+QPaintDevice* KPasswordLineEdit_SuperRedirected(const KPasswordLineEdit* self, QPoint* offset) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_Redirected_IsBase(true);
@@ -1321,7 +1321,7 @@ QPainter* KPasswordLineEdit_SharedPainter(const KPasswordLineEdit* self) {
 }
 
 // Base class handler implementation
-QPainter* KPasswordLineEdit_QBaseSharedPainter(const KPasswordLineEdit* self) {
+QPainter* KPasswordLineEdit_SuperSharedPainter(const KPasswordLineEdit* self) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_SharedPainter_IsBase(true);
@@ -1350,7 +1350,7 @@ void KPasswordLineEdit_InputMethodEvent(KPasswordLineEdit* self, QInputMethodEve
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseInputMethodEvent(KPasswordLineEdit* self, QInputMethodEvent* param1) {
+void KPasswordLineEdit_SuperInputMethodEvent(KPasswordLineEdit* self, QInputMethodEvent* param1) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_InputMethodEvent_IsBase(true);
@@ -1379,7 +1379,7 @@ QVariant* KPasswordLineEdit_InputMethodQuery(const KPasswordLineEdit* self, int 
 }
 
 // Base class handler implementation
-QVariant* KPasswordLineEdit_QBaseInputMethodQuery(const KPasswordLineEdit* self, int param1) {
+QVariant* KPasswordLineEdit_SuperInputMethodQuery(const KPasswordLineEdit* self, int param1) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_InputMethodQuery_IsBase(true);
@@ -1408,7 +1408,7 @@ bool KPasswordLineEdit_FocusNextPrevChild(KPasswordLineEdit* self, bool next) {
 }
 
 // Base class handler implementation
-bool KPasswordLineEdit_QBaseFocusNextPrevChild(KPasswordLineEdit* self, bool next) {
+bool KPasswordLineEdit_SuperFocusNextPrevChild(KPasswordLineEdit* self, bool next) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_FocusNextPrevChild_IsBase(true);
@@ -1437,7 +1437,7 @@ bool KPasswordLineEdit_EventFilter(KPasswordLineEdit* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool KPasswordLineEdit_QBaseEventFilter(KPasswordLineEdit* self, QObject* watched, QEvent* event) {
+bool KPasswordLineEdit_SuperEventFilter(KPasswordLineEdit* self, QObject* watched, QEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_EventFilter_IsBase(true);
@@ -1466,7 +1466,7 @@ void KPasswordLineEdit_TimerEvent(KPasswordLineEdit* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseTimerEvent(KPasswordLineEdit* self, QTimerEvent* event) {
+void KPasswordLineEdit_SuperTimerEvent(KPasswordLineEdit* self, QTimerEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_TimerEvent_IsBase(true);
@@ -1495,7 +1495,7 @@ void KPasswordLineEdit_ChildEvent(KPasswordLineEdit* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseChildEvent(KPasswordLineEdit* self, QChildEvent* event) {
+void KPasswordLineEdit_SuperChildEvent(KPasswordLineEdit* self, QChildEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_ChildEvent_IsBase(true);
@@ -1524,7 +1524,7 @@ void KPasswordLineEdit_CustomEvent(KPasswordLineEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseCustomEvent(KPasswordLineEdit* self, QEvent* event) {
+void KPasswordLineEdit_SuperCustomEvent(KPasswordLineEdit* self, QEvent* event) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_CustomEvent_IsBase(true);
@@ -1553,7 +1553,7 @@ void KPasswordLineEdit_ConnectNotify(KPasswordLineEdit* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseConnectNotify(KPasswordLineEdit* self, const QMetaMethod* signal) {
+void KPasswordLineEdit_SuperConnectNotify(KPasswordLineEdit* self, const QMetaMethod* signal) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_ConnectNotify_IsBase(true);
@@ -1582,7 +1582,7 @@ void KPasswordLineEdit_DisconnectNotify(KPasswordLineEdit* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseDisconnectNotify(KPasswordLineEdit* self, const QMetaMethod* signal) {
+void KPasswordLineEdit_SuperDisconnectNotify(KPasswordLineEdit* self, const QMetaMethod* signal) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_DisconnectNotify_IsBase(true);
@@ -1611,7 +1611,7 @@ void KPasswordLineEdit_UpdateMicroFocus(KPasswordLineEdit* self) {
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseUpdateMicroFocus(KPasswordLineEdit* self) {
+void KPasswordLineEdit_SuperUpdateMicroFocus(KPasswordLineEdit* self) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_UpdateMicroFocus_IsBase(true);
@@ -1640,7 +1640,7 @@ void KPasswordLineEdit_Create(KPasswordLineEdit* self) {
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseCreate(KPasswordLineEdit* self) {
+void KPasswordLineEdit_SuperCreate(KPasswordLineEdit* self) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_Create_IsBase(true);
@@ -1669,7 +1669,7 @@ void KPasswordLineEdit_Destroy(KPasswordLineEdit* self) {
 }
 
 // Base class handler implementation
-void KPasswordLineEdit_QBaseDestroy(KPasswordLineEdit* self) {
+void KPasswordLineEdit_SuperDestroy(KPasswordLineEdit* self) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_Destroy_IsBase(true);
@@ -1698,7 +1698,7 @@ bool KPasswordLineEdit_FocusNextChild(KPasswordLineEdit* self) {
 }
 
 // Base class handler implementation
-bool KPasswordLineEdit_QBaseFocusNextChild(KPasswordLineEdit* self) {
+bool KPasswordLineEdit_SuperFocusNextChild(KPasswordLineEdit* self) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_FocusNextChild_IsBase(true);
@@ -1727,7 +1727,7 @@ bool KPasswordLineEdit_FocusPreviousChild(KPasswordLineEdit* self) {
 }
 
 // Base class handler implementation
-bool KPasswordLineEdit_QBaseFocusPreviousChild(KPasswordLineEdit* self) {
+bool KPasswordLineEdit_SuperFocusPreviousChild(KPasswordLineEdit* self) {
     auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_FocusPreviousChild_IsBase(true);
@@ -1756,7 +1756,7 @@ QObject* KPasswordLineEdit_Sender(const KPasswordLineEdit* self) {
 }
 
 // Base class handler implementation
-QObject* KPasswordLineEdit_QBaseSender(const KPasswordLineEdit* self) {
+QObject* KPasswordLineEdit_SuperSender(const KPasswordLineEdit* self) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_Sender_IsBase(true);
@@ -1785,7 +1785,7 @@ int KPasswordLineEdit_SenderSignalIndex(const KPasswordLineEdit* self) {
 }
 
 // Base class handler implementation
-int KPasswordLineEdit_QBaseSenderSignalIndex(const KPasswordLineEdit* self) {
+int KPasswordLineEdit_SuperSenderSignalIndex(const KPasswordLineEdit* self) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_SenderSignalIndex_IsBase(true);
@@ -1814,7 +1814,7 @@ int KPasswordLineEdit_Receivers(const KPasswordLineEdit* self, const char* signa
 }
 
 // Base class handler implementation
-int KPasswordLineEdit_QBaseReceivers(const KPasswordLineEdit* self, const char* signal) {
+int KPasswordLineEdit_SuperReceivers(const KPasswordLineEdit* self, const char* signal) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_Receivers_IsBase(true);
@@ -1843,7 +1843,7 @@ bool KPasswordLineEdit_IsSignalConnected(const KPasswordLineEdit* self, const QM
 }
 
 // Base class handler implementation
-bool KPasswordLineEdit_QBaseIsSignalConnected(const KPasswordLineEdit* self, const QMetaMethod* signal) {
+bool KPasswordLineEdit_SuperIsSignalConnected(const KPasswordLineEdit* self, const QMetaMethod* signal) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_IsSignalConnected_IsBase(true);
@@ -1872,7 +1872,7 @@ double KPasswordLineEdit_GetDecodedMetricF(const KPasswordLineEdit* self, int me
 }
 
 // Base class handler implementation
-double KPasswordLineEdit_QBaseGetDecodedMetricF(const KPasswordLineEdit* self, int metricA, int metricB) {
+double KPasswordLineEdit_SuperGetDecodedMetricF(const KPasswordLineEdit* self, int metricA, int metricB) {
     auto* vkpasswordlineedit = const_cast<VirtualKPasswordLineEdit*>(dynamic_cast<const VirtualKPasswordLineEdit*>(self));
     if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
         vkpasswordlineedit->setKPasswordLineEdit_GetDecodedMetricF_IsBase(true);

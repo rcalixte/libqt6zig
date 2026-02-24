@@ -228,7 +228,7 @@ void KExtraColumnsProxyModel_AppendColumn1(KExtraColumnsProxyModel* self, const 
 }
 
 // Base class handler implementation
-QMetaObject* KExtraColumnsProxyModel_QBaseMetaObject(const KExtraColumnsProxyModel* self) {
+QMetaObject* KExtraColumnsProxyModel_SuperMetaObject(const KExtraColumnsProxyModel* self) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_MetaObject_IsBase(true);
@@ -247,7 +247,7 @@ void KExtraColumnsProxyModel_OnMetaObject(const KExtraColumnsProxyModel* self, i
 }
 
 // Base class handler implementation
-void* KExtraColumnsProxyModel_QBaseMetacast(KExtraColumnsProxyModel* self, const char* param1) {
+void* KExtraColumnsProxyModel_SuperMetacast(KExtraColumnsProxyModel* self, const char* param1) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Metacast_IsBase(true);
@@ -266,7 +266,7 @@ void KExtraColumnsProxyModel_OnMetacast(KExtraColumnsProxyModel* self, intptr_t 
 }
 
 // Base class handler implementation
-int KExtraColumnsProxyModel_QBaseMetacall(KExtraColumnsProxyModel* self, int param1, int param2, void** param3) {
+int KExtraColumnsProxyModel_SuperMetacall(KExtraColumnsProxyModel* self, int param1, int param2, void** param3) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Metacall_IsBase(true);
@@ -285,7 +285,7 @@ void KExtraColumnsProxyModel_OnMetacall(KExtraColumnsProxyModel* self, intptr_t 
 }
 
 // Base class handler implementation
-QVariant* KExtraColumnsProxyModel_QBaseExtraColumnData(const KExtraColumnsProxyModel* self, const QModelIndex* parent, int row, int extraColumn, int role) {
+QVariant* KExtraColumnsProxyModel_SuperExtraColumnData(const KExtraColumnsProxyModel* self, const QModelIndex* parent, int row, int extraColumn, int role) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_ExtraColumnData_IsBase(true);
@@ -304,7 +304,7 @@ void KExtraColumnsProxyModel_OnExtraColumnData(const KExtraColumnsProxyModel* se
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseSetExtraColumnData(KExtraColumnsProxyModel* self, const QModelIndex* parent, int row, int extraColumn, const QVariant* data, int role) {
+bool KExtraColumnsProxyModel_SuperSetExtraColumnData(KExtraColumnsProxyModel* self, const QModelIndex* parent, int row, int extraColumn, const QVariant* data, int role) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_SetExtraColumnData_IsBase(true);
@@ -323,7 +323,7 @@ void KExtraColumnsProxyModel_OnSetExtraColumnData(KExtraColumnsProxyModel* self,
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseSetSourceModel(KExtraColumnsProxyModel* self, QAbstractItemModel* model) {
+void KExtraColumnsProxyModel_SuperSetSourceModel(KExtraColumnsProxyModel* self, QAbstractItemModel* model) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_SetSourceModel_IsBase(true);
@@ -342,7 +342,7 @@ void KExtraColumnsProxyModel_OnSetSourceModel(KExtraColumnsProxyModel* self, int
 }
 
 // Base class handler implementation
-QModelIndex* KExtraColumnsProxyModel_QBaseMapToSource(const KExtraColumnsProxyModel* self, const QModelIndex* proxyIndex) {
+QModelIndex* KExtraColumnsProxyModel_SuperMapToSource(const KExtraColumnsProxyModel* self, const QModelIndex* proxyIndex) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_MapToSource_IsBase(true);
@@ -361,7 +361,7 @@ void KExtraColumnsProxyModel_OnMapToSource(const KExtraColumnsProxyModel* self, 
 }
 
 // Base class handler implementation
-QItemSelection* KExtraColumnsProxyModel_QBaseMapSelectionToSource(const KExtraColumnsProxyModel* self, const QItemSelection* selection) {
+QItemSelection* KExtraColumnsProxyModel_SuperMapSelectionToSource(const KExtraColumnsProxyModel* self, const QItemSelection* selection) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_MapSelectionToSource_IsBase(true);
@@ -380,7 +380,7 @@ void KExtraColumnsProxyModel_OnMapSelectionToSource(const KExtraColumnsProxyMode
 }
 
 // Base class handler implementation
-int KExtraColumnsProxyModel_QBaseColumnCount(const KExtraColumnsProxyModel* self, const QModelIndex* parent) {
+int KExtraColumnsProxyModel_SuperColumnCount(const KExtraColumnsProxyModel* self, const QModelIndex* parent) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_ColumnCount_IsBase(true);
@@ -399,7 +399,7 @@ void KExtraColumnsProxyModel_OnColumnCount(const KExtraColumnsProxyModel* self, 
 }
 
 // Base class handler implementation
-QVariant* KExtraColumnsProxyModel_QBaseData(const KExtraColumnsProxyModel* self, const QModelIndex* index, int role) {
+QVariant* KExtraColumnsProxyModel_SuperData(const KExtraColumnsProxyModel* self, const QModelIndex* index, int role) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Data_IsBase(true);
@@ -418,7 +418,7 @@ void KExtraColumnsProxyModel_OnData(const KExtraColumnsProxyModel* self, intptr_
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseSetData(KExtraColumnsProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool KExtraColumnsProxyModel_SuperSetData(KExtraColumnsProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_SetData_IsBase(true);
@@ -437,7 +437,7 @@ void KExtraColumnsProxyModel_OnSetData(KExtraColumnsProxyModel* self, intptr_t s
 }
 
 // Base class handler implementation
-QModelIndex* KExtraColumnsProxyModel_QBaseSibling(const KExtraColumnsProxyModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* KExtraColumnsProxyModel_SuperSibling(const KExtraColumnsProxyModel* self, int row, int column, const QModelIndex* idx) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Sibling_IsBase(true);
@@ -456,7 +456,7 @@ void KExtraColumnsProxyModel_OnSibling(const KExtraColumnsProxyModel* self, intp
 }
 
 // Base class handler implementation
-QModelIndex* KExtraColumnsProxyModel_QBaseBuddy(const KExtraColumnsProxyModel* self, const QModelIndex* index) {
+QModelIndex* KExtraColumnsProxyModel_SuperBuddy(const KExtraColumnsProxyModel* self, const QModelIndex* index) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Buddy_IsBase(true);
@@ -475,7 +475,7 @@ void KExtraColumnsProxyModel_OnBuddy(const KExtraColumnsProxyModel* self, intptr
 }
 
 // Base class handler implementation
-int KExtraColumnsProxyModel_QBaseFlags(const KExtraColumnsProxyModel* self, const QModelIndex* index) {
+int KExtraColumnsProxyModel_SuperFlags(const KExtraColumnsProxyModel* self, const QModelIndex* index) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Flags_IsBase(true);
@@ -494,7 +494,7 @@ void KExtraColumnsProxyModel_OnFlags(const KExtraColumnsProxyModel* self, intptr
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseHasChildren(const KExtraColumnsProxyModel* self, const QModelIndex* index) {
+bool KExtraColumnsProxyModel_SuperHasChildren(const KExtraColumnsProxyModel* self, const QModelIndex* index) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_HasChildren_IsBase(true);
@@ -513,7 +513,7 @@ void KExtraColumnsProxyModel_OnHasChildren(const KExtraColumnsProxyModel* self, 
 }
 
 // Base class handler implementation
-QVariant* KExtraColumnsProxyModel_QBaseHeaderData(const KExtraColumnsProxyModel* self, int section, int orientation, int role) {
+QVariant* KExtraColumnsProxyModel_SuperHeaderData(const KExtraColumnsProxyModel* self, int section, int orientation, int role) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_HeaderData_IsBase(true);
@@ -532,7 +532,7 @@ void KExtraColumnsProxyModel_OnHeaderData(const KExtraColumnsProxyModel* self, i
 }
 
 // Base class handler implementation
-QModelIndex* KExtraColumnsProxyModel_QBaseIndex(const KExtraColumnsProxyModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* KExtraColumnsProxyModel_SuperIndex(const KExtraColumnsProxyModel* self, int row, int column, const QModelIndex* parent) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Index_IsBase(true);
@@ -551,7 +551,7 @@ void KExtraColumnsProxyModel_OnIndex(const KExtraColumnsProxyModel* self, intptr
 }
 
 // Base class handler implementation
-QModelIndex* KExtraColumnsProxyModel_QBaseParent(const KExtraColumnsProxyModel* self, const QModelIndex* child) {
+QModelIndex* KExtraColumnsProxyModel_SuperParent(const KExtraColumnsProxyModel* self, const QModelIndex* child) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Parent_IsBase(true);
@@ -580,7 +580,7 @@ QModelIndex* KExtraColumnsProxyModel_MapFromSource(const KExtraColumnsProxyModel
 }
 
 // Base class handler implementation
-QModelIndex* KExtraColumnsProxyModel_QBaseMapFromSource(const KExtraColumnsProxyModel* self, const QModelIndex* sourceIndex) {
+QModelIndex* KExtraColumnsProxyModel_SuperMapFromSource(const KExtraColumnsProxyModel* self, const QModelIndex* sourceIndex) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_MapFromSource_IsBase(true);
@@ -609,7 +609,7 @@ int KExtraColumnsProxyModel_RowCount(const KExtraColumnsProxyModel* self, const 
 }
 
 // Base class handler implementation
-int KExtraColumnsProxyModel_QBaseRowCount(const KExtraColumnsProxyModel* self, const QModelIndex* parent) {
+int KExtraColumnsProxyModel_SuperRowCount(const KExtraColumnsProxyModel* self, const QModelIndex* parent) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_RowCount_IsBase(true);
@@ -638,7 +638,7 @@ bool KExtraColumnsProxyModel_DropMimeData(KExtraColumnsProxyModel* self, const Q
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseDropMimeData(KExtraColumnsProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KExtraColumnsProxyModel_SuperDropMimeData(KExtraColumnsProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_DropMimeData_IsBase(true);
@@ -667,7 +667,7 @@ QItemSelection* KExtraColumnsProxyModel_MapSelectionFromSource(const KExtraColum
 }
 
 // Base class handler implementation
-QItemSelection* KExtraColumnsProxyModel_QBaseMapSelectionFromSource(const KExtraColumnsProxyModel* self, const QItemSelection* selection) {
+QItemSelection* KExtraColumnsProxyModel_SuperMapSelectionFromSource(const KExtraColumnsProxyModel* self, const QItemSelection* selection) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_MapSelectionFromSource_IsBase(true);
@@ -714,7 +714,7 @@ libqt_list /* of QModelIndex* */ KExtraColumnsProxyModel_Match(const KExtraColum
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KExtraColumnsProxyModel_QBaseMatch(const KExtraColumnsProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ KExtraColumnsProxyModel_SuperMatch(const KExtraColumnsProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Match_IsBase(true);
@@ -761,7 +761,7 @@ bool KExtraColumnsProxyModel_InsertColumns(KExtraColumnsProxyModel* self, int co
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseInsertColumns(KExtraColumnsProxyModel* self, int column, int count, const QModelIndex* parent) {
+bool KExtraColumnsProxyModel_SuperInsertColumns(KExtraColumnsProxyModel* self, int column, int count, const QModelIndex* parent) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_InsertColumns_IsBase(true);
@@ -790,7 +790,7 @@ bool KExtraColumnsProxyModel_InsertRows(KExtraColumnsProxyModel* self, int row, 
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseInsertRows(KExtraColumnsProxyModel* self, int row, int count, const QModelIndex* parent) {
+bool KExtraColumnsProxyModel_SuperInsertRows(KExtraColumnsProxyModel* self, int row, int count, const QModelIndex* parent) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_InsertRows_IsBase(true);
@@ -819,7 +819,7 @@ bool KExtraColumnsProxyModel_RemoveColumns(KExtraColumnsProxyModel* self, int co
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseRemoveColumns(KExtraColumnsProxyModel* self, int column, int count, const QModelIndex* parent) {
+bool KExtraColumnsProxyModel_SuperRemoveColumns(KExtraColumnsProxyModel* self, int column, int count, const QModelIndex* parent) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_RemoveColumns_IsBase(true);
@@ -848,7 +848,7 @@ bool KExtraColumnsProxyModel_RemoveRows(KExtraColumnsProxyModel* self, int row, 
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseRemoveRows(KExtraColumnsProxyModel* self, int row, int count, const QModelIndex* parent) {
+bool KExtraColumnsProxyModel_SuperRemoveRows(KExtraColumnsProxyModel* self, int row, int count, const QModelIndex* parent) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_RemoveRows_IsBase(true);
@@ -877,7 +877,7 @@ bool KExtraColumnsProxyModel_MoveRows(KExtraColumnsProxyModel* self, const QMode
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseMoveRows(KExtraColumnsProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KExtraColumnsProxyModel_SuperMoveRows(KExtraColumnsProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_MoveRows_IsBase(true);
@@ -906,7 +906,7 @@ bool KExtraColumnsProxyModel_MoveColumns(KExtraColumnsProxyModel* self, const QM
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseMoveColumns(KExtraColumnsProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KExtraColumnsProxyModel_SuperMoveColumns(KExtraColumnsProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_MoveColumns_IsBase(true);
@@ -935,7 +935,7 @@ bool KExtraColumnsProxyModel_Submit(KExtraColumnsProxyModel* self) {
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseSubmit(KExtraColumnsProxyModel* self) {
+bool KExtraColumnsProxyModel_SuperSubmit(KExtraColumnsProxyModel* self) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Submit_IsBase(true);
@@ -964,7 +964,7 @@ void KExtraColumnsProxyModel_Revert(KExtraColumnsProxyModel* self) {
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseRevert(KExtraColumnsProxyModel* self) {
+void KExtraColumnsProxyModel_SuperRevert(KExtraColumnsProxyModel* self) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Revert_IsBase(true);
@@ -1021,7 +1021,7 @@ libqt_map /* of int to QVariant* */ KExtraColumnsProxyModel_ItemData(const KExtr
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ KExtraColumnsProxyModel_QBaseItemData(const KExtraColumnsProxyModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ KExtraColumnsProxyModel_SuperItemData(const KExtraColumnsProxyModel* self, const QModelIndex* index) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_ItemData_IsBase(true);
@@ -1084,7 +1084,7 @@ bool KExtraColumnsProxyModel_SetItemData(KExtraColumnsProxyModel* self, const QM
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseSetItemData(KExtraColumnsProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool KExtraColumnsProxyModel_SuperSetItemData(KExtraColumnsProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -1119,7 +1119,7 @@ bool KExtraColumnsProxyModel_SetHeaderData(KExtraColumnsProxyModel* self, int se
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseSetHeaderData(KExtraColumnsProxyModel* self, int section, int orientation, const QVariant* value, int role) {
+bool KExtraColumnsProxyModel_SuperSetHeaderData(KExtraColumnsProxyModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_SetHeaderData_IsBase(true);
@@ -1148,7 +1148,7 @@ bool KExtraColumnsProxyModel_ClearItemData(KExtraColumnsProxyModel* self, const 
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseClearItemData(KExtraColumnsProxyModel* self, const QModelIndex* index) {
+bool KExtraColumnsProxyModel_SuperClearItemData(KExtraColumnsProxyModel* self, const QModelIndex* index) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_ClearItemData_IsBase(true);
@@ -1177,7 +1177,7 @@ bool KExtraColumnsProxyModel_CanFetchMore(const KExtraColumnsProxyModel* self, c
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseCanFetchMore(const KExtraColumnsProxyModel* self, const QModelIndex* parent) {
+bool KExtraColumnsProxyModel_SuperCanFetchMore(const KExtraColumnsProxyModel* self, const QModelIndex* parent) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_CanFetchMore_IsBase(true);
@@ -1206,7 +1206,7 @@ void KExtraColumnsProxyModel_FetchMore(KExtraColumnsProxyModel* self, const QMod
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseFetchMore(KExtraColumnsProxyModel* self, const QModelIndex* parent) {
+void KExtraColumnsProxyModel_SuperFetchMore(KExtraColumnsProxyModel* self, const QModelIndex* parent) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_FetchMore_IsBase(true);
@@ -1235,7 +1235,7 @@ void KExtraColumnsProxyModel_Sort(KExtraColumnsProxyModel* self, int column, int
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseSort(KExtraColumnsProxyModel* self, int column, int order) {
+void KExtraColumnsProxyModel_SuperSort(KExtraColumnsProxyModel* self, int column, int order) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Sort_IsBase(true);
@@ -1264,7 +1264,7 @@ QSize* KExtraColumnsProxyModel_Span(const KExtraColumnsProxyModel* self, const Q
 }
 
 // Base class handler implementation
-QSize* KExtraColumnsProxyModel_QBaseSpan(const KExtraColumnsProxyModel* self, const QModelIndex* index) {
+QSize* KExtraColumnsProxyModel_SuperSpan(const KExtraColumnsProxyModel* self, const QModelIndex* index) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Span_IsBase(true);
@@ -1299,7 +1299,7 @@ QMimeData* KExtraColumnsProxyModel_MimeData(const KExtraColumnsProxyModel* self,
 }
 
 // Base class handler implementation
-QMimeData* KExtraColumnsProxyModel_QBaseMimeData(const KExtraColumnsProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* KExtraColumnsProxyModel_SuperMimeData(const KExtraColumnsProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -1334,7 +1334,7 @@ bool KExtraColumnsProxyModel_CanDropMimeData(const KExtraColumnsProxyModel* self
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseCanDropMimeData(const KExtraColumnsProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KExtraColumnsProxyModel_SuperCanDropMimeData(const KExtraColumnsProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_CanDropMimeData_IsBase(true);
@@ -1397,7 +1397,7 @@ libqt_list /* of libqt_string */ KExtraColumnsProxyModel_MimeTypes(const KExtraC
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KExtraColumnsProxyModel_QBaseMimeTypes(const KExtraColumnsProxyModel* self) {
+libqt_list /* of libqt_string */ KExtraColumnsProxyModel_SuperMimeTypes(const KExtraColumnsProxyModel* self) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_MimeTypes_IsBase(true);
@@ -1460,7 +1460,7 @@ int KExtraColumnsProxyModel_SupportedDragActions(const KExtraColumnsProxyModel* 
 }
 
 // Base class handler implementation
-int KExtraColumnsProxyModel_QBaseSupportedDragActions(const KExtraColumnsProxyModel* self) {
+int KExtraColumnsProxyModel_SuperSupportedDragActions(const KExtraColumnsProxyModel* self) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_SupportedDragActions_IsBase(true);
@@ -1489,7 +1489,7 @@ int KExtraColumnsProxyModel_SupportedDropActions(const KExtraColumnsProxyModel* 
 }
 
 // Base class handler implementation
-int KExtraColumnsProxyModel_QBaseSupportedDropActions(const KExtraColumnsProxyModel* self) {
+int KExtraColumnsProxyModel_SuperSupportedDropActions(const KExtraColumnsProxyModel* self) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_SupportedDropActions_IsBase(true);
@@ -1556,7 +1556,7 @@ libqt_map /* of int to libqt_string */ KExtraColumnsProxyModel_RoleNames(const K
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ KExtraColumnsProxyModel_QBaseRoleNames(const KExtraColumnsProxyModel* self) {
+libqt_map /* of int to libqt_string */ KExtraColumnsProxyModel_SuperRoleNames(const KExtraColumnsProxyModel* self) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_RoleNames_IsBase(true);
@@ -1623,7 +1623,7 @@ void KExtraColumnsProxyModel_MultiData(const KExtraColumnsProxyModel* self, cons
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseMultiData(const KExtraColumnsProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void KExtraColumnsProxyModel_SuperMultiData(const KExtraColumnsProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_MultiData_IsBase(true);
@@ -1652,7 +1652,7 @@ void KExtraColumnsProxyModel_ResetInternalData(KExtraColumnsProxyModel* self) {
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseResetInternalData(KExtraColumnsProxyModel* self) {
+void KExtraColumnsProxyModel_SuperResetInternalData(KExtraColumnsProxyModel* self) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_ResetInternalData_IsBase(true);
@@ -1681,7 +1681,7 @@ bool KExtraColumnsProxyModel_Event(KExtraColumnsProxyModel* self, QEvent* event)
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseEvent(KExtraColumnsProxyModel* self, QEvent* event) {
+bool KExtraColumnsProxyModel_SuperEvent(KExtraColumnsProxyModel* self, QEvent* event) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Event_IsBase(true);
@@ -1710,7 +1710,7 @@ bool KExtraColumnsProxyModel_EventFilter(KExtraColumnsProxyModel* self, QObject*
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseEventFilter(KExtraColumnsProxyModel* self, QObject* watched, QEvent* event) {
+bool KExtraColumnsProxyModel_SuperEventFilter(KExtraColumnsProxyModel* self, QObject* watched, QEvent* event) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_EventFilter_IsBase(true);
@@ -1739,7 +1739,7 @@ void KExtraColumnsProxyModel_TimerEvent(KExtraColumnsProxyModel* self, QTimerEve
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseTimerEvent(KExtraColumnsProxyModel* self, QTimerEvent* event) {
+void KExtraColumnsProxyModel_SuperTimerEvent(KExtraColumnsProxyModel* self, QTimerEvent* event) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_TimerEvent_IsBase(true);
@@ -1768,7 +1768,7 @@ void KExtraColumnsProxyModel_ChildEvent(KExtraColumnsProxyModel* self, QChildEve
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseChildEvent(KExtraColumnsProxyModel* self, QChildEvent* event) {
+void KExtraColumnsProxyModel_SuperChildEvent(KExtraColumnsProxyModel* self, QChildEvent* event) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_ChildEvent_IsBase(true);
@@ -1797,7 +1797,7 @@ void KExtraColumnsProxyModel_CustomEvent(KExtraColumnsProxyModel* self, QEvent* 
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseCustomEvent(KExtraColumnsProxyModel* self, QEvent* event) {
+void KExtraColumnsProxyModel_SuperCustomEvent(KExtraColumnsProxyModel* self, QEvent* event) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_CustomEvent_IsBase(true);
@@ -1826,7 +1826,7 @@ void KExtraColumnsProxyModel_ConnectNotify(KExtraColumnsProxyModel* self, const 
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseConnectNotify(KExtraColumnsProxyModel* self, const QMetaMethod* signal) {
+void KExtraColumnsProxyModel_SuperConnectNotify(KExtraColumnsProxyModel* self, const QMetaMethod* signal) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_ConnectNotify_IsBase(true);
@@ -1855,7 +1855,7 @@ void KExtraColumnsProxyModel_DisconnectNotify(KExtraColumnsProxyModel* self, con
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseDisconnectNotify(KExtraColumnsProxyModel* self, const QMetaMethod* signal) {
+void KExtraColumnsProxyModel_SuperDisconnectNotify(KExtraColumnsProxyModel* self, const QMetaMethod* signal) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_DisconnectNotify_IsBase(true);
@@ -1884,7 +1884,7 @@ void KExtraColumnsProxyModel_SetHandleSourceLayoutChanges(KExtraColumnsProxyMode
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseSetHandleSourceLayoutChanges(KExtraColumnsProxyModel* self, bool handleSourceLayoutChanges) {
+void KExtraColumnsProxyModel_SuperSetHandleSourceLayoutChanges(KExtraColumnsProxyModel* self, bool handleSourceLayoutChanges) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_SetHandleSourceLayoutChanges_IsBase(true);
@@ -1913,7 +1913,7 @@ void KExtraColumnsProxyModel_SetHandleSourceDataChanges(KExtraColumnsProxyModel*
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseSetHandleSourceDataChanges(KExtraColumnsProxyModel* self, bool handleSourceDataChanges) {
+void KExtraColumnsProxyModel_SuperSetHandleSourceDataChanges(KExtraColumnsProxyModel* self, bool handleSourceDataChanges) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_SetHandleSourceDataChanges_IsBase(true);
@@ -1941,7 +1941,7 @@ QModelIndex* KExtraColumnsProxyModel_CreateSourceIndex(const KExtraColumnsProxyM
 }
 
 // Base class handler implementation
-QModelIndex* KExtraColumnsProxyModel_QBaseCreateSourceIndex(const KExtraColumnsProxyModel* self, int row, int col, void* internalPtr) {
+QModelIndex* KExtraColumnsProxyModel_SuperCreateSourceIndex(const KExtraColumnsProxyModel* self, int row, int col, void* internalPtr) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_CreateSourceIndex_IsBase(true);
@@ -1968,7 +1968,7 @@ QModelIndex* KExtraColumnsProxyModel_CreateIndex(const KExtraColumnsProxyModel* 
 }
 
 // Base class handler implementation
-QModelIndex* KExtraColumnsProxyModel_QBaseCreateIndex(const KExtraColumnsProxyModel* self, int row, int column) {
+QModelIndex* KExtraColumnsProxyModel_SuperCreateIndex(const KExtraColumnsProxyModel* self, int row, int column) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_CreateIndex_IsBase(true);
@@ -2002,7 +2002,7 @@ void KExtraColumnsProxyModel_EncodeData(const KExtraColumnsProxyModel* self, con
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseEncodeData(const KExtraColumnsProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void KExtraColumnsProxyModel_SuperEncodeData(const KExtraColumnsProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -2037,7 +2037,7 @@ bool KExtraColumnsProxyModel_DecodeData(KExtraColumnsProxyModel* self, int row, 
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseDecodeData(KExtraColumnsProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool KExtraColumnsProxyModel_SuperDecodeData(KExtraColumnsProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_DecodeData_IsBase(true);
@@ -2066,7 +2066,7 @@ void KExtraColumnsProxyModel_BeginInsertRows(KExtraColumnsProxyModel* self, cons
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseBeginInsertRows(KExtraColumnsProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KExtraColumnsProxyModel_SuperBeginInsertRows(KExtraColumnsProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_BeginInsertRows_IsBase(true);
@@ -2095,7 +2095,7 @@ void KExtraColumnsProxyModel_EndInsertRows(KExtraColumnsProxyModel* self) {
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseEndInsertRows(KExtraColumnsProxyModel* self) {
+void KExtraColumnsProxyModel_SuperEndInsertRows(KExtraColumnsProxyModel* self) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_EndInsertRows_IsBase(true);
@@ -2124,7 +2124,7 @@ void KExtraColumnsProxyModel_BeginRemoveRows(KExtraColumnsProxyModel* self, cons
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseBeginRemoveRows(KExtraColumnsProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KExtraColumnsProxyModel_SuperBeginRemoveRows(KExtraColumnsProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_BeginRemoveRows_IsBase(true);
@@ -2153,7 +2153,7 @@ void KExtraColumnsProxyModel_EndRemoveRows(KExtraColumnsProxyModel* self) {
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseEndRemoveRows(KExtraColumnsProxyModel* self) {
+void KExtraColumnsProxyModel_SuperEndRemoveRows(KExtraColumnsProxyModel* self) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_EndRemoveRows_IsBase(true);
@@ -2182,7 +2182,7 @@ bool KExtraColumnsProxyModel_BeginMoveRows(KExtraColumnsProxyModel* self, const 
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseBeginMoveRows(KExtraColumnsProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool KExtraColumnsProxyModel_SuperBeginMoveRows(KExtraColumnsProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_BeginMoveRows_IsBase(true);
@@ -2211,7 +2211,7 @@ void KExtraColumnsProxyModel_EndMoveRows(KExtraColumnsProxyModel* self) {
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseEndMoveRows(KExtraColumnsProxyModel* self) {
+void KExtraColumnsProxyModel_SuperEndMoveRows(KExtraColumnsProxyModel* self) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_EndMoveRows_IsBase(true);
@@ -2240,7 +2240,7 @@ void KExtraColumnsProxyModel_BeginInsertColumns(KExtraColumnsProxyModel* self, c
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseBeginInsertColumns(KExtraColumnsProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KExtraColumnsProxyModel_SuperBeginInsertColumns(KExtraColumnsProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_BeginInsertColumns_IsBase(true);
@@ -2269,7 +2269,7 @@ void KExtraColumnsProxyModel_EndInsertColumns(KExtraColumnsProxyModel* self) {
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseEndInsertColumns(KExtraColumnsProxyModel* self) {
+void KExtraColumnsProxyModel_SuperEndInsertColumns(KExtraColumnsProxyModel* self) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_EndInsertColumns_IsBase(true);
@@ -2298,7 +2298,7 @@ void KExtraColumnsProxyModel_BeginRemoveColumns(KExtraColumnsProxyModel* self, c
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseBeginRemoveColumns(KExtraColumnsProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KExtraColumnsProxyModel_SuperBeginRemoveColumns(KExtraColumnsProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_BeginRemoveColumns_IsBase(true);
@@ -2327,7 +2327,7 @@ void KExtraColumnsProxyModel_EndRemoveColumns(KExtraColumnsProxyModel* self) {
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseEndRemoveColumns(KExtraColumnsProxyModel* self) {
+void KExtraColumnsProxyModel_SuperEndRemoveColumns(KExtraColumnsProxyModel* self) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_EndRemoveColumns_IsBase(true);
@@ -2356,7 +2356,7 @@ bool KExtraColumnsProxyModel_BeginMoveColumns(KExtraColumnsProxyModel* self, con
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseBeginMoveColumns(KExtraColumnsProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool KExtraColumnsProxyModel_SuperBeginMoveColumns(KExtraColumnsProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_BeginMoveColumns_IsBase(true);
@@ -2385,7 +2385,7 @@ void KExtraColumnsProxyModel_EndMoveColumns(KExtraColumnsProxyModel* self) {
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseEndMoveColumns(KExtraColumnsProxyModel* self) {
+void KExtraColumnsProxyModel_SuperEndMoveColumns(KExtraColumnsProxyModel* self) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_EndMoveColumns_IsBase(true);
@@ -2414,7 +2414,7 @@ void KExtraColumnsProxyModel_BeginResetModel(KExtraColumnsProxyModel* self) {
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseBeginResetModel(KExtraColumnsProxyModel* self) {
+void KExtraColumnsProxyModel_SuperBeginResetModel(KExtraColumnsProxyModel* self) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_BeginResetModel_IsBase(true);
@@ -2443,7 +2443,7 @@ void KExtraColumnsProxyModel_EndResetModel(KExtraColumnsProxyModel* self) {
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseEndResetModel(KExtraColumnsProxyModel* self) {
+void KExtraColumnsProxyModel_SuperEndResetModel(KExtraColumnsProxyModel* self) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_EndResetModel_IsBase(true);
@@ -2472,7 +2472,7 @@ void KExtraColumnsProxyModel_ChangePersistentIndex(KExtraColumnsProxyModel* self
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseChangePersistentIndex(KExtraColumnsProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
+void KExtraColumnsProxyModel_SuperChangePersistentIndex(KExtraColumnsProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_ChangePersistentIndex_IsBase(true);
@@ -2513,7 +2513,7 @@ void KExtraColumnsProxyModel_ChangePersistentIndexList(KExtraColumnsProxyModel* 
 }
 
 // Base class handler implementation
-void KExtraColumnsProxyModel_QBaseChangePersistentIndexList(KExtraColumnsProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void KExtraColumnsProxyModel_SuperChangePersistentIndexList(KExtraColumnsProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2572,7 +2572,7 @@ libqt_list /* of QModelIndex* */ KExtraColumnsProxyModel_PersistentIndexList(con
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KExtraColumnsProxyModel_QBasePersistentIndexList(const KExtraColumnsProxyModel* self) {
+libqt_list /* of QModelIndex* */ KExtraColumnsProxyModel_SuperPersistentIndexList(const KExtraColumnsProxyModel* self) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_PersistentIndexList_IsBase(true);
@@ -2619,7 +2619,7 @@ QObject* KExtraColumnsProxyModel_Sender(const KExtraColumnsProxyModel* self) {
 }
 
 // Base class handler implementation
-QObject* KExtraColumnsProxyModel_QBaseSender(const KExtraColumnsProxyModel* self) {
+QObject* KExtraColumnsProxyModel_SuperSender(const KExtraColumnsProxyModel* self) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Sender_IsBase(true);
@@ -2648,7 +2648,7 @@ int KExtraColumnsProxyModel_SenderSignalIndex(const KExtraColumnsProxyModel* sel
 }
 
 // Base class handler implementation
-int KExtraColumnsProxyModel_QBaseSenderSignalIndex(const KExtraColumnsProxyModel* self) {
+int KExtraColumnsProxyModel_SuperSenderSignalIndex(const KExtraColumnsProxyModel* self) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_SenderSignalIndex_IsBase(true);
@@ -2677,7 +2677,7 @@ int KExtraColumnsProxyModel_Receivers(const KExtraColumnsProxyModel* self, const
 }
 
 // Base class handler implementation
-int KExtraColumnsProxyModel_QBaseReceivers(const KExtraColumnsProxyModel* self, const char* signal) {
+int KExtraColumnsProxyModel_SuperReceivers(const KExtraColumnsProxyModel* self, const char* signal) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Receivers_IsBase(true);
@@ -2706,7 +2706,7 @@ bool KExtraColumnsProxyModel_IsSignalConnected(const KExtraColumnsProxyModel* se
 }
 
 // Base class handler implementation
-bool KExtraColumnsProxyModel_QBaseIsSignalConnected(const KExtraColumnsProxyModel* self, const QMetaMethod* signal) {
+bool KExtraColumnsProxyModel_SuperIsSignalConnected(const KExtraColumnsProxyModel* self, const QMetaMethod* signal) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_IsSignalConnected_IsBase(true);

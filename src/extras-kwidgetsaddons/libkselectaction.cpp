@@ -333,7 +333,7 @@ bool KSelectAction_SetCurrentAction22(KSelectAction* self, const libqt_string te
 }
 
 // Base class handler implementation
-QMetaObject* KSelectAction_QBaseMetaObject(const KSelectAction* self) {
+QMetaObject* KSelectAction_SuperMetaObject(const KSelectAction* self) {
     auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         vkselectaction->setKSelectAction_MetaObject_IsBase(true);
@@ -352,7 +352,7 @@ void KSelectAction_OnMetaObject(const KSelectAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KSelectAction_QBaseMetacast(KSelectAction* self, const char* param1) {
+void* KSelectAction_SuperMetacast(KSelectAction* self, const char* param1) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         vkselectaction->setKSelectAction_Metacast_IsBase(true);
@@ -371,7 +371,7 @@ void KSelectAction_OnMetacast(KSelectAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KSelectAction_QBaseMetacall(KSelectAction* self, int param1, int param2, void** param3) {
+int KSelectAction_SuperMetacall(KSelectAction* self, int param1, int param2, void** param3) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         vkselectaction->setKSelectAction_Metacall_IsBase(true);
@@ -390,7 +390,7 @@ void KSelectAction_OnMetacall(KSelectAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QAction* KSelectAction_QBaseRemoveAction(KSelectAction* self, QAction* action) {
+QAction* KSelectAction_SuperRemoveAction(KSelectAction* self, QAction* action) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         vkselectaction->setKSelectAction_RemoveAction_IsBase(true);
@@ -409,7 +409,7 @@ void KSelectAction_OnRemoveAction(KSelectAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KSelectAction_QBaseInsertAction(KSelectAction* self, QAction* before, QAction* action) {
+void KSelectAction_SuperInsertAction(KSelectAction* self, QAction* before, QAction* action) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         vkselectaction->setKSelectAction_InsertAction_IsBase(true);
@@ -428,7 +428,7 @@ void KSelectAction_OnInsertAction(KSelectAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KSelectAction_QBaseSlotActionTriggered(KSelectAction* self, QAction* action) {
+void KSelectAction_SuperSlotActionTriggered(KSelectAction* self, QAction* action) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         vkselectaction->setKSelectAction_SlotActionTriggered_IsBase(true);
@@ -447,7 +447,7 @@ void KSelectAction_OnSlotActionTriggered(KSelectAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QWidget* KSelectAction_QBaseCreateWidget(KSelectAction* self, QWidget* parent) {
+QWidget* KSelectAction_SuperCreateWidget(KSelectAction* self, QWidget* parent) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         vkselectaction->setKSelectAction_CreateWidget_IsBase(true);
@@ -466,7 +466,7 @@ void KSelectAction_OnCreateWidget(KSelectAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KSelectAction_QBaseDeleteWidget(KSelectAction* self, QWidget* widget) {
+void KSelectAction_SuperDeleteWidget(KSelectAction* self, QWidget* widget) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         vkselectaction->setKSelectAction_DeleteWidget_IsBase(true);
@@ -485,7 +485,7 @@ void KSelectAction_OnDeleteWidget(KSelectAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KSelectAction_QBaseEvent(KSelectAction* self, QEvent* event) {
+bool KSelectAction_SuperEvent(KSelectAction* self, QEvent* event) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         vkselectaction->setKSelectAction_Event_IsBase(true);
@@ -504,7 +504,7 @@ void KSelectAction_OnEvent(KSelectAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KSelectAction_QBaseEventFilter(KSelectAction* self, QObject* watched, QEvent* event) {
+bool KSelectAction_SuperEventFilter(KSelectAction* self, QObject* watched, QEvent* event) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         vkselectaction->setKSelectAction_EventFilter_IsBase(true);
@@ -533,7 +533,7 @@ void KSelectAction_TimerEvent(KSelectAction* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KSelectAction_QBaseTimerEvent(KSelectAction* self, QTimerEvent* event) {
+void KSelectAction_SuperTimerEvent(KSelectAction* self, QTimerEvent* event) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         vkselectaction->setKSelectAction_TimerEvent_IsBase(true);
@@ -562,7 +562,7 @@ void KSelectAction_ChildEvent(KSelectAction* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KSelectAction_QBaseChildEvent(KSelectAction* self, QChildEvent* event) {
+void KSelectAction_SuperChildEvent(KSelectAction* self, QChildEvent* event) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         vkselectaction->setKSelectAction_ChildEvent_IsBase(true);
@@ -591,7 +591,7 @@ void KSelectAction_CustomEvent(KSelectAction* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KSelectAction_QBaseCustomEvent(KSelectAction* self, QEvent* event) {
+void KSelectAction_SuperCustomEvent(KSelectAction* self, QEvent* event) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         vkselectaction->setKSelectAction_CustomEvent_IsBase(true);
@@ -620,7 +620,7 @@ void KSelectAction_ConnectNotify(KSelectAction* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void KSelectAction_QBaseConnectNotify(KSelectAction* self, const QMetaMethod* signal) {
+void KSelectAction_SuperConnectNotify(KSelectAction* self, const QMetaMethod* signal) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         vkselectaction->setKSelectAction_ConnectNotify_IsBase(true);
@@ -649,7 +649,7 @@ void KSelectAction_DisconnectNotify(KSelectAction* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void KSelectAction_QBaseDisconnectNotify(KSelectAction* self, const QMetaMethod* signal) {
+void KSelectAction_SuperDisconnectNotify(KSelectAction* self, const QMetaMethod* signal) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         vkselectaction->setKSelectAction_DisconnectNotify_IsBase(true);
@@ -678,7 +678,7 @@ void KSelectAction_SlotToggled(KSelectAction* self, bool param1) {
 }
 
 // Base class handler implementation
-void KSelectAction_QBaseSlotToggled(KSelectAction* self, bool param1) {
+void KSelectAction_SuperSlotToggled(KSelectAction* self, bool param1) {
     auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         vkselectaction->setKSelectAction_SlotToggled_IsBase(true);
@@ -725,7 +725,7 @@ libqt_list /* of QWidget* */ KSelectAction_CreatedWidgets(const KSelectAction* s
 }
 
 // Base class handler implementation
-libqt_list /* of QWidget* */ KSelectAction_QBaseCreatedWidgets(const KSelectAction* self) {
+libqt_list /* of QWidget* */ KSelectAction_SuperCreatedWidgets(const KSelectAction* self) {
     auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         vkselectaction->setKSelectAction_CreatedWidgets_IsBase(true);
@@ -772,7 +772,7 @@ QObject* KSelectAction_Sender(const KSelectAction* self) {
 }
 
 // Base class handler implementation
-QObject* KSelectAction_QBaseSender(const KSelectAction* self) {
+QObject* KSelectAction_SuperSender(const KSelectAction* self) {
     auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         vkselectaction->setKSelectAction_Sender_IsBase(true);
@@ -801,7 +801,7 @@ int KSelectAction_SenderSignalIndex(const KSelectAction* self) {
 }
 
 // Base class handler implementation
-int KSelectAction_QBaseSenderSignalIndex(const KSelectAction* self) {
+int KSelectAction_SuperSenderSignalIndex(const KSelectAction* self) {
     auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         vkselectaction->setKSelectAction_SenderSignalIndex_IsBase(true);
@@ -830,7 +830,7 @@ int KSelectAction_Receivers(const KSelectAction* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KSelectAction_QBaseReceivers(const KSelectAction* self, const char* signal) {
+int KSelectAction_SuperReceivers(const KSelectAction* self, const char* signal) {
     auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         vkselectaction->setKSelectAction_Receivers_IsBase(true);
@@ -859,7 +859,7 @@ bool KSelectAction_IsSignalConnected(const KSelectAction* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool KSelectAction_QBaseIsSignalConnected(const KSelectAction* self, const QMetaMethod* signal) {
+bool KSelectAction_SuperIsSignalConnected(const KSelectAction* self, const QMetaMethod* signal) {
     auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         vkselectaction->setKSelectAction_IsSignalConnected_IsBase(true);

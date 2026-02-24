@@ -27,10 +27,10 @@ bool KParts__GUIActivateEvent_Activated(const KParts__GUIActivateEvent* self);
 bool KParts__GUIActivateEvent_Test(const QEvent* event);
 void KParts__GUIActivateEvent_SetAccepted(KParts__GUIActivateEvent* self, bool accepted);
 void KParts__GUIActivateEvent_OnSetAccepted(KParts__GUIActivateEvent* self, intptr_t slot);
-void KParts__GUIActivateEvent_QBaseSetAccepted(KParts__GUIActivateEvent* self, bool accepted);
+void KParts__GUIActivateEvent_SuperSetAccepted(KParts__GUIActivateEvent* self, bool accepted);
 QEvent* KParts__GUIActivateEvent_Clone(const KParts__GUIActivateEvent* self);
 void KParts__GUIActivateEvent_OnClone(const KParts__GUIActivateEvent* self, intptr_t slot);
-QEvent* KParts__GUIActivateEvent_QBaseClone(const KParts__GUIActivateEvent* self);
+QEvent* KParts__GUIActivateEvent_SuperClone(const KParts__GUIActivateEvent* self);
 void KParts__GUIActivateEvent_Delete(KParts__GUIActivateEvent* self);
 
 #ifdef __cplusplus

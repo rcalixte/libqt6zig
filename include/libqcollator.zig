@@ -50,6 +50,10 @@ pub const qcollatorsortkey = struct {
         return qtc.QCollatorSortKey_Compare(@ptrCast(self), @ptrCast(key));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollatorsortkey.html#dtor.QCollatorSortKey)
     ///
     /// Delete this object from C++ memory.
@@ -58,7 +62,7 @@ pub const qcollatorsortkey = struct {
     ///
     /// ` self: QtC.QCollatorSortKey `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCollatorSortKey_Delete(@ptrCast(self));
     }
 };
@@ -285,6 +289,10 @@ pub const qcollator = struct {
         return qtc.QCollator_SortKey(@ptrCast(self), stringVal_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#dtor.QCollator)
     ///
     /// Delete this object from C++ memory.
@@ -293,7 +301,7 @@ pub const qcollator = struct {
     ///
     /// ` self: QtC.QCollator `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCollator_Delete(@ptrCast(self));
     }
 };

@@ -101,7 +101,7 @@ void KSeparator_SetOrientation(KSeparator* self, int orientation) {
 }
 
 // Base class handler implementation
-QMetaObject* KSeparator_QBaseMetaObject(const KSeparator* self) {
+QMetaObject* KSeparator_SuperMetaObject(const KSeparator* self) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_MetaObject_IsBase(true);
@@ -120,7 +120,7 @@ void KSeparator_OnMetaObject(const KSeparator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KSeparator_QBaseMetacast(KSeparator* self, const char* param1) {
+void* KSeparator_SuperMetacast(KSeparator* self, const char* param1) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_Metacast_IsBase(true);
@@ -139,7 +139,7 @@ void KSeparator_OnMetacast(KSeparator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KSeparator_QBaseMetacall(KSeparator* self, int param1, int param2, void** param3) {
+int KSeparator_SuperMetacall(KSeparator* self, int param1, int param2, void** param3) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_Metacall_IsBase(true);
@@ -168,7 +168,7 @@ QSize* KSeparator_SizeHint(const KSeparator* self) {
 }
 
 // Base class handler implementation
-QSize* KSeparator_QBaseSizeHint(const KSeparator* self) {
+QSize* KSeparator_SuperSizeHint(const KSeparator* self) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_SizeHint_IsBase(true);
@@ -197,7 +197,7 @@ bool KSeparator_Event(KSeparator* self, QEvent* e) {
 }
 
 // Base class handler implementation
-bool KSeparator_QBaseEvent(KSeparator* self, QEvent* e) {
+bool KSeparator_SuperEvent(KSeparator* self, QEvent* e) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_Event_IsBase(true);
@@ -226,7 +226,7 @@ void KSeparator_PaintEvent(KSeparator* self, QPaintEvent* param1) {
 }
 
 // Base class handler implementation
-void KSeparator_QBasePaintEvent(KSeparator* self, QPaintEvent* param1) {
+void KSeparator_SuperPaintEvent(KSeparator* self, QPaintEvent* param1) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_PaintEvent_IsBase(true);
@@ -255,7 +255,7 @@ void KSeparator_ChangeEvent(KSeparator* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseChangeEvent(KSeparator* self, QEvent* param1) {
+void KSeparator_SuperChangeEvent(KSeparator* self, QEvent* param1) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_ChangeEvent_IsBase(true);
@@ -284,7 +284,7 @@ void KSeparator_InitStyleOption(const KSeparator* self, QStyleOptionFrame* optio
 }
 
 // Base class handler implementation
-void KSeparator_QBaseInitStyleOption(const KSeparator* self, QStyleOptionFrame* option) {
+void KSeparator_SuperInitStyleOption(const KSeparator* self, QStyleOptionFrame* option) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_InitStyleOption_IsBase(true);
@@ -313,7 +313,7 @@ int KSeparator_DevType(const KSeparator* self) {
 }
 
 // Base class handler implementation
-int KSeparator_QBaseDevType(const KSeparator* self) {
+int KSeparator_SuperDevType(const KSeparator* self) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_DevType_IsBase(true);
@@ -342,7 +342,7 @@ void KSeparator_SetVisible(KSeparator* self, bool visible) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseSetVisible(KSeparator* self, bool visible) {
+void KSeparator_SuperSetVisible(KSeparator* self, bool visible) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_SetVisible_IsBase(true);
@@ -371,7 +371,7 @@ QSize* KSeparator_MinimumSizeHint(const KSeparator* self) {
 }
 
 // Base class handler implementation
-QSize* KSeparator_QBaseMinimumSizeHint(const KSeparator* self) {
+QSize* KSeparator_SuperMinimumSizeHint(const KSeparator* self) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_MinimumSizeHint_IsBase(true);
@@ -400,7 +400,7 @@ int KSeparator_HeightForWidth(const KSeparator* self, int param1) {
 }
 
 // Base class handler implementation
-int KSeparator_QBaseHeightForWidth(const KSeparator* self, int param1) {
+int KSeparator_SuperHeightForWidth(const KSeparator* self, int param1) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_HeightForWidth_IsBase(true);
@@ -429,7 +429,7 @@ bool KSeparator_HasHeightForWidth(const KSeparator* self) {
 }
 
 // Base class handler implementation
-bool KSeparator_QBaseHasHeightForWidth(const KSeparator* self) {
+bool KSeparator_SuperHasHeightForWidth(const KSeparator* self) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_HasHeightForWidth_IsBase(true);
@@ -458,7 +458,7 @@ QPaintEngine* KSeparator_PaintEngine(const KSeparator* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KSeparator_QBasePaintEngine(const KSeparator* self) {
+QPaintEngine* KSeparator_SuperPaintEngine(const KSeparator* self) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_PaintEngine_IsBase(true);
@@ -487,7 +487,7 @@ void KSeparator_MousePressEvent(KSeparator* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseMousePressEvent(KSeparator* self, QMouseEvent* event) {
+void KSeparator_SuperMousePressEvent(KSeparator* self, QMouseEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_MousePressEvent_IsBase(true);
@@ -516,7 +516,7 @@ void KSeparator_MouseReleaseEvent(KSeparator* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseMouseReleaseEvent(KSeparator* self, QMouseEvent* event) {
+void KSeparator_SuperMouseReleaseEvent(KSeparator* self, QMouseEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_MouseReleaseEvent_IsBase(true);
@@ -545,7 +545,7 @@ void KSeparator_MouseDoubleClickEvent(KSeparator* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseMouseDoubleClickEvent(KSeparator* self, QMouseEvent* event) {
+void KSeparator_SuperMouseDoubleClickEvent(KSeparator* self, QMouseEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_MouseDoubleClickEvent_IsBase(true);
@@ -574,7 +574,7 @@ void KSeparator_MouseMoveEvent(KSeparator* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseMouseMoveEvent(KSeparator* self, QMouseEvent* event) {
+void KSeparator_SuperMouseMoveEvent(KSeparator* self, QMouseEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_MouseMoveEvent_IsBase(true);
@@ -603,7 +603,7 @@ void KSeparator_WheelEvent(KSeparator* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseWheelEvent(KSeparator* self, QWheelEvent* event) {
+void KSeparator_SuperWheelEvent(KSeparator* self, QWheelEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_WheelEvent_IsBase(true);
@@ -632,7 +632,7 @@ void KSeparator_KeyPressEvent(KSeparator* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseKeyPressEvent(KSeparator* self, QKeyEvent* event) {
+void KSeparator_SuperKeyPressEvent(KSeparator* self, QKeyEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_KeyPressEvent_IsBase(true);
@@ -661,7 +661,7 @@ void KSeparator_KeyReleaseEvent(KSeparator* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseKeyReleaseEvent(KSeparator* self, QKeyEvent* event) {
+void KSeparator_SuperKeyReleaseEvent(KSeparator* self, QKeyEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_KeyReleaseEvent_IsBase(true);
@@ -690,7 +690,7 @@ void KSeparator_FocusInEvent(KSeparator* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseFocusInEvent(KSeparator* self, QFocusEvent* event) {
+void KSeparator_SuperFocusInEvent(KSeparator* self, QFocusEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_FocusInEvent_IsBase(true);
@@ -719,7 +719,7 @@ void KSeparator_FocusOutEvent(KSeparator* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseFocusOutEvent(KSeparator* self, QFocusEvent* event) {
+void KSeparator_SuperFocusOutEvent(KSeparator* self, QFocusEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_FocusOutEvent_IsBase(true);
@@ -748,7 +748,7 @@ void KSeparator_EnterEvent(KSeparator* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseEnterEvent(KSeparator* self, QEnterEvent* event) {
+void KSeparator_SuperEnterEvent(KSeparator* self, QEnterEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_EnterEvent_IsBase(true);
@@ -777,7 +777,7 @@ void KSeparator_LeaveEvent(KSeparator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseLeaveEvent(KSeparator* self, QEvent* event) {
+void KSeparator_SuperLeaveEvent(KSeparator* self, QEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_LeaveEvent_IsBase(true);
@@ -806,7 +806,7 @@ void KSeparator_MoveEvent(KSeparator* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseMoveEvent(KSeparator* self, QMoveEvent* event) {
+void KSeparator_SuperMoveEvent(KSeparator* self, QMoveEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_MoveEvent_IsBase(true);
@@ -835,7 +835,7 @@ void KSeparator_ResizeEvent(KSeparator* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseResizeEvent(KSeparator* self, QResizeEvent* event) {
+void KSeparator_SuperResizeEvent(KSeparator* self, QResizeEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_ResizeEvent_IsBase(true);
@@ -864,7 +864,7 @@ void KSeparator_CloseEvent(KSeparator* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseCloseEvent(KSeparator* self, QCloseEvent* event) {
+void KSeparator_SuperCloseEvent(KSeparator* self, QCloseEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_CloseEvent_IsBase(true);
@@ -893,7 +893,7 @@ void KSeparator_ContextMenuEvent(KSeparator* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseContextMenuEvent(KSeparator* self, QContextMenuEvent* event) {
+void KSeparator_SuperContextMenuEvent(KSeparator* self, QContextMenuEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_ContextMenuEvent_IsBase(true);
@@ -922,7 +922,7 @@ void KSeparator_TabletEvent(KSeparator* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseTabletEvent(KSeparator* self, QTabletEvent* event) {
+void KSeparator_SuperTabletEvent(KSeparator* self, QTabletEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_TabletEvent_IsBase(true);
@@ -951,7 +951,7 @@ void KSeparator_ActionEvent(KSeparator* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseActionEvent(KSeparator* self, QActionEvent* event) {
+void KSeparator_SuperActionEvent(KSeparator* self, QActionEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_ActionEvent_IsBase(true);
@@ -980,7 +980,7 @@ void KSeparator_DragEnterEvent(KSeparator* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseDragEnterEvent(KSeparator* self, QDragEnterEvent* event) {
+void KSeparator_SuperDragEnterEvent(KSeparator* self, QDragEnterEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_DragEnterEvent_IsBase(true);
@@ -1009,7 +1009,7 @@ void KSeparator_DragMoveEvent(KSeparator* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseDragMoveEvent(KSeparator* self, QDragMoveEvent* event) {
+void KSeparator_SuperDragMoveEvent(KSeparator* self, QDragMoveEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_DragMoveEvent_IsBase(true);
@@ -1038,7 +1038,7 @@ void KSeparator_DragLeaveEvent(KSeparator* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseDragLeaveEvent(KSeparator* self, QDragLeaveEvent* event) {
+void KSeparator_SuperDragLeaveEvent(KSeparator* self, QDragLeaveEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_DragLeaveEvent_IsBase(true);
@@ -1067,7 +1067,7 @@ void KSeparator_DropEvent(KSeparator* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseDropEvent(KSeparator* self, QDropEvent* event) {
+void KSeparator_SuperDropEvent(KSeparator* self, QDropEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_DropEvent_IsBase(true);
@@ -1096,7 +1096,7 @@ void KSeparator_ShowEvent(KSeparator* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseShowEvent(KSeparator* self, QShowEvent* event) {
+void KSeparator_SuperShowEvent(KSeparator* self, QShowEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_ShowEvent_IsBase(true);
@@ -1125,7 +1125,7 @@ void KSeparator_HideEvent(KSeparator* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseHideEvent(KSeparator* self, QHideEvent* event) {
+void KSeparator_SuperHideEvent(KSeparator* self, QHideEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_HideEvent_IsBase(true);
@@ -1155,7 +1155,7 @@ bool KSeparator_NativeEvent(KSeparator* self, const libqt_string eventType, void
 }
 
 // Base class handler implementation
-bool KSeparator_QBaseNativeEvent(KSeparator* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KSeparator_SuperNativeEvent(KSeparator* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
@@ -1185,7 +1185,7 @@ int KSeparator_Metric(const KSeparator* self, int param1) {
 }
 
 // Base class handler implementation
-int KSeparator_QBaseMetric(const KSeparator* self, int param1) {
+int KSeparator_SuperMetric(const KSeparator* self, int param1) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_Metric_IsBase(true);
@@ -1214,7 +1214,7 @@ void KSeparator_InitPainter(const KSeparator* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseInitPainter(const KSeparator* self, QPainter* painter) {
+void KSeparator_SuperInitPainter(const KSeparator* self, QPainter* painter) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_InitPainter_IsBase(true);
@@ -1243,7 +1243,7 @@ QPaintDevice* KSeparator_Redirected(const KSeparator* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KSeparator_QBaseRedirected(const KSeparator* self, QPoint* offset) {
+QPaintDevice* KSeparator_SuperRedirected(const KSeparator* self, QPoint* offset) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_Redirected_IsBase(true);
@@ -1272,7 +1272,7 @@ QPainter* KSeparator_SharedPainter(const KSeparator* self) {
 }
 
 // Base class handler implementation
-QPainter* KSeparator_QBaseSharedPainter(const KSeparator* self) {
+QPainter* KSeparator_SuperSharedPainter(const KSeparator* self) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_SharedPainter_IsBase(true);
@@ -1301,7 +1301,7 @@ void KSeparator_InputMethodEvent(KSeparator* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseInputMethodEvent(KSeparator* self, QInputMethodEvent* param1) {
+void KSeparator_SuperInputMethodEvent(KSeparator* self, QInputMethodEvent* param1) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_InputMethodEvent_IsBase(true);
@@ -1330,7 +1330,7 @@ QVariant* KSeparator_InputMethodQuery(const KSeparator* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KSeparator_QBaseInputMethodQuery(const KSeparator* self, int param1) {
+QVariant* KSeparator_SuperInputMethodQuery(const KSeparator* self, int param1) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_InputMethodQuery_IsBase(true);
@@ -1359,7 +1359,7 @@ bool KSeparator_FocusNextPrevChild(KSeparator* self, bool next) {
 }
 
 // Base class handler implementation
-bool KSeparator_QBaseFocusNextPrevChild(KSeparator* self, bool next) {
+bool KSeparator_SuperFocusNextPrevChild(KSeparator* self, bool next) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_FocusNextPrevChild_IsBase(true);
@@ -1388,7 +1388,7 @@ bool KSeparator_EventFilter(KSeparator* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KSeparator_QBaseEventFilter(KSeparator* self, QObject* watched, QEvent* event) {
+bool KSeparator_SuperEventFilter(KSeparator* self, QObject* watched, QEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_EventFilter_IsBase(true);
@@ -1417,7 +1417,7 @@ void KSeparator_TimerEvent(KSeparator* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseTimerEvent(KSeparator* self, QTimerEvent* event) {
+void KSeparator_SuperTimerEvent(KSeparator* self, QTimerEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_TimerEvent_IsBase(true);
@@ -1446,7 +1446,7 @@ void KSeparator_ChildEvent(KSeparator* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseChildEvent(KSeparator* self, QChildEvent* event) {
+void KSeparator_SuperChildEvent(KSeparator* self, QChildEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_ChildEvent_IsBase(true);
@@ -1475,7 +1475,7 @@ void KSeparator_CustomEvent(KSeparator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseCustomEvent(KSeparator* self, QEvent* event) {
+void KSeparator_SuperCustomEvent(KSeparator* self, QEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_CustomEvent_IsBase(true);
@@ -1504,7 +1504,7 @@ void KSeparator_ConnectNotify(KSeparator* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseConnectNotify(KSeparator* self, const QMetaMethod* signal) {
+void KSeparator_SuperConnectNotify(KSeparator* self, const QMetaMethod* signal) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_ConnectNotify_IsBase(true);
@@ -1533,7 +1533,7 @@ void KSeparator_DisconnectNotify(KSeparator* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseDisconnectNotify(KSeparator* self, const QMetaMethod* signal) {
+void KSeparator_SuperDisconnectNotify(KSeparator* self, const QMetaMethod* signal) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_DisconnectNotify_IsBase(true);
@@ -1562,7 +1562,7 @@ void KSeparator_DrawFrame(KSeparator* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseDrawFrame(KSeparator* self, QPainter* param1) {
+void KSeparator_SuperDrawFrame(KSeparator* self, QPainter* param1) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_DrawFrame_IsBase(true);
@@ -1591,7 +1591,7 @@ void KSeparator_UpdateMicroFocus(KSeparator* self) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseUpdateMicroFocus(KSeparator* self) {
+void KSeparator_SuperUpdateMicroFocus(KSeparator* self) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_UpdateMicroFocus_IsBase(true);
@@ -1620,7 +1620,7 @@ void KSeparator_Create(KSeparator* self) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseCreate(KSeparator* self) {
+void KSeparator_SuperCreate(KSeparator* self) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_Create_IsBase(true);
@@ -1649,7 +1649,7 @@ void KSeparator_Destroy(KSeparator* self) {
 }
 
 // Base class handler implementation
-void KSeparator_QBaseDestroy(KSeparator* self) {
+void KSeparator_SuperDestroy(KSeparator* self) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_Destroy_IsBase(true);
@@ -1678,7 +1678,7 @@ bool KSeparator_FocusNextChild(KSeparator* self) {
 }
 
 // Base class handler implementation
-bool KSeparator_QBaseFocusNextChild(KSeparator* self) {
+bool KSeparator_SuperFocusNextChild(KSeparator* self) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_FocusNextChild_IsBase(true);
@@ -1707,7 +1707,7 @@ bool KSeparator_FocusPreviousChild(KSeparator* self) {
 }
 
 // Base class handler implementation
-bool KSeparator_QBaseFocusPreviousChild(KSeparator* self) {
+bool KSeparator_SuperFocusPreviousChild(KSeparator* self) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_FocusPreviousChild_IsBase(true);
@@ -1736,7 +1736,7 @@ QObject* KSeparator_Sender(const KSeparator* self) {
 }
 
 // Base class handler implementation
-QObject* KSeparator_QBaseSender(const KSeparator* self) {
+QObject* KSeparator_SuperSender(const KSeparator* self) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_Sender_IsBase(true);
@@ -1765,7 +1765,7 @@ int KSeparator_SenderSignalIndex(const KSeparator* self) {
 }
 
 // Base class handler implementation
-int KSeparator_QBaseSenderSignalIndex(const KSeparator* self) {
+int KSeparator_SuperSenderSignalIndex(const KSeparator* self) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_SenderSignalIndex_IsBase(true);
@@ -1794,7 +1794,7 @@ int KSeparator_Receivers(const KSeparator* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KSeparator_QBaseReceivers(const KSeparator* self, const char* signal) {
+int KSeparator_SuperReceivers(const KSeparator* self, const char* signal) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_Receivers_IsBase(true);
@@ -1823,7 +1823,7 @@ bool KSeparator_IsSignalConnected(const KSeparator* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool KSeparator_QBaseIsSignalConnected(const KSeparator* self, const QMetaMethod* signal) {
+bool KSeparator_SuperIsSignalConnected(const KSeparator* self, const QMetaMethod* signal) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_IsSignalConnected_IsBase(true);
@@ -1852,7 +1852,7 @@ double KSeparator_GetDecodedMetricF(const KSeparator* self, int metricA, int met
 }
 
 // Base class handler implementation
-double KSeparator_QBaseGetDecodedMetricF(const KSeparator* self, int metricA, int metricB) {
+double KSeparator_SuperGetDecodedMetricF(const KSeparator* self, int metricA, int metricB) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
     if (vkseparator && vkseparator->isVirtualKSeparator) {
         vkseparator->setKSeparator_GetDecodedMetricF_IsBase(true);

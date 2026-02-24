@@ -357,23 +357,23 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
 
     // Friend functions
     friend void KOverlayIconPlugin_TimerEvent(KOverlayIconPlugin* self, QTimerEvent* event);
-    friend void KOverlayIconPlugin_QBaseTimerEvent(KOverlayIconPlugin* self, QTimerEvent* event);
+    friend void KOverlayIconPlugin_SuperTimerEvent(KOverlayIconPlugin* self, QTimerEvent* event);
     friend void KOverlayIconPlugin_ChildEvent(KOverlayIconPlugin* self, QChildEvent* event);
-    friend void KOverlayIconPlugin_QBaseChildEvent(KOverlayIconPlugin* self, QChildEvent* event);
+    friend void KOverlayIconPlugin_SuperChildEvent(KOverlayIconPlugin* self, QChildEvent* event);
     friend void KOverlayIconPlugin_CustomEvent(KOverlayIconPlugin* self, QEvent* event);
-    friend void KOverlayIconPlugin_QBaseCustomEvent(KOverlayIconPlugin* self, QEvent* event);
+    friend void KOverlayIconPlugin_SuperCustomEvent(KOverlayIconPlugin* self, QEvent* event);
     friend void KOverlayIconPlugin_ConnectNotify(KOverlayIconPlugin* self, const QMetaMethod* signal);
-    friend void KOverlayIconPlugin_QBaseConnectNotify(KOverlayIconPlugin* self, const QMetaMethod* signal);
+    friend void KOverlayIconPlugin_SuperConnectNotify(KOverlayIconPlugin* self, const QMetaMethod* signal);
     friend void KOverlayIconPlugin_DisconnectNotify(KOverlayIconPlugin* self, const QMetaMethod* signal);
-    friend void KOverlayIconPlugin_QBaseDisconnectNotify(KOverlayIconPlugin* self, const QMetaMethod* signal);
+    friend void KOverlayIconPlugin_SuperDisconnectNotify(KOverlayIconPlugin* self, const QMetaMethod* signal);
     friend QObject* KOverlayIconPlugin_Sender(const KOverlayIconPlugin* self);
-    friend QObject* KOverlayIconPlugin_QBaseSender(const KOverlayIconPlugin* self);
+    friend QObject* KOverlayIconPlugin_SuperSender(const KOverlayIconPlugin* self);
     friend int KOverlayIconPlugin_SenderSignalIndex(const KOverlayIconPlugin* self);
-    friend int KOverlayIconPlugin_QBaseSenderSignalIndex(const KOverlayIconPlugin* self);
+    friend int KOverlayIconPlugin_SuperSenderSignalIndex(const KOverlayIconPlugin* self);
     friend int KOverlayIconPlugin_Receivers(const KOverlayIconPlugin* self, const char* signal);
-    friend int KOverlayIconPlugin_QBaseReceivers(const KOverlayIconPlugin* self, const char* signal);
+    friend int KOverlayIconPlugin_SuperReceivers(const KOverlayIconPlugin* self, const char* signal);
     friend bool KOverlayIconPlugin_IsSignalConnected(const KOverlayIconPlugin* self, const QMetaMethod* signal);
-    friend bool KOverlayIconPlugin_QBaseIsSignalConnected(const KOverlayIconPlugin* self, const QMetaMethod* signal);
+    friend bool KOverlayIconPlugin_SuperIsSignalConnected(const KOverlayIconPlugin* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -397,25 +397,25 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
 
     // Friend functions
     friend void KFileMetaData__ExtractorPlugin_TimerEvent(KFileMetaData::ExtractorPlugin* self, QTimerEvent* event);
-    friend void KFileMetaData__ExtractorPlugin_QBaseTimerEvent(KFileMetaData::ExtractorPlugin* self, QTimerEvent* event);
+    friend void KFileMetaData__ExtractorPlugin_SuperTimerEvent(KFileMetaData::ExtractorPlugin* self, QTimerEvent* event);
     friend void KFileMetaData__ExtractorPlugin_ChildEvent(KFileMetaData::ExtractorPlugin* self, QChildEvent* event);
-    friend void KFileMetaData__ExtractorPlugin_QBaseChildEvent(KFileMetaData::ExtractorPlugin* self, QChildEvent* event);
+    friend void KFileMetaData__ExtractorPlugin_SuperChildEvent(KFileMetaData::ExtractorPlugin* self, QChildEvent* event);
     friend void KFileMetaData__ExtractorPlugin_CustomEvent(KFileMetaData::ExtractorPlugin* self, QEvent* event);
-    friend void KFileMetaData__ExtractorPlugin_QBaseCustomEvent(KFileMetaData::ExtractorPlugin* self, QEvent* event);
+    friend void KFileMetaData__ExtractorPlugin_SuperCustomEvent(KFileMetaData::ExtractorPlugin* self, QEvent* event);
     friend void KFileMetaData__ExtractorPlugin_ConnectNotify(KFileMetaData::ExtractorPlugin* self, const QMetaMethod* signal);
-    friend void KFileMetaData__ExtractorPlugin_QBaseConnectNotify(KFileMetaData::ExtractorPlugin* self, const QMetaMethod* signal);
+    friend void KFileMetaData__ExtractorPlugin_SuperConnectNotify(KFileMetaData::ExtractorPlugin* self, const QMetaMethod* signal);
     friend void KFileMetaData__ExtractorPlugin_DisconnectNotify(KFileMetaData::ExtractorPlugin* self, const QMetaMethod* signal);
-    friend void KFileMetaData__ExtractorPlugin_QBaseDisconnectNotify(KFileMetaData::ExtractorPlugin* self, const QMetaMethod* signal);
+    friend void KFileMetaData__ExtractorPlugin_SuperDisconnectNotify(KFileMetaData::ExtractorPlugin* self, const QMetaMethod* signal);
     friend libqt_string KFileMetaData__ExtractorPlugin_GetSupportedMimeType(const KFileMetaData::ExtractorPlugin* self, const libqt_string mimetype);
-    friend libqt_string KFileMetaData__ExtractorPlugin_QBaseGetSupportedMimeType(const KFileMetaData::ExtractorPlugin* self, const libqt_string mimetype);
+    friend libqt_string KFileMetaData__ExtractorPlugin_SuperGetSupportedMimeType(const KFileMetaData::ExtractorPlugin* self, const libqt_string mimetype);
     friend QObject* KFileMetaData__ExtractorPlugin_Sender(const KFileMetaData::ExtractorPlugin* self);
-    friend QObject* KFileMetaData__ExtractorPlugin_QBaseSender(const KFileMetaData::ExtractorPlugin* self);
+    friend QObject* KFileMetaData__ExtractorPlugin_SuperSender(const KFileMetaData::ExtractorPlugin* self);
     friend int KFileMetaData__ExtractorPlugin_SenderSignalIndex(const KFileMetaData::ExtractorPlugin* self);
-    friend int KFileMetaData__ExtractorPlugin_QBaseSenderSignalIndex(const KFileMetaData::ExtractorPlugin* self);
+    friend int KFileMetaData__ExtractorPlugin_SuperSenderSignalIndex(const KFileMetaData::ExtractorPlugin* self);
     friend int KFileMetaData__ExtractorPlugin_Receivers(const KFileMetaData::ExtractorPlugin* self, const char* signal);
-    friend int KFileMetaData__ExtractorPlugin_QBaseReceivers(const KFileMetaData::ExtractorPlugin* self, const char* signal);
+    friend int KFileMetaData__ExtractorPlugin_SuperReceivers(const KFileMetaData::ExtractorPlugin* self, const char* signal);
     friend bool KFileMetaData__ExtractorPlugin_IsSignalConnected(const KFileMetaData::ExtractorPlugin* self, const QMetaMethod* signal);
-    friend bool KFileMetaData__ExtractorPlugin_QBaseIsSignalConnected(const KFileMetaData::ExtractorPlugin* self, const QMetaMethod* signal);
+    friend bool KFileMetaData__ExtractorPlugin_SuperIsSignalConnected(const KFileMetaData::ExtractorPlugin* self, const QMetaMethod* signal);
 };
 
 #endif

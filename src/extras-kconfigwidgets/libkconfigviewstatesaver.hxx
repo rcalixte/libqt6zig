@@ -376,27 +376,27 @@ class VirtualKConfigViewStateSaver : public KConfigViewStateSaver {
 
     // Friend functions
     friend QModelIndex* KConfigViewStateSaver_IndexFromConfigString(const KConfigViewStateSaver* self, const QAbstractItemModel* model, const libqt_string key);
-    friend QModelIndex* KConfigViewStateSaver_QBaseIndexFromConfigString(const KConfigViewStateSaver* self, const QAbstractItemModel* model, const libqt_string key);
+    friend QModelIndex* KConfigViewStateSaver_SuperIndexFromConfigString(const KConfigViewStateSaver* self, const QAbstractItemModel* model, const libqt_string key);
     friend libqt_string KConfigViewStateSaver_IndexToConfigString(const KConfigViewStateSaver* self, const QModelIndex* index);
-    friend libqt_string KConfigViewStateSaver_QBaseIndexToConfigString(const KConfigViewStateSaver* self, const QModelIndex* index);
+    friend libqt_string KConfigViewStateSaver_SuperIndexToConfigString(const KConfigViewStateSaver* self, const QModelIndex* index);
     friend void KConfigViewStateSaver_TimerEvent(KConfigViewStateSaver* self, QTimerEvent* event);
-    friend void KConfigViewStateSaver_QBaseTimerEvent(KConfigViewStateSaver* self, QTimerEvent* event);
+    friend void KConfigViewStateSaver_SuperTimerEvent(KConfigViewStateSaver* self, QTimerEvent* event);
     friend void KConfigViewStateSaver_ChildEvent(KConfigViewStateSaver* self, QChildEvent* event);
-    friend void KConfigViewStateSaver_QBaseChildEvent(KConfigViewStateSaver* self, QChildEvent* event);
+    friend void KConfigViewStateSaver_SuperChildEvent(KConfigViewStateSaver* self, QChildEvent* event);
     friend void KConfigViewStateSaver_CustomEvent(KConfigViewStateSaver* self, QEvent* event);
-    friend void KConfigViewStateSaver_QBaseCustomEvent(KConfigViewStateSaver* self, QEvent* event);
+    friend void KConfigViewStateSaver_SuperCustomEvent(KConfigViewStateSaver* self, QEvent* event);
     friend void KConfigViewStateSaver_ConnectNotify(KConfigViewStateSaver* self, const QMetaMethod* signal);
-    friend void KConfigViewStateSaver_QBaseConnectNotify(KConfigViewStateSaver* self, const QMetaMethod* signal);
+    friend void KConfigViewStateSaver_SuperConnectNotify(KConfigViewStateSaver* self, const QMetaMethod* signal);
     friend void KConfigViewStateSaver_DisconnectNotify(KConfigViewStateSaver* self, const QMetaMethod* signal);
-    friend void KConfigViewStateSaver_QBaseDisconnectNotify(KConfigViewStateSaver* self, const QMetaMethod* signal);
+    friend void KConfigViewStateSaver_SuperDisconnectNotify(KConfigViewStateSaver* self, const QMetaMethod* signal);
     friend QObject* KConfigViewStateSaver_Sender(const KConfigViewStateSaver* self);
-    friend QObject* KConfigViewStateSaver_QBaseSender(const KConfigViewStateSaver* self);
+    friend QObject* KConfigViewStateSaver_SuperSender(const KConfigViewStateSaver* self);
     friend int KConfigViewStateSaver_SenderSignalIndex(const KConfigViewStateSaver* self);
-    friend int KConfigViewStateSaver_QBaseSenderSignalIndex(const KConfigViewStateSaver* self);
+    friend int KConfigViewStateSaver_SuperSenderSignalIndex(const KConfigViewStateSaver* self);
     friend int KConfigViewStateSaver_Receivers(const KConfigViewStateSaver* self, const char* signal);
-    friend int KConfigViewStateSaver_QBaseReceivers(const KConfigViewStateSaver* self, const char* signal);
+    friend int KConfigViewStateSaver_SuperReceivers(const KConfigViewStateSaver* self, const char* signal);
     friend bool KConfigViewStateSaver_IsSignalConnected(const KConfigViewStateSaver* self, const QMetaMethod* signal);
-    friend bool KConfigViewStateSaver_QBaseIsSignalConnected(const KConfigViewStateSaver* self, const QMetaMethod* signal);
+    friend bool KConfigViewStateSaver_SuperIsSignalConnected(const KConfigViewStateSaver* self, const QMetaMethod* signal);
 };
 
 #endif

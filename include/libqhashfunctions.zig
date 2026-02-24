@@ -91,6 +91,10 @@ pub const qhashseed = struct {
         qtc.QHashSeed_ResetRandomGlobalSeed();
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhashseed.html#dtor.QHashSeed)
     ///
     /// Delete this object from C++ memory.
@@ -99,7 +103,7 @@ pub const qhashseed = struct {
     ///
     /// ` self: QtC.QHashSeed `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QHashSeed_Delete(@ptrCast(self));
     }
 };

@@ -33,9 +33,9 @@ void QItemEditorFactory_RegisterEditor(QItemEditorFactory* self, int userType, Q
 QItemEditorFactory* QItemEditorFactory_DefaultFactory();
 void QItemEditorFactory_SetDefaultFactory(QItemEditorFactory* factory);
 void QItemEditorFactory_OnCreateEditor(const QItemEditorFactory* self, intptr_t slot);
-QWidget* QItemEditorFactory_QBaseCreateEditor(const QItemEditorFactory* self, int userType, QWidget* parent);
+QWidget* QItemEditorFactory_SuperCreateEditor(const QItemEditorFactory* self, int userType, QWidget* parent);
 void QItemEditorFactory_OnValuePropertyName(const QItemEditorFactory* self, intptr_t slot);
-libqt_string QItemEditorFactory_QBaseValuePropertyName(const QItemEditorFactory* self, int userType);
+libqt_string QItemEditorFactory_SuperValuePropertyName(const QItemEditorFactory* self, int userType);
 void QItemEditorFactory_Delete(QItemEditorFactory* self);
 
 #ifdef __cplusplus

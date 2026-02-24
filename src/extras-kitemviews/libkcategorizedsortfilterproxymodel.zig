@@ -49,6 +49,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -57,8 +61,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` self: QtC.KCategorizedSortFilterProxyModel `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KCategorizedSortFilterProxyModel_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -84,6 +88,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -92,9 +100,9 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KCategorizedSortFilterProxyModel_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KCategorizedSortFilterProxyModel_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -123,6 +131,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -135,8 +147,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KCategorizedSortFilterProxyModel_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -184,6 +196,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_OnSort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSort` instead
+    ///
+    pub const QBaseSort = SuperSort;
+
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#sort)
     ///
     /// Base class method implementation
@@ -196,8 +212,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn QBaseSort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseSort(@ptrCast(self), @bitCast(column), @bitCast(order));
+    pub fn SuperSort(self: ?*anyopaque, column: i32, order: i32) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperSort(@ptrCast(self), @bitCast(column), @bitCast(order));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#isCategorizedModel)
@@ -296,6 +312,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_OnLessThan(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperLessThan` instead
+    ///
+    pub const QBaseLessThan = SuperLessThan;
+
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#lessThan)
     ///
     /// Base class method implementation
@@ -308,8 +328,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` right: QtC.QModelIndex `
     ///
-    pub fn QBaseLessThan(self: ?*anyopaque, left: ?*anyopaque, right: ?*anyopaque) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseLessThan(@ptrCast(self), @ptrCast(left), @ptrCast(right));
+    pub fn SuperLessThan(self: ?*anyopaque, left: ?*anyopaque, right: ?*anyopaque) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperLessThan(@ptrCast(self), @ptrCast(left), @ptrCast(right));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#subSortLessThan)
@@ -340,6 +360,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_OnSubSortLessThan(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSubSortLessThan` instead
+    ///
+    pub const QBaseSubSortLessThan = SuperSubSortLessThan;
+
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#subSortLessThan)
     ///
     /// Base class method implementation
@@ -352,8 +376,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` right: QtC.QModelIndex `
     ///
-    pub fn QBaseSubSortLessThan(self: ?*anyopaque, left: ?*anyopaque, right: ?*anyopaque) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseSubSortLessThan(@ptrCast(self), @ptrCast(left), @ptrCast(right));
+    pub fn SuperSubSortLessThan(self: ?*anyopaque, left: ?*anyopaque, right: ?*anyopaque) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperSubSortLessThan(@ptrCast(self), @ptrCast(left), @ptrCast(right));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#compareCategories)
@@ -384,6 +408,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_OnCompareCategories(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCompareCategories` instead
+    ///
+    pub const QBaseCompareCategories = SuperCompareCategories;
+
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#compareCategories)
     ///
     /// Base class method implementation
@@ -396,8 +424,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` right: QtC.QModelIndex `
     ///
-    pub fn QBaseCompareCategories(self: ?*anyopaque, left: ?*anyopaque, right: ?*anyopaque) i32 {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseCompareCategories(@ptrCast(self), @ptrCast(left), @ptrCast(right));
+    pub fn SuperCompareCategories(self: ?*anyopaque, left: ?*anyopaque, right: ?*anyopaque) i32 {
+        return qtc.KCategorizedSortFilterProxyModel_SuperCompareCategories(@ptrCast(self), @ptrCast(left), @ptrCast(right));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2260,6 +2288,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_SetSourceModel(@ptrCast(self), @ptrCast(sourceModel));
     }
 
+    /// ### DEPRECATED: Use `SuperSetSourceModel` instead
+    ///
+    pub const QBaseSetSourceModel = SuperSetSourceModel;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#setSourceModel)
@@ -2272,8 +2304,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` sourceModel: QtC.QAbstractItemModel `
     ///
-    pub fn QBaseSetSourceModel(self: ?*anyopaque, sourceModel: ?*anyopaque) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseSetSourceModel(@ptrCast(self), @ptrCast(sourceModel));
+    pub fn SuperSetSourceModel(self: ?*anyopaque, sourceModel: ?*anyopaque) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperSetSourceModel(@ptrCast(self), @ptrCast(sourceModel));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -2308,6 +2340,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_MapToSource(@ptrCast(self), @ptrCast(proxyIndex));
     }
 
+    /// ### DEPRECATED: Use `SuperMapToSource` instead
+    ///
+    pub const QBaseMapToSource = SuperMapToSource;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#mapToSource)
@@ -2320,8 +2356,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` proxyIndex: QtC.QModelIndex `
     ///
-    pub fn QBaseMapToSource(self: ?*anyopaque, proxyIndex: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseMapToSource(@ptrCast(self), @ptrCast(proxyIndex));
+    pub fn SuperMapToSource(self: ?*anyopaque, proxyIndex: ?*anyopaque) QtC.QModelIndex {
+        return qtc.KCategorizedSortFilterProxyModel_SuperMapToSource(@ptrCast(self), @ptrCast(proxyIndex));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -2356,6 +2392,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_MapFromSource(@ptrCast(self), @ptrCast(sourceIndex));
     }
 
+    /// ### DEPRECATED: Use `SuperMapFromSource` instead
+    ///
+    pub const QBaseMapFromSource = SuperMapFromSource;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#mapFromSource)
@@ -2368,8 +2408,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` sourceIndex: QtC.QModelIndex `
     ///
-    pub fn QBaseMapFromSource(self: ?*anyopaque, sourceIndex: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseMapFromSource(@ptrCast(self), @ptrCast(sourceIndex));
+    pub fn SuperMapFromSource(self: ?*anyopaque, sourceIndex: ?*anyopaque) QtC.QModelIndex {
+        return qtc.KCategorizedSortFilterProxyModel_SuperMapFromSource(@ptrCast(self), @ptrCast(sourceIndex));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -2404,6 +2444,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_MapSelectionToSource(@ptrCast(self), @ptrCast(proxySelection));
     }
 
+    /// ### DEPRECATED: Use `SuperMapSelectionToSource` instead
+    ///
+    pub const QBaseMapSelectionToSource = SuperMapSelectionToSource;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#mapSelectionToSource)
@@ -2416,8 +2460,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` proxySelection: QtC.QItemSelection `
     ///
-    pub fn QBaseMapSelectionToSource(self: ?*anyopaque, proxySelection: ?*anyopaque) QtC.QItemSelection {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseMapSelectionToSource(@ptrCast(self), @ptrCast(proxySelection));
+    pub fn SuperMapSelectionToSource(self: ?*anyopaque, proxySelection: ?*anyopaque) QtC.QItemSelection {
+        return qtc.KCategorizedSortFilterProxyModel_SuperMapSelectionToSource(@ptrCast(self), @ptrCast(proxySelection));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -2452,6 +2496,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_MapSelectionFromSource(@ptrCast(self), @ptrCast(sourceSelection));
     }
 
+    /// ### DEPRECATED: Use `SuperMapSelectionFromSource` instead
+    ///
+    pub const QBaseMapSelectionFromSource = SuperMapSelectionFromSource;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#mapSelectionFromSource)
@@ -2464,8 +2512,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` sourceSelection: QtC.QItemSelection `
     ///
-    pub fn QBaseMapSelectionFromSource(self: ?*anyopaque, sourceSelection: ?*anyopaque) QtC.QItemSelection {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseMapSelectionFromSource(@ptrCast(self), @ptrCast(sourceSelection));
+    pub fn SuperMapSelectionFromSource(self: ?*anyopaque, sourceSelection: ?*anyopaque) QtC.QItemSelection {
+        return qtc.KCategorizedSortFilterProxyModel_SuperMapSelectionFromSource(@ptrCast(self), @ptrCast(sourceSelection));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -2502,6 +2550,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_FilterAcceptsRow(@ptrCast(self), @bitCast(source_row), @ptrCast(source_parent));
     }
 
+    /// ### DEPRECATED: Use `SuperFilterAcceptsRow` instead
+    ///
+    pub const QBaseFilterAcceptsRow = SuperFilterAcceptsRow;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#filterAcceptsRow)
@@ -2516,8 +2568,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` source_parent: QtC.QModelIndex `
     ///
-    pub fn QBaseFilterAcceptsRow(self: ?*anyopaque, source_row: i32, source_parent: ?*anyopaque) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseFilterAcceptsRow(@ptrCast(self), @bitCast(source_row), @ptrCast(source_parent));
+    pub fn SuperFilterAcceptsRow(self: ?*anyopaque, source_row: i32, source_parent: ?*anyopaque) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperFilterAcceptsRow(@ptrCast(self), @bitCast(source_row), @ptrCast(source_parent));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -2554,6 +2606,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_FilterAcceptsColumn(@ptrCast(self), @bitCast(source_column), @ptrCast(source_parent));
     }
 
+    /// ### DEPRECATED: Use `SuperFilterAcceptsColumn` instead
+    ///
+    pub const QBaseFilterAcceptsColumn = SuperFilterAcceptsColumn;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#filterAcceptsColumn)
@@ -2568,8 +2624,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` source_parent: QtC.QModelIndex `
     ///
-    pub fn QBaseFilterAcceptsColumn(self: ?*anyopaque, source_column: i32, source_parent: ?*anyopaque) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseFilterAcceptsColumn(@ptrCast(self), @bitCast(source_column), @ptrCast(source_parent));
+    pub fn SuperFilterAcceptsColumn(self: ?*anyopaque, source_column: i32, source_parent: ?*anyopaque) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperFilterAcceptsColumn(@ptrCast(self), @bitCast(source_column), @ptrCast(source_parent));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -2608,6 +2664,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_Index(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperIndex` instead
+    ///
+    pub const QBaseIndex = SuperIndex;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#index)
@@ -2624,8 +2684,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseIndex(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseIndex(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperIndex(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
+        return qtc.KCategorizedSortFilterProxyModel_SuperIndex(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -2660,6 +2720,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_Parent(@ptrCast(self), @ptrCast(child));
     }
 
+    /// ### DEPRECATED: Use `SuperParent` instead
+    ///
+    pub const QBaseParent = SuperParent;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#parent)
@@ -2672,8 +2736,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` child: QtC.QModelIndex `
     ///
-    pub fn QBaseParent(self: ?*anyopaque, child: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseParent(@ptrCast(self), @ptrCast(child));
+    pub fn SuperParent(self: ?*anyopaque, child: ?*anyopaque) QtC.QModelIndex {
+        return qtc.KCategorizedSortFilterProxyModel_SuperParent(@ptrCast(self), @ptrCast(child));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -2712,6 +2776,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_Sibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
     }
 
+    /// ### DEPRECATED: Use `SuperSibling` instead
+    ///
+    pub const QBaseSibling = SuperSibling;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#sibling)
@@ -2728,8 +2796,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` idx: QtC.QModelIndex `
     ///
-    pub fn QBaseSibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseSibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
+    pub fn SuperSibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
+        return qtc.KCategorizedSortFilterProxyModel_SuperSibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -2764,6 +2832,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_RowCount(@ptrCast(self), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperRowCount` instead
+    ///
+    pub const QBaseRowCount = SuperRowCount;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#rowCount)
@@ -2776,8 +2848,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseRowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseRowCount(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperRowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
+        return qtc.KCategorizedSortFilterProxyModel_SuperRowCount(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -2812,6 +2884,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_ColumnCount(@ptrCast(self), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperColumnCount` instead
+    ///
+    pub const QBaseColumnCount = SuperColumnCount;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#columnCount)
@@ -2824,8 +2900,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseColumnCount(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
+        return qtc.KCategorizedSortFilterProxyModel_SuperColumnCount(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -2860,6 +2936,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_HasChildren(@ptrCast(self), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperHasChildren` instead
+    ///
+    pub const QBaseHasChildren = SuperHasChildren;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#hasChildren)
@@ -2872,8 +2952,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseHasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseHasChildren(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperHasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperHasChildren(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -2910,6 +2990,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_Data(@ptrCast(self), @ptrCast(index), @bitCast(role));
     }
 
+    /// ### DEPRECATED: Use `SuperData` instead
+    ///
+    pub const QBaseData = SuperData;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#data)
@@ -2924,8 +3008,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn QBaseData(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseData(@ptrCast(self), @ptrCast(index), @bitCast(role));
+    pub fn SuperData(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
+        return qtc.KCategorizedSortFilterProxyModel_SuperData(@ptrCast(self), @ptrCast(index), @bitCast(role));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -2964,6 +3048,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
     }
 
+    /// ### DEPRECATED: Use `SuperSetData` instead
+    ///
+    pub const QBaseSetData = SuperSetData;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#setData)
@@ -2980,8 +3068,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn QBaseSetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
+    pub fn SuperSetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -3020,6 +3108,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_HeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
     }
 
+    /// ### DEPRECATED: Use `SuperHeaderData` instead
+    ///
+    pub const QBaseHeaderData = SuperHeaderData;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#headerData)
@@ -3036,8 +3128,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn QBaseHeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
+    pub fn SuperHeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
+        return qtc.KCategorizedSortFilterProxyModel_SuperHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -3078,6 +3170,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_SetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
     }
 
+    /// ### DEPRECATED: Use `SuperSetHeaderData` instead
+    ///
+    pub const QBaseSetHeaderData = SuperSetHeaderData;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#setHeaderData)
@@ -3096,8 +3192,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn QBaseSetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseSetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
+    pub fn SuperSetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperSetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -3136,6 +3232,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_MimeData(@ptrCast(self), indexes_list);
     }
 
+    /// ### DEPRECATED: Use `SuperMimeData` instead
+    ///
+    pub const QBaseMimeData = SuperMimeData;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#mimeData)
@@ -3148,12 +3248,12 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` indexes: []QtC.QModelIndex `
     ///
-    pub fn QBaseMimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
+    pub fn SuperMimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        return qtc.KCategorizedSortFilterProxyModel_QBaseMimeData(@ptrCast(self), indexes_list);
+        return qtc.KCategorizedSortFilterProxyModel_SuperMimeData(@ptrCast(self), indexes_list);
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -3196,6 +3296,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_DropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperDropMimeData` instead
+    ///
+    pub const QBaseDropMimeData = SuperDropMimeData;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#dropMimeData)
@@ -3216,8 +3320,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -3256,6 +3360,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_InsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperInsertRows` instead
+    ///
+    pub const QBaseInsertRows = SuperInsertRows;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#insertRows)
@@ -3272,8 +3380,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseInsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseInsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn SuperInsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperInsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -3312,6 +3420,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_InsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperInsertColumns` instead
+    ///
+    pub const QBaseInsertColumns = SuperInsertColumns;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#insertColumns)
@@ -3328,8 +3440,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseInsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseInsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn SuperInsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperInsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -3368,6 +3480,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_RemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperRemoveRows` instead
+    ///
+    pub const QBaseRemoveRows = SuperRemoveRows;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#removeRows)
@@ -3384,8 +3500,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseRemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseRemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn SuperRemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperRemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -3424,6 +3540,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_RemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperRemoveColumns` instead
+    ///
+    pub const QBaseRemoveColumns = SuperRemoveColumns;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#removeColumns)
@@ -3440,8 +3560,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseRemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseRemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn SuperRemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperRemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -3476,6 +3596,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_FetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperFetchMore` instead
+    ///
+    pub const QBaseFetchMore = SuperFetchMore;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#fetchMore)
@@ -3488,8 +3612,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseFetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperFetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperFetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -3524,6 +3648,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_CanFetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperCanFetchMore` instead
+    ///
+    pub const QBaseCanFetchMore = SuperCanFetchMore;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#canFetchMore)
@@ -3536,8 +3664,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseCanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseCanFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperCanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperCanFetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -3576,6 +3704,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_Flags(@ptrCast(self), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperFlags` instead
+    ///
+    pub const QBaseFlags = SuperFlags;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#flags)
@@ -3592,8 +3724,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn QBaseFlags(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
+    pub fn SuperFlags(self: ?*anyopaque, index: ?*anyopaque) i32 {
+        return qtc.KCategorizedSortFilterProxyModel_SuperFlags(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -3628,6 +3760,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_Buddy(@ptrCast(self), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperBuddy` instead
+    ///
+    pub const QBaseBuddy = SuperBuddy;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#buddy)
@@ -3640,8 +3776,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseBuddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseBuddy(@ptrCast(self), @ptrCast(index));
+    pub fn SuperBuddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
+        return qtc.KCategorizedSortFilterProxyModel_SuperBuddy(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -3691,6 +3827,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperMatch` instead
+    ///
+    pub const QBaseMatch = SuperMatch;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#match)
@@ -3713,8 +3853,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KCategorizedSortFilterProxyModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
+    pub fn SuperMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
+        const _arr: qtc.libqt_list = qtc.KCategorizedSortFilterProxyModel_SuperMatch(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("kcategorizedsortfilterproxymodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -3760,6 +3900,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_Span(@ptrCast(self), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperSpan` instead
+    ///
+    pub const QBaseSpan = SuperSpan;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#span)
@@ -3772,8 +3916,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseSpan(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseSpan(@ptrCast(self), @ptrCast(index));
+    pub fn SuperSpan(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
+        return qtc.KCategorizedSortFilterProxyModel_SuperSpan(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -3823,6 +3967,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperMimeTypes` instead
+    ///
+    pub const QBaseMimeTypes = SuperMimeTypes;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#mimeTypes)
@@ -3835,8 +3983,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KCategorizedSortFilterProxyModel_QBaseMimeTypes(@ptrCast(self));
+    pub fn SuperMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KCategorizedSortFilterProxyModel_SuperMimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -3890,6 +4038,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_SupportedDropActions(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSupportedDropActions` instead
+    ///
+    pub const QBaseSupportedDropActions = SuperSupportedDropActions;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#supportedDropActions)
@@ -3904,8 +4056,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn QBaseSupportedDropActions(self: ?*anyopaque) i32 {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseSupportedDropActions(@ptrCast(self));
+    pub fn SuperSupportedDropActions(self: ?*anyopaque) i32 {
+        return qtc.KCategorizedSortFilterProxyModel_SuperSupportedDropActions(@ptrCast(self));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -3938,6 +4090,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_Submit(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSubmit` instead
+    ///
+    pub const QBaseSubmit = SuperSubmit;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#submit)
@@ -3948,8 +4104,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` self: QtC.KCategorizedSortFilterProxyModel `
     ///
-    pub fn QBaseSubmit(self: ?*anyopaque) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseSubmit(@ptrCast(self));
+    pub fn SuperSubmit(self: ?*anyopaque) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperSubmit(@ptrCast(self));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3982,6 +4138,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_Revert(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperRevert` instead
+    ///
+    pub const QBaseRevert = SuperRevert;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#revert)
@@ -3992,8 +4152,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` self: QtC.KCategorizedSortFilterProxyModel `
     ///
-    pub fn QBaseRevert(self: ?*anyopaque) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseRevert(@ptrCast(self));
+    pub fn SuperRevert(self: ?*anyopaque) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperRevert(@ptrCast(self));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -4044,6 +4204,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperItemData` instead
+    ///
+    pub const QBaseItemData = SuperItemData;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#itemData)
@@ -4058,8 +4222,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.KCategorizedSortFilterProxyModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
+    pub fn SuperItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
+        const _map: qtc.libqt_map = qtc.KCategorizedSortFilterProxyModel_SuperItemData(@ptrCast(self), @ptrCast(index));
         var _ret: arraymap_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -4133,6 +4297,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_SetItemData(@ptrCast(self), @ptrCast(index), roles_map);
     }
 
+    /// ### DEPRECATED: Use `SuperSetItemData` instead
+    ///
+    pub const QBaseSetItemData = SuperSetItemData;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#setItemData)
@@ -4149,7 +4317,7 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    pub fn SuperSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("kcategorizedsortfilterproxymodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -4167,7 +4335,7 @@ pub const kcategorizedsortfilterproxymodel = struct {
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.KCategorizedSortFilterProxyModel_QBaseSetItemData(@ptrCast(self), @ptrCast(index), roles_map);
+        return qtc.KCategorizedSortFilterProxyModel_SuperSetItemData(@ptrCast(self), @ptrCast(index), roles_map);
     }
 
     /// Inherited from QAbstractProxyModel
@@ -4202,6 +4370,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_ClearItemData(@ptrCast(self), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperClearItemData` instead
+    ///
+    pub const QBaseClearItemData = SuperClearItemData;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#clearItemData)
@@ -4214,8 +4386,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseClearItemData(@ptrCast(self), @ptrCast(index));
+    pub fn SuperClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperClearItemData(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -4258,6 +4430,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperCanDropMimeData` instead
+    ///
+    pub const QBaseCanDropMimeData = SuperCanDropMimeData;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#canDropMimeData)
@@ -4278,8 +4454,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseCanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseCanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperCanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperCanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -4316,6 +4492,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_SupportedDragActions(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSupportedDragActions` instead
+    ///
+    pub const QBaseSupportedDragActions = SuperSupportedDragActions;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#supportedDragActions)
@@ -4330,8 +4510,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn QBaseSupportedDragActions(self: ?*anyopaque) i32 {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseSupportedDragActions(@ptrCast(self));
+    pub fn SuperSupportedDragActions(self: ?*anyopaque) i32 {
+        return qtc.KCategorizedSortFilterProxyModel_SuperSupportedDragActions(@ptrCast(self));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -4386,6 +4566,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperRoleNames` instead
+    ///
+    pub const QBaseRoleNames = SuperRoleNames;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#roleNames)
@@ -4398,8 +4582,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.libqt_map = qtc.KCategorizedSortFilterProxyModel_QBaseRoleNames(@ptrCast(self));
+    pub fn SuperRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
+        const _map: qtc.libqt_map = qtc.KCategorizedSortFilterProxyModel_SuperRoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -4466,6 +4650,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveRows` instead
+    ///
+    pub const QBaseMoveRows = SuperMoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
@@ -4486,8 +4674,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn QBaseMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn SuperMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4530,6 +4718,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveColumns` instead
+    ///
+    pub const QBaseMoveColumns = SuperMoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
@@ -4550,8 +4742,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn QBaseMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn SuperMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4588,6 +4780,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_MultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
     }
 
+    /// ### DEPRECATED: Use `SuperMultiData` instead
+    ///
+    pub const QBaseMultiData = SuperMultiData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
@@ -4602,8 +4798,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` roleDataSpan: QtC.QModelRoleDataSpan `
     ///
-    pub fn QBaseMultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseMultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
+    pub fn SuperMultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperMultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4636,6 +4832,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_ResetInternalData(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperResetInternalData` instead
+    ///
+    pub const QBaseResetInternalData = SuperResetInternalData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
@@ -4646,8 +4846,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` self: QtC.KCategorizedSortFilterProxyModel `
     ///
-    pub fn QBaseResetInternalData(self: ?*anyopaque) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseResetInternalData(@ptrCast(self));
+    pub fn SuperResetInternalData(self: ?*anyopaque) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperResetInternalData(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4682,6 +4882,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -4694,8 +4898,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4732,6 +4936,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -4746,8 +4954,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4782,6 +4990,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -4794,8 +5006,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4830,6 +5042,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -4842,8 +5058,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4878,6 +5094,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -4890,8 +5110,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4926,6 +5146,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -4938,8 +5162,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4974,6 +5198,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -4986,8 +5214,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -5020,6 +5248,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_InvalidateFilter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperInvalidateFilter` instead
+    ///
+    pub const QBaseInvalidateFilter = SuperInvalidateFilter;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#invalidateFilter)
@@ -5030,8 +5262,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` self: QtC.KCategorizedSortFilterProxyModel `
     ///
-    pub fn QBaseInvalidateFilter(self: ?*anyopaque) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseInvalidateFilter(@ptrCast(self));
+    pub fn SuperInvalidateFilter(self: ?*anyopaque) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperInvalidateFilter(@ptrCast(self));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -5064,6 +5296,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_InvalidateRowsFilter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperInvalidateRowsFilter` instead
+    ///
+    pub const QBaseInvalidateRowsFilter = SuperInvalidateRowsFilter;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#invalidateRowsFilter)
@@ -5074,8 +5310,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` self: QtC.KCategorizedSortFilterProxyModel `
     ///
-    pub fn QBaseInvalidateRowsFilter(self: ?*anyopaque) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseInvalidateRowsFilter(@ptrCast(self));
+    pub fn SuperInvalidateRowsFilter(self: ?*anyopaque) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperInvalidateRowsFilter(@ptrCast(self));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -5108,6 +5344,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_InvalidateColumnsFilter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperInvalidateColumnsFilter` instead
+    ///
+    pub const QBaseInvalidateColumnsFilter = SuperInvalidateColumnsFilter;
+
     /// Inherited from QSortFilterProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#invalidateColumnsFilter)
@@ -5118,8 +5358,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` self: QtC.KCategorizedSortFilterProxyModel `
     ///
-    pub fn QBaseInvalidateColumnsFilter(self: ?*anyopaque) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseInvalidateColumnsFilter(@ptrCast(self));
+    pub fn SuperInvalidateColumnsFilter(self: ?*anyopaque) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperInvalidateColumnsFilter(@ptrCast(self));
     }
 
     /// Inherited from QSortFilterProxyModel
@@ -5158,6 +5398,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_CreateSourceIndex(@ptrCast(self), @bitCast(row), @bitCast(col), @ptrCast(internalPtr));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateSourceIndex` instead
+    ///
+    pub const QBaseCreateSourceIndex = SuperCreateSourceIndex;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#createSourceIndex)
@@ -5174,8 +5418,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` internalPtr: ?*anyopaque `
     ///
-    pub fn QBaseCreateSourceIndex(self: ?*anyopaque, row: i32, col: i32, internalPtr: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseCreateSourceIndex(@ptrCast(self), @bitCast(row), @bitCast(col), @ptrCast(internalPtr));
+    pub fn SuperCreateSourceIndex(self: ?*anyopaque, row: i32, col: i32, internalPtr: ?*anyopaque) QtC.QModelIndex {
+        return qtc.KCategorizedSortFilterProxyModel_SuperCreateSourceIndex(@ptrCast(self), @bitCast(row), @bitCast(col), @ptrCast(internalPtr));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -5212,6 +5456,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_CreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateIndex` instead
+    ///
+    pub const QBaseCreateIndex = SuperCreateIndex;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
@@ -5226,8 +5474,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn QBaseCreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseCreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn SuperCreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
+        return qtc.KCategorizedSortFilterProxyModel_SuperCreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5268,6 +5516,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_EncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
     }
 
+    /// ### DEPRECATED: Use `SuperEncodeData` instead
+    ///
+    pub const QBaseEncodeData = SuperEncodeData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
@@ -5282,12 +5534,12 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` stream: QtC.QDataStream `
     ///
-    pub fn QBaseEncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
+    pub fn SuperEncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        qtc.KCategorizedSortFilterProxyModel_QBaseEncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
+        qtc.KCategorizedSortFilterProxyModel_SuperEncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5328,6 +5580,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_DecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
     }
 
+    /// ### DEPRECATED: Use `SuperDecodeData` instead
+    ///
+    pub const QBaseDecodeData = SuperDecodeData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
@@ -5346,8 +5602,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` stream: QtC.QDataStream `
     ///
-    pub fn QBaseDecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseDecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
+    pub fn SuperDecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperDecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5386,6 +5642,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_BeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginInsertRows` instead
+    ///
+    pub const QBaseBeginInsertRows = SuperBeginInsertRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
@@ -5402,8 +5662,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn QBaseBeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseBeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperBeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5436,6 +5696,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_EndInsertRows(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndInsertRows` instead
+    ///
+    pub const QBaseEndInsertRows = SuperEndInsertRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
@@ -5446,8 +5710,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` self: QtC.KCategorizedSortFilterProxyModel `
     ///
-    pub fn QBaseEndInsertRows(self: ?*anyopaque) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseEndInsertRows(@ptrCast(self));
+    pub fn SuperEndInsertRows(self: ?*anyopaque) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperEndInsertRows(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5486,6 +5750,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_BeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginRemoveRows` instead
+    ///
+    pub const QBaseBeginRemoveRows = SuperBeginRemoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
@@ -5502,8 +5770,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn QBaseBeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5536,6 +5804,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_EndRemoveRows(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndRemoveRows` instead
+    ///
+    pub const QBaseEndRemoveRows = SuperEndRemoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
@@ -5546,8 +5818,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` self: QtC.KCategorizedSortFilterProxyModel `
     ///
-    pub fn QBaseEndRemoveRows(self: ?*anyopaque) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseEndRemoveRows(@ptrCast(self));
+    pub fn SuperEndRemoveRows(self: ?*anyopaque) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperEndRemoveRows(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5590,6 +5862,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_BeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginMoveRows` instead
+    ///
+    pub const QBaseBeginMoveRows = SuperBeginMoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
@@ -5610,8 +5886,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn QBaseBeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
+    pub fn SuperBeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5644,6 +5920,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_EndMoveRows(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndMoveRows` instead
+    ///
+    pub const QBaseEndMoveRows = SuperEndMoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
@@ -5654,8 +5934,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` self: QtC.KCategorizedSortFilterProxyModel `
     ///
-    pub fn QBaseEndMoveRows(self: ?*anyopaque) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseEndMoveRows(@ptrCast(self));
+    pub fn SuperEndMoveRows(self: ?*anyopaque) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperEndMoveRows(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5694,6 +5974,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_BeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginInsertColumns` instead
+    ///
+    pub const QBaseBeginInsertColumns = SuperBeginInsertColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
@@ -5710,8 +5994,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn QBaseBeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5744,6 +6028,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_EndInsertColumns(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndInsertColumns` instead
+    ///
+    pub const QBaseEndInsertColumns = SuperEndInsertColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
@@ -5754,8 +6042,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` self: QtC.KCategorizedSortFilterProxyModel `
     ///
-    pub fn QBaseEndInsertColumns(self: ?*anyopaque) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseEndInsertColumns(@ptrCast(self));
+    pub fn SuperEndInsertColumns(self: ?*anyopaque) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperEndInsertColumns(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5794,6 +6082,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_BeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginRemoveColumns` instead
+    ///
+    pub const QBaseBeginRemoveColumns = SuperBeginRemoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
@@ -5810,8 +6102,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn QBaseBeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5844,6 +6136,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_EndRemoveColumns(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndRemoveColumns` instead
+    ///
+    pub const QBaseEndRemoveColumns = SuperEndRemoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
@@ -5854,8 +6150,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` self: QtC.KCategorizedSortFilterProxyModel `
     ///
-    pub fn QBaseEndRemoveColumns(self: ?*anyopaque) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseEndRemoveColumns(@ptrCast(self));
+    pub fn SuperEndRemoveColumns(self: ?*anyopaque) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperEndRemoveColumns(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5898,6 +6194,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_BeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginMoveColumns` instead
+    ///
+    pub const QBaseBeginMoveColumns = SuperBeginMoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
@@ -5918,8 +6218,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn QBaseBeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
+    pub fn SuperBeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5952,6 +6252,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_EndMoveColumns(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndMoveColumns` instead
+    ///
+    pub const QBaseEndMoveColumns = SuperEndMoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
@@ -5962,8 +6266,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` self: QtC.KCategorizedSortFilterProxyModel `
     ///
-    pub fn QBaseEndMoveColumns(self: ?*anyopaque) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseEndMoveColumns(@ptrCast(self));
+    pub fn SuperEndMoveColumns(self: ?*anyopaque) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperEndMoveColumns(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5996,6 +6300,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_BeginResetModel(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginResetModel` instead
+    ///
+    pub const QBaseBeginResetModel = SuperBeginResetModel;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
@@ -6006,8 +6314,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` self: QtC.KCategorizedSortFilterProxyModel `
     ///
-    pub fn QBaseBeginResetModel(self: ?*anyopaque) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseBeginResetModel(@ptrCast(self));
+    pub fn SuperBeginResetModel(self: ?*anyopaque) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperBeginResetModel(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6040,6 +6348,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_EndResetModel(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndResetModel` instead
+    ///
+    pub const QBaseEndResetModel = SuperEndResetModel;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
@@ -6050,8 +6362,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` self: QtC.KCategorizedSortFilterProxyModel `
     ///
-    pub fn QBaseEndResetModel(self: ?*anyopaque) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseEndResetModel(@ptrCast(self));
+    pub fn SuperEndResetModel(self: ?*anyopaque) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperEndResetModel(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6088,6 +6400,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_ChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
     }
 
+    /// ### DEPRECATED: Use `SuperChangePersistentIndex` instead
+    ///
+    pub const QBaseChangePersistentIndex = SuperChangePersistentIndex;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
@@ -6102,8 +6418,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` to: QtC.QModelIndex `
     ///
-    pub fn QBaseChangePersistentIndex(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
-        qtc.KCategorizedSortFilterProxyModel_QBaseChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
+    pub fn SuperChangePersistentIndex(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
+        qtc.KCategorizedSortFilterProxyModel_SuperChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6148,6 +6464,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         qtc.KCategorizedSortFilterProxyModel_ChangePersistentIndexList(@ptrCast(self), from_list, to_list);
     }
 
+    /// ### DEPRECATED: Use `SuperChangePersistentIndexList` instead
+    ///
+    pub const QBaseChangePersistentIndexList = SuperChangePersistentIndexList;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
@@ -6162,7 +6482,7 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` to: []QtC.QModelIndex `
     ///
-    pub fn QBaseChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
+    pub fn SuperChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -6171,7 +6491,7 @@ pub const kcategorizedsortfilterproxymodel = struct {
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
-        qtc.KCategorizedSortFilterProxyModel_QBaseChangePersistentIndexList(@ptrCast(self), from_list, to_list);
+        qtc.KCategorizedSortFilterProxyModel_SuperChangePersistentIndexList(@ptrCast(self), from_list, to_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -6211,6 +6531,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperPersistentIndexList` instead
+    ///
+    pub const QBasePersistentIndexList = SuperPersistentIndexList;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
@@ -6223,8 +6547,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBasePersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KCategorizedSortFilterProxyModel_QBasePersistentIndexList(@ptrCast(self));
+    pub fn SuperPersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
+        const _arr: qtc.libqt_list = qtc.KCategorizedSortFilterProxyModel_SuperPersistentIndexList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("kcategorizedsortfilterproxymodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -6268,6 +6592,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -6278,8 +6606,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` self: QtC.KCategorizedSortFilterProxyModel `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KCategorizedSortFilterProxyModel_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -6312,6 +6640,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -6322,8 +6654,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` self: QtC.KCategorizedSortFilterProxyModel `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KCategorizedSortFilterProxyModel_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -6359,6 +6691,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -6371,9 +6707,9 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KCategorizedSortFilterProxyModel_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KCategorizedSortFilterProxyModel_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -6408,6 +6744,10 @@ pub const kcategorizedsortfilterproxymodel = struct {
         return qtc.KCategorizedSortFilterProxyModel_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -6420,8 +6760,8 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KCategorizedSortFilterProxyModel_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KCategorizedSortFilterProxyModel_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -6695,6 +7035,9 @@ pub const kcategorizedsortfilterproxymodel = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#dtor.KCategorizedSortFilterProxyModel)
     ///
@@ -6704,7 +7047,7 @@ pub const kcategorizedsortfilterproxymodel = struct {
     ///
     /// ` self: QtC.KCategorizedSortFilterProxyModel `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KCategorizedSortFilterProxyModel_Delete(@ptrCast(self));
     }
 };

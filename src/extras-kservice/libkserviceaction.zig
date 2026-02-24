@@ -138,6 +138,10 @@ pub const kserviceaction = struct {
         return qtc.KServiceAction_IsSeparator(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kserviceaction.html#dtor.KServiceAction)
     ///
     /// Delete this object from C++ memory.
@@ -146,7 +150,7 @@ pub const kserviceaction = struct {
     ///
     /// ` self: QtC.KServiceAction `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KServiceAction_Delete(@ptrCast(self));
     }
 };

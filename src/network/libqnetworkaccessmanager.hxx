@@ -409,27 +409,27 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
 
     // Friend functions
     friend QNetworkReply* QNetworkAccessManager_CreateRequest(QNetworkAccessManager* self, int op, const QNetworkRequest* request, QIODevice* outgoingData);
-    friend QNetworkReply* QNetworkAccessManager_QBaseCreateRequest(QNetworkAccessManager* self, int op, const QNetworkRequest* request, QIODevice* outgoingData);
+    friend QNetworkReply* QNetworkAccessManager_SuperCreateRequest(QNetworkAccessManager* self, int op, const QNetworkRequest* request, QIODevice* outgoingData);
     friend void QNetworkAccessManager_TimerEvent(QNetworkAccessManager* self, QTimerEvent* event);
-    friend void QNetworkAccessManager_QBaseTimerEvent(QNetworkAccessManager* self, QTimerEvent* event);
+    friend void QNetworkAccessManager_SuperTimerEvent(QNetworkAccessManager* self, QTimerEvent* event);
     friend void QNetworkAccessManager_ChildEvent(QNetworkAccessManager* self, QChildEvent* event);
-    friend void QNetworkAccessManager_QBaseChildEvent(QNetworkAccessManager* self, QChildEvent* event);
+    friend void QNetworkAccessManager_SuperChildEvent(QNetworkAccessManager* self, QChildEvent* event);
     friend void QNetworkAccessManager_CustomEvent(QNetworkAccessManager* self, QEvent* event);
-    friend void QNetworkAccessManager_QBaseCustomEvent(QNetworkAccessManager* self, QEvent* event);
+    friend void QNetworkAccessManager_SuperCustomEvent(QNetworkAccessManager* self, QEvent* event);
     friend void QNetworkAccessManager_ConnectNotify(QNetworkAccessManager* self, const QMetaMethod* signal);
-    friend void QNetworkAccessManager_QBaseConnectNotify(QNetworkAccessManager* self, const QMetaMethod* signal);
+    friend void QNetworkAccessManager_SuperConnectNotify(QNetworkAccessManager* self, const QMetaMethod* signal);
     friend void QNetworkAccessManager_DisconnectNotify(QNetworkAccessManager* self, const QMetaMethod* signal);
-    friend void QNetworkAccessManager_QBaseDisconnectNotify(QNetworkAccessManager* self, const QMetaMethod* signal);
+    friend void QNetworkAccessManager_SuperDisconnectNotify(QNetworkAccessManager* self, const QMetaMethod* signal);
     friend libqt_list /* of libqt_string */ QNetworkAccessManager_SupportedSchemesImplementation(const QNetworkAccessManager* self);
-    friend libqt_list /* of libqt_string */ QNetworkAccessManager_QBaseSupportedSchemesImplementation(const QNetworkAccessManager* self);
+    friend libqt_list /* of libqt_string */ QNetworkAccessManager_SuperSupportedSchemesImplementation(const QNetworkAccessManager* self);
     friend QObject* QNetworkAccessManager_Sender(const QNetworkAccessManager* self);
-    friend QObject* QNetworkAccessManager_QBaseSender(const QNetworkAccessManager* self);
+    friend QObject* QNetworkAccessManager_SuperSender(const QNetworkAccessManager* self);
     friend int QNetworkAccessManager_SenderSignalIndex(const QNetworkAccessManager* self);
-    friend int QNetworkAccessManager_QBaseSenderSignalIndex(const QNetworkAccessManager* self);
+    friend int QNetworkAccessManager_SuperSenderSignalIndex(const QNetworkAccessManager* self);
     friend int QNetworkAccessManager_Receivers(const QNetworkAccessManager* self, const char* signal);
-    friend int QNetworkAccessManager_QBaseReceivers(const QNetworkAccessManager* self, const char* signal);
+    friend int QNetworkAccessManager_SuperReceivers(const QNetworkAccessManager* self, const char* signal);
     friend bool QNetworkAccessManager_IsSignalConnected(const QNetworkAccessManager* self, const QMetaMethod* signal);
-    friend bool QNetworkAccessManager_QBaseIsSignalConnected(const QNetworkAccessManager* self, const QMetaMethod* signal);
+    friend bool QNetworkAccessManager_SuperIsSignalConnected(const QNetworkAccessManager* self, const QMetaMethod* signal);
 };
 
 #endif

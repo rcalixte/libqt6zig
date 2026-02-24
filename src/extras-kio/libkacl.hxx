@@ -59,7 +59,7 @@ class VirtualKACL final : public KACL {
 
     // Friend functions
     friend void KACL_VirtualHook(KACL* self, int id, void* data);
-    friend void KACL_QBaseVirtualHook(KACL* self, int id, void* data);
+    friend void KACL_SuperVirtualHook(KACL* self, int id, void* data);
 };
 
 #endif

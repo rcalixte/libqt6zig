@@ -249,6 +249,10 @@ pub const kiconcolors = struct {
         qtc.KIconColors_SetActiveText(@ptrCast(self), @ptrCast(color));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kiconcolors.html#dtor.KIconColors)
     ///
     /// Delete this object from C++ memory.
@@ -257,7 +261,7 @@ pub const kiconcolors = struct {
     ///
     /// ` self: QtC.KIconColors `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KIconColors_Delete(@ptrCast(self));
     }
 };

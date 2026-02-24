@@ -47,7 +47,7 @@ QMetaObject* QAudioListener_MetaObject(const QAudioListener* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QAudioListener_QBaseMetaObject(const QAudioListener* self) {
+QMetaObject* QAudioListener_SuperMetaObject(const QAudioListener* self) {
     auto* vqaudiolistener = const_cast<VirtualQAudioListener*>(dynamic_cast<const VirtualQAudioListener*>(self));
     if (vqaudiolistener && vqaudiolistener->isVirtualQAudioListener) {
         vqaudiolistener->setQAudioListener_MetaObject_IsBase(true);
@@ -76,7 +76,7 @@ void* QAudioListener_Metacast(QAudioListener* self, const char* param1) {
 }
 
 // Base class handler implementation
-void* QAudioListener_QBaseMetacast(QAudioListener* self, const char* param1) {
+void* QAudioListener_SuperMetacast(QAudioListener* self, const char* param1) {
     auto* vqaudiolistener = dynamic_cast<VirtualQAudioListener*>(self);
     if (vqaudiolistener && vqaudiolistener->isVirtualQAudioListener) {
         vqaudiolistener->setQAudioListener_Metacast_IsBase(true);
@@ -105,7 +105,7 @@ int QAudioListener_Metacall(QAudioListener* self, int param1, int param2, void**
 }
 
 // Base class handler implementation
-int QAudioListener_QBaseMetacall(QAudioListener* self, int param1, int param2, void** param3) {
+int QAudioListener_SuperMetacall(QAudioListener* self, int param1, int param2, void** param3) {
     auto* vqaudiolistener = dynamic_cast<VirtualQAudioListener*>(self);
     if (vqaudiolistener && vqaudiolistener->isVirtualQAudioListener) {
         vqaudiolistener->setQAudioListener_Metacall_IsBase(true);
@@ -134,7 +134,7 @@ bool QAudioListener_Event(QAudioListener* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QAudioListener_QBaseEvent(QAudioListener* self, QEvent* event) {
+bool QAudioListener_SuperEvent(QAudioListener* self, QEvent* event) {
     auto* vqaudiolistener = dynamic_cast<VirtualQAudioListener*>(self);
     if (vqaudiolistener && vqaudiolistener->isVirtualQAudioListener) {
         vqaudiolistener->setQAudioListener_Event_IsBase(true);
@@ -163,7 +163,7 @@ bool QAudioListener_EventFilter(QAudioListener* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QAudioListener_QBaseEventFilter(QAudioListener* self, QObject* watched, QEvent* event) {
+bool QAudioListener_SuperEventFilter(QAudioListener* self, QObject* watched, QEvent* event) {
     auto* vqaudiolistener = dynamic_cast<VirtualQAudioListener*>(self);
     if (vqaudiolistener && vqaudiolistener->isVirtualQAudioListener) {
         vqaudiolistener->setQAudioListener_EventFilter_IsBase(true);
@@ -192,7 +192,7 @@ void QAudioListener_TimerEvent(QAudioListener* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QAudioListener_QBaseTimerEvent(QAudioListener* self, QTimerEvent* event) {
+void QAudioListener_SuperTimerEvent(QAudioListener* self, QTimerEvent* event) {
     auto* vqaudiolistener = dynamic_cast<VirtualQAudioListener*>(self);
     if (vqaudiolistener && vqaudiolistener->isVirtualQAudioListener) {
         vqaudiolistener->setQAudioListener_TimerEvent_IsBase(true);
@@ -221,7 +221,7 @@ void QAudioListener_ChildEvent(QAudioListener* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QAudioListener_QBaseChildEvent(QAudioListener* self, QChildEvent* event) {
+void QAudioListener_SuperChildEvent(QAudioListener* self, QChildEvent* event) {
     auto* vqaudiolistener = dynamic_cast<VirtualQAudioListener*>(self);
     if (vqaudiolistener && vqaudiolistener->isVirtualQAudioListener) {
         vqaudiolistener->setQAudioListener_ChildEvent_IsBase(true);
@@ -250,7 +250,7 @@ void QAudioListener_CustomEvent(QAudioListener* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAudioListener_QBaseCustomEvent(QAudioListener* self, QEvent* event) {
+void QAudioListener_SuperCustomEvent(QAudioListener* self, QEvent* event) {
     auto* vqaudiolistener = dynamic_cast<VirtualQAudioListener*>(self);
     if (vqaudiolistener && vqaudiolistener->isVirtualQAudioListener) {
         vqaudiolistener->setQAudioListener_CustomEvent_IsBase(true);
@@ -279,7 +279,7 @@ void QAudioListener_ConnectNotify(QAudioListener* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QAudioListener_QBaseConnectNotify(QAudioListener* self, const QMetaMethod* signal) {
+void QAudioListener_SuperConnectNotify(QAudioListener* self, const QMetaMethod* signal) {
     auto* vqaudiolistener = dynamic_cast<VirtualQAudioListener*>(self);
     if (vqaudiolistener && vqaudiolistener->isVirtualQAudioListener) {
         vqaudiolistener->setQAudioListener_ConnectNotify_IsBase(true);
@@ -308,7 +308,7 @@ void QAudioListener_DisconnectNotify(QAudioListener* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QAudioListener_QBaseDisconnectNotify(QAudioListener* self, const QMetaMethod* signal) {
+void QAudioListener_SuperDisconnectNotify(QAudioListener* self, const QMetaMethod* signal) {
     auto* vqaudiolistener = dynamic_cast<VirtualQAudioListener*>(self);
     if (vqaudiolistener && vqaudiolistener->isVirtualQAudioListener) {
         vqaudiolistener->setQAudioListener_DisconnectNotify_IsBase(true);
@@ -337,7 +337,7 @@ QObject* QAudioListener_Sender(const QAudioListener* self) {
 }
 
 // Base class handler implementation
-QObject* QAudioListener_QBaseSender(const QAudioListener* self) {
+QObject* QAudioListener_SuperSender(const QAudioListener* self) {
     auto* vqaudiolistener = const_cast<VirtualQAudioListener*>(dynamic_cast<const VirtualQAudioListener*>(self));
     if (vqaudiolistener && vqaudiolistener->isVirtualQAudioListener) {
         vqaudiolistener->setQAudioListener_Sender_IsBase(true);
@@ -366,7 +366,7 @@ int QAudioListener_SenderSignalIndex(const QAudioListener* self) {
 }
 
 // Base class handler implementation
-int QAudioListener_QBaseSenderSignalIndex(const QAudioListener* self) {
+int QAudioListener_SuperSenderSignalIndex(const QAudioListener* self) {
     auto* vqaudiolistener = const_cast<VirtualQAudioListener*>(dynamic_cast<const VirtualQAudioListener*>(self));
     if (vqaudiolistener && vqaudiolistener->isVirtualQAudioListener) {
         vqaudiolistener->setQAudioListener_SenderSignalIndex_IsBase(true);
@@ -395,7 +395,7 @@ int QAudioListener_Receivers(const QAudioListener* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QAudioListener_QBaseReceivers(const QAudioListener* self, const char* signal) {
+int QAudioListener_SuperReceivers(const QAudioListener* self, const char* signal) {
     auto* vqaudiolistener = const_cast<VirtualQAudioListener*>(dynamic_cast<const VirtualQAudioListener*>(self));
     if (vqaudiolistener && vqaudiolistener->isVirtualQAudioListener) {
         vqaudiolistener->setQAudioListener_Receivers_IsBase(true);
@@ -424,7 +424,7 @@ bool QAudioListener_IsSignalConnected(const QAudioListener* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QAudioListener_QBaseIsSignalConnected(const QAudioListener* self, const QMetaMethod* signal) {
+bool QAudioListener_SuperIsSignalConnected(const QAudioListener* self, const QMetaMethod* signal) {
     auto* vqaudiolistener = const_cast<VirtualQAudioListener*>(dynamic_cast<const VirtualQAudioListener*>(self));
     if (vqaudiolistener && vqaudiolistener->isVirtualQAudioListener) {
         vqaudiolistener->setQAudioListener_IsSignalConnected_IsBase(true);

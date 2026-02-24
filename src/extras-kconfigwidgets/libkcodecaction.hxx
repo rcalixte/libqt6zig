@@ -481,37 +481,37 @@ class VirtualKCodecAction final : public KCodecAction {
 
     // Friend functions
     friend void KCodecAction_SlotActionTriggered(KCodecAction* self, QAction* param1);
-    friend void KCodecAction_QBaseSlotActionTriggered(KCodecAction* self, QAction* param1);
+    friend void KCodecAction_SuperSlotActionTriggered(KCodecAction* self, QAction* param1);
     friend QWidget* KCodecAction_CreateWidget(KCodecAction* self, QWidget* parent);
-    friend QWidget* KCodecAction_QBaseCreateWidget(KCodecAction* self, QWidget* parent);
+    friend QWidget* KCodecAction_SuperCreateWidget(KCodecAction* self, QWidget* parent);
     friend void KCodecAction_DeleteWidget(KCodecAction* self, QWidget* widget);
-    friend void KCodecAction_QBaseDeleteWidget(KCodecAction* self, QWidget* widget);
+    friend void KCodecAction_SuperDeleteWidget(KCodecAction* self, QWidget* widget);
     friend bool KCodecAction_Event(KCodecAction* self, QEvent* event);
-    friend bool KCodecAction_QBaseEvent(KCodecAction* self, QEvent* event);
+    friend bool KCodecAction_SuperEvent(KCodecAction* self, QEvent* event);
     friend bool KCodecAction_EventFilter(KCodecAction* self, QObject* watched, QEvent* event);
-    friend bool KCodecAction_QBaseEventFilter(KCodecAction* self, QObject* watched, QEvent* event);
+    friend bool KCodecAction_SuperEventFilter(KCodecAction* self, QObject* watched, QEvent* event);
     friend void KCodecAction_TimerEvent(KCodecAction* self, QTimerEvent* event);
-    friend void KCodecAction_QBaseTimerEvent(KCodecAction* self, QTimerEvent* event);
+    friend void KCodecAction_SuperTimerEvent(KCodecAction* self, QTimerEvent* event);
     friend void KCodecAction_ChildEvent(KCodecAction* self, QChildEvent* event);
-    friend void KCodecAction_QBaseChildEvent(KCodecAction* self, QChildEvent* event);
+    friend void KCodecAction_SuperChildEvent(KCodecAction* self, QChildEvent* event);
     friend void KCodecAction_CustomEvent(KCodecAction* self, QEvent* event);
-    friend void KCodecAction_QBaseCustomEvent(KCodecAction* self, QEvent* event);
+    friend void KCodecAction_SuperCustomEvent(KCodecAction* self, QEvent* event);
     friend void KCodecAction_ConnectNotify(KCodecAction* self, const QMetaMethod* signal);
-    friend void KCodecAction_QBaseConnectNotify(KCodecAction* self, const QMetaMethod* signal);
+    friend void KCodecAction_SuperConnectNotify(KCodecAction* self, const QMetaMethod* signal);
     friend void KCodecAction_DisconnectNotify(KCodecAction* self, const QMetaMethod* signal);
-    friend void KCodecAction_QBaseDisconnectNotify(KCodecAction* self, const QMetaMethod* signal);
+    friend void KCodecAction_SuperDisconnectNotify(KCodecAction* self, const QMetaMethod* signal);
     friend void KCodecAction_SlotToggled(KCodecAction* self, bool param1);
-    friend void KCodecAction_QBaseSlotToggled(KCodecAction* self, bool param1);
+    friend void KCodecAction_SuperSlotToggled(KCodecAction* self, bool param1);
     friend libqt_list /* of QWidget* */ KCodecAction_CreatedWidgets(const KCodecAction* self);
-    friend libqt_list /* of QWidget* */ KCodecAction_QBaseCreatedWidgets(const KCodecAction* self);
+    friend libqt_list /* of QWidget* */ KCodecAction_SuperCreatedWidgets(const KCodecAction* self);
     friend QObject* KCodecAction_Sender(const KCodecAction* self);
-    friend QObject* KCodecAction_QBaseSender(const KCodecAction* self);
+    friend QObject* KCodecAction_SuperSender(const KCodecAction* self);
     friend int KCodecAction_SenderSignalIndex(const KCodecAction* self);
-    friend int KCodecAction_QBaseSenderSignalIndex(const KCodecAction* self);
+    friend int KCodecAction_SuperSenderSignalIndex(const KCodecAction* self);
     friend int KCodecAction_Receivers(const KCodecAction* self, const char* signal);
-    friend int KCodecAction_QBaseReceivers(const KCodecAction* self, const char* signal);
+    friend int KCodecAction_SuperReceivers(const KCodecAction* self, const char* signal);
     friend bool KCodecAction_IsSignalConnected(const KCodecAction* self, const QMetaMethod* signal);
-    friend bool KCodecAction_QBaseIsSignalConnected(const KCodecAction* self, const QMetaMethod* signal);
+    friend bool KCodecAction_SuperIsSignalConnected(const KCodecAction* self, const QMetaMethod* signal);
 };
 
 #endif

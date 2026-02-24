@@ -124,7 +124,7 @@ void QSvgWidget_PaintEvent(QSvgWidget* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-QMetaObject* QSvgWidget_QBaseMetaObject(const QSvgWidget* self) {
+QMetaObject* QSvgWidget_SuperMetaObject(const QSvgWidget* self) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_MetaObject_IsBase(true);
@@ -143,7 +143,7 @@ void QSvgWidget_OnMetaObject(const QSvgWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QSvgWidget_QBaseMetacast(QSvgWidget* self, const char* param1) {
+void* QSvgWidget_SuperMetacast(QSvgWidget* self, const char* param1) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_Metacast_IsBase(true);
@@ -162,7 +162,7 @@ void QSvgWidget_OnMetacast(QSvgWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSvgWidget_QBaseMetacall(QSvgWidget* self, int param1, int param2, void** param3) {
+int QSvgWidget_SuperMetacall(QSvgWidget* self, int param1, int param2, void** param3) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_Metacall_IsBase(true);
@@ -181,7 +181,7 @@ void QSvgWidget_OnMetacall(QSvgWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QSvgWidget_QBaseSizeHint(const QSvgWidget* self) {
+QSize* QSvgWidget_SuperSizeHint(const QSvgWidget* self) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_SizeHint_IsBase(true);
@@ -200,7 +200,7 @@ void QSvgWidget_OnSizeHint(const QSvgWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBasePaintEvent(QSvgWidget* self, QPaintEvent* event) {
+void QSvgWidget_SuperPaintEvent(QSvgWidget* self, QPaintEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_PaintEvent_IsBase(true);
@@ -229,7 +229,7 @@ int QSvgWidget_DevType(const QSvgWidget* self) {
 }
 
 // Base class handler implementation
-int QSvgWidget_QBaseDevType(const QSvgWidget* self) {
+int QSvgWidget_SuperDevType(const QSvgWidget* self) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_DevType_IsBase(true);
@@ -258,7 +258,7 @@ void QSvgWidget_SetVisible(QSvgWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseSetVisible(QSvgWidget* self, bool visible) {
+void QSvgWidget_SuperSetVisible(QSvgWidget* self, bool visible) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_SetVisible_IsBase(true);
@@ -287,7 +287,7 @@ QSize* QSvgWidget_MinimumSizeHint(const QSvgWidget* self) {
 }
 
 // Base class handler implementation
-QSize* QSvgWidget_QBaseMinimumSizeHint(const QSvgWidget* self) {
+QSize* QSvgWidget_SuperMinimumSizeHint(const QSvgWidget* self) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_MinimumSizeHint_IsBase(true);
@@ -316,7 +316,7 @@ int QSvgWidget_HeightForWidth(const QSvgWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int QSvgWidget_QBaseHeightForWidth(const QSvgWidget* self, int param1) {
+int QSvgWidget_SuperHeightForWidth(const QSvgWidget* self, int param1) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_HeightForWidth_IsBase(true);
@@ -345,7 +345,7 @@ bool QSvgWidget_HasHeightForWidth(const QSvgWidget* self) {
 }
 
 // Base class handler implementation
-bool QSvgWidget_QBaseHasHeightForWidth(const QSvgWidget* self) {
+bool QSvgWidget_SuperHasHeightForWidth(const QSvgWidget* self) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_HasHeightForWidth_IsBase(true);
@@ -374,7 +374,7 @@ QPaintEngine* QSvgWidget_PaintEngine(const QSvgWidget* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QSvgWidget_QBasePaintEngine(const QSvgWidget* self) {
+QPaintEngine* QSvgWidget_SuperPaintEngine(const QSvgWidget* self) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_PaintEngine_IsBase(true);
@@ -403,7 +403,7 @@ bool QSvgWidget_Event(QSvgWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSvgWidget_QBaseEvent(QSvgWidget* self, QEvent* event) {
+bool QSvgWidget_SuperEvent(QSvgWidget* self, QEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_Event_IsBase(true);
@@ -432,7 +432,7 @@ void QSvgWidget_MousePressEvent(QSvgWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseMousePressEvent(QSvgWidget* self, QMouseEvent* event) {
+void QSvgWidget_SuperMousePressEvent(QSvgWidget* self, QMouseEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_MousePressEvent_IsBase(true);
@@ -461,7 +461,7 @@ void QSvgWidget_MouseReleaseEvent(QSvgWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseMouseReleaseEvent(QSvgWidget* self, QMouseEvent* event) {
+void QSvgWidget_SuperMouseReleaseEvent(QSvgWidget* self, QMouseEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_MouseReleaseEvent_IsBase(true);
@@ -490,7 +490,7 @@ void QSvgWidget_MouseDoubleClickEvent(QSvgWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseMouseDoubleClickEvent(QSvgWidget* self, QMouseEvent* event) {
+void QSvgWidget_SuperMouseDoubleClickEvent(QSvgWidget* self, QMouseEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_MouseDoubleClickEvent_IsBase(true);
@@ -519,7 +519,7 @@ void QSvgWidget_MouseMoveEvent(QSvgWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseMouseMoveEvent(QSvgWidget* self, QMouseEvent* event) {
+void QSvgWidget_SuperMouseMoveEvent(QSvgWidget* self, QMouseEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_MouseMoveEvent_IsBase(true);
@@ -548,7 +548,7 @@ void QSvgWidget_WheelEvent(QSvgWidget* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseWheelEvent(QSvgWidget* self, QWheelEvent* event) {
+void QSvgWidget_SuperWheelEvent(QSvgWidget* self, QWheelEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_WheelEvent_IsBase(true);
@@ -577,7 +577,7 @@ void QSvgWidget_KeyPressEvent(QSvgWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseKeyPressEvent(QSvgWidget* self, QKeyEvent* event) {
+void QSvgWidget_SuperKeyPressEvent(QSvgWidget* self, QKeyEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_KeyPressEvent_IsBase(true);
@@ -606,7 +606,7 @@ void QSvgWidget_KeyReleaseEvent(QSvgWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseKeyReleaseEvent(QSvgWidget* self, QKeyEvent* event) {
+void QSvgWidget_SuperKeyReleaseEvent(QSvgWidget* self, QKeyEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_KeyReleaseEvent_IsBase(true);
@@ -635,7 +635,7 @@ void QSvgWidget_FocusInEvent(QSvgWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseFocusInEvent(QSvgWidget* self, QFocusEvent* event) {
+void QSvgWidget_SuperFocusInEvent(QSvgWidget* self, QFocusEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_FocusInEvent_IsBase(true);
@@ -664,7 +664,7 @@ void QSvgWidget_FocusOutEvent(QSvgWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseFocusOutEvent(QSvgWidget* self, QFocusEvent* event) {
+void QSvgWidget_SuperFocusOutEvent(QSvgWidget* self, QFocusEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_FocusOutEvent_IsBase(true);
@@ -693,7 +693,7 @@ void QSvgWidget_EnterEvent(QSvgWidget* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseEnterEvent(QSvgWidget* self, QEnterEvent* event) {
+void QSvgWidget_SuperEnterEvent(QSvgWidget* self, QEnterEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_EnterEvent_IsBase(true);
@@ -722,7 +722,7 @@ void QSvgWidget_LeaveEvent(QSvgWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseLeaveEvent(QSvgWidget* self, QEvent* event) {
+void QSvgWidget_SuperLeaveEvent(QSvgWidget* self, QEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_LeaveEvent_IsBase(true);
@@ -751,7 +751,7 @@ void QSvgWidget_MoveEvent(QSvgWidget* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseMoveEvent(QSvgWidget* self, QMoveEvent* event) {
+void QSvgWidget_SuperMoveEvent(QSvgWidget* self, QMoveEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_MoveEvent_IsBase(true);
@@ -780,7 +780,7 @@ void QSvgWidget_ResizeEvent(QSvgWidget* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseResizeEvent(QSvgWidget* self, QResizeEvent* event) {
+void QSvgWidget_SuperResizeEvent(QSvgWidget* self, QResizeEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_ResizeEvent_IsBase(true);
@@ -809,7 +809,7 @@ void QSvgWidget_CloseEvent(QSvgWidget* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseCloseEvent(QSvgWidget* self, QCloseEvent* event) {
+void QSvgWidget_SuperCloseEvent(QSvgWidget* self, QCloseEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_CloseEvent_IsBase(true);
@@ -838,7 +838,7 @@ void QSvgWidget_ContextMenuEvent(QSvgWidget* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseContextMenuEvent(QSvgWidget* self, QContextMenuEvent* event) {
+void QSvgWidget_SuperContextMenuEvent(QSvgWidget* self, QContextMenuEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_ContextMenuEvent_IsBase(true);
@@ -867,7 +867,7 @@ void QSvgWidget_TabletEvent(QSvgWidget* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseTabletEvent(QSvgWidget* self, QTabletEvent* event) {
+void QSvgWidget_SuperTabletEvent(QSvgWidget* self, QTabletEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_TabletEvent_IsBase(true);
@@ -896,7 +896,7 @@ void QSvgWidget_ActionEvent(QSvgWidget* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseActionEvent(QSvgWidget* self, QActionEvent* event) {
+void QSvgWidget_SuperActionEvent(QSvgWidget* self, QActionEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_ActionEvent_IsBase(true);
@@ -925,7 +925,7 @@ void QSvgWidget_DragEnterEvent(QSvgWidget* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseDragEnterEvent(QSvgWidget* self, QDragEnterEvent* event) {
+void QSvgWidget_SuperDragEnterEvent(QSvgWidget* self, QDragEnterEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_DragEnterEvent_IsBase(true);
@@ -954,7 +954,7 @@ void QSvgWidget_DragMoveEvent(QSvgWidget* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseDragMoveEvent(QSvgWidget* self, QDragMoveEvent* event) {
+void QSvgWidget_SuperDragMoveEvent(QSvgWidget* self, QDragMoveEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_DragMoveEvent_IsBase(true);
@@ -983,7 +983,7 @@ void QSvgWidget_DragLeaveEvent(QSvgWidget* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseDragLeaveEvent(QSvgWidget* self, QDragLeaveEvent* event) {
+void QSvgWidget_SuperDragLeaveEvent(QSvgWidget* self, QDragLeaveEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_DragLeaveEvent_IsBase(true);
@@ -1012,7 +1012,7 @@ void QSvgWidget_DropEvent(QSvgWidget* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseDropEvent(QSvgWidget* self, QDropEvent* event) {
+void QSvgWidget_SuperDropEvent(QSvgWidget* self, QDropEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_DropEvent_IsBase(true);
@@ -1041,7 +1041,7 @@ void QSvgWidget_ShowEvent(QSvgWidget* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseShowEvent(QSvgWidget* self, QShowEvent* event) {
+void QSvgWidget_SuperShowEvent(QSvgWidget* self, QShowEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_ShowEvent_IsBase(true);
@@ -1070,7 +1070,7 @@ void QSvgWidget_HideEvent(QSvgWidget* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseHideEvent(QSvgWidget* self, QHideEvent* event) {
+void QSvgWidget_SuperHideEvent(QSvgWidget* self, QHideEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_HideEvent_IsBase(true);
@@ -1100,7 +1100,7 @@ bool QSvgWidget_NativeEvent(QSvgWidget* self, const libqt_string eventType, void
 }
 
 // Base class handler implementation
-bool QSvgWidget_QBaseNativeEvent(QSvgWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QSvgWidget_SuperNativeEvent(QSvgWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
@@ -1130,7 +1130,7 @@ void QSvgWidget_ChangeEvent(QSvgWidget* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseChangeEvent(QSvgWidget* self, QEvent* param1) {
+void QSvgWidget_SuperChangeEvent(QSvgWidget* self, QEvent* param1) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_ChangeEvent_IsBase(true);
@@ -1159,7 +1159,7 @@ int QSvgWidget_Metric(const QSvgWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int QSvgWidget_QBaseMetric(const QSvgWidget* self, int param1) {
+int QSvgWidget_SuperMetric(const QSvgWidget* self, int param1) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_Metric_IsBase(true);
@@ -1188,7 +1188,7 @@ void QSvgWidget_InitPainter(const QSvgWidget* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseInitPainter(const QSvgWidget* self, QPainter* painter) {
+void QSvgWidget_SuperInitPainter(const QSvgWidget* self, QPainter* painter) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_InitPainter_IsBase(true);
@@ -1217,7 +1217,7 @@ QPaintDevice* QSvgWidget_Redirected(const QSvgWidget* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QSvgWidget_QBaseRedirected(const QSvgWidget* self, QPoint* offset) {
+QPaintDevice* QSvgWidget_SuperRedirected(const QSvgWidget* self, QPoint* offset) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_Redirected_IsBase(true);
@@ -1246,7 +1246,7 @@ QPainter* QSvgWidget_SharedPainter(const QSvgWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* QSvgWidget_QBaseSharedPainter(const QSvgWidget* self) {
+QPainter* QSvgWidget_SuperSharedPainter(const QSvgWidget* self) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_SharedPainter_IsBase(true);
@@ -1275,7 +1275,7 @@ void QSvgWidget_InputMethodEvent(QSvgWidget* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseInputMethodEvent(QSvgWidget* self, QInputMethodEvent* param1) {
+void QSvgWidget_SuperInputMethodEvent(QSvgWidget* self, QInputMethodEvent* param1) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_InputMethodEvent_IsBase(true);
@@ -1304,7 +1304,7 @@ QVariant* QSvgWidget_InputMethodQuery(const QSvgWidget* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QSvgWidget_QBaseInputMethodQuery(const QSvgWidget* self, int param1) {
+QVariant* QSvgWidget_SuperInputMethodQuery(const QSvgWidget* self, int param1) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_InputMethodQuery_IsBase(true);
@@ -1333,7 +1333,7 @@ bool QSvgWidget_FocusNextPrevChild(QSvgWidget* self, bool next) {
 }
 
 // Base class handler implementation
-bool QSvgWidget_QBaseFocusNextPrevChild(QSvgWidget* self, bool next) {
+bool QSvgWidget_SuperFocusNextPrevChild(QSvgWidget* self, bool next) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_FocusNextPrevChild_IsBase(true);
@@ -1362,7 +1362,7 @@ bool QSvgWidget_EventFilter(QSvgWidget* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSvgWidget_QBaseEventFilter(QSvgWidget* self, QObject* watched, QEvent* event) {
+bool QSvgWidget_SuperEventFilter(QSvgWidget* self, QObject* watched, QEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_EventFilter_IsBase(true);
@@ -1391,7 +1391,7 @@ void QSvgWidget_TimerEvent(QSvgWidget* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseTimerEvent(QSvgWidget* self, QTimerEvent* event) {
+void QSvgWidget_SuperTimerEvent(QSvgWidget* self, QTimerEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_TimerEvent_IsBase(true);
@@ -1420,7 +1420,7 @@ void QSvgWidget_ChildEvent(QSvgWidget* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseChildEvent(QSvgWidget* self, QChildEvent* event) {
+void QSvgWidget_SuperChildEvent(QSvgWidget* self, QChildEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_ChildEvent_IsBase(true);
@@ -1449,7 +1449,7 @@ void QSvgWidget_CustomEvent(QSvgWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseCustomEvent(QSvgWidget* self, QEvent* event) {
+void QSvgWidget_SuperCustomEvent(QSvgWidget* self, QEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_CustomEvent_IsBase(true);
@@ -1478,7 +1478,7 @@ void QSvgWidget_ConnectNotify(QSvgWidget* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseConnectNotify(QSvgWidget* self, const QMetaMethod* signal) {
+void QSvgWidget_SuperConnectNotify(QSvgWidget* self, const QMetaMethod* signal) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_ConnectNotify_IsBase(true);
@@ -1507,7 +1507,7 @@ void QSvgWidget_DisconnectNotify(QSvgWidget* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseDisconnectNotify(QSvgWidget* self, const QMetaMethod* signal) {
+void QSvgWidget_SuperDisconnectNotify(QSvgWidget* self, const QMetaMethod* signal) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_DisconnectNotify_IsBase(true);
@@ -1536,7 +1536,7 @@ void QSvgWidget_UpdateMicroFocus(QSvgWidget* self) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseUpdateMicroFocus(QSvgWidget* self) {
+void QSvgWidget_SuperUpdateMicroFocus(QSvgWidget* self) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_UpdateMicroFocus_IsBase(true);
@@ -1565,7 +1565,7 @@ void QSvgWidget_Create(QSvgWidget* self) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseCreate(QSvgWidget* self) {
+void QSvgWidget_SuperCreate(QSvgWidget* self) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_Create_IsBase(true);
@@ -1594,7 +1594,7 @@ void QSvgWidget_Destroy(QSvgWidget* self) {
 }
 
 // Base class handler implementation
-void QSvgWidget_QBaseDestroy(QSvgWidget* self) {
+void QSvgWidget_SuperDestroy(QSvgWidget* self) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_Destroy_IsBase(true);
@@ -1623,7 +1623,7 @@ bool QSvgWidget_FocusNextChild(QSvgWidget* self) {
 }
 
 // Base class handler implementation
-bool QSvgWidget_QBaseFocusNextChild(QSvgWidget* self) {
+bool QSvgWidget_SuperFocusNextChild(QSvgWidget* self) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_FocusNextChild_IsBase(true);
@@ -1652,7 +1652,7 @@ bool QSvgWidget_FocusPreviousChild(QSvgWidget* self) {
 }
 
 // Base class handler implementation
-bool QSvgWidget_QBaseFocusPreviousChild(QSvgWidget* self) {
+bool QSvgWidget_SuperFocusPreviousChild(QSvgWidget* self) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_FocusPreviousChild_IsBase(true);
@@ -1681,7 +1681,7 @@ QObject* QSvgWidget_Sender(const QSvgWidget* self) {
 }
 
 // Base class handler implementation
-QObject* QSvgWidget_QBaseSender(const QSvgWidget* self) {
+QObject* QSvgWidget_SuperSender(const QSvgWidget* self) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_Sender_IsBase(true);
@@ -1710,7 +1710,7 @@ int QSvgWidget_SenderSignalIndex(const QSvgWidget* self) {
 }
 
 // Base class handler implementation
-int QSvgWidget_QBaseSenderSignalIndex(const QSvgWidget* self) {
+int QSvgWidget_SuperSenderSignalIndex(const QSvgWidget* self) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_SenderSignalIndex_IsBase(true);
@@ -1739,7 +1739,7 @@ int QSvgWidget_Receivers(const QSvgWidget* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QSvgWidget_QBaseReceivers(const QSvgWidget* self, const char* signal) {
+int QSvgWidget_SuperReceivers(const QSvgWidget* self, const char* signal) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_Receivers_IsBase(true);
@@ -1768,7 +1768,7 @@ bool QSvgWidget_IsSignalConnected(const QSvgWidget* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QSvgWidget_QBaseIsSignalConnected(const QSvgWidget* self, const QMetaMethod* signal) {
+bool QSvgWidget_SuperIsSignalConnected(const QSvgWidget* self, const QMetaMethod* signal) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_IsSignalConnected_IsBase(true);
@@ -1797,7 +1797,7 @@ double QSvgWidget_GetDecodedMetricF(const QSvgWidget* self, int metricA, int met
 }
 
 // Base class handler implementation
-double QSvgWidget_QBaseGetDecodedMetricF(const QSvgWidget* self, int metricA, int metricB) {
+double QSvgWidget_SuperGetDecodedMetricF(const QSvgWidget* self, int metricA, int metricB) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_GetDecodedMetricF_IsBase(true);

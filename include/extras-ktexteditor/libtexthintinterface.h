@@ -30,7 +30,7 @@ typedef struct KTextEditor__View KTextEditor__View;
 KTextEditor__TextHintProvider* KTextEditor__TextHintProvider_new();
 libqt_string KTextEditor__TextHintProvider_TextHint(KTextEditor__TextHintProvider* self, KTextEditor__View* view, const KTextEditor__Cursor* position);
 void KTextEditor__TextHintProvider_OnTextHint(KTextEditor__TextHintProvider* self, intptr_t slot);
-libqt_string KTextEditor__TextHintProvider_QBaseTextHint(KTextEditor__TextHintProvider* self, KTextEditor__View* view, const KTextEditor__Cursor* position);
+libqt_string KTextEditor__TextHintProvider_SuperTextHint(KTextEditor__TextHintProvider* self, KTextEditor__View* view, const KTextEditor__Cursor* position);
 void KTextEditor__TextHintProvider_Delete(KTextEditor__TextHintProvider* self);
 
 #ifdef __cplusplus

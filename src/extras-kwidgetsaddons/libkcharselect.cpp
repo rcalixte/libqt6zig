@@ -230,7 +230,7 @@ void KCharSelect_Connect_CodePointSelected(KCharSelect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* KCharSelect_QBaseMetaObject(const KCharSelect* self) {
+QMetaObject* KCharSelect_SuperMetaObject(const KCharSelect* self) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_MetaObject_IsBase(true);
@@ -249,7 +249,7 @@ void KCharSelect_OnMetaObject(const KCharSelect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KCharSelect_QBaseMetacast(KCharSelect* self, const char* param1) {
+void* KCharSelect_SuperMetacast(KCharSelect* self, const char* param1) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_Metacast_IsBase(true);
@@ -268,7 +268,7 @@ void KCharSelect_OnMetacast(KCharSelect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KCharSelect_QBaseMetacall(KCharSelect* self, int param1, int param2, void** param3) {
+int KCharSelect_SuperMetacall(KCharSelect* self, int param1, int param2, void** param3) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_Metacall_IsBase(true);
@@ -287,7 +287,7 @@ void KCharSelect_OnMetacall(KCharSelect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* KCharSelect_QBaseSizeHint(const KCharSelect* self) {
+QSize* KCharSelect_SuperSizeHint(const KCharSelect* self) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_SizeHint_IsBase(true);
@@ -316,7 +316,7 @@ int KCharSelect_DevType(const KCharSelect* self) {
 }
 
 // Base class handler implementation
-int KCharSelect_QBaseDevType(const KCharSelect* self) {
+int KCharSelect_SuperDevType(const KCharSelect* self) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_DevType_IsBase(true);
@@ -345,7 +345,7 @@ void KCharSelect_SetVisible(KCharSelect* self, bool visible) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseSetVisible(KCharSelect* self, bool visible) {
+void KCharSelect_SuperSetVisible(KCharSelect* self, bool visible) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_SetVisible_IsBase(true);
@@ -374,7 +374,7 @@ QSize* KCharSelect_MinimumSizeHint(const KCharSelect* self) {
 }
 
 // Base class handler implementation
-QSize* KCharSelect_QBaseMinimumSizeHint(const KCharSelect* self) {
+QSize* KCharSelect_SuperMinimumSizeHint(const KCharSelect* self) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_MinimumSizeHint_IsBase(true);
@@ -403,7 +403,7 @@ int KCharSelect_HeightForWidth(const KCharSelect* self, int param1) {
 }
 
 // Base class handler implementation
-int KCharSelect_QBaseHeightForWidth(const KCharSelect* self, int param1) {
+int KCharSelect_SuperHeightForWidth(const KCharSelect* self, int param1) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_HeightForWidth_IsBase(true);
@@ -432,7 +432,7 @@ bool KCharSelect_HasHeightForWidth(const KCharSelect* self) {
 }
 
 // Base class handler implementation
-bool KCharSelect_QBaseHasHeightForWidth(const KCharSelect* self) {
+bool KCharSelect_SuperHasHeightForWidth(const KCharSelect* self) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_HasHeightForWidth_IsBase(true);
@@ -461,7 +461,7 @@ QPaintEngine* KCharSelect_PaintEngine(const KCharSelect* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KCharSelect_QBasePaintEngine(const KCharSelect* self) {
+QPaintEngine* KCharSelect_SuperPaintEngine(const KCharSelect* self) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_PaintEngine_IsBase(true);
@@ -490,7 +490,7 @@ bool KCharSelect_Event(KCharSelect* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KCharSelect_QBaseEvent(KCharSelect* self, QEvent* event) {
+bool KCharSelect_SuperEvent(KCharSelect* self, QEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_Event_IsBase(true);
@@ -519,7 +519,7 @@ void KCharSelect_MousePressEvent(KCharSelect* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseMousePressEvent(KCharSelect* self, QMouseEvent* event) {
+void KCharSelect_SuperMousePressEvent(KCharSelect* self, QMouseEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_MousePressEvent_IsBase(true);
@@ -548,7 +548,7 @@ void KCharSelect_MouseReleaseEvent(KCharSelect* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseMouseReleaseEvent(KCharSelect* self, QMouseEvent* event) {
+void KCharSelect_SuperMouseReleaseEvent(KCharSelect* self, QMouseEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_MouseReleaseEvent_IsBase(true);
@@ -577,7 +577,7 @@ void KCharSelect_MouseDoubleClickEvent(KCharSelect* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseMouseDoubleClickEvent(KCharSelect* self, QMouseEvent* event) {
+void KCharSelect_SuperMouseDoubleClickEvent(KCharSelect* self, QMouseEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_MouseDoubleClickEvent_IsBase(true);
@@ -606,7 +606,7 @@ void KCharSelect_MouseMoveEvent(KCharSelect* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseMouseMoveEvent(KCharSelect* self, QMouseEvent* event) {
+void KCharSelect_SuperMouseMoveEvent(KCharSelect* self, QMouseEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_MouseMoveEvent_IsBase(true);
@@ -635,7 +635,7 @@ void KCharSelect_WheelEvent(KCharSelect* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseWheelEvent(KCharSelect* self, QWheelEvent* event) {
+void KCharSelect_SuperWheelEvent(KCharSelect* self, QWheelEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_WheelEvent_IsBase(true);
@@ -664,7 +664,7 @@ void KCharSelect_KeyPressEvent(KCharSelect* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseKeyPressEvent(KCharSelect* self, QKeyEvent* event) {
+void KCharSelect_SuperKeyPressEvent(KCharSelect* self, QKeyEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_KeyPressEvent_IsBase(true);
@@ -693,7 +693,7 @@ void KCharSelect_KeyReleaseEvent(KCharSelect* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseKeyReleaseEvent(KCharSelect* self, QKeyEvent* event) {
+void KCharSelect_SuperKeyReleaseEvent(KCharSelect* self, QKeyEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_KeyReleaseEvent_IsBase(true);
@@ -722,7 +722,7 @@ void KCharSelect_FocusInEvent(KCharSelect* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseFocusInEvent(KCharSelect* self, QFocusEvent* event) {
+void KCharSelect_SuperFocusInEvent(KCharSelect* self, QFocusEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_FocusInEvent_IsBase(true);
@@ -751,7 +751,7 @@ void KCharSelect_FocusOutEvent(KCharSelect* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseFocusOutEvent(KCharSelect* self, QFocusEvent* event) {
+void KCharSelect_SuperFocusOutEvent(KCharSelect* self, QFocusEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_FocusOutEvent_IsBase(true);
@@ -780,7 +780,7 @@ void KCharSelect_EnterEvent(KCharSelect* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseEnterEvent(KCharSelect* self, QEnterEvent* event) {
+void KCharSelect_SuperEnterEvent(KCharSelect* self, QEnterEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_EnterEvent_IsBase(true);
@@ -809,7 +809,7 @@ void KCharSelect_LeaveEvent(KCharSelect* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseLeaveEvent(KCharSelect* self, QEvent* event) {
+void KCharSelect_SuperLeaveEvent(KCharSelect* self, QEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_LeaveEvent_IsBase(true);
@@ -838,7 +838,7 @@ void KCharSelect_PaintEvent(KCharSelect* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBasePaintEvent(KCharSelect* self, QPaintEvent* event) {
+void KCharSelect_SuperPaintEvent(KCharSelect* self, QPaintEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_PaintEvent_IsBase(true);
@@ -867,7 +867,7 @@ void KCharSelect_MoveEvent(KCharSelect* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseMoveEvent(KCharSelect* self, QMoveEvent* event) {
+void KCharSelect_SuperMoveEvent(KCharSelect* self, QMoveEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_MoveEvent_IsBase(true);
@@ -896,7 +896,7 @@ void KCharSelect_ResizeEvent(KCharSelect* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseResizeEvent(KCharSelect* self, QResizeEvent* event) {
+void KCharSelect_SuperResizeEvent(KCharSelect* self, QResizeEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_ResizeEvent_IsBase(true);
@@ -925,7 +925,7 @@ void KCharSelect_CloseEvent(KCharSelect* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseCloseEvent(KCharSelect* self, QCloseEvent* event) {
+void KCharSelect_SuperCloseEvent(KCharSelect* self, QCloseEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_CloseEvent_IsBase(true);
@@ -954,7 +954,7 @@ void KCharSelect_ContextMenuEvent(KCharSelect* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseContextMenuEvent(KCharSelect* self, QContextMenuEvent* event) {
+void KCharSelect_SuperContextMenuEvent(KCharSelect* self, QContextMenuEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_ContextMenuEvent_IsBase(true);
@@ -983,7 +983,7 @@ void KCharSelect_TabletEvent(KCharSelect* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseTabletEvent(KCharSelect* self, QTabletEvent* event) {
+void KCharSelect_SuperTabletEvent(KCharSelect* self, QTabletEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_TabletEvent_IsBase(true);
@@ -1012,7 +1012,7 @@ void KCharSelect_ActionEvent(KCharSelect* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseActionEvent(KCharSelect* self, QActionEvent* event) {
+void KCharSelect_SuperActionEvent(KCharSelect* self, QActionEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_ActionEvent_IsBase(true);
@@ -1041,7 +1041,7 @@ void KCharSelect_DragEnterEvent(KCharSelect* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseDragEnterEvent(KCharSelect* self, QDragEnterEvent* event) {
+void KCharSelect_SuperDragEnterEvent(KCharSelect* self, QDragEnterEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_DragEnterEvent_IsBase(true);
@@ -1070,7 +1070,7 @@ void KCharSelect_DragMoveEvent(KCharSelect* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseDragMoveEvent(KCharSelect* self, QDragMoveEvent* event) {
+void KCharSelect_SuperDragMoveEvent(KCharSelect* self, QDragMoveEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_DragMoveEvent_IsBase(true);
@@ -1099,7 +1099,7 @@ void KCharSelect_DragLeaveEvent(KCharSelect* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseDragLeaveEvent(KCharSelect* self, QDragLeaveEvent* event) {
+void KCharSelect_SuperDragLeaveEvent(KCharSelect* self, QDragLeaveEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_DragLeaveEvent_IsBase(true);
@@ -1128,7 +1128,7 @@ void KCharSelect_DropEvent(KCharSelect* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseDropEvent(KCharSelect* self, QDropEvent* event) {
+void KCharSelect_SuperDropEvent(KCharSelect* self, QDropEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_DropEvent_IsBase(true);
@@ -1157,7 +1157,7 @@ void KCharSelect_ShowEvent(KCharSelect* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseShowEvent(KCharSelect* self, QShowEvent* event) {
+void KCharSelect_SuperShowEvent(KCharSelect* self, QShowEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_ShowEvent_IsBase(true);
@@ -1186,7 +1186,7 @@ void KCharSelect_HideEvent(KCharSelect* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseHideEvent(KCharSelect* self, QHideEvent* event) {
+void KCharSelect_SuperHideEvent(KCharSelect* self, QHideEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_HideEvent_IsBase(true);
@@ -1216,7 +1216,7 @@ bool KCharSelect_NativeEvent(KCharSelect* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool KCharSelect_QBaseNativeEvent(KCharSelect* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KCharSelect_SuperNativeEvent(KCharSelect* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
@@ -1246,7 +1246,7 @@ void KCharSelect_ChangeEvent(KCharSelect* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseChangeEvent(KCharSelect* self, QEvent* param1) {
+void KCharSelect_SuperChangeEvent(KCharSelect* self, QEvent* param1) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_ChangeEvent_IsBase(true);
@@ -1275,7 +1275,7 @@ int KCharSelect_Metric(const KCharSelect* self, int param1) {
 }
 
 // Base class handler implementation
-int KCharSelect_QBaseMetric(const KCharSelect* self, int param1) {
+int KCharSelect_SuperMetric(const KCharSelect* self, int param1) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_Metric_IsBase(true);
@@ -1304,7 +1304,7 @@ void KCharSelect_InitPainter(const KCharSelect* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseInitPainter(const KCharSelect* self, QPainter* painter) {
+void KCharSelect_SuperInitPainter(const KCharSelect* self, QPainter* painter) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_InitPainter_IsBase(true);
@@ -1333,7 +1333,7 @@ QPaintDevice* KCharSelect_Redirected(const KCharSelect* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KCharSelect_QBaseRedirected(const KCharSelect* self, QPoint* offset) {
+QPaintDevice* KCharSelect_SuperRedirected(const KCharSelect* self, QPoint* offset) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_Redirected_IsBase(true);
@@ -1362,7 +1362,7 @@ QPainter* KCharSelect_SharedPainter(const KCharSelect* self) {
 }
 
 // Base class handler implementation
-QPainter* KCharSelect_QBaseSharedPainter(const KCharSelect* self) {
+QPainter* KCharSelect_SuperSharedPainter(const KCharSelect* self) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_SharedPainter_IsBase(true);
@@ -1391,7 +1391,7 @@ void KCharSelect_InputMethodEvent(KCharSelect* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseInputMethodEvent(KCharSelect* self, QInputMethodEvent* param1) {
+void KCharSelect_SuperInputMethodEvent(KCharSelect* self, QInputMethodEvent* param1) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_InputMethodEvent_IsBase(true);
@@ -1420,7 +1420,7 @@ QVariant* KCharSelect_InputMethodQuery(const KCharSelect* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KCharSelect_QBaseInputMethodQuery(const KCharSelect* self, int param1) {
+QVariant* KCharSelect_SuperInputMethodQuery(const KCharSelect* self, int param1) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_InputMethodQuery_IsBase(true);
@@ -1449,7 +1449,7 @@ bool KCharSelect_FocusNextPrevChild(KCharSelect* self, bool next) {
 }
 
 // Base class handler implementation
-bool KCharSelect_QBaseFocusNextPrevChild(KCharSelect* self, bool next) {
+bool KCharSelect_SuperFocusNextPrevChild(KCharSelect* self, bool next) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_FocusNextPrevChild_IsBase(true);
@@ -1478,7 +1478,7 @@ bool KCharSelect_EventFilter(KCharSelect* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool KCharSelect_QBaseEventFilter(KCharSelect* self, QObject* watched, QEvent* event) {
+bool KCharSelect_SuperEventFilter(KCharSelect* self, QObject* watched, QEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_EventFilter_IsBase(true);
@@ -1507,7 +1507,7 @@ void KCharSelect_TimerEvent(KCharSelect* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseTimerEvent(KCharSelect* self, QTimerEvent* event) {
+void KCharSelect_SuperTimerEvent(KCharSelect* self, QTimerEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_TimerEvent_IsBase(true);
@@ -1536,7 +1536,7 @@ void KCharSelect_ChildEvent(KCharSelect* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseChildEvent(KCharSelect* self, QChildEvent* event) {
+void KCharSelect_SuperChildEvent(KCharSelect* self, QChildEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_ChildEvent_IsBase(true);
@@ -1565,7 +1565,7 @@ void KCharSelect_CustomEvent(KCharSelect* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseCustomEvent(KCharSelect* self, QEvent* event) {
+void KCharSelect_SuperCustomEvent(KCharSelect* self, QEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_CustomEvent_IsBase(true);
@@ -1594,7 +1594,7 @@ void KCharSelect_ConnectNotify(KCharSelect* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseConnectNotify(KCharSelect* self, const QMetaMethod* signal) {
+void KCharSelect_SuperConnectNotify(KCharSelect* self, const QMetaMethod* signal) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_ConnectNotify_IsBase(true);
@@ -1623,7 +1623,7 @@ void KCharSelect_DisconnectNotify(KCharSelect* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseDisconnectNotify(KCharSelect* self, const QMetaMethod* signal) {
+void KCharSelect_SuperDisconnectNotify(KCharSelect* self, const QMetaMethod* signal) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_DisconnectNotify_IsBase(true);
@@ -1652,7 +1652,7 @@ void KCharSelect_UpdateMicroFocus(KCharSelect* self) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseUpdateMicroFocus(KCharSelect* self) {
+void KCharSelect_SuperUpdateMicroFocus(KCharSelect* self) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_UpdateMicroFocus_IsBase(true);
@@ -1681,7 +1681,7 @@ void KCharSelect_Create(KCharSelect* self) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseCreate(KCharSelect* self) {
+void KCharSelect_SuperCreate(KCharSelect* self) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_Create_IsBase(true);
@@ -1710,7 +1710,7 @@ void KCharSelect_Destroy(KCharSelect* self) {
 }
 
 // Base class handler implementation
-void KCharSelect_QBaseDestroy(KCharSelect* self) {
+void KCharSelect_SuperDestroy(KCharSelect* self) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_Destroy_IsBase(true);
@@ -1739,7 +1739,7 @@ bool KCharSelect_FocusNextChild(KCharSelect* self) {
 }
 
 // Base class handler implementation
-bool KCharSelect_QBaseFocusNextChild(KCharSelect* self) {
+bool KCharSelect_SuperFocusNextChild(KCharSelect* self) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_FocusNextChild_IsBase(true);
@@ -1768,7 +1768,7 @@ bool KCharSelect_FocusPreviousChild(KCharSelect* self) {
 }
 
 // Base class handler implementation
-bool KCharSelect_QBaseFocusPreviousChild(KCharSelect* self) {
+bool KCharSelect_SuperFocusPreviousChild(KCharSelect* self) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_FocusPreviousChild_IsBase(true);
@@ -1797,7 +1797,7 @@ QObject* KCharSelect_Sender(const KCharSelect* self) {
 }
 
 // Base class handler implementation
-QObject* KCharSelect_QBaseSender(const KCharSelect* self) {
+QObject* KCharSelect_SuperSender(const KCharSelect* self) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_Sender_IsBase(true);
@@ -1826,7 +1826,7 @@ int KCharSelect_SenderSignalIndex(const KCharSelect* self) {
 }
 
 // Base class handler implementation
-int KCharSelect_QBaseSenderSignalIndex(const KCharSelect* self) {
+int KCharSelect_SuperSenderSignalIndex(const KCharSelect* self) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_SenderSignalIndex_IsBase(true);
@@ -1855,7 +1855,7 @@ int KCharSelect_Receivers(const KCharSelect* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KCharSelect_QBaseReceivers(const KCharSelect* self, const char* signal) {
+int KCharSelect_SuperReceivers(const KCharSelect* self, const char* signal) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_Receivers_IsBase(true);
@@ -1884,7 +1884,7 @@ bool KCharSelect_IsSignalConnected(const KCharSelect* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool KCharSelect_QBaseIsSignalConnected(const KCharSelect* self, const QMetaMethod* signal) {
+bool KCharSelect_SuperIsSignalConnected(const KCharSelect* self, const QMetaMethod* signal) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_IsSignalConnected_IsBase(true);
@@ -1913,7 +1913,7 @@ double KCharSelect_GetDecodedMetricF(const KCharSelect* self, int metricA, int m
 }
 
 // Base class handler implementation
-double KCharSelect_QBaseGetDecodedMetricF(const KCharSelect* self, int metricA, int metricB) {
+double KCharSelect_SuperGetDecodedMetricF(const KCharSelect* self, int metricA, int metricB) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
     if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
         vkcharselect->setKCharSelect_GetDecodedMetricF_IsBase(true);

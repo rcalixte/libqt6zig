@@ -265,7 +265,7 @@ int QStringListModel_SupportedDropActions(const QStringListModel* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QStringListModel_QBaseMetaObject(const QStringListModel* self) {
+QMetaObject* QStringListModel_SuperMetaObject(const QStringListModel* self) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_MetaObject_IsBase(true);
@@ -284,7 +284,7 @@ void QStringListModel_OnMetaObject(const QStringListModel* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* QStringListModel_QBaseMetacast(QStringListModel* self, const char* param1) {
+void* QStringListModel_SuperMetacast(QStringListModel* self, const char* param1) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_Metacast_IsBase(true);
@@ -303,7 +303,7 @@ void QStringListModel_OnMetacast(QStringListModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QStringListModel_QBaseMetacall(QStringListModel* self, int param1, int param2, void** param3) {
+int QStringListModel_SuperMetacall(QStringListModel* self, int param1, int param2, void** param3) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_Metacall_IsBase(true);
@@ -322,7 +322,7 @@ void QStringListModel_OnMetacall(QStringListModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QStringListModel_QBaseRowCount(const QStringListModel* self, const QModelIndex* parent) {
+int QStringListModel_SuperRowCount(const QStringListModel* self, const QModelIndex* parent) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_RowCount_IsBase(true);
@@ -341,7 +341,7 @@ void QStringListModel_OnRowCount(const QStringListModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QModelIndex* QStringListModel_QBaseSibling(const QStringListModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* QStringListModel_SuperSibling(const QStringListModel* self, int row, int column, const QModelIndex* idx) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_Sibling_IsBase(true);
@@ -360,7 +360,7 @@ void QStringListModel_OnSibling(const QStringListModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QStringListModel_QBaseData(const QStringListModel* self, const QModelIndex* index, int role) {
+QVariant* QStringListModel_SuperData(const QStringListModel* self, const QModelIndex* index, int role) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_Data_IsBase(true);
@@ -379,7 +379,7 @@ void QStringListModel_OnData(const QStringListModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QStringListModel_QBaseSetData(QStringListModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool QStringListModel_SuperSetData(QStringListModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_SetData_IsBase(true);
@@ -398,7 +398,7 @@ void QStringListModel_OnSetData(QStringListModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QStringListModel_QBaseClearItemData(QStringListModel* self, const QModelIndex* index) {
+bool QStringListModel_SuperClearItemData(QStringListModel* self, const QModelIndex* index) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_ClearItemData_IsBase(true);
@@ -417,7 +417,7 @@ void QStringListModel_OnClearItemData(QStringListModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QStringListModel_QBaseFlags(const QStringListModel* self, const QModelIndex* index) {
+int QStringListModel_SuperFlags(const QStringListModel* self, const QModelIndex* index) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_Flags_IsBase(true);
@@ -436,7 +436,7 @@ void QStringListModel_OnFlags(const QStringListModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QStringListModel_QBaseInsertRows(QStringListModel* self, int row, int count, const QModelIndex* parent) {
+bool QStringListModel_SuperInsertRows(QStringListModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_InsertRows_IsBase(true);
@@ -455,7 +455,7 @@ void QStringListModel_OnInsertRows(QStringListModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QStringListModel_QBaseRemoveRows(QStringListModel* self, int row, int count, const QModelIndex* parent) {
+bool QStringListModel_SuperRemoveRows(QStringListModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_RemoveRows_IsBase(true);
@@ -474,7 +474,7 @@ void QStringListModel_OnRemoveRows(QStringListModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QStringListModel_QBaseMoveRows(QStringListModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QStringListModel_SuperMoveRows(QStringListModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_MoveRows_IsBase(true);
@@ -493,7 +493,7 @@ void QStringListModel_OnMoveRows(QStringListModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ QStringListModel_QBaseItemData(const QStringListModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ QStringListModel_SuperItemData(const QStringListModel* self, const QModelIndex* index) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_ItemData_IsBase(true);
@@ -540,7 +540,7 @@ void QStringListModel_OnItemData(const QStringListModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QStringListModel_QBaseSetItemData(QStringListModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool QStringListModel_SuperSetItemData(QStringListModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -565,7 +565,7 @@ void QStringListModel_OnSetItemData(QStringListModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseSort(QStringListModel* self, int column, int order) {
+void QStringListModel_SuperSort(QStringListModel* self, int column, int order) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_Sort_IsBase(true);
@@ -584,7 +584,7 @@ void QStringListModel_OnSort(QStringListModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QStringListModel_QBaseSupportedDropActions(const QStringListModel* self) {
+int QStringListModel_SuperSupportedDropActions(const QStringListModel* self) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_SupportedDropActions_IsBase(true);
@@ -613,7 +613,7 @@ QModelIndex* QStringListModel_Index(const QStringListModel* self, int row, int c
 }
 
 // Base class handler implementation
-QModelIndex* QStringListModel_QBaseIndex(const QStringListModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* QStringListModel_SuperIndex(const QStringListModel* self, int row, int column, const QModelIndex* parent) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_Index_IsBase(true);
@@ -642,7 +642,7 @@ bool QStringListModel_DropMimeData(QStringListModel* self, const QMimeData* data
 }
 
 // Base class handler implementation
-bool QStringListModel_QBaseDropMimeData(QStringListModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QStringListModel_SuperDropMimeData(QStringListModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_DropMimeData_IsBase(true);
@@ -671,7 +671,7 @@ QVariant* QStringListModel_HeaderData(const QStringListModel* self, int section,
 }
 
 // Base class handler implementation
-QVariant* QStringListModel_QBaseHeaderData(const QStringListModel* self, int section, int orientation, int role) {
+QVariant* QStringListModel_SuperHeaderData(const QStringListModel* self, int section, int orientation, int role) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_HeaderData_IsBase(true);
@@ -700,7 +700,7 @@ bool QStringListModel_SetHeaderData(QStringListModel* self, int section, int ori
 }
 
 // Base class handler implementation
-bool QStringListModel_QBaseSetHeaderData(QStringListModel* self, int section, int orientation, const QVariant* value, int role) {
+bool QStringListModel_SuperSetHeaderData(QStringListModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_SetHeaderData_IsBase(true);
@@ -763,7 +763,7 @@ libqt_list /* of libqt_string */ QStringListModel_MimeTypes(const QStringListMod
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QStringListModel_QBaseMimeTypes(const QStringListModel* self) {
+libqt_list /* of libqt_string */ QStringListModel_SuperMimeTypes(const QStringListModel* self) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_MimeTypes_IsBase(true);
@@ -832,7 +832,7 @@ QMimeData* QStringListModel_MimeData(const QStringListModel* self, const libqt_l
 }
 
 // Base class handler implementation
-QMimeData* QStringListModel_QBaseMimeData(const QStringListModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* QStringListModel_SuperMimeData(const QStringListModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -867,7 +867,7 @@ bool QStringListModel_CanDropMimeData(const QStringListModel* self, const QMimeD
 }
 
 // Base class handler implementation
-bool QStringListModel_QBaseCanDropMimeData(const QStringListModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QStringListModel_SuperCanDropMimeData(const QStringListModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_CanDropMimeData_IsBase(true);
@@ -896,7 +896,7 @@ int QStringListModel_SupportedDragActions(const QStringListModel* self) {
 }
 
 // Base class handler implementation
-int QStringListModel_QBaseSupportedDragActions(const QStringListModel* self) {
+int QStringListModel_SuperSupportedDragActions(const QStringListModel* self) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_SupportedDragActions_IsBase(true);
@@ -925,7 +925,7 @@ bool QStringListModel_InsertColumns(QStringListModel* self, int column, int coun
 }
 
 // Base class handler implementation
-bool QStringListModel_QBaseInsertColumns(QStringListModel* self, int column, int count, const QModelIndex* parent) {
+bool QStringListModel_SuperInsertColumns(QStringListModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_InsertColumns_IsBase(true);
@@ -954,7 +954,7 @@ bool QStringListModel_RemoveColumns(QStringListModel* self, int column, int coun
 }
 
 // Base class handler implementation
-bool QStringListModel_QBaseRemoveColumns(QStringListModel* self, int column, int count, const QModelIndex* parent) {
+bool QStringListModel_SuperRemoveColumns(QStringListModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_RemoveColumns_IsBase(true);
@@ -983,7 +983,7 @@ bool QStringListModel_MoveColumns(QStringListModel* self, const QModelIndex* sou
 }
 
 // Base class handler implementation
-bool QStringListModel_QBaseMoveColumns(QStringListModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QStringListModel_SuperMoveColumns(QStringListModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_MoveColumns_IsBase(true);
@@ -1012,7 +1012,7 @@ void QStringListModel_FetchMore(QStringListModel* self, const QModelIndex* paren
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseFetchMore(QStringListModel* self, const QModelIndex* parent) {
+void QStringListModel_SuperFetchMore(QStringListModel* self, const QModelIndex* parent) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_FetchMore_IsBase(true);
@@ -1041,7 +1041,7 @@ bool QStringListModel_CanFetchMore(const QStringListModel* self, const QModelInd
 }
 
 // Base class handler implementation
-bool QStringListModel_QBaseCanFetchMore(const QStringListModel* self, const QModelIndex* parent) {
+bool QStringListModel_SuperCanFetchMore(const QStringListModel* self, const QModelIndex* parent) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_CanFetchMore_IsBase(true);
@@ -1070,7 +1070,7 @@ QModelIndex* QStringListModel_Buddy(const QStringListModel* self, const QModelIn
 }
 
 // Base class handler implementation
-QModelIndex* QStringListModel_QBaseBuddy(const QStringListModel* self, const QModelIndex* index) {
+QModelIndex* QStringListModel_SuperBuddy(const QStringListModel* self, const QModelIndex* index) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_Buddy_IsBase(true);
@@ -1117,7 +1117,7 @@ libqt_list /* of QModelIndex* */ QStringListModel_Match(const QStringListModel* 
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QStringListModel_QBaseMatch(const QStringListModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ QStringListModel_SuperMatch(const QStringListModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_Match_IsBase(true);
@@ -1164,7 +1164,7 @@ QSize* QStringListModel_Span(const QStringListModel* self, const QModelIndex* in
 }
 
 // Base class handler implementation
-QSize* QStringListModel_QBaseSpan(const QStringListModel* self, const QModelIndex* index) {
+QSize* QStringListModel_SuperSpan(const QStringListModel* self, const QModelIndex* index) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_Span_IsBase(true);
@@ -1231,7 +1231,7 @@ libqt_map /* of int to libqt_string */ QStringListModel_RoleNames(const QStringL
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ QStringListModel_QBaseRoleNames(const QStringListModel* self) {
+libqt_map /* of int to libqt_string */ QStringListModel_SuperRoleNames(const QStringListModel* self) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_RoleNames_IsBase(true);
@@ -1298,7 +1298,7 @@ void QStringListModel_MultiData(const QStringListModel* self, const QModelIndex*
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseMultiData(const QStringListModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void QStringListModel_SuperMultiData(const QStringListModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_MultiData_IsBase(true);
@@ -1327,7 +1327,7 @@ bool QStringListModel_Submit(QStringListModel* self) {
 }
 
 // Base class handler implementation
-bool QStringListModel_QBaseSubmit(QStringListModel* self) {
+bool QStringListModel_SuperSubmit(QStringListModel* self) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_Submit_IsBase(true);
@@ -1356,7 +1356,7 @@ void QStringListModel_Revert(QStringListModel* self) {
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseRevert(QStringListModel* self) {
+void QStringListModel_SuperRevert(QStringListModel* self) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_Revert_IsBase(true);
@@ -1385,7 +1385,7 @@ void QStringListModel_ResetInternalData(QStringListModel* self) {
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseResetInternalData(QStringListModel* self) {
+void QStringListModel_SuperResetInternalData(QStringListModel* self) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_ResetInternalData_IsBase(true);
@@ -1414,7 +1414,7 @@ bool QStringListModel_Event(QStringListModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QStringListModel_QBaseEvent(QStringListModel* self, QEvent* event) {
+bool QStringListModel_SuperEvent(QStringListModel* self, QEvent* event) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_Event_IsBase(true);
@@ -1443,7 +1443,7 @@ bool QStringListModel_EventFilter(QStringListModel* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool QStringListModel_QBaseEventFilter(QStringListModel* self, QObject* watched, QEvent* event) {
+bool QStringListModel_SuperEventFilter(QStringListModel* self, QObject* watched, QEvent* event) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_EventFilter_IsBase(true);
@@ -1472,7 +1472,7 @@ void QStringListModel_TimerEvent(QStringListModel* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseTimerEvent(QStringListModel* self, QTimerEvent* event) {
+void QStringListModel_SuperTimerEvent(QStringListModel* self, QTimerEvent* event) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_TimerEvent_IsBase(true);
@@ -1501,7 +1501,7 @@ void QStringListModel_ChildEvent(QStringListModel* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseChildEvent(QStringListModel* self, QChildEvent* event) {
+void QStringListModel_SuperChildEvent(QStringListModel* self, QChildEvent* event) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_ChildEvent_IsBase(true);
@@ -1530,7 +1530,7 @@ void QStringListModel_CustomEvent(QStringListModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseCustomEvent(QStringListModel* self, QEvent* event) {
+void QStringListModel_SuperCustomEvent(QStringListModel* self, QEvent* event) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_CustomEvent_IsBase(true);
@@ -1559,7 +1559,7 @@ void QStringListModel_ConnectNotify(QStringListModel* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseConnectNotify(QStringListModel* self, const QMetaMethod* signal) {
+void QStringListModel_SuperConnectNotify(QStringListModel* self, const QMetaMethod* signal) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_ConnectNotify_IsBase(true);
@@ -1588,7 +1588,7 @@ void QStringListModel_DisconnectNotify(QStringListModel* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseDisconnectNotify(QStringListModel* self, const QMetaMethod* signal) {
+void QStringListModel_SuperDisconnectNotify(QStringListModel* self, const QMetaMethod* signal) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_DisconnectNotify_IsBase(true);
@@ -1616,7 +1616,7 @@ QModelIndex* QStringListModel_CreateIndex(const QStringListModel* self, int row,
 }
 
 // Base class handler implementation
-QModelIndex* QStringListModel_QBaseCreateIndex(const QStringListModel* self, int row, int column) {
+QModelIndex* QStringListModel_SuperCreateIndex(const QStringListModel* self, int row, int column) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_CreateIndex_IsBase(true);
@@ -1650,7 +1650,7 @@ void QStringListModel_EncodeData(const QStringListModel* self, const libqt_list 
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseEncodeData(const QStringListModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void QStringListModel_SuperEncodeData(const QStringListModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -1685,7 +1685,7 @@ bool QStringListModel_DecodeData(QStringListModel* self, int row, int column, co
 }
 
 // Base class handler implementation
-bool QStringListModel_QBaseDecodeData(QStringListModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool QStringListModel_SuperDecodeData(QStringListModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_DecodeData_IsBase(true);
@@ -1714,7 +1714,7 @@ void QStringListModel_BeginInsertRows(QStringListModel* self, const QModelIndex*
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseBeginInsertRows(QStringListModel* self, const QModelIndex* parent, int first, int last) {
+void QStringListModel_SuperBeginInsertRows(QStringListModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_BeginInsertRows_IsBase(true);
@@ -1743,7 +1743,7 @@ void QStringListModel_EndInsertRows(QStringListModel* self) {
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseEndInsertRows(QStringListModel* self) {
+void QStringListModel_SuperEndInsertRows(QStringListModel* self) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_EndInsertRows_IsBase(true);
@@ -1772,7 +1772,7 @@ void QStringListModel_BeginRemoveRows(QStringListModel* self, const QModelIndex*
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseBeginRemoveRows(QStringListModel* self, const QModelIndex* parent, int first, int last) {
+void QStringListModel_SuperBeginRemoveRows(QStringListModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_BeginRemoveRows_IsBase(true);
@@ -1801,7 +1801,7 @@ void QStringListModel_EndRemoveRows(QStringListModel* self) {
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseEndRemoveRows(QStringListModel* self) {
+void QStringListModel_SuperEndRemoveRows(QStringListModel* self) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_EndRemoveRows_IsBase(true);
@@ -1830,7 +1830,7 @@ bool QStringListModel_BeginMoveRows(QStringListModel* self, const QModelIndex* s
 }
 
 // Base class handler implementation
-bool QStringListModel_QBaseBeginMoveRows(QStringListModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool QStringListModel_SuperBeginMoveRows(QStringListModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_BeginMoveRows_IsBase(true);
@@ -1859,7 +1859,7 @@ void QStringListModel_EndMoveRows(QStringListModel* self) {
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseEndMoveRows(QStringListModel* self) {
+void QStringListModel_SuperEndMoveRows(QStringListModel* self) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_EndMoveRows_IsBase(true);
@@ -1888,7 +1888,7 @@ void QStringListModel_BeginInsertColumns(QStringListModel* self, const QModelInd
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseBeginInsertColumns(QStringListModel* self, const QModelIndex* parent, int first, int last) {
+void QStringListModel_SuperBeginInsertColumns(QStringListModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_BeginInsertColumns_IsBase(true);
@@ -1917,7 +1917,7 @@ void QStringListModel_EndInsertColumns(QStringListModel* self) {
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseEndInsertColumns(QStringListModel* self) {
+void QStringListModel_SuperEndInsertColumns(QStringListModel* self) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_EndInsertColumns_IsBase(true);
@@ -1946,7 +1946,7 @@ void QStringListModel_BeginRemoveColumns(QStringListModel* self, const QModelInd
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseBeginRemoveColumns(QStringListModel* self, const QModelIndex* parent, int first, int last) {
+void QStringListModel_SuperBeginRemoveColumns(QStringListModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_BeginRemoveColumns_IsBase(true);
@@ -1975,7 +1975,7 @@ void QStringListModel_EndRemoveColumns(QStringListModel* self) {
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseEndRemoveColumns(QStringListModel* self) {
+void QStringListModel_SuperEndRemoveColumns(QStringListModel* self) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_EndRemoveColumns_IsBase(true);
@@ -2004,7 +2004,7 @@ bool QStringListModel_BeginMoveColumns(QStringListModel* self, const QModelIndex
 }
 
 // Base class handler implementation
-bool QStringListModel_QBaseBeginMoveColumns(QStringListModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool QStringListModel_SuperBeginMoveColumns(QStringListModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_BeginMoveColumns_IsBase(true);
@@ -2033,7 +2033,7 @@ void QStringListModel_EndMoveColumns(QStringListModel* self) {
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseEndMoveColumns(QStringListModel* self) {
+void QStringListModel_SuperEndMoveColumns(QStringListModel* self) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_EndMoveColumns_IsBase(true);
@@ -2062,7 +2062,7 @@ void QStringListModel_BeginResetModel(QStringListModel* self) {
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseBeginResetModel(QStringListModel* self) {
+void QStringListModel_SuperBeginResetModel(QStringListModel* self) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_BeginResetModel_IsBase(true);
@@ -2091,7 +2091,7 @@ void QStringListModel_EndResetModel(QStringListModel* self) {
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseEndResetModel(QStringListModel* self) {
+void QStringListModel_SuperEndResetModel(QStringListModel* self) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_EndResetModel_IsBase(true);
@@ -2120,7 +2120,7 @@ void QStringListModel_ChangePersistentIndex(QStringListModel* self, const QModel
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseChangePersistentIndex(QStringListModel* self, const QModelIndex* from, const QModelIndex* to) {
+void QStringListModel_SuperChangePersistentIndex(QStringListModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_ChangePersistentIndex_IsBase(true);
@@ -2161,7 +2161,7 @@ void QStringListModel_ChangePersistentIndexList(QStringListModel* self, const li
 }
 
 // Base class handler implementation
-void QStringListModel_QBaseChangePersistentIndexList(QStringListModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void QStringListModel_SuperChangePersistentIndexList(QStringListModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2220,7 +2220,7 @@ libqt_list /* of QModelIndex* */ QStringListModel_PersistentIndexList(const QStr
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QStringListModel_QBasePersistentIndexList(const QStringListModel* self) {
+libqt_list /* of QModelIndex* */ QStringListModel_SuperPersistentIndexList(const QStringListModel* self) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_PersistentIndexList_IsBase(true);
@@ -2267,7 +2267,7 @@ QObject* QStringListModel_Sender(const QStringListModel* self) {
 }
 
 // Base class handler implementation
-QObject* QStringListModel_QBaseSender(const QStringListModel* self) {
+QObject* QStringListModel_SuperSender(const QStringListModel* self) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_Sender_IsBase(true);
@@ -2296,7 +2296,7 @@ int QStringListModel_SenderSignalIndex(const QStringListModel* self) {
 }
 
 // Base class handler implementation
-int QStringListModel_QBaseSenderSignalIndex(const QStringListModel* self) {
+int QStringListModel_SuperSenderSignalIndex(const QStringListModel* self) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_SenderSignalIndex_IsBase(true);
@@ -2325,7 +2325,7 @@ int QStringListModel_Receivers(const QStringListModel* self, const char* signal)
 }
 
 // Base class handler implementation
-int QStringListModel_QBaseReceivers(const QStringListModel* self, const char* signal) {
+int QStringListModel_SuperReceivers(const QStringListModel* self, const char* signal) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_Receivers_IsBase(true);
@@ -2354,7 +2354,7 @@ bool QStringListModel_IsSignalConnected(const QStringListModel* self, const QMet
 }
 
 // Base class handler implementation
-bool QStringListModel_QBaseIsSignalConnected(const QStringListModel* self, const QMetaMethod* signal) {
+bool QStringListModel_SuperIsSignalConnected(const QStringListModel* self, const QMetaMethod* signal) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
     if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
         vqstringlistmodel->setQStringListModel_IsSignalConnected_IsBase(true);

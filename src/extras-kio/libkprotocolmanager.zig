@@ -364,6 +364,10 @@ pub const kprotocolmanager = struct {
         return qtc.KProtocolManager_SupportsPermissions(@ptrCast(url));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kprotocolmanager.html#dtor.KProtocolManager)
     ///
     /// Delete this object from C++ memory.
@@ -372,7 +376,7 @@ pub const kprotocolmanager = struct {
     ///
     /// ` self: QtC.KProtocolManager `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KProtocolManager_Delete(@ptrCast(self));
     }
 };

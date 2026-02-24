@@ -112,11 +112,11 @@ class VirtualQOpenGLFunctions_3_0 final : public QOpenGLFunctions_3_0 {
 
     // Friend functions
     friend bool QOpenGLFunctions_3_0_IsInitialized(const QOpenGLFunctions_3_0* self);
-    friend bool QOpenGLFunctions_3_0_QBaseIsInitialized(const QOpenGLFunctions_3_0* self);
+    friend bool QOpenGLFunctions_3_0_SuperIsInitialized(const QOpenGLFunctions_3_0* self);
     friend void QOpenGLFunctions_3_0_SetOwningContext(QOpenGLFunctions_3_0* self, const QOpenGLContext* context);
-    friend void QOpenGLFunctions_3_0_QBaseSetOwningContext(QOpenGLFunctions_3_0* self, const QOpenGLContext* context);
+    friend void QOpenGLFunctions_3_0_SuperSetOwningContext(QOpenGLFunctions_3_0* self, const QOpenGLContext* context);
     friend QOpenGLContext* QOpenGLFunctions_3_0_OwningContext(const QOpenGLFunctions_3_0* self);
-    friend QOpenGLContext* QOpenGLFunctions_3_0_QBaseOwningContext(const QOpenGLFunctions_3_0* self);
+    friend QOpenGLContext* QOpenGLFunctions_3_0_SuperOwningContext(const QOpenGLFunctions_3_0* self);
 };
 
 #endif

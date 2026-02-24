@@ -51,6 +51,10 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_OnSetCompletionObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCompletionObject` instead
+    ///
+    pub const QBaseSetCompletionObject = SuperSetCompletionObject;
+
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletionObject)
     ///
     /// Base class method implementation
@@ -63,8 +67,8 @@ pub const kcompletionbase = struct {
     ///
     /// ` handleSignals: bool `
     ///
-    pub fn QBaseSetCompletionObject(self: ?*anyopaque, completionObject: ?*anyopaque, handleSignals: bool) void {
-        qtc.KCompletionBase_QBaseSetCompletionObject(@ptrCast(self), @ptrCast(completionObject), handleSignals);
+    pub fn SuperSetCompletionObject(self: ?*anyopaque, completionObject: ?*anyopaque, handleSignals: bool) void {
+        qtc.KCompletionBase_SuperSetCompletionObject(@ptrCast(self), @ptrCast(completionObject), handleSignals);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setHandleSignals)
@@ -93,6 +97,10 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_OnSetHandleSignals(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetHandleSignals` instead
+    ///
+    pub const QBaseSetHandleSignals = SuperSetHandleSignals;
+
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setHandleSignals)
     ///
     /// Base class method implementation
@@ -103,8 +111,8 @@ pub const kcompletionbase = struct {
     ///
     /// ` handle: bool `
     ///
-    pub fn QBaseSetHandleSignals(self: ?*anyopaque, handle: bool) void {
-        qtc.KCompletionBase_QBaseSetHandleSignals(@ptrCast(self), handle);
+    pub fn SuperSetHandleSignals(self: ?*anyopaque, handle: bool) void {
+        qtc.KCompletionBase_SuperSetHandleSignals(@ptrCast(self), handle);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#isCompletionObjectAutoDeleted)
@@ -199,6 +207,10 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_OnSetCompletionMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCompletionMode` instead
+    ///
+    pub const QBaseSetCompletionMode = SuperSetCompletionMode;
+
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletionMode)
     ///
     /// Base class method implementation
@@ -209,8 +221,8 @@ pub const kcompletionbase = struct {
     ///
     /// ` mode: kcompletion_enums.CompletionMode `
     ///
-    pub fn QBaseSetCompletionMode(self: ?*anyopaque, mode: i32) void {
-        qtc.KCompletionBase_QBaseSetCompletionMode(@ptrCast(self), @bitCast(mode));
+    pub fn SuperSetCompletionMode(self: ?*anyopaque, mode: i32) void {
+        qtc.KCompletionBase_SuperSetCompletionMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#completionMode)
@@ -304,6 +316,10 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_OnSetCompletedText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCompletedText` instead
+    ///
+    pub const QBaseSetCompletedText = SuperSetCompletedText;
+
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletedText)
     ///
     /// Base class method implementation
@@ -314,12 +330,12 @@ pub const kcompletionbase = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn QBaseSetCompletedText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SuperSetCompletedText(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.KCompletionBase_QBaseSetCompletedText(@ptrCast(self), text_str);
+        qtc.KCompletionBase_SuperSetCompletedText(@ptrCast(self), text_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletedItems)
@@ -364,6 +380,10 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_OnSetCompletedItems(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCompletedItems` instead
+    ///
+    pub const QBaseSetCompletedItems = SuperSetCompletedItems;
+
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletedItems)
     ///
     /// Base class method implementation
@@ -378,7 +398,7 @@ pub const kcompletionbase = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetCompletedItems(self: ?*anyopaque, items: []const []const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
+    pub fn SuperSetCompletedItems(self: ?*anyopaque, items: []const []const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
         const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kcompletionbase.SetCompletedItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
@@ -391,7 +411,7 @@ pub const kcompletionbase = struct {
             .len = items.len,
             .data = items_arr.ptr,
         };
-        qtc.KCompletionBase_QBaseSetCompletedItems(@ptrCast(self), items_list, autoSuggest);
+        qtc.KCompletionBase_SuperSetCompletedItems(@ptrCast(self), items_list, autoSuggest);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#compObj)
@@ -459,6 +479,10 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_OnKeyBindingMap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyBindingMap` instead
+    ///
+    pub const QBaseKeyBindingMap = SuperKeyBindingMap;
+
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#keyBindingMap)
     ///
     /// Base class method implementation
@@ -473,8 +497,8 @@ pub const kcompletionbase = struct {
     ///
     /// ` arraymap_i32_sliceqtcqkeysequence (key: kcompletionbase_enums.KeyBindingType) `
     ///
-    pub fn QBaseKeyBindingMap(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_sliceqtcqkeysequence {
-        const _map: qtc.libqt_map = qtc.KCompletionBase_QBaseKeyBindingMap(@ptrCast(self));
+    pub fn SuperKeyBindingMap(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_sliceqtcqkeysequence {
+        const _map: qtc.libqt_map = qtc.KCompletionBase_SuperKeyBindingMap(@ptrCast(self));
         var _ret: arraymap_i32_sliceqtcqkeysequence = .empty;
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
@@ -547,6 +571,10 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_OnSetKeyBindingMap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetKeyBindingMap` instead
+    ///
+    pub const QBaseSetKeyBindingMap = SuperSetKeyBindingMap;
+
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
     ///
     /// Base class method implementation
@@ -559,7 +587,7 @@ pub const kcompletionbase = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetKeyBindingMap(self: ?*anyopaque, keyBindingMap: arraymap_i32_sliceqtcqkeysequence, allocator: std.mem.Allocator) void {
+    pub fn SuperSetKeyBindingMap(self: ?*anyopaque, keyBindingMap: arraymap_i32_sliceqtcqkeysequence, allocator: std.mem.Allocator) void {
         const keyBindingMap_count = keyBindingMap.count();
         const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("kcompletionbase.SetKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_keys);
@@ -581,7 +609,7 @@ pub const kcompletionbase = struct {
             .keys = @ptrCast(keyBindingMap_keys.ptr),
             .values = @ptrCast(keyBindingMap_values.ptr),
         };
-        qtc.KCompletionBase_QBaseSetKeyBindingMap(@ptrCast(self), keyBindingMap_map);
+        qtc.KCompletionBase_SuperSetKeyBindingMap(@ptrCast(self), keyBindingMap_map);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setDelegate)
@@ -610,6 +638,10 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_OnSetDelegate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetDelegate` instead
+    ///
+    pub const QBaseSetDelegate = SuperSetDelegate;
+
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setDelegate)
     ///
     /// Base class method implementation
@@ -620,8 +652,8 @@ pub const kcompletionbase = struct {
     ///
     /// ` delegate: QtC.KCompletionBase `
     ///
-    pub fn QBaseSetDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
-        qtc.KCompletionBase_QBaseSetDelegate(@ptrCast(self), @ptrCast(delegate));
+    pub fn SuperSetDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
+        qtc.KCompletionBase_SuperSetDelegate(@ptrCast(self), @ptrCast(delegate));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#delegate)
@@ -648,6 +680,10 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_OnDelegate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDelegate` instead
+    ///
+    pub const QBaseDelegate = SuperDelegate;
+
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#delegate)
     ///
     /// Base class method implementation
@@ -656,8 +692,8 @@ pub const kcompletionbase = struct {
     ///
     /// ` self: QtC.KCompletionBase `
     ///
-    pub fn QBaseDelegate(self: ?*anyopaque) QtC.KCompletionBase {
-        return qtc.KCompletionBase_QBaseDelegate(@ptrCast(self));
+    pub fn SuperDelegate(self: ?*anyopaque) QtC.KCompletionBase {
+        return qtc.KCompletionBase_SuperDelegate(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#virtual_hook)
@@ -688,6 +724,10 @@ pub const kcompletionbase = struct {
         qtc.KCompletionBase_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperVirtualHook` instead
+    ///
+    pub const QBaseVirtualHook = SuperVirtualHook;
+
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#virtual_hook)
     ///
     /// Base class method implementation
@@ -700,8 +740,8 @@ pub const kcompletionbase = struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KCompletionBase_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
+    pub fn SuperVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
+        qtc.KCompletionBase_SuperVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#completionObject)
@@ -716,6 +756,10 @@ pub const kcompletionbase = struct {
         return qtc.KCompletionBase_CompletionObject1(@ptrCast(self), handleSignals);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#dtor.KCompletionBase)
     ///
     /// Delete this object from C++ memory.
@@ -724,7 +768,7 @@ pub const kcompletionbase = struct {
     ///
     /// ` self: QtC.KCompletionBase `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KCompletionBase_Delete(@ptrCast(self));
     }
 };

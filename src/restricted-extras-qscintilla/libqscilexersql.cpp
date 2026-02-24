@@ -179,7 +179,7 @@ void QsciLexerSQL_SetFoldCompact(QsciLexerSQL* self, bool fold) {
 }
 
 // Base class handler implementation
-QMetaObject* QsciLexerSQL_QBaseMetaObject(const QsciLexerSQL* self) {
+QMetaObject* QsciLexerSQL_SuperMetaObject(const QsciLexerSQL* self) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_MetaObject_IsBase(true);
@@ -198,7 +198,7 @@ void QsciLexerSQL_OnMetaObject(const QsciLexerSQL* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QsciLexerSQL_QBaseMetacast(QsciLexerSQL* self, const char* param1) {
+void* QsciLexerSQL_SuperMetacast(QsciLexerSQL* self, const char* param1) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_Metacast_IsBase(true);
@@ -217,7 +217,7 @@ void QsciLexerSQL_OnMetacast(QsciLexerSQL* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QsciLexerSQL_QBaseMetacall(QsciLexerSQL* self, int param1, int param2, void** param3) {
+int QsciLexerSQL_SuperMetacall(QsciLexerSQL* self, int param1, int param2, void** param3) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_Metacall_IsBase(true);
@@ -236,7 +236,7 @@ void QsciLexerSQL_OnMetacall(QsciLexerSQL* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciLexerSQL_QBaseSetBackslashEscapes(QsciLexerSQL* self, bool enable) {
+void QsciLexerSQL_SuperSetBackslashEscapes(QsciLexerSQL* self, bool enable) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_SetBackslashEscapes_IsBase(true);
@@ -255,7 +255,7 @@ void QsciLexerSQL_OnSetBackslashEscapes(QsciLexerSQL* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciLexerSQL_QBaseSetFoldComments(QsciLexerSQL* self, bool fold) {
+void QsciLexerSQL_SuperSetFoldComments(QsciLexerSQL* self, bool fold) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_SetFoldComments_IsBase(true);
@@ -274,7 +274,7 @@ void QsciLexerSQL_OnSetFoldComments(QsciLexerSQL* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciLexerSQL_QBaseSetFoldCompact(QsciLexerSQL* self, bool fold) {
+void QsciLexerSQL_SuperSetFoldCompact(QsciLexerSQL* self, bool fold) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_SetFoldCompact_IsBase(true);
@@ -303,7 +303,7 @@ int QsciLexerSQL_LexerId(const QsciLexerSQL* self) {
 }
 
 // Base class handler implementation
-int QsciLexerSQL_QBaseLexerId(const QsciLexerSQL* self) {
+int QsciLexerSQL_SuperLexerId(const QsciLexerSQL* self) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_LexerId_IsBase(true);
@@ -332,7 +332,7 @@ const char* QsciLexerSQL_AutoCompletionFillups(const QsciLexerSQL* self) {
 }
 
 // Base class handler implementation
-const char* QsciLexerSQL_QBaseAutoCompletionFillups(const QsciLexerSQL* self) {
+const char* QsciLexerSQL_SuperAutoCompletionFillups(const QsciLexerSQL* self) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_AutoCompletionFillups_IsBase(true);
@@ -395,7 +395,7 @@ libqt_list /* of libqt_string */ QsciLexerSQL_AutoCompletionWordSeparators(const
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QsciLexerSQL_QBaseAutoCompletionWordSeparators(const QsciLexerSQL* self) {
+libqt_list /* of libqt_string */ QsciLexerSQL_SuperAutoCompletionWordSeparators(const QsciLexerSQL* self) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_AutoCompletionWordSeparators_IsBase(true);
@@ -458,7 +458,7 @@ const char* QsciLexerSQL_BlockEnd(const QsciLexerSQL* self, int* style) {
 }
 
 // Base class handler implementation
-const char* QsciLexerSQL_QBaseBlockEnd(const QsciLexerSQL* self, int* style) {
+const char* QsciLexerSQL_SuperBlockEnd(const QsciLexerSQL* self, int* style) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_BlockEnd_IsBase(true);
@@ -487,7 +487,7 @@ int QsciLexerSQL_BlockLookback(const QsciLexerSQL* self) {
 }
 
 // Base class handler implementation
-int QsciLexerSQL_QBaseBlockLookback(const QsciLexerSQL* self) {
+int QsciLexerSQL_SuperBlockLookback(const QsciLexerSQL* self) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_BlockLookback_IsBase(true);
@@ -516,7 +516,7 @@ const char* QsciLexerSQL_BlockStart(const QsciLexerSQL* self, int* style) {
 }
 
 // Base class handler implementation
-const char* QsciLexerSQL_QBaseBlockStart(const QsciLexerSQL* self, int* style) {
+const char* QsciLexerSQL_SuperBlockStart(const QsciLexerSQL* self, int* style) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_BlockStart_IsBase(true);
@@ -545,7 +545,7 @@ const char* QsciLexerSQL_BlockStartKeyword(const QsciLexerSQL* self, int* style)
 }
 
 // Base class handler implementation
-const char* QsciLexerSQL_QBaseBlockStartKeyword(const QsciLexerSQL* self, int* style) {
+const char* QsciLexerSQL_SuperBlockStartKeyword(const QsciLexerSQL* self, int* style) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_BlockStartKeyword_IsBase(true);
@@ -574,7 +574,7 @@ bool QsciLexerSQL_CaseSensitive(const QsciLexerSQL* self) {
 }
 
 // Base class handler implementation
-bool QsciLexerSQL_QBaseCaseSensitive(const QsciLexerSQL* self) {
+bool QsciLexerSQL_SuperCaseSensitive(const QsciLexerSQL* self) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_CaseSensitive_IsBase(true);
@@ -603,7 +603,7 @@ QColor* QsciLexerSQL_Color(const QsciLexerSQL* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerSQL_QBaseColor(const QsciLexerSQL* self, int style) {
+QColor* QsciLexerSQL_SuperColor(const QsciLexerSQL* self, int style) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_Color_IsBase(true);
@@ -632,7 +632,7 @@ bool QsciLexerSQL_EolFill(const QsciLexerSQL* self, int style) {
 }
 
 // Base class handler implementation
-bool QsciLexerSQL_QBaseEolFill(const QsciLexerSQL* self, int style) {
+bool QsciLexerSQL_SuperEolFill(const QsciLexerSQL* self, int style) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_EolFill_IsBase(true);
@@ -661,7 +661,7 @@ QFont* QsciLexerSQL_Font(const QsciLexerSQL* self, int style) {
 }
 
 // Base class handler implementation
-QFont* QsciLexerSQL_QBaseFont(const QsciLexerSQL* self, int style) {
+QFont* QsciLexerSQL_SuperFont(const QsciLexerSQL* self, int style) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_Font_IsBase(true);
@@ -690,7 +690,7 @@ int QsciLexerSQL_IndentationGuideView(const QsciLexerSQL* self) {
 }
 
 // Base class handler implementation
-int QsciLexerSQL_QBaseIndentationGuideView(const QsciLexerSQL* self) {
+int QsciLexerSQL_SuperIndentationGuideView(const QsciLexerSQL* self) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_IndentationGuideView_IsBase(true);
@@ -719,7 +719,7 @@ int QsciLexerSQL_DefaultStyle(const QsciLexerSQL* self) {
 }
 
 // Base class handler implementation
-int QsciLexerSQL_QBaseDefaultStyle(const QsciLexerSQL* self) {
+int QsciLexerSQL_SuperDefaultStyle(const QsciLexerSQL* self) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_DefaultStyle_IsBase(true);
@@ -748,7 +748,7 @@ QColor* QsciLexerSQL_Paper(const QsciLexerSQL* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerSQL_QBasePaper(const QsciLexerSQL* self, int style) {
+QColor* QsciLexerSQL_SuperPaper(const QsciLexerSQL* self, int style) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_Paper_IsBase(true);
@@ -777,7 +777,7 @@ QColor* QsciLexerSQL_DefaultColor2(const QsciLexerSQL* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerSQL_QBaseDefaultColor2(const QsciLexerSQL* self, int style) {
+QColor* QsciLexerSQL_SuperDefaultColor2(const QsciLexerSQL* self, int style) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_DefaultColor2_IsBase(true);
@@ -806,7 +806,7 @@ QFont* QsciLexerSQL_DefaultFont2(const QsciLexerSQL* self, int style) {
 }
 
 // Base class handler implementation
-QFont* QsciLexerSQL_QBaseDefaultFont2(const QsciLexerSQL* self, int style) {
+QFont* QsciLexerSQL_SuperDefaultFont2(const QsciLexerSQL* self, int style) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_DefaultFont2_IsBase(true);
@@ -835,7 +835,7 @@ QColor* QsciLexerSQL_DefaultPaper2(const QsciLexerSQL* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerSQL_QBaseDefaultPaper2(const QsciLexerSQL* self, int style) {
+QColor* QsciLexerSQL_SuperDefaultPaper2(const QsciLexerSQL* self, int style) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_DefaultPaper2_IsBase(true);
@@ -864,7 +864,7 @@ void QsciLexerSQL_SetEditor(QsciLexerSQL* self, QsciScintilla* editor) {
 }
 
 // Base class handler implementation
-void QsciLexerSQL_QBaseSetEditor(QsciLexerSQL* self, QsciScintilla* editor) {
+void QsciLexerSQL_SuperSetEditor(QsciLexerSQL* self, QsciScintilla* editor) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_SetEditor_IsBase(true);
@@ -893,7 +893,7 @@ int QsciLexerSQL_StyleBitsNeeded(const QsciLexerSQL* self) {
 }
 
 // Base class handler implementation
-int QsciLexerSQL_QBaseStyleBitsNeeded(const QsciLexerSQL* self) {
+int QsciLexerSQL_SuperStyleBitsNeeded(const QsciLexerSQL* self) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_StyleBitsNeeded_IsBase(true);
@@ -922,7 +922,7 @@ const char* QsciLexerSQL_WordCharacters(const QsciLexerSQL* self) {
 }
 
 // Base class handler implementation
-const char* QsciLexerSQL_QBaseWordCharacters(const QsciLexerSQL* self) {
+const char* QsciLexerSQL_SuperWordCharacters(const QsciLexerSQL* self) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_WordCharacters_IsBase(true);
@@ -951,7 +951,7 @@ void QsciLexerSQL_SetAutoIndentStyle(QsciLexerSQL* self, int autoindentstyle) {
 }
 
 // Base class handler implementation
-void QsciLexerSQL_QBaseSetAutoIndentStyle(QsciLexerSQL* self, int autoindentstyle) {
+void QsciLexerSQL_SuperSetAutoIndentStyle(QsciLexerSQL* self, int autoindentstyle) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_SetAutoIndentStyle_IsBase(true);
@@ -980,7 +980,7 @@ void QsciLexerSQL_SetColor(QsciLexerSQL* self, const QColor* c, int style) {
 }
 
 // Base class handler implementation
-void QsciLexerSQL_QBaseSetColor(QsciLexerSQL* self, const QColor* c, int style) {
+void QsciLexerSQL_SuperSetColor(QsciLexerSQL* self, const QColor* c, int style) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_SetColor_IsBase(true);
@@ -1009,7 +1009,7 @@ void QsciLexerSQL_SetEolFill(QsciLexerSQL* self, bool eoffill, int style) {
 }
 
 // Base class handler implementation
-void QsciLexerSQL_QBaseSetEolFill(QsciLexerSQL* self, bool eoffill, int style) {
+void QsciLexerSQL_SuperSetEolFill(QsciLexerSQL* self, bool eoffill, int style) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_SetEolFill_IsBase(true);
@@ -1038,7 +1038,7 @@ void QsciLexerSQL_SetFont(QsciLexerSQL* self, const QFont* f, int style) {
 }
 
 // Base class handler implementation
-void QsciLexerSQL_QBaseSetFont(QsciLexerSQL* self, const QFont* f, int style) {
+void QsciLexerSQL_SuperSetFont(QsciLexerSQL* self, const QFont* f, int style) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_SetFont_IsBase(true);
@@ -1067,7 +1067,7 @@ void QsciLexerSQL_SetPaper(QsciLexerSQL* self, const QColor* c, int style) {
 }
 
 // Base class handler implementation
-void QsciLexerSQL_QBaseSetPaper(QsciLexerSQL* self, const QColor* c, int style) {
+void QsciLexerSQL_SuperSetPaper(QsciLexerSQL* self, const QColor* c, int style) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_SetPaper_IsBase(true);
@@ -1097,7 +1097,7 @@ bool QsciLexerSQL_ReadProperties(QsciLexerSQL* self, QSettings* qs, const libqt_
 }
 
 // Base class handler implementation
-bool QsciLexerSQL_QBaseReadProperties(QsciLexerSQL* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerSQL_SuperReadProperties(QsciLexerSQL* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
@@ -1128,7 +1128,7 @@ bool QsciLexerSQL_WriteProperties(const QsciLexerSQL* self, QSettings* qs, const
 }
 
 // Base class handler implementation
-bool QsciLexerSQL_QBaseWriteProperties(const QsciLexerSQL* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerSQL_SuperWriteProperties(const QsciLexerSQL* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
@@ -1158,7 +1158,7 @@ bool QsciLexerSQL_Event(QsciLexerSQL* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QsciLexerSQL_QBaseEvent(QsciLexerSQL* self, QEvent* event) {
+bool QsciLexerSQL_SuperEvent(QsciLexerSQL* self, QEvent* event) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_Event_IsBase(true);
@@ -1187,7 +1187,7 @@ bool QsciLexerSQL_EventFilter(QsciLexerSQL* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool QsciLexerSQL_QBaseEventFilter(QsciLexerSQL* self, QObject* watched, QEvent* event) {
+bool QsciLexerSQL_SuperEventFilter(QsciLexerSQL* self, QObject* watched, QEvent* event) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_EventFilter_IsBase(true);
@@ -1216,7 +1216,7 @@ void QsciLexerSQL_TimerEvent(QsciLexerSQL* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerSQL_QBaseTimerEvent(QsciLexerSQL* self, QTimerEvent* event) {
+void QsciLexerSQL_SuperTimerEvent(QsciLexerSQL* self, QTimerEvent* event) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_TimerEvent_IsBase(true);
@@ -1245,7 +1245,7 @@ void QsciLexerSQL_ChildEvent(QsciLexerSQL* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerSQL_QBaseChildEvent(QsciLexerSQL* self, QChildEvent* event) {
+void QsciLexerSQL_SuperChildEvent(QsciLexerSQL* self, QChildEvent* event) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_ChildEvent_IsBase(true);
@@ -1274,7 +1274,7 @@ void QsciLexerSQL_CustomEvent(QsciLexerSQL* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerSQL_QBaseCustomEvent(QsciLexerSQL* self, QEvent* event) {
+void QsciLexerSQL_SuperCustomEvent(QsciLexerSQL* self, QEvent* event) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_CustomEvent_IsBase(true);
@@ -1303,7 +1303,7 @@ void QsciLexerSQL_ConnectNotify(QsciLexerSQL* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QsciLexerSQL_QBaseConnectNotify(QsciLexerSQL* self, const QMetaMethod* signal) {
+void QsciLexerSQL_SuperConnectNotify(QsciLexerSQL* self, const QMetaMethod* signal) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_ConnectNotify_IsBase(true);
@@ -1332,7 +1332,7 @@ void QsciLexerSQL_DisconnectNotify(QsciLexerSQL* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QsciLexerSQL_QBaseDisconnectNotify(QsciLexerSQL* self, const QMetaMethod* signal) {
+void QsciLexerSQL_SuperDisconnectNotify(QsciLexerSQL* self, const QMetaMethod* signal) {
     auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_DisconnectNotify_IsBase(true);
@@ -1372,7 +1372,7 @@ libqt_string QsciLexerSQL_TextAsBytes(const QsciLexerSQL* self, const libqt_stri
 }
 
 // Base class handler implementation
-libqt_string QsciLexerSQL_QBaseTextAsBytes(const QsciLexerSQL* self, const libqt_string text) {
+libqt_string QsciLexerSQL_SuperTextAsBytes(const QsciLexerSQL* self, const libqt_string text) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
@@ -1428,7 +1428,7 @@ libqt_string QsciLexerSQL_BytesAsText(const QsciLexerSQL* self, const char* byte
 }
 
 // Base class handler implementation
-libqt_string QsciLexerSQL_QBaseBytesAsText(const QsciLexerSQL* self, const char* bytes, int size) {
+libqt_string QsciLexerSQL_SuperBytesAsText(const QsciLexerSQL* self, const char* bytes, int size) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_BytesAsText_IsBase(true);
@@ -1473,7 +1473,7 @@ QObject* QsciLexerSQL_Sender(const QsciLexerSQL* self) {
 }
 
 // Base class handler implementation
-QObject* QsciLexerSQL_QBaseSender(const QsciLexerSQL* self) {
+QObject* QsciLexerSQL_SuperSender(const QsciLexerSQL* self) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_Sender_IsBase(true);
@@ -1502,7 +1502,7 @@ int QsciLexerSQL_SenderSignalIndex(const QsciLexerSQL* self) {
 }
 
 // Base class handler implementation
-int QsciLexerSQL_QBaseSenderSignalIndex(const QsciLexerSQL* self) {
+int QsciLexerSQL_SuperSenderSignalIndex(const QsciLexerSQL* self) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_SenderSignalIndex_IsBase(true);
@@ -1531,7 +1531,7 @@ int QsciLexerSQL_Receivers(const QsciLexerSQL* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QsciLexerSQL_QBaseReceivers(const QsciLexerSQL* self, const char* signal) {
+int QsciLexerSQL_SuperReceivers(const QsciLexerSQL* self, const char* signal) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_Receivers_IsBase(true);
@@ -1560,7 +1560,7 @@ bool QsciLexerSQL_IsSignalConnected(const QsciLexerSQL* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QsciLexerSQL_QBaseIsSignalConnected(const QsciLexerSQL* self, const QMetaMethod* signal) {
+bool QsciLexerSQL_SuperIsSignalConnected(const QsciLexerSQL* self, const QMetaMethod* signal) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         vqscilexersql->setQsciLexerSQL_IsSignalConnected_IsBase(true);

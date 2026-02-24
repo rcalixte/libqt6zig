@@ -56,6 +56,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -64,8 +68,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` self: QtC.KSyntaxHighlighting__SyntaxHighlighter `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -91,6 +95,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -99,9 +107,9 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -130,6 +138,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -142,8 +154,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -189,6 +201,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_OnSetDefinition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetDefinition` instead
+    ///
+    pub const QBaseSetDefinition = SuperSetDefinition;
+
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-syntaxhighlighter.html#setDefinition)
     ///
     /// Base class method implementation
@@ -199,8 +215,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` def: QtC.KSyntaxHighlighting__Definition `
     ///
-    pub fn QBaseSetDefinition(self: ?*anyopaque, def: ?*anyopaque) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseSetDefinition(@ptrCast(self), @ptrCast(def));
+    pub fn SuperSetDefinition(self: ?*anyopaque, def: ?*anyopaque) void {
+        qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperSetDefinition(@ptrCast(self), @ptrCast(def));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-syntaxhighlighter.html#setTheme)
@@ -229,6 +245,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_OnSetTheme(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTheme` instead
+    ///
+    pub const QBaseSetTheme = SuperSetTheme;
+
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-syntaxhighlighter.html#setTheme)
     ///
     /// Base class method implementation
@@ -239,8 +259,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` theme: QtC.KSyntaxHighlighting__Theme `
     ///
-    pub fn QBaseSetTheme(self: ?*anyopaque, theme: ?*anyopaque) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseSetTheme(@ptrCast(self), @ptrCast(theme));
+    pub fn SuperSetTheme(self: ?*anyopaque, theme: ?*anyopaque) void {
+        qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperSetTheme(@ptrCast(self), @ptrCast(theme));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-syntaxhighlighter.html#startsFoldingRegion)
@@ -297,6 +317,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_OnHighlightBlock(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHighlightBlock` instead
+    ///
+    pub const QBaseHighlightBlock = SuperHighlightBlock;
+
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-syntaxhighlighter.html#highlightBlock)
     ///
     /// Base class method implementation
@@ -307,12 +331,12 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn QBaseHighlightBlock(self: ?*anyopaque, text: []const u8) void {
+    pub fn SuperHighlightBlock(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseHighlightBlock(@ptrCast(self), text_str);
+        qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperHighlightBlock(@ptrCast(self), text_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-syntaxhighlighter.html#applyFormat)
@@ -345,6 +369,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_OnApplyFormat(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperApplyFormat` instead
+    ///
+    pub const QBaseApplyFormat = SuperApplyFormat;
+
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-syntaxhighlighter.html#applyFormat)
     ///
     /// Base class method implementation
@@ -359,8 +387,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` format: QtC.KSyntaxHighlighting__Format `
     ///
-    pub fn QBaseApplyFormat(self: ?*anyopaque, offset: i32, length: i32, format: ?*anyopaque) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseApplyFormat(@ptrCast(self), @bitCast(offset), @bitCast(length), @ptrCast(format));
+    pub fn SuperApplyFormat(self: ?*anyopaque, offset: i32, length: i32, format: ?*anyopaque) void {
+        qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperApplyFormat(@ptrCast(self), @bitCast(offset), @bitCast(length), @ptrCast(format));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-syntaxhighlighter.html#applyFolding)
@@ -393,6 +421,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_OnApplyFolding(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperApplyFolding` instead
+    ///
+    pub const QBaseApplyFolding = SuperApplyFolding;
+
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-syntaxhighlighter.html#applyFolding)
     ///
     /// Base class method implementation
@@ -407,8 +439,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` region: QtC.KSyntaxHighlighting__FoldingRegion `
     ///
-    pub fn QBaseApplyFolding(self: ?*anyopaque, offset: i32, length: i32, region: QtC.KSyntaxHighlighting__FoldingRegion) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseApplyFolding(@ptrCast(self), @bitCast(offset), @bitCast(length), @ptrCast(region));
+    pub fn SuperApplyFolding(self: ?*anyopaque, offset: i32, length: i32, region: QtC.KSyntaxHighlighting__FoldingRegion) void {
+        qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperApplyFolding(@ptrCast(self), @bitCast(offset), @bitCast(length), @ptrCast(region));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1283,6 +1315,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         return qtc.KSyntaxHighlighting__SyntaxHighlighter_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1295,8 +1331,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1333,6 +1369,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         return qtc.KSyntaxHighlighting__SyntaxHighlighter_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1347,8 +1387,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1383,6 +1423,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1395,8 +1439,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1431,6 +1475,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1443,8 +1491,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1479,6 +1527,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1491,8 +1543,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1527,6 +1579,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1539,8 +1595,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1575,6 +1631,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1587,8 +1647,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1627,6 +1687,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_SetFormat(@ptrCast(self), @bitCast(start), @bitCast(count), @ptrCast(format));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFormat` instead
+    ///
+    pub const QBaseSetFormat = SuperSetFormat;
+
     /// Inherited from QSyntaxHighlighter
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
@@ -1643,8 +1707,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` format: QtC.QTextCharFormat `
     ///
-    pub fn QBaseSetFormat(self: ?*anyopaque, start: i32, count: i32, format: ?*anyopaque) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseSetFormat(@ptrCast(self), @bitCast(start), @bitCast(count), @ptrCast(format));
+    pub fn SuperSetFormat(self: ?*anyopaque, start: i32, count: i32, format: ?*anyopaque) void {
+        qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperSetFormat(@ptrCast(self), @bitCast(start), @bitCast(count), @ptrCast(format));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -1679,6 +1743,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         return qtc.KSyntaxHighlighting__SyntaxHighlighter_Format(@ptrCast(self), @bitCast(pos));
     }
 
+    /// ### DEPRECATED: Use `SuperFormat` instead
+    ///
+    pub const QBaseFormat = SuperFormat;
+
     /// Inherited from QSyntaxHighlighter
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#format)
@@ -1691,8 +1759,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` pos: i32 `
     ///
-    pub fn QBaseFormat(self: ?*anyopaque, pos: i32) QtC.QTextCharFormat {
-        return qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseFormat(@ptrCast(self), @bitCast(pos));
+    pub fn SuperFormat(self: ?*anyopaque, pos: i32) QtC.QTextCharFormat {
+        return qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperFormat(@ptrCast(self), @bitCast(pos));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -1725,6 +1793,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         return qtc.KSyntaxHighlighting__SyntaxHighlighter_PreviousBlockState(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPreviousBlockState` instead
+    ///
+    pub const QBasePreviousBlockState = SuperPreviousBlockState;
+
     /// Inherited from QSyntaxHighlighter
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#previousBlockState)
@@ -1735,8 +1807,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` self: QtC.KSyntaxHighlighting__SyntaxHighlighter `
     ///
-    pub fn QBasePreviousBlockState(self: ?*anyopaque) i32 {
-        return qtc.KSyntaxHighlighting__SyntaxHighlighter_QBasePreviousBlockState(@ptrCast(self));
+    pub fn SuperPreviousBlockState(self: ?*anyopaque) i32 {
+        return qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperPreviousBlockState(@ptrCast(self));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -1769,6 +1841,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         return qtc.KSyntaxHighlighting__SyntaxHighlighter_CurrentBlockState(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCurrentBlockState` instead
+    ///
+    pub const QBaseCurrentBlockState = SuperCurrentBlockState;
+
     /// Inherited from QSyntaxHighlighter
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockState)
@@ -1779,8 +1855,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` self: QtC.KSyntaxHighlighting__SyntaxHighlighter `
     ///
-    pub fn QBaseCurrentBlockState(self: ?*anyopaque) i32 {
-        return qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseCurrentBlockState(@ptrCast(self));
+    pub fn SuperCurrentBlockState(self: ?*anyopaque) i32 {
+        return qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperCurrentBlockState(@ptrCast(self));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -1815,6 +1891,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_SetCurrentBlockState(@ptrCast(self), @bitCast(newState));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCurrentBlockState` instead
+    ///
+    pub const QBaseSetCurrentBlockState = SuperSetCurrentBlockState;
+
     /// Inherited from QSyntaxHighlighter
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockState)
@@ -1827,8 +1907,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` newState: i32 `
     ///
-    pub fn QBaseSetCurrentBlockState(self: ?*anyopaque, newState: i32) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseSetCurrentBlockState(@ptrCast(self), @bitCast(newState));
+    pub fn SuperSetCurrentBlockState(self: ?*anyopaque, newState: i32) void {
+        qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperSetCurrentBlockState(@ptrCast(self), @bitCast(newState));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -1863,6 +1943,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_SetCurrentBlockUserData(@ptrCast(self), @ptrCast(data));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCurrentBlockUserData` instead
+    ///
+    pub const QBaseSetCurrentBlockUserData = SuperSetCurrentBlockUserData;
+
     /// Inherited from QSyntaxHighlighter
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockUserData)
@@ -1875,8 +1959,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` data: QtC.QTextBlockUserData `
     ///
-    pub fn QBaseSetCurrentBlockUserData(self: ?*anyopaque, data: ?*anyopaque) void {
-        qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseSetCurrentBlockUserData(@ptrCast(self), @ptrCast(data));
+    pub fn SuperSetCurrentBlockUserData(self: ?*anyopaque, data: ?*anyopaque) void {
+        qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperSetCurrentBlockUserData(@ptrCast(self), @ptrCast(data));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -1909,6 +1993,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         return qtc.KSyntaxHighlighting__SyntaxHighlighter_CurrentBlockUserData(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCurrentBlockUserData` instead
+    ///
+    pub const QBaseCurrentBlockUserData = SuperCurrentBlockUserData;
+
     /// Inherited from QSyntaxHighlighter
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockUserData)
@@ -1919,8 +2007,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` self: QtC.KSyntaxHighlighting__SyntaxHighlighter `
     ///
-    pub fn QBaseCurrentBlockUserData(self: ?*anyopaque) QtC.QTextBlockUserData {
-        return qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseCurrentBlockUserData(@ptrCast(self));
+    pub fn SuperCurrentBlockUserData(self: ?*anyopaque) QtC.QTextBlockUserData {
+        return qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperCurrentBlockUserData(@ptrCast(self));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -1953,6 +2041,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         return qtc.KSyntaxHighlighting__SyntaxHighlighter_CurrentBlock(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCurrentBlock` instead
+    ///
+    pub const QBaseCurrentBlock = SuperCurrentBlock;
+
     /// Inherited from QSyntaxHighlighter
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlock)
@@ -1963,8 +2055,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` self: QtC.KSyntaxHighlighting__SyntaxHighlighter `
     ///
-    pub fn QBaseCurrentBlock(self: ?*anyopaque) QtC.QTextBlock {
-        return qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseCurrentBlock(@ptrCast(self));
+    pub fn SuperCurrentBlock(self: ?*anyopaque) QtC.QTextBlock {
+        return qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperCurrentBlock(@ptrCast(self));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -1997,6 +2089,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         return qtc.KSyntaxHighlighting__SyntaxHighlighter_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2007,8 +2103,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` self: QtC.KSyntaxHighlighting__SyntaxHighlighter `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2041,6 +2137,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         return qtc.KSyntaxHighlighting__SyntaxHighlighter_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2051,8 +2151,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` self: QtC.KSyntaxHighlighting__SyntaxHighlighter `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2088,6 +2188,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         return qtc.KSyntaxHighlighting__SyntaxHighlighter_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2100,9 +2204,9 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2137,6 +2241,10 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
         return qtc.KSyntaxHighlighting__SyntaxHighlighter_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2149,8 +2257,8 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KSyntaxHighlighting__SyntaxHighlighter_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2184,6 +2292,9 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -2191,7 +2302,7 @@ pub const ksyntaxhighlighting__syntaxhighlighter = struct {
     ///
     /// ` self: QtC.KSyntaxHighlighting__SyntaxHighlighter `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_Delete(@ptrCast(self));
     }
 };

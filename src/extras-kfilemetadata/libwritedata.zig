@@ -217,13 +217,17 @@ pub const kfilemetadata__writedata = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KFileMetaData__WriteData `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KFileMetaData__WriteData_Delete(@ptrCast(self));
     }
 };

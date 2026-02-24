@@ -98,7 +98,7 @@ void KIO__OpenFileManagerWindowJob_Start(KIO__OpenFileManagerWindowJob* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KIO__OpenFileManagerWindowJob_QBaseMetaObject(const KIO__OpenFileManagerWindowJob* self) {
+QMetaObject* KIO__OpenFileManagerWindowJob_SuperMetaObject(const KIO__OpenFileManagerWindowJob* self) {
     auto* vkioopenfilemanagerwindowjob = const_cast<VirtualKIOOpenFileManagerWindowJob*>(dynamic_cast<const VirtualKIOOpenFileManagerWindowJob*>(self));
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_MetaObject_IsBase(true);
@@ -117,7 +117,7 @@ void KIO__OpenFileManagerWindowJob_OnMetaObject(const KIO__OpenFileManagerWindow
 }
 
 // Base class handler implementation
-void* KIO__OpenFileManagerWindowJob_QBaseMetacast(KIO__OpenFileManagerWindowJob* self, const char* param1) {
+void* KIO__OpenFileManagerWindowJob_SuperMetacast(KIO__OpenFileManagerWindowJob* self, const char* param1) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_Metacast_IsBase(true);
@@ -136,7 +136,7 @@ void KIO__OpenFileManagerWindowJob_OnMetacast(KIO__OpenFileManagerWindowJob* sel
 }
 
 // Base class handler implementation
-int KIO__OpenFileManagerWindowJob_QBaseMetacall(KIO__OpenFileManagerWindowJob* self, int param1, int param2, void** param3) {
+int KIO__OpenFileManagerWindowJob_SuperMetacall(KIO__OpenFileManagerWindowJob* self, int param1, int param2, void** param3) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_Metacall_IsBase(true);
@@ -155,7 +155,7 @@ void KIO__OpenFileManagerWindowJob_OnMetacall(KIO__OpenFileManagerWindowJob* sel
 }
 
 // Base class handler implementation
-void KIO__OpenFileManagerWindowJob_QBaseStart(KIO__OpenFileManagerWindowJob* self) {
+void KIO__OpenFileManagerWindowJob_SuperStart(KIO__OpenFileManagerWindowJob* self) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_Start_IsBase(true);
@@ -184,7 +184,7 @@ bool KIO__OpenFileManagerWindowJob_DoKill(KIO__OpenFileManagerWindowJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__OpenFileManagerWindowJob_QBaseDoKill(KIO__OpenFileManagerWindowJob* self) {
+bool KIO__OpenFileManagerWindowJob_SuperDoKill(KIO__OpenFileManagerWindowJob* self) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_DoKill_IsBase(true);
@@ -213,7 +213,7 @@ bool KIO__OpenFileManagerWindowJob_DoSuspend(KIO__OpenFileManagerWindowJob* self
 }
 
 // Base class handler implementation
-bool KIO__OpenFileManagerWindowJob_QBaseDoSuspend(KIO__OpenFileManagerWindowJob* self) {
+bool KIO__OpenFileManagerWindowJob_SuperDoSuspend(KIO__OpenFileManagerWindowJob* self) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_DoSuspend_IsBase(true);
@@ -242,7 +242,7 @@ bool KIO__OpenFileManagerWindowJob_DoResume(KIO__OpenFileManagerWindowJob* self)
 }
 
 // Base class handler implementation
-bool KIO__OpenFileManagerWindowJob_QBaseDoResume(KIO__OpenFileManagerWindowJob* self) {
+bool KIO__OpenFileManagerWindowJob_SuperDoResume(KIO__OpenFileManagerWindowJob* self) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_DoResume_IsBase(true);
@@ -287,7 +287,7 @@ libqt_string KIO__OpenFileManagerWindowJob_ErrorString(const KIO__OpenFileManage
 }
 
 // Base class handler implementation
-libqt_string KIO__OpenFileManagerWindowJob_QBaseErrorString(const KIO__OpenFileManagerWindowJob* self) {
+libqt_string KIO__OpenFileManagerWindowJob_SuperErrorString(const KIO__OpenFileManagerWindowJob* self) {
     auto* vkioopenfilemanagerwindowjob = const_cast<VirtualKIOOpenFileManagerWindowJob*>(dynamic_cast<const VirtualKIOOpenFileManagerWindowJob*>(self));
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_ErrorString_IsBase(true);
@@ -332,7 +332,7 @@ bool KIO__OpenFileManagerWindowJob_Event(KIO__OpenFileManagerWindowJob* self, QE
 }
 
 // Base class handler implementation
-bool KIO__OpenFileManagerWindowJob_QBaseEvent(KIO__OpenFileManagerWindowJob* self, QEvent* event) {
+bool KIO__OpenFileManagerWindowJob_SuperEvent(KIO__OpenFileManagerWindowJob* self, QEvent* event) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_Event_IsBase(true);
@@ -361,7 +361,7 @@ bool KIO__OpenFileManagerWindowJob_EventFilter(KIO__OpenFileManagerWindowJob* se
 }
 
 // Base class handler implementation
-bool KIO__OpenFileManagerWindowJob_QBaseEventFilter(KIO__OpenFileManagerWindowJob* self, QObject* watched, QEvent* event) {
+bool KIO__OpenFileManagerWindowJob_SuperEventFilter(KIO__OpenFileManagerWindowJob* self, QObject* watched, QEvent* event) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_EventFilter_IsBase(true);
@@ -390,7 +390,7 @@ void KIO__OpenFileManagerWindowJob_TimerEvent(KIO__OpenFileManagerWindowJob* sel
 }
 
 // Base class handler implementation
-void KIO__OpenFileManagerWindowJob_QBaseTimerEvent(KIO__OpenFileManagerWindowJob* self, QTimerEvent* event) {
+void KIO__OpenFileManagerWindowJob_SuperTimerEvent(KIO__OpenFileManagerWindowJob* self, QTimerEvent* event) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_TimerEvent_IsBase(true);
@@ -419,7 +419,7 @@ void KIO__OpenFileManagerWindowJob_ChildEvent(KIO__OpenFileManagerWindowJob* sel
 }
 
 // Base class handler implementation
-void KIO__OpenFileManagerWindowJob_QBaseChildEvent(KIO__OpenFileManagerWindowJob* self, QChildEvent* event) {
+void KIO__OpenFileManagerWindowJob_SuperChildEvent(KIO__OpenFileManagerWindowJob* self, QChildEvent* event) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_ChildEvent_IsBase(true);
@@ -448,7 +448,7 @@ void KIO__OpenFileManagerWindowJob_CustomEvent(KIO__OpenFileManagerWindowJob* se
 }
 
 // Base class handler implementation
-void KIO__OpenFileManagerWindowJob_QBaseCustomEvent(KIO__OpenFileManagerWindowJob* self, QEvent* event) {
+void KIO__OpenFileManagerWindowJob_SuperCustomEvent(KIO__OpenFileManagerWindowJob* self, QEvent* event) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_CustomEvent_IsBase(true);
@@ -477,7 +477,7 @@ void KIO__OpenFileManagerWindowJob_ConnectNotify(KIO__OpenFileManagerWindowJob* 
 }
 
 // Base class handler implementation
-void KIO__OpenFileManagerWindowJob_QBaseConnectNotify(KIO__OpenFileManagerWindowJob* self, const QMetaMethod* signal) {
+void KIO__OpenFileManagerWindowJob_SuperConnectNotify(KIO__OpenFileManagerWindowJob* self, const QMetaMethod* signal) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_ConnectNotify_IsBase(true);
@@ -506,7 +506,7 @@ void KIO__OpenFileManagerWindowJob_DisconnectNotify(KIO__OpenFileManagerWindowJo
 }
 
 // Base class handler implementation
-void KIO__OpenFileManagerWindowJob_QBaseDisconnectNotify(KIO__OpenFileManagerWindowJob* self, const QMetaMethod* signal) {
+void KIO__OpenFileManagerWindowJob_SuperDisconnectNotify(KIO__OpenFileManagerWindowJob* self, const QMetaMethod* signal) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_DisconnectNotify_IsBase(true);
@@ -535,7 +535,7 @@ void KIO__OpenFileManagerWindowJob_SetCapabilities(KIO__OpenFileManagerWindowJob
 }
 
 // Base class handler implementation
-void KIO__OpenFileManagerWindowJob_QBaseSetCapabilities(KIO__OpenFileManagerWindowJob* self, int capabilities) {
+void KIO__OpenFileManagerWindowJob_SuperSetCapabilities(KIO__OpenFileManagerWindowJob* self, int capabilities) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_SetCapabilities_IsBase(true);
@@ -564,7 +564,7 @@ bool KIO__OpenFileManagerWindowJob_IsFinished(const KIO__OpenFileManagerWindowJo
 }
 
 // Base class handler implementation
-bool KIO__OpenFileManagerWindowJob_QBaseIsFinished(const KIO__OpenFileManagerWindowJob* self) {
+bool KIO__OpenFileManagerWindowJob_SuperIsFinished(const KIO__OpenFileManagerWindowJob* self) {
     auto* vkioopenfilemanagerwindowjob = const_cast<VirtualKIOOpenFileManagerWindowJob*>(dynamic_cast<const VirtualKIOOpenFileManagerWindowJob*>(self));
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_IsFinished_IsBase(true);
@@ -593,7 +593,7 @@ void KIO__OpenFileManagerWindowJob_SetError(KIO__OpenFileManagerWindowJob* self,
 }
 
 // Base class handler implementation
-void KIO__OpenFileManagerWindowJob_QBaseSetError(KIO__OpenFileManagerWindowJob* self, int errorCode) {
+void KIO__OpenFileManagerWindowJob_SuperSetError(KIO__OpenFileManagerWindowJob* self, int errorCode) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_SetError_IsBase(true);
@@ -623,7 +623,7 @@ void KIO__OpenFileManagerWindowJob_SetErrorText(KIO__OpenFileManagerWindowJob* s
 }
 
 // Base class handler implementation
-void KIO__OpenFileManagerWindowJob_QBaseSetErrorText(KIO__OpenFileManagerWindowJob* self, const libqt_string errorText) {
+void KIO__OpenFileManagerWindowJob_SuperSetErrorText(KIO__OpenFileManagerWindowJob* self, const libqt_string errorText) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
@@ -653,7 +653,7 @@ void KIO__OpenFileManagerWindowJob_SetProcessedAmount(KIO__OpenFileManagerWindow
 }
 
 // Base class handler implementation
-void KIO__OpenFileManagerWindowJob_QBaseSetProcessedAmount(KIO__OpenFileManagerWindowJob* self, int unit, unsigned long long amount) {
+void KIO__OpenFileManagerWindowJob_SuperSetProcessedAmount(KIO__OpenFileManagerWindowJob* self, int unit, unsigned long long amount) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_SetProcessedAmount_IsBase(true);
@@ -682,7 +682,7 @@ void KIO__OpenFileManagerWindowJob_SetTotalAmount(KIO__OpenFileManagerWindowJob*
 }
 
 // Base class handler implementation
-void KIO__OpenFileManagerWindowJob_QBaseSetTotalAmount(KIO__OpenFileManagerWindowJob* self, int unit, unsigned long long amount) {
+void KIO__OpenFileManagerWindowJob_SuperSetTotalAmount(KIO__OpenFileManagerWindowJob* self, int unit, unsigned long long amount) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_SetTotalAmount_IsBase(true);
@@ -711,7 +711,7 @@ void KIO__OpenFileManagerWindowJob_SetProgressUnit(KIO__OpenFileManagerWindowJob
 }
 
 // Base class handler implementation
-void KIO__OpenFileManagerWindowJob_QBaseSetProgressUnit(KIO__OpenFileManagerWindowJob* self, int unit) {
+void KIO__OpenFileManagerWindowJob_SuperSetProgressUnit(KIO__OpenFileManagerWindowJob* self, int unit) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_SetProgressUnit_IsBase(true);
@@ -740,7 +740,7 @@ void KIO__OpenFileManagerWindowJob_SetPercent(KIO__OpenFileManagerWindowJob* sel
 }
 
 // Base class handler implementation
-void KIO__OpenFileManagerWindowJob_QBaseSetPercent(KIO__OpenFileManagerWindowJob* self, unsigned long percentage) {
+void KIO__OpenFileManagerWindowJob_SuperSetPercent(KIO__OpenFileManagerWindowJob* self, unsigned long percentage) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_SetPercent_IsBase(true);
@@ -769,7 +769,7 @@ void KIO__OpenFileManagerWindowJob_EmitResult(KIO__OpenFileManagerWindowJob* sel
 }
 
 // Base class handler implementation
-void KIO__OpenFileManagerWindowJob_QBaseEmitResult(KIO__OpenFileManagerWindowJob* self) {
+void KIO__OpenFileManagerWindowJob_SuperEmitResult(KIO__OpenFileManagerWindowJob* self) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_EmitResult_IsBase(true);
@@ -798,7 +798,7 @@ void KIO__OpenFileManagerWindowJob_EmitPercent(KIO__OpenFileManagerWindowJob* se
 }
 
 // Base class handler implementation
-void KIO__OpenFileManagerWindowJob_QBaseEmitPercent(KIO__OpenFileManagerWindowJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
+void KIO__OpenFileManagerWindowJob_SuperEmitPercent(KIO__OpenFileManagerWindowJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_EmitPercent_IsBase(true);
@@ -827,7 +827,7 @@ void KIO__OpenFileManagerWindowJob_EmitSpeed(KIO__OpenFileManagerWindowJob* self
 }
 
 // Base class handler implementation
-void KIO__OpenFileManagerWindowJob_QBaseEmitSpeed(KIO__OpenFileManagerWindowJob* self, unsigned long speed) {
+void KIO__OpenFileManagerWindowJob_SuperEmitSpeed(KIO__OpenFileManagerWindowJob* self, unsigned long speed) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_EmitSpeed_IsBase(true);
@@ -856,7 +856,7 @@ void KIO__OpenFileManagerWindowJob_StartElapsedTimer(KIO__OpenFileManagerWindowJ
 }
 
 // Base class handler implementation
-void KIO__OpenFileManagerWindowJob_QBaseStartElapsedTimer(KIO__OpenFileManagerWindowJob* self) {
+void KIO__OpenFileManagerWindowJob_SuperStartElapsedTimer(KIO__OpenFileManagerWindowJob* self) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_StartElapsedTimer_IsBase(true);
@@ -885,7 +885,7 @@ QObject* KIO__OpenFileManagerWindowJob_Sender(const KIO__OpenFileManagerWindowJo
 }
 
 // Base class handler implementation
-QObject* KIO__OpenFileManagerWindowJob_QBaseSender(const KIO__OpenFileManagerWindowJob* self) {
+QObject* KIO__OpenFileManagerWindowJob_SuperSender(const KIO__OpenFileManagerWindowJob* self) {
     auto* vkioopenfilemanagerwindowjob = const_cast<VirtualKIOOpenFileManagerWindowJob*>(dynamic_cast<const VirtualKIOOpenFileManagerWindowJob*>(self));
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_Sender_IsBase(true);
@@ -914,7 +914,7 @@ int KIO__OpenFileManagerWindowJob_SenderSignalIndex(const KIO__OpenFileManagerWi
 }
 
 // Base class handler implementation
-int KIO__OpenFileManagerWindowJob_QBaseSenderSignalIndex(const KIO__OpenFileManagerWindowJob* self) {
+int KIO__OpenFileManagerWindowJob_SuperSenderSignalIndex(const KIO__OpenFileManagerWindowJob* self) {
     auto* vkioopenfilemanagerwindowjob = const_cast<VirtualKIOOpenFileManagerWindowJob*>(dynamic_cast<const VirtualKIOOpenFileManagerWindowJob*>(self));
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_SenderSignalIndex_IsBase(true);
@@ -943,7 +943,7 @@ int KIO__OpenFileManagerWindowJob_Receivers(const KIO__OpenFileManagerWindowJob*
 }
 
 // Base class handler implementation
-int KIO__OpenFileManagerWindowJob_QBaseReceivers(const KIO__OpenFileManagerWindowJob* self, const char* signal) {
+int KIO__OpenFileManagerWindowJob_SuperReceivers(const KIO__OpenFileManagerWindowJob* self, const char* signal) {
     auto* vkioopenfilemanagerwindowjob = const_cast<VirtualKIOOpenFileManagerWindowJob*>(dynamic_cast<const VirtualKIOOpenFileManagerWindowJob*>(self));
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_Receivers_IsBase(true);
@@ -972,7 +972,7 @@ bool KIO__OpenFileManagerWindowJob_IsSignalConnected(const KIO__OpenFileManagerW
 }
 
 // Base class handler implementation
-bool KIO__OpenFileManagerWindowJob_QBaseIsSignalConnected(const KIO__OpenFileManagerWindowJob* self, const QMetaMethod* signal) {
+bool KIO__OpenFileManagerWindowJob_SuperIsSignalConnected(const KIO__OpenFileManagerWindowJob* self, const QMetaMethod* signal) {
     auto* vkioopenfilemanagerwindowjob = const_cast<VirtualKIOOpenFileManagerWindowJob*>(dynamic_cast<const VirtualKIOOpenFileManagerWindowJob*>(self));
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_IsSignalConnected_IsBase(true);

@@ -101,6 +101,10 @@ pub const kcursor = struct {
         qtc.KCursor_SetAutoHideCursor3(@ptrCast(w), enable, customEventFilter);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kcursor.html#dtor.KCursor)
     ///
     /// Delete this object from C++ memory.
@@ -109,7 +113,7 @@ pub const kcursor = struct {
     ///
     /// ` self: QtC.KCursor `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KCursor_Delete(@ptrCast(self));
     }
 };

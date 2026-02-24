@@ -117,6 +117,10 @@ pub const qwebenginequotarequest = struct {
         return qtc.QWebEngineQuotaRequest_OperatorNotEqual(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginequotarequest.html#dtor.QWebEngineQuotaRequest)
     ///
     /// Delete this object from C++ memory.
@@ -125,7 +129,7 @@ pub const qwebenginequotarequest = struct {
     ///
     /// ` self: QtC.QWebEngineQuotaRequest `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebEngineQuotaRequest_Delete(@ptrCast(self));
     }
 };

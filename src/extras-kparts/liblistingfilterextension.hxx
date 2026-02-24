@@ -403,23 +403,23 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
 
     // Friend functions
     friend void KParts__ListingFilterExtension_TimerEvent(KParts::ListingFilterExtension* self, QTimerEvent* event);
-    friend void KParts__ListingFilterExtension_QBaseTimerEvent(KParts::ListingFilterExtension* self, QTimerEvent* event);
+    friend void KParts__ListingFilterExtension_SuperTimerEvent(KParts::ListingFilterExtension* self, QTimerEvent* event);
     friend void KParts__ListingFilterExtension_ChildEvent(KParts::ListingFilterExtension* self, QChildEvent* event);
-    friend void KParts__ListingFilterExtension_QBaseChildEvent(KParts::ListingFilterExtension* self, QChildEvent* event);
+    friend void KParts__ListingFilterExtension_SuperChildEvent(KParts::ListingFilterExtension* self, QChildEvent* event);
     friend void KParts__ListingFilterExtension_CustomEvent(KParts::ListingFilterExtension* self, QEvent* event);
-    friend void KParts__ListingFilterExtension_QBaseCustomEvent(KParts::ListingFilterExtension* self, QEvent* event);
+    friend void KParts__ListingFilterExtension_SuperCustomEvent(KParts::ListingFilterExtension* self, QEvent* event);
     friend void KParts__ListingFilterExtension_ConnectNotify(KParts::ListingFilterExtension* self, const QMetaMethod* signal);
-    friend void KParts__ListingFilterExtension_QBaseConnectNotify(KParts::ListingFilterExtension* self, const QMetaMethod* signal);
+    friend void KParts__ListingFilterExtension_SuperConnectNotify(KParts::ListingFilterExtension* self, const QMetaMethod* signal);
     friend void KParts__ListingFilterExtension_DisconnectNotify(KParts::ListingFilterExtension* self, const QMetaMethod* signal);
-    friend void KParts__ListingFilterExtension_QBaseDisconnectNotify(KParts::ListingFilterExtension* self, const QMetaMethod* signal);
+    friend void KParts__ListingFilterExtension_SuperDisconnectNotify(KParts::ListingFilterExtension* self, const QMetaMethod* signal);
     friend QObject* KParts__ListingFilterExtension_Sender(const KParts::ListingFilterExtension* self);
-    friend QObject* KParts__ListingFilterExtension_QBaseSender(const KParts::ListingFilterExtension* self);
+    friend QObject* KParts__ListingFilterExtension_SuperSender(const KParts::ListingFilterExtension* self);
     friend int KParts__ListingFilterExtension_SenderSignalIndex(const KParts::ListingFilterExtension* self);
-    friend int KParts__ListingFilterExtension_QBaseSenderSignalIndex(const KParts::ListingFilterExtension* self);
+    friend int KParts__ListingFilterExtension_SuperSenderSignalIndex(const KParts::ListingFilterExtension* self);
     friend int KParts__ListingFilterExtension_Receivers(const KParts::ListingFilterExtension* self, const char* signal);
-    friend int KParts__ListingFilterExtension_QBaseReceivers(const KParts::ListingFilterExtension* self, const char* signal);
+    friend int KParts__ListingFilterExtension_SuperReceivers(const KParts::ListingFilterExtension* self, const char* signal);
     friend bool KParts__ListingFilterExtension_IsSignalConnected(const KParts::ListingFilterExtension* self, const QMetaMethod* signal);
-    friend bool KParts__ListingFilterExtension_QBaseIsSignalConnected(const KParts::ListingFilterExtension* self, const QMetaMethod* signal);
+    friend bool KParts__ListingFilterExtension_SuperIsSignalConnected(const KParts::ListingFilterExtension* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -38,6 +38,10 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -46,8 +50,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.Konsole__Emulation_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.Konsole__Emulation_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -73,6 +77,10 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -81,9 +89,9 @@ pub const konsole__emulation = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.Konsole__Emulation_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.Konsole__Emulation_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -112,6 +120,10 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -124,8 +136,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Konsole__Emulation_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.Konsole__Emulation_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -199,6 +211,10 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnEraseChar(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEraseChar` instead
+    ///
+    pub const QBaseEraseChar = SuperEraseChar;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -207,8 +223,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    pub fn QBaseEraseChar(self: ?*anyopaque) u8 {
-        return qtc.Konsole__Emulation_QBaseEraseChar(@ptrCast(self));
+    pub fn SuperEraseChar(self: ?*anyopaque) u8 {
+        return qtc.Konsole__Emulation_SuperEraseChar(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -267,6 +283,10 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnClearEntireScreen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClearEntireScreen` instead
+    ///
+    pub const QBaseClearEntireScreen = SuperClearEntireScreen;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -275,8 +295,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    pub fn QBaseClearEntireScreen(self: ?*anyopaque) void {
-        qtc.Konsole__Emulation_QBaseClearEntireScreen(@ptrCast(self));
+    pub fn SuperClearEntireScreen(self: ?*anyopaque) void {
+        qtc.Konsole__Emulation_SuperClearEntireScreen(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -303,6 +323,10 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperReset` instead
+    ///
+    pub const QBaseReset = SuperReset;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -311,8 +335,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    pub fn QBaseReset(self: ?*anyopaque) void {
-        qtc.Konsole__Emulation_QBaseReset(@ptrCast(self));
+    pub fn SuperReset(self: ?*anyopaque) void {
+        qtc.Konsole__Emulation_SuperReset(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -363,6 +387,10 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnSetImageSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetImageSize` instead
+    ///
+    pub const QBaseSetImageSize = SuperSetImageSize;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -375,8 +403,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` columns: i32 `
     ///
-    pub fn QBaseSetImageSize(self: ?*anyopaque, lines: i32, columns: i32) void {
-        qtc.Konsole__Emulation_QBaseSetImageSize(@ptrCast(self), @bitCast(lines), @bitCast(columns));
+    pub fn SuperSetImageSize(self: ?*anyopaque, lines: i32, columns: i32) void {
+        qtc.Konsole__Emulation_SuperSetImageSize(@ptrCast(self), @bitCast(lines), @bitCast(columns));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -409,6 +437,10 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnSendText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSendText` instead
+    ///
+    pub const QBaseSendText = SuperSendText;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -419,12 +451,12 @@ pub const konsole__emulation = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn QBaseSendText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SuperSendText(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.Konsole__Emulation_QBaseSendText(@ptrCast(self), text_str);
+        qtc.Konsole__Emulation_SuperSendText(@ptrCast(self), text_str);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -455,6 +487,10 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnSendKeyEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSendKeyEvent` instead
+    ///
+    pub const QBaseSendKeyEvent = SuperSendKeyEvent;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -467,8 +503,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` fromPaste: bool `
     ///
-    pub fn QBaseSendKeyEvent(self: ?*anyopaque, param1: ?*anyopaque, fromPaste: bool) void {
-        qtc.Konsole__Emulation_QBaseSendKeyEvent(@ptrCast(self), @ptrCast(param1), fromPaste);
+    pub fn SuperSendKeyEvent(self: ?*anyopaque, param1: ?*anyopaque, fromPaste: bool) void {
+        qtc.Konsole__Emulation_SuperSendKeyEvent(@ptrCast(self), @ptrCast(param1), fromPaste);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -503,6 +539,10 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnSendMouseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSendMouseEvent` instead
+    ///
+    pub const QBaseSendMouseEvent = SuperSendMouseEvent;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -519,8 +559,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` eventType: i32 `
     ///
-    pub fn QBaseSendMouseEvent(self: ?*anyopaque, buttons: i32, column: i32, line: i32, eventType: i32) void {
-        qtc.Konsole__Emulation_QBaseSendMouseEvent(@ptrCast(self), @bitCast(buttons), @bitCast(column), @bitCast(line), @bitCast(eventType));
+    pub fn SuperSendMouseEvent(self: ?*anyopaque, buttons: i32, column: i32, line: i32, eventType: i32) void {
+        qtc.Konsole__Emulation_SuperSendMouseEvent(@ptrCast(self), @bitCast(buttons), @bitCast(column), @bitCast(line), @bitCast(eventType));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -552,6 +592,10 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnSendString(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSendString` instead
+    ///
+    pub const QBaseSendString = SuperSendString;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -564,9 +608,9 @@ pub const konsole__emulation = struct {
     ///
     /// ` length: i32 `
     ///
-    pub fn QBaseSendString(self: ?*anyopaque, stringVal: [:0]const u8, length: i32) void {
+    pub fn SuperSendString(self: ?*anyopaque, stringVal: [:0]const u8, length: i32) void {
         const stringVal_Cstring = stringVal.ptr;
-        qtc.Konsole__Emulation_QBaseSendString(@ptrCast(self), stringVal_Cstring, @bitCast(length));
+        qtc.Konsole__Emulation_SuperSendString(@ptrCast(self), stringVal_Cstring, @bitCast(length));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1051,6 +1095,10 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnSetMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetMode` instead
+    ///
+    pub const QBaseSetMode = SuperSetMode;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1061,8 +1109,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` mode: i32 `
     ///
-    pub fn QBaseSetMode(self: ?*anyopaque, mode: i32) void {
-        qtc.Konsole__Emulation_QBaseSetMode(@ptrCast(self), @bitCast(mode));
+    pub fn SuperSetMode(self: ?*anyopaque, mode: i32) void {
+        qtc.Konsole__Emulation_SuperSetMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1091,6 +1139,10 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnResetMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperResetMode` instead
+    ///
+    pub const QBaseResetMode = SuperResetMode;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1101,8 +1153,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` mode: i32 `
     ///
-    pub fn QBaseResetMode(self: ?*anyopaque, mode: i32) void {
-        qtc.Konsole__Emulation_QBaseResetMode(@ptrCast(self), @bitCast(mode));
+    pub fn SuperResetMode(self: ?*anyopaque, mode: i32) void {
+        qtc.Konsole__Emulation_SuperResetMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1131,6 +1183,10 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnSetScreen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetScreen` instead
+    ///
+    pub const QBaseSetScreen = SuperSetScreen;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1141,8 +1197,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn QBaseSetScreen(self: ?*anyopaque, index: i32) void {
-        qtc.Konsole__Emulation_QBaseSetScreen(@ptrCast(self), @bitCast(index));
+    pub fn SuperSetScreen(self: ?*anyopaque, index: i32) void {
+        qtc.Konsole__Emulation_SuperSetScreen(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1171,6 +1227,10 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnSetCodec(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCodec` instead
+    ///
+    pub const QBaseSetCodec = SuperSetCodec;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1181,8 +1241,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` codec: Emulation_enums.EmulationCodec `
     ///
-    pub fn QBaseSetCodec(self: ?*anyopaque, codec: i32) void {
-        qtc.Konsole__Emulation_QBaseSetCodec(@ptrCast(self), @bitCast(codec));
+    pub fn SuperSetCodec(self: ?*anyopaque, codec: i32) void {
+        qtc.Konsole__Emulation_SuperSetCodec(@ptrCast(self), @bitCast(codec));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1209,6 +1269,10 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_OnBufferedUpdate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBufferedUpdate` instead
+    ///
+    pub const QBaseBufferedUpdate = SuperBufferedUpdate;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1217,8 +1281,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    pub fn QBaseBufferedUpdate(self: ?*anyopaque) void {
-        qtc.Konsole__Emulation_QBaseBufferedUpdate(@ptrCast(self));
+    pub fn SuperBufferedUpdate(self: ?*anyopaque) void {
+        qtc.Konsole__Emulation_SuperBufferedUpdate(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2017,6 +2081,10 @@ pub const konsole__emulation = struct {
         return qtc.Konsole__Emulation_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -2029,8 +2097,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.Konsole__Emulation_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.Konsole__Emulation_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2067,6 +2135,10 @@ pub const konsole__emulation = struct {
         return qtc.Konsole__Emulation_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -2081,8 +2153,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.Konsole__Emulation_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.Konsole__Emulation_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2117,6 +2189,10 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -2129,8 +2205,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Konsole__Emulation_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Konsole__Emulation_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2165,6 +2241,10 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -2177,8 +2257,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Konsole__Emulation_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Konsole__Emulation_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2213,6 +2293,10 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -2225,8 +2309,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Konsole__Emulation_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Konsole__Emulation_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2261,6 +2345,10 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2273,8 +2361,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.Konsole__Emulation_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.Konsole__Emulation_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2309,6 +2397,10 @@ pub const konsole__emulation = struct {
         qtc.Konsole__Emulation_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2321,8 +2413,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.Konsole__Emulation_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.Konsole__Emulation_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2355,6 +2447,10 @@ pub const konsole__emulation = struct {
         return qtc.Konsole__Emulation_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2365,8 +2461,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.Konsole__Emulation_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.Konsole__Emulation_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2399,6 +2495,10 @@ pub const konsole__emulation = struct {
         return qtc.Konsole__Emulation_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2409,8 +2509,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.Konsole__Emulation_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.Konsole__Emulation_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2446,6 +2546,10 @@ pub const konsole__emulation = struct {
         return qtc.Konsole__Emulation_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2458,9 +2562,9 @@ pub const konsole__emulation = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.Konsole__Emulation_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.Konsole__Emulation_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2495,6 +2599,10 @@ pub const konsole__emulation = struct {
         return qtc.Konsole__Emulation_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2507,8 +2615,8 @@ pub const konsole__emulation = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.Konsole__Emulation_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.Konsole__Emulation_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2542,6 +2650,9 @@ pub const konsole__emulation = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -2549,7 +2660,7 @@ pub const konsole__emulation = struct {
     ///
     /// ` self: QtC.Konsole__Emulation `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Konsole__Emulation_Delete(@ptrCast(self));
     }
 };

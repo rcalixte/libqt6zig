@@ -199,7 +199,7 @@ void KRatingWidget_ResizeEvent(KRatingWidget* self, QResizeEvent* e) {
 }
 
 // Base class handler implementation
-QMetaObject* KRatingWidget_QBaseMetaObject(const KRatingWidget* self) {
+QMetaObject* KRatingWidget_SuperMetaObject(const KRatingWidget* self) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_MetaObject_IsBase(true);
@@ -218,7 +218,7 @@ void KRatingWidget_OnMetaObject(const KRatingWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KRatingWidget_QBaseMetacast(KRatingWidget* self, const char* param1) {
+void* KRatingWidget_SuperMetacast(KRatingWidget* self, const char* param1) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_Metacast_IsBase(true);
@@ -237,7 +237,7 @@ void KRatingWidget_OnMetacast(KRatingWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KRatingWidget_QBaseMetacall(KRatingWidget* self, int param1, int param2, void** param3) {
+int KRatingWidget_SuperMetacall(KRatingWidget* self, int param1, int param2, void** param3) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_Metacall_IsBase(true);
@@ -256,7 +256,7 @@ void KRatingWidget_OnMetacall(KRatingWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* KRatingWidget_QBaseSizeHint(const KRatingWidget* self) {
+QSize* KRatingWidget_SuperSizeHint(const KRatingWidget* self) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_SizeHint_IsBase(true);
@@ -275,7 +275,7 @@ void KRatingWidget_OnSizeHint(const KRatingWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseMousePressEvent(KRatingWidget* self, QMouseEvent* e) {
+void KRatingWidget_SuperMousePressEvent(KRatingWidget* self, QMouseEvent* e) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_MousePressEvent_IsBase(true);
@@ -294,7 +294,7 @@ void KRatingWidget_OnMousePressEvent(KRatingWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseMouseMoveEvent(KRatingWidget* self, QMouseEvent* e) {
+void KRatingWidget_SuperMouseMoveEvent(KRatingWidget* self, QMouseEvent* e) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_MouseMoveEvent_IsBase(true);
@@ -313,7 +313,7 @@ void KRatingWidget_OnMouseMoveEvent(KRatingWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseLeaveEvent(KRatingWidget* self, QEvent* e) {
+void KRatingWidget_SuperLeaveEvent(KRatingWidget* self, QEvent* e) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_LeaveEvent_IsBase(true);
@@ -332,7 +332,7 @@ void KRatingWidget_OnLeaveEvent(KRatingWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBasePaintEvent(KRatingWidget* self, QPaintEvent* e) {
+void KRatingWidget_SuperPaintEvent(KRatingWidget* self, QPaintEvent* e) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_PaintEvent_IsBase(true);
@@ -351,7 +351,7 @@ void KRatingWidget_OnPaintEvent(KRatingWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseResizeEvent(KRatingWidget* self, QResizeEvent* e) {
+void KRatingWidget_SuperResizeEvent(KRatingWidget* self, QResizeEvent* e) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_ResizeEvent_IsBase(true);
@@ -380,7 +380,7 @@ bool KRatingWidget_Event(KRatingWidget* self, QEvent* e) {
 }
 
 // Base class handler implementation
-bool KRatingWidget_QBaseEvent(KRatingWidget* self, QEvent* e) {
+bool KRatingWidget_SuperEvent(KRatingWidget* self, QEvent* e) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_Event_IsBase(true);
@@ -409,7 +409,7 @@ void KRatingWidget_ChangeEvent(KRatingWidget* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseChangeEvent(KRatingWidget* self, QEvent* param1) {
+void KRatingWidget_SuperChangeEvent(KRatingWidget* self, QEvent* param1) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_ChangeEvent_IsBase(true);
@@ -438,7 +438,7 @@ void KRatingWidget_InitStyleOption(const KRatingWidget* self, QStyleOptionFrame*
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseInitStyleOption(const KRatingWidget* self, QStyleOptionFrame* option) {
+void KRatingWidget_SuperInitStyleOption(const KRatingWidget* self, QStyleOptionFrame* option) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_InitStyleOption_IsBase(true);
@@ -467,7 +467,7 @@ int KRatingWidget_DevType(const KRatingWidget* self) {
 }
 
 // Base class handler implementation
-int KRatingWidget_QBaseDevType(const KRatingWidget* self) {
+int KRatingWidget_SuperDevType(const KRatingWidget* self) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_DevType_IsBase(true);
@@ -496,7 +496,7 @@ void KRatingWidget_SetVisible(KRatingWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseSetVisible(KRatingWidget* self, bool visible) {
+void KRatingWidget_SuperSetVisible(KRatingWidget* self, bool visible) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_SetVisible_IsBase(true);
@@ -525,7 +525,7 @@ QSize* KRatingWidget_MinimumSizeHint(const KRatingWidget* self) {
 }
 
 // Base class handler implementation
-QSize* KRatingWidget_QBaseMinimumSizeHint(const KRatingWidget* self) {
+QSize* KRatingWidget_SuperMinimumSizeHint(const KRatingWidget* self) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_MinimumSizeHint_IsBase(true);
@@ -554,7 +554,7 @@ int KRatingWidget_HeightForWidth(const KRatingWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KRatingWidget_QBaseHeightForWidth(const KRatingWidget* self, int param1) {
+int KRatingWidget_SuperHeightForWidth(const KRatingWidget* self, int param1) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_HeightForWidth_IsBase(true);
@@ -583,7 +583,7 @@ bool KRatingWidget_HasHeightForWidth(const KRatingWidget* self) {
 }
 
 // Base class handler implementation
-bool KRatingWidget_QBaseHasHeightForWidth(const KRatingWidget* self) {
+bool KRatingWidget_SuperHasHeightForWidth(const KRatingWidget* self) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_HasHeightForWidth_IsBase(true);
@@ -612,7 +612,7 @@ QPaintEngine* KRatingWidget_PaintEngine(const KRatingWidget* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KRatingWidget_QBasePaintEngine(const KRatingWidget* self) {
+QPaintEngine* KRatingWidget_SuperPaintEngine(const KRatingWidget* self) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_PaintEngine_IsBase(true);
@@ -641,7 +641,7 @@ void KRatingWidget_MouseReleaseEvent(KRatingWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseMouseReleaseEvent(KRatingWidget* self, QMouseEvent* event) {
+void KRatingWidget_SuperMouseReleaseEvent(KRatingWidget* self, QMouseEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_MouseReleaseEvent_IsBase(true);
@@ -670,7 +670,7 @@ void KRatingWidget_MouseDoubleClickEvent(KRatingWidget* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseMouseDoubleClickEvent(KRatingWidget* self, QMouseEvent* event) {
+void KRatingWidget_SuperMouseDoubleClickEvent(KRatingWidget* self, QMouseEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_MouseDoubleClickEvent_IsBase(true);
@@ -699,7 +699,7 @@ void KRatingWidget_WheelEvent(KRatingWidget* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseWheelEvent(KRatingWidget* self, QWheelEvent* event) {
+void KRatingWidget_SuperWheelEvent(KRatingWidget* self, QWheelEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_WheelEvent_IsBase(true);
@@ -728,7 +728,7 @@ void KRatingWidget_KeyPressEvent(KRatingWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseKeyPressEvent(KRatingWidget* self, QKeyEvent* event) {
+void KRatingWidget_SuperKeyPressEvent(KRatingWidget* self, QKeyEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_KeyPressEvent_IsBase(true);
@@ -757,7 +757,7 @@ void KRatingWidget_KeyReleaseEvent(KRatingWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseKeyReleaseEvent(KRatingWidget* self, QKeyEvent* event) {
+void KRatingWidget_SuperKeyReleaseEvent(KRatingWidget* self, QKeyEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_KeyReleaseEvent_IsBase(true);
@@ -786,7 +786,7 @@ void KRatingWidget_FocusInEvent(KRatingWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseFocusInEvent(KRatingWidget* self, QFocusEvent* event) {
+void KRatingWidget_SuperFocusInEvent(KRatingWidget* self, QFocusEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_FocusInEvent_IsBase(true);
@@ -815,7 +815,7 @@ void KRatingWidget_FocusOutEvent(KRatingWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseFocusOutEvent(KRatingWidget* self, QFocusEvent* event) {
+void KRatingWidget_SuperFocusOutEvent(KRatingWidget* self, QFocusEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_FocusOutEvent_IsBase(true);
@@ -844,7 +844,7 @@ void KRatingWidget_EnterEvent(KRatingWidget* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseEnterEvent(KRatingWidget* self, QEnterEvent* event) {
+void KRatingWidget_SuperEnterEvent(KRatingWidget* self, QEnterEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_EnterEvent_IsBase(true);
@@ -873,7 +873,7 @@ void KRatingWidget_MoveEvent(KRatingWidget* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseMoveEvent(KRatingWidget* self, QMoveEvent* event) {
+void KRatingWidget_SuperMoveEvent(KRatingWidget* self, QMoveEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_MoveEvent_IsBase(true);
@@ -902,7 +902,7 @@ void KRatingWidget_CloseEvent(KRatingWidget* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseCloseEvent(KRatingWidget* self, QCloseEvent* event) {
+void KRatingWidget_SuperCloseEvent(KRatingWidget* self, QCloseEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_CloseEvent_IsBase(true);
@@ -931,7 +931,7 @@ void KRatingWidget_ContextMenuEvent(KRatingWidget* self, QContextMenuEvent* even
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseContextMenuEvent(KRatingWidget* self, QContextMenuEvent* event) {
+void KRatingWidget_SuperContextMenuEvent(KRatingWidget* self, QContextMenuEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_ContextMenuEvent_IsBase(true);
@@ -960,7 +960,7 @@ void KRatingWidget_TabletEvent(KRatingWidget* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseTabletEvent(KRatingWidget* self, QTabletEvent* event) {
+void KRatingWidget_SuperTabletEvent(KRatingWidget* self, QTabletEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_TabletEvent_IsBase(true);
@@ -989,7 +989,7 @@ void KRatingWidget_ActionEvent(KRatingWidget* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseActionEvent(KRatingWidget* self, QActionEvent* event) {
+void KRatingWidget_SuperActionEvent(KRatingWidget* self, QActionEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_ActionEvent_IsBase(true);
@@ -1018,7 +1018,7 @@ void KRatingWidget_DragEnterEvent(KRatingWidget* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseDragEnterEvent(KRatingWidget* self, QDragEnterEvent* event) {
+void KRatingWidget_SuperDragEnterEvent(KRatingWidget* self, QDragEnterEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_DragEnterEvent_IsBase(true);
@@ -1047,7 +1047,7 @@ void KRatingWidget_DragMoveEvent(KRatingWidget* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseDragMoveEvent(KRatingWidget* self, QDragMoveEvent* event) {
+void KRatingWidget_SuperDragMoveEvent(KRatingWidget* self, QDragMoveEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_DragMoveEvent_IsBase(true);
@@ -1076,7 +1076,7 @@ void KRatingWidget_DragLeaveEvent(KRatingWidget* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseDragLeaveEvent(KRatingWidget* self, QDragLeaveEvent* event) {
+void KRatingWidget_SuperDragLeaveEvent(KRatingWidget* self, QDragLeaveEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_DragLeaveEvent_IsBase(true);
@@ -1105,7 +1105,7 @@ void KRatingWidget_DropEvent(KRatingWidget* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseDropEvent(KRatingWidget* self, QDropEvent* event) {
+void KRatingWidget_SuperDropEvent(KRatingWidget* self, QDropEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_DropEvent_IsBase(true);
@@ -1134,7 +1134,7 @@ void KRatingWidget_ShowEvent(KRatingWidget* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseShowEvent(KRatingWidget* self, QShowEvent* event) {
+void KRatingWidget_SuperShowEvent(KRatingWidget* self, QShowEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_ShowEvent_IsBase(true);
@@ -1163,7 +1163,7 @@ void KRatingWidget_HideEvent(KRatingWidget* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseHideEvent(KRatingWidget* self, QHideEvent* event) {
+void KRatingWidget_SuperHideEvent(KRatingWidget* self, QHideEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_HideEvent_IsBase(true);
@@ -1193,7 +1193,7 @@ bool KRatingWidget_NativeEvent(KRatingWidget* self, const libqt_string eventType
 }
 
 // Base class handler implementation
-bool KRatingWidget_QBaseNativeEvent(KRatingWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KRatingWidget_SuperNativeEvent(KRatingWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
@@ -1223,7 +1223,7 @@ int KRatingWidget_Metric(const KRatingWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KRatingWidget_QBaseMetric(const KRatingWidget* self, int param1) {
+int KRatingWidget_SuperMetric(const KRatingWidget* self, int param1) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_Metric_IsBase(true);
@@ -1252,7 +1252,7 @@ void KRatingWidget_InitPainter(const KRatingWidget* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseInitPainter(const KRatingWidget* self, QPainter* painter) {
+void KRatingWidget_SuperInitPainter(const KRatingWidget* self, QPainter* painter) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_InitPainter_IsBase(true);
@@ -1281,7 +1281,7 @@ QPaintDevice* KRatingWidget_Redirected(const KRatingWidget* self, QPoint* offset
 }
 
 // Base class handler implementation
-QPaintDevice* KRatingWidget_QBaseRedirected(const KRatingWidget* self, QPoint* offset) {
+QPaintDevice* KRatingWidget_SuperRedirected(const KRatingWidget* self, QPoint* offset) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_Redirected_IsBase(true);
@@ -1310,7 +1310,7 @@ QPainter* KRatingWidget_SharedPainter(const KRatingWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* KRatingWidget_QBaseSharedPainter(const KRatingWidget* self) {
+QPainter* KRatingWidget_SuperSharedPainter(const KRatingWidget* self) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_SharedPainter_IsBase(true);
@@ -1339,7 +1339,7 @@ void KRatingWidget_InputMethodEvent(KRatingWidget* self, QInputMethodEvent* para
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseInputMethodEvent(KRatingWidget* self, QInputMethodEvent* param1) {
+void KRatingWidget_SuperInputMethodEvent(KRatingWidget* self, QInputMethodEvent* param1) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_InputMethodEvent_IsBase(true);
@@ -1368,7 +1368,7 @@ QVariant* KRatingWidget_InputMethodQuery(const KRatingWidget* self, int param1) 
 }
 
 // Base class handler implementation
-QVariant* KRatingWidget_QBaseInputMethodQuery(const KRatingWidget* self, int param1) {
+QVariant* KRatingWidget_SuperInputMethodQuery(const KRatingWidget* self, int param1) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_InputMethodQuery_IsBase(true);
@@ -1397,7 +1397,7 @@ bool KRatingWidget_FocusNextPrevChild(KRatingWidget* self, bool next) {
 }
 
 // Base class handler implementation
-bool KRatingWidget_QBaseFocusNextPrevChild(KRatingWidget* self, bool next) {
+bool KRatingWidget_SuperFocusNextPrevChild(KRatingWidget* self, bool next) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_FocusNextPrevChild_IsBase(true);
@@ -1426,7 +1426,7 @@ bool KRatingWidget_EventFilter(KRatingWidget* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool KRatingWidget_QBaseEventFilter(KRatingWidget* self, QObject* watched, QEvent* event) {
+bool KRatingWidget_SuperEventFilter(KRatingWidget* self, QObject* watched, QEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_EventFilter_IsBase(true);
@@ -1455,7 +1455,7 @@ void KRatingWidget_TimerEvent(KRatingWidget* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseTimerEvent(KRatingWidget* self, QTimerEvent* event) {
+void KRatingWidget_SuperTimerEvent(KRatingWidget* self, QTimerEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_TimerEvent_IsBase(true);
@@ -1484,7 +1484,7 @@ void KRatingWidget_ChildEvent(KRatingWidget* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseChildEvent(KRatingWidget* self, QChildEvent* event) {
+void KRatingWidget_SuperChildEvent(KRatingWidget* self, QChildEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_ChildEvent_IsBase(true);
@@ -1513,7 +1513,7 @@ void KRatingWidget_CustomEvent(KRatingWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseCustomEvent(KRatingWidget* self, QEvent* event) {
+void KRatingWidget_SuperCustomEvent(KRatingWidget* self, QEvent* event) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_CustomEvent_IsBase(true);
@@ -1542,7 +1542,7 @@ void KRatingWidget_ConnectNotify(KRatingWidget* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseConnectNotify(KRatingWidget* self, const QMetaMethod* signal) {
+void KRatingWidget_SuperConnectNotify(KRatingWidget* self, const QMetaMethod* signal) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_ConnectNotify_IsBase(true);
@@ -1571,7 +1571,7 @@ void KRatingWidget_DisconnectNotify(KRatingWidget* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseDisconnectNotify(KRatingWidget* self, const QMetaMethod* signal) {
+void KRatingWidget_SuperDisconnectNotify(KRatingWidget* self, const QMetaMethod* signal) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_DisconnectNotify_IsBase(true);
@@ -1600,7 +1600,7 @@ void KRatingWidget_DrawFrame(KRatingWidget* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseDrawFrame(KRatingWidget* self, QPainter* param1) {
+void KRatingWidget_SuperDrawFrame(KRatingWidget* self, QPainter* param1) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_DrawFrame_IsBase(true);
@@ -1629,7 +1629,7 @@ void KRatingWidget_UpdateMicroFocus(KRatingWidget* self) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseUpdateMicroFocus(KRatingWidget* self) {
+void KRatingWidget_SuperUpdateMicroFocus(KRatingWidget* self) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_UpdateMicroFocus_IsBase(true);
@@ -1658,7 +1658,7 @@ void KRatingWidget_Create(KRatingWidget* self) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseCreate(KRatingWidget* self) {
+void KRatingWidget_SuperCreate(KRatingWidget* self) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_Create_IsBase(true);
@@ -1687,7 +1687,7 @@ void KRatingWidget_Destroy(KRatingWidget* self) {
 }
 
 // Base class handler implementation
-void KRatingWidget_QBaseDestroy(KRatingWidget* self) {
+void KRatingWidget_SuperDestroy(KRatingWidget* self) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_Destroy_IsBase(true);
@@ -1716,7 +1716,7 @@ bool KRatingWidget_FocusNextChild(KRatingWidget* self) {
 }
 
 // Base class handler implementation
-bool KRatingWidget_QBaseFocusNextChild(KRatingWidget* self) {
+bool KRatingWidget_SuperFocusNextChild(KRatingWidget* self) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_FocusNextChild_IsBase(true);
@@ -1745,7 +1745,7 @@ bool KRatingWidget_FocusPreviousChild(KRatingWidget* self) {
 }
 
 // Base class handler implementation
-bool KRatingWidget_QBaseFocusPreviousChild(KRatingWidget* self) {
+bool KRatingWidget_SuperFocusPreviousChild(KRatingWidget* self) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_FocusPreviousChild_IsBase(true);
@@ -1774,7 +1774,7 @@ QObject* KRatingWidget_Sender(const KRatingWidget* self) {
 }
 
 // Base class handler implementation
-QObject* KRatingWidget_QBaseSender(const KRatingWidget* self) {
+QObject* KRatingWidget_SuperSender(const KRatingWidget* self) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_Sender_IsBase(true);
@@ -1803,7 +1803,7 @@ int KRatingWidget_SenderSignalIndex(const KRatingWidget* self) {
 }
 
 // Base class handler implementation
-int KRatingWidget_QBaseSenderSignalIndex(const KRatingWidget* self) {
+int KRatingWidget_SuperSenderSignalIndex(const KRatingWidget* self) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_SenderSignalIndex_IsBase(true);
@@ -1832,7 +1832,7 @@ int KRatingWidget_Receivers(const KRatingWidget* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KRatingWidget_QBaseReceivers(const KRatingWidget* self, const char* signal) {
+int KRatingWidget_SuperReceivers(const KRatingWidget* self, const char* signal) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_Receivers_IsBase(true);
@@ -1861,7 +1861,7 @@ bool KRatingWidget_IsSignalConnected(const KRatingWidget* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool KRatingWidget_QBaseIsSignalConnected(const KRatingWidget* self, const QMetaMethod* signal) {
+bool KRatingWidget_SuperIsSignalConnected(const KRatingWidget* self, const QMetaMethod* signal) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_IsSignalConnected_IsBase(true);
@@ -1890,7 +1890,7 @@ double KRatingWidget_GetDecodedMetricF(const KRatingWidget* self, int metricA, i
 }
 
 // Base class handler implementation
-double KRatingWidget_QBaseGetDecodedMetricF(const KRatingWidget* self, int metricA, int metricB) {
+double KRatingWidget_SuperGetDecodedMetricF(const KRatingWidget* self, int metricA, int metricB) {
     auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->setKRatingWidget_GetDecodedMetricF_IsBase(true);

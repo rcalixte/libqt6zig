@@ -354,23 +354,23 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
 
     // Friend functions
     friend void KViewStateMaintainerBase_TimerEvent(KViewStateMaintainerBase* self, QTimerEvent* event);
-    friend void KViewStateMaintainerBase_QBaseTimerEvent(KViewStateMaintainerBase* self, QTimerEvent* event);
+    friend void KViewStateMaintainerBase_SuperTimerEvent(KViewStateMaintainerBase* self, QTimerEvent* event);
     friend void KViewStateMaintainerBase_ChildEvent(KViewStateMaintainerBase* self, QChildEvent* event);
-    friend void KViewStateMaintainerBase_QBaseChildEvent(KViewStateMaintainerBase* self, QChildEvent* event);
+    friend void KViewStateMaintainerBase_SuperChildEvent(KViewStateMaintainerBase* self, QChildEvent* event);
     friend void KViewStateMaintainerBase_CustomEvent(KViewStateMaintainerBase* self, QEvent* event);
-    friend void KViewStateMaintainerBase_QBaseCustomEvent(KViewStateMaintainerBase* self, QEvent* event);
+    friend void KViewStateMaintainerBase_SuperCustomEvent(KViewStateMaintainerBase* self, QEvent* event);
     friend void KViewStateMaintainerBase_ConnectNotify(KViewStateMaintainerBase* self, const QMetaMethod* signal);
-    friend void KViewStateMaintainerBase_QBaseConnectNotify(KViewStateMaintainerBase* self, const QMetaMethod* signal);
+    friend void KViewStateMaintainerBase_SuperConnectNotify(KViewStateMaintainerBase* self, const QMetaMethod* signal);
     friend void KViewStateMaintainerBase_DisconnectNotify(KViewStateMaintainerBase* self, const QMetaMethod* signal);
-    friend void KViewStateMaintainerBase_QBaseDisconnectNotify(KViewStateMaintainerBase* self, const QMetaMethod* signal);
+    friend void KViewStateMaintainerBase_SuperDisconnectNotify(KViewStateMaintainerBase* self, const QMetaMethod* signal);
     friend QObject* KViewStateMaintainerBase_Sender(const KViewStateMaintainerBase* self);
-    friend QObject* KViewStateMaintainerBase_QBaseSender(const KViewStateMaintainerBase* self);
+    friend QObject* KViewStateMaintainerBase_SuperSender(const KViewStateMaintainerBase* self);
     friend int KViewStateMaintainerBase_SenderSignalIndex(const KViewStateMaintainerBase* self);
-    friend int KViewStateMaintainerBase_QBaseSenderSignalIndex(const KViewStateMaintainerBase* self);
+    friend int KViewStateMaintainerBase_SuperSenderSignalIndex(const KViewStateMaintainerBase* self);
     friend int KViewStateMaintainerBase_Receivers(const KViewStateMaintainerBase* self, const char* signal);
-    friend int KViewStateMaintainerBase_QBaseReceivers(const KViewStateMaintainerBase* self, const char* signal);
+    friend int KViewStateMaintainerBase_SuperReceivers(const KViewStateMaintainerBase* self, const char* signal);
     friend bool KViewStateMaintainerBase_IsSignalConnected(const KViewStateMaintainerBase* self, const QMetaMethod* signal);
-    friend bool KViewStateMaintainerBase_QBaseIsSignalConnected(const KViewStateMaintainerBase* self, const QMetaMethod* signal);
+    friend bool KViewStateMaintainerBase_SuperIsSignalConnected(const KViewStateMaintainerBase* self, const QMetaMethod* signal);
 };
 
 #endif

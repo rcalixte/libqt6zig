@@ -916,6 +916,10 @@ pub const kdesktopfile = struct {
         return qtc.KDesktopFile_Sync(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSync` instead
+    ///
+    pub const QBaseSync = SuperSync;
+
     /// Inherited from KConfig
     ///
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#sync)
@@ -926,8 +930,8 @@ pub const kdesktopfile = struct {
     ///
     /// ` self: QtC.KDesktopFile `
     ///
-    pub fn QBaseSync(self: ?*anyopaque) bool {
-        return qtc.KDesktopFile_QBaseSync(@ptrCast(self));
+    pub fn SuperSync(self: ?*anyopaque) bool {
+        return qtc.KDesktopFile_SuperSync(@ptrCast(self));
     }
 
     /// Inherited from KConfig
@@ -960,6 +964,10 @@ pub const kdesktopfile = struct {
         qtc.KDesktopFile_MarkAsClean(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMarkAsClean` instead
+    ///
+    pub const QBaseMarkAsClean = SuperMarkAsClean;
+
     /// Inherited from KConfig
     ///
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#markAsClean)
@@ -970,8 +978,8 @@ pub const kdesktopfile = struct {
     ///
     /// ` self: QtC.KDesktopFile `
     ///
-    pub fn QBaseMarkAsClean(self: ?*anyopaque) void {
-        qtc.KDesktopFile_QBaseMarkAsClean(@ptrCast(self));
+    pub fn SuperMarkAsClean(self: ?*anyopaque) void {
+        qtc.KDesktopFile_SuperMarkAsClean(@ptrCast(self));
     }
 
     /// Inherited from KConfig
@@ -1008,6 +1016,10 @@ pub const kdesktopfile = struct {
         return qtc.KDesktopFile_AccessMode(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperAccessMode` instead
+    ///
+    pub const QBaseAccessMode = SuperAccessMode;
+
     /// Inherited from KConfig
     ///
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#accessMode)
@@ -1022,8 +1034,8 @@ pub const kdesktopfile = struct {
     ///
     /// ` kconfigbase_enums.AccessMode `
     ///
-    pub fn QBaseAccessMode(self: ?*anyopaque) i32 {
-        return qtc.KDesktopFile_QBaseAccessMode(@ptrCast(self));
+    pub fn SuperAccessMode(self: ?*anyopaque) i32 {
+        return qtc.KDesktopFile_SuperAccessMode(@ptrCast(self));
     }
 
     /// Inherited from KConfig
@@ -1056,6 +1068,10 @@ pub const kdesktopfile = struct {
         return qtc.KDesktopFile_IsImmutable(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsImmutable` instead
+    ///
+    pub const QBaseIsImmutable = SuperIsImmutable;
+
     /// Inherited from KConfig
     ///
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#isImmutable)
@@ -1066,8 +1082,8 @@ pub const kdesktopfile = struct {
     ///
     /// ` self: QtC.KDesktopFile `
     ///
-    pub fn QBaseIsImmutable(self: ?*anyopaque) bool {
-        return qtc.KDesktopFile_QBaseIsImmutable(@ptrCast(self));
+    pub fn SuperIsImmutable(self: ?*anyopaque) bool {
+        return qtc.KDesktopFile_SuperIsImmutable(@ptrCast(self));
     }
 
     /// Inherited from KConfig
@@ -1117,6 +1133,10 @@ pub const kdesktopfile = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperGroupList` instead
+    ///
+    pub const QBaseGroupList = SuperGroupList;
+
     /// Inherited from KConfig
     ///
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupList)
@@ -1129,8 +1149,8 @@ pub const kdesktopfile = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseGroupList(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KDesktopFile_QBaseGroupList(@ptrCast(self));
+    pub fn SuperGroupList(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KDesktopFile_SuperGroupList(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -1186,6 +1206,10 @@ pub const kdesktopfile = struct {
         return qtc.KDesktopFile_HasGroupImpl(@ptrCast(self), groupName_str);
     }
 
+    /// ### DEPRECATED: Use `SuperHasGroupImpl` instead
+    ///
+    pub const QBaseHasGroupImpl = SuperHasGroupImpl;
+
     /// Inherited from KConfig
     ///
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#hasGroupImpl)
@@ -1198,12 +1222,12 @@ pub const kdesktopfile = struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn QBaseHasGroupImpl(self: ?*anyopaque, groupName: []const u8) bool {
+    pub fn SuperHasGroupImpl(self: ?*anyopaque, groupName: []const u8) bool {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
-        return qtc.KDesktopFile_QBaseHasGroupImpl(@ptrCast(self), groupName_str);
+        return qtc.KDesktopFile_SuperHasGroupImpl(@ptrCast(self), groupName_str);
     }
 
     /// Inherited from KConfig
@@ -1242,6 +1266,10 @@ pub const kdesktopfile = struct {
         return qtc.KDesktopFile_GroupImpl(@ptrCast(self), groupName_str);
     }
 
+    /// ### DEPRECATED: Use `SuperGroupImpl` instead
+    ///
+    pub const QBaseGroupImpl = SuperGroupImpl;
+
     /// Inherited from KConfig
     ///
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
@@ -1254,12 +1282,12 @@ pub const kdesktopfile = struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn QBaseGroupImpl(self: ?*anyopaque, groupName: []const u8) QtC.KConfigGroup {
+    pub fn SuperGroupImpl(self: ?*anyopaque, groupName: []const u8) QtC.KConfigGroup {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
-        return qtc.KDesktopFile_QBaseGroupImpl(@ptrCast(self), groupName_str);
+        return qtc.KDesktopFile_SuperGroupImpl(@ptrCast(self), groupName_str);
     }
 
     /// Inherited from KConfig
@@ -1300,6 +1328,10 @@ pub const kdesktopfile = struct {
         qtc.KDesktopFile_DeleteGroupImpl(@ptrCast(self), groupName_str, @bitCast(flags));
     }
 
+    /// ### DEPRECATED: Use `SuperDeleteGroupImpl` instead
+    ///
+    pub const QBaseDeleteGroupImpl = SuperDeleteGroupImpl;
+
     /// Inherited from KConfig
     ///
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#deleteGroupImpl)
@@ -1314,12 +1346,12 @@ pub const kdesktopfile = struct {
     ///
     /// ` flags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn QBaseDeleteGroupImpl(self: ?*anyopaque, groupName: []const u8, flags: i32) void {
+    pub fn SuperDeleteGroupImpl(self: ?*anyopaque, groupName: []const u8, flags: i32) void {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
-        qtc.KDesktopFile_QBaseDeleteGroupImpl(@ptrCast(self), groupName_str, @bitCast(flags));
+        qtc.KDesktopFile_SuperDeleteGroupImpl(@ptrCast(self), groupName_str, @bitCast(flags));
     }
 
     /// Inherited from KConfig
@@ -1358,6 +1390,10 @@ pub const kdesktopfile = struct {
         return qtc.KDesktopFile_IsGroupImmutableImpl(@ptrCast(self), groupName_str);
     }
 
+    /// ### DEPRECATED: Use `SuperIsGroupImmutableImpl` instead
+    ///
+    pub const QBaseIsGroupImmutableImpl = SuperIsGroupImmutableImpl;
+
     /// Inherited from KConfig
     ///
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#isGroupImmutableImpl)
@@ -1370,12 +1406,12 @@ pub const kdesktopfile = struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn QBaseIsGroupImmutableImpl(self: ?*anyopaque, groupName: []const u8) bool {
+    pub fn SuperIsGroupImmutableImpl(self: ?*anyopaque, groupName: []const u8) bool {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
-        return qtc.KDesktopFile_QBaseIsGroupImmutableImpl(@ptrCast(self), groupName_str);
+        return qtc.KDesktopFile_SuperIsGroupImmutableImpl(@ptrCast(self), groupName_str);
     }
 
     /// Inherited from KConfig
@@ -1412,6 +1448,10 @@ pub const kdesktopfile = struct {
         qtc.KDesktopFile_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
+    /// ### DEPRECATED: Use `SuperVirtualHook` instead
+    ///
+    pub const QBaseVirtualHook = SuperVirtualHook;
+
     /// Inherited from KConfig
     ///
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#virtual_hook)
@@ -1426,8 +1466,8 @@ pub const kdesktopfile = struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KDesktopFile_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
+    pub fn SuperVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
+        qtc.KDesktopFile_SuperVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from KConfig
@@ -1445,6 +1485,9 @@ pub const kdesktopfile = struct {
     pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.KDesktopFile_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kdesktopfile.html#dtor.KDesktopFile)
     ///
@@ -1454,7 +1497,7 @@ pub const kdesktopfile = struct {
     ///
     /// ` self: QtC.KDesktopFile `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KDesktopFile_Delete(@ptrCast(self));
     }
 };

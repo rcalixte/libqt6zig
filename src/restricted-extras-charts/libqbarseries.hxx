@@ -347,23 +347,23 @@ class VirtualQBarSeries final : public QBarSeries {
 
     // Friend functions
     friend void QBarSeries_TimerEvent(QBarSeries* self, QTimerEvent* event);
-    friend void QBarSeries_QBaseTimerEvent(QBarSeries* self, QTimerEvent* event);
+    friend void QBarSeries_SuperTimerEvent(QBarSeries* self, QTimerEvent* event);
     friend void QBarSeries_ChildEvent(QBarSeries* self, QChildEvent* event);
-    friend void QBarSeries_QBaseChildEvent(QBarSeries* self, QChildEvent* event);
+    friend void QBarSeries_SuperChildEvent(QBarSeries* self, QChildEvent* event);
     friend void QBarSeries_CustomEvent(QBarSeries* self, QEvent* event);
-    friend void QBarSeries_QBaseCustomEvent(QBarSeries* self, QEvent* event);
+    friend void QBarSeries_SuperCustomEvent(QBarSeries* self, QEvent* event);
     friend void QBarSeries_ConnectNotify(QBarSeries* self, const QMetaMethod* signal);
-    friend void QBarSeries_QBaseConnectNotify(QBarSeries* self, const QMetaMethod* signal);
+    friend void QBarSeries_SuperConnectNotify(QBarSeries* self, const QMetaMethod* signal);
     friend void QBarSeries_DisconnectNotify(QBarSeries* self, const QMetaMethod* signal);
-    friend void QBarSeries_QBaseDisconnectNotify(QBarSeries* self, const QMetaMethod* signal);
+    friend void QBarSeries_SuperDisconnectNotify(QBarSeries* self, const QMetaMethod* signal);
     friend QObject* QBarSeries_Sender(const QBarSeries* self);
-    friend QObject* QBarSeries_QBaseSender(const QBarSeries* self);
+    friend QObject* QBarSeries_SuperSender(const QBarSeries* self);
     friend int QBarSeries_SenderSignalIndex(const QBarSeries* self);
-    friend int QBarSeries_QBaseSenderSignalIndex(const QBarSeries* self);
+    friend int QBarSeries_SuperSenderSignalIndex(const QBarSeries* self);
     friend int QBarSeries_Receivers(const QBarSeries* self, const char* signal);
-    friend int QBarSeries_QBaseReceivers(const QBarSeries* self, const char* signal);
+    friend int QBarSeries_SuperReceivers(const QBarSeries* self, const char* signal);
     friend bool QBarSeries_IsSignalConnected(const QBarSeries* self, const QMetaMethod* signal);
-    friend bool QBarSeries_QBaseIsSignalConnected(const QBarSeries* self, const QMetaMethod* signal);
+    friend bool QBarSeries_SuperIsSignalConnected(const QBarSeries* self, const QMetaMethod* signal);
 };
 
 #endif

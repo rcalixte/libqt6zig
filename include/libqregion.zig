@@ -612,6 +612,10 @@ pub const qregion = struct {
         return qtc.QRegion_ToQVariant(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregion.html#dtor.QRegion)
     ///
     /// Delete this object from C++ memory.
@@ -620,7 +624,7 @@ pub const qregion = struct {
     ///
     /// ` self: QtC.QRegion `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QRegion_Delete(@ptrCast(self));
     }
 };

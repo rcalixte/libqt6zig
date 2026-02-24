@@ -185,6 +185,10 @@ pub const qgeoroutesegment = struct {
         return qtc.QGeoRouteSegment_Maneuver(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutesegment.html#dtor.QGeoRouteSegment)
     ///
     /// Delete this object from C++ memory.
@@ -193,7 +197,7 @@ pub const qgeoroutesegment = struct {
     ///
     /// ` self: QtC.QGeoRouteSegment `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGeoRouteSegment_Delete(@ptrCast(self));
     }
 };

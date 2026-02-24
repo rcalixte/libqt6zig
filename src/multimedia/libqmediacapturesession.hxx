@@ -328,23 +328,23 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
 
     // Friend functions
     friend void QMediaCaptureSession_TimerEvent(QMediaCaptureSession* self, QTimerEvent* event);
-    friend void QMediaCaptureSession_QBaseTimerEvent(QMediaCaptureSession* self, QTimerEvent* event);
+    friend void QMediaCaptureSession_SuperTimerEvent(QMediaCaptureSession* self, QTimerEvent* event);
     friend void QMediaCaptureSession_ChildEvent(QMediaCaptureSession* self, QChildEvent* event);
-    friend void QMediaCaptureSession_QBaseChildEvent(QMediaCaptureSession* self, QChildEvent* event);
+    friend void QMediaCaptureSession_SuperChildEvent(QMediaCaptureSession* self, QChildEvent* event);
     friend void QMediaCaptureSession_CustomEvent(QMediaCaptureSession* self, QEvent* event);
-    friend void QMediaCaptureSession_QBaseCustomEvent(QMediaCaptureSession* self, QEvent* event);
+    friend void QMediaCaptureSession_SuperCustomEvent(QMediaCaptureSession* self, QEvent* event);
     friend void QMediaCaptureSession_ConnectNotify(QMediaCaptureSession* self, const QMetaMethod* signal);
-    friend void QMediaCaptureSession_QBaseConnectNotify(QMediaCaptureSession* self, const QMetaMethod* signal);
+    friend void QMediaCaptureSession_SuperConnectNotify(QMediaCaptureSession* self, const QMetaMethod* signal);
     friend void QMediaCaptureSession_DisconnectNotify(QMediaCaptureSession* self, const QMetaMethod* signal);
-    friend void QMediaCaptureSession_QBaseDisconnectNotify(QMediaCaptureSession* self, const QMetaMethod* signal);
+    friend void QMediaCaptureSession_SuperDisconnectNotify(QMediaCaptureSession* self, const QMetaMethod* signal);
     friend QObject* QMediaCaptureSession_Sender(const QMediaCaptureSession* self);
-    friend QObject* QMediaCaptureSession_QBaseSender(const QMediaCaptureSession* self);
+    friend QObject* QMediaCaptureSession_SuperSender(const QMediaCaptureSession* self);
     friend int QMediaCaptureSession_SenderSignalIndex(const QMediaCaptureSession* self);
-    friend int QMediaCaptureSession_QBaseSenderSignalIndex(const QMediaCaptureSession* self);
+    friend int QMediaCaptureSession_SuperSenderSignalIndex(const QMediaCaptureSession* self);
     friend int QMediaCaptureSession_Receivers(const QMediaCaptureSession* self, const char* signal);
-    friend int QMediaCaptureSession_QBaseReceivers(const QMediaCaptureSession* self, const char* signal);
+    friend int QMediaCaptureSession_SuperReceivers(const QMediaCaptureSession* self, const char* signal);
     friend bool QMediaCaptureSession_IsSignalConnected(const QMediaCaptureSession* self, const QMetaMethod* signal);
-    friend bool QMediaCaptureSession_QBaseIsSignalConnected(const QMediaCaptureSession* self, const QMetaMethod* signal);
+    friend bool QMediaCaptureSession_SuperIsSignalConnected(const QMediaCaptureSession* self, const QMetaMethod* signal);
 };
 
 #endif

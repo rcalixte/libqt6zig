@@ -203,7 +203,7 @@ bool KIconEngine_Write(const KIconEngine* self, QDataStream* out) {
 }
 
 // Base class handler implementation
-QSize* KIconEngine_QBaseActualSize(KIconEngine* self, const QSize* size, int mode, int state) {
+QSize* KIconEngine_SuperActualSize(KIconEngine* self, const QSize* size, int mode, int state) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
     if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
         vkiconengine->setKIconEngine_ActualSize_IsBase(true);
@@ -222,7 +222,7 @@ void KIconEngine_OnActualSize(KIconEngine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KIconEngine_QBasePaint(KIconEngine* self, QPainter* painter, const QRect* rect, int mode, int state) {
+void KIconEngine_SuperPaint(KIconEngine* self, QPainter* painter, const QRect* rect, int mode, int state) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
     if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
         vkiconengine->setKIconEngine_Paint_IsBase(true);
@@ -241,7 +241,7 @@ void KIconEngine_OnPaint(KIconEngine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPixmap* KIconEngine_QBasePixmap(KIconEngine* self, const QSize* size, int mode, int state) {
+QPixmap* KIconEngine_SuperPixmap(KIconEngine* self, const QSize* size, int mode, int state) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
     if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
         vkiconengine->setKIconEngine_Pixmap_IsBase(true);
@@ -260,7 +260,7 @@ void KIconEngine_OnPixmap(KIconEngine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPixmap* KIconEngine_QBaseScaledPixmap(KIconEngine* self, const QSize* size, int mode, int state, double scale) {
+QPixmap* KIconEngine_SuperScaledPixmap(KIconEngine* self, const QSize* size, int mode, int state, double scale) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
     if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
         vkiconengine->setKIconEngine_ScaledPixmap_IsBase(true);
@@ -279,7 +279,7 @@ void KIconEngine_OnScaledPixmap(KIconEngine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string KIconEngine_QBaseIconName(KIconEngine* self) {
+libqt_string KIconEngine_SuperIconName(KIconEngine* self) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
     if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
         vkiconengine->setKIconEngine_IconName_IsBase(true);
@@ -314,7 +314,7 @@ void KIconEngine_OnIconName(KIconEngine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of QSize* */ KIconEngine_QBaseAvailableSizes(KIconEngine* self, int mode, int state) {
+libqt_list /* of QSize* */ KIconEngine_SuperAvailableSizes(KIconEngine* self, int mode, int state) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
     if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
         vkiconengine->setKIconEngine_AvailableSizes_IsBase(true);
@@ -351,7 +351,7 @@ void KIconEngine_OnAvailableSizes(KIconEngine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KIconEngine_QBaseIsNull(KIconEngine* self) {
+bool KIconEngine_SuperIsNull(KIconEngine* self) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
     if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
         vkiconengine->setKIconEngine_IsNull_IsBase(true);
@@ -370,7 +370,7 @@ void KIconEngine_OnIsNull(KIconEngine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string KIconEngine_QBaseKey(const KIconEngine* self) {
+libqt_string KIconEngine_SuperKey(const KIconEngine* self) {
     auto* vkiconengine = const_cast<VirtualKIconEngine*>(dynamic_cast<const VirtualKIconEngine*>(self));
     if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
         vkiconengine->setKIconEngine_Key_IsBase(true);
@@ -405,7 +405,7 @@ void KIconEngine_OnKey(const KIconEngine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QIconEngine* KIconEngine_QBaseClone(const KIconEngine* self) {
+QIconEngine* KIconEngine_SuperClone(const KIconEngine* self) {
     auto* vkiconengine = const_cast<VirtualKIconEngine*>(dynamic_cast<const VirtualKIconEngine*>(self));
     if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
         vkiconengine->setKIconEngine_Clone_IsBase(true);
@@ -424,7 +424,7 @@ void KIconEngine_OnClone(const KIconEngine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KIconEngine_QBaseRead(KIconEngine* self, QDataStream* in) {
+bool KIconEngine_SuperRead(KIconEngine* self, QDataStream* in) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
     if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
         vkiconengine->setKIconEngine_Read_IsBase(true);
@@ -443,7 +443,7 @@ void KIconEngine_OnRead(KIconEngine* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KIconEngine_QBaseWrite(const KIconEngine* self, QDataStream* out) {
+bool KIconEngine_SuperWrite(const KIconEngine* self, QDataStream* out) {
     auto* vkiconengine = const_cast<VirtualKIconEngine*>(dynamic_cast<const VirtualKIconEngine*>(self));
     if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
         vkiconengine->setKIconEngine_Write_IsBase(true);
@@ -472,7 +472,7 @@ void KIconEngine_AddPixmap(KIconEngine* self, const QPixmap* pixmap, int mode, i
 }
 
 // Base class handler implementation
-void KIconEngine_QBaseAddPixmap(KIconEngine* self, const QPixmap* pixmap, int mode, int state) {
+void KIconEngine_SuperAddPixmap(KIconEngine* self, const QPixmap* pixmap, int mode, int state) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
     if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
         vkiconengine->setKIconEngine_AddPixmap_IsBase(true);
@@ -502,7 +502,7 @@ void KIconEngine_AddFile(KIconEngine* self, const libqt_string fileName, const Q
 }
 
 // Base class handler implementation
-void KIconEngine_QBaseAddFile(KIconEngine* self, const libqt_string fileName, const QSize* size, int mode, int state) {
+void KIconEngine_SuperAddFile(KIconEngine* self, const libqt_string fileName, const QSize* size, int mode, int state) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
@@ -532,7 +532,7 @@ void KIconEngine_VirtualHook(KIconEngine* self, int id, void* data) {
 }
 
 // Base class handler implementation
-void KIconEngine_QBaseVirtualHook(KIconEngine* self, int id, void* data) {
+void KIconEngine_SuperVirtualHook(KIconEngine* self, int id, void* data) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
     if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
         vkiconengine->setKIconEngine_VirtualHook_IsBase(true);

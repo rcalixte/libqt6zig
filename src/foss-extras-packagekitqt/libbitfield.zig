@@ -149,6 +149,10 @@ pub const packagekit__bitfield = struct {
         return qtc.PackageKit__Bitfield_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// Delete this object from C++ memory.
@@ -157,7 +161,7 @@ pub const packagekit__bitfield = struct {
     ///
     /// ` self: QtC.PackageKit__Bitfield `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.PackageKit__Bitfield_Delete(@ptrCast(self));
     }
 };

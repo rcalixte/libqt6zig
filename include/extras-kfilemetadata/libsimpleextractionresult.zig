@@ -131,6 +131,10 @@ pub const kfilemetadata__simpleextractionresult = struct {
         qtc.KFileMetaData__SimpleExtractionResult_OnAdd(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAdd` instead
+    ///
+    pub const QBaseAdd = SuperAdd;
+
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-simpleextractionresult.html#add)
     ///
     /// Base class method implementation
@@ -143,8 +147,8 @@ pub const kfilemetadata__simpleextractionresult = struct {
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn QBaseAdd(self: ?*anyopaque, property: i32, value: ?*anyopaque) void {
-        qtc.KFileMetaData__SimpleExtractionResult_QBaseAdd(@ptrCast(self), @bitCast(property), @ptrCast(value));
+    pub fn SuperAdd(self: ?*anyopaque, property: i32, value: ?*anyopaque) void {
+        qtc.KFileMetaData__SimpleExtractionResult_SuperAdd(@ptrCast(self), @bitCast(property), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-simpleextractionresult.html#addType)
@@ -173,6 +177,10 @@ pub const kfilemetadata__simpleextractionresult = struct {
         qtc.KFileMetaData__SimpleExtractionResult_OnAddType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAddType` instead
+    ///
+    pub const QBaseAddType = SuperAddType;
+
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-simpleextractionresult.html#addType)
     ///
     /// Base class method implementation
@@ -183,8 +191,8 @@ pub const kfilemetadata__simpleextractionresult = struct {
     ///
     /// ` typeVal: types_enums.Type `
     ///
-    pub fn QBaseAddType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.KFileMetaData__SimpleExtractionResult_QBaseAddType(@ptrCast(self), @bitCast(typeVal));
+    pub fn SuperAddType(self: ?*anyopaque, typeVal: i32) void {
+        qtc.KFileMetaData__SimpleExtractionResult_SuperAddType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-simpleextractionresult.html#append)
@@ -217,6 +225,10 @@ pub const kfilemetadata__simpleextractionresult = struct {
         qtc.KFileMetaData__SimpleExtractionResult_OnAppend(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAppend` instead
+    ///
+    pub const QBaseAppend = SuperAppend;
+
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-simpleextractionresult.html#append)
     ///
     /// Base class method implementation
@@ -227,12 +239,12 @@ pub const kfilemetadata__simpleextractionresult = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn QBaseAppend(self: ?*anyopaque, text: []const u8) void {
+    pub fn SuperAppend(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.KFileMetaData__SimpleExtractionResult_QBaseAppend(@ptrCast(self), text_str);
+        qtc.KFileMetaData__SimpleExtractionResult_SuperAppend(@ptrCast(self), text_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-simpleextractionresult.html#properties)
@@ -399,13 +411,17 @@ pub const kfilemetadata__simpleextractionresult = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KFileMetaData__SimpleExtractionResult `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KFileMetaData__SimpleExtractionResult_Delete(@ptrCast(self));
     }
 };

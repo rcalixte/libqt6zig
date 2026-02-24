@@ -636,29 +636,29 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
 
     // Friend functions
     friend bool QNmeaPositionInfoSource_ParsePosInfoFromNmeaData(QNmeaPositionInfoSource* self, const char* data, int size, QGeoPositionInfo* posInfo, bool* hasFix);
-    friend bool QNmeaPositionInfoSource_QBaseParsePosInfoFromNmeaData(QNmeaPositionInfoSource* self, const char* data, int size, QGeoPositionInfo* posInfo, bool* hasFix);
+    friend bool QNmeaPositionInfoSource_SuperParsePosInfoFromNmeaData(QNmeaPositionInfoSource* self, const char* data, int size, QGeoPositionInfo* posInfo, bool* hasFix);
     friend void QNmeaPositionInfoSource_TimerEvent(QNmeaPositionInfoSource* self, QTimerEvent* event);
-    friend void QNmeaPositionInfoSource_QBaseTimerEvent(QNmeaPositionInfoSource* self, QTimerEvent* event);
+    friend void QNmeaPositionInfoSource_SuperTimerEvent(QNmeaPositionInfoSource* self, QTimerEvent* event);
     friend void QNmeaPositionInfoSource_ChildEvent(QNmeaPositionInfoSource* self, QChildEvent* event);
-    friend void QNmeaPositionInfoSource_QBaseChildEvent(QNmeaPositionInfoSource* self, QChildEvent* event);
+    friend void QNmeaPositionInfoSource_SuperChildEvent(QNmeaPositionInfoSource* self, QChildEvent* event);
     friend void QNmeaPositionInfoSource_CustomEvent(QNmeaPositionInfoSource* self, QEvent* event);
-    friend void QNmeaPositionInfoSource_QBaseCustomEvent(QNmeaPositionInfoSource* self, QEvent* event);
+    friend void QNmeaPositionInfoSource_SuperCustomEvent(QNmeaPositionInfoSource* self, QEvent* event);
     friend void QNmeaPositionInfoSource_ConnectNotify(QNmeaPositionInfoSource* self, const QMetaMethod* signal);
-    friend void QNmeaPositionInfoSource_QBaseConnectNotify(QNmeaPositionInfoSource* self, const QMetaMethod* signal);
+    friend void QNmeaPositionInfoSource_SuperConnectNotify(QNmeaPositionInfoSource* self, const QMetaMethod* signal);
     friend void QNmeaPositionInfoSource_DisconnectNotify(QNmeaPositionInfoSource* self, const QMetaMethod* signal);
-    friend void QNmeaPositionInfoSource_QBaseDisconnectNotify(QNmeaPositionInfoSource* self, const QMetaMethod* signal);
+    friend void QNmeaPositionInfoSource_SuperDisconnectNotify(QNmeaPositionInfoSource* self, const QMetaMethod* signal);
     friend bool QNmeaPositionInfoSource_ParsePosInfoFromNmeaData2(QNmeaPositionInfoSource* self, libqt_string data, QGeoPositionInfo* posInfo, bool* hasFix);
-    friend bool QNmeaPositionInfoSource_QBaseParsePosInfoFromNmeaData2(QNmeaPositionInfoSource* self, libqt_string data, QGeoPositionInfo* posInfo, bool* hasFix);
+    friend bool QNmeaPositionInfoSource_SuperParsePosInfoFromNmeaData2(QNmeaPositionInfoSource* self, libqt_string data, QGeoPositionInfo* posInfo, bool* hasFix);
     friend void QNmeaPositionInfoSource_SetError(QNmeaPositionInfoSource* self, int positionError);
-    friend void QNmeaPositionInfoSource_QBaseSetError(QNmeaPositionInfoSource* self, int positionError);
+    friend void QNmeaPositionInfoSource_SuperSetError(QNmeaPositionInfoSource* self, int positionError);
     friend QObject* QNmeaPositionInfoSource_Sender(const QNmeaPositionInfoSource* self);
-    friend QObject* QNmeaPositionInfoSource_QBaseSender(const QNmeaPositionInfoSource* self);
+    friend QObject* QNmeaPositionInfoSource_SuperSender(const QNmeaPositionInfoSource* self);
     friend int QNmeaPositionInfoSource_SenderSignalIndex(const QNmeaPositionInfoSource* self);
-    friend int QNmeaPositionInfoSource_QBaseSenderSignalIndex(const QNmeaPositionInfoSource* self);
+    friend int QNmeaPositionInfoSource_SuperSenderSignalIndex(const QNmeaPositionInfoSource* self);
     friend int QNmeaPositionInfoSource_Receivers(const QNmeaPositionInfoSource* self, const char* signal);
-    friend int QNmeaPositionInfoSource_QBaseReceivers(const QNmeaPositionInfoSource* self, const char* signal);
+    friend int QNmeaPositionInfoSource_SuperReceivers(const QNmeaPositionInfoSource* self, const char* signal);
     friend bool QNmeaPositionInfoSource_IsSignalConnected(const QNmeaPositionInfoSource* self, const QMetaMethod* signal);
-    friend bool QNmeaPositionInfoSource_QBaseIsSignalConnected(const QNmeaPositionInfoSource* self, const QMetaMethod* signal);
+    friend bool QNmeaPositionInfoSource_SuperIsSignalConnected(const QNmeaPositionInfoSource* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -133,7 +133,7 @@ long long QUdpSocket_ReadDatagram4(QUdpSocket* self, char* data, long long maxle
 }
 
 // Base class handler implementation
-QMetaObject* QUdpSocket_QBaseMetaObject(const QUdpSocket* self) {
+QMetaObject* QUdpSocket_SuperMetaObject(const QUdpSocket* self) {
     auto* vqudpsocket = const_cast<VirtualQUdpSocket*>(dynamic_cast<const VirtualQUdpSocket*>(self));
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_MetaObject_IsBase(true);
@@ -152,7 +152,7 @@ void QUdpSocket_OnMetaObject(const QUdpSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QUdpSocket_QBaseMetacast(QUdpSocket* self, const char* param1) {
+void* QUdpSocket_SuperMetacast(QUdpSocket* self, const char* param1) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_Metacast_IsBase(true);
@@ -171,7 +171,7 @@ void QUdpSocket_OnMetacast(QUdpSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QUdpSocket_QBaseMetacall(QUdpSocket* self, int param1, int param2, void** param3) {
+int QUdpSocket_SuperMetacall(QUdpSocket* self, int param1, int param2, void** param3) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_Metacall_IsBase(true);
@@ -200,7 +200,7 @@ void QUdpSocket_Resume(QUdpSocket* self) {
 }
 
 // Base class handler implementation
-void QUdpSocket_QBaseResume(QUdpSocket* self) {
+void QUdpSocket_SuperResume(QUdpSocket* self) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_Resume_IsBase(true);
@@ -230,7 +230,7 @@ void QUdpSocket_ConnectToHost(QUdpSocket* self, const libqt_string hostName, uin
 }
 
 // Base class handler implementation
-void QUdpSocket_QBaseConnectToHost(QUdpSocket* self, const libqt_string hostName, uint16_t port, int mode, int protocol) {
+void QUdpSocket_SuperConnectToHost(QUdpSocket* self, const libqt_string hostName, uint16_t port, int mode, int protocol) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     QString hostName_QString = QString::fromUtf8(hostName.data, hostName.len);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
@@ -260,7 +260,7 @@ void QUdpSocket_DisconnectFromHost(QUdpSocket* self) {
 }
 
 // Base class handler implementation
-void QUdpSocket_QBaseDisconnectFromHost(QUdpSocket* self) {
+void QUdpSocket_SuperDisconnectFromHost(QUdpSocket* self) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_DisconnectFromHost_IsBase(true);
@@ -289,7 +289,7 @@ long long QUdpSocket_BytesAvailable(const QUdpSocket* self) {
 }
 
 // Base class handler implementation
-long long QUdpSocket_QBaseBytesAvailable(const QUdpSocket* self) {
+long long QUdpSocket_SuperBytesAvailable(const QUdpSocket* self) {
     auto* vqudpsocket = const_cast<VirtualQUdpSocket*>(dynamic_cast<const VirtualQUdpSocket*>(self));
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_BytesAvailable_IsBase(true);
@@ -318,7 +318,7 @@ long long QUdpSocket_BytesToWrite(const QUdpSocket* self) {
 }
 
 // Base class handler implementation
-long long QUdpSocket_QBaseBytesToWrite(const QUdpSocket* self) {
+long long QUdpSocket_SuperBytesToWrite(const QUdpSocket* self) {
     auto* vqudpsocket = const_cast<VirtualQUdpSocket*>(dynamic_cast<const VirtualQUdpSocket*>(self));
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_BytesToWrite_IsBase(true);
@@ -347,7 +347,7 @@ void QUdpSocket_SetReadBufferSize(QUdpSocket* self, long long size) {
 }
 
 // Base class handler implementation
-void QUdpSocket_QBaseSetReadBufferSize(QUdpSocket* self, long long size) {
+void QUdpSocket_SuperSetReadBufferSize(QUdpSocket* self, long long size) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_SetReadBufferSize_IsBase(true);
@@ -378,7 +378,7 @@ intptr_t QUdpSocket_SocketDescriptor(const QUdpSocket* self) {
 }
 
 // Base class handler implementation
-intptr_t QUdpSocket_QBaseSocketDescriptor(const QUdpSocket* self) {
+intptr_t QUdpSocket_SuperSocketDescriptor(const QUdpSocket* self) {
     auto* vqudpsocket = const_cast<VirtualQUdpSocket*>(dynamic_cast<const VirtualQUdpSocket*>(self));
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_SocketDescriptor_IsBase(true);
@@ -409,7 +409,7 @@ bool QUdpSocket_SetSocketDescriptor(QUdpSocket* self, intptr_t socketDescriptor,
 }
 
 // Base class handler implementation
-bool QUdpSocket_QBaseSetSocketDescriptor(QUdpSocket* self, intptr_t socketDescriptor, int state, int openMode) {
+bool QUdpSocket_SuperSetSocketDescriptor(QUdpSocket* self, intptr_t socketDescriptor, int state, int openMode) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_SetSocketDescriptor_IsBase(true);
@@ -438,7 +438,7 @@ void QUdpSocket_SetSocketOption(QUdpSocket* self, int option, const QVariant* va
 }
 
 // Base class handler implementation
-void QUdpSocket_QBaseSetSocketOption(QUdpSocket* self, int option, const QVariant* value) {
+void QUdpSocket_SuperSetSocketOption(QUdpSocket* self, int option, const QVariant* value) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_SetSocketOption_IsBase(true);
@@ -467,7 +467,7 @@ QVariant* QUdpSocket_SocketOption(QUdpSocket* self, int option) {
 }
 
 // Base class handler implementation
-QVariant* QUdpSocket_QBaseSocketOption(QUdpSocket* self, int option) {
+QVariant* QUdpSocket_SuperSocketOption(QUdpSocket* self, int option) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_SocketOption_IsBase(true);
@@ -496,7 +496,7 @@ void QUdpSocket_Close(QUdpSocket* self) {
 }
 
 // Base class handler implementation
-void QUdpSocket_QBaseClose(QUdpSocket* self) {
+void QUdpSocket_SuperClose(QUdpSocket* self) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_Close_IsBase(true);
@@ -525,7 +525,7 @@ bool QUdpSocket_IsSequential(const QUdpSocket* self) {
 }
 
 // Base class handler implementation
-bool QUdpSocket_QBaseIsSequential(const QUdpSocket* self) {
+bool QUdpSocket_SuperIsSequential(const QUdpSocket* self) {
     auto* vqudpsocket = const_cast<VirtualQUdpSocket*>(dynamic_cast<const VirtualQUdpSocket*>(self));
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_IsSequential_IsBase(true);
@@ -554,7 +554,7 @@ bool QUdpSocket_WaitForConnected(QUdpSocket* self, int msecs) {
 }
 
 // Base class handler implementation
-bool QUdpSocket_QBaseWaitForConnected(QUdpSocket* self, int msecs) {
+bool QUdpSocket_SuperWaitForConnected(QUdpSocket* self, int msecs) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_WaitForConnected_IsBase(true);
@@ -583,7 +583,7 @@ bool QUdpSocket_WaitForReadyRead(QUdpSocket* self, int msecs) {
 }
 
 // Base class handler implementation
-bool QUdpSocket_QBaseWaitForReadyRead(QUdpSocket* self, int msecs) {
+bool QUdpSocket_SuperWaitForReadyRead(QUdpSocket* self, int msecs) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_WaitForReadyRead_IsBase(true);
@@ -612,7 +612,7 @@ bool QUdpSocket_WaitForBytesWritten(QUdpSocket* self, int msecs) {
 }
 
 // Base class handler implementation
-bool QUdpSocket_QBaseWaitForBytesWritten(QUdpSocket* self, int msecs) {
+bool QUdpSocket_SuperWaitForBytesWritten(QUdpSocket* self, int msecs) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_WaitForBytesWritten_IsBase(true);
@@ -641,7 +641,7 @@ bool QUdpSocket_WaitForDisconnected(QUdpSocket* self, int msecs) {
 }
 
 // Base class handler implementation
-bool QUdpSocket_QBaseWaitForDisconnected(QUdpSocket* self, int msecs) {
+bool QUdpSocket_SuperWaitForDisconnected(QUdpSocket* self, int msecs) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_WaitForDisconnected_IsBase(true);
@@ -670,7 +670,7 @@ long long QUdpSocket_ReadData(QUdpSocket* self, char* data, long long maxlen) {
 }
 
 // Base class handler implementation
-long long QUdpSocket_QBaseReadData(QUdpSocket* self, char* data, long long maxlen) {
+long long QUdpSocket_SuperReadData(QUdpSocket* self, char* data, long long maxlen) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_ReadData_IsBase(true);
@@ -699,7 +699,7 @@ long long QUdpSocket_ReadLineData(QUdpSocket* self, char* data, long long maxlen
 }
 
 // Base class handler implementation
-long long QUdpSocket_QBaseReadLineData(QUdpSocket* self, char* data, long long maxlen) {
+long long QUdpSocket_SuperReadLineData(QUdpSocket* self, char* data, long long maxlen) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_ReadLineData_IsBase(true);
@@ -728,7 +728,7 @@ long long QUdpSocket_SkipData(QUdpSocket* self, long long maxSize) {
 }
 
 // Base class handler implementation
-long long QUdpSocket_QBaseSkipData(QUdpSocket* self, long long maxSize) {
+long long QUdpSocket_SuperSkipData(QUdpSocket* self, long long maxSize) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_SkipData_IsBase(true);
@@ -757,7 +757,7 @@ long long QUdpSocket_WriteData(QUdpSocket* self, const char* data, long long len
 }
 
 // Base class handler implementation
-long long QUdpSocket_QBaseWriteData(QUdpSocket* self, const char* data, long long lenVal) {
+long long QUdpSocket_SuperWriteData(QUdpSocket* self, const char* data, long long lenVal) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_WriteData_IsBase(true);
@@ -786,7 +786,7 @@ bool QUdpSocket_Open(QUdpSocket* self, int mode) {
 }
 
 // Base class handler implementation
-bool QUdpSocket_QBaseOpen(QUdpSocket* self, int mode) {
+bool QUdpSocket_SuperOpen(QUdpSocket* self, int mode) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_Open_IsBase(true);
@@ -815,7 +815,7 @@ long long QUdpSocket_Pos(const QUdpSocket* self) {
 }
 
 // Base class handler implementation
-long long QUdpSocket_QBasePos(const QUdpSocket* self) {
+long long QUdpSocket_SuperPos(const QUdpSocket* self) {
     auto* vqudpsocket = const_cast<VirtualQUdpSocket*>(dynamic_cast<const VirtualQUdpSocket*>(self));
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_Pos_IsBase(true);
@@ -844,7 +844,7 @@ long long QUdpSocket_Size(const QUdpSocket* self) {
 }
 
 // Base class handler implementation
-long long QUdpSocket_QBaseSize(const QUdpSocket* self) {
+long long QUdpSocket_SuperSize(const QUdpSocket* self) {
     auto* vqudpsocket = const_cast<VirtualQUdpSocket*>(dynamic_cast<const VirtualQUdpSocket*>(self));
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_Size_IsBase(true);
@@ -873,7 +873,7 @@ bool QUdpSocket_Seek(QUdpSocket* self, long long pos) {
 }
 
 // Base class handler implementation
-bool QUdpSocket_QBaseSeek(QUdpSocket* self, long long pos) {
+bool QUdpSocket_SuperSeek(QUdpSocket* self, long long pos) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_Seek_IsBase(true);
@@ -902,7 +902,7 @@ bool QUdpSocket_AtEnd(const QUdpSocket* self) {
 }
 
 // Base class handler implementation
-bool QUdpSocket_QBaseAtEnd(const QUdpSocket* self) {
+bool QUdpSocket_SuperAtEnd(const QUdpSocket* self) {
     auto* vqudpsocket = const_cast<VirtualQUdpSocket*>(dynamic_cast<const VirtualQUdpSocket*>(self));
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_AtEnd_IsBase(true);
@@ -931,7 +931,7 @@ bool QUdpSocket_Reset(QUdpSocket* self) {
 }
 
 // Base class handler implementation
-bool QUdpSocket_QBaseReset(QUdpSocket* self) {
+bool QUdpSocket_SuperReset(QUdpSocket* self) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_Reset_IsBase(true);
@@ -960,7 +960,7 @@ bool QUdpSocket_CanReadLine(const QUdpSocket* self) {
 }
 
 // Base class handler implementation
-bool QUdpSocket_QBaseCanReadLine(const QUdpSocket* self) {
+bool QUdpSocket_SuperCanReadLine(const QUdpSocket* self) {
     auto* vqudpsocket = const_cast<VirtualQUdpSocket*>(dynamic_cast<const VirtualQUdpSocket*>(self));
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_CanReadLine_IsBase(true);
@@ -989,7 +989,7 @@ bool QUdpSocket_Event(QUdpSocket* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QUdpSocket_QBaseEvent(QUdpSocket* self, QEvent* event) {
+bool QUdpSocket_SuperEvent(QUdpSocket* self, QEvent* event) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_Event_IsBase(true);
@@ -1018,7 +1018,7 @@ bool QUdpSocket_EventFilter(QUdpSocket* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QUdpSocket_QBaseEventFilter(QUdpSocket* self, QObject* watched, QEvent* event) {
+bool QUdpSocket_SuperEventFilter(QUdpSocket* self, QObject* watched, QEvent* event) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_EventFilter_IsBase(true);
@@ -1047,7 +1047,7 @@ void QUdpSocket_TimerEvent(QUdpSocket* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QUdpSocket_QBaseTimerEvent(QUdpSocket* self, QTimerEvent* event) {
+void QUdpSocket_SuperTimerEvent(QUdpSocket* self, QTimerEvent* event) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_TimerEvent_IsBase(true);
@@ -1076,7 +1076,7 @@ void QUdpSocket_ChildEvent(QUdpSocket* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QUdpSocket_QBaseChildEvent(QUdpSocket* self, QChildEvent* event) {
+void QUdpSocket_SuperChildEvent(QUdpSocket* self, QChildEvent* event) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_ChildEvent_IsBase(true);
@@ -1105,7 +1105,7 @@ void QUdpSocket_CustomEvent(QUdpSocket* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QUdpSocket_QBaseCustomEvent(QUdpSocket* self, QEvent* event) {
+void QUdpSocket_SuperCustomEvent(QUdpSocket* self, QEvent* event) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_CustomEvent_IsBase(true);
@@ -1134,7 +1134,7 @@ void QUdpSocket_ConnectNotify(QUdpSocket* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QUdpSocket_QBaseConnectNotify(QUdpSocket* self, const QMetaMethod* signal) {
+void QUdpSocket_SuperConnectNotify(QUdpSocket* self, const QMetaMethod* signal) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_ConnectNotify_IsBase(true);
@@ -1163,7 +1163,7 @@ void QUdpSocket_DisconnectNotify(QUdpSocket* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QUdpSocket_QBaseDisconnectNotify(QUdpSocket* self, const QMetaMethod* signal) {
+void QUdpSocket_SuperDisconnectNotify(QUdpSocket* self, const QMetaMethod* signal) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_DisconnectNotify_IsBase(true);
@@ -1192,7 +1192,7 @@ void QUdpSocket_SetSocketState(QUdpSocket* self, int state) {
 }
 
 // Base class handler implementation
-void QUdpSocket_QBaseSetSocketState(QUdpSocket* self, int state) {
+void QUdpSocket_SuperSetSocketState(QUdpSocket* self, int state) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_SetSocketState_IsBase(true);
@@ -1221,7 +1221,7 @@ void QUdpSocket_SetSocketError(QUdpSocket* self, int socketError) {
 }
 
 // Base class handler implementation
-void QUdpSocket_QBaseSetSocketError(QUdpSocket* self, int socketError) {
+void QUdpSocket_SuperSetSocketError(QUdpSocket* self, int socketError) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_SetSocketError_IsBase(true);
@@ -1250,7 +1250,7 @@ void QUdpSocket_SetLocalPort(QUdpSocket* self, uint16_t port) {
 }
 
 // Base class handler implementation
-void QUdpSocket_QBaseSetLocalPort(QUdpSocket* self, uint16_t port) {
+void QUdpSocket_SuperSetLocalPort(QUdpSocket* self, uint16_t port) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_SetLocalPort_IsBase(true);
@@ -1279,7 +1279,7 @@ void QUdpSocket_SetLocalAddress(QUdpSocket* self, const QHostAddress* address) {
 }
 
 // Base class handler implementation
-void QUdpSocket_QBaseSetLocalAddress(QUdpSocket* self, const QHostAddress* address) {
+void QUdpSocket_SuperSetLocalAddress(QUdpSocket* self, const QHostAddress* address) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_SetLocalAddress_IsBase(true);
@@ -1308,7 +1308,7 @@ void QUdpSocket_SetPeerPort(QUdpSocket* self, uint16_t port) {
 }
 
 // Base class handler implementation
-void QUdpSocket_QBaseSetPeerPort(QUdpSocket* self, uint16_t port) {
+void QUdpSocket_SuperSetPeerPort(QUdpSocket* self, uint16_t port) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_SetPeerPort_IsBase(true);
@@ -1337,7 +1337,7 @@ void QUdpSocket_SetPeerAddress(QUdpSocket* self, const QHostAddress* address) {
 }
 
 // Base class handler implementation
-void QUdpSocket_QBaseSetPeerAddress(QUdpSocket* self, const QHostAddress* address) {
+void QUdpSocket_SuperSetPeerAddress(QUdpSocket* self, const QHostAddress* address) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_SetPeerAddress_IsBase(true);
@@ -1367,7 +1367,7 @@ void QUdpSocket_SetPeerName(QUdpSocket* self, const libqt_string name) {
 }
 
 // Base class handler implementation
-void QUdpSocket_QBaseSetPeerName(QUdpSocket* self, const libqt_string name) {
+void QUdpSocket_SuperSetPeerName(QUdpSocket* self, const libqt_string name) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
@@ -1397,7 +1397,7 @@ void QUdpSocket_SetOpenMode(QUdpSocket* self, int openMode) {
 }
 
 // Base class handler implementation
-void QUdpSocket_QBaseSetOpenMode(QUdpSocket* self, int openMode) {
+void QUdpSocket_SuperSetOpenMode(QUdpSocket* self, int openMode) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_SetOpenMode_IsBase(true);
@@ -1427,7 +1427,7 @@ void QUdpSocket_SetErrorString(QUdpSocket* self, const libqt_string errorString)
 }
 
 // Base class handler implementation
-void QUdpSocket_QBaseSetErrorString(QUdpSocket* self, const libqt_string errorString) {
+void QUdpSocket_SuperSetErrorString(QUdpSocket* self, const libqt_string errorString) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
@@ -1457,7 +1457,7 @@ QObject* QUdpSocket_Sender(const QUdpSocket* self) {
 }
 
 // Base class handler implementation
-QObject* QUdpSocket_QBaseSender(const QUdpSocket* self) {
+QObject* QUdpSocket_SuperSender(const QUdpSocket* self) {
     auto* vqudpsocket = const_cast<VirtualQUdpSocket*>(dynamic_cast<const VirtualQUdpSocket*>(self));
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_Sender_IsBase(true);
@@ -1486,7 +1486,7 @@ int QUdpSocket_SenderSignalIndex(const QUdpSocket* self) {
 }
 
 // Base class handler implementation
-int QUdpSocket_QBaseSenderSignalIndex(const QUdpSocket* self) {
+int QUdpSocket_SuperSenderSignalIndex(const QUdpSocket* self) {
     auto* vqudpsocket = const_cast<VirtualQUdpSocket*>(dynamic_cast<const VirtualQUdpSocket*>(self));
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_SenderSignalIndex_IsBase(true);
@@ -1515,7 +1515,7 @@ int QUdpSocket_Receivers(const QUdpSocket* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QUdpSocket_QBaseReceivers(const QUdpSocket* self, const char* signal) {
+int QUdpSocket_SuperReceivers(const QUdpSocket* self, const char* signal) {
     auto* vqudpsocket = const_cast<VirtualQUdpSocket*>(dynamic_cast<const VirtualQUdpSocket*>(self));
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_Receivers_IsBase(true);
@@ -1544,7 +1544,7 @@ bool QUdpSocket_IsSignalConnected(const QUdpSocket* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QUdpSocket_QBaseIsSignalConnected(const QUdpSocket* self, const QMetaMethod* signal) {
+bool QUdpSocket_SuperIsSignalConnected(const QUdpSocket* self, const QMetaMethod* signal) {
     auto* vqudpsocket = const_cast<VirtualQUdpSocket*>(dynamic_cast<const VirtualQUdpSocket*>(self));
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_IsSignalConnected_IsBase(true);

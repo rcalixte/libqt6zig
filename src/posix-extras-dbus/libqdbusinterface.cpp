@@ -72,7 +72,7 @@ int QDBusInterface_Metacall(QDBusInterface* self, int param1, int param2, void**
 }
 
 // Base class handler implementation
-QMetaObject* QDBusInterface_QBaseMetaObject(const QDBusInterface* self) {
+QMetaObject* QDBusInterface_SuperMetaObject(const QDBusInterface* self) {
     auto* vqdbusinterface = const_cast<VirtualQDBusInterface*>(dynamic_cast<const VirtualQDBusInterface*>(self));
     if (vqdbusinterface && vqdbusinterface->isVirtualQDBusInterface) {
         vqdbusinterface->setQDBusInterface_MetaObject_IsBase(true);
@@ -91,7 +91,7 @@ void QDBusInterface_OnMetaObject(const QDBusInterface* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QDBusInterface_QBaseMetacast(QDBusInterface* self, const char* param1) {
+void* QDBusInterface_SuperMetacast(QDBusInterface* self, const char* param1) {
     auto* vqdbusinterface = dynamic_cast<VirtualQDBusInterface*>(self);
     if (vqdbusinterface && vqdbusinterface->isVirtualQDBusInterface) {
         vqdbusinterface->setQDBusInterface_Metacast_IsBase(true);
@@ -110,7 +110,7 @@ void QDBusInterface_OnMetacast(QDBusInterface* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QDBusInterface_QBaseMetacall(QDBusInterface* self, int param1, int param2, void** param3) {
+int QDBusInterface_SuperMetacall(QDBusInterface* self, int param1, int param2, void** param3) {
     auto* vqdbusinterface = dynamic_cast<VirtualQDBusInterface*>(self);
     if (vqdbusinterface && vqdbusinterface->isVirtualQDBusInterface) {
         vqdbusinterface->setQDBusInterface_Metacall_IsBase(true);
@@ -139,7 +139,7 @@ void QDBusInterface_ConnectNotify(QDBusInterface* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QDBusInterface_QBaseConnectNotify(QDBusInterface* self, const QMetaMethod* signal) {
+void QDBusInterface_SuperConnectNotify(QDBusInterface* self, const QMetaMethod* signal) {
     auto* vqdbusinterface = dynamic_cast<VirtualQDBusInterface*>(self);
     if (vqdbusinterface && vqdbusinterface->isVirtualQDBusInterface) {
         vqdbusinterface->setQDBusInterface_ConnectNotify_IsBase(true);
@@ -168,7 +168,7 @@ void QDBusInterface_DisconnectNotify(QDBusInterface* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QDBusInterface_QBaseDisconnectNotify(QDBusInterface* self, const QMetaMethod* signal) {
+void QDBusInterface_SuperDisconnectNotify(QDBusInterface* self, const QMetaMethod* signal) {
     auto* vqdbusinterface = dynamic_cast<VirtualQDBusInterface*>(self);
     if (vqdbusinterface && vqdbusinterface->isVirtualQDBusInterface) {
         vqdbusinterface->setQDBusInterface_DisconnectNotify_IsBase(true);
@@ -197,7 +197,7 @@ bool QDBusInterface_Event(QDBusInterface* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QDBusInterface_QBaseEvent(QDBusInterface* self, QEvent* event) {
+bool QDBusInterface_SuperEvent(QDBusInterface* self, QEvent* event) {
     auto* vqdbusinterface = dynamic_cast<VirtualQDBusInterface*>(self);
     if (vqdbusinterface && vqdbusinterface->isVirtualQDBusInterface) {
         vqdbusinterface->setQDBusInterface_Event_IsBase(true);
@@ -226,7 +226,7 @@ bool QDBusInterface_EventFilter(QDBusInterface* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QDBusInterface_QBaseEventFilter(QDBusInterface* self, QObject* watched, QEvent* event) {
+bool QDBusInterface_SuperEventFilter(QDBusInterface* self, QObject* watched, QEvent* event) {
     auto* vqdbusinterface = dynamic_cast<VirtualQDBusInterface*>(self);
     if (vqdbusinterface && vqdbusinterface->isVirtualQDBusInterface) {
         vqdbusinterface->setQDBusInterface_EventFilter_IsBase(true);
@@ -255,7 +255,7 @@ void QDBusInterface_TimerEvent(QDBusInterface* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QDBusInterface_QBaseTimerEvent(QDBusInterface* self, QTimerEvent* event) {
+void QDBusInterface_SuperTimerEvent(QDBusInterface* self, QTimerEvent* event) {
     auto* vqdbusinterface = dynamic_cast<VirtualQDBusInterface*>(self);
     if (vqdbusinterface && vqdbusinterface->isVirtualQDBusInterface) {
         vqdbusinterface->setQDBusInterface_TimerEvent_IsBase(true);
@@ -284,7 +284,7 @@ void QDBusInterface_ChildEvent(QDBusInterface* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QDBusInterface_QBaseChildEvent(QDBusInterface* self, QChildEvent* event) {
+void QDBusInterface_SuperChildEvent(QDBusInterface* self, QChildEvent* event) {
     auto* vqdbusinterface = dynamic_cast<VirtualQDBusInterface*>(self);
     if (vqdbusinterface && vqdbusinterface->isVirtualQDBusInterface) {
         vqdbusinterface->setQDBusInterface_ChildEvent_IsBase(true);
@@ -313,7 +313,7 @@ void QDBusInterface_CustomEvent(QDBusInterface* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDBusInterface_QBaseCustomEvent(QDBusInterface* self, QEvent* event) {
+void QDBusInterface_SuperCustomEvent(QDBusInterface* self, QEvent* event) {
     auto* vqdbusinterface = dynamic_cast<VirtualQDBusInterface*>(self);
     if (vqdbusinterface && vqdbusinterface->isVirtualQDBusInterface) {
         vqdbusinterface->setQDBusInterface_CustomEvent_IsBase(true);
@@ -341,7 +341,7 @@ QVariant* QDBusInterface_InternalPropGet(const QDBusInterface* self, const char*
 }
 
 // Base class handler implementation
-QVariant* QDBusInterface_QBaseInternalPropGet(const QDBusInterface* self, const char* propname) {
+QVariant* QDBusInterface_SuperInternalPropGet(const QDBusInterface* self, const char* propname) {
     auto* vqdbusinterface = const_cast<VirtualQDBusInterface*>(dynamic_cast<const VirtualQDBusInterface*>(self));
     if (vqdbusinterface && vqdbusinterface->isVirtualQDBusInterface) {
         vqdbusinterface->setQDBusInterface_InternalPropGet_IsBase(true);
@@ -369,7 +369,7 @@ void QDBusInterface_InternalPropSet(QDBusInterface* self, const char* propname, 
 }
 
 // Base class handler implementation
-void QDBusInterface_QBaseInternalPropSet(QDBusInterface* self, const char* propname, const QVariant* value) {
+void QDBusInterface_SuperInternalPropSet(QDBusInterface* self, const char* propname, const QVariant* value) {
     auto* vqdbusinterface = dynamic_cast<VirtualQDBusInterface*>(self);
     if (vqdbusinterface && vqdbusinterface->isVirtualQDBusInterface) {
         vqdbusinterface->setQDBusInterface_InternalPropSet_IsBase(true);
@@ -398,7 +398,7 @@ QDBusMessage* QDBusInterface_InternalConstCall(const QDBusInterface* self, int m
 }
 
 // Base class handler implementation
-QDBusMessage* QDBusInterface_QBaseInternalConstCall(const QDBusInterface* self, int mode, const libqt_string method) {
+QDBusMessage* QDBusInterface_SuperInternalConstCall(const QDBusInterface* self, int mode, const libqt_string method) {
     auto* vqdbusinterface = const_cast<VirtualQDBusInterface*>(dynamic_cast<const VirtualQDBusInterface*>(self));
     QString method_QString = QString::fromUtf8(method.data, method.len);
     if (vqdbusinterface && vqdbusinterface->isVirtualQDBusInterface) {
@@ -427,7 +427,7 @@ QObject* QDBusInterface_Sender(const QDBusInterface* self) {
 }
 
 // Base class handler implementation
-QObject* QDBusInterface_QBaseSender(const QDBusInterface* self) {
+QObject* QDBusInterface_SuperSender(const QDBusInterface* self) {
     auto* vqdbusinterface = const_cast<VirtualQDBusInterface*>(dynamic_cast<const VirtualQDBusInterface*>(self));
     if (vqdbusinterface && vqdbusinterface->isVirtualQDBusInterface) {
         vqdbusinterface->setQDBusInterface_Sender_IsBase(true);
@@ -456,7 +456,7 @@ int QDBusInterface_SenderSignalIndex(const QDBusInterface* self) {
 }
 
 // Base class handler implementation
-int QDBusInterface_QBaseSenderSignalIndex(const QDBusInterface* self) {
+int QDBusInterface_SuperSenderSignalIndex(const QDBusInterface* self) {
     auto* vqdbusinterface = const_cast<VirtualQDBusInterface*>(dynamic_cast<const VirtualQDBusInterface*>(self));
     if (vqdbusinterface && vqdbusinterface->isVirtualQDBusInterface) {
         vqdbusinterface->setQDBusInterface_SenderSignalIndex_IsBase(true);
@@ -485,7 +485,7 @@ int QDBusInterface_Receivers(const QDBusInterface* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QDBusInterface_QBaseReceivers(const QDBusInterface* self, const char* signal) {
+int QDBusInterface_SuperReceivers(const QDBusInterface* self, const char* signal) {
     auto* vqdbusinterface = const_cast<VirtualQDBusInterface*>(dynamic_cast<const VirtualQDBusInterface*>(self));
     if (vqdbusinterface && vqdbusinterface->isVirtualQDBusInterface) {
         vqdbusinterface->setQDBusInterface_Receivers_IsBase(true);
@@ -514,7 +514,7 @@ bool QDBusInterface_IsSignalConnected(const QDBusInterface* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QDBusInterface_QBaseIsSignalConnected(const QDBusInterface* self, const QMetaMethod* signal) {
+bool QDBusInterface_SuperIsSignalConnected(const QDBusInterface* self, const QMetaMethod* signal) {
     auto* vqdbusinterface = const_cast<VirtualQDBusInterface*>(dynamic_cast<const VirtualQDBusInterface*>(self));
     if (vqdbusinterface && vqdbusinterface->isVirtualQDBusInterface) {
         vqdbusinterface->setQDBusInterface_IsSignalConnected_IsBase(true);

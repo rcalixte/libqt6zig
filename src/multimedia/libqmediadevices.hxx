@@ -328,23 +328,23 @@ class VirtualQMediaDevices final : public QMediaDevices {
 
     // Friend functions
     friend void QMediaDevices_ConnectNotify(QMediaDevices* self, const QMetaMethod* signal);
-    friend void QMediaDevices_QBaseConnectNotify(QMediaDevices* self, const QMetaMethod* signal);
+    friend void QMediaDevices_SuperConnectNotify(QMediaDevices* self, const QMetaMethod* signal);
     friend void QMediaDevices_TimerEvent(QMediaDevices* self, QTimerEvent* event);
-    friend void QMediaDevices_QBaseTimerEvent(QMediaDevices* self, QTimerEvent* event);
+    friend void QMediaDevices_SuperTimerEvent(QMediaDevices* self, QTimerEvent* event);
     friend void QMediaDevices_ChildEvent(QMediaDevices* self, QChildEvent* event);
-    friend void QMediaDevices_QBaseChildEvent(QMediaDevices* self, QChildEvent* event);
+    friend void QMediaDevices_SuperChildEvent(QMediaDevices* self, QChildEvent* event);
     friend void QMediaDevices_CustomEvent(QMediaDevices* self, QEvent* event);
-    friend void QMediaDevices_QBaseCustomEvent(QMediaDevices* self, QEvent* event);
+    friend void QMediaDevices_SuperCustomEvent(QMediaDevices* self, QEvent* event);
     friend void QMediaDevices_DisconnectNotify(QMediaDevices* self, const QMetaMethod* signal);
-    friend void QMediaDevices_QBaseDisconnectNotify(QMediaDevices* self, const QMetaMethod* signal);
+    friend void QMediaDevices_SuperDisconnectNotify(QMediaDevices* self, const QMetaMethod* signal);
     friend QObject* QMediaDevices_Sender(const QMediaDevices* self);
-    friend QObject* QMediaDevices_QBaseSender(const QMediaDevices* self);
+    friend QObject* QMediaDevices_SuperSender(const QMediaDevices* self);
     friend int QMediaDevices_SenderSignalIndex(const QMediaDevices* self);
-    friend int QMediaDevices_QBaseSenderSignalIndex(const QMediaDevices* self);
+    friend int QMediaDevices_SuperSenderSignalIndex(const QMediaDevices* self);
     friend int QMediaDevices_Receivers(const QMediaDevices* self, const char* signal);
-    friend int QMediaDevices_QBaseReceivers(const QMediaDevices* self, const char* signal);
+    friend int QMediaDevices_SuperReceivers(const QMediaDevices* self, const char* signal);
     friend bool QMediaDevices_IsSignalConnected(const QMediaDevices* self, const QMetaMethod* signal);
-    friend bool QMediaDevices_QBaseIsSignalConnected(const QMediaDevices* self, const QMetaMethod* signal);
+    friend bool QMediaDevices_SuperIsSignalConnected(const QMediaDevices* self, const QMetaMethod* signal);
 };
 
 #endif

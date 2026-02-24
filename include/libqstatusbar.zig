@@ -50,6 +50,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -58,8 +62,8 @@ pub const qstatusbar = struct {
     ///
     /// ` self: QtC.QStatusBar `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QStatusBar_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QStatusBar_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -85,6 +89,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -93,9 +101,9 @@ pub const qstatusbar = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QStatusBar_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QStatusBar_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -124,6 +132,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -136,8 +148,8 @@ pub const qstatusbar = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QStatusBar_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QStatusBar_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -339,6 +351,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatusbar.html#showEvent)
     ///
     /// Base class method implementation
@@ -349,8 +365,8 @@ pub const qstatusbar = struct {
     ///
     /// ` param1: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseShowEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStatusBar_SuperShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatusbar.html#paintEvent)
@@ -379,6 +395,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    ///
+    pub const QBasePaintEvent = SuperPaintEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatusbar.html#paintEvent)
     ///
     /// Base class method implementation
@@ -389,8 +409,8 @@ pub const qstatusbar = struct {
     ///
     /// ` param1: QtC.QPaintEvent `
     ///
-    pub fn QBasePaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QStatusBar_QBasePaintEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperPaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStatusBar_SuperPaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatusbar.html#resizeEvent)
@@ -419,6 +439,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatusbar.html#resizeEvent)
     ///
     /// Base class method implementation
@@ -429,8 +453,8 @@ pub const qstatusbar = struct {
     ///
     /// ` param1: QtC.QResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseResizeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStatusBar_SuperResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatusbar.html#reformat)
@@ -457,6 +481,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_OnReformat(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperReformat` instead
+    ///
+    pub const QBaseReformat = SuperReformat;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatusbar.html#reformat)
     ///
     /// Base class method implementation
@@ -465,8 +493,8 @@ pub const qstatusbar = struct {
     ///
     /// ` self: QtC.QStatusBar `
     ///
-    pub fn QBaseReformat(self: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseReformat(@ptrCast(self));
+    pub fn SuperReformat(self: ?*anyopaque) void {
+        qtc.QStatusBar_SuperReformat(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatusbar.html#hideOrShow)
@@ -493,6 +521,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_OnHideOrShow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHideOrShow` instead
+    ///
+    pub const QBaseHideOrShow = SuperHideOrShow;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatusbar.html#hideOrShow)
     ///
     /// Base class method implementation
@@ -501,8 +533,8 @@ pub const qstatusbar = struct {
     ///
     /// ` self: QtC.QStatusBar `
     ///
-    pub fn QBaseHideOrShow(self: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseHideOrShow(@ptrCast(self));
+    pub fn SuperHideOrShow(self: ?*anyopaque) void {
+        qtc.QStatusBar_SuperHideOrShow(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatusbar.html#event)
@@ -531,6 +563,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatusbar.html#event)
     ///
     /// Base class method implementation
@@ -541,8 +577,8 @@ pub const qstatusbar = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QStatusBar_QBaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
+        return qtc.QStatusBar_SuperEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -5402,6 +5438,10 @@ pub const qstatusbar = struct {
         return qtc.QStatusBar_DevType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
@@ -5412,8 +5452,8 @@ pub const qstatusbar = struct {
     ///
     /// ` self: QtC.QStatusBar `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.QStatusBar_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.QStatusBar_SuperDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -5448,6 +5488,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_SetVisible(@ptrCast(self), visible);
     }
 
+    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    ///
+    pub const QBaseSetVisible = SuperSetVisible;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
@@ -5460,8 +5504,8 @@ pub const qstatusbar = struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QStatusBar_QBaseSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
+        qtc.QStatusBar_SuperSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
@@ -5494,6 +5538,10 @@ pub const qstatusbar = struct {
         return qtc.QStatusBar_SizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5504,8 +5552,8 @@ pub const qstatusbar = struct {
     ///
     /// ` self: QtC.QStatusBar `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QStatusBar_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QStatusBar_SuperSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -5538,6 +5586,10 @@ pub const qstatusbar = struct {
         return qtc.QStatusBar_MinimumSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    ///
+    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSizeHint)
@@ -5548,8 +5600,8 @@ pub const qstatusbar = struct {
     ///
     /// ` self: QtC.QStatusBar `
     ///
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QStatusBar_QBaseMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QStatusBar_SuperMinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -5584,6 +5636,10 @@ pub const qstatusbar = struct {
         return qtc.QStatusBar_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
@@ -5596,8 +5652,8 @@ pub const qstatusbar = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QStatusBar_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QStatusBar_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5630,6 +5686,10 @@ pub const qstatusbar = struct {
         return qtc.QStatusBar_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
@@ -5640,8 +5700,8 @@ pub const qstatusbar = struct {
     ///
     /// ` self: QtC.QStatusBar `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QStatusBar_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.QStatusBar_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -5674,6 +5734,10 @@ pub const qstatusbar = struct {
         return qtc.QStatusBar_PaintEngine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
@@ -5684,8 +5748,8 @@ pub const qstatusbar = struct {
     ///
     /// ` self: QtC.QStatusBar `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QStatusBar_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.QStatusBar_SuperPaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -5720,6 +5784,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_MousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -5732,8 +5800,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -5768,6 +5836,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -5780,8 +5852,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -5816,6 +5888,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -5828,8 +5904,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -5864,6 +5940,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -5876,8 +5956,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -5912,6 +5992,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_WheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
@@ -5924,8 +6008,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -5960,6 +6044,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_KeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -5972,8 +6060,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperKeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6008,6 +6096,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -6020,8 +6112,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6056,6 +6148,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6068,8 +6164,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6104,6 +6200,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6116,8 +6216,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6152,6 +6252,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    ///
+    pub const QBaseEnterEvent = SuperEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
@@ -6164,8 +6268,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QEnterEvent `
     ///
-    pub fn QBaseEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6200,6 +6304,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    ///
+    pub const QBaseLeaveEvent = SuperLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
@@ -6212,8 +6320,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6248,6 +6356,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
@@ -6260,8 +6372,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6296,6 +6408,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
@@ -6308,8 +6424,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6344,6 +6460,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_ContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuEvent)
@@ -6356,8 +6476,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6392,6 +6512,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    ///
+    pub const QBaseTabletEvent = SuperTabletEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
@@ -6404,8 +6528,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QTabletEvent `
     ///
-    pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6440,6 +6564,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_ActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    ///
+    pub const QBaseActionEvent = SuperActionEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
@@ -6452,8 +6580,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QActionEvent `
     ///
-    pub fn QBaseActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6488,6 +6616,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_DragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
@@ -6500,8 +6632,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QDragEnterEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6536,6 +6668,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_DragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
@@ -6548,8 +6684,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QDragMoveEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6584,6 +6720,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
@@ -6596,8 +6736,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QDragLeaveEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6632,6 +6772,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_DropEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
@@ -6644,8 +6788,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6680,6 +6824,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
@@ -6692,8 +6840,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6736,6 +6884,10 @@ pub const qstatusbar = struct {
         return qtc.QStatusBar_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    ///
+    pub const QBaseNativeEvent = SuperNativeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
@@ -6752,12 +6904,12 @@ pub const qstatusbar = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QStatusBar_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QStatusBar_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -6792,6 +6944,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_ChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    ///
+    pub const QBaseChangeEvent = SuperChangeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#changeEvent)
@@ -6804,8 +6960,8 @@ pub const qstatusbar = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStatusBar_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6840,6 +6996,10 @@ pub const qstatusbar = struct {
         return qtc.QStatusBar_Metric(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
@@ -6852,8 +7012,8 @@ pub const qstatusbar = struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QStatusBar_QBaseMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QStatusBar_SuperMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6888,6 +7048,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
@@ -6900,8 +7064,8 @@ pub const qstatusbar = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QStatusBar_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
@@ -6936,6 +7100,10 @@ pub const qstatusbar = struct {
         return qtc.QStatusBar_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
@@ -6948,8 +7116,8 @@ pub const qstatusbar = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QStatusBar_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.QStatusBar_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
@@ -6982,6 +7150,10 @@ pub const qstatusbar = struct {
         return qtc.QStatusBar_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
@@ -6992,8 +7164,8 @@ pub const qstatusbar = struct {
     ///
     /// ` self: QtC.QStatusBar `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QStatusBar_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.QStatusBar_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7028,6 +7200,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
@@ -7040,8 +7216,8 @@ pub const qstatusbar = struct {
     ///
     /// ` param1: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QStatusBar_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7076,6 +7252,10 @@ pub const qstatusbar = struct {
         return qtc.QStatusBar_InputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
@@ -7088,8 +7268,8 @@ pub const qstatusbar = struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QStatusBar_QBaseInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
+        return qtc.QStatusBar_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7124,6 +7304,10 @@ pub const qstatusbar = struct {
         return qtc.QStatusBar_FocusNextPrevChild(@ptrCast(self), next);
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    ///
+    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
@@ -7136,8 +7320,8 @@ pub const qstatusbar = struct {
     ///
     /// ` next: bool `
     ///
-    pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QStatusBar_QBaseFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
+        return qtc.QStatusBar_SuperFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QWidget
@@ -7174,6 +7358,10 @@ pub const qstatusbar = struct {
         return qtc.QStatusBar_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -7188,8 +7376,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QStatusBar_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QStatusBar_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7224,6 +7412,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -7236,8 +7428,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7272,6 +7464,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -7284,8 +7480,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7320,6 +7516,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -7332,8 +7532,8 @@ pub const qstatusbar = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStatusBar_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7368,6 +7568,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7380,8 +7584,8 @@ pub const qstatusbar = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QStatusBar_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -7416,6 +7620,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -7428,8 +7636,8 @@ pub const qstatusbar = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QStatusBar_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -7462,6 +7670,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7472,8 +7684,8 @@ pub const qstatusbar = struct {
     ///
     /// ` self: QtC.QStatusBar `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.QStatusBar_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7506,6 +7718,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_Create(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreate` instead
+    ///
+    pub const QBaseCreate = SuperCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -7516,8 +7732,8 @@ pub const qstatusbar = struct {
     ///
     /// ` self: QtC.QStatusBar `
     ///
-    pub fn QBaseCreate(self: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseCreate(@ptrCast(self));
+    pub fn SuperCreate(self: ?*anyopaque) void {
+        qtc.QStatusBar_SuperCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7550,6 +7766,10 @@ pub const qstatusbar = struct {
         qtc.QStatusBar_Destroy(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroy` instead
+    ///
+    pub const QBaseDestroy = SuperDestroy;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
@@ -7560,8 +7780,8 @@ pub const qstatusbar = struct {
     ///
     /// ` self: QtC.QStatusBar `
     ///
-    pub fn QBaseDestroy(self: ?*anyopaque) void {
-        qtc.QStatusBar_QBaseDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: ?*anyopaque) void {
+        qtc.QStatusBar_SuperDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7594,6 +7814,10 @@ pub const qstatusbar = struct {
         return qtc.QStatusBar_FocusNextChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    ///
+    pub const QBaseFocusNextChild = SuperFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -7604,8 +7828,8 @@ pub const qstatusbar = struct {
     ///
     /// ` self: QtC.QStatusBar `
     ///
-    pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QStatusBar_QBaseFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
+        return qtc.QStatusBar_SuperFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7638,6 +7862,10 @@ pub const qstatusbar = struct {
         return qtc.QStatusBar_FocusPreviousChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    ///
+    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
@@ -7648,8 +7876,8 @@ pub const qstatusbar = struct {
     ///
     /// ` self: QtC.QStatusBar `
     ///
-    pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QStatusBar_QBaseFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
+        return qtc.QStatusBar_SuperFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7682,6 +7910,10 @@ pub const qstatusbar = struct {
         return qtc.QStatusBar_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -7692,8 +7924,8 @@ pub const qstatusbar = struct {
     ///
     /// ` self: QtC.QStatusBar `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QStatusBar_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QStatusBar_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -7726,6 +7958,10 @@ pub const qstatusbar = struct {
         return qtc.QStatusBar_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -7736,8 +7972,8 @@ pub const qstatusbar = struct {
     ///
     /// ` self: QtC.QStatusBar `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QStatusBar_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QStatusBar_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -7773,6 +8009,10 @@ pub const qstatusbar = struct {
         return qtc.QStatusBar_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -7785,9 +8025,9 @@ pub const qstatusbar = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QStatusBar_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QStatusBar_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -7822,6 +8062,10 @@ pub const qstatusbar = struct {
         return qtc.QStatusBar_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -7834,8 +8078,8 @@ pub const qstatusbar = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QStatusBar_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QStatusBar_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -7872,6 +8116,10 @@ pub const qstatusbar = struct {
         return qtc.QStatusBar_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -7886,8 +8134,8 @@ pub const qstatusbar = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QStatusBar_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.QStatusBar_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -7921,6 +8169,9 @@ pub const qstatusbar = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatusbar.html#dtor.QStatusBar)
     ///
@@ -7930,7 +8181,7 @@ pub const qstatusbar = struct {
     ///
     /// ` self: QtC.QStatusBar `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStatusBar_Delete(@ptrCast(self));
     }
 };

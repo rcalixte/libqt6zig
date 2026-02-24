@@ -117,7 +117,7 @@ QMenu* KBookmarkMenu_ContextMenu(KBookmarkMenu* self, QAction* action) {
 }
 
 // Base class handler implementation
-QMetaObject* KBookmarkMenu_QBaseMetaObject(const KBookmarkMenu* self) {
+QMetaObject* KBookmarkMenu_SuperMetaObject(const KBookmarkMenu* self) {
     auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_MetaObject_IsBase(true);
@@ -136,7 +136,7 @@ void KBookmarkMenu_OnMetaObject(const KBookmarkMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KBookmarkMenu_QBaseMetacast(KBookmarkMenu* self, const char* param1) {
+void* KBookmarkMenu_SuperMetacast(KBookmarkMenu* self, const char* param1) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_Metacast_IsBase(true);
@@ -155,7 +155,7 @@ void KBookmarkMenu_OnMetacast(KBookmarkMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KBookmarkMenu_QBaseMetacall(KBookmarkMenu* self, int param1, int param2, void** param3) {
+int KBookmarkMenu_SuperMetacall(KBookmarkMenu* self, int param1, int param2, void** param3) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_Metacall_IsBase(true);
@@ -174,7 +174,7 @@ void KBookmarkMenu_OnMetacall(KBookmarkMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KBookmarkMenu_QBaseClear(KBookmarkMenu* self) {
+void KBookmarkMenu_SuperClear(KBookmarkMenu* self) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_Clear_IsBase(true);
@@ -193,7 +193,7 @@ void KBookmarkMenu_OnClear(KBookmarkMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KBookmarkMenu_QBaseRefill(KBookmarkMenu* self) {
+void KBookmarkMenu_SuperRefill(KBookmarkMenu* self) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_Refill_IsBase(true);
@@ -212,7 +212,7 @@ void KBookmarkMenu_OnRefill(KBookmarkMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QAction* KBookmarkMenu_QBaseActionForBookmark(KBookmarkMenu* self, const KBookmark* bm) {
+QAction* KBookmarkMenu_SuperActionForBookmark(KBookmarkMenu* self, const KBookmark* bm) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_ActionForBookmark_IsBase(true);
@@ -231,7 +231,7 @@ void KBookmarkMenu_OnActionForBookmark(KBookmarkMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMenu* KBookmarkMenu_QBaseContextMenu(KBookmarkMenu* self, QAction* action) {
+QMenu* KBookmarkMenu_SuperContextMenu(KBookmarkMenu* self, QAction* action) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_ContextMenu_IsBase(true);
@@ -260,7 +260,7 @@ bool KBookmarkMenu_Event(KBookmarkMenu* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KBookmarkMenu_QBaseEvent(KBookmarkMenu* self, QEvent* event) {
+bool KBookmarkMenu_SuperEvent(KBookmarkMenu* self, QEvent* event) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_Event_IsBase(true);
@@ -289,7 +289,7 @@ bool KBookmarkMenu_EventFilter(KBookmarkMenu* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool KBookmarkMenu_QBaseEventFilter(KBookmarkMenu* self, QObject* watched, QEvent* event) {
+bool KBookmarkMenu_SuperEventFilter(KBookmarkMenu* self, QObject* watched, QEvent* event) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_EventFilter_IsBase(true);
@@ -318,7 +318,7 @@ void KBookmarkMenu_TimerEvent(KBookmarkMenu* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkMenu_QBaseTimerEvent(KBookmarkMenu* self, QTimerEvent* event) {
+void KBookmarkMenu_SuperTimerEvent(KBookmarkMenu* self, QTimerEvent* event) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_TimerEvent_IsBase(true);
@@ -347,7 +347,7 @@ void KBookmarkMenu_ChildEvent(KBookmarkMenu* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkMenu_QBaseChildEvent(KBookmarkMenu* self, QChildEvent* event) {
+void KBookmarkMenu_SuperChildEvent(KBookmarkMenu* self, QChildEvent* event) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_ChildEvent_IsBase(true);
@@ -376,7 +376,7 @@ void KBookmarkMenu_CustomEvent(KBookmarkMenu* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkMenu_QBaseCustomEvent(KBookmarkMenu* self, QEvent* event) {
+void KBookmarkMenu_SuperCustomEvent(KBookmarkMenu* self, QEvent* event) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_CustomEvent_IsBase(true);
@@ -405,7 +405,7 @@ void KBookmarkMenu_ConnectNotify(KBookmarkMenu* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void KBookmarkMenu_QBaseConnectNotify(KBookmarkMenu* self, const QMetaMethod* signal) {
+void KBookmarkMenu_SuperConnectNotify(KBookmarkMenu* self, const QMetaMethod* signal) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_ConnectNotify_IsBase(true);
@@ -434,7 +434,7 @@ void KBookmarkMenu_DisconnectNotify(KBookmarkMenu* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void KBookmarkMenu_QBaseDisconnectNotify(KBookmarkMenu* self, const QMetaMethod* signal) {
+void KBookmarkMenu_SuperDisconnectNotify(KBookmarkMenu* self, const QMetaMethod* signal) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_DisconnectNotify_IsBase(true);
@@ -463,7 +463,7 @@ void KBookmarkMenu_SlotAboutToShow(KBookmarkMenu* self) {
 }
 
 // Base class handler implementation
-void KBookmarkMenu_QBaseSlotAboutToShow(KBookmarkMenu* self) {
+void KBookmarkMenu_SuperSlotAboutToShow(KBookmarkMenu* self) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_SlotAboutToShow_IsBase(true);
@@ -492,7 +492,7 @@ void KBookmarkMenu_SlotAddBookmarksList(KBookmarkMenu* self) {
 }
 
 // Base class handler implementation
-void KBookmarkMenu_QBaseSlotAddBookmarksList(KBookmarkMenu* self) {
+void KBookmarkMenu_SuperSlotAddBookmarksList(KBookmarkMenu* self) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_SlotAddBookmarksList_IsBase(true);
@@ -521,7 +521,7 @@ void KBookmarkMenu_SlotAddBookmark(KBookmarkMenu* self) {
 }
 
 // Base class handler implementation
-void KBookmarkMenu_QBaseSlotAddBookmark(KBookmarkMenu* self) {
+void KBookmarkMenu_SuperSlotAddBookmark(KBookmarkMenu* self) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_SlotAddBookmark_IsBase(true);
@@ -550,7 +550,7 @@ void KBookmarkMenu_SlotNewFolder(KBookmarkMenu* self) {
 }
 
 // Base class handler implementation
-void KBookmarkMenu_QBaseSlotNewFolder(KBookmarkMenu* self) {
+void KBookmarkMenu_SuperSlotNewFolder(KBookmarkMenu* self) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_SlotNewFolder_IsBase(true);
@@ -579,7 +579,7 @@ void KBookmarkMenu_SlotOpenFolderInTabs(KBookmarkMenu* self) {
 }
 
 // Base class handler implementation
-void KBookmarkMenu_QBaseSlotOpenFolderInTabs(KBookmarkMenu* self) {
+void KBookmarkMenu_SuperSlotOpenFolderInTabs(KBookmarkMenu* self) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_SlotOpenFolderInTabs_IsBase(true);
@@ -608,7 +608,7 @@ void KBookmarkMenu_AddActions(KBookmarkMenu* self) {
 }
 
 // Base class handler implementation
-void KBookmarkMenu_QBaseAddActions(KBookmarkMenu* self) {
+void KBookmarkMenu_SuperAddActions(KBookmarkMenu* self) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_AddActions_IsBase(true);
@@ -637,7 +637,7 @@ void KBookmarkMenu_FillBookmarks(KBookmarkMenu* self) {
 }
 
 // Base class handler implementation
-void KBookmarkMenu_QBaseFillBookmarks(KBookmarkMenu* self) {
+void KBookmarkMenu_SuperFillBookmarks(KBookmarkMenu* self) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_FillBookmarks_IsBase(true);
@@ -666,7 +666,7 @@ void KBookmarkMenu_AddAddBookmark(KBookmarkMenu* self) {
 }
 
 // Base class handler implementation
-void KBookmarkMenu_QBaseAddAddBookmark(KBookmarkMenu* self) {
+void KBookmarkMenu_SuperAddAddBookmark(KBookmarkMenu* self) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_AddAddBookmark_IsBase(true);
@@ -695,7 +695,7 @@ void KBookmarkMenu_AddAddBookmarksList(KBookmarkMenu* self) {
 }
 
 // Base class handler implementation
-void KBookmarkMenu_QBaseAddAddBookmarksList(KBookmarkMenu* self) {
+void KBookmarkMenu_SuperAddAddBookmarksList(KBookmarkMenu* self) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_AddAddBookmarksList_IsBase(true);
@@ -724,7 +724,7 @@ void KBookmarkMenu_AddEditBookmarks(KBookmarkMenu* self) {
 }
 
 // Base class handler implementation
-void KBookmarkMenu_QBaseAddEditBookmarks(KBookmarkMenu* self) {
+void KBookmarkMenu_SuperAddEditBookmarks(KBookmarkMenu* self) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_AddEditBookmarks_IsBase(true);
@@ -753,7 +753,7 @@ void KBookmarkMenu_AddNewFolder(KBookmarkMenu* self) {
 }
 
 // Base class handler implementation
-void KBookmarkMenu_QBaseAddNewFolder(KBookmarkMenu* self) {
+void KBookmarkMenu_SuperAddNewFolder(KBookmarkMenu* self) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_AddNewFolder_IsBase(true);
@@ -782,7 +782,7 @@ void KBookmarkMenu_AddOpenInTabs(KBookmarkMenu* self) {
 }
 
 // Base class handler implementation
-void KBookmarkMenu_QBaseAddOpenInTabs(KBookmarkMenu* self) {
+void KBookmarkMenu_SuperAddOpenInTabs(KBookmarkMenu* self) {
     auto* vkbookmarkmenu = dynamic_cast<VirtualKBookmarkMenu*>(self);
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_AddOpenInTabs_IsBase(true);
@@ -811,7 +811,7 @@ bool KBookmarkMenu_IsRoot(const KBookmarkMenu* self) {
 }
 
 // Base class handler implementation
-bool KBookmarkMenu_QBaseIsRoot(const KBookmarkMenu* self) {
+bool KBookmarkMenu_SuperIsRoot(const KBookmarkMenu* self) {
     auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_IsRoot_IsBase(true);
@@ -840,7 +840,7 @@ bool KBookmarkMenu_IsDirty(const KBookmarkMenu* self) {
 }
 
 // Base class handler implementation
-bool KBookmarkMenu_QBaseIsDirty(const KBookmarkMenu* self) {
+bool KBookmarkMenu_SuperIsDirty(const KBookmarkMenu* self) {
     auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_IsDirty_IsBase(true);
@@ -885,7 +885,7 @@ libqt_string KBookmarkMenu_ParentAddress(const KBookmarkMenu* self) {
 }
 
 // Base class handler implementation
-libqt_string KBookmarkMenu_QBaseParentAddress(const KBookmarkMenu* self) {
+libqt_string KBookmarkMenu_SuperParentAddress(const KBookmarkMenu* self) {
     auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_ParentAddress_IsBase(true);
@@ -930,7 +930,7 @@ KBookmarkManager* KBookmarkMenu_Manager(const KBookmarkMenu* self) {
 }
 
 // Base class handler implementation
-KBookmarkManager* KBookmarkMenu_QBaseManager(const KBookmarkMenu* self) {
+KBookmarkManager* KBookmarkMenu_SuperManager(const KBookmarkMenu* self) {
     auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_Manager_IsBase(true);
@@ -959,7 +959,7 @@ KBookmarkOwner* KBookmarkMenu_Owner(const KBookmarkMenu* self) {
 }
 
 // Base class handler implementation
-KBookmarkOwner* KBookmarkMenu_QBaseOwner(const KBookmarkMenu* self) {
+KBookmarkOwner* KBookmarkMenu_SuperOwner(const KBookmarkMenu* self) {
     auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_Owner_IsBase(true);
@@ -988,7 +988,7 @@ QMenu* KBookmarkMenu_ParentMenu(const KBookmarkMenu* self) {
 }
 
 // Base class handler implementation
-QMenu* KBookmarkMenu_QBaseParentMenu(const KBookmarkMenu* self) {
+QMenu* KBookmarkMenu_SuperParentMenu(const KBookmarkMenu* self) {
     auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_ParentMenu_IsBase(true);
@@ -1017,7 +1017,7 @@ QObject* KBookmarkMenu_Sender(const KBookmarkMenu* self) {
 }
 
 // Base class handler implementation
-QObject* KBookmarkMenu_QBaseSender(const KBookmarkMenu* self) {
+QObject* KBookmarkMenu_SuperSender(const KBookmarkMenu* self) {
     auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_Sender_IsBase(true);
@@ -1046,7 +1046,7 @@ int KBookmarkMenu_SenderSignalIndex(const KBookmarkMenu* self) {
 }
 
 // Base class handler implementation
-int KBookmarkMenu_QBaseSenderSignalIndex(const KBookmarkMenu* self) {
+int KBookmarkMenu_SuperSenderSignalIndex(const KBookmarkMenu* self) {
     auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_SenderSignalIndex_IsBase(true);
@@ -1075,7 +1075,7 @@ int KBookmarkMenu_Receivers(const KBookmarkMenu* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KBookmarkMenu_QBaseReceivers(const KBookmarkMenu* self, const char* signal) {
+int KBookmarkMenu_SuperReceivers(const KBookmarkMenu* self, const char* signal) {
     auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_Receivers_IsBase(true);
@@ -1104,7 +1104,7 @@ bool KBookmarkMenu_IsSignalConnected(const KBookmarkMenu* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool KBookmarkMenu_QBaseIsSignalConnected(const KBookmarkMenu* self, const QMetaMethod* signal) {
+bool KBookmarkMenu_SuperIsSignalConnected(const KBookmarkMenu* self, const QMetaMethod* signal) {
     auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_IsSignalConnected_IsBase(true);

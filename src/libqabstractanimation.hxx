@@ -400,31 +400,31 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
 
     // Friend functions
     friend bool QAbstractAnimation_Event(QAbstractAnimation* self, QEvent* event);
-    friend bool QAbstractAnimation_QBaseEvent(QAbstractAnimation* self, QEvent* event);
+    friend bool QAbstractAnimation_SuperEvent(QAbstractAnimation* self, QEvent* event);
     friend void QAbstractAnimation_UpdateCurrentTime(QAbstractAnimation* self, int currentTime);
-    friend void QAbstractAnimation_QBaseUpdateCurrentTime(QAbstractAnimation* self, int currentTime);
+    friend void QAbstractAnimation_SuperUpdateCurrentTime(QAbstractAnimation* self, int currentTime);
     friend void QAbstractAnimation_UpdateState(QAbstractAnimation* self, int newState, int oldState);
-    friend void QAbstractAnimation_QBaseUpdateState(QAbstractAnimation* self, int newState, int oldState);
+    friend void QAbstractAnimation_SuperUpdateState(QAbstractAnimation* self, int newState, int oldState);
     friend void QAbstractAnimation_UpdateDirection(QAbstractAnimation* self, int direction);
-    friend void QAbstractAnimation_QBaseUpdateDirection(QAbstractAnimation* self, int direction);
+    friend void QAbstractAnimation_SuperUpdateDirection(QAbstractAnimation* self, int direction);
     friend void QAbstractAnimation_TimerEvent(QAbstractAnimation* self, QTimerEvent* event);
-    friend void QAbstractAnimation_QBaseTimerEvent(QAbstractAnimation* self, QTimerEvent* event);
+    friend void QAbstractAnimation_SuperTimerEvent(QAbstractAnimation* self, QTimerEvent* event);
     friend void QAbstractAnimation_ChildEvent(QAbstractAnimation* self, QChildEvent* event);
-    friend void QAbstractAnimation_QBaseChildEvent(QAbstractAnimation* self, QChildEvent* event);
+    friend void QAbstractAnimation_SuperChildEvent(QAbstractAnimation* self, QChildEvent* event);
     friend void QAbstractAnimation_CustomEvent(QAbstractAnimation* self, QEvent* event);
-    friend void QAbstractAnimation_QBaseCustomEvent(QAbstractAnimation* self, QEvent* event);
+    friend void QAbstractAnimation_SuperCustomEvent(QAbstractAnimation* self, QEvent* event);
     friend void QAbstractAnimation_ConnectNotify(QAbstractAnimation* self, const QMetaMethod* signal);
-    friend void QAbstractAnimation_QBaseConnectNotify(QAbstractAnimation* self, const QMetaMethod* signal);
+    friend void QAbstractAnimation_SuperConnectNotify(QAbstractAnimation* self, const QMetaMethod* signal);
     friend void QAbstractAnimation_DisconnectNotify(QAbstractAnimation* self, const QMetaMethod* signal);
-    friend void QAbstractAnimation_QBaseDisconnectNotify(QAbstractAnimation* self, const QMetaMethod* signal);
+    friend void QAbstractAnimation_SuperDisconnectNotify(QAbstractAnimation* self, const QMetaMethod* signal);
     friend QObject* QAbstractAnimation_Sender(const QAbstractAnimation* self);
-    friend QObject* QAbstractAnimation_QBaseSender(const QAbstractAnimation* self);
+    friend QObject* QAbstractAnimation_SuperSender(const QAbstractAnimation* self);
     friend int QAbstractAnimation_SenderSignalIndex(const QAbstractAnimation* self);
-    friend int QAbstractAnimation_QBaseSenderSignalIndex(const QAbstractAnimation* self);
+    friend int QAbstractAnimation_SuperSenderSignalIndex(const QAbstractAnimation* self);
     friend int QAbstractAnimation_Receivers(const QAbstractAnimation* self, const char* signal);
-    friend int QAbstractAnimation_QBaseReceivers(const QAbstractAnimation* self, const char* signal);
+    friend int QAbstractAnimation_SuperReceivers(const QAbstractAnimation* self, const char* signal);
     friend bool QAbstractAnimation_IsSignalConnected(const QAbstractAnimation* self, const QMetaMethod* signal);
-    friend bool QAbstractAnimation_QBaseIsSignalConnected(const QAbstractAnimation* self, const QMetaMethod* signal);
+    friend bool QAbstractAnimation_SuperIsSignalConnected(const QAbstractAnimation* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QAnimationDriver so that we can call protected methods
@@ -837,29 +837,29 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
 
     // Friend functions
     friend void QAnimationDriver_Start(QAnimationDriver* self);
-    friend void QAnimationDriver_QBaseStart(QAnimationDriver* self);
+    friend void QAnimationDriver_SuperStart(QAnimationDriver* self);
     friend void QAnimationDriver_Stop(QAnimationDriver* self);
-    friend void QAnimationDriver_QBaseStop(QAnimationDriver* self);
+    friend void QAnimationDriver_SuperStop(QAnimationDriver* self);
     friend void QAnimationDriver_TimerEvent(QAnimationDriver* self, QTimerEvent* event);
-    friend void QAnimationDriver_QBaseTimerEvent(QAnimationDriver* self, QTimerEvent* event);
+    friend void QAnimationDriver_SuperTimerEvent(QAnimationDriver* self, QTimerEvent* event);
     friend void QAnimationDriver_ChildEvent(QAnimationDriver* self, QChildEvent* event);
-    friend void QAnimationDriver_QBaseChildEvent(QAnimationDriver* self, QChildEvent* event);
+    friend void QAnimationDriver_SuperChildEvent(QAnimationDriver* self, QChildEvent* event);
     friend void QAnimationDriver_CustomEvent(QAnimationDriver* self, QEvent* event);
-    friend void QAnimationDriver_QBaseCustomEvent(QAnimationDriver* self, QEvent* event);
+    friend void QAnimationDriver_SuperCustomEvent(QAnimationDriver* self, QEvent* event);
     friend void QAnimationDriver_ConnectNotify(QAnimationDriver* self, const QMetaMethod* signal);
-    friend void QAnimationDriver_QBaseConnectNotify(QAnimationDriver* self, const QMetaMethod* signal);
+    friend void QAnimationDriver_SuperConnectNotify(QAnimationDriver* self, const QMetaMethod* signal);
     friend void QAnimationDriver_DisconnectNotify(QAnimationDriver* self, const QMetaMethod* signal);
-    friend void QAnimationDriver_QBaseDisconnectNotify(QAnimationDriver* self, const QMetaMethod* signal);
+    friend void QAnimationDriver_SuperDisconnectNotify(QAnimationDriver* self, const QMetaMethod* signal);
     friend void QAnimationDriver_AdvanceAnimation(QAnimationDriver* self);
-    friend void QAnimationDriver_QBaseAdvanceAnimation(QAnimationDriver* self);
+    friend void QAnimationDriver_SuperAdvanceAnimation(QAnimationDriver* self);
     friend QObject* QAnimationDriver_Sender(const QAnimationDriver* self);
-    friend QObject* QAnimationDriver_QBaseSender(const QAnimationDriver* self);
+    friend QObject* QAnimationDriver_SuperSender(const QAnimationDriver* self);
     friend int QAnimationDriver_SenderSignalIndex(const QAnimationDriver* self);
-    friend int QAnimationDriver_QBaseSenderSignalIndex(const QAnimationDriver* self);
+    friend int QAnimationDriver_SuperSenderSignalIndex(const QAnimationDriver* self);
     friend int QAnimationDriver_Receivers(const QAnimationDriver* self, const char* signal);
-    friend int QAnimationDriver_QBaseReceivers(const QAnimationDriver* self, const char* signal);
+    friend int QAnimationDriver_SuperReceivers(const QAnimationDriver* self, const char* signal);
     friend bool QAnimationDriver_IsSignalConnected(const QAnimationDriver* self, const QMetaMethod* signal);
-    friend bool QAnimationDriver_QBaseIsSignalConnected(const QAnimationDriver* self, const QMetaMethod* signal);
+    friend bool QAnimationDriver_SuperIsSignalConnected(const QAnimationDriver* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -115,7 +115,7 @@ void KNSWidgets__Button_Connect_DialogFinished(KNSWidgets__Button* self, intptr_
 }
 
 // Base class handler implementation
-QMetaObject* KNSWidgets__Button_QBaseMetaObject(const KNSWidgets__Button* self) {
+QMetaObject* KNSWidgets__Button_SuperMetaObject(const KNSWidgets__Button* self) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_MetaObject_IsBase(true);
@@ -134,7 +134,7 @@ void KNSWidgets__Button_OnMetaObject(const KNSWidgets__Button* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* KNSWidgets__Button_QBaseMetacast(KNSWidgets__Button* self, const char* param1) {
+void* KNSWidgets__Button_SuperMetacast(KNSWidgets__Button* self, const char* param1) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_Metacast_IsBase(true);
@@ -153,7 +153,7 @@ void KNSWidgets__Button_OnMetacast(KNSWidgets__Button* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KNSWidgets__Button_QBaseMetacall(KNSWidgets__Button* self, int param1, int param2, void** param3) {
+int KNSWidgets__Button_SuperMetacall(KNSWidgets__Button* self, int param1, int param2, void** param3) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_Metacall_IsBase(true);
@@ -182,7 +182,7 @@ QSize* KNSWidgets__Button_SizeHint(const KNSWidgets__Button* self) {
 }
 
 // Base class handler implementation
-QSize* KNSWidgets__Button_QBaseSizeHint(const KNSWidgets__Button* self) {
+QSize* KNSWidgets__Button_SuperSizeHint(const KNSWidgets__Button* self) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_SizeHint_IsBase(true);
@@ -211,7 +211,7 @@ QSize* KNSWidgets__Button_MinimumSizeHint(const KNSWidgets__Button* self) {
 }
 
 // Base class handler implementation
-QSize* KNSWidgets__Button_QBaseMinimumSizeHint(const KNSWidgets__Button* self) {
+QSize* KNSWidgets__Button_SuperMinimumSizeHint(const KNSWidgets__Button* self) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_MinimumSizeHint_IsBase(true);
@@ -240,7 +240,7 @@ bool KNSWidgets__Button_Event(KNSWidgets__Button* self, QEvent* e) {
 }
 
 // Base class handler implementation
-bool KNSWidgets__Button_QBaseEvent(KNSWidgets__Button* self, QEvent* e) {
+bool KNSWidgets__Button_SuperEvent(KNSWidgets__Button* self, QEvent* e) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_Event_IsBase(true);
@@ -269,7 +269,7 @@ void KNSWidgets__Button_PaintEvent(KNSWidgets__Button* self, QPaintEvent* param1
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBasePaintEvent(KNSWidgets__Button* self, QPaintEvent* param1) {
+void KNSWidgets__Button_SuperPaintEvent(KNSWidgets__Button* self, QPaintEvent* param1) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_PaintEvent_IsBase(true);
@@ -298,7 +298,7 @@ void KNSWidgets__Button_KeyPressEvent(KNSWidgets__Button* self, QKeyEvent* param
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseKeyPressEvent(KNSWidgets__Button* self, QKeyEvent* param1) {
+void KNSWidgets__Button_SuperKeyPressEvent(KNSWidgets__Button* self, QKeyEvent* param1) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_KeyPressEvent_IsBase(true);
@@ -327,7 +327,7 @@ void KNSWidgets__Button_FocusInEvent(KNSWidgets__Button* self, QFocusEvent* para
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseFocusInEvent(KNSWidgets__Button* self, QFocusEvent* param1) {
+void KNSWidgets__Button_SuperFocusInEvent(KNSWidgets__Button* self, QFocusEvent* param1) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_FocusInEvent_IsBase(true);
@@ -356,7 +356,7 @@ void KNSWidgets__Button_FocusOutEvent(KNSWidgets__Button* self, QFocusEvent* par
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseFocusOutEvent(KNSWidgets__Button* self, QFocusEvent* param1) {
+void KNSWidgets__Button_SuperFocusOutEvent(KNSWidgets__Button* self, QFocusEvent* param1) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_FocusOutEvent_IsBase(true);
@@ -385,7 +385,7 @@ void KNSWidgets__Button_MouseMoveEvent(KNSWidgets__Button* self, QMouseEvent* pa
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseMouseMoveEvent(KNSWidgets__Button* self, QMouseEvent* param1) {
+void KNSWidgets__Button_SuperMouseMoveEvent(KNSWidgets__Button* self, QMouseEvent* param1) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_MouseMoveEvent_IsBase(true);
@@ -414,7 +414,7 @@ void KNSWidgets__Button_InitStyleOption(const KNSWidgets__Button* self, QStyleOp
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseInitStyleOption(const KNSWidgets__Button* self, QStyleOptionButton* option) {
+void KNSWidgets__Button_SuperInitStyleOption(const KNSWidgets__Button* self, QStyleOptionButton* option) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_InitStyleOption_IsBase(true);
@@ -443,7 +443,7 @@ bool KNSWidgets__Button_HitButton(const KNSWidgets__Button* self, const QPoint* 
 }
 
 // Base class handler implementation
-bool KNSWidgets__Button_QBaseHitButton(const KNSWidgets__Button* self, const QPoint* pos) {
+bool KNSWidgets__Button_SuperHitButton(const KNSWidgets__Button* self, const QPoint* pos) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_HitButton_IsBase(true);
@@ -472,7 +472,7 @@ void KNSWidgets__Button_CheckStateSet(KNSWidgets__Button* self) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseCheckStateSet(KNSWidgets__Button* self) {
+void KNSWidgets__Button_SuperCheckStateSet(KNSWidgets__Button* self) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_CheckStateSet_IsBase(true);
@@ -501,7 +501,7 @@ void KNSWidgets__Button_NextCheckState(KNSWidgets__Button* self) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseNextCheckState(KNSWidgets__Button* self) {
+void KNSWidgets__Button_SuperNextCheckState(KNSWidgets__Button* self) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_NextCheckState_IsBase(true);
@@ -530,7 +530,7 @@ void KNSWidgets__Button_KeyReleaseEvent(KNSWidgets__Button* self, QKeyEvent* e) 
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseKeyReleaseEvent(KNSWidgets__Button* self, QKeyEvent* e) {
+void KNSWidgets__Button_SuperKeyReleaseEvent(KNSWidgets__Button* self, QKeyEvent* e) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_KeyReleaseEvent_IsBase(true);
@@ -559,7 +559,7 @@ void KNSWidgets__Button_MousePressEvent(KNSWidgets__Button* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseMousePressEvent(KNSWidgets__Button* self, QMouseEvent* e) {
+void KNSWidgets__Button_SuperMousePressEvent(KNSWidgets__Button* self, QMouseEvent* e) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_MousePressEvent_IsBase(true);
@@ -588,7 +588,7 @@ void KNSWidgets__Button_MouseReleaseEvent(KNSWidgets__Button* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseMouseReleaseEvent(KNSWidgets__Button* self, QMouseEvent* e) {
+void KNSWidgets__Button_SuperMouseReleaseEvent(KNSWidgets__Button* self, QMouseEvent* e) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_MouseReleaseEvent_IsBase(true);
@@ -617,7 +617,7 @@ void KNSWidgets__Button_ChangeEvent(KNSWidgets__Button* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseChangeEvent(KNSWidgets__Button* self, QEvent* e) {
+void KNSWidgets__Button_SuperChangeEvent(KNSWidgets__Button* self, QEvent* e) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_ChangeEvent_IsBase(true);
@@ -646,7 +646,7 @@ void KNSWidgets__Button_TimerEvent(KNSWidgets__Button* self, QTimerEvent* e) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseTimerEvent(KNSWidgets__Button* self, QTimerEvent* e) {
+void KNSWidgets__Button_SuperTimerEvent(KNSWidgets__Button* self, QTimerEvent* e) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_TimerEvent_IsBase(true);
@@ -675,7 +675,7 @@ int KNSWidgets__Button_DevType(const KNSWidgets__Button* self) {
 }
 
 // Base class handler implementation
-int KNSWidgets__Button_QBaseDevType(const KNSWidgets__Button* self) {
+int KNSWidgets__Button_SuperDevType(const KNSWidgets__Button* self) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_DevType_IsBase(true);
@@ -704,7 +704,7 @@ void KNSWidgets__Button_SetVisible(KNSWidgets__Button* self, bool visible) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseSetVisible(KNSWidgets__Button* self, bool visible) {
+void KNSWidgets__Button_SuperSetVisible(KNSWidgets__Button* self, bool visible) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_SetVisible_IsBase(true);
@@ -733,7 +733,7 @@ int KNSWidgets__Button_HeightForWidth(const KNSWidgets__Button* self, int param1
 }
 
 // Base class handler implementation
-int KNSWidgets__Button_QBaseHeightForWidth(const KNSWidgets__Button* self, int param1) {
+int KNSWidgets__Button_SuperHeightForWidth(const KNSWidgets__Button* self, int param1) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_HeightForWidth_IsBase(true);
@@ -762,7 +762,7 @@ bool KNSWidgets__Button_HasHeightForWidth(const KNSWidgets__Button* self) {
 }
 
 // Base class handler implementation
-bool KNSWidgets__Button_QBaseHasHeightForWidth(const KNSWidgets__Button* self) {
+bool KNSWidgets__Button_SuperHasHeightForWidth(const KNSWidgets__Button* self) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_HasHeightForWidth_IsBase(true);
@@ -791,7 +791,7 @@ QPaintEngine* KNSWidgets__Button_PaintEngine(const KNSWidgets__Button* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KNSWidgets__Button_QBasePaintEngine(const KNSWidgets__Button* self) {
+QPaintEngine* KNSWidgets__Button_SuperPaintEngine(const KNSWidgets__Button* self) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_PaintEngine_IsBase(true);
@@ -820,7 +820,7 @@ void KNSWidgets__Button_MouseDoubleClickEvent(KNSWidgets__Button* self, QMouseEv
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseMouseDoubleClickEvent(KNSWidgets__Button* self, QMouseEvent* event) {
+void KNSWidgets__Button_SuperMouseDoubleClickEvent(KNSWidgets__Button* self, QMouseEvent* event) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_MouseDoubleClickEvent_IsBase(true);
@@ -849,7 +849,7 @@ void KNSWidgets__Button_WheelEvent(KNSWidgets__Button* self, QWheelEvent* event)
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseWheelEvent(KNSWidgets__Button* self, QWheelEvent* event) {
+void KNSWidgets__Button_SuperWheelEvent(KNSWidgets__Button* self, QWheelEvent* event) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_WheelEvent_IsBase(true);
@@ -878,7 +878,7 @@ void KNSWidgets__Button_EnterEvent(KNSWidgets__Button* self, QEnterEvent* event)
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseEnterEvent(KNSWidgets__Button* self, QEnterEvent* event) {
+void KNSWidgets__Button_SuperEnterEvent(KNSWidgets__Button* self, QEnterEvent* event) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_EnterEvent_IsBase(true);
@@ -907,7 +907,7 @@ void KNSWidgets__Button_LeaveEvent(KNSWidgets__Button* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseLeaveEvent(KNSWidgets__Button* self, QEvent* event) {
+void KNSWidgets__Button_SuperLeaveEvent(KNSWidgets__Button* self, QEvent* event) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_LeaveEvent_IsBase(true);
@@ -936,7 +936,7 @@ void KNSWidgets__Button_MoveEvent(KNSWidgets__Button* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseMoveEvent(KNSWidgets__Button* self, QMoveEvent* event) {
+void KNSWidgets__Button_SuperMoveEvent(KNSWidgets__Button* self, QMoveEvent* event) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_MoveEvent_IsBase(true);
@@ -965,7 +965,7 @@ void KNSWidgets__Button_ResizeEvent(KNSWidgets__Button* self, QResizeEvent* even
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseResizeEvent(KNSWidgets__Button* self, QResizeEvent* event) {
+void KNSWidgets__Button_SuperResizeEvent(KNSWidgets__Button* self, QResizeEvent* event) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_ResizeEvent_IsBase(true);
@@ -994,7 +994,7 @@ void KNSWidgets__Button_CloseEvent(KNSWidgets__Button* self, QCloseEvent* event)
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseCloseEvent(KNSWidgets__Button* self, QCloseEvent* event) {
+void KNSWidgets__Button_SuperCloseEvent(KNSWidgets__Button* self, QCloseEvent* event) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_CloseEvent_IsBase(true);
@@ -1023,7 +1023,7 @@ void KNSWidgets__Button_ContextMenuEvent(KNSWidgets__Button* self, QContextMenuE
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseContextMenuEvent(KNSWidgets__Button* self, QContextMenuEvent* event) {
+void KNSWidgets__Button_SuperContextMenuEvent(KNSWidgets__Button* self, QContextMenuEvent* event) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_ContextMenuEvent_IsBase(true);
@@ -1052,7 +1052,7 @@ void KNSWidgets__Button_TabletEvent(KNSWidgets__Button* self, QTabletEvent* even
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseTabletEvent(KNSWidgets__Button* self, QTabletEvent* event) {
+void KNSWidgets__Button_SuperTabletEvent(KNSWidgets__Button* self, QTabletEvent* event) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_TabletEvent_IsBase(true);
@@ -1081,7 +1081,7 @@ void KNSWidgets__Button_ActionEvent(KNSWidgets__Button* self, QActionEvent* even
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseActionEvent(KNSWidgets__Button* self, QActionEvent* event) {
+void KNSWidgets__Button_SuperActionEvent(KNSWidgets__Button* self, QActionEvent* event) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_ActionEvent_IsBase(true);
@@ -1110,7 +1110,7 @@ void KNSWidgets__Button_DragEnterEvent(KNSWidgets__Button* self, QDragEnterEvent
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseDragEnterEvent(KNSWidgets__Button* self, QDragEnterEvent* event) {
+void KNSWidgets__Button_SuperDragEnterEvent(KNSWidgets__Button* self, QDragEnterEvent* event) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_DragEnterEvent_IsBase(true);
@@ -1139,7 +1139,7 @@ void KNSWidgets__Button_DragMoveEvent(KNSWidgets__Button* self, QDragMoveEvent* 
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseDragMoveEvent(KNSWidgets__Button* self, QDragMoveEvent* event) {
+void KNSWidgets__Button_SuperDragMoveEvent(KNSWidgets__Button* self, QDragMoveEvent* event) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_DragMoveEvent_IsBase(true);
@@ -1168,7 +1168,7 @@ void KNSWidgets__Button_DragLeaveEvent(KNSWidgets__Button* self, QDragLeaveEvent
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseDragLeaveEvent(KNSWidgets__Button* self, QDragLeaveEvent* event) {
+void KNSWidgets__Button_SuperDragLeaveEvent(KNSWidgets__Button* self, QDragLeaveEvent* event) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_DragLeaveEvent_IsBase(true);
@@ -1197,7 +1197,7 @@ void KNSWidgets__Button_DropEvent(KNSWidgets__Button* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseDropEvent(KNSWidgets__Button* self, QDropEvent* event) {
+void KNSWidgets__Button_SuperDropEvent(KNSWidgets__Button* self, QDropEvent* event) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_DropEvent_IsBase(true);
@@ -1226,7 +1226,7 @@ void KNSWidgets__Button_ShowEvent(KNSWidgets__Button* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseShowEvent(KNSWidgets__Button* self, QShowEvent* event) {
+void KNSWidgets__Button_SuperShowEvent(KNSWidgets__Button* self, QShowEvent* event) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_ShowEvent_IsBase(true);
@@ -1255,7 +1255,7 @@ void KNSWidgets__Button_HideEvent(KNSWidgets__Button* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseHideEvent(KNSWidgets__Button* self, QHideEvent* event) {
+void KNSWidgets__Button_SuperHideEvent(KNSWidgets__Button* self, QHideEvent* event) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_HideEvent_IsBase(true);
@@ -1285,7 +1285,7 @@ bool KNSWidgets__Button_NativeEvent(KNSWidgets__Button* self, const libqt_string
 }
 
 // Base class handler implementation
-bool KNSWidgets__Button_QBaseNativeEvent(KNSWidgets__Button* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KNSWidgets__Button_SuperNativeEvent(KNSWidgets__Button* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
@@ -1315,7 +1315,7 @@ int KNSWidgets__Button_Metric(const KNSWidgets__Button* self, int param1) {
 }
 
 // Base class handler implementation
-int KNSWidgets__Button_QBaseMetric(const KNSWidgets__Button* self, int param1) {
+int KNSWidgets__Button_SuperMetric(const KNSWidgets__Button* self, int param1) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_Metric_IsBase(true);
@@ -1344,7 +1344,7 @@ void KNSWidgets__Button_InitPainter(const KNSWidgets__Button* self, QPainter* pa
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseInitPainter(const KNSWidgets__Button* self, QPainter* painter) {
+void KNSWidgets__Button_SuperInitPainter(const KNSWidgets__Button* self, QPainter* painter) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_InitPainter_IsBase(true);
@@ -1373,7 +1373,7 @@ QPaintDevice* KNSWidgets__Button_Redirected(const KNSWidgets__Button* self, QPoi
 }
 
 // Base class handler implementation
-QPaintDevice* KNSWidgets__Button_QBaseRedirected(const KNSWidgets__Button* self, QPoint* offset) {
+QPaintDevice* KNSWidgets__Button_SuperRedirected(const KNSWidgets__Button* self, QPoint* offset) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_Redirected_IsBase(true);
@@ -1402,7 +1402,7 @@ QPainter* KNSWidgets__Button_SharedPainter(const KNSWidgets__Button* self) {
 }
 
 // Base class handler implementation
-QPainter* KNSWidgets__Button_QBaseSharedPainter(const KNSWidgets__Button* self) {
+QPainter* KNSWidgets__Button_SuperSharedPainter(const KNSWidgets__Button* self) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_SharedPainter_IsBase(true);
@@ -1431,7 +1431,7 @@ void KNSWidgets__Button_InputMethodEvent(KNSWidgets__Button* self, QInputMethodE
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseInputMethodEvent(KNSWidgets__Button* self, QInputMethodEvent* param1) {
+void KNSWidgets__Button_SuperInputMethodEvent(KNSWidgets__Button* self, QInputMethodEvent* param1) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_InputMethodEvent_IsBase(true);
@@ -1460,7 +1460,7 @@ QVariant* KNSWidgets__Button_InputMethodQuery(const KNSWidgets__Button* self, in
 }
 
 // Base class handler implementation
-QVariant* KNSWidgets__Button_QBaseInputMethodQuery(const KNSWidgets__Button* self, int param1) {
+QVariant* KNSWidgets__Button_SuperInputMethodQuery(const KNSWidgets__Button* self, int param1) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_InputMethodQuery_IsBase(true);
@@ -1489,7 +1489,7 @@ bool KNSWidgets__Button_FocusNextPrevChild(KNSWidgets__Button* self, bool next) 
 }
 
 // Base class handler implementation
-bool KNSWidgets__Button_QBaseFocusNextPrevChild(KNSWidgets__Button* self, bool next) {
+bool KNSWidgets__Button_SuperFocusNextPrevChild(KNSWidgets__Button* self, bool next) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_FocusNextPrevChild_IsBase(true);
@@ -1518,7 +1518,7 @@ bool KNSWidgets__Button_EventFilter(KNSWidgets__Button* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool KNSWidgets__Button_QBaseEventFilter(KNSWidgets__Button* self, QObject* watched, QEvent* event) {
+bool KNSWidgets__Button_SuperEventFilter(KNSWidgets__Button* self, QObject* watched, QEvent* event) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_EventFilter_IsBase(true);
@@ -1547,7 +1547,7 @@ void KNSWidgets__Button_ChildEvent(KNSWidgets__Button* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseChildEvent(KNSWidgets__Button* self, QChildEvent* event) {
+void KNSWidgets__Button_SuperChildEvent(KNSWidgets__Button* self, QChildEvent* event) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_ChildEvent_IsBase(true);
@@ -1576,7 +1576,7 @@ void KNSWidgets__Button_CustomEvent(KNSWidgets__Button* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseCustomEvent(KNSWidgets__Button* self, QEvent* event) {
+void KNSWidgets__Button_SuperCustomEvent(KNSWidgets__Button* self, QEvent* event) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_CustomEvent_IsBase(true);
@@ -1605,7 +1605,7 @@ void KNSWidgets__Button_ConnectNotify(KNSWidgets__Button* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseConnectNotify(KNSWidgets__Button* self, const QMetaMethod* signal) {
+void KNSWidgets__Button_SuperConnectNotify(KNSWidgets__Button* self, const QMetaMethod* signal) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_ConnectNotify_IsBase(true);
@@ -1634,7 +1634,7 @@ void KNSWidgets__Button_DisconnectNotify(KNSWidgets__Button* self, const QMetaMe
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseDisconnectNotify(KNSWidgets__Button* self, const QMetaMethod* signal) {
+void KNSWidgets__Button_SuperDisconnectNotify(KNSWidgets__Button* self, const QMetaMethod* signal) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_DisconnectNotify_IsBase(true);
@@ -1663,7 +1663,7 @@ void KNSWidgets__Button_UpdateMicroFocus(KNSWidgets__Button* self) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseUpdateMicroFocus(KNSWidgets__Button* self) {
+void KNSWidgets__Button_SuperUpdateMicroFocus(KNSWidgets__Button* self) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_UpdateMicroFocus_IsBase(true);
@@ -1692,7 +1692,7 @@ void KNSWidgets__Button_Create(KNSWidgets__Button* self) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseCreate(KNSWidgets__Button* self) {
+void KNSWidgets__Button_SuperCreate(KNSWidgets__Button* self) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_Create_IsBase(true);
@@ -1721,7 +1721,7 @@ void KNSWidgets__Button_Destroy(KNSWidgets__Button* self) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Button_QBaseDestroy(KNSWidgets__Button* self) {
+void KNSWidgets__Button_SuperDestroy(KNSWidgets__Button* self) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_Destroy_IsBase(true);
@@ -1750,7 +1750,7 @@ bool KNSWidgets__Button_FocusNextChild(KNSWidgets__Button* self) {
 }
 
 // Base class handler implementation
-bool KNSWidgets__Button_QBaseFocusNextChild(KNSWidgets__Button* self) {
+bool KNSWidgets__Button_SuperFocusNextChild(KNSWidgets__Button* self) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_FocusNextChild_IsBase(true);
@@ -1779,7 +1779,7 @@ bool KNSWidgets__Button_FocusPreviousChild(KNSWidgets__Button* self) {
 }
 
 // Base class handler implementation
-bool KNSWidgets__Button_QBaseFocusPreviousChild(KNSWidgets__Button* self) {
+bool KNSWidgets__Button_SuperFocusPreviousChild(KNSWidgets__Button* self) {
     auto* vknswidgetsbutton = dynamic_cast<VirtualKNSWidgetsButton*>(self);
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_FocusPreviousChild_IsBase(true);
@@ -1808,7 +1808,7 @@ QObject* KNSWidgets__Button_Sender(const KNSWidgets__Button* self) {
 }
 
 // Base class handler implementation
-QObject* KNSWidgets__Button_QBaseSender(const KNSWidgets__Button* self) {
+QObject* KNSWidgets__Button_SuperSender(const KNSWidgets__Button* self) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_Sender_IsBase(true);
@@ -1837,7 +1837,7 @@ int KNSWidgets__Button_SenderSignalIndex(const KNSWidgets__Button* self) {
 }
 
 // Base class handler implementation
-int KNSWidgets__Button_QBaseSenderSignalIndex(const KNSWidgets__Button* self) {
+int KNSWidgets__Button_SuperSenderSignalIndex(const KNSWidgets__Button* self) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_SenderSignalIndex_IsBase(true);
@@ -1866,7 +1866,7 @@ int KNSWidgets__Button_Receivers(const KNSWidgets__Button* self, const char* sig
 }
 
 // Base class handler implementation
-int KNSWidgets__Button_QBaseReceivers(const KNSWidgets__Button* self, const char* signal) {
+int KNSWidgets__Button_SuperReceivers(const KNSWidgets__Button* self, const char* signal) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_Receivers_IsBase(true);
@@ -1895,7 +1895,7 @@ bool KNSWidgets__Button_IsSignalConnected(const KNSWidgets__Button* self, const 
 }
 
 // Base class handler implementation
-bool KNSWidgets__Button_QBaseIsSignalConnected(const KNSWidgets__Button* self, const QMetaMethod* signal) {
+bool KNSWidgets__Button_SuperIsSignalConnected(const KNSWidgets__Button* self, const QMetaMethod* signal) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_IsSignalConnected_IsBase(true);
@@ -1924,7 +1924,7 @@ double KNSWidgets__Button_GetDecodedMetricF(const KNSWidgets__Button* self, int 
 }
 
 // Base class handler implementation
-double KNSWidgets__Button_QBaseGetDecodedMetricF(const KNSWidgets__Button* self, int metricA, int metricB) {
+double KNSWidgets__Button_SuperGetDecodedMetricF(const KNSWidgets__Button* self, int metricA, int metricB) {
     auto* vknswidgetsbutton = const_cast<VirtualKNSWidgetsButton*>(dynamic_cast<const VirtualKNSWidgetsButton*>(self));
     if (vknswidgetsbutton && vknswidgetsbutton->isVirtualKNSWidgetsButton) {
         vknswidgetsbutton->setKNSWidgets__Button_GetDecodedMetricF_IsBase(true);

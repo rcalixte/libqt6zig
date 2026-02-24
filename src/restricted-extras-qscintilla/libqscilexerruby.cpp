@@ -140,7 +140,7 @@ const char* QsciLexerRuby_BlockStartKeyword1(const QsciLexerRuby* self, int* sty
 }
 
 // Base class handler implementation
-QMetaObject* QsciLexerRuby_QBaseMetaObject(const QsciLexerRuby* self) {
+QMetaObject* QsciLexerRuby_SuperMetaObject(const QsciLexerRuby* self) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_MetaObject_IsBase(true);
@@ -159,7 +159,7 @@ void QsciLexerRuby_OnMetaObject(const QsciLexerRuby* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QsciLexerRuby_QBaseMetacast(QsciLexerRuby* self, const char* param1) {
+void* QsciLexerRuby_SuperMetacast(QsciLexerRuby* self, const char* param1) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_Metacast_IsBase(true);
@@ -178,7 +178,7 @@ void QsciLexerRuby_OnMetacast(QsciLexerRuby* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QsciLexerRuby_QBaseMetacall(QsciLexerRuby* self, int param1, int param2, void** param3) {
+int QsciLexerRuby_SuperMetacall(QsciLexerRuby* self, int param1, int param2, void** param3) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_Metacall_IsBase(true);
@@ -207,7 +207,7 @@ int QsciLexerRuby_LexerId(const QsciLexerRuby* self) {
 }
 
 // Base class handler implementation
-int QsciLexerRuby_QBaseLexerId(const QsciLexerRuby* self) {
+int QsciLexerRuby_SuperLexerId(const QsciLexerRuby* self) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_LexerId_IsBase(true);
@@ -236,7 +236,7 @@ const char* QsciLexerRuby_AutoCompletionFillups(const QsciLexerRuby* self) {
 }
 
 // Base class handler implementation
-const char* QsciLexerRuby_QBaseAutoCompletionFillups(const QsciLexerRuby* self) {
+const char* QsciLexerRuby_SuperAutoCompletionFillups(const QsciLexerRuby* self) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_AutoCompletionFillups_IsBase(true);
@@ -299,7 +299,7 @@ libqt_list /* of libqt_string */ QsciLexerRuby_AutoCompletionWordSeparators(cons
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QsciLexerRuby_QBaseAutoCompletionWordSeparators(const QsciLexerRuby* self) {
+libqt_list /* of libqt_string */ QsciLexerRuby_SuperAutoCompletionWordSeparators(const QsciLexerRuby* self) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_AutoCompletionWordSeparators_IsBase(true);
@@ -362,7 +362,7 @@ int QsciLexerRuby_BlockLookback(const QsciLexerRuby* self) {
 }
 
 // Base class handler implementation
-int QsciLexerRuby_QBaseBlockLookback(const QsciLexerRuby* self) {
+int QsciLexerRuby_SuperBlockLookback(const QsciLexerRuby* self) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_BlockLookback_IsBase(true);
@@ -391,7 +391,7 @@ bool QsciLexerRuby_CaseSensitive(const QsciLexerRuby* self) {
 }
 
 // Base class handler implementation
-bool QsciLexerRuby_QBaseCaseSensitive(const QsciLexerRuby* self) {
+bool QsciLexerRuby_SuperCaseSensitive(const QsciLexerRuby* self) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_CaseSensitive_IsBase(true);
@@ -420,7 +420,7 @@ QColor* QsciLexerRuby_Color(const QsciLexerRuby* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerRuby_QBaseColor(const QsciLexerRuby* self, int style) {
+QColor* QsciLexerRuby_SuperColor(const QsciLexerRuby* self, int style) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_Color_IsBase(true);
@@ -449,7 +449,7 @@ bool QsciLexerRuby_EolFill(const QsciLexerRuby* self, int style) {
 }
 
 // Base class handler implementation
-bool QsciLexerRuby_QBaseEolFill(const QsciLexerRuby* self, int style) {
+bool QsciLexerRuby_SuperEolFill(const QsciLexerRuby* self, int style) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_EolFill_IsBase(true);
@@ -478,7 +478,7 @@ QFont* QsciLexerRuby_Font(const QsciLexerRuby* self, int style) {
 }
 
 // Base class handler implementation
-QFont* QsciLexerRuby_QBaseFont(const QsciLexerRuby* self, int style) {
+QFont* QsciLexerRuby_SuperFont(const QsciLexerRuby* self, int style) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_Font_IsBase(true);
@@ -507,7 +507,7 @@ int QsciLexerRuby_IndentationGuideView(const QsciLexerRuby* self) {
 }
 
 // Base class handler implementation
-int QsciLexerRuby_QBaseIndentationGuideView(const QsciLexerRuby* self) {
+int QsciLexerRuby_SuperIndentationGuideView(const QsciLexerRuby* self) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_IndentationGuideView_IsBase(true);
@@ -536,7 +536,7 @@ int QsciLexerRuby_DefaultStyle(const QsciLexerRuby* self) {
 }
 
 // Base class handler implementation
-int QsciLexerRuby_QBaseDefaultStyle(const QsciLexerRuby* self) {
+int QsciLexerRuby_SuperDefaultStyle(const QsciLexerRuby* self) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_DefaultStyle_IsBase(true);
@@ -565,7 +565,7 @@ QColor* QsciLexerRuby_Paper(const QsciLexerRuby* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerRuby_QBasePaper(const QsciLexerRuby* self, int style) {
+QColor* QsciLexerRuby_SuperPaper(const QsciLexerRuby* self, int style) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_Paper_IsBase(true);
@@ -594,7 +594,7 @@ QColor* QsciLexerRuby_DefaultColor2(const QsciLexerRuby* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerRuby_QBaseDefaultColor2(const QsciLexerRuby* self, int style) {
+QColor* QsciLexerRuby_SuperDefaultColor2(const QsciLexerRuby* self, int style) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_DefaultColor2_IsBase(true);
@@ -623,7 +623,7 @@ QFont* QsciLexerRuby_DefaultFont2(const QsciLexerRuby* self, int style) {
 }
 
 // Base class handler implementation
-QFont* QsciLexerRuby_QBaseDefaultFont2(const QsciLexerRuby* self, int style) {
+QFont* QsciLexerRuby_SuperDefaultFont2(const QsciLexerRuby* self, int style) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_DefaultFont2_IsBase(true);
@@ -652,7 +652,7 @@ QColor* QsciLexerRuby_DefaultPaper2(const QsciLexerRuby* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerRuby_QBaseDefaultPaper2(const QsciLexerRuby* self, int style) {
+QColor* QsciLexerRuby_SuperDefaultPaper2(const QsciLexerRuby* self, int style) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_DefaultPaper2_IsBase(true);
@@ -681,7 +681,7 @@ void QsciLexerRuby_SetEditor(QsciLexerRuby* self, QsciScintilla* editor) {
 }
 
 // Base class handler implementation
-void QsciLexerRuby_QBaseSetEditor(QsciLexerRuby* self, QsciScintilla* editor) {
+void QsciLexerRuby_SuperSetEditor(QsciLexerRuby* self, QsciScintilla* editor) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_SetEditor_IsBase(true);
@@ -710,7 +710,7 @@ int QsciLexerRuby_StyleBitsNeeded(const QsciLexerRuby* self) {
 }
 
 // Base class handler implementation
-int QsciLexerRuby_QBaseStyleBitsNeeded(const QsciLexerRuby* self) {
+int QsciLexerRuby_SuperStyleBitsNeeded(const QsciLexerRuby* self) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_StyleBitsNeeded_IsBase(true);
@@ -739,7 +739,7 @@ const char* QsciLexerRuby_WordCharacters(const QsciLexerRuby* self) {
 }
 
 // Base class handler implementation
-const char* QsciLexerRuby_QBaseWordCharacters(const QsciLexerRuby* self) {
+const char* QsciLexerRuby_SuperWordCharacters(const QsciLexerRuby* self) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_WordCharacters_IsBase(true);
@@ -768,7 +768,7 @@ void QsciLexerRuby_SetAutoIndentStyle(QsciLexerRuby* self, int autoindentstyle) 
 }
 
 // Base class handler implementation
-void QsciLexerRuby_QBaseSetAutoIndentStyle(QsciLexerRuby* self, int autoindentstyle) {
+void QsciLexerRuby_SuperSetAutoIndentStyle(QsciLexerRuby* self, int autoindentstyle) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_SetAutoIndentStyle_IsBase(true);
@@ -797,7 +797,7 @@ void QsciLexerRuby_SetColor(QsciLexerRuby* self, const QColor* c, int style) {
 }
 
 // Base class handler implementation
-void QsciLexerRuby_QBaseSetColor(QsciLexerRuby* self, const QColor* c, int style) {
+void QsciLexerRuby_SuperSetColor(QsciLexerRuby* self, const QColor* c, int style) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_SetColor_IsBase(true);
@@ -826,7 +826,7 @@ void QsciLexerRuby_SetEolFill(QsciLexerRuby* self, bool eoffill, int style) {
 }
 
 // Base class handler implementation
-void QsciLexerRuby_QBaseSetEolFill(QsciLexerRuby* self, bool eoffill, int style) {
+void QsciLexerRuby_SuperSetEolFill(QsciLexerRuby* self, bool eoffill, int style) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_SetEolFill_IsBase(true);
@@ -855,7 +855,7 @@ void QsciLexerRuby_SetFont(QsciLexerRuby* self, const QFont* f, int style) {
 }
 
 // Base class handler implementation
-void QsciLexerRuby_QBaseSetFont(QsciLexerRuby* self, const QFont* f, int style) {
+void QsciLexerRuby_SuperSetFont(QsciLexerRuby* self, const QFont* f, int style) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_SetFont_IsBase(true);
@@ -884,7 +884,7 @@ void QsciLexerRuby_SetPaper(QsciLexerRuby* self, const QColor* c, int style) {
 }
 
 // Base class handler implementation
-void QsciLexerRuby_QBaseSetPaper(QsciLexerRuby* self, const QColor* c, int style) {
+void QsciLexerRuby_SuperSetPaper(QsciLexerRuby* self, const QColor* c, int style) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_SetPaper_IsBase(true);
@@ -914,7 +914,7 @@ bool QsciLexerRuby_ReadProperties(QsciLexerRuby* self, QSettings* qs, const libq
 }
 
 // Base class handler implementation
-bool QsciLexerRuby_QBaseReadProperties(QsciLexerRuby* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerRuby_SuperReadProperties(QsciLexerRuby* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
@@ -945,7 +945,7 @@ bool QsciLexerRuby_WriteProperties(const QsciLexerRuby* self, QSettings* qs, con
 }
 
 // Base class handler implementation
-bool QsciLexerRuby_QBaseWriteProperties(const QsciLexerRuby* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerRuby_SuperWriteProperties(const QsciLexerRuby* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
@@ -975,7 +975,7 @@ bool QsciLexerRuby_Event(QsciLexerRuby* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QsciLexerRuby_QBaseEvent(QsciLexerRuby* self, QEvent* event) {
+bool QsciLexerRuby_SuperEvent(QsciLexerRuby* self, QEvent* event) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_Event_IsBase(true);
@@ -1004,7 +1004,7 @@ bool QsciLexerRuby_EventFilter(QsciLexerRuby* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QsciLexerRuby_QBaseEventFilter(QsciLexerRuby* self, QObject* watched, QEvent* event) {
+bool QsciLexerRuby_SuperEventFilter(QsciLexerRuby* self, QObject* watched, QEvent* event) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_EventFilter_IsBase(true);
@@ -1033,7 +1033,7 @@ void QsciLexerRuby_TimerEvent(QsciLexerRuby* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerRuby_QBaseTimerEvent(QsciLexerRuby* self, QTimerEvent* event) {
+void QsciLexerRuby_SuperTimerEvent(QsciLexerRuby* self, QTimerEvent* event) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_TimerEvent_IsBase(true);
@@ -1062,7 +1062,7 @@ void QsciLexerRuby_ChildEvent(QsciLexerRuby* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerRuby_QBaseChildEvent(QsciLexerRuby* self, QChildEvent* event) {
+void QsciLexerRuby_SuperChildEvent(QsciLexerRuby* self, QChildEvent* event) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_ChildEvent_IsBase(true);
@@ -1091,7 +1091,7 @@ void QsciLexerRuby_CustomEvent(QsciLexerRuby* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerRuby_QBaseCustomEvent(QsciLexerRuby* self, QEvent* event) {
+void QsciLexerRuby_SuperCustomEvent(QsciLexerRuby* self, QEvent* event) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_CustomEvent_IsBase(true);
@@ -1120,7 +1120,7 @@ void QsciLexerRuby_ConnectNotify(QsciLexerRuby* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QsciLexerRuby_QBaseConnectNotify(QsciLexerRuby* self, const QMetaMethod* signal) {
+void QsciLexerRuby_SuperConnectNotify(QsciLexerRuby* self, const QMetaMethod* signal) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_ConnectNotify_IsBase(true);
@@ -1149,7 +1149,7 @@ void QsciLexerRuby_DisconnectNotify(QsciLexerRuby* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QsciLexerRuby_QBaseDisconnectNotify(QsciLexerRuby* self, const QMetaMethod* signal) {
+void QsciLexerRuby_SuperDisconnectNotify(QsciLexerRuby* self, const QMetaMethod* signal) {
     auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_DisconnectNotify_IsBase(true);
@@ -1189,7 +1189,7 @@ libqt_string QsciLexerRuby_TextAsBytes(const QsciLexerRuby* self, const libqt_st
 }
 
 // Base class handler implementation
-libqt_string QsciLexerRuby_QBaseTextAsBytes(const QsciLexerRuby* self, const libqt_string text) {
+libqt_string QsciLexerRuby_SuperTextAsBytes(const QsciLexerRuby* self, const libqt_string text) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
@@ -1245,7 +1245,7 @@ libqt_string QsciLexerRuby_BytesAsText(const QsciLexerRuby* self, const char* by
 }
 
 // Base class handler implementation
-libqt_string QsciLexerRuby_QBaseBytesAsText(const QsciLexerRuby* self, const char* bytes, int size) {
+libqt_string QsciLexerRuby_SuperBytesAsText(const QsciLexerRuby* self, const char* bytes, int size) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_BytesAsText_IsBase(true);
@@ -1290,7 +1290,7 @@ QObject* QsciLexerRuby_Sender(const QsciLexerRuby* self) {
 }
 
 // Base class handler implementation
-QObject* QsciLexerRuby_QBaseSender(const QsciLexerRuby* self) {
+QObject* QsciLexerRuby_SuperSender(const QsciLexerRuby* self) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_Sender_IsBase(true);
@@ -1319,7 +1319,7 @@ int QsciLexerRuby_SenderSignalIndex(const QsciLexerRuby* self) {
 }
 
 // Base class handler implementation
-int QsciLexerRuby_QBaseSenderSignalIndex(const QsciLexerRuby* self) {
+int QsciLexerRuby_SuperSenderSignalIndex(const QsciLexerRuby* self) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_SenderSignalIndex_IsBase(true);
@@ -1348,7 +1348,7 @@ int QsciLexerRuby_Receivers(const QsciLexerRuby* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QsciLexerRuby_QBaseReceivers(const QsciLexerRuby* self, const char* signal) {
+int QsciLexerRuby_SuperReceivers(const QsciLexerRuby* self, const char* signal) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_Receivers_IsBase(true);
@@ -1377,7 +1377,7 @@ bool QsciLexerRuby_IsSignalConnected(const QsciLexerRuby* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QsciLexerRuby_QBaseIsSignalConnected(const QsciLexerRuby* self, const QMetaMethod* signal) {
+bool QsciLexerRuby_SuperIsSignalConnected(const QsciLexerRuby* self, const QMetaMethod* signal) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         vqscilexerruby->setQsciLexerRuby_IsSignalConnected_IsBase(true);

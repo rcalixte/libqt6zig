@@ -329,23 +329,23 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
 
     // Friend functions
     friend void QGeoServiceProvider_TimerEvent(QGeoServiceProvider* self, QTimerEvent* event);
-    friend void QGeoServiceProvider_QBaseTimerEvent(QGeoServiceProvider* self, QTimerEvent* event);
+    friend void QGeoServiceProvider_SuperTimerEvent(QGeoServiceProvider* self, QTimerEvent* event);
     friend void QGeoServiceProvider_ChildEvent(QGeoServiceProvider* self, QChildEvent* event);
-    friend void QGeoServiceProvider_QBaseChildEvent(QGeoServiceProvider* self, QChildEvent* event);
+    friend void QGeoServiceProvider_SuperChildEvent(QGeoServiceProvider* self, QChildEvent* event);
     friend void QGeoServiceProvider_CustomEvent(QGeoServiceProvider* self, QEvent* event);
-    friend void QGeoServiceProvider_QBaseCustomEvent(QGeoServiceProvider* self, QEvent* event);
+    friend void QGeoServiceProvider_SuperCustomEvent(QGeoServiceProvider* self, QEvent* event);
     friend void QGeoServiceProvider_ConnectNotify(QGeoServiceProvider* self, const QMetaMethod* signal);
-    friend void QGeoServiceProvider_QBaseConnectNotify(QGeoServiceProvider* self, const QMetaMethod* signal);
+    friend void QGeoServiceProvider_SuperConnectNotify(QGeoServiceProvider* self, const QMetaMethod* signal);
     friend void QGeoServiceProvider_DisconnectNotify(QGeoServiceProvider* self, const QMetaMethod* signal);
-    friend void QGeoServiceProvider_QBaseDisconnectNotify(QGeoServiceProvider* self, const QMetaMethod* signal);
+    friend void QGeoServiceProvider_SuperDisconnectNotify(QGeoServiceProvider* self, const QMetaMethod* signal);
     friend QObject* QGeoServiceProvider_Sender(const QGeoServiceProvider* self);
-    friend QObject* QGeoServiceProvider_QBaseSender(const QGeoServiceProvider* self);
+    friend QObject* QGeoServiceProvider_SuperSender(const QGeoServiceProvider* self);
     friend int QGeoServiceProvider_SenderSignalIndex(const QGeoServiceProvider* self);
-    friend int QGeoServiceProvider_QBaseSenderSignalIndex(const QGeoServiceProvider* self);
+    friend int QGeoServiceProvider_SuperSenderSignalIndex(const QGeoServiceProvider* self);
     friend int QGeoServiceProvider_Receivers(const QGeoServiceProvider* self, const char* signal);
-    friend int QGeoServiceProvider_QBaseReceivers(const QGeoServiceProvider* self, const char* signal);
+    friend int QGeoServiceProvider_SuperReceivers(const QGeoServiceProvider* self, const char* signal);
     friend bool QGeoServiceProvider_IsSignalConnected(const QGeoServiceProvider* self, const QMetaMethod* signal);
-    friend bool QGeoServiceProvider_QBaseIsSignalConnected(const QGeoServiceProvider* self, const QMetaMethod* signal);
+    friend bool QGeoServiceProvider_SuperIsSignalConnected(const QGeoServiceProvider* self, const QMetaMethod* signal);
 };
 
 #endif

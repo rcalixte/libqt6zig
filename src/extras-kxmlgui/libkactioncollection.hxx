@@ -346,25 +346,25 @@ class VirtualKActionCollection final : public KActionCollection {
 
     // Friend functions
     friend void KActionCollection_ConnectNotify(KActionCollection* self, const QMetaMethod* signal);
-    friend void KActionCollection_QBaseConnectNotify(KActionCollection* self, const QMetaMethod* signal);
+    friend void KActionCollection_SuperConnectNotify(KActionCollection* self, const QMetaMethod* signal);
     friend void KActionCollection_SlotActionTriggered(KActionCollection* self);
-    friend void KActionCollection_QBaseSlotActionTriggered(KActionCollection* self);
+    friend void KActionCollection_SuperSlotActionTriggered(KActionCollection* self);
     friend void KActionCollection_TimerEvent(KActionCollection* self, QTimerEvent* event);
-    friend void KActionCollection_QBaseTimerEvent(KActionCollection* self, QTimerEvent* event);
+    friend void KActionCollection_SuperTimerEvent(KActionCollection* self, QTimerEvent* event);
     friend void KActionCollection_ChildEvent(KActionCollection* self, QChildEvent* event);
-    friend void KActionCollection_QBaseChildEvent(KActionCollection* self, QChildEvent* event);
+    friend void KActionCollection_SuperChildEvent(KActionCollection* self, QChildEvent* event);
     friend void KActionCollection_CustomEvent(KActionCollection* self, QEvent* event);
-    friend void KActionCollection_QBaseCustomEvent(KActionCollection* self, QEvent* event);
+    friend void KActionCollection_SuperCustomEvent(KActionCollection* self, QEvent* event);
     friend void KActionCollection_DisconnectNotify(KActionCollection* self, const QMetaMethod* signal);
-    friend void KActionCollection_QBaseDisconnectNotify(KActionCollection* self, const QMetaMethod* signal);
+    friend void KActionCollection_SuperDisconnectNotify(KActionCollection* self, const QMetaMethod* signal);
     friend QObject* KActionCollection_Sender(const KActionCollection* self);
-    friend QObject* KActionCollection_QBaseSender(const KActionCollection* self);
+    friend QObject* KActionCollection_SuperSender(const KActionCollection* self);
     friend int KActionCollection_SenderSignalIndex(const KActionCollection* self);
-    friend int KActionCollection_QBaseSenderSignalIndex(const KActionCollection* self);
+    friend int KActionCollection_SuperSenderSignalIndex(const KActionCollection* self);
     friend int KActionCollection_Receivers(const KActionCollection* self, const char* signal);
-    friend int KActionCollection_QBaseReceivers(const KActionCollection* self, const char* signal);
+    friend int KActionCollection_SuperReceivers(const KActionCollection* self, const char* signal);
     friend bool KActionCollection_IsSignalConnected(const KActionCollection* self, const QMetaMethod* signal);
-    friend bool KActionCollection_QBaseIsSignalConnected(const KActionCollection* self, const QMetaMethod* signal);
+    friend bool KActionCollection_SuperIsSignalConnected(const KActionCollection* self, const QMetaMethod* signal);
 };
 
 #endif

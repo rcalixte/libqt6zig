@@ -328,23 +328,23 @@ class VirtualKModelIndexProxyMapper final : public KModelIndexProxyMapper {
 
     // Friend functions
     friend void KModelIndexProxyMapper_TimerEvent(KModelIndexProxyMapper* self, QTimerEvent* event);
-    friend void KModelIndexProxyMapper_QBaseTimerEvent(KModelIndexProxyMapper* self, QTimerEvent* event);
+    friend void KModelIndexProxyMapper_SuperTimerEvent(KModelIndexProxyMapper* self, QTimerEvent* event);
     friend void KModelIndexProxyMapper_ChildEvent(KModelIndexProxyMapper* self, QChildEvent* event);
-    friend void KModelIndexProxyMapper_QBaseChildEvent(KModelIndexProxyMapper* self, QChildEvent* event);
+    friend void KModelIndexProxyMapper_SuperChildEvent(KModelIndexProxyMapper* self, QChildEvent* event);
     friend void KModelIndexProxyMapper_CustomEvent(KModelIndexProxyMapper* self, QEvent* event);
-    friend void KModelIndexProxyMapper_QBaseCustomEvent(KModelIndexProxyMapper* self, QEvent* event);
+    friend void KModelIndexProxyMapper_SuperCustomEvent(KModelIndexProxyMapper* self, QEvent* event);
     friend void KModelIndexProxyMapper_ConnectNotify(KModelIndexProxyMapper* self, const QMetaMethod* signal);
-    friend void KModelIndexProxyMapper_QBaseConnectNotify(KModelIndexProxyMapper* self, const QMetaMethod* signal);
+    friend void KModelIndexProxyMapper_SuperConnectNotify(KModelIndexProxyMapper* self, const QMetaMethod* signal);
     friend void KModelIndexProxyMapper_DisconnectNotify(KModelIndexProxyMapper* self, const QMetaMethod* signal);
-    friend void KModelIndexProxyMapper_QBaseDisconnectNotify(KModelIndexProxyMapper* self, const QMetaMethod* signal);
+    friend void KModelIndexProxyMapper_SuperDisconnectNotify(KModelIndexProxyMapper* self, const QMetaMethod* signal);
     friend QObject* KModelIndexProxyMapper_Sender(const KModelIndexProxyMapper* self);
-    friend QObject* KModelIndexProxyMapper_QBaseSender(const KModelIndexProxyMapper* self);
+    friend QObject* KModelIndexProxyMapper_SuperSender(const KModelIndexProxyMapper* self);
     friend int KModelIndexProxyMapper_SenderSignalIndex(const KModelIndexProxyMapper* self);
-    friend int KModelIndexProxyMapper_QBaseSenderSignalIndex(const KModelIndexProxyMapper* self);
+    friend int KModelIndexProxyMapper_SuperSenderSignalIndex(const KModelIndexProxyMapper* self);
     friend int KModelIndexProxyMapper_Receivers(const KModelIndexProxyMapper* self, const char* signal);
-    friend int KModelIndexProxyMapper_QBaseReceivers(const KModelIndexProxyMapper* self, const char* signal);
+    friend int KModelIndexProxyMapper_SuperReceivers(const KModelIndexProxyMapper* self, const char* signal);
     friend bool KModelIndexProxyMapper_IsSignalConnected(const KModelIndexProxyMapper* self, const QMetaMethod* signal);
-    friend bool KModelIndexProxyMapper_QBaseIsSignalConnected(const KModelIndexProxyMapper* self, const QMetaMethod* signal);
+    friend bool KModelIndexProxyMapper_SuperIsSignalConnected(const KModelIndexProxyMapper* self, const QMetaMethod* signal);
 };
 
 #endif

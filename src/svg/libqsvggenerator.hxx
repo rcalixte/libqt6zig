@@ -177,17 +177,17 @@ class VirtualQSvgGenerator final : public QSvgGenerator {
 
     // Friend functions
     friend QPaintEngine* QSvgGenerator_PaintEngine(const QSvgGenerator* self);
-    friend QPaintEngine* QSvgGenerator_QBasePaintEngine(const QSvgGenerator* self);
+    friend QPaintEngine* QSvgGenerator_SuperPaintEngine(const QSvgGenerator* self);
     friend int QSvgGenerator_Metric(const QSvgGenerator* self, int metric);
-    friend int QSvgGenerator_QBaseMetric(const QSvgGenerator* self, int metric);
+    friend int QSvgGenerator_SuperMetric(const QSvgGenerator* self, int metric);
     friend void QSvgGenerator_InitPainter(const QSvgGenerator* self, QPainter* painter);
-    friend void QSvgGenerator_QBaseInitPainter(const QSvgGenerator* self, QPainter* painter);
+    friend void QSvgGenerator_SuperInitPainter(const QSvgGenerator* self, QPainter* painter);
     friend QPaintDevice* QSvgGenerator_Redirected(const QSvgGenerator* self, QPoint* offset);
-    friend QPaintDevice* QSvgGenerator_QBaseRedirected(const QSvgGenerator* self, QPoint* offset);
+    friend QPaintDevice* QSvgGenerator_SuperRedirected(const QSvgGenerator* self, QPoint* offset);
     friend QPainter* QSvgGenerator_SharedPainter(const QSvgGenerator* self);
-    friend QPainter* QSvgGenerator_QBaseSharedPainter(const QSvgGenerator* self);
+    friend QPainter* QSvgGenerator_SuperSharedPainter(const QSvgGenerator* self);
     friend double QSvgGenerator_GetDecodedMetricF(const QSvgGenerator* self, int metricA, int metricB);
-    friend double QSvgGenerator_QBaseGetDecodedMetricF(const QSvgGenerator* self, int metricA, int metricB);
+    friend double QSvgGenerator_SuperGetDecodedMetricF(const QSvgGenerator* self, int metricA, int metricB);
 };
 
 #endif

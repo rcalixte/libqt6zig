@@ -368,7 +368,7 @@ void QAreaSeries_SetPointLabelsClipping1(QAreaSeries* self, bool enabled) {
 }
 
 // Base class handler implementation
-QMetaObject* QAreaSeries_QBaseMetaObject(const QAreaSeries* self) {
+QMetaObject* QAreaSeries_SuperMetaObject(const QAreaSeries* self) {
     auto* vqareaseries = const_cast<VirtualQAreaSeries*>(dynamic_cast<const VirtualQAreaSeries*>(self));
     if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
         vqareaseries->setQAreaSeries_MetaObject_IsBase(true);
@@ -387,7 +387,7 @@ void QAreaSeries_OnMetaObject(const QAreaSeries* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QAreaSeries_QBaseMetacast(QAreaSeries* self, const char* param1) {
+void* QAreaSeries_SuperMetacast(QAreaSeries* self, const char* param1) {
     auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
     if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
         vqareaseries->setQAreaSeries_Metacast_IsBase(true);
@@ -406,7 +406,7 @@ void QAreaSeries_OnMetacast(QAreaSeries* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAreaSeries_QBaseMetacall(QAreaSeries* self, int param1, int param2, void** param3) {
+int QAreaSeries_SuperMetacall(QAreaSeries* self, int param1, int param2, void** param3) {
     auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
     if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
         vqareaseries->setQAreaSeries_Metacall_IsBase(true);
@@ -425,7 +425,7 @@ void QAreaSeries_OnMetacall(QAreaSeries* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAreaSeries_QBaseType(const QAreaSeries* self) {
+int QAreaSeries_SuperType(const QAreaSeries* self) {
     auto* vqareaseries = const_cast<VirtualQAreaSeries*>(dynamic_cast<const VirtualQAreaSeries*>(self));
     if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
         vqareaseries->setQAreaSeries_Type_IsBase(true);
@@ -454,7 +454,7 @@ bool QAreaSeries_Event(QAreaSeries* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QAreaSeries_QBaseEvent(QAreaSeries* self, QEvent* event) {
+bool QAreaSeries_SuperEvent(QAreaSeries* self, QEvent* event) {
     auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
     if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
         vqareaseries->setQAreaSeries_Event_IsBase(true);
@@ -483,7 +483,7 @@ bool QAreaSeries_EventFilter(QAreaSeries* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QAreaSeries_QBaseEventFilter(QAreaSeries* self, QObject* watched, QEvent* event) {
+bool QAreaSeries_SuperEventFilter(QAreaSeries* self, QObject* watched, QEvent* event) {
     auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
     if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
         vqareaseries->setQAreaSeries_EventFilter_IsBase(true);
@@ -512,7 +512,7 @@ void QAreaSeries_TimerEvent(QAreaSeries* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QAreaSeries_QBaseTimerEvent(QAreaSeries* self, QTimerEvent* event) {
+void QAreaSeries_SuperTimerEvent(QAreaSeries* self, QTimerEvent* event) {
     auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
     if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
         vqareaseries->setQAreaSeries_TimerEvent_IsBase(true);
@@ -541,7 +541,7 @@ void QAreaSeries_ChildEvent(QAreaSeries* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QAreaSeries_QBaseChildEvent(QAreaSeries* self, QChildEvent* event) {
+void QAreaSeries_SuperChildEvent(QAreaSeries* self, QChildEvent* event) {
     auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
     if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
         vqareaseries->setQAreaSeries_ChildEvent_IsBase(true);
@@ -570,7 +570,7 @@ void QAreaSeries_CustomEvent(QAreaSeries* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAreaSeries_QBaseCustomEvent(QAreaSeries* self, QEvent* event) {
+void QAreaSeries_SuperCustomEvent(QAreaSeries* self, QEvent* event) {
     auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
     if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
         vqareaseries->setQAreaSeries_CustomEvent_IsBase(true);
@@ -599,7 +599,7 @@ void QAreaSeries_ConnectNotify(QAreaSeries* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QAreaSeries_QBaseConnectNotify(QAreaSeries* self, const QMetaMethod* signal) {
+void QAreaSeries_SuperConnectNotify(QAreaSeries* self, const QMetaMethod* signal) {
     auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
     if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
         vqareaseries->setQAreaSeries_ConnectNotify_IsBase(true);
@@ -628,7 +628,7 @@ void QAreaSeries_DisconnectNotify(QAreaSeries* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QAreaSeries_QBaseDisconnectNotify(QAreaSeries* self, const QMetaMethod* signal) {
+void QAreaSeries_SuperDisconnectNotify(QAreaSeries* self, const QMetaMethod* signal) {
     auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
     if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
         vqareaseries->setQAreaSeries_DisconnectNotify_IsBase(true);
@@ -657,7 +657,7 @@ QObject* QAreaSeries_Sender(const QAreaSeries* self) {
 }
 
 // Base class handler implementation
-QObject* QAreaSeries_QBaseSender(const QAreaSeries* self) {
+QObject* QAreaSeries_SuperSender(const QAreaSeries* self) {
     auto* vqareaseries = const_cast<VirtualQAreaSeries*>(dynamic_cast<const VirtualQAreaSeries*>(self));
     if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
         vqareaseries->setQAreaSeries_Sender_IsBase(true);
@@ -686,7 +686,7 @@ int QAreaSeries_SenderSignalIndex(const QAreaSeries* self) {
 }
 
 // Base class handler implementation
-int QAreaSeries_QBaseSenderSignalIndex(const QAreaSeries* self) {
+int QAreaSeries_SuperSenderSignalIndex(const QAreaSeries* self) {
     auto* vqareaseries = const_cast<VirtualQAreaSeries*>(dynamic_cast<const VirtualQAreaSeries*>(self));
     if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
         vqareaseries->setQAreaSeries_SenderSignalIndex_IsBase(true);
@@ -715,7 +715,7 @@ int QAreaSeries_Receivers(const QAreaSeries* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QAreaSeries_QBaseReceivers(const QAreaSeries* self, const char* signal) {
+int QAreaSeries_SuperReceivers(const QAreaSeries* self, const char* signal) {
     auto* vqareaseries = const_cast<VirtualQAreaSeries*>(dynamic_cast<const VirtualQAreaSeries*>(self));
     if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
         vqareaseries->setQAreaSeries_Receivers_IsBase(true);
@@ -744,7 +744,7 @@ bool QAreaSeries_IsSignalConnected(const QAreaSeries* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QAreaSeries_QBaseIsSignalConnected(const QAreaSeries* self, const QMetaMethod* signal) {
+bool QAreaSeries_SuperIsSignalConnected(const QAreaSeries* self, const QMetaMethod* signal) {
     auto* vqareaseries = const_cast<VirtualQAreaSeries*>(dynamic_cast<const VirtualQAreaSeries*>(self));
     if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
         vqareaseries->setQAreaSeries_IsSignalConnected_IsBase(true);

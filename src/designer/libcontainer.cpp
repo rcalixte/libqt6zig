@@ -90,7 +90,7 @@ void QDesignerContainerExtension_Remove(QDesignerContainerExtension* self, int i
 }
 
 // Base class handler implementation
-int QDesignerContainerExtension_QBaseCount(const QDesignerContainerExtension* self) {
+int QDesignerContainerExtension_SuperCount(const QDesignerContainerExtension* self) {
     auto* vqdesignercontainerextension = const_cast<VirtualQDesignerContainerExtension*>(dynamic_cast<const VirtualQDesignerContainerExtension*>(self));
     if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
         vqdesignercontainerextension->setQDesignerContainerExtension_Count_IsBase(true);
@@ -109,7 +109,7 @@ void QDesignerContainerExtension_OnCount(const QDesignerContainerExtension* self
 }
 
 // Base class handler implementation
-QWidget* QDesignerContainerExtension_QBaseWidget(const QDesignerContainerExtension* self, int index) {
+QWidget* QDesignerContainerExtension_SuperWidget(const QDesignerContainerExtension* self, int index) {
     auto* vqdesignercontainerextension = const_cast<VirtualQDesignerContainerExtension*>(dynamic_cast<const VirtualQDesignerContainerExtension*>(self));
     if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
         vqdesignercontainerextension->setQDesignerContainerExtension_Widget_IsBase(true);
@@ -128,7 +128,7 @@ void QDesignerContainerExtension_OnWidget(const QDesignerContainerExtension* sel
 }
 
 // Base class handler implementation
-int QDesignerContainerExtension_QBaseCurrentIndex(const QDesignerContainerExtension* self) {
+int QDesignerContainerExtension_SuperCurrentIndex(const QDesignerContainerExtension* self) {
     auto* vqdesignercontainerextension = const_cast<VirtualQDesignerContainerExtension*>(dynamic_cast<const VirtualQDesignerContainerExtension*>(self));
     if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
         vqdesignercontainerextension->setQDesignerContainerExtension_CurrentIndex_IsBase(true);
@@ -147,7 +147,7 @@ void QDesignerContainerExtension_OnCurrentIndex(const QDesignerContainerExtensio
 }
 
 // Base class handler implementation
-void QDesignerContainerExtension_QBaseSetCurrentIndex(QDesignerContainerExtension* self, int index) {
+void QDesignerContainerExtension_SuperSetCurrentIndex(QDesignerContainerExtension* self, int index) {
     auto* vqdesignercontainerextension = dynamic_cast<VirtualQDesignerContainerExtension*>(self);
     if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
         vqdesignercontainerextension->setQDesignerContainerExtension_SetCurrentIndex_IsBase(true);
@@ -166,7 +166,7 @@ void QDesignerContainerExtension_OnSetCurrentIndex(QDesignerContainerExtension* 
 }
 
 // Base class handler implementation
-bool QDesignerContainerExtension_QBaseCanAddWidget(const QDesignerContainerExtension* self) {
+bool QDesignerContainerExtension_SuperCanAddWidget(const QDesignerContainerExtension* self) {
     auto* vqdesignercontainerextension = const_cast<VirtualQDesignerContainerExtension*>(dynamic_cast<const VirtualQDesignerContainerExtension*>(self));
     if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
         vqdesignercontainerextension->setQDesignerContainerExtension_CanAddWidget_IsBase(true);
@@ -185,7 +185,7 @@ void QDesignerContainerExtension_OnCanAddWidget(const QDesignerContainerExtensio
 }
 
 // Base class handler implementation
-void QDesignerContainerExtension_QBaseAddWidget(QDesignerContainerExtension* self, QWidget* widget) {
+void QDesignerContainerExtension_SuperAddWidget(QDesignerContainerExtension* self, QWidget* widget) {
     auto* vqdesignercontainerextension = dynamic_cast<VirtualQDesignerContainerExtension*>(self);
     if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
         vqdesignercontainerextension->setQDesignerContainerExtension_AddWidget_IsBase(true);
@@ -204,7 +204,7 @@ void QDesignerContainerExtension_OnAddWidget(QDesignerContainerExtension* self, 
 }
 
 // Base class handler implementation
-void QDesignerContainerExtension_QBaseInsertWidget(QDesignerContainerExtension* self, int index, QWidget* widget) {
+void QDesignerContainerExtension_SuperInsertWidget(QDesignerContainerExtension* self, int index, QWidget* widget) {
     auto* vqdesignercontainerextension = dynamic_cast<VirtualQDesignerContainerExtension*>(self);
     if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
         vqdesignercontainerextension->setQDesignerContainerExtension_InsertWidget_IsBase(true);
@@ -223,7 +223,7 @@ void QDesignerContainerExtension_OnInsertWidget(QDesignerContainerExtension* sel
 }
 
 // Base class handler implementation
-bool QDesignerContainerExtension_QBaseCanRemove(const QDesignerContainerExtension* self, int index) {
+bool QDesignerContainerExtension_SuperCanRemove(const QDesignerContainerExtension* self, int index) {
     auto* vqdesignercontainerextension = const_cast<VirtualQDesignerContainerExtension*>(dynamic_cast<const VirtualQDesignerContainerExtension*>(self));
     if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
         vqdesignercontainerextension->setQDesignerContainerExtension_CanRemove_IsBase(true);
@@ -242,7 +242,7 @@ void QDesignerContainerExtension_OnCanRemove(const QDesignerContainerExtension* 
 }
 
 // Base class handler implementation
-void QDesignerContainerExtension_QBaseRemove(QDesignerContainerExtension* self, int index) {
+void QDesignerContainerExtension_SuperRemove(QDesignerContainerExtension* self, int index) {
     auto* vqdesignercontainerextension = dynamic_cast<VirtualQDesignerContainerExtension*>(self);
     if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
         vqdesignercontainerextension->setQDesignerContainerExtension_Remove_IsBase(true);

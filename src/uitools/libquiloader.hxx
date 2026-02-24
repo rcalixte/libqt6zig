@@ -466,23 +466,23 @@ class VirtualQUiLoader final : public QUiLoader {
 
     // Friend functions
     friend void QUiLoader_TimerEvent(QUiLoader* self, QTimerEvent* event);
-    friend void QUiLoader_QBaseTimerEvent(QUiLoader* self, QTimerEvent* event);
+    friend void QUiLoader_SuperTimerEvent(QUiLoader* self, QTimerEvent* event);
     friend void QUiLoader_ChildEvent(QUiLoader* self, QChildEvent* event);
-    friend void QUiLoader_QBaseChildEvent(QUiLoader* self, QChildEvent* event);
+    friend void QUiLoader_SuperChildEvent(QUiLoader* self, QChildEvent* event);
     friend void QUiLoader_CustomEvent(QUiLoader* self, QEvent* event);
-    friend void QUiLoader_QBaseCustomEvent(QUiLoader* self, QEvent* event);
+    friend void QUiLoader_SuperCustomEvent(QUiLoader* self, QEvent* event);
     friend void QUiLoader_ConnectNotify(QUiLoader* self, const QMetaMethod* signal);
-    friend void QUiLoader_QBaseConnectNotify(QUiLoader* self, const QMetaMethod* signal);
+    friend void QUiLoader_SuperConnectNotify(QUiLoader* self, const QMetaMethod* signal);
     friend void QUiLoader_DisconnectNotify(QUiLoader* self, const QMetaMethod* signal);
-    friend void QUiLoader_QBaseDisconnectNotify(QUiLoader* self, const QMetaMethod* signal);
+    friend void QUiLoader_SuperDisconnectNotify(QUiLoader* self, const QMetaMethod* signal);
     friend QObject* QUiLoader_Sender(const QUiLoader* self);
-    friend QObject* QUiLoader_QBaseSender(const QUiLoader* self);
+    friend QObject* QUiLoader_SuperSender(const QUiLoader* self);
     friend int QUiLoader_SenderSignalIndex(const QUiLoader* self);
-    friend int QUiLoader_QBaseSenderSignalIndex(const QUiLoader* self);
+    friend int QUiLoader_SuperSenderSignalIndex(const QUiLoader* self);
     friend int QUiLoader_Receivers(const QUiLoader* self, const char* signal);
-    friend int QUiLoader_QBaseReceivers(const QUiLoader* self, const char* signal);
+    friend int QUiLoader_SuperReceivers(const QUiLoader* self, const char* signal);
     friend bool QUiLoader_IsSignalConnected(const QUiLoader* self, const QMetaMethod* signal);
-    friend bool QUiLoader_QBaseIsSignalConnected(const QUiLoader* self, const QMetaMethod* signal);
+    friend bool QUiLoader_SuperIsSignalConnected(const QUiLoader* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -50,6 +50,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -58,8 +62,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigView `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.Sonnet__ConfigView_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.Sonnet__ConfigView_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -85,6 +89,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -93,9 +101,9 @@ pub const sonnet__configview = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.Sonnet__ConfigView_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.Sonnet__ConfigView_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -124,6 +132,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -136,8 +148,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Sonnet__ConfigView_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.Sonnet__ConfigView_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -5140,6 +5152,10 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_DevType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
@@ -5150,8 +5166,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigView `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.Sonnet__ConfigView_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.Sonnet__ConfigView_SuperDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -5186,6 +5202,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_SetVisible(@ptrCast(self), visible);
     }
 
+    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    ///
+    pub const QBaseSetVisible = SuperSetVisible;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
@@ -5198,8 +5218,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.Sonnet__ConfigView_QBaseSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
+        qtc.Sonnet__ConfigView_SuperSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
@@ -5232,6 +5252,10 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_SizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5242,8 +5266,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigView `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.Sonnet__ConfigView_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.Sonnet__ConfigView_SuperSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -5276,6 +5300,10 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_MinimumSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    ///
+    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSizeHint)
@@ -5286,8 +5314,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigView `
     ///
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.Sonnet__ConfigView_QBaseMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.Sonnet__ConfigView_SuperMinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -5322,6 +5350,10 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
@@ -5334,8 +5366,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.Sonnet__ConfigView_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.Sonnet__ConfigView_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5368,6 +5400,10 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
@@ -5378,8 +5414,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigView `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.Sonnet__ConfigView_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.Sonnet__ConfigView_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -5412,6 +5448,10 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_PaintEngine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
@@ -5422,8 +5462,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigView `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.Sonnet__ConfigView_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.Sonnet__ConfigView_SuperPaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -5458,6 +5498,10 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#event)
@@ -5470,8 +5514,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.Sonnet__ConfigView_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.Sonnet__ConfigView_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -5506,6 +5550,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_MousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -5518,8 +5566,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -5554,6 +5602,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -5566,8 +5618,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -5602,6 +5654,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -5614,8 +5670,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -5650,6 +5706,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -5662,8 +5722,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -5698,6 +5758,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_WheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
@@ -5710,8 +5774,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -5746,6 +5810,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_KeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -5758,8 +5826,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperKeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -5794,6 +5862,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -5806,8 +5878,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -5842,6 +5914,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -5854,8 +5930,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -5890,6 +5966,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -5902,8 +5982,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -5938,6 +6018,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    ///
+    pub const QBaseEnterEvent = SuperEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
@@ -5950,8 +6034,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QEnterEvent `
     ///
-    pub fn QBaseEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -5986,6 +6070,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    ///
+    pub const QBaseLeaveEvent = SuperLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
@@ -5998,8 +6086,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6034,6 +6122,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_PaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    ///
+    pub const QBasePaintEvent = SuperPaintEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEvent)
@@ -6046,8 +6138,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QPaintEvent `
     ///
-    pub fn QBasePaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBasePaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperPaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperPaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6082,6 +6174,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
@@ -6094,8 +6190,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6130,6 +6226,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resizeEvent)
@@ -6142,8 +6242,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6178,6 +6278,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
@@ -6190,8 +6294,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6226,6 +6330,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_ContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuEvent)
@@ -6238,8 +6346,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6274,6 +6382,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    ///
+    pub const QBaseTabletEvent = SuperTabletEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
@@ -6286,8 +6398,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QTabletEvent `
     ///
-    pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6322,6 +6434,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_ActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    ///
+    pub const QBaseActionEvent = SuperActionEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
@@ -6334,8 +6450,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QActionEvent `
     ///
-    pub fn QBaseActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6370,6 +6486,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_DragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
@@ -6382,8 +6502,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QDragEnterEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6418,6 +6538,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_DragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
@@ -6430,8 +6554,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QDragMoveEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6466,6 +6590,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
@@ -6478,8 +6606,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QDragLeaveEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6514,6 +6642,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_DropEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
@@ -6526,8 +6658,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6562,6 +6694,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
@@ -6574,8 +6710,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6610,6 +6746,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
@@ -6622,8 +6762,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6666,6 +6806,10 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    ///
+    pub const QBaseNativeEvent = SuperNativeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
@@ -6682,12 +6826,12 @@ pub const sonnet__configview = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.Sonnet__ConfigView_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.Sonnet__ConfigView_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -6722,6 +6866,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_ChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    ///
+    pub const QBaseChangeEvent = SuperChangeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#changeEvent)
@@ -6734,8 +6882,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6770,6 +6918,10 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_Metric(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
@@ -6782,8 +6934,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.Sonnet__ConfigView_QBaseMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.Sonnet__ConfigView_SuperMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6818,6 +6970,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
@@ -6830,8 +6986,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
@@ -6866,6 +7022,10 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
@@ -6878,8 +7038,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.Sonnet__ConfigView_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.Sonnet__ConfigView_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
@@ -6912,6 +7072,10 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
@@ -6922,8 +7086,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigView `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.Sonnet__ConfigView_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.Sonnet__ConfigView_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -6958,6 +7122,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
@@ -6970,8 +7138,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` param1: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7006,6 +7174,10 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_InputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
@@ -7018,8 +7190,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.Sonnet__ConfigView_QBaseInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
+        return qtc.Sonnet__ConfigView_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7054,6 +7226,10 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_FocusNextPrevChild(@ptrCast(self), next);
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    ///
+    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
@@ -7066,8 +7242,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` next: bool `
     ///
-    pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.Sonnet__ConfigView_QBaseFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
+        return qtc.Sonnet__ConfigView_SuperFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QWidget
@@ -7104,6 +7280,10 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -7118,8 +7298,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.Sonnet__ConfigView_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.Sonnet__ConfigView_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7154,6 +7334,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -7166,8 +7350,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7202,6 +7386,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -7214,8 +7402,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7250,6 +7438,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -7262,8 +7454,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7298,6 +7490,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7310,8 +7506,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -7346,6 +7542,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -7358,8 +7558,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -7392,6 +7592,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7402,8 +7606,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigView `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7436,6 +7640,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_Create(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreate` instead
+    ///
+    pub const QBaseCreate = SuperCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -7446,8 +7654,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigView `
     ///
-    pub fn QBaseCreate(self: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseCreate(@ptrCast(self));
+    pub fn SuperCreate(self: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7480,6 +7688,10 @@ pub const sonnet__configview = struct {
         qtc.Sonnet__ConfigView_Destroy(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroy` instead
+    ///
+    pub const QBaseDestroy = SuperDestroy;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
@@ -7490,8 +7702,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigView `
     ///
-    pub fn QBaseDestroy(self: ?*anyopaque) void {
-        qtc.Sonnet__ConfigView_QBaseDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: ?*anyopaque) void {
+        qtc.Sonnet__ConfigView_SuperDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7524,6 +7736,10 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_FocusNextChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    ///
+    pub const QBaseFocusNextChild = SuperFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -7534,8 +7750,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigView `
     ///
-    pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.Sonnet__ConfigView_QBaseFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
+        return qtc.Sonnet__ConfigView_SuperFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7568,6 +7784,10 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_FocusPreviousChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    ///
+    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
@@ -7578,8 +7798,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigView `
     ///
-    pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.Sonnet__ConfigView_QBaseFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
+        return qtc.Sonnet__ConfigView_SuperFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7612,6 +7832,10 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -7622,8 +7846,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigView `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.Sonnet__ConfigView_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.Sonnet__ConfigView_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -7656,6 +7880,10 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -7666,8 +7894,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigView `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.Sonnet__ConfigView_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.Sonnet__ConfigView_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -7703,6 +7931,10 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -7715,9 +7947,9 @@ pub const sonnet__configview = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.Sonnet__ConfigView_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.Sonnet__ConfigView_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -7752,6 +7984,10 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -7764,8 +8000,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.Sonnet__ConfigView_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.Sonnet__ConfigView_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -7802,6 +8038,10 @@ pub const sonnet__configview = struct {
         return qtc.Sonnet__ConfigView_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -7816,8 +8056,8 @@ pub const sonnet__configview = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.Sonnet__ConfigView_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.Sonnet__ConfigView_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -7851,6 +8091,9 @@ pub const sonnet__configview = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -7858,7 +8101,7 @@ pub const sonnet__configview = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigView `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Sonnet__ConfigView_Delete(@ptrCast(self));
     }
 };

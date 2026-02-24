@@ -71,7 +71,7 @@ void QDesignerSettingsInterface_Remove(QDesignerSettingsInterface* self, const l
 }
 
 // Base class handler implementation
-void QDesignerSettingsInterface_QBaseBeginGroup(QDesignerSettingsInterface* self, const libqt_string prefix) {
+void QDesignerSettingsInterface_SuperBeginGroup(QDesignerSettingsInterface* self, const libqt_string prefix) {
     auto* vqdesignersettingsinterface = dynamic_cast<VirtualQDesignerSettingsInterface*>(self);
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface) {
@@ -91,7 +91,7 @@ void QDesignerSettingsInterface_OnBeginGroup(QDesignerSettingsInterface* self, i
 }
 
 // Base class handler implementation
-void QDesignerSettingsInterface_QBaseEndGroup(QDesignerSettingsInterface* self) {
+void QDesignerSettingsInterface_SuperEndGroup(QDesignerSettingsInterface* self) {
     auto* vqdesignersettingsinterface = dynamic_cast<VirtualQDesignerSettingsInterface*>(self);
     if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface) {
         vqdesignersettingsinterface->setQDesignerSettingsInterface_EndGroup_IsBase(true);
@@ -110,7 +110,7 @@ void QDesignerSettingsInterface_OnEndGroup(QDesignerSettingsInterface* self, int
 }
 
 // Base class handler implementation
-bool QDesignerSettingsInterface_QBaseContains(const QDesignerSettingsInterface* self, const libqt_string key) {
+bool QDesignerSettingsInterface_SuperContains(const QDesignerSettingsInterface* self, const libqt_string key) {
     auto* vqdesignersettingsinterface = const_cast<VirtualQDesignerSettingsInterface*>(dynamic_cast<const VirtualQDesignerSettingsInterface*>(self));
     QString key_QString = QString::fromUtf8(key.data, key.len);
     if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface) {
@@ -130,7 +130,7 @@ void QDesignerSettingsInterface_OnContains(const QDesignerSettingsInterface* sel
 }
 
 // Base class handler implementation
-void QDesignerSettingsInterface_QBaseSetValue(QDesignerSettingsInterface* self, const libqt_string key, const QVariant* value) {
+void QDesignerSettingsInterface_SuperSetValue(QDesignerSettingsInterface* self, const libqt_string key, const QVariant* value) {
     auto* vqdesignersettingsinterface = dynamic_cast<VirtualQDesignerSettingsInterface*>(self);
     QString key_QString = QString::fromUtf8(key.data, key.len);
     if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface) {
@@ -150,7 +150,7 @@ void QDesignerSettingsInterface_OnSetValue(QDesignerSettingsInterface* self, int
 }
 
 // Base class handler implementation
-QVariant* QDesignerSettingsInterface_QBaseValue(const QDesignerSettingsInterface* self, const libqt_string key, const QVariant* defaultValue) {
+QVariant* QDesignerSettingsInterface_SuperValue(const QDesignerSettingsInterface* self, const libqt_string key, const QVariant* defaultValue) {
     auto* vqdesignersettingsinterface = const_cast<VirtualQDesignerSettingsInterface*>(dynamic_cast<const VirtualQDesignerSettingsInterface*>(self));
     QString key_QString = QString::fromUtf8(key.data, key.len);
     if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface) {
@@ -170,7 +170,7 @@ void QDesignerSettingsInterface_OnValue(const QDesignerSettingsInterface* self, 
 }
 
 // Base class handler implementation
-void QDesignerSettingsInterface_QBaseRemove(QDesignerSettingsInterface* self, const libqt_string key) {
+void QDesignerSettingsInterface_SuperRemove(QDesignerSettingsInterface* self, const libqt_string key) {
     auto* vqdesignersettingsinterface = dynamic_cast<VirtualQDesignerSettingsInterface*>(self);
     QString key_QString = QString::fromUtf8(key.data, key.len);
     if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface) {

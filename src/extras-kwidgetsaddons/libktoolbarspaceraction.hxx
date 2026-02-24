@@ -394,31 +394,31 @@ class VirtualKToolBarSpacerAction final : public KToolBarSpacerAction {
 
     // Friend functions
     friend bool KToolBarSpacerAction_Event(KToolBarSpacerAction* self, QEvent* param1);
-    friend bool KToolBarSpacerAction_QBaseEvent(KToolBarSpacerAction* self, QEvent* param1);
+    friend bool KToolBarSpacerAction_SuperEvent(KToolBarSpacerAction* self, QEvent* param1);
     friend bool KToolBarSpacerAction_EventFilter(KToolBarSpacerAction* self, QObject* param1, QEvent* param2);
-    friend bool KToolBarSpacerAction_QBaseEventFilter(KToolBarSpacerAction* self, QObject* param1, QEvent* param2);
+    friend bool KToolBarSpacerAction_SuperEventFilter(KToolBarSpacerAction* self, QObject* param1, QEvent* param2);
     friend void KToolBarSpacerAction_DeleteWidget(KToolBarSpacerAction* self, QWidget* widget);
-    friend void KToolBarSpacerAction_QBaseDeleteWidget(KToolBarSpacerAction* self, QWidget* widget);
+    friend void KToolBarSpacerAction_SuperDeleteWidget(KToolBarSpacerAction* self, QWidget* widget);
     friend void KToolBarSpacerAction_TimerEvent(KToolBarSpacerAction* self, QTimerEvent* event);
-    friend void KToolBarSpacerAction_QBaseTimerEvent(KToolBarSpacerAction* self, QTimerEvent* event);
+    friend void KToolBarSpacerAction_SuperTimerEvent(KToolBarSpacerAction* self, QTimerEvent* event);
     friend void KToolBarSpacerAction_ChildEvent(KToolBarSpacerAction* self, QChildEvent* event);
-    friend void KToolBarSpacerAction_QBaseChildEvent(KToolBarSpacerAction* self, QChildEvent* event);
+    friend void KToolBarSpacerAction_SuperChildEvent(KToolBarSpacerAction* self, QChildEvent* event);
     friend void KToolBarSpacerAction_CustomEvent(KToolBarSpacerAction* self, QEvent* event);
-    friend void KToolBarSpacerAction_QBaseCustomEvent(KToolBarSpacerAction* self, QEvent* event);
+    friend void KToolBarSpacerAction_SuperCustomEvent(KToolBarSpacerAction* self, QEvent* event);
     friend void KToolBarSpacerAction_ConnectNotify(KToolBarSpacerAction* self, const QMetaMethod* signal);
-    friend void KToolBarSpacerAction_QBaseConnectNotify(KToolBarSpacerAction* self, const QMetaMethod* signal);
+    friend void KToolBarSpacerAction_SuperConnectNotify(KToolBarSpacerAction* self, const QMetaMethod* signal);
     friend void KToolBarSpacerAction_DisconnectNotify(KToolBarSpacerAction* self, const QMetaMethod* signal);
-    friend void KToolBarSpacerAction_QBaseDisconnectNotify(KToolBarSpacerAction* self, const QMetaMethod* signal);
+    friend void KToolBarSpacerAction_SuperDisconnectNotify(KToolBarSpacerAction* self, const QMetaMethod* signal);
     friend libqt_list /* of QWidget* */ KToolBarSpacerAction_CreatedWidgets(const KToolBarSpacerAction* self);
-    friend libqt_list /* of QWidget* */ KToolBarSpacerAction_QBaseCreatedWidgets(const KToolBarSpacerAction* self);
+    friend libqt_list /* of QWidget* */ KToolBarSpacerAction_SuperCreatedWidgets(const KToolBarSpacerAction* self);
     friend QObject* KToolBarSpacerAction_Sender(const KToolBarSpacerAction* self);
-    friend QObject* KToolBarSpacerAction_QBaseSender(const KToolBarSpacerAction* self);
+    friend QObject* KToolBarSpacerAction_SuperSender(const KToolBarSpacerAction* self);
     friend int KToolBarSpacerAction_SenderSignalIndex(const KToolBarSpacerAction* self);
-    friend int KToolBarSpacerAction_QBaseSenderSignalIndex(const KToolBarSpacerAction* self);
+    friend int KToolBarSpacerAction_SuperSenderSignalIndex(const KToolBarSpacerAction* self);
     friend int KToolBarSpacerAction_Receivers(const KToolBarSpacerAction* self, const char* signal);
-    friend int KToolBarSpacerAction_QBaseReceivers(const KToolBarSpacerAction* self, const char* signal);
+    friend int KToolBarSpacerAction_SuperReceivers(const KToolBarSpacerAction* self, const char* signal);
     friend bool KToolBarSpacerAction_IsSignalConnected(const KToolBarSpacerAction* self, const QMetaMethod* signal);
-    friend bool KToolBarSpacerAction_QBaseIsSignalConnected(const KToolBarSpacerAction* self, const QMetaMethod* signal);
+    friend bool KToolBarSpacerAction_SuperIsSignalConnected(const KToolBarSpacerAction* self, const QMetaMethod* signal);
 };
 
 #endif

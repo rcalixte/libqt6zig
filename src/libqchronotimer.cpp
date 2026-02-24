@@ -109,7 +109,7 @@ void QChronoTimer_TimerEvent(QChronoTimer* self, QTimerEvent* param1) {
 }
 
 // Base class handler implementation
-QMetaObject* QChronoTimer_QBaseMetaObject(const QChronoTimer* self) {
+QMetaObject* QChronoTimer_SuperMetaObject(const QChronoTimer* self) {
     auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self));
     if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
         vqchronotimer->setQChronoTimer_MetaObject_IsBase(true);
@@ -128,7 +128,7 @@ void QChronoTimer_OnMetaObject(const QChronoTimer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QChronoTimer_QBaseMetacast(QChronoTimer* self, const char* param1) {
+void* QChronoTimer_SuperMetacast(QChronoTimer* self, const char* param1) {
     auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
     if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
         vqchronotimer->setQChronoTimer_Metacast_IsBase(true);
@@ -147,7 +147,7 @@ void QChronoTimer_OnMetacast(QChronoTimer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QChronoTimer_QBaseMetacall(QChronoTimer* self, int param1, int param2, void** param3) {
+int QChronoTimer_SuperMetacall(QChronoTimer* self, int param1, int param2, void** param3) {
     auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
     if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
         vqchronotimer->setQChronoTimer_Metacall_IsBase(true);
@@ -166,7 +166,7 @@ void QChronoTimer_OnMetacall(QChronoTimer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QChronoTimer_QBaseTimerEvent(QChronoTimer* self, QTimerEvent* param1) {
+void QChronoTimer_SuperTimerEvent(QChronoTimer* self, QTimerEvent* param1) {
     auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
     if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
         vqchronotimer->setQChronoTimer_TimerEvent_IsBase(true);
@@ -195,7 +195,7 @@ bool QChronoTimer_Event(QChronoTimer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QChronoTimer_QBaseEvent(QChronoTimer* self, QEvent* event) {
+bool QChronoTimer_SuperEvent(QChronoTimer* self, QEvent* event) {
     auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
     if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
         vqchronotimer->setQChronoTimer_Event_IsBase(true);
@@ -224,7 +224,7 @@ bool QChronoTimer_EventFilter(QChronoTimer* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool QChronoTimer_QBaseEventFilter(QChronoTimer* self, QObject* watched, QEvent* event) {
+bool QChronoTimer_SuperEventFilter(QChronoTimer* self, QObject* watched, QEvent* event) {
     auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
     if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
         vqchronotimer->setQChronoTimer_EventFilter_IsBase(true);
@@ -253,7 +253,7 @@ void QChronoTimer_ChildEvent(QChronoTimer* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QChronoTimer_QBaseChildEvent(QChronoTimer* self, QChildEvent* event) {
+void QChronoTimer_SuperChildEvent(QChronoTimer* self, QChildEvent* event) {
     auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
     if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
         vqchronotimer->setQChronoTimer_ChildEvent_IsBase(true);
@@ -282,7 +282,7 @@ void QChronoTimer_CustomEvent(QChronoTimer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QChronoTimer_QBaseCustomEvent(QChronoTimer* self, QEvent* event) {
+void QChronoTimer_SuperCustomEvent(QChronoTimer* self, QEvent* event) {
     auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
     if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
         vqchronotimer->setQChronoTimer_CustomEvent_IsBase(true);
@@ -311,7 +311,7 @@ void QChronoTimer_ConnectNotify(QChronoTimer* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QChronoTimer_QBaseConnectNotify(QChronoTimer* self, const QMetaMethod* signal) {
+void QChronoTimer_SuperConnectNotify(QChronoTimer* self, const QMetaMethod* signal) {
     auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
     if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
         vqchronotimer->setQChronoTimer_ConnectNotify_IsBase(true);
@@ -340,7 +340,7 @@ void QChronoTimer_DisconnectNotify(QChronoTimer* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QChronoTimer_QBaseDisconnectNotify(QChronoTimer* self, const QMetaMethod* signal) {
+void QChronoTimer_SuperDisconnectNotify(QChronoTimer* self, const QMetaMethod* signal) {
     auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
     if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
         vqchronotimer->setQChronoTimer_DisconnectNotify_IsBase(true);
@@ -369,7 +369,7 @@ QObject* QChronoTimer_Sender(const QChronoTimer* self) {
 }
 
 // Base class handler implementation
-QObject* QChronoTimer_QBaseSender(const QChronoTimer* self) {
+QObject* QChronoTimer_SuperSender(const QChronoTimer* self) {
     auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self));
     if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
         vqchronotimer->setQChronoTimer_Sender_IsBase(true);
@@ -398,7 +398,7 @@ int QChronoTimer_SenderSignalIndex(const QChronoTimer* self) {
 }
 
 // Base class handler implementation
-int QChronoTimer_QBaseSenderSignalIndex(const QChronoTimer* self) {
+int QChronoTimer_SuperSenderSignalIndex(const QChronoTimer* self) {
     auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self));
     if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
         vqchronotimer->setQChronoTimer_SenderSignalIndex_IsBase(true);
@@ -427,7 +427,7 @@ int QChronoTimer_Receivers(const QChronoTimer* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QChronoTimer_QBaseReceivers(const QChronoTimer* self, const char* signal) {
+int QChronoTimer_SuperReceivers(const QChronoTimer* self, const char* signal) {
     auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self));
     if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
         vqchronotimer->setQChronoTimer_Receivers_IsBase(true);
@@ -456,7 +456,7 @@ bool QChronoTimer_IsSignalConnected(const QChronoTimer* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QChronoTimer_QBaseIsSignalConnected(const QChronoTimer* self, const QMetaMethod* signal) {
+bool QChronoTimer_SuperIsSignalConnected(const QChronoTimer* self, const QMetaMethod* signal) {
     auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self));
     if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
         vqchronotimer->setQChronoTimer_IsSignalConnected_IsBase(true);

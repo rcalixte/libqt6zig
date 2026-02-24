@@ -73,7 +73,7 @@ void KParts__ListingNotificationExtension_Connect_ListingEvent(KParts__ListingNo
 }
 
 // Base class handler implementation
-QMetaObject* KParts__ListingNotificationExtension_QBaseMetaObject(const KParts__ListingNotificationExtension* self) {
+QMetaObject* KParts__ListingNotificationExtension_SuperMetaObject(const KParts__ListingNotificationExtension* self) {
     auto* vkpartslistingnotificationextension = const_cast<VirtualKPartsListingNotificationExtension*>(dynamic_cast<const VirtualKPartsListingNotificationExtension*>(self));
     if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_MetaObject_IsBase(true);
@@ -92,7 +92,7 @@ void KParts__ListingNotificationExtension_OnMetaObject(const KParts__ListingNoti
 }
 
 // Base class handler implementation
-void* KParts__ListingNotificationExtension_QBaseMetacast(KParts__ListingNotificationExtension* self, const char* param1) {
+void* KParts__ListingNotificationExtension_SuperMetacast(KParts__ListingNotificationExtension* self, const char* param1) {
     auto* vkpartslistingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
     if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_Metacast_IsBase(true);
@@ -111,7 +111,7 @@ void KParts__ListingNotificationExtension_OnMetacast(KParts__ListingNotification
 }
 
 // Base class handler implementation
-int KParts__ListingNotificationExtension_QBaseMetacall(KParts__ListingNotificationExtension* self, int param1, int param2, void** param3) {
+int KParts__ListingNotificationExtension_SuperMetacall(KParts__ListingNotificationExtension* self, int param1, int param2, void** param3) {
     auto* vkpartslistingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
     if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_Metacall_IsBase(true);
@@ -130,7 +130,7 @@ void KParts__ListingNotificationExtension_OnMetacall(KParts__ListingNotification
 }
 
 // Base class handler implementation
-int KParts__ListingNotificationExtension_QBaseSupportedNotificationEventTypes(const KParts__ListingNotificationExtension* self) {
+int KParts__ListingNotificationExtension_SuperSupportedNotificationEventTypes(const KParts__ListingNotificationExtension* self) {
     auto* vkpartslistingnotificationextension = const_cast<VirtualKPartsListingNotificationExtension*>(dynamic_cast<const VirtualKPartsListingNotificationExtension*>(self));
     if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_SupportedNotificationEventTypes_IsBase(true);
@@ -159,7 +159,7 @@ bool KParts__ListingNotificationExtension_Event(KParts__ListingNotificationExten
 }
 
 // Base class handler implementation
-bool KParts__ListingNotificationExtension_QBaseEvent(KParts__ListingNotificationExtension* self, QEvent* event) {
+bool KParts__ListingNotificationExtension_SuperEvent(KParts__ListingNotificationExtension* self, QEvent* event) {
     auto* vkpartslistingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
     if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_Event_IsBase(true);
@@ -188,7 +188,7 @@ bool KParts__ListingNotificationExtension_EventFilter(KParts__ListingNotificatio
 }
 
 // Base class handler implementation
-bool KParts__ListingNotificationExtension_QBaseEventFilter(KParts__ListingNotificationExtension* self, QObject* watched, QEvent* event) {
+bool KParts__ListingNotificationExtension_SuperEventFilter(KParts__ListingNotificationExtension* self, QObject* watched, QEvent* event) {
     auto* vkpartslistingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
     if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_EventFilter_IsBase(true);
@@ -217,7 +217,7 @@ void KParts__ListingNotificationExtension_TimerEvent(KParts__ListingNotification
 }
 
 // Base class handler implementation
-void KParts__ListingNotificationExtension_QBaseTimerEvent(KParts__ListingNotificationExtension* self, QTimerEvent* event) {
+void KParts__ListingNotificationExtension_SuperTimerEvent(KParts__ListingNotificationExtension* self, QTimerEvent* event) {
     auto* vkpartslistingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
     if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_TimerEvent_IsBase(true);
@@ -246,7 +246,7 @@ void KParts__ListingNotificationExtension_ChildEvent(KParts__ListingNotification
 }
 
 // Base class handler implementation
-void KParts__ListingNotificationExtension_QBaseChildEvent(KParts__ListingNotificationExtension* self, QChildEvent* event) {
+void KParts__ListingNotificationExtension_SuperChildEvent(KParts__ListingNotificationExtension* self, QChildEvent* event) {
     auto* vkpartslistingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
     if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_ChildEvent_IsBase(true);
@@ -275,7 +275,7 @@ void KParts__ListingNotificationExtension_CustomEvent(KParts__ListingNotificatio
 }
 
 // Base class handler implementation
-void KParts__ListingNotificationExtension_QBaseCustomEvent(KParts__ListingNotificationExtension* self, QEvent* event) {
+void KParts__ListingNotificationExtension_SuperCustomEvent(KParts__ListingNotificationExtension* self, QEvent* event) {
     auto* vkpartslistingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
     if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_CustomEvent_IsBase(true);
@@ -304,7 +304,7 @@ void KParts__ListingNotificationExtension_ConnectNotify(KParts__ListingNotificat
 }
 
 // Base class handler implementation
-void KParts__ListingNotificationExtension_QBaseConnectNotify(KParts__ListingNotificationExtension* self, const QMetaMethod* signal) {
+void KParts__ListingNotificationExtension_SuperConnectNotify(KParts__ListingNotificationExtension* self, const QMetaMethod* signal) {
     auto* vkpartslistingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
     if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_ConnectNotify_IsBase(true);
@@ -333,7 +333,7 @@ void KParts__ListingNotificationExtension_DisconnectNotify(KParts__ListingNotifi
 }
 
 // Base class handler implementation
-void KParts__ListingNotificationExtension_QBaseDisconnectNotify(KParts__ListingNotificationExtension* self, const QMetaMethod* signal) {
+void KParts__ListingNotificationExtension_SuperDisconnectNotify(KParts__ListingNotificationExtension* self, const QMetaMethod* signal) {
     auto* vkpartslistingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
     if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_DisconnectNotify_IsBase(true);
@@ -362,7 +362,7 @@ QObject* KParts__ListingNotificationExtension_Sender(const KParts__ListingNotifi
 }
 
 // Base class handler implementation
-QObject* KParts__ListingNotificationExtension_QBaseSender(const KParts__ListingNotificationExtension* self) {
+QObject* KParts__ListingNotificationExtension_SuperSender(const KParts__ListingNotificationExtension* self) {
     auto* vkpartslistingnotificationextension = const_cast<VirtualKPartsListingNotificationExtension*>(dynamic_cast<const VirtualKPartsListingNotificationExtension*>(self));
     if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_Sender_IsBase(true);
@@ -391,7 +391,7 @@ int KParts__ListingNotificationExtension_SenderSignalIndex(const KParts__Listing
 }
 
 // Base class handler implementation
-int KParts__ListingNotificationExtension_QBaseSenderSignalIndex(const KParts__ListingNotificationExtension* self) {
+int KParts__ListingNotificationExtension_SuperSenderSignalIndex(const KParts__ListingNotificationExtension* self) {
     auto* vkpartslistingnotificationextension = const_cast<VirtualKPartsListingNotificationExtension*>(dynamic_cast<const VirtualKPartsListingNotificationExtension*>(self));
     if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_SenderSignalIndex_IsBase(true);
@@ -420,7 +420,7 @@ int KParts__ListingNotificationExtension_Receivers(const KParts__ListingNotifica
 }
 
 // Base class handler implementation
-int KParts__ListingNotificationExtension_QBaseReceivers(const KParts__ListingNotificationExtension* self, const char* signal) {
+int KParts__ListingNotificationExtension_SuperReceivers(const KParts__ListingNotificationExtension* self, const char* signal) {
     auto* vkpartslistingnotificationextension = const_cast<VirtualKPartsListingNotificationExtension*>(dynamic_cast<const VirtualKPartsListingNotificationExtension*>(self));
     if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_Receivers_IsBase(true);
@@ -449,7 +449,7 @@ bool KParts__ListingNotificationExtension_IsSignalConnected(const KParts__Listin
 }
 
 // Base class handler implementation
-bool KParts__ListingNotificationExtension_QBaseIsSignalConnected(const KParts__ListingNotificationExtension* self, const QMetaMethod* signal) {
+bool KParts__ListingNotificationExtension_SuperIsSignalConnected(const KParts__ListingNotificationExtension* self, const QMetaMethod* signal) {
     auto* vkpartslistingnotificationextension = const_cast<VirtualKPartsListingNotificationExtension*>(dynamic_cast<const VirtualKPartsListingNotificationExtension*>(self));
     if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_IsSignalConnected_IsBase(true);

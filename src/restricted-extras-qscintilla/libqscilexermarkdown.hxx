@@ -1098,31 +1098,31 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
 
     // Friend functions
     friend bool QsciLexerMarkdown_ReadProperties(QsciLexerMarkdown* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerMarkdown_QBaseReadProperties(QsciLexerMarkdown* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerMarkdown_SuperReadProperties(QsciLexerMarkdown* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerMarkdown_WriteProperties(const QsciLexerMarkdown* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerMarkdown_QBaseWriteProperties(const QsciLexerMarkdown* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerMarkdown_SuperWriteProperties(const QsciLexerMarkdown* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerMarkdown_TimerEvent(QsciLexerMarkdown* self, QTimerEvent* event);
-    friend void QsciLexerMarkdown_QBaseTimerEvent(QsciLexerMarkdown* self, QTimerEvent* event);
+    friend void QsciLexerMarkdown_SuperTimerEvent(QsciLexerMarkdown* self, QTimerEvent* event);
     friend void QsciLexerMarkdown_ChildEvent(QsciLexerMarkdown* self, QChildEvent* event);
-    friend void QsciLexerMarkdown_QBaseChildEvent(QsciLexerMarkdown* self, QChildEvent* event);
+    friend void QsciLexerMarkdown_SuperChildEvent(QsciLexerMarkdown* self, QChildEvent* event);
     friend void QsciLexerMarkdown_CustomEvent(QsciLexerMarkdown* self, QEvent* event);
-    friend void QsciLexerMarkdown_QBaseCustomEvent(QsciLexerMarkdown* self, QEvent* event);
+    friend void QsciLexerMarkdown_SuperCustomEvent(QsciLexerMarkdown* self, QEvent* event);
     friend void QsciLexerMarkdown_ConnectNotify(QsciLexerMarkdown* self, const QMetaMethod* signal);
-    friend void QsciLexerMarkdown_QBaseConnectNotify(QsciLexerMarkdown* self, const QMetaMethod* signal);
+    friend void QsciLexerMarkdown_SuperConnectNotify(QsciLexerMarkdown* self, const QMetaMethod* signal);
     friend void QsciLexerMarkdown_DisconnectNotify(QsciLexerMarkdown* self, const QMetaMethod* signal);
-    friend void QsciLexerMarkdown_QBaseDisconnectNotify(QsciLexerMarkdown* self, const QMetaMethod* signal);
+    friend void QsciLexerMarkdown_SuperDisconnectNotify(QsciLexerMarkdown* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerMarkdown_TextAsBytes(const QsciLexerMarkdown* self, const libqt_string text);
-    friend libqt_string QsciLexerMarkdown_QBaseTextAsBytes(const QsciLexerMarkdown* self, const libqt_string text);
+    friend libqt_string QsciLexerMarkdown_SuperTextAsBytes(const QsciLexerMarkdown* self, const libqt_string text);
     friend libqt_string QsciLexerMarkdown_BytesAsText(const QsciLexerMarkdown* self, const char* bytes, int size);
-    friend libqt_string QsciLexerMarkdown_QBaseBytesAsText(const QsciLexerMarkdown* self, const char* bytes, int size);
+    friend libqt_string QsciLexerMarkdown_SuperBytesAsText(const QsciLexerMarkdown* self, const char* bytes, int size);
     friend QObject* QsciLexerMarkdown_Sender(const QsciLexerMarkdown* self);
-    friend QObject* QsciLexerMarkdown_QBaseSender(const QsciLexerMarkdown* self);
+    friend QObject* QsciLexerMarkdown_SuperSender(const QsciLexerMarkdown* self);
     friend int QsciLexerMarkdown_SenderSignalIndex(const QsciLexerMarkdown* self);
-    friend int QsciLexerMarkdown_QBaseSenderSignalIndex(const QsciLexerMarkdown* self);
+    friend int QsciLexerMarkdown_SuperSenderSignalIndex(const QsciLexerMarkdown* self);
     friend int QsciLexerMarkdown_Receivers(const QsciLexerMarkdown* self, const char* signal);
-    friend int QsciLexerMarkdown_QBaseReceivers(const QsciLexerMarkdown* self, const char* signal);
+    friend int QsciLexerMarkdown_SuperReceivers(const QsciLexerMarkdown* self, const char* signal);
     friend bool QsciLexerMarkdown_IsSignalConnected(const QsciLexerMarkdown* self, const QMetaMethod* signal);
-    friend bool QsciLexerMarkdown_QBaseIsSignalConnected(const QsciLexerMarkdown* self, const QMetaMethod* signal);
+    friend bool QsciLexerMarkdown_SuperIsSignalConnected(const QsciLexerMarkdown* self, const QMetaMethod* signal);
 };
 
 #endif

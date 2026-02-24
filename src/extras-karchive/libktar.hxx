@@ -500,33 +500,33 @@ class VirtualKTar final : public KTar {
 
     // Friend functions
     friend bool KTar_DoWriteSymLink(KTar* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
-    friend bool KTar_QBaseDoWriteSymLink(KTar* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
+    friend bool KTar_SuperDoWriteSymLink(KTar* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
     friend bool KTar_DoWriteDir(KTar* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
-    friend bool KTar_QBaseDoWriteDir(KTar* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
+    friend bool KTar_SuperDoWriteDir(KTar* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
     friend bool KTar_DoPrepareWriting(KTar* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
-    friend bool KTar_QBaseDoPrepareWriting(KTar* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
+    friend bool KTar_SuperDoPrepareWriting(KTar* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
     friend bool KTar_DoFinishWriting(KTar* self, long long size);
-    friend bool KTar_QBaseDoFinishWriting(KTar* self, long long size);
+    friend bool KTar_SuperDoFinishWriting(KTar* self, long long size);
     friend bool KTar_OpenArchive(KTar* self, int mode);
-    friend bool KTar_QBaseOpenArchive(KTar* self, int mode);
+    friend bool KTar_SuperOpenArchive(KTar* self, int mode);
     friend bool KTar_CloseArchive(KTar* self);
-    friend bool KTar_QBaseCloseArchive(KTar* self);
+    friend bool KTar_SuperCloseArchive(KTar* self);
     friend bool KTar_CreateDevice(KTar* self, int mode);
-    friend bool KTar_QBaseCreateDevice(KTar* self, int mode);
+    friend bool KTar_SuperCreateDevice(KTar* self, int mode);
     friend void KTar_VirtualHook(KTar* self, int id, void* data);
-    friend void KTar_QBaseVirtualHook(KTar* self, int id, void* data);
+    friend void KTar_SuperVirtualHook(KTar* self, int id, void* data);
     friend KArchiveDirectory* KTar_RootDir(KTar* self);
-    friend KArchiveDirectory* KTar_QBaseRootDir(KTar* self);
+    friend KArchiveDirectory* KTar_SuperRootDir(KTar* self);
     friend bool KTar_DoWriteData(KTar* self, const char* data, long long size);
-    friend bool KTar_QBaseDoWriteData(KTar* self, const char* data, long long size);
+    friend bool KTar_SuperDoWriteData(KTar* self, const char* data, long long size);
     friend void KTar_SetErrorString(KTar* self, const libqt_string errorStr);
-    friend void KTar_QBaseSetErrorString(KTar* self, const libqt_string errorStr);
+    friend void KTar_SuperSetErrorString(KTar* self, const libqt_string errorStr);
     friend KArchiveDirectory* KTar_FindOrCreate(KTar* self, const libqt_string path);
-    friend KArchiveDirectory* KTar_QBaseFindOrCreate(KTar* self, const libqt_string path);
+    friend KArchiveDirectory* KTar_SuperFindOrCreate(KTar* self, const libqt_string path);
     friend void KTar_SetDevice(KTar* self, QIODevice* dev);
-    friend void KTar_QBaseSetDevice(KTar* self, QIODevice* dev);
+    friend void KTar_SuperSetDevice(KTar* self, QIODevice* dev);
     friend void KTar_SetRootDir(KTar* self, KArchiveDirectory* rootDir);
-    friend void KTar_QBaseSetRootDir(KTar* self, KArchiveDirectory* rootDir);
+    friend void KTar_SuperSetRootDir(KTar* self, KArchiveDirectory* rootDir);
 };
 
 #endif

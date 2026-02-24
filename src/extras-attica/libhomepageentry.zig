@@ -86,13 +86,17 @@ pub const attica__homepageentry = struct {
         qtc.Attica__HomePageEntry_SetUrl(@ptrCast(self), @ptrCast(url));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Attica__HomePageEntry `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Attica__HomePageEntry_Delete(@ptrCast(self));
     }
 };

@@ -243,7 +243,7 @@ void QSoundEffect_Stop(QSoundEffect* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QSoundEffect_QBaseMetaObject(const QSoundEffect* self) {
+QMetaObject* QSoundEffect_SuperMetaObject(const QSoundEffect* self) {
     auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self));
     if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
         vqsoundeffect->setQSoundEffect_MetaObject_IsBase(true);
@@ -262,7 +262,7 @@ void QSoundEffect_OnMetaObject(const QSoundEffect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QSoundEffect_QBaseMetacast(QSoundEffect* self, const char* param1) {
+void* QSoundEffect_SuperMetacast(QSoundEffect* self, const char* param1) {
     auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
     if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
         vqsoundeffect->setQSoundEffect_Metacast_IsBase(true);
@@ -281,7 +281,7 @@ void QSoundEffect_OnMetacast(QSoundEffect* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSoundEffect_QBaseMetacall(QSoundEffect* self, int param1, int param2, void** param3) {
+int QSoundEffect_SuperMetacall(QSoundEffect* self, int param1, int param2, void** param3) {
     auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
     if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
         vqsoundeffect->setQSoundEffect_Metacall_IsBase(true);
@@ -310,7 +310,7 @@ bool QSoundEffect_Event(QSoundEffect* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSoundEffect_QBaseEvent(QSoundEffect* self, QEvent* event) {
+bool QSoundEffect_SuperEvent(QSoundEffect* self, QEvent* event) {
     auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
     if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
         vqsoundeffect->setQSoundEffect_Event_IsBase(true);
@@ -339,7 +339,7 @@ bool QSoundEffect_EventFilter(QSoundEffect* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool QSoundEffect_QBaseEventFilter(QSoundEffect* self, QObject* watched, QEvent* event) {
+bool QSoundEffect_SuperEventFilter(QSoundEffect* self, QObject* watched, QEvent* event) {
     auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
     if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
         vqsoundeffect->setQSoundEffect_EventFilter_IsBase(true);
@@ -368,7 +368,7 @@ void QSoundEffect_TimerEvent(QSoundEffect* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QSoundEffect_QBaseTimerEvent(QSoundEffect* self, QTimerEvent* event) {
+void QSoundEffect_SuperTimerEvent(QSoundEffect* self, QTimerEvent* event) {
     auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
     if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
         vqsoundeffect->setQSoundEffect_TimerEvent_IsBase(true);
@@ -397,7 +397,7 @@ void QSoundEffect_ChildEvent(QSoundEffect* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QSoundEffect_QBaseChildEvent(QSoundEffect* self, QChildEvent* event) {
+void QSoundEffect_SuperChildEvent(QSoundEffect* self, QChildEvent* event) {
     auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
     if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
         vqsoundeffect->setQSoundEffect_ChildEvent_IsBase(true);
@@ -426,7 +426,7 @@ void QSoundEffect_CustomEvent(QSoundEffect* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSoundEffect_QBaseCustomEvent(QSoundEffect* self, QEvent* event) {
+void QSoundEffect_SuperCustomEvent(QSoundEffect* self, QEvent* event) {
     auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
     if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
         vqsoundeffect->setQSoundEffect_CustomEvent_IsBase(true);
@@ -455,7 +455,7 @@ void QSoundEffect_ConnectNotify(QSoundEffect* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSoundEffect_QBaseConnectNotify(QSoundEffect* self, const QMetaMethod* signal) {
+void QSoundEffect_SuperConnectNotify(QSoundEffect* self, const QMetaMethod* signal) {
     auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
     if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
         vqsoundeffect->setQSoundEffect_ConnectNotify_IsBase(true);
@@ -484,7 +484,7 @@ void QSoundEffect_DisconnectNotify(QSoundEffect* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QSoundEffect_QBaseDisconnectNotify(QSoundEffect* self, const QMetaMethod* signal) {
+void QSoundEffect_SuperDisconnectNotify(QSoundEffect* self, const QMetaMethod* signal) {
     auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
     if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
         vqsoundeffect->setQSoundEffect_DisconnectNotify_IsBase(true);
@@ -513,7 +513,7 @@ QObject* QSoundEffect_Sender(const QSoundEffect* self) {
 }
 
 // Base class handler implementation
-QObject* QSoundEffect_QBaseSender(const QSoundEffect* self) {
+QObject* QSoundEffect_SuperSender(const QSoundEffect* self) {
     auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self));
     if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
         vqsoundeffect->setQSoundEffect_Sender_IsBase(true);
@@ -542,7 +542,7 @@ int QSoundEffect_SenderSignalIndex(const QSoundEffect* self) {
 }
 
 // Base class handler implementation
-int QSoundEffect_QBaseSenderSignalIndex(const QSoundEffect* self) {
+int QSoundEffect_SuperSenderSignalIndex(const QSoundEffect* self) {
     auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self));
     if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
         vqsoundeffect->setQSoundEffect_SenderSignalIndex_IsBase(true);
@@ -571,7 +571,7 @@ int QSoundEffect_Receivers(const QSoundEffect* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QSoundEffect_QBaseReceivers(const QSoundEffect* self, const char* signal) {
+int QSoundEffect_SuperReceivers(const QSoundEffect* self, const char* signal) {
     auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self));
     if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
         vqsoundeffect->setQSoundEffect_Receivers_IsBase(true);
@@ -600,7 +600,7 @@ bool QSoundEffect_IsSignalConnected(const QSoundEffect* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QSoundEffect_QBaseIsSignalConnected(const QSoundEffect* self, const QMetaMethod* signal) {
+bool QSoundEffect_SuperIsSignalConnected(const QSoundEffect* self, const QMetaMethod* signal) {
     auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self));
     if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
         vqsoundeffect->setQSoundEffect_IsSignalConnected_IsBase(true);

@@ -96,7 +96,7 @@ void QsciMacro_EndRecording(QsciMacro* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QsciMacro_QBaseMetaObject(const QsciMacro* self) {
+QMetaObject* QsciMacro_SuperMetaObject(const QsciMacro* self) {
     auto* vqscimacro = const_cast<VirtualQsciMacro*>(dynamic_cast<const VirtualQsciMacro*>(self));
     if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
         vqscimacro->setQsciMacro_MetaObject_IsBase(true);
@@ -115,7 +115,7 @@ void QsciMacro_OnMetaObject(const QsciMacro* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QsciMacro_QBaseMetacast(QsciMacro* self, const char* param1) {
+void* QsciMacro_SuperMetacast(QsciMacro* self, const char* param1) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
     if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
         vqscimacro->setQsciMacro_Metacast_IsBase(true);
@@ -134,7 +134,7 @@ void QsciMacro_OnMetacast(QsciMacro* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QsciMacro_QBaseMetacall(QsciMacro* self, int param1, int param2, void** param3) {
+int QsciMacro_SuperMetacall(QsciMacro* self, int param1, int param2, void** param3) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
     if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
         vqscimacro->setQsciMacro_Metacall_IsBase(true);
@@ -153,7 +153,7 @@ void QsciMacro_OnMetacall(QsciMacro* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciMacro_QBasePlay(QsciMacro* self) {
+void QsciMacro_SuperPlay(QsciMacro* self) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
     if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
         vqscimacro->setQsciMacro_Play_IsBase(true);
@@ -172,7 +172,7 @@ void QsciMacro_OnPlay(QsciMacro* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciMacro_QBaseStartRecording(QsciMacro* self) {
+void QsciMacro_SuperStartRecording(QsciMacro* self) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
     if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
         vqscimacro->setQsciMacro_StartRecording_IsBase(true);
@@ -191,7 +191,7 @@ void QsciMacro_OnStartRecording(QsciMacro* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciMacro_QBaseEndRecording(QsciMacro* self) {
+void QsciMacro_SuperEndRecording(QsciMacro* self) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
     if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
         vqscimacro->setQsciMacro_EndRecording_IsBase(true);
@@ -220,7 +220,7 @@ bool QsciMacro_Event(QsciMacro* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QsciMacro_QBaseEvent(QsciMacro* self, QEvent* event) {
+bool QsciMacro_SuperEvent(QsciMacro* self, QEvent* event) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
     if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
         vqscimacro->setQsciMacro_Event_IsBase(true);
@@ -249,7 +249,7 @@ bool QsciMacro_EventFilter(QsciMacro* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QsciMacro_QBaseEventFilter(QsciMacro* self, QObject* watched, QEvent* event) {
+bool QsciMacro_SuperEventFilter(QsciMacro* self, QObject* watched, QEvent* event) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
     if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
         vqscimacro->setQsciMacro_EventFilter_IsBase(true);
@@ -278,7 +278,7 @@ void QsciMacro_TimerEvent(QsciMacro* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QsciMacro_QBaseTimerEvent(QsciMacro* self, QTimerEvent* event) {
+void QsciMacro_SuperTimerEvent(QsciMacro* self, QTimerEvent* event) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
     if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
         vqscimacro->setQsciMacro_TimerEvent_IsBase(true);
@@ -307,7 +307,7 @@ void QsciMacro_ChildEvent(QsciMacro* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QsciMacro_QBaseChildEvent(QsciMacro* self, QChildEvent* event) {
+void QsciMacro_SuperChildEvent(QsciMacro* self, QChildEvent* event) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
     if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
         vqscimacro->setQsciMacro_ChildEvent_IsBase(true);
@@ -336,7 +336,7 @@ void QsciMacro_CustomEvent(QsciMacro* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QsciMacro_QBaseCustomEvent(QsciMacro* self, QEvent* event) {
+void QsciMacro_SuperCustomEvent(QsciMacro* self, QEvent* event) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
     if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
         vqscimacro->setQsciMacro_CustomEvent_IsBase(true);
@@ -365,7 +365,7 @@ void QsciMacro_ConnectNotify(QsciMacro* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QsciMacro_QBaseConnectNotify(QsciMacro* self, const QMetaMethod* signal) {
+void QsciMacro_SuperConnectNotify(QsciMacro* self, const QMetaMethod* signal) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
     if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
         vqscimacro->setQsciMacro_ConnectNotify_IsBase(true);
@@ -394,7 +394,7 @@ void QsciMacro_DisconnectNotify(QsciMacro* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QsciMacro_QBaseDisconnectNotify(QsciMacro* self, const QMetaMethod* signal) {
+void QsciMacro_SuperDisconnectNotify(QsciMacro* self, const QMetaMethod* signal) {
     auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
     if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
         vqscimacro->setQsciMacro_DisconnectNotify_IsBase(true);
@@ -423,7 +423,7 @@ QObject* QsciMacro_Sender(const QsciMacro* self) {
 }
 
 // Base class handler implementation
-QObject* QsciMacro_QBaseSender(const QsciMacro* self) {
+QObject* QsciMacro_SuperSender(const QsciMacro* self) {
     auto* vqscimacro = const_cast<VirtualQsciMacro*>(dynamic_cast<const VirtualQsciMacro*>(self));
     if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
         vqscimacro->setQsciMacro_Sender_IsBase(true);
@@ -452,7 +452,7 @@ int QsciMacro_SenderSignalIndex(const QsciMacro* self) {
 }
 
 // Base class handler implementation
-int QsciMacro_QBaseSenderSignalIndex(const QsciMacro* self) {
+int QsciMacro_SuperSenderSignalIndex(const QsciMacro* self) {
     auto* vqscimacro = const_cast<VirtualQsciMacro*>(dynamic_cast<const VirtualQsciMacro*>(self));
     if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
         vqscimacro->setQsciMacro_SenderSignalIndex_IsBase(true);
@@ -481,7 +481,7 @@ int QsciMacro_Receivers(const QsciMacro* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QsciMacro_QBaseReceivers(const QsciMacro* self, const char* signal) {
+int QsciMacro_SuperReceivers(const QsciMacro* self, const char* signal) {
     auto* vqscimacro = const_cast<VirtualQsciMacro*>(dynamic_cast<const VirtualQsciMacro*>(self));
     if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
         vqscimacro->setQsciMacro_Receivers_IsBase(true);
@@ -510,7 +510,7 @@ bool QsciMacro_IsSignalConnected(const QsciMacro* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool QsciMacro_QBaseIsSignalConnected(const QsciMacro* self, const QMetaMethod* signal) {
+bool QsciMacro_SuperIsSignalConnected(const QsciMacro* self, const QMetaMethod* signal) {
     auto* vqscimacro = const_cast<VirtualQsciMacro*>(dynamic_cast<const VirtualQsciMacro*>(self));
     if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
         vqscimacro->setQsciMacro_IsSignalConnected_IsBase(true);

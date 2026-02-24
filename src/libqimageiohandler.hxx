@@ -660,23 +660,23 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
 
     // Friend functions
     friend void QImageIOPlugin_TimerEvent(QImageIOPlugin* self, QTimerEvent* event);
-    friend void QImageIOPlugin_QBaseTimerEvent(QImageIOPlugin* self, QTimerEvent* event);
+    friend void QImageIOPlugin_SuperTimerEvent(QImageIOPlugin* self, QTimerEvent* event);
     friend void QImageIOPlugin_ChildEvent(QImageIOPlugin* self, QChildEvent* event);
-    friend void QImageIOPlugin_QBaseChildEvent(QImageIOPlugin* self, QChildEvent* event);
+    friend void QImageIOPlugin_SuperChildEvent(QImageIOPlugin* self, QChildEvent* event);
     friend void QImageIOPlugin_CustomEvent(QImageIOPlugin* self, QEvent* event);
-    friend void QImageIOPlugin_QBaseCustomEvent(QImageIOPlugin* self, QEvent* event);
+    friend void QImageIOPlugin_SuperCustomEvent(QImageIOPlugin* self, QEvent* event);
     friend void QImageIOPlugin_ConnectNotify(QImageIOPlugin* self, const QMetaMethod* signal);
-    friend void QImageIOPlugin_QBaseConnectNotify(QImageIOPlugin* self, const QMetaMethod* signal);
+    friend void QImageIOPlugin_SuperConnectNotify(QImageIOPlugin* self, const QMetaMethod* signal);
     friend void QImageIOPlugin_DisconnectNotify(QImageIOPlugin* self, const QMetaMethod* signal);
-    friend void QImageIOPlugin_QBaseDisconnectNotify(QImageIOPlugin* self, const QMetaMethod* signal);
+    friend void QImageIOPlugin_SuperDisconnectNotify(QImageIOPlugin* self, const QMetaMethod* signal);
     friend QObject* QImageIOPlugin_Sender(const QImageIOPlugin* self);
-    friend QObject* QImageIOPlugin_QBaseSender(const QImageIOPlugin* self);
+    friend QObject* QImageIOPlugin_SuperSender(const QImageIOPlugin* self);
     friend int QImageIOPlugin_SenderSignalIndex(const QImageIOPlugin* self);
-    friend int QImageIOPlugin_QBaseSenderSignalIndex(const QImageIOPlugin* self);
+    friend int QImageIOPlugin_SuperSenderSignalIndex(const QImageIOPlugin* self);
     friend int QImageIOPlugin_Receivers(const QImageIOPlugin* self, const char* signal);
-    friend int QImageIOPlugin_QBaseReceivers(const QImageIOPlugin* self, const char* signal);
+    friend int QImageIOPlugin_SuperReceivers(const QImageIOPlugin* self, const char* signal);
     friend bool QImageIOPlugin_IsSignalConnected(const QImageIOPlugin* self, const QMetaMethod* signal);
-    friend bool QImageIOPlugin_QBaseIsSignalConnected(const QImageIOPlugin* self, const QMetaMethod* signal);
+    friend bool QImageIOPlugin_SuperIsSignalConnected(const QImageIOPlugin* self, const QMetaMethod* signal);
 };
 
 #endif

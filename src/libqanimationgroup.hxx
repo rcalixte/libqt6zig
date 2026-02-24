@@ -400,31 +400,31 @@ class VirtualQAnimationGroup : public QAnimationGroup {
 
     // Friend functions
     friend bool QAnimationGroup_Event(QAnimationGroup* self, QEvent* event);
-    friend bool QAnimationGroup_QBaseEvent(QAnimationGroup* self, QEvent* event);
+    friend bool QAnimationGroup_SuperEvent(QAnimationGroup* self, QEvent* event);
     friend void QAnimationGroup_UpdateCurrentTime(QAnimationGroup* self, int currentTime);
-    friend void QAnimationGroup_QBaseUpdateCurrentTime(QAnimationGroup* self, int currentTime);
+    friend void QAnimationGroup_SuperUpdateCurrentTime(QAnimationGroup* self, int currentTime);
     friend void QAnimationGroup_UpdateState(QAnimationGroup* self, int newState, int oldState);
-    friend void QAnimationGroup_QBaseUpdateState(QAnimationGroup* self, int newState, int oldState);
+    friend void QAnimationGroup_SuperUpdateState(QAnimationGroup* self, int newState, int oldState);
     friend void QAnimationGroup_UpdateDirection(QAnimationGroup* self, int direction);
-    friend void QAnimationGroup_QBaseUpdateDirection(QAnimationGroup* self, int direction);
+    friend void QAnimationGroup_SuperUpdateDirection(QAnimationGroup* self, int direction);
     friend void QAnimationGroup_TimerEvent(QAnimationGroup* self, QTimerEvent* event);
-    friend void QAnimationGroup_QBaseTimerEvent(QAnimationGroup* self, QTimerEvent* event);
+    friend void QAnimationGroup_SuperTimerEvent(QAnimationGroup* self, QTimerEvent* event);
     friend void QAnimationGroup_ChildEvent(QAnimationGroup* self, QChildEvent* event);
-    friend void QAnimationGroup_QBaseChildEvent(QAnimationGroup* self, QChildEvent* event);
+    friend void QAnimationGroup_SuperChildEvent(QAnimationGroup* self, QChildEvent* event);
     friend void QAnimationGroup_CustomEvent(QAnimationGroup* self, QEvent* event);
-    friend void QAnimationGroup_QBaseCustomEvent(QAnimationGroup* self, QEvent* event);
+    friend void QAnimationGroup_SuperCustomEvent(QAnimationGroup* self, QEvent* event);
     friend void QAnimationGroup_ConnectNotify(QAnimationGroup* self, const QMetaMethod* signal);
-    friend void QAnimationGroup_QBaseConnectNotify(QAnimationGroup* self, const QMetaMethod* signal);
+    friend void QAnimationGroup_SuperConnectNotify(QAnimationGroup* self, const QMetaMethod* signal);
     friend void QAnimationGroup_DisconnectNotify(QAnimationGroup* self, const QMetaMethod* signal);
-    friend void QAnimationGroup_QBaseDisconnectNotify(QAnimationGroup* self, const QMetaMethod* signal);
+    friend void QAnimationGroup_SuperDisconnectNotify(QAnimationGroup* self, const QMetaMethod* signal);
     friend QObject* QAnimationGroup_Sender(const QAnimationGroup* self);
-    friend QObject* QAnimationGroup_QBaseSender(const QAnimationGroup* self);
+    friend QObject* QAnimationGroup_SuperSender(const QAnimationGroup* self);
     friend int QAnimationGroup_SenderSignalIndex(const QAnimationGroup* self);
-    friend int QAnimationGroup_QBaseSenderSignalIndex(const QAnimationGroup* self);
+    friend int QAnimationGroup_SuperSenderSignalIndex(const QAnimationGroup* self);
     friend int QAnimationGroup_Receivers(const QAnimationGroup* self, const char* signal);
-    friend int QAnimationGroup_QBaseReceivers(const QAnimationGroup* self, const char* signal);
+    friend int QAnimationGroup_SuperReceivers(const QAnimationGroup* self, const char* signal);
     friend bool QAnimationGroup_IsSignalConnected(const QAnimationGroup* self, const QMetaMethod* signal);
-    friend bool QAnimationGroup_QBaseIsSignalConnected(const QAnimationGroup* self, const QMetaMethod* signal);
+    friend bool QAnimationGroup_SuperIsSignalConnected(const QAnimationGroup* self, const QMetaMethod* signal);
 };
 
 #endif

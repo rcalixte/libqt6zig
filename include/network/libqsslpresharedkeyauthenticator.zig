@@ -144,6 +144,10 @@ pub const qsslpresharedkeyauthenticator = struct {
         return qtc.QSslPreSharedKeyAuthenticator_MaximumPreSharedKeyLength(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#dtor.QSslPreSharedKeyAuthenticator)
     ///
     /// Delete this object from C++ memory.
@@ -152,7 +156,7 @@ pub const qsslpresharedkeyauthenticator = struct {
     ///
     /// ` self: QtC.QSslPreSharedKeyAuthenticator `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSslPreSharedKeyAuthenticator_Delete(@ptrCast(self));
     }
 };

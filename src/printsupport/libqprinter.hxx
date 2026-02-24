@@ -332,17 +332,17 @@ class VirtualQPrinter final : public QPrinter {
 
     // Friend functions
     friend int QPrinter_Metric(const QPrinter* self, int param1);
-    friend int QPrinter_QBaseMetric(const QPrinter* self, int param1);
+    friend int QPrinter_SuperMetric(const QPrinter* self, int param1);
     friend void QPrinter_InitPainter(const QPrinter* self, QPainter* painter);
-    friend void QPrinter_QBaseInitPainter(const QPrinter* self, QPainter* painter);
+    friend void QPrinter_SuperInitPainter(const QPrinter* self, QPainter* painter);
     friend QPaintDevice* QPrinter_Redirected(const QPrinter* self, QPoint* offset);
-    friend QPaintDevice* QPrinter_QBaseRedirected(const QPrinter* self, QPoint* offset);
+    friend QPaintDevice* QPrinter_SuperRedirected(const QPrinter* self, QPoint* offset);
     friend QPainter* QPrinter_SharedPainter(const QPrinter* self);
-    friend QPainter* QPrinter_QBaseSharedPainter(const QPrinter* self);
+    friend QPainter* QPrinter_SuperSharedPainter(const QPrinter* self);
     friend void QPrinter_SetEngines(QPrinter* self, QPrintEngine* printEngine, QPaintEngine* paintEngine);
-    friend void QPrinter_QBaseSetEngines(QPrinter* self, QPrintEngine* printEngine, QPaintEngine* paintEngine);
+    friend void QPrinter_SuperSetEngines(QPrinter* self, QPrintEngine* printEngine, QPaintEngine* paintEngine);
     friend double QPrinter_GetDecodedMetricF(const QPrinter* self, int metricA, int metricB);
-    friend double QPrinter_QBaseGetDecodedMetricF(const QPrinter* self, int metricA, int metricB);
+    friend double QPrinter_SuperGetDecodedMetricF(const QPrinter* self, int metricA, int metricB);
 };
 
 #endif

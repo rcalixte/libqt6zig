@@ -428,6 +428,10 @@ pub const signon__sessiondata = struct {
         return qtc.SignOn__SessionData_RenewToken(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1SessionData.html)
     ///
     /// Delete this object from C++ memory.
@@ -436,7 +440,7 @@ pub const signon__sessiondata = struct {
     ///
     /// ` self: QtC.SignOn__SessionData `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.SignOn__SessionData_Delete(@ptrCast(self));
     }
 };

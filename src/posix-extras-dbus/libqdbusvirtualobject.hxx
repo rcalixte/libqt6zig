@@ -378,23 +378,23 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
 
     // Friend functions
     friend void QDBusVirtualObject_TimerEvent(QDBusVirtualObject* self, QTimerEvent* event);
-    friend void QDBusVirtualObject_QBaseTimerEvent(QDBusVirtualObject* self, QTimerEvent* event);
+    friend void QDBusVirtualObject_SuperTimerEvent(QDBusVirtualObject* self, QTimerEvent* event);
     friend void QDBusVirtualObject_ChildEvent(QDBusVirtualObject* self, QChildEvent* event);
-    friend void QDBusVirtualObject_QBaseChildEvent(QDBusVirtualObject* self, QChildEvent* event);
+    friend void QDBusVirtualObject_SuperChildEvent(QDBusVirtualObject* self, QChildEvent* event);
     friend void QDBusVirtualObject_CustomEvent(QDBusVirtualObject* self, QEvent* event);
-    friend void QDBusVirtualObject_QBaseCustomEvent(QDBusVirtualObject* self, QEvent* event);
+    friend void QDBusVirtualObject_SuperCustomEvent(QDBusVirtualObject* self, QEvent* event);
     friend void QDBusVirtualObject_ConnectNotify(QDBusVirtualObject* self, const QMetaMethod* signal);
-    friend void QDBusVirtualObject_QBaseConnectNotify(QDBusVirtualObject* self, const QMetaMethod* signal);
+    friend void QDBusVirtualObject_SuperConnectNotify(QDBusVirtualObject* self, const QMetaMethod* signal);
     friend void QDBusVirtualObject_DisconnectNotify(QDBusVirtualObject* self, const QMetaMethod* signal);
-    friend void QDBusVirtualObject_QBaseDisconnectNotify(QDBusVirtualObject* self, const QMetaMethod* signal);
+    friend void QDBusVirtualObject_SuperDisconnectNotify(QDBusVirtualObject* self, const QMetaMethod* signal);
     friend QObject* QDBusVirtualObject_Sender(const QDBusVirtualObject* self);
-    friend QObject* QDBusVirtualObject_QBaseSender(const QDBusVirtualObject* self);
+    friend QObject* QDBusVirtualObject_SuperSender(const QDBusVirtualObject* self);
     friend int QDBusVirtualObject_SenderSignalIndex(const QDBusVirtualObject* self);
-    friend int QDBusVirtualObject_QBaseSenderSignalIndex(const QDBusVirtualObject* self);
+    friend int QDBusVirtualObject_SuperSenderSignalIndex(const QDBusVirtualObject* self);
     friend int QDBusVirtualObject_Receivers(const QDBusVirtualObject* self, const char* signal);
-    friend int QDBusVirtualObject_QBaseReceivers(const QDBusVirtualObject* self, const char* signal);
+    friend int QDBusVirtualObject_SuperReceivers(const QDBusVirtualObject* self, const char* signal);
     friend bool QDBusVirtualObject_IsSignalConnected(const QDBusVirtualObject* self, const QMetaMethod* signal);
-    friend bool QDBusVirtualObject_QBaseIsSignalConnected(const QDBusVirtualObject* self, const QMetaMethod* signal);
+    friend bool QDBusVirtualObject_SuperIsSignalConnected(const QDBusVirtualObject* self, const QMetaMethod* signal);
 };
 
 #endif

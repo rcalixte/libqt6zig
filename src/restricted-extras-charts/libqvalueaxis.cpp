@@ -257,7 +257,7 @@ void QValueAxis_Connect_TickTypeChanged(QValueAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QValueAxis_QBaseMetaObject(const QValueAxis* self) {
+QMetaObject* QValueAxis_SuperMetaObject(const QValueAxis* self) {
     auto* vqvalueaxis = const_cast<VirtualQValueAxis*>(dynamic_cast<const VirtualQValueAxis*>(self));
     if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
         vqvalueaxis->setQValueAxis_MetaObject_IsBase(true);
@@ -276,7 +276,7 @@ void QValueAxis_OnMetaObject(const QValueAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QValueAxis_QBaseMetacast(QValueAxis* self, const char* param1) {
+void* QValueAxis_SuperMetacast(QValueAxis* self, const char* param1) {
     auto* vqvalueaxis = dynamic_cast<VirtualQValueAxis*>(self);
     if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
         vqvalueaxis->setQValueAxis_Metacast_IsBase(true);
@@ -295,7 +295,7 @@ void QValueAxis_OnMetacast(QValueAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QValueAxis_QBaseMetacall(QValueAxis* self, int param1, int param2, void** param3) {
+int QValueAxis_SuperMetacall(QValueAxis* self, int param1, int param2, void** param3) {
     auto* vqvalueaxis = dynamic_cast<VirtualQValueAxis*>(self);
     if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
         vqvalueaxis->setQValueAxis_Metacall_IsBase(true);
@@ -314,7 +314,7 @@ void QValueAxis_OnMetacall(QValueAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QValueAxis_QBaseType(const QValueAxis* self) {
+int QValueAxis_SuperType(const QValueAxis* self) {
     auto* vqvalueaxis = const_cast<VirtualQValueAxis*>(dynamic_cast<const VirtualQValueAxis*>(self));
     if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
         vqvalueaxis->setQValueAxis_Type_IsBase(true);
@@ -343,7 +343,7 @@ bool QValueAxis_Event(QValueAxis* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QValueAxis_QBaseEvent(QValueAxis* self, QEvent* event) {
+bool QValueAxis_SuperEvent(QValueAxis* self, QEvent* event) {
     auto* vqvalueaxis = dynamic_cast<VirtualQValueAxis*>(self);
     if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
         vqvalueaxis->setQValueAxis_Event_IsBase(true);
@@ -372,7 +372,7 @@ bool QValueAxis_EventFilter(QValueAxis* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QValueAxis_QBaseEventFilter(QValueAxis* self, QObject* watched, QEvent* event) {
+bool QValueAxis_SuperEventFilter(QValueAxis* self, QObject* watched, QEvent* event) {
     auto* vqvalueaxis = dynamic_cast<VirtualQValueAxis*>(self);
     if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
         vqvalueaxis->setQValueAxis_EventFilter_IsBase(true);
@@ -401,7 +401,7 @@ void QValueAxis_TimerEvent(QValueAxis* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QValueAxis_QBaseTimerEvent(QValueAxis* self, QTimerEvent* event) {
+void QValueAxis_SuperTimerEvent(QValueAxis* self, QTimerEvent* event) {
     auto* vqvalueaxis = dynamic_cast<VirtualQValueAxis*>(self);
     if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
         vqvalueaxis->setQValueAxis_TimerEvent_IsBase(true);
@@ -430,7 +430,7 @@ void QValueAxis_ChildEvent(QValueAxis* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QValueAxis_QBaseChildEvent(QValueAxis* self, QChildEvent* event) {
+void QValueAxis_SuperChildEvent(QValueAxis* self, QChildEvent* event) {
     auto* vqvalueaxis = dynamic_cast<VirtualQValueAxis*>(self);
     if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
         vqvalueaxis->setQValueAxis_ChildEvent_IsBase(true);
@@ -459,7 +459,7 @@ void QValueAxis_CustomEvent(QValueAxis* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QValueAxis_QBaseCustomEvent(QValueAxis* self, QEvent* event) {
+void QValueAxis_SuperCustomEvent(QValueAxis* self, QEvent* event) {
     auto* vqvalueaxis = dynamic_cast<VirtualQValueAxis*>(self);
     if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
         vqvalueaxis->setQValueAxis_CustomEvent_IsBase(true);
@@ -488,7 +488,7 @@ void QValueAxis_ConnectNotify(QValueAxis* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QValueAxis_QBaseConnectNotify(QValueAxis* self, const QMetaMethod* signal) {
+void QValueAxis_SuperConnectNotify(QValueAxis* self, const QMetaMethod* signal) {
     auto* vqvalueaxis = dynamic_cast<VirtualQValueAxis*>(self);
     if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
         vqvalueaxis->setQValueAxis_ConnectNotify_IsBase(true);
@@ -517,7 +517,7 @@ void QValueAxis_DisconnectNotify(QValueAxis* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QValueAxis_QBaseDisconnectNotify(QValueAxis* self, const QMetaMethod* signal) {
+void QValueAxis_SuperDisconnectNotify(QValueAxis* self, const QMetaMethod* signal) {
     auto* vqvalueaxis = dynamic_cast<VirtualQValueAxis*>(self);
     if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
         vqvalueaxis->setQValueAxis_DisconnectNotify_IsBase(true);
@@ -546,7 +546,7 @@ QObject* QValueAxis_Sender(const QValueAxis* self) {
 }
 
 // Base class handler implementation
-QObject* QValueAxis_QBaseSender(const QValueAxis* self) {
+QObject* QValueAxis_SuperSender(const QValueAxis* self) {
     auto* vqvalueaxis = const_cast<VirtualQValueAxis*>(dynamic_cast<const VirtualQValueAxis*>(self));
     if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
         vqvalueaxis->setQValueAxis_Sender_IsBase(true);
@@ -575,7 +575,7 @@ int QValueAxis_SenderSignalIndex(const QValueAxis* self) {
 }
 
 // Base class handler implementation
-int QValueAxis_QBaseSenderSignalIndex(const QValueAxis* self) {
+int QValueAxis_SuperSenderSignalIndex(const QValueAxis* self) {
     auto* vqvalueaxis = const_cast<VirtualQValueAxis*>(dynamic_cast<const VirtualQValueAxis*>(self));
     if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
         vqvalueaxis->setQValueAxis_SenderSignalIndex_IsBase(true);
@@ -604,7 +604,7 @@ int QValueAxis_Receivers(const QValueAxis* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QValueAxis_QBaseReceivers(const QValueAxis* self, const char* signal) {
+int QValueAxis_SuperReceivers(const QValueAxis* self, const char* signal) {
     auto* vqvalueaxis = const_cast<VirtualQValueAxis*>(dynamic_cast<const VirtualQValueAxis*>(self));
     if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
         vqvalueaxis->setQValueAxis_Receivers_IsBase(true);
@@ -633,7 +633,7 @@ bool QValueAxis_IsSignalConnected(const QValueAxis* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QValueAxis_QBaseIsSignalConnected(const QValueAxis* self, const QMetaMethod* signal) {
+bool QValueAxis_SuperIsSignalConnected(const QValueAxis* self, const QMetaMethod* signal) {
     auto* vqvalueaxis = const_cast<VirtualQValueAxis*>(dynamic_cast<const VirtualQValueAxis*>(self));
     if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
         vqvalueaxis->setQValueAxis_IsSignalConnected_IsBase(true);

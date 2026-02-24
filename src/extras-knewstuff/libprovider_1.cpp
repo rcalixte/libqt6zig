@@ -598,7 +598,7 @@ void KNSCore__Provider_Connect_DownloadTagFilterChanged(KNSCore__Provider* self,
 }
 
 // Base class handler implementation
-QMetaObject* KNSCore__Provider_QBaseMetaObject(const KNSCore__Provider* self) {
+QMetaObject* KNSCore__Provider_SuperMetaObject(const KNSCore__Provider* self) {
     auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_MetaObject_IsBase(true);
@@ -617,7 +617,7 @@ void KNSCore__Provider_OnMetaObject(const KNSCore__Provider* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* KNSCore__Provider_QBaseMetacast(KNSCore__Provider* self, const char* param1) {
+void* KNSCore__Provider_SuperMetacast(KNSCore__Provider* self, const char* param1) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_Metacast_IsBase(true);
@@ -636,7 +636,7 @@ void KNSCore__Provider_OnMetacast(KNSCore__Provider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KNSCore__Provider_QBaseMetacall(KNSCore__Provider* self, int param1, int param2, void** param3) {
+int KNSCore__Provider_SuperMetacall(KNSCore__Provider* self, int param1, int param2, void** param3) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_Metacall_IsBase(true);
@@ -655,7 +655,7 @@ void KNSCore__Provider_OnMetacall(KNSCore__Provider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string KNSCore__Provider_QBaseId(const KNSCore__Provider* self) {
+libqt_string KNSCore__Provider_SuperId(const KNSCore__Provider* self) {
     auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_Id_IsBase(true);
@@ -690,7 +690,7 @@ void KNSCore__Provider_OnId(const KNSCore__Provider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KNSCore__Provider_QBaseSetProviderXML(KNSCore__Provider* self, const QDomElement* xmldata) {
+bool KNSCore__Provider_SuperSetProviderXML(KNSCore__Provider* self, const QDomElement* xmldata) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_SetProviderXML_IsBase(true);
@@ -709,7 +709,7 @@ void KNSCore__Provider_OnSetProviderXML(KNSCore__Provider* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-bool KNSCore__Provider_QBaseIsInitialized(const KNSCore__Provider* self) {
+bool KNSCore__Provider_SuperIsInitialized(const KNSCore__Provider* self) {
     auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_IsInitialized_IsBase(true);
@@ -728,7 +728,7 @@ void KNSCore__Provider_OnIsInitialized(const KNSCore__Provider* self, intptr_t s
 }
 
 // Base class handler implementation
-void KNSCore__Provider_QBaseSetCachedEntries(KNSCore__Provider* self, const libqt_list /* of KNSCore__Entry* */ cachedEntries) {
+void KNSCore__Provider_SuperSetCachedEntries(KNSCore__Provider* self, const libqt_list /* of KNSCore__Entry* */ cachedEntries) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     QList<KNSCore::Entry> cachedEntries_QList;
     cachedEntries_QList.reserve(cachedEntries.len);
@@ -753,7 +753,7 @@ void KNSCore__Provider_OnSetCachedEntries(KNSCore__Provider* self, intptr_t slot
 }
 
 // Base class handler implementation
-libqt_string KNSCore__Provider_QBaseName(const KNSCore__Provider* self) {
+libqt_string KNSCore__Provider_SuperName(const KNSCore__Provider* self) {
     auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_Name_IsBase(true);
@@ -788,7 +788,7 @@ void KNSCore__Provider_OnName(const KNSCore__Provider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QUrl* KNSCore__Provider_QBaseIcon(const KNSCore__Provider* self) {
+QUrl* KNSCore__Provider_SuperIcon(const KNSCore__Provider* self) {
     auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_Icon_IsBase(true);
@@ -807,7 +807,7 @@ void KNSCore__Provider_OnIcon(const KNSCore__Provider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KNSCore__Provider_QBaseLoadEntries(KNSCore__Provider* self, const KNSCore__Provider__SearchRequest* request) {
+void KNSCore__Provider_SuperLoadEntries(KNSCore__Provider* self, const KNSCore__Provider__SearchRequest* request) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_LoadEntries_IsBase(true);
@@ -826,7 +826,7 @@ void KNSCore__Provider_OnLoadEntries(KNSCore__Provider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KNSCore__Provider_QBaseLoadEntryDetails(KNSCore__Provider* self, const KNSCore__Entry* param1) {
+void KNSCore__Provider_SuperLoadEntryDetails(KNSCore__Provider* self, const KNSCore__Entry* param1) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_LoadEntryDetails_IsBase(true);
@@ -845,7 +845,7 @@ void KNSCore__Provider_OnLoadEntryDetails(KNSCore__Provider* self, intptr_t slot
 }
 
 // Base class handler implementation
-void KNSCore__Provider_QBaseLoadPayloadLink(KNSCore__Provider* self, const KNSCore__Entry* entry, int linkId) {
+void KNSCore__Provider_SuperLoadPayloadLink(KNSCore__Provider* self, const KNSCore__Entry* entry, int linkId) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_LoadPayloadLink_IsBase(true);
@@ -864,7 +864,7 @@ void KNSCore__Provider_OnLoadPayloadLink(KNSCore__Provider* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void KNSCore__Provider_QBaseLoadComments(KNSCore__Provider* self, const KNSCore__Entry* param1, int param2, int param3) {
+void KNSCore__Provider_SuperLoadComments(KNSCore__Provider* self, const KNSCore__Entry* param1, int param2, int param3) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_LoadComments_IsBase(true);
@@ -883,7 +883,7 @@ void KNSCore__Provider_OnLoadComments(KNSCore__Provider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KNSCore__Provider_QBaseLoadPerson(KNSCore__Provider* self, const libqt_string param1) {
+void KNSCore__Provider_SuperLoadPerson(KNSCore__Provider* self, const libqt_string param1) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
@@ -903,7 +903,7 @@ void KNSCore__Provider_OnLoadPerson(KNSCore__Provider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KNSCore__Provider_QBaseLoadBasics(KNSCore__Provider* self) {
+void KNSCore__Provider_SuperLoadBasics(KNSCore__Provider* self) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_LoadBasics_IsBase(true);
@@ -922,7 +922,7 @@ void KNSCore__Provider_OnLoadBasics(KNSCore__Provider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KNSCore__Provider_QBaseUserCanVote(KNSCore__Provider* self) {
+bool KNSCore__Provider_SuperUserCanVote(KNSCore__Provider* self) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_UserCanVote_IsBase(true);
@@ -941,7 +941,7 @@ void KNSCore__Provider_OnUserCanVote(KNSCore__Provider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KNSCore__Provider_QBaseVote(KNSCore__Provider* self, const KNSCore__Entry* param1, unsigned int param2) {
+void KNSCore__Provider_SuperVote(KNSCore__Provider* self, const KNSCore__Entry* param1, unsigned int param2) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_Vote_IsBase(true);
@@ -960,7 +960,7 @@ void KNSCore__Provider_OnVote(KNSCore__Provider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KNSCore__Provider_QBaseUserCanBecomeFan(KNSCore__Provider* self) {
+bool KNSCore__Provider_SuperUserCanBecomeFan(KNSCore__Provider* self) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_UserCanBecomeFan_IsBase(true);
@@ -979,7 +979,7 @@ void KNSCore__Provider_OnUserCanBecomeFan(KNSCore__Provider* self, intptr_t slot
 }
 
 // Base class handler implementation
-void KNSCore__Provider_QBaseBecomeFan(KNSCore__Provider* self, const KNSCore__Entry* param1) {
+void KNSCore__Provider_SuperBecomeFan(KNSCore__Provider* self, const KNSCore__Entry* param1) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_BecomeFan_IsBase(true);
@@ -1008,7 +1008,7 @@ bool KNSCore__Provider_Event(KNSCore__Provider* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KNSCore__Provider_QBaseEvent(KNSCore__Provider* self, QEvent* event) {
+bool KNSCore__Provider_SuperEvent(KNSCore__Provider* self, QEvent* event) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_Event_IsBase(true);
@@ -1037,7 +1037,7 @@ bool KNSCore__Provider_EventFilter(KNSCore__Provider* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool KNSCore__Provider_QBaseEventFilter(KNSCore__Provider* self, QObject* watched, QEvent* event) {
+bool KNSCore__Provider_SuperEventFilter(KNSCore__Provider* self, QObject* watched, QEvent* event) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_EventFilter_IsBase(true);
@@ -1066,7 +1066,7 @@ void KNSCore__Provider_TimerEvent(KNSCore__Provider* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KNSCore__Provider_QBaseTimerEvent(KNSCore__Provider* self, QTimerEvent* event) {
+void KNSCore__Provider_SuperTimerEvent(KNSCore__Provider* self, QTimerEvent* event) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_TimerEvent_IsBase(true);
@@ -1095,7 +1095,7 @@ void KNSCore__Provider_ChildEvent(KNSCore__Provider* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KNSCore__Provider_QBaseChildEvent(KNSCore__Provider* self, QChildEvent* event) {
+void KNSCore__Provider_SuperChildEvent(KNSCore__Provider* self, QChildEvent* event) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_ChildEvent_IsBase(true);
@@ -1124,7 +1124,7 @@ void KNSCore__Provider_CustomEvent(KNSCore__Provider* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KNSCore__Provider_QBaseCustomEvent(KNSCore__Provider* self, QEvent* event) {
+void KNSCore__Provider_SuperCustomEvent(KNSCore__Provider* self, QEvent* event) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_CustomEvent_IsBase(true);
@@ -1153,7 +1153,7 @@ void KNSCore__Provider_ConnectNotify(KNSCore__Provider* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void KNSCore__Provider_QBaseConnectNotify(KNSCore__Provider* self, const QMetaMethod* signal) {
+void KNSCore__Provider_SuperConnectNotify(KNSCore__Provider* self, const QMetaMethod* signal) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_ConnectNotify_IsBase(true);
@@ -1182,7 +1182,7 @@ void KNSCore__Provider_DisconnectNotify(KNSCore__Provider* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void KNSCore__Provider_QBaseDisconnectNotify(KNSCore__Provider* self, const QMetaMethod* signal) {
+void KNSCore__Provider_SuperDisconnectNotify(KNSCore__Provider* self, const QMetaMethod* signal) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_DisconnectNotify_IsBase(true);
@@ -1212,7 +1212,7 @@ void KNSCore__Provider_SetName(KNSCore__Provider* self, const libqt_string name)
 }
 
 // Base class handler implementation
-void KNSCore__Provider_QBaseSetName(KNSCore__Provider* self, const libqt_string name) {
+void KNSCore__Provider_SuperSetName(KNSCore__Provider* self, const libqt_string name) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
@@ -1242,7 +1242,7 @@ void KNSCore__Provider_SetIcon(KNSCore__Provider* self, const QUrl* icon) {
 }
 
 // Base class handler implementation
-void KNSCore__Provider_QBaseSetIcon(KNSCore__Provider* self, const QUrl* icon) {
+void KNSCore__Provider_SuperSetIcon(KNSCore__Provider* self, const QUrl* icon) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_SetIcon_IsBase(true);
@@ -1271,7 +1271,7 @@ QObject* KNSCore__Provider_Sender(const KNSCore__Provider* self) {
 }
 
 // Base class handler implementation
-QObject* KNSCore__Provider_QBaseSender(const KNSCore__Provider* self) {
+QObject* KNSCore__Provider_SuperSender(const KNSCore__Provider* self) {
     auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_Sender_IsBase(true);
@@ -1300,7 +1300,7 @@ int KNSCore__Provider_SenderSignalIndex(const KNSCore__Provider* self) {
 }
 
 // Base class handler implementation
-int KNSCore__Provider_QBaseSenderSignalIndex(const KNSCore__Provider* self) {
+int KNSCore__Provider_SuperSenderSignalIndex(const KNSCore__Provider* self) {
     auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_SenderSignalIndex_IsBase(true);
@@ -1329,7 +1329,7 @@ int KNSCore__Provider_Receivers(const KNSCore__Provider* self, const char* signa
 }
 
 // Base class handler implementation
-int KNSCore__Provider_QBaseReceivers(const KNSCore__Provider* self, const char* signal) {
+int KNSCore__Provider_SuperReceivers(const KNSCore__Provider* self, const char* signal) {
     auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_Receivers_IsBase(true);
@@ -1358,7 +1358,7 @@ bool KNSCore__Provider_IsSignalConnected(const KNSCore__Provider* self, const QM
 }
 
 // Base class handler implementation
-bool KNSCore__Provider_QBaseIsSignalConnected(const KNSCore__Provider* self, const QMetaMethod* signal) {
+bool KNSCore__Provider_SuperIsSignalConnected(const KNSCore__Provider* self, const QMetaMethod* signal) {
     auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_IsSignalConnected_IsBase(true);

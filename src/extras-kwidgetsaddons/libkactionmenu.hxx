@@ -396,31 +396,31 @@ class VirtualKActionMenu final : public KActionMenu {
 
     // Friend functions
     friend bool KActionMenu_Event(KActionMenu* self, QEvent* param1);
-    friend bool KActionMenu_QBaseEvent(KActionMenu* self, QEvent* param1);
+    friend bool KActionMenu_SuperEvent(KActionMenu* self, QEvent* param1);
     friend bool KActionMenu_EventFilter(KActionMenu* self, QObject* param1, QEvent* param2);
-    friend bool KActionMenu_QBaseEventFilter(KActionMenu* self, QObject* param1, QEvent* param2);
+    friend bool KActionMenu_SuperEventFilter(KActionMenu* self, QObject* param1, QEvent* param2);
     friend void KActionMenu_DeleteWidget(KActionMenu* self, QWidget* widget);
-    friend void KActionMenu_QBaseDeleteWidget(KActionMenu* self, QWidget* widget);
+    friend void KActionMenu_SuperDeleteWidget(KActionMenu* self, QWidget* widget);
     friend void KActionMenu_TimerEvent(KActionMenu* self, QTimerEvent* event);
-    friend void KActionMenu_QBaseTimerEvent(KActionMenu* self, QTimerEvent* event);
+    friend void KActionMenu_SuperTimerEvent(KActionMenu* self, QTimerEvent* event);
     friend void KActionMenu_ChildEvent(KActionMenu* self, QChildEvent* event);
-    friend void KActionMenu_QBaseChildEvent(KActionMenu* self, QChildEvent* event);
+    friend void KActionMenu_SuperChildEvent(KActionMenu* self, QChildEvent* event);
     friend void KActionMenu_CustomEvent(KActionMenu* self, QEvent* event);
-    friend void KActionMenu_QBaseCustomEvent(KActionMenu* self, QEvent* event);
+    friend void KActionMenu_SuperCustomEvent(KActionMenu* self, QEvent* event);
     friend void KActionMenu_ConnectNotify(KActionMenu* self, const QMetaMethod* signal);
-    friend void KActionMenu_QBaseConnectNotify(KActionMenu* self, const QMetaMethod* signal);
+    friend void KActionMenu_SuperConnectNotify(KActionMenu* self, const QMetaMethod* signal);
     friend void KActionMenu_DisconnectNotify(KActionMenu* self, const QMetaMethod* signal);
-    friend void KActionMenu_QBaseDisconnectNotify(KActionMenu* self, const QMetaMethod* signal);
+    friend void KActionMenu_SuperDisconnectNotify(KActionMenu* self, const QMetaMethod* signal);
     friend libqt_list /* of QWidget* */ KActionMenu_CreatedWidgets(const KActionMenu* self);
-    friend libqt_list /* of QWidget* */ KActionMenu_QBaseCreatedWidgets(const KActionMenu* self);
+    friend libqt_list /* of QWidget* */ KActionMenu_SuperCreatedWidgets(const KActionMenu* self);
     friend QObject* KActionMenu_Sender(const KActionMenu* self);
-    friend QObject* KActionMenu_QBaseSender(const KActionMenu* self);
+    friend QObject* KActionMenu_SuperSender(const KActionMenu* self);
     friend int KActionMenu_SenderSignalIndex(const KActionMenu* self);
-    friend int KActionMenu_QBaseSenderSignalIndex(const KActionMenu* self);
+    friend int KActionMenu_SuperSenderSignalIndex(const KActionMenu* self);
     friend int KActionMenu_Receivers(const KActionMenu* self, const char* signal);
-    friend int KActionMenu_QBaseReceivers(const KActionMenu* self, const char* signal);
+    friend int KActionMenu_SuperReceivers(const KActionMenu* self, const char* signal);
     friend bool KActionMenu_IsSignalConnected(const KActionMenu* self, const QMetaMethod* signal);
-    friend bool KActionMenu_QBaseIsSignalConnected(const KActionMenu* self, const QMetaMethod* signal);
+    friend bool KActionMenu_SuperIsSignalConnected(const KActionMenu* self, const QMetaMethod* signal);
 };
 
 #endif

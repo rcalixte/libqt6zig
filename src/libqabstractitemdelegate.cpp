@@ -216,7 +216,7 @@ void QAbstractItemDelegate_Connect_CloseEditor2(QAbstractItemDelegate* self, int
 }
 
 // Base class handler implementation
-QMetaObject* QAbstractItemDelegate_QBaseMetaObject(const QAbstractItemDelegate* self) {
+QMetaObject* QAbstractItemDelegate_SuperMetaObject(const QAbstractItemDelegate* self) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_MetaObject_IsBase(true);
@@ -235,7 +235,7 @@ void QAbstractItemDelegate_OnMetaObject(const QAbstractItemDelegate* self, intpt
 }
 
 // Base class handler implementation
-void* QAbstractItemDelegate_QBaseMetacast(QAbstractItemDelegate* self, const char* param1) {
+void* QAbstractItemDelegate_SuperMetacast(QAbstractItemDelegate* self, const char* param1) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_Metacast_IsBase(true);
@@ -254,7 +254,7 @@ void QAbstractItemDelegate_OnMetacast(QAbstractItemDelegate* self, intptr_t slot
 }
 
 // Base class handler implementation
-int QAbstractItemDelegate_QBaseMetacall(QAbstractItemDelegate* self, int param1, int param2, void** param3) {
+int QAbstractItemDelegate_SuperMetacall(QAbstractItemDelegate* self, int param1, int param2, void** param3) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_Metacall_IsBase(true);
@@ -273,7 +273,7 @@ void QAbstractItemDelegate_OnMetacall(QAbstractItemDelegate* self, intptr_t slot
 }
 
 // Base class handler implementation
-void QAbstractItemDelegate_QBasePaint(const QAbstractItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
+void QAbstractItemDelegate_SuperPaint(const QAbstractItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_Paint_IsBase(true);
@@ -292,7 +292,7 @@ void QAbstractItemDelegate_OnPaint(const QAbstractItemDelegate* self, intptr_t s
 }
 
 // Base class handler implementation
-QSize* QAbstractItemDelegate_QBaseSizeHint(const QAbstractItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
+QSize* QAbstractItemDelegate_SuperSizeHint(const QAbstractItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_SizeHint_IsBase(true);
@@ -311,7 +311,7 @@ void QAbstractItemDelegate_OnSizeHint(const QAbstractItemDelegate* self, intptr_
 }
 
 // Base class handler implementation
-QWidget* QAbstractItemDelegate_QBaseCreateEditor(const QAbstractItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
+QWidget* QAbstractItemDelegate_SuperCreateEditor(const QAbstractItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_CreateEditor_IsBase(true);
@@ -330,7 +330,7 @@ void QAbstractItemDelegate_OnCreateEditor(const QAbstractItemDelegate* self, int
 }
 
 // Base class handler implementation
-void QAbstractItemDelegate_QBaseDestroyEditor(const QAbstractItemDelegate* self, QWidget* editor, const QModelIndex* index) {
+void QAbstractItemDelegate_SuperDestroyEditor(const QAbstractItemDelegate* self, QWidget* editor, const QModelIndex* index) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_DestroyEditor_IsBase(true);
@@ -349,7 +349,7 @@ void QAbstractItemDelegate_OnDestroyEditor(const QAbstractItemDelegate* self, in
 }
 
 // Base class handler implementation
-void QAbstractItemDelegate_QBaseSetEditorData(const QAbstractItemDelegate* self, QWidget* editor, const QModelIndex* index) {
+void QAbstractItemDelegate_SuperSetEditorData(const QAbstractItemDelegate* self, QWidget* editor, const QModelIndex* index) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_SetEditorData_IsBase(true);
@@ -368,7 +368,7 @@ void QAbstractItemDelegate_OnSetEditorData(const QAbstractItemDelegate* self, in
 }
 
 // Base class handler implementation
-void QAbstractItemDelegate_QBaseSetModelData(const QAbstractItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
+void QAbstractItemDelegate_SuperSetModelData(const QAbstractItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_SetModelData_IsBase(true);
@@ -387,7 +387,7 @@ void QAbstractItemDelegate_OnSetModelData(const QAbstractItemDelegate* self, int
 }
 
 // Base class handler implementation
-void QAbstractItemDelegate_QBaseUpdateEditorGeometry(const QAbstractItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
+void QAbstractItemDelegate_SuperUpdateEditorGeometry(const QAbstractItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_UpdateEditorGeometry_IsBase(true);
@@ -406,7 +406,7 @@ void QAbstractItemDelegate_OnUpdateEditorGeometry(const QAbstractItemDelegate* s
 }
 
 // Base class handler implementation
-bool QAbstractItemDelegate_QBaseEditorEvent(QAbstractItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
+bool QAbstractItemDelegate_SuperEditorEvent(QAbstractItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_EditorEvent_IsBase(true);
@@ -425,7 +425,7 @@ void QAbstractItemDelegate_OnEditorEvent(QAbstractItemDelegate* self, intptr_t s
 }
 
 // Base class handler implementation
-bool QAbstractItemDelegate_QBaseHelpEvent(QAbstractItemDelegate* self, QHelpEvent* event, QAbstractItemView* view, const QStyleOptionViewItem* option, const QModelIndex* index) {
+bool QAbstractItemDelegate_SuperHelpEvent(QAbstractItemDelegate* self, QHelpEvent* event, QAbstractItemView* view, const QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_HelpEvent_IsBase(true);
@@ -444,7 +444,7 @@ void QAbstractItemDelegate_OnHelpEvent(QAbstractItemDelegate* self, intptr_t slo
 }
 
 // Base class handler implementation
-libqt_list /* of int */ QAbstractItemDelegate_QBasePaintingRoles(const QAbstractItemDelegate* self) {
+libqt_list /* of int */ QAbstractItemDelegate_SuperPaintingRoles(const QAbstractItemDelegate* self) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_PaintingRoles_IsBase(true);
@@ -491,7 +491,7 @@ bool QAbstractItemDelegate_Event(QAbstractItemDelegate* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QAbstractItemDelegate_QBaseEvent(QAbstractItemDelegate* self, QEvent* event) {
+bool QAbstractItemDelegate_SuperEvent(QAbstractItemDelegate* self, QEvent* event) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_Event_IsBase(true);
@@ -520,7 +520,7 @@ bool QAbstractItemDelegate_EventFilter(QAbstractItemDelegate* self, QObject* wat
 }
 
 // Base class handler implementation
-bool QAbstractItemDelegate_QBaseEventFilter(QAbstractItemDelegate* self, QObject* watched, QEvent* event) {
+bool QAbstractItemDelegate_SuperEventFilter(QAbstractItemDelegate* self, QObject* watched, QEvent* event) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_EventFilter_IsBase(true);
@@ -549,7 +549,7 @@ void QAbstractItemDelegate_TimerEvent(QAbstractItemDelegate* self, QTimerEvent* 
 }
 
 // Base class handler implementation
-void QAbstractItemDelegate_QBaseTimerEvent(QAbstractItemDelegate* self, QTimerEvent* event) {
+void QAbstractItemDelegate_SuperTimerEvent(QAbstractItemDelegate* self, QTimerEvent* event) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_TimerEvent_IsBase(true);
@@ -578,7 +578,7 @@ void QAbstractItemDelegate_ChildEvent(QAbstractItemDelegate* self, QChildEvent* 
 }
 
 // Base class handler implementation
-void QAbstractItemDelegate_QBaseChildEvent(QAbstractItemDelegate* self, QChildEvent* event) {
+void QAbstractItemDelegate_SuperChildEvent(QAbstractItemDelegate* self, QChildEvent* event) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_ChildEvent_IsBase(true);
@@ -607,7 +607,7 @@ void QAbstractItemDelegate_CustomEvent(QAbstractItemDelegate* self, QEvent* even
 }
 
 // Base class handler implementation
-void QAbstractItemDelegate_QBaseCustomEvent(QAbstractItemDelegate* self, QEvent* event) {
+void QAbstractItemDelegate_SuperCustomEvent(QAbstractItemDelegate* self, QEvent* event) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_CustomEvent_IsBase(true);
@@ -636,7 +636,7 @@ void QAbstractItemDelegate_ConnectNotify(QAbstractItemDelegate* self, const QMet
 }
 
 // Base class handler implementation
-void QAbstractItemDelegate_QBaseConnectNotify(QAbstractItemDelegate* self, const QMetaMethod* signal) {
+void QAbstractItemDelegate_SuperConnectNotify(QAbstractItemDelegate* self, const QMetaMethod* signal) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_ConnectNotify_IsBase(true);
@@ -665,7 +665,7 @@ void QAbstractItemDelegate_DisconnectNotify(QAbstractItemDelegate* self, const Q
 }
 
 // Base class handler implementation
-void QAbstractItemDelegate_QBaseDisconnectNotify(QAbstractItemDelegate* self, const QMetaMethod* signal) {
+void QAbstractItemDelegate_SuperDisconnectNotify(QAbstractItemDelegate* self, const QMetaMethod* signal) {
     auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_DisconnectNotify_IsBase(true);
@@ -694,7 +694,7 @@ QObject* QAbstractItemDelegate_Sender(const QAbstractItemDelegate* self) {
 }
 
 // Base class handler implementation
-QObject* QAbstractItemDelegate_QBaseSender(const QAbstractItemDelegate* self) {
+QObject* QAbstractItemDelegate_SuperSender(const QAbstractItemDelegate* self) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_Sender_IsBase(true);
@@ -723,7 +723,7 @@ int QAbstractItemDelegate_SenderSignalIndex(const QAbstractItemDelegate* self) {
 }
 
 // Base class handler implementation
-int QAbstractItemDelegate_QBaseSenderSignalIndex(const QAbstractItemDelegate* self) {
+int QAbstractItemDelegate_SuperSenderSignalIndex(const QAbstractItemDelegate* self) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_SenderSignalIndex_IsBase(true);
@@ -752,7 +752,7 @@ int QAbstractItemDelegate_Receivers(const QAbstractItemDelegate* self, const cha
 }
 
 // Base class handler implementation
-int QAbstractItemDelegate_QBaseReceivers(const QAbstractItemDelegate* self, const char* signal) {
+int QAbstractItemDelegate_SuperReceivers(const QAbstractItemDelegate* self, const char* signal) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_Receivers_IsBase(true);
@@ -781,7 +781,7 @@ bool QAbstractItemDelegate_IsSignalConnected(const QAbstractItemDelegate* self, 
 }
 
 // Base class handler implementation
-bool QAbstractItemDelegate_QBaseIsSignalConnected(const QAbstractItemDelegate* self, const QMetaMethod* signal) {
+bool QAbstractItemDelegate_SuperIsSignalConnected(const QAbstractItemDelegate* self, const QMetaMethod* signal) {
     auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         vqabstractitemdelegate->setQAbstractItemDelegate_IsSignalConnected_IsBase(true);

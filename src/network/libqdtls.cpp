@@ -96,7 +96,7 @@ libqt_string QDtlsClientVerifier_DtlsErrorString(const QDtlsClientVerifier* self
 }
 
 // Base class handler implementation
-QMetaObject* QDtlsClientVerifier_QBaseMetaObject(const QDtlsClientVerifier* self) {
+QMetaObject* QDtlsClientVerifier_SuperMetaObject(const QDtlsClientVerifier* self) {
     auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
     if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
         vqdtlsclientverifier->setQDtlsClientVerifier_MetaObject_IsBase(true);
@@ -115,7 +115,7 @@ void QDtlsClientVerifier_OnMetaObject(const QDtlsClientVerifier* self, intptr_t 
 }
 
 // Base class handler implementation
-void* QDtlsClientVerifier_QBaseMetacast(QDtlsClientVerifier* self, const char* param1) {
+void* QDtlsClientVerifier_SuperMetacast(QDtlsClientVerifier* self, const char* param1) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
     if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
         vqdtlsclientverifier->setQDtlsClientVerifier_Metacast_IsBase(true);
@@ -134,7 +134,7 @@ void QDtlsClientVerifier_OnMetacast(QDtlsClientVerifier* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QDtlsClientVerifier_QBaseMetacall(QDtlsClientVerifier* self, int param1, int param2, void** param3) {
+int QDtlsClientVerifier_SuperMetacall(QDtlsClientVerifier* self, int param1, int param2, void** param3) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
     if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
         vqdtlsclientverifier->setQDtlsClientVerifier_Metacall_IsBase(true);
@@ -163,7 +163,7 @@ bool QDtlsClientVerifier_Event(QDtlsClientVerifier* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QDtlsClientVerifier_QBaseEvent(QDtlsClientVerifier* self, QEvent* event) {
+bool QDtlsClientVerifier_SuperEvent(QDtlsClientVerifier* self, QEvent* event) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
     if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
         vqdtlsclientverifier->setQDtlsClientVerifier_Event_IsBase(true);
@@ -192,7 +192,7 @@ bool QDtlsClientVerifier_EventFilter(QDtlsClientVerifier* self, QObject* watched
 }
 
 // Base class handler implementation
-bool QDtlsClientVerifier_QBaseEventFilter(QDtlsClientVerifier* self, QObject* watched, QEvent* event) {
+bool QDtlsClientVerifier_SuperEventFilter(QDtlsClientVerifier* self, QObject* watched, QEvent* event) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
     if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
         vqdtlsclientverifier->setQDtlsClientVerifier_EventFilter_IsBase(true);
@@ -221,7 +221,7 @@ void QDtlsClientVerifier_TimerEvent(QDtlsClientVerifier* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void QDtlsClientVerifier_QBaseTimerEvent(QDtlsClientVerifier* self, QTimerEvent* event) {
+void QDtlsClientVerifier_SuperTimerEvent(QDtlsClientVerifier* self, QTimerEvent* event) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
     if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
         vqdtlsclientverifier->setQDtlsClientVerifier_TimerEvent_IsBase(true);
@@ -250,7 +250,7 @@ void QDtlsClientVerifier_ChildEvent(QDtlsClientVerifier* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void QDtlsClientVerifier_QBaseChildEvent(QDtlsClientVerifier* self, QChildEvent* event) {
+void QDtlsClientVerifier_SuperChildEvent(QDtlsClientVerifier* self, QChildEvent* event) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
     if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
         vqdtlsclientverifier->setQDtlsClientVerifier_ChildEvent_IsBase(true);
@@ -279,7 +279,7 @@ void QDtlsClientVerifier_CustomEvent(QDtlsClientVerifier* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDtlsClientVerifier_QBaseCustomEvent(QDtlsClientVerifier* self, QEvent* event) {
+void QDtlsClientVerifier_SuperCustomEvent(QDtlsClientVerifier* self, QEvent* event) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
     if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
         vqdtlsclientverifier->setQDtlsClientVerifier_CustomEvent_IsBase(true);
@@ -308,7 +308,7 @@ void QDtlsClientVerifier_ConnectNotify(QDtlsClientVerifier* self, const QMetaMet
 }
 
 // Base class handler implementation
-void QDtlsClientVerifier_QBaseConnectNotify(QDtlsClientVerifier* self, const QMetaMethod* signal) {
+void QDtlsClientVerifier_SuperConnectNotify(QDtlsClientVerifier* self, const QMetaMethod* signal) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
     if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
         vqdtlsclientverifier->setQDtlsClientVerifier_ConnectNotify_IsBase(true);
@@ -337,7 +337,7 @@ void QDtlsClientVerifier_DisconnectNotify(QDtlsClientVerifier* self, const QMeta
 }
 
 // Base class handler implementation
-void QDtlsClientVerifier_QBaseDisconnectNotify(QDtlsClientVerifier* self, const QMetaMethod* signal) {
+void QDtlsClientVerifier_SuperDisconnectNotify(QDtlsClientVerifier* self, const QMetaMethod* signal) {
     auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
     if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
         vqdtlsclientverifier->setQDtlsClientVerifier_DisconnectNotify_IsBase(true);
@@ -366,7 +366,7 @@ QObject* QDtlsClientVerifier_Sender(const QDtlsClientVerifier* self) {
 }
 
 // Base class handler implementation
-QObject* QDtlsClientVerifier_QBaseSender(const QDtlsClientVerifier* self) {
+QObject* QDtlsClientVerifier_SuperSender(const QDtlsClientVerifier* self) {
     auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
     if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
         vqdtlsclientverifier->setQDtlsClientVerifier_Sender_IsBase(true);
@@ -395,7 +395,7 @@ int QDtlsClientVerifier_SenderSignalIndex(const QDtlsClientVerifier* self) {
 }
 
 // Base class handler implementation
-int QDtlsClientVerifier_QBaseSenderSignalIndex(const QDtlsClientVerifier* self) {
+int QDtlsClientVerifier_SuperSenderSignalIndex(const QDtlsClientVerifier* self) {
     auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
     if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
         vqdtlsclientverifier->setQDtlsClientVerifier_SenderSignalIndex_IsBase(true);
@@ -424,7 +424,7 @@ int QDtlsClientVerifier_Receivers(const QDtlsClientVerifier* self, const char* s
 }
 
 // Base class handler implementation
-int QDtlsClientVerifier_QBaseReceivers(const QDtlsClientVerifier* self, const char* signal) {
+int QDtlsClientVerifier_SuperReceivers(const QDtlsClientVerifier* self, const char* signal) {
     auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
     if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
         vqdtlsclientverifier->setQDtlsClientVerifier_Receivers_IsBase(true);
@@ -453,7 +453,7 @@ bool QDtlsClientVerifier_IsSignalConnected(const QDtlsClientVerifier* self, cons
 }
 
 // Base class handler implementation
-bool QDtlsClientVerifier_QBaseIsSignalConnected(const QDtlsClientVerifier* self, const QMetaMethod* signal) {
+bool QDtlsClientVerifier_SuperIsSignalConnected(const QDtlsClientVerifier* self, const QMetaMethod* signal) {
     auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
     if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
         vqdtlsclientverifier->setQDtlsClientVerifier_IsSignalConnected_IsBase(true);
@@ -691,7 +691,7 @@ bool QDtls_DoHandshake2(QDtls* self, QUdpSocket* socket, const libqt_string dgra
 }
 
 // Base class handler implementation
-QMetaObject* QDtls_QBaseMetaObject(const QDtls* self) {
+QMetaObject* QDtls_SuperMetaObject(const QDtls* self) {
     auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
     if (vqdtls && vqdtls->isVirtualQDtls) {
         vqdtls->setQDtls_MetaObject_IsBase(true);
@@ -710,7 +710,7 @@ void QDtls_OnMetaObject(const QDtls* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QDtls_QBaseMetacast(QDtls* self, const char* param1) {
+void* QDtls_SuperMetacast(QDtls* self, const char* param1) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
     if (vqdtls && vqdtls->isVirtualQDtls) {
         vqdtls->setQDtls_Metacast_IsBase(true);
@@ -729,7 +729,7 @@ void QDtls_OnMetacast(QDtls* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QDtls_QBaseMetacall(QDtls* self, int param1, int param2, void** param3) {
+int QDtls_SuperMetacall(QDtls* self, int param1, int param2, void** param3) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
     if (vqdtls && vqdtls->isVirtualQDtls) {
         vqdtls->setQDtls_Metacall_IsBase(true);
@@ -758,7 +758,7 @@ bool QDtls_Event(QDtls* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QDtls_QBaseEvent(QDtls* self, QEvent* event) {
+bool QDtls_SuperEvent(QDtls* self, QEvent* event) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
     if (vqdtls && vqdtls->isVirtualQDtls) {
         vqdtls->setQDtls_Event_IsBase(true);
@@ -787,7 +787,7 @@ bool QDtls_EventFilter(QDtls* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QDtls_QBaseEventFilter(QDtls* self, QObject* watched, QEvent* event) {
+bool QDtls_SuperEventFilter(QDtls* self, QObject* watched, QEvent* event) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
     if (vqdtls && vqdtls->isVirtualQDtls) {
         vqdtls->setQDtls_EventFilter_IsBase(true);
@@ -816,7 +816,7 @@ void QDtls_TimerEvent(QDtls* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QDtls_QBaseTimerEvent(QDtls* self, QTimerEvent* event) {
+void QDtls_SuperTimerEvent(QDtls* self, QTimerEvent* event) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
     if (vqdtls && vqdtls->isVirtualQDtls) {
         vqdtls->setQDtls_TimerEvent_IsBase(true);
@@ -845,7 +845,7 @@ void QDtls_ChildEvent(QDtls* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QDtls_QBaseChildEvent(QDtls* self, QChildEvent* event) {
+void QDtls_SuperChildEvent(QDtls* self, QChildEvent* event) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
     if (vqdtls && vqdtls->isVirtualQDtls) {
         vqdtls->setQDtls_ChildEvent_IsBase(true);
@@ -874,7 +874,7 @@ void QDtls_CustomEvent(QDtls* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDtls_QBaseCustomEvent(QDtls* self, QEvent* event) {
+void QDtls_SuperCustomEvent(QDtls* self, QEvent* event) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
     if (vqdtls && vqdtls->isVirtualQDtls) {
         vqdtls->setQDtls_CustomEvent_IsBase(true);
@@ -903,7 +903,7 @@ void QDtls_ConnectNotify(QDtls* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QDtls_QBaseConnectNotify(QDtls* self, const QMetaMethod* signal) {
+void QDtls_SuperConnectNotify(QDtls* self, const QMetaMethod* signal) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
     if (vqdtls && vqdtls->isVirtualQDtls) {
         vqdtls->setQDtls_ConnectNotify_IsBase(true);
@@ -932,7 +932,7 @@ void QDtls_DisconnectNotify(QDtls* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QDtls_QBaseDisconnectNotify(QDtls* self, const QMetaMethod* signal) {
+void QDtls_SuperDisconnectNotify(QDtls* self, const QMetaMethod* signal) {
     auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
     if (vqdtls && vqdtls->isVirtualQDtls) {
         vqdtls->setQDtls_DisconnectNotify_IsBase(true);
@@ -961,7 +961,7 @@ QObject* QDtls_Sender(const QDtls* self) {
 }
 
 // Base class handler implementation
-QObject* QDtls_QBaseSender(const QDtls* self) {
+QObject* QDtls_SuperSender(const QDtls* self) {
     auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
     if (vqdtls && vqdtls->isVirtualQDtls) {
         vqdtls->setQDtls_Sender_IsBase(true);
@@ -990,7 +990,7 @@ int QDtls_SenderSignalIndex(const QDtls* self) {
 }
 
 // Base class handler implementation
-int QDtls_QBaseSenderSignalIndex(const QDtls* self) {
+int QDtls_SuperSenderSignalIndex(const QDtls* self) {
     auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
     if (vqdtls && vqdtls->isVirtualQDtls) {
         vqdtls->setQDtls_SenderSignalIndex_IsBase(true);
@@ -1019,7 +1019,7 @@ int QDtls_Receivers(const QDtls* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QDtls_QBaseReceivers(const QDtls* self, const char* signal) {
+int QDtls_SuperReceivers(const QDtls* self, const char* signal) {
     auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
     if (vqdtls && vqdtls->isVirtualQDtls) {
         vqdtls->setQDtls_Receivers_IsBase(true);
@@ -1048,7 +1048,7 @@ bool QDtls_IsSignalConnected(const QDtls* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QDtls_QBaseIsSignalConnected(const QDtls* self, const QMetaMethod* signal) {
+bool QDtls_SuperIsSignalConnected(const QDtls* self, const QMetaMethod* signal) {
     auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
     if (vqdtls && vqdtls->isVirtualQDtls) {
         vqdtls->setQDtls_IsSignalConnected_IsBase(true);

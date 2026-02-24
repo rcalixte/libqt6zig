@@ -49,6 +49,10 @@ pub const qbasicmutex = struct {
         return qtc.QBasicMutex_TryLock2(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasicmutex.html#dtor.QBasicMutex)
     ///
     /// Delete this object from C++ memory.
@@ -57,7 +61,7 @@ pub const qbasicmutex = struct {
     ///
     /// ` self: QtC.QBasicMutex `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QBasicMutex_Delete(@ptrCast(self));
     }
 };
@@ -128,6 +132,10 @@ pub const qmutex = struct {
         qtc.QBasicMutex_Unlock(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmutex.html#dtor.QMutex)
     ///
     /// Delete this object from C++ memory.
@@ -136,7 +144,7 @@ pub const qmutex = struct {
     ///
     /// ` self: QtC.QMutex `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMutex_Delete(@ptrCast(self));
     }
 };
@@ -213,6 +221,10 @@ pub const qrecursivemutex = struct {
         return qtc.QRecursiveMutex_TryLock1(@ptrCast(self), @ptrCast(timer));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrecursivemutex.html#dtor.QRecursiveMutex)
     ///
     /// Delete this object from C++ memory.
@@ -221,7 +233,7 @@ pub const qrecursivemutex = struct {
     ///
     /// ` self: QtC.QRecursiveMutex `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QRecursiveMutex_Delete(@ptrCast(self));
     }
 };

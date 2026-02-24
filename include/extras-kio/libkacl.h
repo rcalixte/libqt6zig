@@ -46,7 +46,7 @@ bool KACL_SetACL(KACL* self, const libqt_string aclStr);
 libqt_string KACL_AsString(const KACL* self);
 void KACL_VirtualHook(KACL* self, int id, void* data);
 void KACL_OnVirtualHook(KACL* self, intptr_t slot);
-void KACL_QBaseVirtualHook(KACL* self, int id, void* data);
+void KACL_SuperVirtualHook(KACL* self, int id, void* data);
 void KACL_Delete(KACL* self);
 
 #ifdef __cplusplus

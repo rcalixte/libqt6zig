@@ -328,23 +328,23 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
 
     // Friend functions
     friend void QOpenGLTimerQuery_TimerEvent(QOpenGLTimerQuery* self, QTimerEvent* event);
-    friend void QOpenGLTimerQuery_QBaseTimerEvent(QOpenGLTimerQuery* self, QTimerEvent* event);
+    friend void QOpenGLTimerQuery_SuperTimerEvent(QOpenGLTimerQuery* self, QTimerEvent* event);
     friend void QOpenGLTimerQuery_ChildEvent(QOpenGLTimerQuery* self, QChildEvent* event);
-    friend void QOpenGLTimerQuery_QBaseChildEvent(QOpenGLTimerQuery* self, QChildEvent* event);
+    friend void QOpenGLTimerQuery_SuperChildEvent(QOpenGLTimerQuery* self, QChildEvent* event);
     friend void QOpenGLTimerQuery_CustomEvent(QOpenGLTimerQuery* self, QEvent* event);
-    friend void QOpenGLTimerQuery_QBaseCustomEvent(QOpenGLTimerQuery* self, QEvent* event);
+    friend void QOpenGLTimerQuery_SuperCustomEvent(QOpenGLTimerQuery* self, QEvent* event);
     friend void QOpenGLTimerQuery_ConnectNotify(QOpenGLTimerQuery* self, const QMetaMethod* signal);
-    friend void QOpenGLTimerQuery_QBaseConnectNotify(QOpenGLTimerQuery* self, const QMetaMethod* signal);
+    friend void QOpenGLTimerQuery_SuperConnectNotify(QOpenGLTimerQuery* self, const QMetaMethod* signal);
     friend void QOpenGLTimerQuery_DisconnectNotify(QOpenGLTimerQuery* self, const QMetaMethod* signal);
-    friend void QOpenGLTimerQuery_QBaseDisconnectNotify(QOpenGLTimerQuery* self, const QMetaMethod* signal);
+    friend void QOpenGLTimerQuery_SuperDisconnectNotify(QOpenGLTimerQuery* self, const QMetaMethod* signal);
     friend QObject* QOpenGLTimerQuery_Sender(const QOpenGLTimerQuery* self);
-    friend QObject* QOpenGLTimerQuery_QBaseSender(const QOpenGLTimerQuery* self);
+    friend QObject* QOpenGLTimerQuery_SuperSender(const QOpenGLTimerQuery* self);
     friend int QOpenGLTimerQuery_SenderSignalIndex(const QOpenGLTimerQuery* self);
-    friend int QOpenGLTimerQuery_QBaseSenderSignalIndex(const QOpenGLTimerQuery* self);
+    friend int QOpenGLTimerQuery_SuperSenderSignalIndex(const QOpenGLTimerQuery* self);
     friend int QOpenGLTimerQuery_Receivers(const QOpenGLTimerQuery* self, const char* signal);
-    friend int QOpenGLTimerQuery_QBaseReceivers(const QOpenGLTimerQuery* self, const char* signal);
+    friend int QOpenGLTimerQuery_SuperReceivers(const QOpenGLTimerQuery* self, const char* signal);
     friend bool QOpenGLTimerQuery_IsSignalConnected(const QOpenGLTimerQuery* self, const QMetaMethod* signal);
-    friend bool QOpenGLTimerQuery_QBaseIsSignalConnected(const QOpenGLTimerQuery* self, const QMetaMethod* signal);
+    friend bool QOpenGLTimerQuery_SuperIsSignalConnected(const QOpenGLTimerQuery* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QOpenGLTimeMonitor so that we can call protected methods
@@ -666,23 +666,23 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
 
     // Friend functions
     friend void QOpenGLTimeMonitor_TimerEvent(QOpenGLTimeMonitor* self, QTimerEvent* event);
-    friend void QOpenGLTimeMonitor_QBaseTimerEvent(QOpenGLTimeMonitor* self, QTimerEvent* event);
+    friend void QOpenGLTimeMonitor_SuperTimerEvent(QOpenGLTimeMonitor* self, QTimerEvent* event);
     friend void QOpenGLTimeMonitor_ChildEvent(QOpenGLTimeMonitor* self, QChildEvent* event);
-    friend void QOpenGLTimeMonitor_QBaseChildEvent(QOpenGLTimeMonitor* self, QChildEvent* event);
+    friend void QOpenGLTimeMonitor_SuperChildEvent(QOpenGLTimeMonitor* self, QChildEvent* event);
     friend void QOpenGLTimeMonitor_CustomEvent(QOpenGLTimeMonitor* self, QEvent* event);
-    friend void QOpenGLTimeMonitor_QBaseCustomEvent(QOpenGLTimeMonitor* self, QEvent* event);
+    friend void QOpenGLTimeMonitor_SuperCustomEvent(QOpenGLTimeMonitor* self, QEvent* event);
     friend void QOpenGLTimeMonitor_ConnectNotify(QOpenGLTimeMonitor* self, const QMetaMethod* signal);
-    friend void QOpenGLTimeMonitor_QBaseConnectNotify(QOpenGLTimeMonitor* self, const QMetaMethod* signal);
+    friend void QOpenGLTimeMonitor_SuperConnectNotify(QOpenGLTimeMonitor* self, const QMetaMethod* signal);
     friend void QOpenGLTimeMonitor_DisconnectNotify(QOpenGLTimeMonitor* self, const QMetaMethod* signal);
-    friend void QOpenGLTimeMonitor_QBaseDisconnectNotify(QOpenGLTimeMonitor* self, const QMetaMethod* signal);
+    friend void QOpenGLTimeMonitor_SuperDisconnectNotify(QOpenGLTimeMonitor* self, const QMetaMethod* signal);
     friend QObject* QOpenGLTimeMonitor_Sender(const QOpenGLTimeMonitor* self);
-    friend QObject* QOpenGLTimeMonitor_QBaseSender(const QOpenGLTimeMonitor* self);
+    friend QObject* QOpenGLTimeMonitor_SuperSender(const QOpenGLTimeMonitor* self);
     friend int QOpenGLTimeMonitor_SenderSignalIndex(const QOpenGLTimeMonitor* self);
-    friend int QOpenGLTimeMonitor_QBaseSenderSignalIndex(const QOpenGLTimeMonitor* self);
+    friend int QOpenGLTimeMonitor_SuperSenderSignalIndex(const QOpenGLTimeMonitor* self);
     friend int QOpenGLTimeMonitor_Receivers(const QOpenGLTimeMonitor* self, const char* signal);
-    friend int QOpenGLTimeMonitor_QBaseReceivers(const QOpenGLTimeMonitor* self, const char* signal);
+    friend int QOpenGLTimeMonitor_SuperReceivers(const QOpenGLTimeMonitor* self, const char* signal);
     friend bool QOpenGLTimeMonitor_IsSignalConnected(const QOpenGLTimeMonitor* self, const QMetaMethod* signal);
-    friend bool QOpenGLTimeMonitor_QBaseIsSignalConnected(const QOpenGLTimeMonitor* self, const QMetaMethod* signal);
+    friend bool QOpenGLTimeMonitor_SuperIsSignalConnected(const QOpenGLTimeMonitor* self, const QMetaMethod* signal);
 };
 
 #endif

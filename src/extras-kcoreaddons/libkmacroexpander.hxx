@@ -126,9 +126,9 @@ class VirtualKMacroExpanderBase final : public KMacroExpanderBase {
 
     // Friend functions
     friend int KMacroExpanderBase_ExpandPlainMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
-    friend int KMacroExpanderBase_QBaseExpandPlainMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
+    friend int KMacroExpanderBase_SuperExpandPlainMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
     friend int KMacroExpanderBase_ExpandEscapedMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
-    friend int KMacroExpanderBase_QBaseExpandEscapedMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
+    friend int KMacroExpanderBase_SuperExpandEscapedMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
 };
 
 // This class is a subclass of KWordMacroExpander so that we can call protected methods
@@ -289,11 +289,11 @@ class VirtualKWordMacroExpander : public KWordMacroExpander {
 
     // Friend functions
     friend int KWordMacroExpander_ExpandPlainMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
-    friend int KWordMacroExpander_QBaseExpandPlainMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
+    friend int KWordMacroExpander_SuperExpandPlainMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
     friend int KWordMacroExpander_ExpandEscapedMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
-    friend int KWordMacroExpander_QBaseExpandEscapedMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
+    friend int KWordMacroExpander_SuperExpandEscapedMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
     friend bool KWordMacroExpander_ExpandMacro(KWordMacroExpander* self, const libqt_string str, libqt_list /* of libqt_string */ retVal);
-    friend bool KWordMacroExpander_QBaseExpandMacro(KWordMacroExpander* self, const libqt_string str, libqt_list /* of libqt_string */ retVal);
+    friend bool KWordMacroExpander_SuperExpandMacro(KWordMacroExpander* self, const libqt_string str, libqt_list /* of libqt_string */ retVal);
 };
 
 // This class is a subclass of KCharMacroExpander so that we can call protected methods
@@ -446,11 +446,11 @@ class VirtualKCharMacroExpander : public KCharMacroExpander {
 
     // Friend functions
     friend int KCharMacroExpander_ExpandPlainMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
-    friend int KCharMacroExpander_QBaseExpandPlainMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
+    friend int KCharMacroExpander_SuperExpandPlainMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
     friend int KCharMacroExpander_ExpandEscapedMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
-    friend int KCharMacroExpander_QBaseExpandEscapedMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
+    friend int KCharMacroExpander_SuperExpandEscapedMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ retVal);
     friend bool KCharMacroExpander_ExpandMacro(KCharMacroExpander* self, QChar* chr, libqt_list /* of libqt_string */ retVal);
-    friend bool KCharMacroExpander_QBaseExpandMacro(KCharMacroExpander* self, QChar* chr, libqt_list /* of libqt_string */ retVal);
+    friend bool KCharMacroExpander_SuperExpandMacro(KCharMacroExpander* self, QChar* chr, libqt_list /* of libqt_string */ retVal);
 };
 
 #endif

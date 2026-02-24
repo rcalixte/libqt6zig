@@ -84,7 +84,7 @@ libqt_string QsciLexerMarkdown_Description(const QsciLexerMarkdown* self, int st
 }
 
 // Base class handler implementation
-QMetaObject* QsciLexerMarkdown_QBaseMetaObject(const QsciLexerMarkdown* self) {
+QMetaObject* QsciLexerMarkdown_SuperMetaObject(const QsciLexerMarkdown* self) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_MetaObject_IsBase(true);
@@ -103,7 +103,7 @@ void QsciLexerMarkdown_OnMetaObject(const QsciLexerMarkdown* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* QsciLexerMarkdown_QBaseMetacast(QsciLexerMarkdown* self, const char* param1) {
+void* QsciLexerMarkdown_SuperMetacast(QsciLexerMarkdown* self, const char* param1) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_Metacast_IsBase(true);
@@ -122,7 +122,7 @@ void QsciLexerMarkdown_OnMetacast(QsciLexerMarkdown* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QsciLexerMarkdown_QBaseMetacall(QsciLexerMarkdown* self, int param1, int param2, void** param3) {
+int QsciLexerMarkdown_SuperMetacall(QsciLexerMarkdown* self, int param1, int param2, void** param3) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_Metacall_IsBase(true);
@@ -151,7 +151,7 @@ int QsciLexerMarkdown_LexerId(const QsciLexerMarkdown* self) {
 }
 
 // Base class handler implementation
-int QsciLexerMarkdown_QBaseLexerId(const QsciLexerMarkdown* self) {
+int QsciLexerMarkdown_SuperLexerId(const QsciLexerMarkdown* self) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_LexerId_IsBase(true);
@@ -180,7 +180,7 @@ const char* QsciLexerMarkdown_AutoCompletionFillups(const QsciLexerMarkdown* sel
 }
 
 // Base class handler implementation
-const char* QsciLexerMarkdown_QBaseAutoCompletionFillups(const QsciLexerMarkdown* self) {
+const char* QsciLexerMarkdown_SuperAutoCompletionFillups(const QsciLexerMarkdown* self) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_AutoCompletionFillups_IsBase(true);
@@ -243,7 +243,7 @@ libqt_list /* of libqt_string */ QsciLexerMarkdown_AutoCompletionWordSeparators(
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QsciLexerMarkdown_QBaseAutoCompletionWordSeparators(const QsciLexerMarkdown* self) {
+libqt_list /* of libqt_string */ QsciLexerMarkdown_SuperAutoCompletionWordSeparators(const QsciLexerMarkdown* self) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_AutoCompletionWordSeparators_IsBase(true);
@@ -306,7 +306,7 @@ const char* QsciLexerMarkdown_BlockEnd(const QsciLexerMarkdown* self, int* style
 }
 
 // Base class handler implementation
-const char* QsciLexerMarkdown_QBaseBlockEnd(const QsciLexerMarkdown* self, int* style) {
+const char* QsciLexerMarkdown_SuperBlockEnd(const QsciLexerMarkdown* self, int* style) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_BlockEnd_IsBase(true);
@@ -335,7 +335,7 @@ int QsciLexerMarkdown_BlockLookback(const QsciLexerMarkdown* self) {
 }
 
 // Base class handler implementation
-int QsciLexerMarkdown_QBaseBlockLookback(const QsciLexerMarkdown* self) {
+int QsciLexerMarkdown_SuperBlockLookback(const QsciLexerMarkdown* self) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_BlockLookback_IsBase(true);
@@ -364,7 +364,7 @@ const char* QsciLexerMarkdown_BlockStart(const QsciLexerMarkdown* self, int* sty
 }
 
 // Base class handler implementation
-const char* QsciLexerMarkdown_QBaseBlockStart(const QsciLexerMarkdown* self, int* style) {
+const char* QsciLexerMarkdown_SuperBlockStart(const QsciLexerMarkdown* self, int* style) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_BlockStart_IsBase(true);
@@ -393,7 +393,7 @@ const char* QsciLexerMarkdown_BlockStartKeyword(const QsciLexerMarkdown* self, i
 }
 
 // Base class handler implementation
-const char* QsciLexerMarkdown_QBaseBlockStartKeyword(const QsciLexerMarkdown* self, int* style) {
+const char* QsciLexerMarkdown_SuperBlockStartKeyword(const QsciLexerMarkdown* self, int* style) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_BlockStartKeyword_IsBase(true);
@@ -422,7 +422,7 @@ int QsciLexerMarkdown_BraceStyle(const QsciLexerMarkdown* self) {
 }
 
 // Base class handler implementation
-int QsciLexerMarkdown_QBaseBraceStyle(const QsciLexerMarkdown* self) {
+int QsciLexerMarkdown_SuperBraceStyle(const QsciLexerMarkdown* self) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_BraceStyle_IsBase(true);
@@ -451,7 +451,7 @@ bool QsciLexerMarkdown_CaseSensitive(const QsciLexerMarkdown* self) {
 }
 
 // Base class handler implementation
-bool QsciLexerMarkdown_QBaseCaseSensitive(const QsciLexerMarkdown* self) {
+bool QsciLexerMarkdown_SuperCaseSensitive(const QsciLexerMarkdown* self) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_CaseSensitive_IsBase(true);
@@ -480,7 +480,7 @@ QColor* QsciLexerMarkdown_Color(const QsciLexerMarkdown* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerMarkdown_QBaseColor(const QsciLexerMarkdown* self, int style) {
+QColor* QsciLexerMarkdown_SuperColor(const QsciLexerMarkdown* self, int style) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_Color_IsBase(true);
@@ -509,7 +509,7 @@ bool QsciLexerMarkdown_EolFill(const QsciLexerMarkdown* self, int style) {
 }
 
 // Base class handler implementation
-bool QsciLexerMarkdown_QBaseEolFill(const QsciLexerMarkdown* self, int style) {
+bool QsciLexerMarkdown_SuperEolFill(const QsciLexerMarkdown* self, int style) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_EolFill_IsBase(true);
@@ -538,7 +538,7 @@ QFont* QsciLexerMarkdown_Font(const QsciLexerMarkdown* self, int style) {
 }
 
 // Base class handler implementation
-QFont* QsciLexerMarkdown_QBaseFont(const QsciLexerMarkdown* self, int style) {
+QFont* QsciLexerMarkdown_SuperFont(const QsciLexerMarkdown* self, int style) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_Font_IsBase(true);
@@ -567,7 +567,7 @@ int QsciLexerMarkdown_IndentationGuideView(const QsciLexerMarkdown* self) {
 }
 
 // Base class handler implementation
-int QsciLexerMarkdown_QBaseIndentationGuideView(const QsciLexerMarkdown* self) {
+int QsciLexerMarkdown_SuperIndentationGuideView(const QsciLexerMarkdown* self) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_IndentationGuideView_IsBase(true);
@@ -596,7 +596,7 @@ const char* QsciLexerMarkdown_Keywords(const QsciLexerMarkdown* self, int set) {
 }
 
 // Base class handler implementation
-const char* QsciLexerMarkdown_QBaseKeywords(const QsciLexerMarkdown* self, int set) {
+const char* QsciLexerMarkdown_SuperKeywords(const QsciLexerMarkdown* self, int set) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_Keywords_IsBase(true);
@@ -625,7 +625,7 @@ int QsciLexerMarkdown_DefaultStyle(const QsciLexerMarkdown* self) {
 }
 
 // Base class handler implementation
-int QsciLexerMarkdown_QBaseDefaultStyle(const QsciLexerMarkdown* self) {
+int QsciLexerMarkdown_SuperDefaultStyle(const QsciLexerMarkdown* self) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_DefaultStyle_IsBase(true);
@@ -654,7 +654,7 @@ QColor* QsciLexerMarkdown_Paper(const QsciLexerMarkdown* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerMarkdown_QBasePaper(const QsciLexerMarkdown* self, int style) {
+QColor* QsciLexerMarkdown_SuperPaper(const QsciLexerMarkdown* self, int style) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_Paper_IsBase(true);
@@ -683,7 +683,7 @@ QColor* QsciLexerMarkdown_DefaultColor2(const QsciLexerMarkdown* self, int style
 }
 
 // Base class handler implementation
-QColor* QsciLexerMarkdown_QBaseDefaultColor2(const QsciLexerMarkdown* self, int style) {
+QColor* QsciLexerMarkdown_SuperDefaultColor2(const QsciLexerMarkdown* self, int style) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_DefaultColor2_IsBase(true);
@@ -712,7 +712,7 @@ bool QsciLexerMarkdown_DefaultEolFill(const QsciLexerMarkdown* self, int style) 
 }
 
 // Base class handler implementation
-bool QsciLexerMarkdown_QBaseDefaultEolFill(const QsciLexerMarkdown* self, int style) {
+bool QsciLexerMarkdown_SuperDefaultEolFill(const QsciLexerMarkdown* self, int style) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_DefaultEolFill_IsBase(true);
@@ -741,7 +741,7 @@ QFont* QsciLexerMarkdown_DefaultFont2(const QsciLexerMarkdown* self, int style) 
 }
 
 // Base class handler implementation
-QFont* QsciLexerMarkdown_QBaseDefaultFont2(const QsciLexerMarkdown* self, int style) {
+QFont* QsciLexerMarkdown_SuperDefaultFont2(const QsciLexerMarkdown* self, int style) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_DefaultFont2_IsBase(true);
@@ -770,7 +770,7 @@ QColor* QsciLexerMarkdown_DefaultPaper2(const QsciLexerMarkdown* self, int style
 }
 
 // Base class handler implementation
-QColor* QsciLexerMarkdown_QBaseDefaultPaper2(const QsciLexerMarkdown* self, int style) {
+QColor* QsciLexerMarkdown_SuperDefaultPaper2(const QsciLexerMarkdown* self, int style) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_DefaultPaper2_IsBase(true);
@@ -799,7 +799,7 @@ void QsciLexerMarkdown_SetEditor(QsciLexerMarkdown* self, QsciScintilla* editor)
 }
 
 // Base class handler implementation
-void QsciLexerMarkdown_QBaseSetEditor(QsciLexerMarkdown* self, QsciScintilla* editor) {
+void QsciLexerMarkdown_SuperSetEditor(QsciLexerMarkdown* self, QsciScintilla* editor) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_SetEditor_IsBase(true);
@@ -828,7 +828,7 @@ void QsciLexerMarkdown_RefreshProperties(QsciLexerMarkdown* self) {
 }
 
 // Base class handler implementation
-void QsciLexerMarkdown_QBaseRefreshProperties(QsciLexerMarkdown* self) {
+void QsciLexerMarkdown_SuperRefreshProperties(QsciLexerMarkdown* self) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_RefreshProperties_IsBase(true);
@@ -857,7 +857,7 @@ int QsciLexerMarkdown_StyleBitsNeeded(const QsciLexerMarkdown* self) {
 }
 
 // Base class handler implementation
-int QsciLexerMarkdown_QBaseStyleBitsNeeded(const QsciLexerMarkdown* self) {
+int QsciLexerMarkdown_SuperStyleBitsNeeded(const QsciLexerMarkdown* self) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_StyleBitsNeeded_IsBase(true);
@@ -886,7 +886,7 @@ const char* QsciLexerMarkdown_WordCharacters(const QsciLexerMarkdown* self) {
 }
 
 // Base class handler implementation
-const char* QsciLexerMarkdown_QBaseWordCharacters(const QsciLexerMarkdown* self) {
+const char* QsciLexerMarkdown_SuperWordCharacters(const QsciLexerMarkdown* self) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_WordCharacters_IsBase(true);
@@ -915,7 +915,7 @@ void QsciLexerMarkdown_SetAutoIndentStyle(QsciLexerMarkdown* self, int autoinden
 }
 
 // Base class handler implementation
-void QsciLexerMarkdown_QBaseSetAutoIndentStyle(QsciLexerMarkdown* self, int autoindentstyle) {
+void QsciLexerMarkdown_SuperSetAutoIndentStyle(QsciLexerMarkdown* self, int autoindentstyle) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_SetAutoIndentStyle_IsBase(true);
@@ -944,7 +944,7 @@ void QsciLexerMarkdown_SetColor(QsciLexerMarkdown* self, const QColor* c, int st
 }
 
 // Base class handler implementation
-void QsciLexerMarkdown_QBaseSetColor(QsciLexerMarkdown* self, const QColor* c, int style) {
+void QsciLexerMarkdown_SuperSetColor(QsciLexerMarkdown* self, const QColor* c, int style) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_SetColor_IsBase(true);
@@ -973,7 +973,7 @@ void QsciLexerMarkdown_SetEolFill(QsciLexerMarkdown* self, bool eoffill, int sty
 }
 
 // Base class handler implementation
-void QsciLexerMarkdown_QBaseSetEolFill(QsciLexerMarkdown* self, bool eoffill, int style) {
+void QsciLexerMarkdown_SuperSetEolFill(QsciLexerMarkdown* self, bool eoffill, int style) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_SetEolFill_IsBase(true);
@@ -1002,7 +1002,7 @@ void QsciLexerMarkdown_SetFont(QsciLexerMarkdown* self, const QFont* f, int styl
 }
 
 // Base class handler implementation
-void QsciLexerMarkdown_QBaseSetFont(QsciLexerMarkdown* self, const QFont* f, int style) {
+void QsciLexerMarkdown_SuperSetFont(QsciLexerMarkdown* self, const QFont* f, int style) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_SetFont_IsBase(true);
@@ -1031,7 +1031,7 @@ void QsciLexerMarkdown_SetPaper(QsciLexerMarkdown* self, const QColor* c, int st
 }
 
 // Base class handler implementation
-void QsciLexerMarkdown_QBaseSetPaper(QsciLexerMarkdown* self, const QColor* c, int style) {
+void QsciLexerMarkdown_SuperSetPaper(QsciLexerMarkdown* self, const QColor* c, int style) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_SetPaper_IsBase(true);
@@ -1061,7 +1061,7 @@ bool QsciLexerMarkdown_ReadProperties(QsciLexerMarkdown* self, QSettings* qs, co
 }
 
 // Base class handler implementation
-bool QsciLexerMarkdown_QBaseReadProperties(QsciLexerMarkdown* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerMarkdown_SuperReadProperties(QsciLexerMarkdown* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
@@ -1092,7 +1092,7 @@ bool QsciLexerMarkdown_WriteProperties(const QsciLexerMarkdown* self, QSettings*
 }
 
 // Base class handler implementation
-bool QsciLexerMarkdown_QBaseWriteProperties(const QsciLexerMarkdown* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerMarkdown_SuperWriteProperties(const QsciLexerMarkdown* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
@@ -1122,7 +1122,7 @@ bool QsciLexerMarkdown_Event(QsciLexerMarkdown* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QsciLexerMarkdown_QBaseEvent(QsciLexerMarkdown* self, QEvent* event) {
+bool QsciLexerMarkdown_SuperEvent(QsciLexerMarkdown* self, QEvent* event) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_Event_IsBase(true);
@@ -1151,7 +1151,7 @@ bool QsciLexerMarkdown_EventFilter(QsciLexerMarkdown* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool QsciLexerMarkdown_QBaseEventFilter(QsciLexerMarkdown* self, QObject* watched, QEvent* event) {
+bool QsciLexerMarkdown_SuperEventFilter(QsciLexerMarkdown* self, QObject* watched, QEvent* event) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_EventFilter_IsBase(true);
@@ -1180,7 +1180,7 @@ void QsciLexerMarkdown_TimerEvent(QsciLexerMarkdown* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerMarkdown_QBaseTimerEvent(QsciLexerMarkdown* self, QTimerEvent* event) {
+void QsciLexerMarkdown_SuperTimerEvent(QsciLexerMarkdown* self, QTimerEvent* event) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_TimerEvent_IsBase(true);
@@ -1209,7 +1209,7 @@ void QsciLexerMarkdown_ChildEvent(QsciLexerMarkdown* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerMarkdown_QBaseChildEvent(QsciLexerMarkdown* self, QChildEvent* event) {
+void QsciLexerMarkdown_SuperChildEvent(QsciLexerMarkdown* self, QChildEvent* event) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_ChildEvent_IsBase(true);
@@ -1238,7 +1238,7 @@ void QsciLexerMarkdown_CustomEvent(QsciLexerMarkdown* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerMarkdown_QBaseCustomEvent(QsciLexerMarkdown* self, QEvent* event) {
+void QsciLexerMarkdown_SuperCustomEvent(QsciLexerMarkdown* self, QEvent* event) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_CustomEvent_IsBase(true);
@@ -1267,7 +1267,7 @@ void QsciLexerMarkdown_ConnectNotify(QsciLexerMarkdown* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void QsciLexerMarkdown_QBaseConnectNotify(QsciLexerMarkdown* self, const QMetaMethod* signal) {
+void QsciLexerMarkdown_SuperConnectNotify(QsciLexerMarkdown* self, const QMetaMethod* signal) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_ConnectNotify_IsBase(true);
@@ -1296,7 +1296,7 @@ void QsciLexerMarkdown_DisconnectNotify(QsciLexerMarkdown* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void QsciLexerMarkdown_QBaseDisconnectNotify(QsciLexerMarkdown* self, const QMetaMethod* signal) {
+void QsciLexerMarkdown_SuperDisconnectNotify(QsciLexerMarkdown* self, const QMetaMethod* signal) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_DisconnectNotify_IsBase(true);
@@ -1336,7 +1336,7 @@ libqt_string QsciLexerMarkdown_TextAsBytes(const QsciLexerMarkdown* self, const 
 }
 
 // Base class handler implementation
-libqt_string QsciLexerMarkdown_QBaseTextAsBytes(const QsciLexerMarkdown* self, const libqt_string text) {
+libqt_string QsciLexerMarkdown_SuperTextAsBytes(const QsciLexerMarkdown* self, const libqt_string text) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
@@ -1392,7 +1392,7 @@ libqt_string QsciLexerMarkdown_BytesAsText(const QsciLexerMarkdown* self, const 
 }
 
 // Base class handler implementation
-libqt_string QsciLexerMarkdown_QBaseBytesAsText(const QsciLexerMarkdown* self, const char* bytes, int size) {
+libqt_string QsciLexerMarkdown_SuperBytesAsText(const QsciLexerMarkdown* self, const char* bytes, int size) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_BytesAsText_IsBase(true);
@@ -1437,7 +1437,7 @@ QObject* QsciLexerMarkdown_Sender(const QsciLexerMarkdown* self) {
 }
 
 // Base class handler implementation
-QObject* QsciLexerMarkdown_QBaseSender(const QsciLexerMarkdown* self) {
+QObject* QsciLexerMarkdown_SuperSender(const QsciLexerMarkdown* self) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_Sender_IsBase(true);
@@ -1466,7 +1466,7 @@ int QsciLexerMarkdown_SenderSignalIndex(const QsciLexerMarkdown* self) {
 }
 
 // Base class handler implementation
-int QsciLexerMarkdown_QBaseSenderSignalIndex(const QsciLexerMarkdown* self) {
+int QsciLexerMarkdown_SuperSenderSignalIndex(const QsciLexerMarkdown* self) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_SenderSignalIndex_IsBase(true);
@@ -1495,7 +1495,7 @@ int QsciLexerMarkdown_Receivers(const QsciLexerMarkdown* self, const char* signa
 }
 
 // Base class handler implementation
-int QsciLexerMarkdown_QBaseReceivers(const QsciLexerMarkdown* self, const char* signal) {
+int QsciLexerMarkdown_SuperReceivers(const QsciLexerMarkdown* self, const char* signal) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_Receivers_IsBase(true);
@@ -1524,7 +1524,7 @@ bool QsciLexerMarkdown_IsSignalConnected(const QsciLexerMarkdown* self, const QM
 }
 
 // Base class handler implementation
-bool QsciLexerMarkdown_QBaseIsSignalConnected(const QsciLexerMarkdown* self, const QMetaMethod* signal) {
+bool QsciLexerMarkdown_SuperIsSignalConnected(const QsciLexerMarkdown* self, const QMetaMethod* signal) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         vqscilexermarkdown->setQsciLexerMarkdown_IsSignalConnected_IsBase(true);

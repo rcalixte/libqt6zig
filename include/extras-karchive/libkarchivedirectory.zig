@@ -184,6 +184,10 @@ pub const karchivedirectory = struct {
         qtc.KArchiveDirectory_OnIsDirectory(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsDirectory` instead
+    ///
+    pub const QBaseIsDirectory = SuperIsDirectory;
+
     /// ### [Upstream resources](https://api.kde.org/karchivedirectory.html#isDirectory)
     ///
     /// Base class method implementation
@@ -192,8 +196,8 @@ pub const karchivedirectory = struct {
     ///
     /// ` self: QtC.KArchiveDirectory `
     ///
-    pub fn QBaseIsDirectory(self: ?*anyopaque) bool {
-        return qtc.KArchiveDirectory_QBaseIsDirectory(@ptrCast(self));
+    pub fn SuperIsDirectory(self: ?*anyopaque) bool {
+        return qtc.KArchiveDirectory_SuperIsDirectory(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchivedirectory.html#copyTo)
@@ -240,6 +244,10 @@ pub const karchivedirectory = struct {
         qtc.KArchiveDirectory_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperVirtualHook` instead
+    ///
+    pub const QBaseVirtualHook = SuperVirtualHook;
+
     /// ### [Upstream resources](https://api.kde.org/karchivedirectory.html#virtual_hook)
     ///
     /// Base class method implementation
@@ -252,8 +260,8 @@ pub const karchivedirectory = struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KArchiveDirectory_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
+    pub fn SuperVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
+        qtc.KArchiveDirectory_SuperVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchivedirectory.html#copyTo)
@@ -384,6 +392,10 @@ pub const karchivedirectory = struct {
         return qtc.KArchiveDirectory_IsFile(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsFile` instead
+    ///
+    pub const QBaseIsFile = SuperIsFile;
+
     /// Inherited from KArchiveEntry
     ///
     /// ### [Upstream resources](https://api.kde.org/karchiveentry.html#isFile)
@@ -394,8 +406,8 @@ pub const karchivedirectory = struct {
     ///
     /// ` self: QtC.KArchiveDirectory `
     ///
-    pub fn QBaseIsFile(self: ?*anyopaque) bool {
-        return qtc.KArchiveDirectory_QBaseIsFile(@ptrCast(self));
+    pub fn SuperIsFile(self: ?*anyopaque) bool {
+        return qtc.KArchiveDirectory_SuperIsFile(@ptrCast(self));
     }
 
     /// Inherited from KArchiveEntry
@@ -428,6 +440,10 @@ pub const karchivedirectory = struct {
         return qtc.KArchiveDirectory_Archive(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperArchive` instead
+    ///
+    pub const QBaseArchive = SuperArchive;
+
     /// Inherited from KArchiveEntry
     ///
     /// ### [Upstream resources](https://api.kde.org/karchiveentry.html#archive)
@@ -438,8 +454,8 @@ pub const karchivedirectory = struct {
     ///
     /// ` self: QtC.KArchiveDirectory `
     ///
-    pub fn QBaseArchive(self: ?*anyopaque) QtC.KArchive {
-        return qtc.KArchiveDirectory_QBaseArchive(@ptrCast(self));
+    pub fn SuperArchive(self: ?*anyopaque) QtC.KArchive {
+        return qtc.KArchiveDirectory_SuperArchive(@ptrCast(self));
     }
 
     /// Inherited from KArchiveEntry
@@ -457,6 +473,9 @@ pub const karchivedirectory = struct {
     pub fn OnArchive(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KArchive) void {
         qtc.KArchiveDirectory_OnArchive(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/karchivedirectory.html#dtor.KArchiveDirectory)
     ///
@@ -466,7 +485,7 @@ pub const karchivedirectory = struct {
     ///
     /// ` self: QtC.KArchiveDirectory `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KArchiveDirectory_Delete(@ptrCast(self));
     }
 };

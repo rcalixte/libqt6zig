@@ -328,23 +328,23 @@ class VirtualKTwoFingerTap final : public KTwoFingerTap {
 
     // Friend functions
     friend void KTwoFingerTap_TimerEvent(KTwoFingerTap* self, QTimerEvent* event);
-    friend void KTwoFingerTap_QBaseTimerEvent(KTwoFingerTap* self, QTimerEvent* event);
+    friend void KTwoFingerTap_SuperTimerEvent(KTwoFingerTap* self, QTimerEvent* event);
     friend void KTwoFingerTap_ChildEvent(KTwoFingerTap* self, QChildEvent* event);
-    friend void KTwoFingerTap_QBaseChildEvent(KTwoFingerTap* self, QChildEvent* event);
+    friend void KTwoFingerTap_SuperChildEvent(KTwoFingerTap* self, QChildEvent* event);
     friend void KTwoFingerTap_CustomEvent(KTwoFingerTap* self, QEvent* event);
-    friend void KTwoFingerTap_QBaseCustomEvent(KTwoFingerTap* self, QEvent* event);
+    friend void KTwoFingerTap_SuperCustomEvent(KTwoFingerTap* self, QEvent* event);
     friend void KTwoFingerTap_ConnectNotify(KTwoFingerTap* self, const QMetaMethod* signal);
-    friend void KTwoFingerTap_QBaseConnectNotify(KTwoFingerTap* self, const QMetaMethod* signal);
+    friend void KTwoFingerTap_SuperConnectNotify(KTwoFingerTap* self, const QMetaMethod* signal);
     friend void KTwoFingerTap_DisconnectNotify(KTwoFingerTap* self, const QMetaMethod* signal);
-    friend void KTwoFingerTap_QBaseDisconnectNotify(KTwoFingerTap* self, const QMetaMethod* signal);
+    friend void KTwoFingerTap_SuperDisconnectNotify(KTwoFingerTap* self, const QMetaMethod* signal);
     friend QObject* KTwoFingerTap_Sender(const KTwoFingerTap* self);
-    friend QObject* KTwoFingerTap_QBaseSender(const KTwoFingerTap* self);
+    friend QObject* KTwoFingerTap_SuperSender(const KTwoFingerTap* self);
     friend int KTwoFingerTap_SenderSignalIndex(const KTwoFingerTap* self);
-    friend int KTwoFingerTap_QBaseSenderSignalIndex(const KTwoFingerTap* self);
+    friend int KTwoFingerTap_SuperSenderSignalIndex(const KTwoFingerTap* self);
     friend int KTwoFingerTap_Receivers(const KTwoFingerTap* self, const char* signal);
-    friend int KTwoFingerTap_QBaseReceivers(const KTwoFingerTap* self, const char* signal);
+    friend int KTwoFingerTap_SuperReceivers(const KTwoFingerTap* self, const char* signal);
     friend bool KTwoFingerTap_IsSignalConnected(const KTwoFingerTap* self, const QMetaMethod* signal);
-    friend bool KTwoFingerTap_QBaseIsSignalConnected(const KTwoFingerTap* self, const QMetaMethod* signal);
+    friend bool KTwoFingerTap_SuperIsSignalConnected(const KTwoFingerTap* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of KTwoFingerTapRecognizer so that we can call protected methods

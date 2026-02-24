@@ -897,7 +897,7 @@ void KDirOperator_Connect_RenamingFinished(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* KDirOperator_QBaseMetaObject(const KDirOperator* self) {
+QMetaObject* KDirOperator_SuperMetaObject(const KDirOperator* self) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_MetaObject_IsBase(true);
@@ -916,7 +916,7 @@ void KDirOperator_OnMetaObject(const KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KDirOperator_QBaseMetacast(KDirOperator* self, const char* param1) {
+void* KDirOperator_SuperMetacast(KDirOperator* self, const char* param1) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_Metacast_IsBase(true);
@@ -935,7 +935,7 @@ void KDirOperator_OnMetacast(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KDirOperator_QBaseMetacall(KDirOperator* self, int param1, int param2, void** param3) {
+int KDirOperator_SuperMetacall(KDirOperator* self, int param1, int param2, void** param3) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_Metacall_IsBase(true);
@@ -954,7 +954,7 @@ void KDirOperator_OnMetacall(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseSetShowHiddenFiles(KDirOperator* self, bool s) {
+void KDirOperator_SuperSetShowHiddenFiles(KDirOperator* self, bool s) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SetShowHiddenFiles_IsBase(true);
@@ -973,7 +973,7 @@ void KDirOperator_OnSetShowHiddenFiles(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseSetUrl(KDirOperator* self, const QUrl* url, bool clearforward) {
+void KDirOperator_SuperSetUrl(KDirOperator* self, const QUrl* url, bool clearforward) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SetUrl_IsBase(true);
@@ -992,7 +992,7 @@ void KDirOperator_OnSetUrl(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseSetMode(KDirOperator* self, int m) {
+void KDirOperator_SuperSetMode(KDirOperator* self, int m) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SetMode_IsBase(true);
@@ -1011,7 +1011,7 @@ void KDirOperator_OnSetMode(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseSetPreviewWidget(KDirOperator* self, KPreviewWidgetBase* w) {
+void KDirOperator_SuperSetPreviewWidget(KDirOperator* self, KPreviewWidgetBase* w) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SetPreviewWidget_IsBase(true);
@@ -1030,7 +1030,7 @@ void KDirOperator_OnSetPreviewWidget(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseSetViewConfig(KDirOperator* self, KConfigGroup* configGroup) {
+void KDirOperator_SuperSetViewConfig(KDirOperator* self, KConfigGroup* configGroup) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SetViewConfig_IsBase(true);
@@ -1049,7 +1049,7 @@ void KDirOperator_OnSetViewConfig(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseReadConfig(KDirOperator* self, const KConfigGroup* configGroup) {
+void KDirOperator_SuperReadConfig(KDirOperator* self, const KConfigGroup* configGroup) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_ReadConfig_IsBase(true);
@@ -1068,7 +1068,7 @@ void KDirOperator_OnReadConfig(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseWriteConfig(KDirOperator* self, KConfigGroup* configGroup) {
+void KDirOperator_SuperWriteConfig(KDirOperator* self, KConfigGroup* configGroup) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_WriteConfig_IsBase(true);
@@ -1087,7 +1087,7 @@ void KDirOperator_OnWriteConfig(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__DeleteJob* KDirOperator_QBaseDel(KDirOperator* self, const KFileItemList* items, QWidget* parent, bool ask, bool showProgress) {
+KIO__DeleteJob* KDirOperator_SuperDel(KDirOperator* self, const KFileItemList* items, QWidget* parent, bool ask, bool showProgress) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_Del_IsBase(true);
@@ -1106,7 +1106,7 @@ void KDirOperator_OnDel(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseSetEnableDirHighlighting(KDirOperator* self, bool enable) {
+void KDirOperator_SuperSetEnableDirHighlighting(KDirOperator* self, bool enable) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SetEnableDirHighlighting_IsBase(true);
@@ -1125,7 +1125,7 @@ void KDirOperator_OnSetEnableDirHighlighting(KDirOperator* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseSetAcceptDrops(KDirOperator* self, bool b) {
+void KDirOperator_SuperSetAcceptDrops(KDirOperator* self, bool b) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SetAcceptDrops_IsBase(true);
@@ -1144,7 +1144,7 @@ void KDirOperator_OnSetAcceptDrops(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseSetDropOptions(KDirOperator* self, int options) {
+void KDirOperator_SuperSetDropOptions(KDirOperator* self, int options) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SetDropOptions_IsBase(true);
@@ -1163,7 +1163,7 @@ void KDirOperator_OnSetDropOptions(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__CopyJob* KDirOperator_QBaseTrash(KDirOperator* self, const KFileItemList* items, QWidget* parent, bool ask, bool showProgress) {
+KIO__CopyJob* KDirOperator_SuperTrash(KDirOperator* self, const KFileItemList* items, QWidget* parent, bool ask, bool showProgress) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_Trash_IsBase(true);
@@ -1182,7 +1182,7 @@ void KDirOperator_OnTrash(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QAbstractItemView* KDirOperator_QBaseCreateView(KDirOperator* self, QWidget* parent, int viewKind) {
+QAbstractItemView* KDirOperator_SuperCreateView(KDirOperator* self, QWidget* parent, int viewKind) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_CreateView_IsBase(true);
@@ -1201,7 +1201,7 @@ void KDirOperator_OnCreateView(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseSetDirLister(KDirOperator* self, KDirLister* lister) {
+void KDirOperator_SuperSetDirLister(KDirOperator* self, KDirLister* lister) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SetDirLister_IsBase(true);
@@ -1220,7 +1220,7 @@ void KDirOperator_OnSetDirLister(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseResizeEvent(KDirOperator* self, QResizeEvent* event) {
+void KDirOperator_SuperResizeEvent(KDirOperator* self, QResizeEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_ResizeEvent_IsBase(true);
@@ -1239,7 +1239,7 @@ void KDirOperator_OnResizeEvent(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseActivatedMenu(KDirOperator* self, const KFileItem* item, const QPoint* pos) {
+void KDirOperator_SuperActivatedMenu(KDirOperator* self, const KFileItem* item, const QPoint* pos) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_ActivatedMenu_IsBase(true);
@@ -1258,7 +1258,7 @@ void KDirOperator_OnActivatedMenu(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseChangeEvent(KDirOperator* self, QEvent* event) {
+void KDirOperator_SuperChangeEvent(KDirOperator* self, QEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_ChangeEvent_IsBase(true);
@@ -1277,7 +1277,7 @@ void KDirOperator_OnChangeEvent(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KDirOperator_QBaseEventFilter(KDirOperator* self, QObject* watched, QEvent* event) {
+bool KDirOperator_SuperEventFilter(KDirOperator* self, QObject* watched, QEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_EventFilter_IsBase(true);
@@ -1296,7 +1296,7 @@ void KDirOperator_OnEventFilter(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseBack(KDirOperator* self) {
+void KDirOperator_SuperBack(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_Back_IsBase(true);
@@ -1315,7 +1315,7 @@ void KDirOperator_OnBack(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseForward(KDirOperator* self) {
+void KDirOperator_SuperForward(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_Forward_IsBase(true);
@@ -1334,7 +1334,7 @@ void KDirOperator_OnForward(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseHome(KDirOperator* self) {
+void KDirOperator_SuperHome(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_Home_IsBase(true);
@@ -1353,7 +1353,7 @@ void KDirOperator_OnHome(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseCdUp(KDirOperator* self) {
+void KDirOperator_SuperCdUp(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_CdUp_IsBase(true);
@@ -1372,7 +1372,7 @@ void KDirOperator_OnCdUp(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseRereadDir(KDirOperator* self) {
+void KDirOperator_SuperRereadDir(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_RereadDir_IsBase(true);
@@ -1391,7 +1391,7 @@ void KDirOperator_OnRereadDir(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseMkdir(KDirOperator* self) {
+void KDirOperator_SuperMkdir(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_Mkdir_IsBase(true);
@@ -1410,7 +1410,7 @@ void KDirOperator_OnMkdir(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseDeleteSelected(KDirOperator* self) {
+void KDirOperator_SuperDeleteSelected(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_DeleteSelected_IsBase(true);
@@ -1429,7 +1429,7 @@ void KDirOperator_OnDeleteSelected(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseTrashSelected(KDirOperator* self) {
+void KDirOperator_SuperTrashSelected(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_TrashSelected_IsBase(true);
@@ -1448,7 +1448,7 @@ void KDirOperator_OnTrashSelected(KDirOperator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseSelectDir(KDirOperator* self, const KFileItem* item) {
+void KDirOperator_SuperSelectDir(KDirOperator* self, const KFileItem* item) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SelectDir_IsBase(true);
@@ -1477,7 +1477,7 @@ int KDirOperator_DevType(const KDirOperator* self) {
 }
 
 // Base class handler implementation
-int KDirOperator_QBaseDevType(const KDirOperator* self) {
+int KDirOperator_SuperDevType(const KDirOperator* self) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_DevType_IsBase(true);
@@ -1506,7 +1506,7 @@ void KDirOperator_SetVisible(KDirOperator* self, bool visible) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseSetVisible(KDirOperator* self, bool visible) {
+void KDirOperator_SuperSetVisible(KDirOperator* self, bool visible) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SetVisible_IsBase(true);
@@ -1535,7 +1535,7 @@ QSize* KDirOperator_SizeHint(const KDirOperator* self) {
 }
 
 // Base class handler implementation
-QSize* KDirOperator_QBaseSizeHint(const KDirOperator* self) {
+QSize* KDirOperator_SuperSizeHint(const KDirOperator* self) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SizeHint_IsBase(true);
@@ -1564,7 +1564,7 @@ QSize* KDirOperator_MinimumSizeHint(const KDirOperator* self) {
 }
 
 // Base class handler implementation
-QSize* KDirOperator_QBaseMinimumSizeHint(const KDirOperator* self) {
+QSize* KDirOperator_SuperMinimumSizeHint(const KDirOperator* self) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_MinimumSizeHint_IsBase(true);
@@ -1593,7 +1593,7 @@ int KDirOperator_HeightForWidth(const KDirOperator* self, int param1) {
 }
 
 // Base class handler implementation
-int KDirOperator_QBaseHeightForWidth(const KDirOperator* self, int param1) {
+int KDirOperator_SuperHeightForWidth(const KDirOperator* self, int param1) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_HeightForWidth_IsBase(true);
@@ -1622,7 +1622,7 @@ bool KDirOperator_HasHeightForWidth(const KDirOperator* self) {
 }
 
 // Base class handler implementation
-bool KDirOperator_QBaseHasHeightForWidth(const KDirOperator* self) {
+bool KDirOperator_SuperHasHeightForWidth(const KDirOperator* self) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_HasHeightForWidth_IsBase(true);
@@ -1651,7 +1651,7 @@ QPaintEngine* KDirOperator_PaintEngine(const KDirOperator* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KDirOperator_QBasePaintEngine(const KDirOperator* self) {
+QPaintEngine* KDirOperator_SuperPaintEngine(const KDirOperator* self) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_PaintEngine_IsBase(true);
@@ -1680,7 +1680,7 @@ bool KDirOperator_Event(KDirOperator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KDirOperator_QBaseEvent(KDirOperator* self, QEvent* event) {
+bool KDirOperator_SuperEvent(KDirOperator* self, QEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_Event_IsBase(true);
@@ -1709,7 +1709,7 @@ void KDirOperator_MousePressEvent(KDirOperator* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseMousePressEvent(KDirOperator* self, QMouseEvent* event) {
+void KDirOperator_SuperMousePressEvent(KDirOperator* self, QMouseEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_MousePressEvent_IsBase(true);
@@ -1738,7 +1738,7 @@ void KDirOperator_MouseReleaseEvent(KDirOperator* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseMouseReleaseEvent(KDirOperator* self, QMouseEvent* event) {
+void KDirOperator_SuperMouseReleaseEvent(KDirOperator* self, QMouseEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_MouseReleaseEvent_IsBase(true);
@@ -1767,7 +1767,7 @@ void KDirOperator_MouseDoubleClickEvent(KDirOperator* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseMouseDoubleClickEvent(KDirOperator* self, QMouseEvent* event) {
+void KDirOperator_SuperMouseDoubleClickEvent(KDirOperator* self, QMouseEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_MouseDoubleClickEvent_IsBase(true);
@@ -1796,7 +1796,7 @@ void KDirOperator_MouseMoveEvent(KDirOperator* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseMouseMoveEvent(KDirOperator* self, QMouseEvent* event) {
+void KDirOperator_SuperMouseMoveEvent(KDirOperator* self, QMouseEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_MouseMoveEvent_IsBase(true);
@@ -1825,7 +1825,7 @@ void KDirOperator_WheelEvent(KDirOperator* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseWheelEvent(KDirOperator* self, QWheelEvent* event) {
+void KDirOperator_SuperWheelEvent(KDirOperator* self, QWheelEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_WheelEvent_IsBase(true);
@@ -1854,7 +1854,7 @@ void KDirOperator_KeyPressEvent(KDirOperator* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseKeyPressEvent(KDirOperator* self, QKeyEvent* event) {
+void KDirOperator_SuperKeyPressEvent(KDirOperator* self, QKeyEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_KeyPressEvent_IsBase(true);
@@ -1883,7 +1883,7 @@ void KDirOperator_KeyReleaseEvent(KDirOperator* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseKeyReleaseEvent(KDirOperator* self, QKeyEvent* event) {
+void KDirOperator_SuperKeyReleaseEvent(KDirOperator* self, QKeyEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_KeyReleaseEvent_IsBase(true);
@@ -1912,7 +1912,7 @@ void KDirOperator_FocusInEvent(KDirOperator* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseFocusInEvent(KDirOperator* self, QFocusEvent* event) {
+void KDirOperator_SuperFocusInEvent(KDirOperator* self, QFocusEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_FocusInEvent_IsBase(true);
@@ -1941,7 +1941,7 @@ void KDirOperator_FocusOutEvent(KDirOperator* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseFocusOutEvent(KDirOperator* self, QFocusEvent* event) {
+void KDirOperator_SuperFocusOutEvent(KDirOperator* self, QFocusEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_FocusOutEvent_IsBase(true);
@@ -1970,7 +1970,7 @@ void KDirOperator_EnterEvent(KDirOperator* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseEnterEvent(KDirOperator* self, QEnterEvent* event) {
+void KDirOperator_SuperEnterEvent(KDirOperator* self, QEnterEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_EnterEvent_IsBase(true);
@@ -1999,7 +1999,7 @@ void KDirOperator_LeaveEvent(KDirOperator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseLeaveEvent(KDirOperator* self, QEvent* event) {
+void KDirOperator_SuperLeaveEvent(KDirOperator* self, QEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_LeaveEvent_IsBase(true);
@@ -2028,7 +2028,7 @@ void KDirOperator_PaintEvent(KDirOperator* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBasePaintEvent(KDirOperator* self, QPaintEvent* event) {
+void KDirOperator_SuperPaintEvent(KDirOperator* self, QPaintEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_PaintEvent_IsBase(true);
@@ -2057,7 +2057,7 @@ void KDirOperator_MoveEvent(KDirOperator* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseMoveEvent(KDirOperator* self, QMoveEvent* event) {
+void KDirOperator_SuperMoveEvent(KDirOperator* self, QMoveEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_MoveEvent_IsBase(true);
@@ -2086,7 +2086,7 @@ void KDirOperator_CloseEvent(KDirOperator* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseCloseEvent(KDirOperator* self, QCloseEvent* event) {
+void KDirOperator_SuperCloseEvent(KDirOperator* self, QCloseEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_CloseEvent_IsBase(true);
@@ -2115,7 +2115,7 @@ void KDirOperator_ContextMenuEvent(KDirOperator* self, QContextMenuEvent* event)
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseContextMenuEvent(KDirOperator* self, QContextMenuEvent* event) {
+void KDirOperator_SuperContextMenuEvent(KDirOperator* self, QContextMenuEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_ContextMenuEvent_IsBase(true);
@@ -2144,7 +2144,7 @@ void KDirOperator_TabletEvent(KDirOperator* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseTabletEvent(KDirOperator* self, QTabletEvent* event) {
+void KDirOperator_SuperTabletEvent(KDirOperator* self, QTabletEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_TabletEvent_IsBase(true);
@@ -2173,7 +2173,7 @@ void KDirOperator_ActionEvent(KDirOperator* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseActionEvent(KDirOperator* self, QActionEvent* event) {
+void KDirOperator_SuperActionEvent(KDirOperator* self, QActionEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_ActionEvent_IsBase(true);
@@ -2202,7 +2202,7 @@ void KDirOperator_DragEnterEvent(KDirOperator* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseDragEnterEvent(KDirOperator* self, QDragEnterEvent* event) {
+void KDirOperator_SuperDragEnterEvent(KDirOperator* self, QDragEnterEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_DragEnterEvent_IsBase(true);
@@ -2231,7 +2231,7 @@ void KDirOperator_DragMoveEvent(KDirOperator* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseDragMoveEvent(KDirOperator* self, QDragMoveEvent* event) {
+void KDirOperator_SuperDragMoveEvent(KDirOperator* self, QDragMoveEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_DragMoveEvent_IsBase(true);
@@ -2260,7 +2260,7 @@ void KDirOperator_DragLeaveEvent(KDirOperator* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseDragLeaveEvent(KDirOperator* self, QDragLeaveEvent* event) {
+void KDirOperator_SuperDragLeaveEvent(KDirOperator* self, QDragLeaveEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_DragLeaveEvent_IsBase(true);
@@ -2289,7 +2289,7 @@ void KDirOperator_DropEvent(KDirOperator* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseDropEvent(KDirOperator* self, QDropEvent* event) {
+void KDirOperator_SuperDropEvent(KDirOperator* self, QDropEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_DropEvent_IsBase(true);
@@ -2318,7 +2318,7 @@ void KDirOperator_ShowEvent(KDirOperator* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseShowEvent(KDirOperator* self, QShowEvent* event) {
+void KDirOperator_SuperShowEvent(KDirOperator* self, QShowEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_ShowEvent_IsBase(true);
@@ -2347,7 +2347,7 @@ void KDirOperator_HideEvent(KDirOperator* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseHideEvent(KDirOperator* self, QHideEvent* event) {
+void KDirOperator_SuperHideEvent(KDirOperator* self, QHideEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_HideEvent_IsBase(true);
@@ -2377,7 +2377,7 @@ bool KDirOperator_NativeEvent(KDirOperator* self, const libqt_string eventType, 
 }
 
 // Base class handler implementation
-bool KDirOperator_QBaseNativeEvent(KDirOperator* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KDirOperator_SuperNativeEvent(KDirOperator* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
@@ -2407,7 +2407,7 @@ int KDirOperator_Metric(const KDirOperator* self, int param1) {
 }
 
 // Base class handler implementation
-int KDirOperator_QBaseMetric(const KDirOperator* self, int param1) {
+int KDirOperator_SuperMetric(const KDirOperator* self, int param1) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_Metric_IsBase(true);
@@ -2436,7 +2436,7 @@ void KDirOperator_InitPainter(const KDirOperator* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseInitPainter(const KDirOperator* self, QPainter* painter) {
+void KDirOperator_SuperInitPainter(const KDirOperator* self, QPainter* painter) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_InitPainter_IsBase(true);
@@ -2465,7 +2465,7 @@ QPaintDevice* KDirOperator_Redirected(const KDirOperator* self, QPoint* offset) 
 }
 
 // Base class handler implementation
-QPaintDevice* KDirOperator_QBaseRedirected(const KDirOperator* self, QPoint* offset) {
+QPaintDevice* KDirOperator_SuperRedirected(const KDirOperator* self, QPoint* offset) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_Redirected_IsBase(true);
@@ -2494,7 +2494,7 @@ QPainter* KDirOperator_SharedPainter(const KDirOperator* self) {
 }
 
 // Base class handler implementation
-QPainter* KDirOperator_QBaseSharedPainter(const KDirOperator* self) {
+QPainter* KDirOperator_SuperSharedPainter(const KDirOperator* self) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SharedPainter_IsBase(true);
@@ -2523,7 +2523,7 @@ void KDirOperator_InputMethodEvent(KDirOperator* self, QInputMethodEvent* param1
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseInputMethodEvent(KDirOperator* self, QInputMethodEvent* param1) {
+void KDirOperator_SuperInputMethodEvent(KDirOperator* self, QInputMethodEvent* param1) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_InputMethodEvent_IsBase(true);
@@ -2552,7 +2552,7 @@ QVariant* KDirOperator_InputMethodQuery(const KDirOperator* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KDirOperator_QBaseInputMethodQuery(const KDirOperator* self, int param1) {
+QVariant* KDirOperator_SuperInputMethodQuery(const KDirOperator* self, int param1) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_InputMethodQuery_IsBase(true);
@@ -2581,7 +2581,7 @@ bool KDirOperator_FocusNextPrevChild(KDirOperator* self, bool next) {
 }
 
 // Base class handler implementation
-bool KDirOperator_QBaseFocusNextPrevChild(KDirOperator* self, bool next) {
+bool KDirOperator_SuperFocusNextPrevChild(KDirOperator* self, bool next) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_FocusNextPrevChild_IsBase(true);
@@ -2610,7 +2610,7 @@ void KDirOperator_TimerEvent(KDirOperator* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseTimerEvent(KDirOperator* self, QTimerEvent* event) {
+void KDirOperator_SuperTimerEvent(KDirOperator* self, QTimerEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_TimerEvent_IsBase(true);
@@ -2639,7 +2639,7 @@ void KDirOperator_ChildEvent(KDirOperator* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseChildEvent(KDirOperator* self, QChildEvent* event) {
+void KDirOperator_SuperChildEvent(KDirOperator* self, QChildEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_ChildEvent_IsBase(true);
@@ -2668,7 +2668,7 @@ void KDirOperator_CustomEvent(KDirOperator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseCustomEvent(KDirOperator* self, QEvent* event) {
+void KDirOperator_SuperCustomEvent(KDirOperator* self, QEvent* event) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_CustomEvent_IsBase(true);
@@ -2697,7 +2697,7 @@ void KDirOperator_ConnectNotify(KDirOperator* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseConnectNotify(KDirOperator* self, const QMetaMethod* signal) {
+void KDirOperator_SuperConnectNotify(KDirOperator* self, const QMetaMethod* signal) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_ConnectNotify_IsBase(true);
@@ -2726,7 +2726,7 @@ void KDirOperator_DisconnectNotify(KDirOperator* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseDisconnectNotify(KDirOperator* self, const QMetaMethod* signal) {
+void KDirOperator_SuperDisconnectNotify(KDirOperator* self, const QMetaMethod* signal) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_DisconnectNotify_IsBase(true);
@@ -2755,7 +2755,7 @@ void KDirOperator_SetupActions(KDirOperator* self) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseSetupActions(KDirOperator* self) {
+void KDirOperator_SuperSetupActions(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SetupActions_IsBase(true);
@@ -2784,7 +2784,7 @@ void KDirOperator_UpdateSortActions(KDirOperator* self) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseUpdateSortActions(KDirOperator* self) {
+void KDirOperator_SuperUpdateSortActions(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_UpdateSortActions_IsBase(true);
@@ -2813,7 +2813,7 @@ void KDirOperator_UpdateViewActions(KDirOperator* self) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseUpdateViewActions(KDirOperator* self) {
+void KDirOperator_SuperUpdateViewActions(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_UpdateViewActions_IsBase(true);
@@ -2842,7 +2842,7 @@ void KDirOperator_SetupMenu2(KDirOperator* self) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseSetupMenu2(KDirOperator* self) {
+void KDirOperator_SuperSetupMenu2(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SetupMenu2_IsBase(true);
@@ -2871,7 +2871,7 @@ void KDirOperator_PrepareCompletionObjects(KDirOperator* self) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBasePrepareCompletionObjects(KDirOperator* self) {
+void KDirOperator_SuperPrepareCompletionObjects(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_PrepareCompletionObjects_IsBase(true);
@@ -2900,7 +2900,7 @@ bool KDirOperator_CheckPreviewSupport(KDirOperator* self) {
 }
 
 // Base class handler implementation
-bool KDirOperator_QBaseCheckPreviewSupport(KDirOperator* self) {
+bool KDirOperator_SuperCheckPreviewSupport(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_CheckPreviewSupport_IsBase(true);
@@ -2929,7 +2929,7 @@ void KDirOperator_ResetCursor(KDirOperator* self) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseResetCursor(KDirOperator* self) {
+void KDirOperator_SuperResetCursor(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_ResetCursor_IsBase(true);
@@ -2958,7 +2958,7 @@ void KDirOperator_PathChanged(KDirOperator* self) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBasePathChanged(KDirOperator* self) {
+void KDirOperator_SuperPathChanged(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_PathChanged_IsBase(true);
@@ -2987,7 +2987,7 @@ void KDirOperator_SelectFile(KDirOperator* self, const KFileItem* item) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseSelectFile(KDirOperator* self, const KFileItem* item) {
+void KDirOperator_SuperSelectFile(KDirOperator* self, const KFileItem* item) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SelectFile_IsBase(true);
@@ -3016,7 +3016,7 @@ void KDirOperator_HighlightFile(KDirOperator* self, const KFileItem* item) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseHighlightFile(KDirOperator* self, const KFileItem* item) {
+void KDirOperator_SuperHighlightFile(KDirOperator* self, const KFileItem* item) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_HighlightFile_IsBase(true);
@@ -3045,7 +3045,7 @@ void KDirOperator_SortByName(KDirOperator* self) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseSortByName(KDirOperator* self) {
+void KDirOperator_SuperSortByName(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SortByName_IsBase(true);
@@ -3074,7 +3074,7 @@ void KDirOperator_SortBySize(KDirOperator* self) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseSortBySize(KDirOperator* self) {
+void KDirOperator_SuperSortBySize(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SortBySize_IsBase(true);
@@ -3103,7 +3103,7 @@ void KDirOperator_SortByDate(KDirOperator* self) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseSortByDate(KDirOperator* self) {
+void KDirOperator_SuperSortByDate(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SortByDate_IsBase(true);
@@ -3132,7 +3132,7 @@ void KDirOperator_SortByType(KDirOperator* self) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseSortByType(KDirOperator* self) {
+void KDirOperator_SuperSortByType(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SortByType_IsBase(true);
@@ -3161,7 +3161,7 @@ void KDirOperator_SortReversed(KDirOperator* self) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseSortReversed(KDirOperator* self) {
+void KDirOperator_SuperSortReversed(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SortReversed_IsBase(true);
@@ -3190,7 +3190,7 @@ void KDirOperator_ToggleDirsFirst(KDirOperator* self) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseToggleDirsFirst(KDirOperator* self) {
+void KDirOperator_SuperToggleDirsFirst(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_ToggleDirsFirst_IsBase(true);
@@ -3219,7 +3219,7 @@ void KDirOperator_ToggleIgnoreCase(KDirOperator* self) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseToggleIgnoreCase(KDirOperator* self) {
+void KDirOperator_SuperToggleIgnoreCase(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_ToggleIgnoreCase_IsBase(true);
@@ -3249,7 +3249,7 @@ void KDirOperator_SlotCompletionMatch(KDirOperator* self, const libqt_string mat
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseSlotCompletionMatch(KDirOperator* self, const libqt_string match) {
+void KDirOperator_SuperSlotCompletionMatch(KDirOperator* self, const libqt_string match) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     QString match_QString = QString::fromUtf8(match.data, match.len);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
@@ -3279,7 +3279,7 @@ void KDirOperator_UpdateMicroFocus(KDirOperator* self) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseUpdateMicroFocus(KDirOperator* self) {
+void KDirOperator_SuperUpdateMicroFocus(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_UpdateMicroFocus_IsBase(true);
@@ -3308,7 +3308,7 @@ void KDirOperator_Create(KDirOperator* self) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseCreate(KDirOperator* self) {
+void KDirOperator_SuperCreate(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_Create_IsBase(true);
@@ -3337,7 +3337,7 @@ void KDirOperator_Destroy(KDirOperator* self) {
 }
 
 // Base class handler implementation
-void KDirOperator_QBaseDestroy(KDirOperator* self) {
+void KDirOperator_SuperDestroy(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_Destroy_IsBase(true);
@@ -3366,7 +3366,7 @@ bool KDirOperator_FocusNextChild(KDirOperator* self) {
 }
 
 // Base class handler implementation
-bool KDirOperator_QBaseFocusNextChild(KDirOperator* self) {
+bool KDirOperator_SuperFocusNextChild(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_FocusNextChild_IsBase(true);
@@ -3395,7 +3395,7 @@ bool KDirOperator_FocusPreviousChild(KDirOperator* self) {
 }
 
 // Base class handler implementation
-bool KDirOperator_QBaseFocusPreviousChild(KDirOperator* self) {
+bool KDirOperator_SuperFocusPreviousChild(KDirOperator* self) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_FocusPreviousChild_IsBase(true);
@@ -3424,7 +3424,7 @@ QObject* KDirOperator_Sender(const KDirOperator* self) {
 }
 
 // Base class handler implementation
-QObject* KDirOperator_QBaseSender(const KDirOperator* self) {
+QObject* KDirOperator_SuperSender(const KDirOperator* self) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_Sender_IsBase(true);
@@ -3453,7 +3453,7 @@ int KDirOperator_SenderSignalIndex(const KDirOperator* self) {
 }
 
 // Base class handler implementation
-int KDirOperator_QBaseSenderSignalIndex(const KDirOperator* self) {
+int KDirOperator_SuperSenderSignalIndex(const KDirOperator* self) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_SenderSignalIndex_IsBase(true);
@@ -3482,7 +3482,7 @@ int KDirOperator_Receivers(const KDirOperator* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KDirOperator_QBaseReceivers(const KDirOperator* self, const char* signal) {
+int KDirOperator_SuperReceivers(const KDirOperator* self, const char* signal) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_Receivers_IsBase(true);
@@ -3511,7 +3511,7 @@ bool KDirOperator_IsSignalConnected(const KDirOperator* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool KDirOperator_QBaseIsSignalConnected(const KDirOperator* self, const QMetaMethod* signal) {
+bool KDirOperator_SuperIsSignalConnected(const KDirOperator* self, const QMetaMethod* signal) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_IsSignalConnected_IsBase(true);
@@ -3540,7 +3540,7 @@ double KDirOperator_GetDecodedMetricF(const KDirOperator* self, int metricA, int
 }
 
 // Base class handler implementation
-double KDirOperator_QBaseGetDecodedMetricF(const KDirOperator* self, int metricA, int metricB) {
+double KDirOperator_SuperGetDecodedMetricF(const KDirOperator* self, int metricA, int metricB) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
     if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
         vkdiroperator->setKDirOperator_GetDecodedMetricF_IsBase(true);

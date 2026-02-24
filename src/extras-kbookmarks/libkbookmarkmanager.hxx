@@ -328,23 +328,23 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
 
     // Friend functions
     friend void KBookmarkManager_TimerEvent(KBookmarkManager* self, QTimerEvent* event);
-    friend void KBookmarkManager_QBaseTimerEvent(KBookmarkManager* self, QTimerEvent* event);
+    friend void KBookmarkManager_SuperTimerEvent(KBookmarkManager* self, QTimerEvent* event);
     friend void KBookmarkManager_ChildEvent(KBookmarkManager* self, QChildEvent* event);
-    friend void KBookmarkManager_QBaseChildEvent(KBookmarkManager* self, QChildEvent* event);
+    friend void KBookmarkManager_SuperChildEvent(KBookmarkManager* self, QChildEvent* event);
     friend void KBookmarkManager_CustomEvent(KBookmarkManager* self, QEvent* event);
-    friend void KBookmarkManager_QBaseCustomEvent(KBookmarkManager* self, QEvent* event);
+    friend void KBookmarkManager_SuperCustomEvent(KBookmarkManager* self, QEvent* event);
     friend void KBookmarkManager_ConnectNotify(KBookmarkManager* self, const QMetaMethod* signal);
-    friend void KBookmarkManager_QBaseConnectNotify(KBookmarkManager* self, const QMetaMethod* signal);
+    friend void KBookmarkManager_SuperConnectNotify(KBookmarkManager* self, const QMetaMethod* signal);
     friend void KBookmarkManager_DisconnectNotify(KBookmarkManager* self, const QMetaMethod* signal);
-    friend void KBookmarkManager_QBaseDisconnectNotify(KBookmarkManager* self, const QMetaMethod* signal);
+    friend void KBookmarkManager_SuperDisconnectNotify(KBookmarkManager* self, const QMetaMethod* signal);
     friend QObject* KBookmarkManager_Sender(const KBookmarkManager* self);
-    friend QObject* KBookmarkManager_QBaseSender(const KBookmarkManager* self);
+    friend QObject* KBookmarkManager_SuperSender(const KBookmarkManager* self);
     friend int KBookmarkManager_SenderSignalIndex(const KBookmarkManager* self);
-    friend int KBookmarkManager_QBaseSenderSignalIndex(const KBookmarkManager* self);
+    friend int KBookmarkManager_SuperSenderSignalIndex(const KBookmarkManager* self);
     friend int KBookmarkManager_Receivers(const KBookmarkManager* self, const char* signal);
-    friend int KBookmarkManager_QBaseReceivers(const KBookmarkManager* self, const char* signal);
+    friend int KBookmarkManager_SuperReceivers(const KBookmarkManager* self, const char* signal);
     friend bool KBookmarkManager_IsSignalConnected(const KBookmarkManager* self, const QMetaMethod* signal);
-    friend bool KBookmarkManager_QBaseIsSignalConnected(const KBookmarkManager* self, const QMetaMethod* signal);
+    friend bool KBookmarkManager_SuperIsSignalConnected(const KBookmarkManager* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -42,6 +42,10 @@ pub const qgeosatelliteinfosource = struct {
         qtc.QGeoSatelliteInfoSource_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -50,8 +54,8 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` self: QtC.QGeoSatelliteInfoSource `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QGeoSatelliteInfoSource_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QGeoSatelliteInfoSource_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -77,6 +81,10 @@ pub const qgeosatelliteinfosource = struct {
         qtc.QGeoSatelliteInfoSource_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -85,9 +93,9 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QGeoSatelliteInfoSource_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QGeoSatelliteInfoSource_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -116,6 +124,10 @@ pub const qgeosatelliteinfosource = struct {
         qtc.QGeoSatelliteInfoSource_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -128,8 +140,8 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGeoSatelliteInfoSource_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QGeoSatelliteInfoSource_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -316,6 +328,10 @@ pub const qgeosatelliteinfosource = struct {
         qtc.QGeoSatelliteInfoSource_OnSetUpdateInterval(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetUpdateInterval` instead
+    ///
+    pub const QBaseSetUpdateInterval = SuperSetUpdateInterval;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#setUpdateInterval)
     ///
     /// Base class method implementation
@@ -326,8 +342,8 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn QBaseSetUpdateInterval(self: ?*anyopaque, msec: i32) void {
-        qtc.QGeoSatelliteInfoSource_QBaseSetUpdateInterval(@ptrCast(self), @bitCast(msec));
+    pub fn SuperSetUpdateInterval(self: ?*anyopaque, msec: i32) void {
+        qtc.QGeoSatelliteInfoSource_SuperSetUpdateInterval(@ptrCast(self), @bitCast(msec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#updateInterval)
@@ -364,6 +380,10 @@ pub const qgeosatelliteinfosource = struct {
         qtc.QGeoSatelliteInfoSource_OnMinimumUpdateInterval(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumUpdateInterval` instead
+    ///
+    pub const QBaseMinimumUpdateInterval = SuperMinimumUpdateInterval;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#minimumUpdateInterval)
     ///
     /// Base class method implementation
@@ -372,8 +392,8 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` self: QtC.QGeoSatelliteInfoSource `
     ///
-    pub fn QBaseMinimumUpdateInterval(self: ?*anyopaque) i32 {
-        return qtc.QGeoSatelliteInfoSource_QBaseMinimumUpdateInterval(@ptrCast(self));
+    pub fn SuperMinimumUpdateInterval(self: ?*anyopaque) i32 {
+        return qtc.QGeoSatelliteInfoSource_SuperMinimumUpdateInterval(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#error)
@@ -404,6 +424,10 @@ pub const qgeosatelliteinfosource = struct {
         qtc.QGeoSatelliteInfoSource_OnError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperError` instead
+    ///
+    pub const QBaseError = SuperError;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#error)
     ///
     /// Base class method implementation
@@ -416,8 +440,8 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` qgeosatelliteinfosource_enums.Error `
     ///
-    pub fn QBaseError(self: ?*anyopaque) i32 {
-        return qtc.QGeoSatelliteInfoSource_QBaseError(@ptrCast(self));
+    pub fn SuperError(self: ?*anyopaque) i32 {
+        return qtc.QGeoSatelliteInfoSource_SuperError(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#setBackendProperty)
@@ -452,6 +476,10 @@ pub const qgeosatelliteinfosource = struct {
         qtc.QGeoSatelliteInfoSource_OnSetBackendProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetBackendProperty` instead
+    ///
+    pub const QBaseSetBackendProperty = SuperSetBackendProperty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#setBackendProperty)
     ///
     /// Base class method implementation
@@ -464,12 +492,12 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn QBaseSetBackendProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SuperSetBackendProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QGeoSatelliteInfoSource_QBaseSetBackendProperty(@ptrCast(self), name_str, @ptrCast(value));
+        return qtc.QGeoSatelliteInfoSource_SuperSetBackendProperty(@ptrCast(self), name_str, @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#backendProperty)
@@ -502,6 +530,10 @@ pub const qgeosatelliteinfosource = struct {
         qtc.QGeoSatelliteInfoSource_OnBackendProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBackendProperty` instead
+    ///
+    pub const QBaseBackendProperty = SuperBackendProperty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#backendProperty)
     ///
     /// Base class method implementation
@@ -512,12 +544,12 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn QBaseBackendProperty(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn SuperBackendProperty(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QGeoSatelliteInfoSource_QBaseBackendProperty(@ptrCast(self), name_str);
+        return qtc.QGeoSatelliteInfoSource_SuperBackendProperty(@ptrCast(self), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#startUpdates)
@@ -544,6 +576,10 @@ pub const qgeosatelliteinfosource = struct {
         qtc.QGeoSatelliteInfoSource_OnStartUpdates(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperStartUpdates` instead
+    ///
+    pub const QBaseStartUpdates = SuperStartUpdates;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#startUpdates)
     ///
     /// Base class method implementation
@@ -552,8 +588,8 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` self: QtC.QGeoSatelliteInfoSource `
     ///
-    pub fn QBaseStartUpdates(self: ?*anyopaque) void {
-        qtc.QGeoSatelliteInfoSource_QBaseStartUpdates(@ptrCast(self));
+    pub fn SuperStartUpdates(self: ?*anyopaque) void {
+        qtc.QGeoSatelliteInfoSource_SuperStartUpdates(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#stopUpdates)
@@ -580,6 +616,10 @@ pub const qgeosatelliteinfosource = struct {
         qtc.QGeoSatelliteInfoSource_OnStopUpdates(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperStopUpdates` instead
+    ///
+    pub const QBaseStopUpdates = SuperStopUpdates;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#stopUpdates)
     ///
     /// Base class method implementation
@@ -588,8 +628,8 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` self: QtC.QGeoSatelliteInfoSource `
     ///
-    pub fn QBaseStopUpdates(self: ?*anyopaque) void {
-        qtc.QGeoSatelliteInfoSource_QBaseStopUpdates(@ptrCast(self));
+    pub fn SuperStopUpdates(self: ?*anyopaque) void {
+        qtc.QGeoSatelliteInfoSource_SuperStopUpdates(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#requestUpdate)
@@ -618,6 +658,10 @@ pub const qgeosatelliteinfosource = struct {
         qtc.QGeoSatelliteInfoSource_OnRequestUpdate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRequestUpdate` instead
+    ///
+    pub const QBaseRequestUpdate = SuperRequestUpdate;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#requestUpdate)
     ///
     /// Base class method implementation
@@ -628,8 +672,8 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` timeout: i32 `
     ///
-    pub fn QBaseRequestUpdate(self: ?*anyopaque, timeout: i32) void {
-        qtc.QGeoSatelliteInfoSource_QBaseRequestUpdate(@ptrCast(self), @bitCast(timeout));
+    pub fn SuperRequestUpdate(self: ?*anyopaque, timeout: i32) void {
+        qtc.QGeoSatelliteInfoSource_SuperRequestUpdate(@ptrCast(self), @bitCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#satellitesInViewUpdated)
@@ -1508,6 +1552,10 @@ pub const qgeosatelliteinfosource = struct {
         return qtc.QGeoSatelliteInfoSource_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1520,8 +1568,8 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGeoSatelliteInfoSource_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGeoSatelliteInfoSource_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1558,6 +1606,10 @@ pub const qgeosatelliteinfosource = struct {
         return qtc.QGeoSatelliteInfoSource_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1572,8 +1624,8 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGeoSatelliteInfoSource_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGeoSatelliteInfoSource_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1608,6 +1660,10 @@ pub const qgeosatelliteinfosource = struct {
         qtc.QGeoSatelliteInfoSource_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1620,8 +1676,8 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGeoSatelliteInfoSource_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGeoSatelliteInfoSource_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1656,6 +1712,10 @@ pub const qgeosatelliteinfosource = struct {
         qtc.QGeoSatelliteInfoSource_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1668,8 +1728,8 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGeoSatelliteInfoSource_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGeoSatelliteInfoSource_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1704,6 +1764,10 @@ pub const qgeosatelliteinfosource = struct {
         qtc.QGeoSatelliteInfoSource_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1716,8 +1780,8 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGeoSatelliteInfoSource_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGeoSatelliteInfoSource_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1752,6 +1816,10 @@ pub const qgeosatelliteinfosource = struct {
         qtc.QGeoSatelliteInfoSource_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1764,8 +1832,8 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGeoSatelliteInfoSource_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGeoSatelliteInfoSource_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1800,6 +1868,10 @@ pub const qgeosatelliteinfosource = struct {
         qtc.QGeoSatelliteInfoSource_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1812,8 +1884,8 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGeoSatelliteInfoSource_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGeoSatelliteInfoSource_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1846,6 +1918,10 @@ pub const qgeosatelliteinfosource = struct {
         return qtc.QGeoSatelliteInfoSource_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1856,8 +1932,8 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` self: QtC.QGeoSatelliteInfoSource `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QGeoSatelliteInfoSource_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QGeoSatelliteInfoSource_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1890,6 +1966,10 @@ pub const qgeosatelliteinfosource = struct {
         return qtc.QGeoSatelliteInfoSource_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1900,8 +1980,8 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` self: QtC.QGeoSatelliteInfoSource `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QGeoSatelliteInfoSource_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QGeoSatelliteInfoSource_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1937,6 +2017,10 @@ pub const qgeosatelliteinfosource = struct {
         return qtc.QGeoSatelliteInfoSource_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1949,9 +2033,9 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QGeoSatelliteInfoSource_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QGeoSatelliteInfoSource_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1986,6 +2070,10 @@ pub const qgeosatelliteinfosource = struct {
         return qtc.QGeoSatelliteInfoSource_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -1998,8 +2086,8 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QGeoSatelliteInfoSource_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QGeoSatelliteInfoSource_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2033,6 +2121,9 @@ pub const qgeosatelliteinfosource = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#dtor.QGeoSatelliteInfoSource)
     ///
@@ -2042,7 +2133,7 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` self: QtC.QGeoSatelliteInfoSource `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGeoSatelliteInfoSource_Delete(@ptrCast(self));
     }
 };

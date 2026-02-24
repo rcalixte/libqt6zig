@@ -210,6 +210,10 @@ pub const qeasingcurve = struct {
         return qtc.QEasingCurve_ValueForProgress(@ptrCast(self), @bitCast(progress));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#dtor.QEasingCurve)
     ///
     /// Delete this object from C++ memory.
@@ -218,7 +222,7 @@ pub const qeasingcurve = struct {
     ///
     /// ` self: QtC.QEasingCurve `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QEasingCurve_Delete(@ptrCast(self));
     }
 };

@@ -41,6 +41,10 @@ pub const kparts__listingfilterextension = struct {
         qtc.KParts__ListingFilterExtension_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -49,8 +53,8 @@ pub const kparts__listingfilterextension = struct {
     ///
     /// ` self: QtC.KParts__ListingFilterExtension `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KParts__ListingFilterExtension_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KParts__ListingFilterExtension_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -76,6 +80,10 @@ pub const kparts__listingfilterextension = struct {
         qtc.KParts__ListingFilterExtension_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -84,9 +92,9 @@ pub const kparts__listingfilterextension = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KParts__ListingFilterExtension_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KParts__ListingFilterExtension_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -115,6 +123,10 @@ pub const kparts__listingfilterextension = struct {
         qtc.KParts__ListingFilterExtension_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -127,8 +139,8 @@ pub const kparts__listingfilterextension = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KParts__ListingFilterExtension_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KParts__ListingFilterExtension_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -186,6 +198,10 @@ pub const kparts__listingfilterextension = struct {
         qtc.KParts__ListingFilterExtension_OnSupportedFilterModes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSupportedFilterModes` instead
+    ///
+    pub const QBaseSupportedFilterModes = SuperSupportedFilterModes;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-listingfilterextension.html#supportedFilterModes)
     ///
     /// Base class method implementation
@@ -198,8 +214,8 @@ pub const kparts__listingfilterextension = struct {
     ///
     /// ` flag of listingfilterextension_enums.FilterMode `
     ///
-    pub fn QBaseSupportedFilterModes(self: ?*anyopaque) i32 {
-        return qtc.KParts__ListingFilterExtension_QBaseSupportedFilterModes(@ptrCast(self));
+    pub fn SuperSupportedFilterModes(self: ?*anyopaque) i32 {
+        return qtc.KParts__ListingFilterExtension_SuperSupportedFilterModes(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-listingfilterextension.html#supportsMultipleFilters)
@@ -228,6 +244,10 @@ pub const kparts__listingfilterextension = struct {
         qtc.KParts__ListingFilterExtension_OnSupportsMultipleFilters(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSupportsMultipleFilters` instead
+    ///
+    pub const QBaseSupportsMultipleFilters = SuperSupportsMultipleFilters;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-listingfilterextension.html#supportsMultipleFilters)
     ///
     /// Base class method implementation
@@ -238,8 +258,8 @@ pub const kparts__listingfilterextension = struct {
     ///
     /// ` mode: listingfilterextension_enums.FilterMode `
     ///
-    pub fn QBaseSupportsMultipleFilters(self: ?*anyopaque, mode: i32) bool {
-        return qtc.KParts__ListingFilterExtension_QBaseSupportsMultipleFilters(@ptrCast(self), @bitCast(mode));
+    pub fn SuperSupportsMultipleFilters(self: ?*anyopaque, mode: i32) bool {
+        return qtc.KParts__ListingFilterExtension_SuperSupportsMultipleFilters(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-listingfilterextension.html#filter)
@@ -268,6 +288,10 @@ pub const kparts__listingfilterextension = struct {
         qtc.KParts__ListingFilterExtension_OnFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFilter` instead
+    ///
+    pub const QBaseFilter = SuperFilter;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-listingfilterextension.html#filter)
     ///
     /// Base class method implementation
@@ -278,8 +302,8 @@ pub const kparts__listingfilterextension = struct {
     ///
     /// ` mode: listingfilterextension_enums.FilterMode `
     ///
-    pub fn QBaseFilter(self: ?*anyopaque, mode: i32) QtC.QVariant {
-        return qtc.KParts__ListingFilterExtension_QBaseFilter(@ptrCast(self), @bitCast(mode));
+    pub fn SuperFilter(self: ?*anyopaque, mode: i32) QtC.QVariant {
+        return qtc.KParts__ListingFilterExtension_SuperFilter(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-listingfilterextension.html#setFilter)
@@ -310,6 +334,10 @@ pub const kparts__listingfilterextension = struct {
         qtc.KParts__ListingFilterExtension_OnSetFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFilter` instead
+    ///
+    pub const QBaseSetFilter = SuperSetFilter;
+
     /// ### [Upstream resources](https://api.kde.org/kparts-listingfilterextension.html#setFilter)
     ///
     /// Base class method implementation
@@ -322,8 +350,8 @@ pub const kparts__listingfilterextension = struct {
     ///
     /// ` filter: QtC.QVariant `
     ///
-    pub fn QBaseSetFilter(self: ?*anyopaque, mode: i32, filter: ?*anyopaque) void {
-        qtc.KParts__ListingFilterExtension_QBaseSetFilter(@ptrCast(self), @bitCast(mode), @ptrCast(filter));
+    pub fn SuperSetFilter(self: ?*anyopaque, mode: i32, filter: ?*anyopaque) void {
+        qtc.KParts__ListingFilterExtension_SuperSetFilter(@ptrCast(self), @bitCast(mode), @ptrCast(filter));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1122,6 +1150,10 @@ pub const kparts__listingfilterextension = struct {
         return qtc.KParts__ListingFilterExtension_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1134,8 +1166,8 @@ pub const kparts__listingfilterextension = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KParts__ListingFilterExtension_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KParts__ListingFilterExtension_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1172,6 +1204,10 @@ pub const kparts__listingfilterextension = struct {
         return qtc.KParts__ListingFilterExtension_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1186,8 +1222,8 @@ pub const kparts__listingfilterextension = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KParts__ListingFilterExtension_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KParts__ListingFilterExtension_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1222,6 +1258,10 @@ pub const kparts__listingfilterextension = struct {
         qtc.KParts__ListingFilterExtension_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1234,8 +1274,8 @@ pub const kparts__listingfilterextension = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__ListingFilterExtension_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KParts__ListingFilterExtension_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1270,6 +1310,10 @@ pub const kparts__listingfilterextension = struct {
         qtc.KParts__ListingFilterExtension_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1282,8 +1326,8 @@ pub const kparts__listingfilterextension = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__ListingFilterExtension_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KParts__ListingFilterExtension_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1318,6 +1362,10 @@ pub const kparts__listingfilterextension = struct {
         qtc.KParts__ListingFilterExtension_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1330,8 +1378,8 @@ pub const kparts__listingfilterextension = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__ListingFilterExtension_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KParts__ListingFilterExtension_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1366,6 +1414,10 @@ pub const kparts__listingfilterextension = struct {
         qtc.KParts__ListingFilterExtension_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1378,8 +1430,8 @@ pub const kparts__listingfilterextension = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KParts__ListingFilterExtension_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KParts__ListingFilterExtension_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1414,6 +1466,10 @@ pub const kparts__listingfilterextension = struct {
         qtc.KParts__ListingFilterExtension_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1426,8 +1482,8 @@ pub const kparts__listingfilterextension = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KParts__ListingFilterExtension_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KParts__ListingFilterExtension_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1460,6 +1516,10 @@ pub const kparts__listingfilterextension = struct {
         return qtc.KParts__ListingFilterExtension_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1470,8 +1530,8 @@ pub const kparts__listingfilterextension = struct {
     ///
     /// ` self: QtC.KParts__ListingFilterExtension `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KParts__ListingFilterExtension_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KParts__ListingFilterExtension_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1504,6 +1564,10 @@ pub const kparts__listingfilterextension = struct {
         return qtc.KParts__ListingFilterExtension_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1514,8 +1578,8 @@ pub const kparts__listingfilterextension = struct {
     ///
     /// ` self: QtC.KParts__ListingFilterExtension `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KParts__ListingFilterExtension_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KParts__ListingFilterExtension_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1551,6 +1615,10 @@ pub const kparts__listingfilterextension = struct {
         return qtc.KParts__ListingFilterExtension_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1563,9 +1631,9 @@ pub const kparts__listingfilterextension = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KParts__ListingFilterExtension_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KParts__ListingFilterExtension_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1600,6 +1668,10 @@ pub const kparts__listingfilterextension = struct {
         return qtc.KParts__ListingFilterExtension_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -1612,8 +1684,8 @@ pub const kparts__listingfilterextension = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KParts__ListingFilterExtension_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KParts__ListingFilterExtension_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1647,6 +1719,9 @@ pub const kparts__listingfilterextension = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -1654,7 +1729,7 @@ pub const kparts__listingfilterextension = struct {
     ///
     /// ` self: QtC.KParts__ListingFilterExtension `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KParts__ListingFilterExtension_Delete(@ptrCast(self));
     }
 };

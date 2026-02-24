@@ -305,13 +305,17 @@ pub const ksyntaxhighlighting__format = struct {
         return qtc.KSyntaxHighlighting__Format_HasSelectedBackgroundColorOverride(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KSyntaxHighlighting__Format `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KSyntaxHighlighting__Format_Delete(@ptrCast(self));
     }
 };

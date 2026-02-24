@@ -444,7 +444,7 @@ QModelIndex* QSqlTableModel_IndexInQuery(const QSqlTableModel* self, const QMode
 }
 
 // Base class handler implementation
-QMetaObject* QSqlTableModel_QBaseMetaObject(const QSqlTableModel* self) {
+QMetaObject* QSqlTableModel_SuperMetaObject(const QSqlTableModel* self) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_MetaObject_IsBase(true);
@@ -463,7 +463,7 @@ void QSqlTableModel_OnMetaObject(const QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QSqlTableModel_QBaseMetacast(QSqlTableModel* self, const char* param1) {
+void* QSqlTableModel_SuperMetacast(QSqlTableModel* self, const char* param1) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_Metacast_IsBase(true);
@@ -482,7 +482,7 @@ void QSqlTableModel_OnMetacast(QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSqlTableModel_QBaseMetacall(QSqlTableModel* self, int param1, int param2, void** param3) {
+int QSqlTableModel_SuperMetacall(QSqlTableModel* self, int param1, int param2, void** param3) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_Metacall_IsBase(true);
@@ -501,7 +501,7 @@ void QSqlTableModel_OnMetacall(QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseSetTable(QSqlTableModel* self, const libqt_string tableName) {
+void QSqlTableModel_SuperSetTable(QSqlTableModel* self, const libqt_string tableName) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     QString tableName_QString = QString::fromUtf8(tableName.data, tableName.len);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
@@ -521,7 +521,7 @@ void QSqlTableModel_OnSetTable(QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSqlTableModel_QBaseFlags(const QSqlTableModel* self, const QModelIndex* index) {
+int QSqlTableModel_SuperFlags(const QSqlTableModel* self, const QModelIndex* index) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_Flags_IsBase(true);
@@ -540,7 +540,7 @@ void QSqlTableModel_OnFlags(const QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QSqlTableModel_QBaseData(const QSqlTableModel* self, const QModelIndex* idx, int role) {
+QVariant* QSqlTableModel_SuperData(const QSqlTableModel* self, const QModelIndex* idx, int role) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_Data_IsBase(true);
@@ -559,7 +559,7 @@ void QSqlTableModel_OnData(const QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseSetData(QSqlTableModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool QSqlTableModel_SuperSetData(QSqlTableModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_SetData_IsBase(true);
@@ -578,7 +578,7 @@ void QSqlTableModel_OnSetData(QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseClearItemData(QSqlTableModel* self, const QModelIndex* index) {
+bool QSqlTableModel_SuperClearItemData(QSqlTableModel* self, const QModelIndex* index) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_ClearItemData_IsBase(true);
@@ -597,7 +597,7 @@ void QSqlTableModel_OnClearItemData(QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QSqlTableModel_QBaseHeaderData(const QSqlTableModel* self, int section, int orientation, int role) {
+QVariant* QSqlTableModel_SuperHeaderData(const QSqlTableModel* self, int section, int orientation, int role) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_HeaderData_IsBase(true);
@@ -616,7 +616,7 @@ void QSqlTableModel_OnHeaderData(const QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseClear(QSqlTableModel* self) {
+void QSqlTableModel_SuperClear(QSqlTableModel* self) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_Clear_IsBase(true);
@@ -635,7 +635,7 @@ void QSqlTableModel_OnClear(QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseSetEditStrategy(QSqlTableModel* self, int strategy) {
+void QSqlTableModel_SuperSetEditStrategy(QSqlTableModel* self, int strategy) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_SetEditStrategy_IsBase(true);
@@ -654,7 +654,7 @@ void QSqlTableModel_OnSetEditStrategy(QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseSort(QSqlTableModel* self, int column, int order) {
+void QSqlTableModel_SuperSort(QSqlTableModel* self, int column, int order) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_Sort_IsBase(true);
@@ -673,7 +673,7 @@ void QSqlTableModel_OnSort(QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseSetSort(QSqlTableModel* self, int column, int order) {
+void QSqlTableModel_SuperSetSort(QSqlTableModel* self, int column, int order) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_SetSort_IsBase(true);
@@ -692,7 +692,7 @@ void QSqlTableModel_OnSetSort(QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseSetFilter(QSqlTableModel* self, const libqt_string filter) {
+void QSqlTableModel_SuperSetFilter(QSqlTableModel* self, const libqt_string filter) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     QString filter_QString = QString::fromUtf8(filter.data, filter.len);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
@@ -712,7 +712,7 @@ void QSqlTableModel_OnSetFilter(QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSqlTableModel_QBaseRowCount(const QSqlTableModel* self, const QModelIndex* parent) {
+int QSqlTableModel_SuperRowCount(const QSqlTableModel* self, const QModelIndex* parent) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_RowCount_IsBase(true);
@@ -731,7 +731,7 @@ void QSqlTableModel_OnRowCount(const QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseRemoveColumns(QSqlTableModel* self, int column, int count, const QModelIndex* parent) {
+bool QSqlTableModel_SuperRemoveColumns(QSqlTableModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_RemoveColumns_IsBase(true);
@@ -750,7 +750,7 @@ void QSqlTableModel_OnRemoveColumns(QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseRemoveRows(QSqlTableModel* self, int row, int count, const QModelIndex* parent) {
+bool QSqlTableModel_SuperRemoveRows(QSqlTableModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_RemoveRows_IsBase(true);
@@ -769,7 +769,7 @@ void QSqlTableModel_OnRemoveRows(QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseInsertRows(QSqlTableModel* self, int row, int count, const QModelIndex* parent) {
+bool QSqlTableModel_SuperInsertRows(QSqlTableModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_InsertRows_IsBase(true);
@@ -788,7 +788,7 @@ void QSqlTableModel_OnInsertRows(QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseRevertRow(QSqlTableModel* self, int row) {
+void QSqlTableModel_SuperRevertRow(QSqlTableModel* self, int row) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_RevertRow_IsBase(true);
@@ -807,7 +807,7 @@ void QSqlTableModel_OnRevertRow(QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseSelect(QSqlTableModel* self) {
+bool QSqlTableModel_SuperSelect(QSqlTableModel* self) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_Select_IsBase(true);
@@ -826,7 +826,7 @@ void QSqlTableModel_OnSelect(QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseSelectRow(QSqlTableModel* self, int row) {
+bool QSqlTableModel_SuperSelectRow(QSqlTableModel* self, int row) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_SelectRow_IsBase(true);
@@ -845,7 +845,7 @@ void QSqlTableModel_OnSelectRow(QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseSubmit(QSqlTableModel* self) {
+bool QSqlTableModel_SuperSubmit(QSqlTableModel* self) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_Submit_IsBase(true);
@@ -864,7 +864,7 @@ void QSqlTableModel_OnSubmit(QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseRevert(QSqlTableModel* self) {
+void QSqlTableModel_SuperRevert(QSqlTableModel* self) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_Revert_IsBase(true);
@@ -883,7 +883,7 @@ void QSqlTableModel_OnRevert(QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseUpdateRowInTable(QSqlTableModel* self, int row, const QSqlRecord* values) {
+bool QSqlTableModel_SuperUpdateRowInTable(QSqlTableModel* self, int row, const QSqlRecord* values) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_UpdateRowInTable_IsBase(true);
@@ -902,7 +902,7 @@ void QSqlTableModel_OnUpdateRowInTable(QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseInsertRowIntoTable(QSqlTableModel* self, const QSqlRecord* values) {
+bool QSqlTableModel_SuperInsertRowIntoTable(QSqlTableModel* self, const QSqlRecord* values) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_InsertRowIntoTable_IsBase(true);
@@ -921,7 +921,7 @@ void QSqlTableModel_OnInsertRowIntoTable(QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseDeleteRowFromTable(QSqlTableModel* self, int row) {
+bool QSqlTableModel_SuperDeleteRowFromTable(QSqlTableModel* self, int row) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_DeleteRowFromTable_IsBase(true);
@@ -940,7 +940,7 @@ void QSqlTableModel_OnDeleteRowFromTable(QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string QSqlTableModel_QBaseOrderByClause(const QSqlTableModel* self) {
+libqt_string QSqlTableModel_SuperOrderByClause(const QSqlTableModel* self) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_OrderByClause_IsBase(true);
@@ -975,7 +975,7 @@ void QSqlTableModel_OnOrderByClause(const QSqlTableModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string QSqlTableModel_QBaseSelectStatement(const QSqlTableModel* self) {
+libqt_string QSqlTableModel_SuperSelectStatement(const QSqlTableModel* self) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_SelectStatement_IsBase(true);
@@ -1010,7 +1010,7 @@ void QSqlTableModel_OnSelectStatement(const QSqlTableModel* self, intptr_t slot)
 }
 
 // Base class handler implementation
-QModelIndex* QSqlTableModel_QBaseIndexInQuery(const QSqlTableModel* self, const QModelIndex* item) {
+QModelIndex* QSqlTableModel_SuperIndexInQuery(const QSqlTableModel* self, const QModelIndex* item) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_IndexInQuery_IsBase(true);
@@ -1038,7 +1038,7 @@ int QSqlTableModel_ColumnCount(const QSqlTableModel* self, const QModelIndex* pa
 }
 
 // Base class handler implementation
-int QSqlTableModel_QBaseColumnCount(const QSqlTableModel* self, const QModelIndex* parent) {
+int QSqlTableModel_SuperColumnCount(const QSqlTableModel* self, const QModelIndex* parent) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_ColumnCount_IsBase(true);
@@ -1067,7 +1067,7 @@ bool QSqlTableModel_SetHeaderData(QSqlTableModel* self, int section, int orienta
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseSetHeaderData(QSqlTableModel* self, int section, int orientation, const QVariant* value, int role) {
+bool QSqlTableModel_SuperSetHeaderData(QSqlTableModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_SetHeaderData_IsBase(true);
@@ -1096,7 +1096,7 @@ bool QSqlTableModel_InsertColumns(QSqlTableModel* self, int column, int count, c
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseInsertColumns(QSqlTableModel* self, int column, int count, const QModelIndex* parent) {
+bool QSqlTableModel_SuperInsertColumns(QSqlTableModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_InsertColumns_IsBase(true);
@@ -1125,7 +1125,7 @@ void QSqlTableModel_FetchMore(QSqlTableModel* self, const QModelIndex* parent) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseFetchMore(QSqlTableModel* self, const QModelIndex* parent) {
+void QSqlTableModel_SuperFetchMore(QSqlTableModel* self, const QModelIndex* parent) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_FetchMore_IsBase(true);
@@ -1154,7 +1154,7 @@ bool QSqlTableModel_CanFetchMore(const QSqlTableModel* self, const QModelIndex* 
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseCanFetchMore(const QSqlTableModel* self, const QModelIndex* parent) {
+bool QSqlTableModel_SuperCanFetchMore(const QSqlTableModel* self, const QModelIndex* parent) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_CanFetchMore_IsBase(true);
@@ -1221,7 +1221,7 @@ libqt_map /* of int to libqt_string */ QSqlTableModel_RoleNames(const QSqlTableM
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ QSqlTableModel_QBaseRoleNames(const QSqlTableModel* self) {
+libqt_map /* of int to libqt_string */ QSqlTableModel_SuperRoleNames(const QSqlTableModel* self) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_RoleNames_IsBase(true);
@@ -1288,7 +1288,7 @@ void QSqlTableModel_QueryChange(QSqlTableModel* self) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseQueryChange(QSqlTableModel* self) {
+void QSqlTableModel_SuperQueryChange(QSqlTableModel* self) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_QueryChange_IsBase(true);
@@ -1317,7 +1317,7 @@ QModelIndex* QSqlTableModel_Index(const QSqlTableModel* self, int row, int colum
 }
 
 // Base class handler implementation
-QModelIndex* QSqlTableModel_QBaseIndex(const QSqlTableModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* QSqlTableModel_SuperIndex(const QSqlTableModel* self, int row, int column, const QModelIndex* parent) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_Index_IsBase(true);
@@ -1346,7 +1346,7 @@ QModelIndex* QSqlTableModel_Sibling(const QSqlTableModel* self, int row, int col
 }
 
 // Base class handler implementation
-QModelIndex* QSqlTableModel_QBaseSibling(const QSqlTableModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* QSqlTableModel_SuperSibling(const QSqlTableModel* self, int row, int column, const QModelIndex* idx) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_Sibling_IsBase(true);
@@ -1375,7 +1375,7 @@ bool QSqlTableModel_DropMimeData(QSqlTableModel* self, const QMimeData* data, in
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseDropMimeData(QSqlTableModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QSqlTableModel_SuperDropMimeData(QSqlTableModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_DropMimeData_IsBase(true);
@@ -1432,7 +1432,7 @@ libqt_map /* of int to QVariant* */ QSqlTableModel_ItemData(const QSqlTableModel
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ QSqlTableModel_QBaseItemData(const QSqlTableModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ QSqlTableModel_SuperItemData(const QSqlTableModel* self, const QModelIndex* index) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_ItemData_IsBase(true);
@@ -1495,7 +1495,7 @@ bool QSqlTableModel_SetItemData(QSqlTableModel* self, const QModelIndex* index, 
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseSetItemData(QSqlTableModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool QSqlTableModel_SuperSetItemData(QSqlTableModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -1564,7 +1564,7 @@ libqt_list /* of libqt_string */ QSqlTableModel_MimeTypes(const QSqlTableModel* 
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QSqlTableModel_QBaseMimeTypes(const QSqlTableModel* self) {
+libqt_list /* of libqt_string */ QSqlTableModel_SuperMimeTypes(const QSqlTableModel* self) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_MimeTypes_IsBase(true);
@@ -1633,7 +1633,7 @@ QMimeData* QSqlTableModel_MimeData(const QSqlTableModel* self, const libqt_list 
 }
 
 // Base class handler implementation
-QMimeData* QSqlTableModel_QBaseMimeData(const QSqlTableModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* QSqlTableModel_SuperMimeData(const QSqlTableModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -1668,7 +1668,7 @@ bool QSqlTableModel_CanDropMimeData(const QSqlTableModel* self, const QMimeData*
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseCanDropMimeData(const QSqlTableModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QSqlTableModel_SuperCanDropMimeData(const QSqlTableModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_CanDropMimeData_IsBase(true);
@@ -1697,7 +1697,7 @@ int QSqlTableModel_SupportedDropActions(const QSqlTableModel* self) {
 }
 
 // Base class handler implementation
-int QSqlTableModel_QBaseSupportedDropActions(const QSqlTableModel* self) {
+int QSqlTableModel_SuperSupportedDropActions(const QSqlTableModel* self) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_SupportedDropActions_IsBase(true);
@@ -1726,7 +1726,7 @@ int QSqlTableModel_SupportedDragActions(const QSqlTableModel* self) {
 }
 
 // Base class handler implementation
-int QSqlTableModel_QBaseSupportedDragActions(const QSqlTableModel* self) {
+int QSqlTableModel_SuperSupportedDragActions(const QSqlTableModel* self) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_SupportedDragActions_IsBase(true);
@@ -1755,7 +1755,7 @@ bool QSqlTableModel_MoveRows(QSqlTableModel* self, const QModelIndex* sourcePare
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseMoveRows(QSqlTableModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QSqlTableModel_SuperMoveRows(QSqlTableModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_MoveRows_IsBase(true);
@@ -1784,7 +1784,7 @@ bool QSqlTableModel_MoveColumns(QSqlTableModel* self, const QModelIndex* sourceP
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseMoveColumns(QSqlTableModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QSqlTableModel_SuperMoveColumns(QSqlTableModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_MoveColumns_IsBase(true);
@@ -1813,7 +1813,7 @@ QModelIndex* QSqlTableModel_Buddy(const QSqlTableModel* self, const QModelIndex*
 }
 
 // Base class handler implementation
-QModelIndex* QSqlTableModel_QBaseBuddy(const QSqlTableModel* self, const QModelIndex* index) {
+QModelIndex* QSqlTableModel_SuperBuddy(const QSqlTableModel* self, const QModelIndex* index) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_Buddy_IsBase(true);
@@ -1860,7 +1860,7 @@ libqt_list /* of QModelIndex* */ QSqlTableModel_Match(const QSqlTableModel* self
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QSqlTableModel_QBaseMatch(const QSqlTableModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ QSqlTableModel_SuperMatch(const QSqlTableModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_Match_IsBase(true);
@@ -1907,7 +1907,7 @@ QSize* QSqlTableModel_Span(const QSqlTableModel* self, const QModelIndex* index)
 }
 
 // Base class handler implementation
-QSize* QSqlTableModel_QBaseSpan(const QSqlTableModel* self, const QModelIndex* index) {
+QSize* QSqlTableModel_SuperSpan(const QSqlTableModel* self, const QModelIndex* index) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_Span_IsBase(true);
@@ -1936,7 +1936,7 @@ void QSqlTableModel_MultiData(const QSqlTableModel* self, const QModelIndex* ind
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseMultiData(const QSqlTableModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void QSqlTableModel_SuperMultiData(const QSqlTableModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_MultiData_IsBase(true);
@@ -1965,7 +1965,7 @@ void QSqlTableModel_ResetInternalData(QSqlTableModel* self) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseResetInternalData(QSqlTableModel* self) {
+void QSqlTableModel_SuperResetInternalData(QSqlTableModel* self) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_ResetInternalData_IsBase(true);
@@ -1994,7 +1994,7 @@ bool QSqlTableModel_Event(QSqlTableModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseEvent(QSqlTableModel* self, QEvent* event) {
+bool QSqlTableModel_SuperEvent(QSqlTableModel* self, QEvent* event) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_Event_IsBase(true);
@@ -2023,7 +2023,7 @@ bool QSqlTableModel_EventFilter(QSqlTableModel* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseEventFilter(QSqlTableModel* self, QObject* watched, QEvent* event) {
+bool QSqlTableModel_SuperEventFilter(QSqlTableModel* self, QObject* watched, QEvent* event) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_EventFilter_IsBase(true);
@@ -2052,7 +2052,7 @@ void QSqlTableModel_TimerEvent(QSqlTableModel* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseTimerEvent(QSqlTableModel* self, QTimerEvent* event) {
+void QSqlTableModel_SuperTimerEvent(QSqlTableModel* self, QTimerEvent* event) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_TimerEvent_IsBase(true);
@@ -2081,7 +2081,7 @@ void QSqlTableModel_ChildEvent(QSqlTableModel* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseChildEvent(QSqlTableModel* self, QChildEvent* event) {
+void QSqlTableModel_SuperChildEvent(QSqlTableModel* self, QChildEvent* event) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_ChildEvent_IsBase(true);
@@ -2110,7 +2110,7 @@ void QSqlTableModel_CustomEvent(QSqlTableModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseCustomEvent(QSqlTableModel* self, QEvent* event) {
+void QSqlTableModel_SuperCustomEvent(QSqlTableModel* self, QEvent* event) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_CustomEvent_IsBase(true);
@@ -2139,7 +2139,7 @@ void QSqlTableModel_ConnectNotify(QSqlTableModel* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseConnectNotify(QSqlTableModel* self, const QMetaMethod* signal) {
+void QSqlTableModel_SuperConnectNotify(QSqlTableModel* self, const QMetaMethod* signal) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_ConnectNotify_IsBase(true);
@@ -2168,7 +2168,7 @@ void QSqlTableModel_DisconnectNotify(QSqlTableModel* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseDisconnectNotify(QSqlTableModel* self, const QMetaMethod* signal) {
+void QSqlTableModel_SuperDisconnectNotify(QSqlTableModel* self, const QMetaMethod* signal) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_DisconnectNotify_IsBase(true);
@@ -2197,7 +2197,7 @@ void QSqlTableModel_SetPrimaryKey(QSqlTableModel* self, const QSqlIndex* key) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseSetPrimaryKey(QSqlTableModel* self, const QSqlIndex* key) {
+void QSqlTableModel_SuperSetPrimaryKey(QSqlTableModel* self, const QSqlIndex* key) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_SetPrimaryKey_IsBase(true);
@@ -2225,7 +2225,7 @@ QSqlRecord* QSqlTableModel_PrimaryValues(const QSqlTableModel* self, int row) {
 }
 
 // Base class handler implementation
-QSqlRecord* QSqlTableModel_QBasePrimaryValues(const QSqlTableModel* self, int row) {
+QSqlRecord* QSqlTableModel_SuperPrimaryValues(const QSqlTableModel* self, int row) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_PrimaryValues_IsBase(true);
@@ -2253,7 +2253,7 @@ void QSqlTableModel_BeginInsertRows(QSqlTableModel* self, const QModelIndex* par
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseBeginInsertRows(QSqlTableModel* self, const QModelIndex* parent, int first, int last) {
+void QSqlTableModel_SuperBeginInsertRows(QSqlTableModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_BeginInsertRows_IsBase(true);
@@ -2282,7 +2282,7 @@ void QSqlTableModel_EndInsertRows(QSqlTableModel* self) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseEndInsertRows(QSqlTableModel* self) {
+void QSqlTableModel_SuperEndInsertRows(QSqlTableModel* self) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_EndInsertRows_IsBase(true);
@@ -2311,7 +2311,7 @@ void QSqlTableModel_BeginRemoveRows(QSqlTableModel* self, const QModelIndex* par
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseBeginRemoveRows(QSqlTableModel* self, const QModelIndex* parent, int first, int last) {
+void QSqlTableModel_SuperBeginRemoveRows(QSqlTableModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_BeginRemoveRows_IsBase(true);
@@ -2340,7 +2340,7 @@ void QSqlTableModel_EndRemoveRows(QSqlTableModel* self) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseEndRemoveRows(QSqlTableModel* self) {
+void QSqlTableModel_SuperEndRemoveRows(QSqlTableModel* self) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_EndRemoveRows_IsBase(true);
@@ -2369,7 +2369,7 @@ void QSqlTableModel_BeginInsertColumns(QSqlTableModel* self, const QModelIndex* 
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseBeginInsertColumns(QSqlTableModel* self, const QModelIndex* parent, int first, int last) {
+void QSqlTableModel_SuperBeginInsertColumns(QSqlTableModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_BeginInsertColumns_IsBase(true);
@@ -2398,7 +2398,7 @@ void QSqlTableModel_EndInsertColumns(QSqlTableModel* self) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseEndInsertColumns(QSqlTableModel* self) {
+void QSqlTableModel_SuperEndInsertColumns(QSqlTableModel* self) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_EndInsertColumns_IsBase(true);
@@ -2427,7 +2427,7 @@ void QSqlTableModel_BeginRemoveColumns(QSqlTableModel* self, const QModelIndex* 
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseBeginRemoveColumns(QSqlTableModel* self, const QModelIndex* parent, int first, int last) {
+void QSqlTableModel_SuperBeginRemoveColumns(QSqlTableModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_BeginRemoveColumns_IsBase(true);
@@ -2456,7 +2456,7 @@ void QSqlTableModel_EndRemoveColumns(QSqlTableModel* self) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseEndRemoveColumns(QSqlTableModel* self) {
+void QSqlTableModel_SuperEndRemoveColumns(QSqlTableModel* self) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_EndRemoveColumns_IsBase(true);
@@ -2485,7 +2485,7 @@ void QSqlTableModel_BeginResetModel(QSqlTableModel* self) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseBeginResetModel(QSqlTableModel* self) {
+void QSqlTableModel_SuperBeginResetModel(QSqlTableModel* self) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_BeginResetModel_IsBase(true);
@@ -2514,7 +2514,7 @@ void QSqlTableModel_EndResetModel(QSqlTableModel* self) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseEndResetModel(QSqlTableModel* self) {
+void QSqlTableModel_SuperEndResetModel(QSqlTableModel* self) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_EndResetModel_IsBase(true);
@@ -2543,7 +2543,7 @@ void QSqlTableModel_SetLastError(QSqlTableModel* self, const QSqlError* errorVal
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseSetLastError(QSqlTableModel* self, const QSqlError* errorVal) {
+void QSqlTableModel_SuperSetLastError(QSqlTableModel* self, const QSqlError* errorVal) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_SetLastError_IsBase(true);
@@ -2571,7 +2571,7 @@ QModelIndex* QSqlTableModel_CreateIndex(const QSqlTableModel* self, int row, int
 }
 
 // Base class handler implementation
-QModelIndex* QSqlTableModel_QBaseCreateIndex(const QSqlTableModel* self, int row, int column) {
+QModelIndex* QSqlTableModel_SuperCreateIndex(const QSqlTableModel* self, int row, int column) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_CreateIndex_IsBase(true);
@@ -2605,7 +2605,7 @@ void QSqlTableModel_EncodeData(const QSqlTableModel* self, const libqt_list /* o
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseEncodeData(const QSqlTableModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void QSqlTableModel_SuperEncodeData(const QSqlTableModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -2640,7 +2640,7 @@ bool QSqlTableModel_DecodeData(QSqlTableModel* self, int row, int column, const 
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseDecodeData(QSqlTableModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool QSqlTableModel_SuperDecodeData(QSqlTableModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_DecodeData_IsBase(true);
@@ -2669,7 +2669,7 @@ bool QSqlTableModel_BeginMoveRows(QSqlTableModel* self, const QModelIndex* sourc
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseBeginMoveRows(QSqlTableModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool QSqlTableModel_SuperBeginMoveRows(QSqlTableModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_BeginMoveRows_IsBase(true);
@@ -2698,7 +2698,7 @@ void QSqlTableModel_EndMoveRows(QSqlTableModel* self) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseEndMoveRows(QSqlTableModel* self) {
+void QSqlTableModel_SuperEndMoveRows(QSqlTableModel* self) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_EndMoveRows_IsBase(true);
@@ -2727,7 +2727,7 @@ bool QSqlTableModel_BeginMoveColumns(QSqlTableModel* self, const QModelIndex* so
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseBeginMoveColumns(QSqlTableModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool QSqlTableModel_SuperBeginMoveColumns(QSqlTableModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_BeginMoveColumns_IsBase(true);
@@ -2756,7 +2756,7 @@ void QSqlTableModel_EndMoveColumns(QSqlTableModel* self) {
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseEndMoveColumns(QSqlTableModel* self) {
+void QSqlTableModel_SuperEndMoveColumns(QSqlTableModel* self) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_EndMoveColumns_IsBase(true);
@@ -2785,7 +2785,7 @@ void QSqlTableModel_ChangePersistentIndex(QSqlTableModel* self, const QModelInde
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseChangePersistentIndex(QSqlTableModel* self, const QModelIndex* from, const QModelIndex* to) {
+void QSqlTableModel_SuperChangePersistentIndex(QSqlTableModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_ChangePersistentIndex_IsBase(true);
@@ -2826,7 +2826,7 @@ void QSqlTableModel_ChangePersistentIndexList(QSqlTableModel* self, const libqt_
 }
 
 // Base class handler implementation
-void QSqlTableModel_QBaseChangePersistentIndexList(QSqlTableModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void QSqlTableModel_SuperChangePersistentIndexList(QSqlTableModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2885,7 +2885,7 @@ libqt_list /* of QModelIndex* */ QSqlTableModel_PersistentIndexList(const QSqlTa
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QSqlTableModel_QBasePersistentIndexList(const QSqlTableModel* self) {
+libqt_list /* of QModelIndex* */ QSqlTableModel_SuperPersistentIndexList(const QSqlTableModel* self) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_PersistentIndexList_IsBase(true);
@@ -2932,7 +2932,7 @@ QObject* QSqlTableModel_Sender(const QSqlTableModel* self) {
 }
 
 // Base class handler implementation
-QObject* QSqlTableModel_QBaseSender(const QSqlTableModel* self) {
+QObject* QSqlTableModel_SuperSender(const QSqlTableModel* self) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_Sender_IsBase(true);
@@ -2961,7 +2961,7 @@ int QSqlTableModel_SenderSignalIndex(const QSqlTableModel* self) {
 }
 
 // Base class handler implementation
-int QSqlTableModel_QBaseSenderSignalIndex(const QSqlTableModel* self) {
+int QSqlTableModel_SuperSenderSignalIndex(const QSqlTableModel* self) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_SenderSignalIndex_IsBase(true);
@@ -2990,7 +2990,7 @@ int QSqlTableModel_Receivers(const QSqlTableModel* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QSqlTableModel_QBaseReceivers(const QSqlTableModel* self, const char* signal) {
+int QSqlTableModel_SuperReceivers(const QSqlTableModel* self, const char* signal) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_Receivers_IsBase(true);
@@ -3019,7 +3019,7 @@ bool QSqlTableModel_IsSignalConnected(const QSqlTableModel* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QSqlTableModel_QBaseIsSignalConnected(const QSqlTableModel* self, const QMetaMethod* signal) {
+bool QSqlTableModel_SuperIsSignalConnected(const QSqlTableModel* self, const QMetaMethod* signal) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_IsSignalConnected_IsBase(true);

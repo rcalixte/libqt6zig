@@ -97,13 +97,17 @@ pub const attica__icon = struct {
         qtc.Attica__Icon_SetHeight(@ptrCast(self), @bitCast(height));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Attica__Icon `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Attica__Icon_Delete(@ptrCast(self));
     }
 };

@@ -436,6 +436,10 @@ pub const qdebug = struct {
         return qtc.QDebug_MaybeQuote1(@ptrCast(self), @bitCast(c));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#dtor.QDebug)
     ///
     /// Delete this object from C++ memory.
@@ -444,7 +448,7 @@ pub const qdebug = struct {
     ///
     /// ` self: QtC.QDebug `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDebug_Delete(@ptrCast(self));
     }
 };
@@ -461,6 +465,10 @@ pub const qdebugstatesaver = struct {
         return qtc.QDebugStateSaver_new(@ptrCast(dbg));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebugstatesaver.html#dtor.QDebugStateSaver)
     ///
     /// Delete this object from C++ memory.
@@ -469,7 +477,7 @@ pub const qdebugstatesaver = struct {
     ///
     /// ` self: QtC.QDebugStateSaver `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDebugStateSaver_Delete(@ptrCast(self));
     }
 };
@@ -604,6 +612,10 @@ pub const qnodebug = struct {
         return qtc.QNoDebug_MaybeQuote1(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnodebug.html#dtor.QNoDebug)
     ///
     /// Delete this object from C++ memory.
@@ -612,7 +624,7 @@ pub const qnodebug = struct {
     ///
     /// ` self: QtC.QNoDebug `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QNoDebug_Delete(@ptrCast(self));
     }
 };

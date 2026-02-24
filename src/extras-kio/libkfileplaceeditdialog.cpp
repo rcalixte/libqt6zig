@@ -142,7 +142,7 @@ bool KFilePlaceEditDialog_GetInformation8(bool allowGlobal, QUrl* url, libqt_str
 }
 
 // Base class handler implementation
-QMetaObject* KFilePlaceEditDialog_QBaseMetaObject(const KFilePlaceEditDialog* self) {
+QMetaObject* KFilePlaceEditDialog_SuperMetaObject(const KFilePlaceEditDialog* self) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_MetaObject_IsBase(true);
@@ -161,7 +161,7 @@ void KFilePlaceEditDialog_OnMetaObject(const KFilePlaceEditDialog* self, intptr_
 }
 
 // Base class handler implementation
-void* KFilePlaceEditDialog_QBaseMetacast(KFilePlaceEditDialog* self, const char* param1) {
+void* KFilePlaceEditDialog_SuperMetacast(KFilePlaceEditDialog* self, const char* param1) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Metacast_IsBase(true);
@@ -180,7 +180,7 @@ void KFilePlaceEditDialog_OnMetacast(KFilePlaceEditDialog* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int KFilePlaceEditDialog_QBaseMetacall(KFilePlaceEditDialog* self, int param1, int param2, void** param3) {
+int KFilePlaceEditDialog_SuperMetacall(KFilePlaceEditDialog* self, int param1, int param2, void** param3) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Metacall_IsBase(true);
@@ -209,7 +209,7 @@ void KFilePlaceEditDialog_SetVisible(KFilePlaceEditDialog* self, bool visible) {
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseSetVisible(KFilePlaceEditDialog* self, bool visible) {
+void KFilePlaceEditDialog_SuperSetVisible(KFilePlaceEditDialog* self, bool visible) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_SetVisible_IsBase(true);
@@ -238,7 +238,7 @@ QSize* KFilePlaceEditDialog_SizeHint(const KFilePlaceEditDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KFilePlaceEditDialog_QBaseSizeHint(const KFilePlaceEditDialog* self) {
+QSize* KFilePlaceEditDialog_SuperSizeHint(const KFilePlaceEditDialog* self) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_SizeHint_IsBase(true);
@@ -267,7 +267,7 @@ QSize* KFilePlaceEditDialog_MinimumSizeHint(const KFilePlaceEditDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KFilePlaceEditDialog_QBaseMinimumSizeHint(const KFilePlaceEditDialog* self) {
+QSize* KFilePlaceEditDialog_SuperMinimumSizeHint(const KFilePlaceEditDialog* self) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_MinimumSizeHint_IsBase(true);
@@ -296,7 +296,7 @@ void KFilePlaceEditDialog_Open(KFilePlaceEditDialog* self) {
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseOpen(KFilePlaceEditDialog* self) {
+void KFilePlaceEditDialog_SuperOpen(KFilePlaceEditDialog* self) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Open_IsBase(true);
@@ -325,7 +325,7 @@ int KFilePlaceEditDialog_Exec(KFilePlaceEditDialog* self) {
 }
 
 // Base class handler implementation
-int KFilePlaceEditDialog_QBaseExec(KFilePlaceEditDialog* self) {
+int KFilePlaceEditDialog_SuperExec(KFilePlaceEditDialog* self) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Exec_IsBase(true);
@@ -354,7 +354,7 @@ void KFilePlaceEditDialog_Done(KFilePlaceEditDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseDone(KFilePlaceEditDialog* self, int param1) {
+void KFilePlaceEditDialog_SuperDone(KFilePlaceEditDialog* self, int param1) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Done_IsBase(true);
@@ -383,7 +383,7 @@ void KFilePlaceEditDialog_Accept(KFilePlaceEditDialog* self) {
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseAccept(KFilePlaceEditDialog* self) {
+void KFilePlaceEditDialog_SuperAccept(KFilePlaceEditDialog* self) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Accept_IsBase(true);
@@ -412,7 +412,7 @@ void KFilePlaceEditDialog_Reject(KFilePlaceEditDialog* self) {
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseReject(KFilePlaceEditDialog* self) {
+void KFilePlaceEditDialog_SuperReject(KFilePlaceEditDialog* self) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Reject_IsBase(true);
@@ -441,7 +441,7 @@ void KFilePlaceEditDialog_KeyPressEvent(KFilePlaceEditDialog* self, QKeyEvent* p
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseKeyPressEvent(KFilePlaceEditDialog* self, QKeyEvent* param1) {
+void KFilePlaceEditDialog_SuperKeyPressEvent(KFilePlaceEditDialog* self, QKeyEvent* param1) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_KeyPressEvent_IsBase(true);
@@ -470,7 +470,7 @@ void KFilePlaceEditDialog_CloseEvent(KFilePlaceEditDialog* self, QCloseEvent* pa
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseCloseEvent(KFilePlaceEditDialog* self, QCloseEvent* param1) {
+void KFilePlaceEditDialog_SuperCloseEvent(KFilePlaceEditDialog* self, QCloseEvent* param1) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_CloseEvent_IsBase(true);
@@ -499,7 +499,7 @@ void KFilePlaceEditDialog_ShowEvent(KFilePlaceEditDialog* self, QShowEvent* para
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseShowEvent(KFilePlaceEditDialog* self, QShowEvent* param1) {
+void KFilePlaceEditDialog_SuperShowEvent(KFilePlaceEditDialog* self, QShowEvent* param1) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_ShowEvent_IsBase(true);
@@ -528,7 +528,7 @@ void KFilePlaceEditDialog_ResizeEvent(KFilePlaceEditDialog* self, QResizeEvent* 
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseResizeEvent(KFilePlaceEditDialog* self, QResizeEvent* param1) {
+void KFilePlaceEditDialog_SuperResizeEvent(KFilePlaceEditDialog* self, QResizeEvent* param1) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_ResizeEvent_IsBase(true);
@@ -557,7 +557,7 @@ void KFilePlaceEditDialog_ContextMenuEvent(KFilePlaceEditDialog* self, QContextM
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseContextMenuEvent(KFilePlaceEditDialog* self, QContextMenuEvent* param1) {
+void KFilePlaceEditDialog_SuperContextMenuEvent(KFilePlaceEditDialog* self, QContextMenuEvent* param1) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_ContextMenuEvent_IsBase(true);
@@ -586,7 +586,7 @@ bool KFilePlaceEditDialog_EventFilter(KFilePlaceEditDialog* self, QObject* param
 }
 
 // Base class handler implementation
-bool KFilePlaceEditDialog_QBaseEventFilter(KFilePlaceEditDialog* self, QObject* param1, QEvent* param2) {
+bool KFilePlaceEditDialog_SuperEventFilter(KFilePlaceEditDialog* self, QObject* param1, QEvent* param2) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_EventFilter_IsBase(true);
@@ -615,7 +615,7 @@ int KFilePlaceEditDialog_DevType(const KFilePlaceEditDialog* self) {
 }
 
 // Base class handler implementation
-int KFilePlaceEditDialog_QBaseDevType(const KFilePlaceEditDialog* self) {
+int KFilePlaceEditDialog_SuperDevType(const KFilePlaceEditDialog* self) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_DevType_IsBase(true);
@@ -644,7 +644,7 @@ int KFilePlaceEditDialog_HeightForWidth(const KFilePlaceEditDialog* self, int pa
 }
 
 // Base class handler implementation
-int KFilePlaceEditDialog_QBaseHeightForWidth(const KFilePlaceEditDialog* self, int param1) {
+int KFilePlaceEditDialog_SuperHeightForWidth(const KFilePlaceEditDialog* self, int param1) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_HeightForWidth_IsBase(true);
@@ -673,7 +673,7 @@ bool KFilePlaceEditDialog_HasHeightForWidth(const KFilePlaceEditDialog* self) {
 }
 
 // Base class handler implementation
-bool KFilePlaceEditDialog_QBaseHasHeightForWidth(const KFilePlaceEditDialog* self) {
+bool KFilePlaceEditDialog_SuperHasHeightForWidth(const KFilePlaceEditDialog* self) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_HasHeightForWidth_IsBase(true);
@@ -702,7 +702,7 @@ QPaintEngine* KFilePlaceEditDialog_PaintEngine(const KFilePlaceEditDialog* self)
 }
 
 // Base class handler implementation
-QPaintEngine* KFilePlaceEditDialog_QBasePaintEngine(const KFilePlaceEditDialog* self) {
+QPaintEngine* KFilePlaceEditDialog_SuperPaintEngine(const KFilePlaceEditDialog* self) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_PaintEngine_IsBase(true);
@@ -731,7 +731,7 @@ bool KFilePlaceEditDialog_Event(KFilePlaceEditDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KFilePlaceEditDialog_QBaseEvent(KFilePlaceEditDialog* self, QEvent* event) {
+bool KFilePlaceEditDialog_SuperEvent(KFilePlaceEditDialog* self, QEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Event_IsBase(true);
@@ -760,7 +760,7 @@ void KFilePlaceEditDialog_MousePressEvent(KFilePlaceEditDialog* self, QMouseEven
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseMousePressEvent(KFilePlaceEditDialog* self, QMouseEvent* event) {
+void KFilePlaceEditDialog_SuperMousePressEvent(KFilePlaceEditDialog* self, QMouseEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_MousePressEvent_IsBase(true);
@@ -789,7 +789,7 @@ void KFilePlaceEditDialog_MouseReleaseEvent(KFilePlaceEditDialog* self, QMouseEv
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseMouseReleaseEvent(KFilePlaceEditDialog* self, QMouseEvent* event) {
+void KFilePlaceEditDialog_SuperMouseReleaseEvent(KFilePlaceEditDialog* self, QMouseEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_MouseReleaseEvent_IsBase(true);
@@ -818,7 +818,7 @@ void KFilePlaceEditDialog_MouseDoubleClickEvent(KFilePlaceEditDialog* self, QMou
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseMouseDoubleClickEvent(KFilePlaceEditDialog* self, QMouseEvent* event) {
+void KFilePlaceEditDialog_SuperMouseDoubleClickEvent(KFilePlaceEditDialog* self, QMouseEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_MouseDoubleClickEvent_IsBase(true);
@@ -847,7 +847,7 @@ void KFilePlaceEditDialog_MouseMoveEvent(KFilePlaceEditDialog* self, QMouseEvent
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseMouseMoveEvent(KFilePlaceEditDialog* self, QMouseEvent* event) {
+void KFilePlaceEditDialog_SuperMouseMoveEvent(KFilePlaceEditDialog* self, QMouseEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_MouseMoveEvent_IsBase(true);
@@ -876,7 +876,7 @@ void KFilePlaceEditDialog_WheelEvent(KFilePlaceEditDialog* self, QWheelEvent* ev
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseWheelEvent(KFilePlaceEditDialog* self, QWheelEvent* event) {
+void KFilePlaceEditDialog_SuperWheelEvent(KFilePlaceEditDialog* self, QWheelEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_WheelEvent_IsBase(true);
@@ -905,7 +905,7 @@ void KFilePlaceEditDialog_KeyReleaseEvent(KFilePlaceEditDialog* self, QKeyEvent*
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseKeyReleaseEvent(KFilePlaceEditDialog* self, QKeyEvent* event) {
+void KFilePlaceEditDialog_SuperKeyReleaseEvent(KFilePlaceEditDialog* self, QKeyEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_KeyReleaseEvent_IsBase(true);
@@ -934,7 +934,7 @@ void KFilePlaceEditDialog_FocusInEvent(KFilePlaceEditDialog* self, QFocusEvent* 
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseFocusInEvent(KFilePlaceEditDialog* self, QFocusEvent* event) {
+void KFilePlaceEditDialog_SuperFocusInEvent(KFilePlaceEditDialog* self, QFocusEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_FocusInEvent_IsBase(true);
@@ -963,7 +963,7 @@ void KFilePlaceEditDialog_FocusOutEvent(KFilePlaceEditDialog* self, QFocusEvent*
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseFocusOutEvent(KFilePlaceEditDialog* self, QFocusEvent* event) {
+void KFilePlaceEditDialog_SuperFocusOutEvent(KFilePlaceEditDialog* self, QFocusEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_FocusOutEvent_IsBase(true);
@@ -992,7 +992,7 @@ void KFilePlaceEditDialog_EnterEvent(KFilePlaceEditDialog* self, QEnterEvent* ev
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseEnterEvent(KFilePlaceEditDialog* self, QEnterEvent* event) {
+void KFilePlaceEditDialog_SuperEnterEvent(KFilePlaceEditDialog* self, QEnterEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_EnterEvent_IsBase(true);
@@ -1021,7 +1021,7 @@ void KFilePlaceEditDialog_LeaveEvent(KFilePlaceEditDialog* self, QEvent* event) 
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseLeaveEvent(KFilePlaceEditDialog* self, QEvent* event) {
+void KFilePlaceEditDialog_SuperLeaveEvent(KFilePlaceEditDialog* self, QEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_LeaveEvent_IsBase(true);
@@ -1050,7 +1050,7 @@ void KFilePlaceEditDialog_PaintEvent(KFilePlaceEditDialog* self, QPaintEvent* ev
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBasePaintEvent(KFilePlaceEditDialog* self, QPaintEvent* event) {
+void KFilePlaceEditDialog_SuperPaintEvent(KFilePlaceEditDialog* self, QPaintEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_PaintEvent_IsBase(true);
@@ -1079,7 +1079,7 @@ void KFilePlaceEditDialog_MoveEvent(KFilePlaceEditDialog* self, QMoveEvent* even
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseMoveEvent(KFilePlaceEditDialog* self, QMoveEvent* event) {
+void KFilePlaceEditDialog_SuperMoveEvent(KFilePlaceEditDialog* self, QMoveEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_MoveEvent_IsBase(true);
@@ -1108,7 +1108,7 @@ void KFilePlaceEditDialog_TabletEvent(KFilePlaceEditDialog* self, QTabletEvent* 
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseTabletEvent(KFilePlaceEditDialog* self, QTabletEvent* event) {
+void KFilePlaceEditDialog_SuperTabletEvent(KFilePlaceEditDialog* self, QTabletEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_TabletEvent_IsBase(true);
@@ -1137,7 +1137,7 @@ void KFilePlaceEditDialog_ActionEvent(KFilePlaceEditDialog* self, QActionEvent* 
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseActionEvent(KFilePlaceEditDialog* self, QActionEvent* event) {
+void KFilePlaceEditDialog_SuperActionEvent(KFilePlaceEditDialog* self, QActionEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_ActionEvent_IsBase(true);
@@ -1166,7 +1166,7 @@ void KFilePlaceEditDialog_DragEnterEvent(KFilePlaceEditDialog* self, QDragEnterE
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseDragEnterEvent(KFilePlaceEditDialog* self, QDragEnterEvent* event) {
+void KFilePlaceEditDialog_SuperDragEnterEvent(KFilePlaceEditDialog* self, QDragEnterEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_DragEnterEvent_IsBase(true);
@@ -1195,7 +1195,7 @@ void KFilePlaceEditDialog_DragMoveEvent(KFilePlaceEditDialog* self, QDragMoveEve
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseDragMoveEvent(KFilePlaceEditDialog* self, QDragMoveEvent* event) {
+void KFilePlaceEditDialog_SuperDragMoveEvent(KFilePlaceEditDialog* self, QDragMoveEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_DragMoveEvent_IsBase(true);
@@ -1224,7 +1224,7 @@ void KFilePlaceEditDialog_DragLeaveEvent(KFilePlaceEditDialog* self, QDragLeaveE
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseDragLeaveEvent(KFilePlaceEditDialog* self, QDragLeaveEvent* event) {
+void KFilePlaceEditDialog_SuperDragLeaveEvent(KFilePlaceEditDialog* self, QDragLeaveEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_DragLeaveEvent_IsBase(true);
@@ -1253,7 +1253,7 @@ void KFilePlaceEditDialog_DropEvent(KFilePlaceEditDialog* self, QDropEvent* even
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseDropEvent(KFilePlaceEditDialog* self, QDropEvent* event) {
+void KFilePlaceEditDialog_SuperDropEvent(KFilePlaceEditDialog* self, QDropEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_DropEvent_IsBase(true);
@@ -1282,7 +1282,7 @@ void KFilePlaceEditDialog_HideEvent(KFilePlaceEditDialog* self, QHideEvent* even
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseHideEvent(KFilePlaceEditDialog* self, QHideEvent* event) {
+void KFilePlaceEditDialog_SuperHideEvent(KFilePlaceEditDialog* self, QHideEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_HideEvent_IsBase(true);
@@ -1312,7 +1312,7 @@ bool KFilePlaceEditDialog_NativeEvent(KFilePlaceEditDialog* self, const libqt_st
 }
 
 // Base class handler implementation
-bool KFilePlaceEditDialog_QBaseNativeEvent(KFilePlaceEditDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KFilePlaceEditDialog_SuperNativeEvent(KFilePlaceEditDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
@@ -1342,7 +1342,7 @@ void KFilePlaceEditDialog_ChangeEvent(KFilePlaceEditDialog* self, QEvent* param1
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseChangeEvent(KFilePlaceEditDialog* self, QEvent* param1) {
+void KFilePlaceEditDialog_SuperChangeEvent(KFilePlaceEditDialog* self, QEvent* param1) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_ChangeEvent_IsBase(true);
@@ -1371,7 +1371,7 @@ int KFilePlaceEditDialog_Metric(const KFilePlaceEditDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KFilePlaceEditDialog_QBaseMetric(const KFilePlaceEditDialog* self, int param1) {
+int KFilePlaceEditDialog_SuperMetric(const KFilePlaceEditDialog* self, int param1) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Metric_IsBase(true);
@@ -1400,7 +1400,7 @@ void KFilePlaceEditDialog_InitPainter(const KFilePlaceEditDialog* self, QPainter
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseInitPainter(const KFilePlaceEditDialog* self, QPainter* painter) {
+void KFilePlaceEditDialog_SuperInitPainter(const KFilePlaceEditDialog* self, QPainter* painter) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_InitPainter_IsBase(true);
@@ -1429,7 +1429,7 @@ QPaintDevice* KFilePlaceEditDialog_Redirected(const KFilePlaceEditDialog* self, 
 }
 
 // Base class handler implementation
-QPaintDevice* KFilePlaceEditDialog_QBaseRedirected(const KFilePlaceEditDialog* self, QPoint* offset) {
+QPaintDevice* KFilePlaceEditDialog_SuperRedirected(const KFilePlaceEditDialog* self, QPoint* offset) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Redirected_IsBase(true);
@@ -1458,7 +1458,7 @@ QPainter* KFilePlaceEditDialog_SharedPainter(const KFilePlaceEditDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* KFilePlaceEditDialog_QBaseSharedPainter(const KFilePlaceEditDialog* self) {
+QPainter* KFilePlaceEditDialog_SuperSharedPainter(const KFilePlaceEditDialog* self) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_SharedPainter_IsBase(true);
@@ -1487,7 +1487,7 @@ void KFilePlaceEditDialog_InputMethodEvent(KFilePlaceEditDialog* self, QInputMet
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseInputMethodEvent(KFilePlaceEditDialog* self, QInputMethodEvent* param1) {
+void KFilePlaceEditDialog_SuperInputMethodEvent(KFilePlaceEditDialog* self, QInputMethodEvent* param1) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_InputMethodEvent_IsBase(true);
@@ -1516,7 +1516,7 @@ QVariant* KFilePlaceEditDialog_InputMethodQuery(const KFilePlaceEditDialog* self
 }
 
 // Base class handler implementation
-QVariant* KFilePlaceEditDialog_QBaseInputMethodQuery(const KFilePlaceEditDialog* self, int param1) {
+QVariant* KFilePlaceEditDialog_SuperInputMethodQuery(const KFilePlaceEditDialog* self, int param1) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_InputMethodQuery_IsBase(true);
@@ -1545,7 +1545,7 @@ bool KFilePlaceEditDialog_FocusNextPrevChild(KFilePlaceEditDialog* self, bool ne
 }
 
 // Base class handler implementation
-bool KFilePlaceEditDialog_QBaseFocusNextPrevChild(KFilePlaceEditDialog* self, bool next) {
+bool KFilePlaceEditDialog_SuperFocusNextPrevChild(KFilePlaceEditDialog* self, bool next) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_FocusNextPrevChild_IsBase(true);
@@ -1574,7 +1574,7 @@ void KFilePlaceEditDialog_TimerEvent(KFilePlaceEditDialog* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseTimerEvent(KFilePlaceEditDialog* self, QTimerEvent* event) {
+void KFilePlaceEditDialog_SuperTimerEvent(KFilePlaceEditDialog* self, QTimerEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_TimerEvent_IsBase(true);
@@ -1603,7 +1603,7 @@ void KFilePlaceEditDialog_ChildEvent(KFilePlaceEditDialog* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseChildEvent(KFilePlaceEditDialog* self, QChildEvent* event) {
+void KFilePlaceEditDialog_SuperChildEvent(KFilePlaceEditDialog* self, QChildEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_ChildEvent_IsBase(true);
@@ -1632,7 +1632,7 @@ void KFilePlaceEditDialog_CustomEvent(KFilePlaceEditDialog* self, QEvent* event)
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseCustomEvent(KFilePlaceEditDialog* self, QEvent* event) {
+void KFilePlaceEditDialog_SuperCustomEvent(KFilePlaceEditDialog* self, QEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_CustomEvent_IsBase(true);
@@ -1661,7 +1661,7 @@ void KFilePlaceEditDialog_ConnectNotify(KFilePlaceEditDialog* self, const QMetaM
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseConnectNotify(KFilePlaceEditDialog* self, const QMetaMethod* signal) {
+void KFilePlaceEditDialog_SuperConnectNotify(KFilePlaceEditDialog* self, const QMetaMethod* signal) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_ConnectNotify_IsBase(true);
@@ -1690,7 +1690,7 @@ void KFilePlaceEditDialog_DisconnectNotify(KFilePlaceEditDialog* self, const QMe
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseDisconnectNotify(KFilePlaceEditDialog* self, const QMetaMethod* signal) {
+void KFilePlaceEditDialog_SuperDisconnectNotify(KFilePlaceEditDialog* self, const QMetaMethod* signal) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_DisconnectNotify_IsBase(true);
@@ -1719,7 +1719,7 @@ void KFilePlaceEditDialog_AdjustPosition(KFilePlaceEditDialog* self, QWidget* pa
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseAdjustPosition(KFilePlaceEditDialog* self, QWidget* param1) {
+void KFilePlaceEditDialog_SuperAdjustPosition(KFilePlaceEditDialog* self, QWidget* param1) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_AdjustPosition_IsBase(true);
@@ -1748,7 +1748,7 @@ void KFilePlaceEditDialog_UpdateMicroFocus(KFilePlaceEditDialog* self) {
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseUpdateMicroFocus(KFilePlaceEditDialog* self) {
+void KFilePlaceEditDialog_SuperUpdateMicroFocus(KFilePlaceEditDialog* self) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_UpdateMicroFocus_IsBase(true);
@@ -1777,7 +1777,7 @@ void KFilePlaceEditDialog_Create(KFilePlaceEditDialog* self) {
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseCreate(KFilePlaceEditDialog* self) {
+void KFilePlaceEditDialog_SuperCreate(KFilePlaceEditDialog* self) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Create_IsBase(true);
@@ -1806,7 +1806,7 @@ void KFilePlaceEditDialog_Destroy(KFilePlaceEditDialog* self) {
 }
 
 // Base class handler implementation
-void KFilePlaceEditDialog_QBaseDestroy(KFilePlaceEditDialog* self) {
+void KFilePlaceEditDialog_SuperDestroy(KFilePlaceEditDialog* self) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Destroy_IsBase(true);
@@ -1835,7 +1835,7 @@ bool KFilePlaceEditDialog_FocusNextChild(KFilePlaceEditDialog* self) {
 }
 
 // Base class handler implementation
-bool KFilePlaceEditDialog_QBaseFocusNextChild(KFilePlaceEditDialog* self) {
+bool KFilePlaceEditDialog_SuperFocusNextChild(KFilePlaceEditDialog* self) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_FocusNextChild_IsBase(true);
@@ -1864,7 +1864,7 @@ bool KFilePlaceEditDialog_FocusPreviousChild(KFilePlaceEditDialog* self) {
 }
 
 // Base class handler implementation
-bool KFilePlaceEditDialog_QBaseFocusPreviousChild(KFilePlaceEditDialog* self) {
+bool KFilePlaceEditDialog_SuperFocusPreviousChild(KFilePlaceEditDialog* self) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_FocusPreviousChild_IsBase(true);
@@ -1893,7 +1893,7 @@ QObject* KFilePlaceEditDialog_Sender(const KFilePlaceEditDialog* self) {
 }
 
 // Base class handler implementation
-QObject* KFilePlaceEditDialog_QBaseSender(const KFilePlaceEditDialog* self) {
+QObject* KFilePlaceEditDialog_SuperSender(const KFilePlaceEditDialog* self) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Sender_IsBase(true);
@@ -1922,7 +1922,7 @@ int KFilePlaceEditDialog_SenderSignalIndex(const KFilePlaceEditDialog* self) {
 }
 
 // Base class handler implementation
-int KFilePlaceEditDialog_QBaseSenderSignalIndex(const KFilePlaceEditDialog* self) {
+int KFilePlaceEditDialog_SuperSenderSignalIndex(const KFilePlaceEditDialog* self) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_SenderSignalIndex_IsBase(true);
@@ -1951,7 +1951,7 @@ int KFilePlaceEditDialog_Receivers(const KFilePlaceEditDialog* self, const char*
 }
 
 // Base class handler implementation
-int KFilePlaceEditDialog_QBaseReceivers(const KFilePlaceEditDialog* self, const char* signal) {
+int KFilePlaceEditDialog_SuperReceivers(const KFilePlaceEditDialog* self, const char* signal) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_Receivers_IsBase(true);
@@ -1980,7 +1980,7 @@ bool KFilePlaceEditDialog_IsSignalConnected(const KFilePlaceEditDialog* self, co
 }
 
 // Base class handler implementation
-bool KFilePlaceEditDialog_QBaseIsSignalConnected(const KFilePlaceEditDialog* self, const QMetaMethod* signal) {
+bool KFilePlaceEditDialog_SuperIsSignalConnected(const KFilePlaceEditDialog* self, const QMetaMethod* signal) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_IsSignalConnected_IsBase(true);
@@ -2009,7 +2009,7 @@ double KFilePlaceEditDialog_GetDecodedMetricF(const KFilePlaceEditDialog* self, 
 }
 
 // Base class handler implementation
-double KFilePlaceEditDialog_QBaseGetDecodedMetricF(const KFilePlaceEditDialog* self, int metricA, int metricB) {
+double KFilePlaceEditDialog_SuperGetDecodedMetricF(const KFilePlaceEditDialog* self, int metricA, int metricB) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
     if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
         vkfileplaceeditdialog->setKFilePlaceEditDialog_GetDecodedMetricF_IsBase(true);

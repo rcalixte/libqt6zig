@@ -153,7 +153,7 @@ bool QNmeaPositionInfoSource_ParsePosInfoFromNmeaData(QNmeaPositionInfoSource* s
 }
 
 // Base class handler implementation
-QMetaObject* QNmeaPositionInfoSource_QBaseMetaObject(const QNmeaPositionInfoSource* self) {
+QMetaObject* QNmeaPositionInfoSource_SuperMetaObject(const QNmeaPositionInfoSource* self) {
     auto* vqnmeapositioninfosource = const_cast<VirtualQNmeaPositionInfoSource*>(dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self));
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_MetaObject_IsBase(true);
@@ -172,7 +172,7 @@ void QNmeaPositionInfoSource_OnMetaObject(const QNmeaPositionInfoSource* self, i
 }
 
 // Base class handler implementation
-void* QNmeaPositionInfoSource_QBaseMetacast(QNmeaPositionInfoSource* self, const char* param1) {
+void* QNmeaPositionInfoSource_SuperMetacast(QNmeaPositionInfoSource* self, const char* param1) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_Metacast_IsBase(true);
@@ -191,7 +191,7 @@ void QNmeaPositionInfoSource_OnMetacast(QNmeaPositionInfoSource* self, intptr_t 
 }
 
 // Base class handler implementation
-int QNmeaPositionInfoSource_QBaseMetacall(QNmeaPositionInfoSource* self, int param1, int param2, void** param3) {
+int QNmeaPositionInfoSource_SuperMetacall(QNmeaPositionInfoSource* self, int param1, int param2, void** param3) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_Metacall_IsBase(true);
@@ -210,7 +210,7 @@ void QNmeaPositionInfoSource_OnMetacall(QNmeaPositionInfoSource* self, intptr_t 
 }
 
 // Base class handler implementation
-void QNmeaPositionInfoSource_QBaseSetUpdateInterval(QNmeaPositionInfoSource* self, int msec) {
+void QNmeaPositionInfoSource_SuperSetUpdateInterval(QNmeaPositionInfoSource* self, int msec) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_SetUpdateInterval_IsBase(true);
@@ -229,7 +229,7 @@ void QNmeaPositionInfoSource_OnSetUpdateInterval(QNmeaPositionInfoSource* self, 
 }
 
 // Base class handler implementation
-QGeoPositionInfo* QNmeaPositionInfoSource_QBaseLastKnownPosition(const QNmeaPositionInfoSource* self, bool fromSatellitePositioningMethodsOnly) {
+QGeoPositionInfo* QNmeaPositionInfoSource_SuperLastKnownPosition(const QNmeaPositionInfoSource* self, bool fromSatellitePositioningMethodsOnly) {
     auto* vqnmeapositioninfosource = const_cast<VirtualQNmeaPositionInfoSource*>(dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self));
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_LastKnownPosition_IsBase(true);
@@ -248,7 +248,7 @@ void QNmeaPositionInfoSource_OnLastKnownPosition(const QNmeaPositionInfoSource* 
 }
 
 // Base class handler implementation
-int QNmeaPositionInfoSource_QBaseSupportedPositioningMethods(const QNmeaPositionInfoSource* self) {
+int QNmeaPositionInfoSource_SuperSupportedPositioningMethods(const QNmeaPositionInfoSource* self) {
     auto* vqnmeapositioninfosource = const_cast<VirtualQNmeaPositionInfoSource*>(dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self));
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_SupportedPositioningMethods_IsBase(true);
@@ -267,7 +267,7 @@ void QNmeaPositionInfoSource_OnSupportedPositioningMethods(const QNmeaPositionIn
 }
 
 // Base class handler implementation
-int QNmeaPositionInfoSource_QBaseMinimumUpdateInterval(const QNmeaPositionInfoSource* self) {
+int QNmeaPositionInfoSource_SuperMinimumUpdateInterval(const QNmeaPositionInfoSource* self) {
     auto* vqnmeapositioninfosource = const_cast<VirtualQNmeaPositionInfoSource*>(dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self));
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_MinimumUpdateInterval_IsBase(true);
@@ -286,7 +286,7 @@ void QNmeaPositionInfoSource_OnMinimumUpdateInterval(const QNmeaPositionInfoSour
 }
 
 // Base class handler implementation
-int QNmeaPositionInfoSource_QBaseError(const QNmeaPositionInfoSource* self) {
+int QNmeaPositionInfoSource_SuperError(const QNmeaPositionInfoSource* self) {
     auto* vqnmeapositioninfosource = const_cast<VirtualQNmeaPositionInfoSource*>(dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self));
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_Error_IsBase(true);
@@ -305,7 +305,7 @@ void QNmeaPositionInfoSource_OnError(const QNmeaPositionInfoSource* self, intptr
 }
 
 // Base class handler implementation
-void QNmeaPositionInfoSource_QBaseStartUpdates(QNmeaPositionInfoSource* self) {
+void QNmeaPositionInfoSource_SuperStartUpdates(QNmeaPositionInfoSource* self) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_StartUpdates_IsBase(true);
@@ -324,7 +324,7 @@ void QNmeaPositionInfoSource_OnStartUpdates(QNmeaPositionInfoSource* self, intpt
 }
 
 // Base class handler implementation
-void QNmeaPositionInfoSource_QBaseStopUpdates(QNmeaPositionInfoSource* self) {
+void QNmeaPositionInfoSource_SuperStopUpdates(QNmeaPositionInfoSource* self) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_StopUpdates_IsBase(true);
@@ -343,7 +343,7 @@ void QNmeaPositionInfoSource_OnStopUpdates(QNmeaPositionInfoSource* self, intptr
 }
 
 // Base class handler implementation
-void QNmeaPositionInfoSource_QBaseRequestUpdate(QNmeaPositionInfoSource* self, int timeout) {
+void QNmeaPositionInfoSource_SuperRequestUpdate(QNmeaPositionInfoSource* self, int timeout) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_RequestUpdate_IsBase(true);
@@ -362,7 +362,7 @@ void QNmeaPositionInfoSource_OnRequestUpdate(QNmeaPositionInfoSource* self, intp
 }
 
 // Base class handler implementation
-bool QNmeaPositionInfoSource_QBaseParsePosInfoFromNmeaData(QNmeaPositionInfoSource* self, const char* data, int size, QGeoPositionInfo* posInfo, bool* hasFix) {
+bool QNmeaPositionInfoSource_SuperParsePosInfoFromNmeaData(QNmeaPositionInfoSource* self, const char* data, int size, QGeoPositionInfo* posInfo, bool* hasFix) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_ParsePosInfoFromNmeaData_IsBase(true);
@@ -391,7 +391,7 @@ void QNmeaPositionInfoSource_SetPreferredPositioningMethods(QNmeaPositionInfoSou
 }
 
 // Base class handler implementation
-void QNmeaPositionInfoSource_QBaseSetPreferredPositioningMethods(QNmeaPositionInfoSource* self, int methods) {
+void QNmeaPositionInfoSource_SuperSetPreferredPositioningMethods(QNmeaPositionInfoSource* self, int methods) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_SetPreferredPositioningMethods_IsBase(true);
@@ -421,7 +421,7 @@ bool QNmeaPositionInfoSource_SetBackendProperty(QNmeaPositionInfoSource* self, c
 }
 
 // Base class handler implementation
-bool QNmeaPositionInfoSource_QBaseSetBackendProperty(QNmeaPositionInfoSource* self, const libqt_string name, const QVariant* value) {
+bool QNmeaPositionInfoSource_SuperSetBackendProperty(QNmeaPositionInfoSource* self, const libqt_string name, const QVariant* value) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
@@ -452,7 +452,7 @@ QVariant* QNmeaPositionInfoSource_BackendProperty(const QNmeaPositionInfoSource*
 }
 
 // Base class handler implementation
-QVariant* QNmeaPositionInfoSource_QBaseBackendProperty(const QNmeaPositionInfoSource* self, const libqt_string name) {
+QVariant* QNmeaPositionInfoSource_SuperBackendProperty(const QNmeaPositionInfoSource* self, const libqt_string name) {
     auto* vqnmeapositioninfosource = const_cast<VirtualQNmeaPositionInfoSource*>(dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self));
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
@@ -482,7 +482,7 @@ bool QNmeaPositionInfoSource_Event(QNmeaPositionInfoSource* self, QEvent* event)
 }
 
 // Base class handler implementation
-bool QNmeaPositionInfoSource_QBaseEvent(QNmeaPositionInfoSource* self, QEvent* event) {
+bool QNmeaPositionInfoSource_SuperEvent(QNmeaPositionInfoSource* self, QEvent* event) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_Event_IsBase(true);
@@ -511,7 +511,7 @@ bool QNmeaPositionInfoSource_EventFilter(QNmeaPositionInfoSource* self, QObject*
 }
 
 // Base class handler implementation
-bool QNmeaPositionInfoSource_QBaseEventFilter(QNmeaPositionInfoSource* self, QObject* watched, QEvent* event) {
+bool QNmeaPositionInfoSource_SuperEventFilter(QNmeaPositionInfoSource* self, QObject* watched, QEvent* event) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_EventFilter_IsBase(true);
@@ -540,7 +540,7 @@ void QNmeaPositionInfoSource_TimerEvent(QNmeaPositionInfoSource* self, QTimerEve
 }
 
 // Base class handler implementation
-void QNmeaPositionInfoSource_QBaseTimerEvent(QNmeaPositionInfoSource* self, QTimerEvent* event) {
+void QNmeaPositionInfoSource_SuperTimerEvent(QNmeaPositionInfoSource* self, QTimerEvent* event) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_TimerEvent_IsBase(true);
@@ -569,7 +569,7 @@ void QNmeaPositionInfoSource_ChildEvent(QNmeaPositionInfoSource* self, QChildEve
 }
 
 // Base class handler implementation
-void QNmeaPositionInfoSource_QBaseChildEvent(QNmeaPositionInfoSource* self, QChildEvent* event) {
+void QNmeaPositionInfoSource_SuperChildEvent(QNmeaPositionInfoSource* self, QChildEvent* event) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_ChildEvent_IsBase(true);
@@ -598,7 +598,7 @@ void QNmeaPositionInfoSource_CustomEvent(QNmeaPositionInfoSource* self, QEvent* 
 }
 
 // Base class handler implementation
-void QNmeaPositionInfoSource_QBaseCustomEvent(QNmeaPositionInfoSource* self, QEvent* event) {
+void QNmeaPositionInfoSource_SuperCustomEvent(QNmeaPositionInfoSource* self, QEvent* event) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_CustomEvent_IsBase(true);
@@ -627,7 +627,7 @@ void QNmeaPositionInfoSource_ConnectNotify(QNmeaPositionInfoSource* self, const 
 }
 
 // Base class handler implementation
-void QNmeaPositionInfoSource_QBaseConnectNotify(QNmeaPositionInfoSource* self, const QMetaMethod* signal) {
+void QNmeaPositionInfoSource_SuperConnectNotify(QNmeaPositionInfoSource* self, const QMetaMethod* signal) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_ConnectNotify_IsBase(true);
@@ -656,7 +656,7 @@ void QNmeaPositionInfoSource_DisconnectNotify(QNmeaPositionInfoSource* self, con
 }
 
 // Base class handler implementation
-void QNmeaPositionInfoSource_QBaseDisconnectNotify(QNmeaPositionInfoSource* self, const QMetaMethod* signal) {
+void QNmeaPositionInfoSource_SuperDisconnectNotify(QNmeaPositionInfoSource* self, const QMetaMethod* signal) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_DisconnectNotify_IsBase(true);
@@ -686,7 +686,7 @@ bool QNmeaPositionInfoSource_ParsePosInfoFromNmeaData2(QNmeaPositionInfoSource* 
 }
 
 // Base class handler implementation
-bool QNmeaPositionInfoSource_QBaseParsePosInfoFromNmeaData2(QNmeaPositionInfoSource* self, libqt_string data, QGeoPositionInfo* posInfo, bool* hasFix) {
+bool QNmeaPositionInfoSource_SuperParsePosInfoFromNmeaData2(QNmeaPositionInfoSource* self, libqt_string data, QGeoPositionInfo* posInfo, bool* hasFix) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
     QByteArrayView data_QByteArrayView(data.data, data.len);
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
@@ -716,7 +716,7 @@ void QNmeaPositionInfoSource_SetError(QNmeaPositionInfoSource* self, int positio
 }
 
 // Base class handler implementation
-void QNmeaPositionInfoSource_QBaseSetError(QNmeaPositionInfoSource* self, int positionError) {
+void QNmeaPositionInfoSource_SuperSetError(QNmeaPositionInfoSource* self, int positionError) {
     auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_SetError_IsBase(true);
@@ -745,7 +745,7 @@ QObject* QNmeaPositionInfoSource_Sender(const QNmeaPositionInfoSource* self) {
 }
 
 // Base class handler implementation
-QObject* QNmeaPositionInfoSource_QBaseSender(const QNmeaPositionInfoSource* self) {
+QObject* QNmeaPositionInfoSource_SuperSender(const QNmeaPositionInfoSource* self) {
     auto* vqnmeapositioninfosource = const_cast<VirtualQNmeaPositionInfoSource*>(dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self));
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_Sender_IsBase(true);
@@ -774,7 +774,7 @@ int QNmeaPositionInfoSource_SenderSignalIndex(const QNmeaPositionInfoSource* sel
 }
 
 // Base class handler implementation
-int QNmeaPositionInfoSource_QBaseSenderSignalIndex(const QNmeaPositionInfoSource* self) {
+int QNmeaPositionInfoSource_SuperSenderSignalIndex(const QNmeaPositionInfoSource* self) {
     auto* vqnmeapositioninfosource = const_cast<VirtualQNmeaPositionInfoSource*>(dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self));
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_SenderSignalIndex_IsBase(true);
@@ -803,7 +803,7 @@ int QNmeaPositionInfoSource_Receivers(const QNmeaPositionInfoSource* self, const
 }
 
 // Base class handler implementation
-int QNmeaPositionInfoSource_QBaseReceivers(const QNmeaPositionInfoSource* self, const char* signal) {
+int QNmeaPositionInfoSource_SuperReceivers(const QNmeaPositionInfoSource* self, const char* signal) {
     auto* vqnmeapositioninfosource = const_cast<VirtualQNmeaPositionInfoSource*>(dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self));
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_Receivers_IsBase(true);
@@ -832,7 +832,7 @@ bool QNmeaPositionInfoSource_IsSignalConnected(const QNmeaPositionInfoSource* se
 }
 
 // Base class handler implementation
-bool QNmeaPositionInfoSource_QBaseIsSignalConnected(const QNmeaPositionInfoSource* self, const QMetaMethod* signal) {
+bool QNmeaPositionInfoSource_SuperIsSignalConnected(const QNmeaPositionInfoSource* self, const QMetaMethod* signal) {
     auto* vqnmeapositioninfosource = const_cast<VirtualQNmeaPositionInfoSource*>(dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self));
     if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
         vqnmeapositioninfosource->setQNmeaPositionInfoSource_IsSignalConnected_IsBase(true);

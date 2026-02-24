@@ -59,7 +59,7 @@ QObject* QGenericPlugin_Create(QGenericPlugin* self, const libqt_string name, co
 }
 
 // Base class handler implementation
-QMetaObject* QGenericPlugin_QBaseMetaObject(const QGenericPlugin* self) {
+QMetaObject* QGenericPlugin_SuperMetaObject(const QGenericPlugin* self) {
     auto* vqgenericplugin = const_cast<VirtualQGenericPlugin*>(dynamic_cast<const VirtualQGenericPlugin*>(self));
     if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
         vqgenericplugin->setQGenericPlugin_MetaObject_IsBase(true);
@@ -78,7 +78,7 @@ void QGenericPlugin_OnMetaObject(const QGenericPlugin* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QGenericPlugin_QBaseMetacast(QGenericPlugin* self, const char* param1) {
+void* QGenericPlugin_SuperMetacast(QGenericPlugin* self, const char* param1) {
     auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
     if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
         vqgenericplugin->setQGenericPlugin_Metacast_IsBase(true);
@@ -97,7 +97,7 @@ void QGenericPlugin_OnMetacast(QGenericPlugin* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QGenericPlugin_QBaseMetacall(QGenericPlugin* self, int param1, int param2, void** param3) {
+int QGenericPlugin_SuperMetacall(QGenericPlugin* self, int param1, int param2, void** param3) {
     auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
     if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
         vqgenericplugin->setQGenericPlugin_Metacall_IsBase(true);
@@ -116,7 +116,7 @@ void QGenericPlugin_OnMetacall(QGenericPlugin* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QObject* QGenericPlugin_QBaseCreate(QGenericPlugin* self, const libqt_string name, const libqt_string spec) {
+QObject* QGenericPlugin_SuperCreate(QGenericPlugin* self, const libqt_string name, const libqt_string spec) {
     auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString spec_QString = QString::fromUtf8(spec.data, spec.len);
@@ -147,7 +147,7 @@ bool QGenericPlugin_Event(QGenericPlugin* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QGenericPlugin_QBaseEvent(QGenericPlugin* self, QEvent* event) {
+bool QGenericPlugin_SuperEvent(QGenericPlugin* self, QEvent* event) {
     auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
     if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
         vqgenericplugin->setQGenericPlugin_Event_IsBase(true);
@@ -176,7 +176,7 @@ bool QGenericPlugin_EventFilter(QGenericPlugin* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QGenericPlugin_QBaseEventFilter(QGenericPlugin* self, QObject* watched, QEvent* event) {
+bool QGenericPlugin_SuperEventFilter(QGenericPlugin* self, QObject* watched, QEvent* event) {
     auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
     if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
         vqgenericplugin->setQGenericPlugin_EventFilter_IsBase(true);
@@ -205,7 +205,7 @@ void QGenericPlugin_TimerEvent(QGenericPlugin* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QGenericPlugin_QBaseTimerEvent(QGenericPlugin* self, QTimerEvent* event) {
+void QGenericPlugin_SuperTimerEvent(QGenericPlugin* self, QTimerEvent* event) {
     auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
     if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
         vqgenericplugin->setQGenericPlugin_TimerEvent_IsBase(true);
@@ -234,7 +234,7 @@ void QGenericPlugin_ChildEvent(QGenericPlugin* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QGenericPlugin_QBaseChildEvent(QGenericPlugin* self, QChildEvent* event) {
+void QGenericPlugin_SuperChildEvent(QGenericPlugin* self, QChildEvent* event) {
     auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
     if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
         vqgenericplugin->setQGenericPlugin_ChildEvent_IsBase(true);
@@ -263,7 +263,7 @@ void QGenericPlugin_CustomEvent(QGenericPlugin* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QGenericPlugin_QBaseCustomEvent(QGenericPlugin* self, QEvent* event) {
+void QGenericPlugin_SuperCustomEvent(QGenericPlugin* self, QEvent* event) {
     auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
     if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
         vqgenericplugin->setQGenericPlugin_CustomEvent_IsBase(true);
@@ -292,7 +292,7 @@ void QGenericPlugin_ConnectNotify(QGenericPlugin* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QGenericPlugin_QBaseConnectNotify(QGenericPlugin* self, const QMetaMethod* signal) {
+void QGenericPlugin_SuperConnectNotify(QGenericPlugin* self, const QMetaMethod* signal) {
     auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
     if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
         vqgenericplugin->setQGenericPlugin_ConnectNotify_IsBase(true);
@@ -321,7 +321,7 @@ void QGenericPlugin_DisconnectNotify(QGenericPlugin* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QGenericPlugin_QBaseDisconnectNotify(QGenericPlugin* self, const QMetaMethod* signal) {
+void QGenericPlugin_SuperDisconnectNotify(QGenericPlugin* self, const QMetaMethod* signal) {
     auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
     if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
         vqgenericplugin->setQGenericPlugin_DisconnectNotify_IsBase(true);
@@ -350,7 +350,7 @@ QObject* QGenericPlugin_Sender(const QGenericPlugin* self) {
 }
 
 // Base class handler implementation
-QObject* QGenericPlugin_QBaseSender(const QGenericPlugin* self) {
+QObject* QGenericPlugin_SuperSender(const QGenericPlugin* self) {
     auto* vqgenericplugin = const_cast<VirtualQGenericPlugin*>(dynamic_cast<const VirtualQGenericPlugin*>(self));
     if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
         vqgenericplugin->setQGenericPlugin_Sender_IsBase(true);
@@ -379,7 +379,7 @@ int QGenericPlugin_SenderSignalIndex(const QGenericPlugin* self) {
 }
 
 // Base class handler implementation
-int QGenericPlugin_QBaseSenderSignalIndex(const QGenericPlugin* self) {
+int QGenericPlugin_SuperSenderSignalIndex(const QGenericPlugin* self) {
     auto* vqgenericplugin = const_cast<VirtualQGenericPlugin*>(dynamic_cast<const VirtualQGenericPlugin*>(self));
     if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
         vqgenericplugin->setQGenericPlugin_SenderSignalIndex_IsBase(true);
@@ -408,7 +408,7 @@ int QGenericPlugin_Receivers(const QGenericPlugin* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QGenericPlugin_QBaseReceivers(const QGenericPlugin* self, const char* signal) {
+int QGenericPlugin_SuperReceivers(const QGenericPlugin* self, const char* signal) {
     auto* vqgenericplugin = const_cast<VirtualQGenericPlugin*>(dynamic_cast<const VirtualQGenericPlugin*>(self));
     if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
         vqgenericplugin->setQGenericPlugin_Receivers_IsBase(true);
@@ -437,7 +437,7 @@ bool QGenericPlugin_IsSignalConnected(const QGenericPlugin* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QGenericPlugin_QBaseIsSignalConnected(const QGenericPlugin* self, const QMetaMethod* signal) {
+bool QGenericPlugin_SuperIsSignalConnected(const QGenericPlugin* self, const QMetaMethod* signal) {
     auto* vqgenericplugin = const_cast<VirtualQGenericPlugin*>(dynamic_cast<const VirtualQGenericPlugin*>(self));
     if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
         vqgenericplugin->setQGenericPlugin_IsSignalConnected_IsBase(true);

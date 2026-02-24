@@ -160,7 +160,7 @@ void QAudioDecoder_DurationChanged(QAudioDecoder* self, long long duration) {
 }
 
 // Base class handler implementation
-QMetaObject* QAudioDecoder_QBaseMetaObject(const QAudioDecoder* self) {
+QMetaObject* QAudioDecoder_SuperMetaObject(const QAudioDecoder* self) {
     auto* vqaudiodecoder = const_cast<VirtualQAudioDecoder*>(dynamic_cast<const VirtualQAudioDecoder*>(self));
     if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
         vqaudiodecoder->setQAudioDecoder_MetaObject_IsBase(true);
@@ -179,7 +179,7 @@ void QAudioDecoder_OnMetaObject(const QAudioDecoder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QAudioDecoder_QBaseMetacast(QAudioDecoder* self, const char* param1) {
+void* QAudioDecoder_SuperMetacast(QAudioDecoder* self, const char* param1) {
     auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
     if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
         vqaudiodecoder->setQAudioDecoder_Metacast_IsBase(true);
@@ -198,7 +198,7 @@ void QAudioDecoder_OnMetacast(QAudioDecoder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAudioDecoder_QBaseMetacall(QAudioDecoder* self, int param1, int param2, void** param3) {
+int QAudioDecoder_SuperMetacall(QAudioDecoder* self, int param1, int param2, void** param3) {
     auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
     if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
         vqaudiodecoder->setQAudioDecoder_Metacall_IsBase(true);
@@ -227,7 +227,7 @@ bool QAudioDecoder_Event(QAudioDecoder* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QAudioDecoder_QBaseEvent(QAudioDecoder* self, QEvent* event) {
+bool QAudioDecoder_SuperEvent(QAudioDecoder* self, QEvent* event) {
     auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
     if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
         vqaudiodecoder->setQAudioDecoder_Event_IsBase(true);
@@ -256,7 +256,7 @@ bool QAudioDecoder_EventFilter(QAudioDecoder* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QAudioDecoder_QBaseEventFilter(QAudioDecoder* self, QObject* watched, QEvent* event) {
+bool QAudioDecoder_SuperEventFilter(QAudioDecoder* self, QObject* watched, QEvent* event) {
     auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
     if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
         vqaudiodecoder->setQAudioDecoder_EventFilter_IsBase(true);
@@ -285,7 +285,7 @@ void QAudioDecoder_TimerEvent(QAudioDecoder* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QAudioDecoder_QBaseTimerEvent(QAudioDecoder* self, QTimerEvent* event) {
+void QAudioDecoder_SuperTimerEvent(QAudioDecoder* self, QTimerEvent* event) {
     auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
     if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
         vqaudiodecoder->setQAudioDecoder_TimerEvent_IsBase(true);
@@ -314,7 +314,7 @@ void QAudioDecoder_ChildEvent(QAudioDecoder* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QAudioDecoder_QBaseChildEvent(QAudioDecoder* self, QChildEvent* event) {
+void QAudioDecoder_SuperChildEvent(QAudioDecoder* self, QChildEvent* event) {
     auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
     if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
         vqaudiodecoder->setQAudioDecoder_ChildEvent_IsBase(true);
@@ -343,7 +343,7 @@ void QAudioDecoder_CustomEvent(QAudioDecoder* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAudioDecoder_QBaseCustomEvent(QAudioDecoder* self, QEvent* event) {
+void QAudioDecoder_SuperCustomEvent(QAudioDecoder* self, QEvent* event) {
     auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
     if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
         vqaudiodecoder->setQAudioDecoder_CustomEvent_IsBase(true);
@@ -372,7 +372,7 @@ void QAudioDecoder_ConnectNotify(QAudioDecoder* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QAudioDecoder_QBaseConnectNotify(QAudioDecoder* self, const QMetaMethod* signal) {
+void QAudioDecoder_SuperConnectNotify(QAudioDecoder* self, const QMetaMethod* signal) {
     auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
     if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
         vqaudiodecoder->setQAudioDecoder_ConnectNotify_IsBase(true);
@@ -401,7 +401,7 @@ void QAudioDecoder_DisconnectNotify(QAudioDecoder* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QAudioDecoder_QBaseDisconnectNotify(QAudioDecoder* self, const QMetaMethod* signal) {
+void QAudioDecoder_SuperDisconnectNotify(QAudioDecoder* self, const QMetaMethod* signal) {
     auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
     if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
         vqaudiodecoder->setQAudioDecoder_DisconnectNotify_IsBase(true);
@@ -430,7 +430,7 @@ QObject* QAudioDecoder_Sender(const QAudioDecoder* self) {
 }
 
 // Base class handler implementation
-QObject* QAudioDecoder_QBaseSender(const QAudioDecoder* self) {
+QObject* QAudioDecoder_SuperSender(const QAudioDecoder* self) {
     auto* vqaudiodecoder = const_cast<VirtualQAudioDecoder*>(dynamic_cast<const VirtualQAudioDecoder*>(self));
     if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
         vqaudiodecoder->setQAudioDecoder_Sender_IsBase(true);
@@ -459,7 +459,7 @@ int QAudioDecoder_SenderSignalIndex(const QAudioDecoder* self) {
 }
 
 // Base class handler implementation
-int QAudioDecoder_QBaseSenderSignalIndex(const QAudioDecoder* self) {
+int QAudioDecoder_SuperSenderSignalIndex(const QAudioDecoder* self) {
     auto* vqaudiodecoder = const_cast<VirtualQAudioDecoder*>(dynamic_cast<const VirtualQAudioDecoder*>(self));
     if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
         vqaudiodecoder->setQAudioDecoder_SenderSignalIndex_IsBase(true);
@@ -488,7 +488,7 @@ int QAudioDecoder_Receivers(const QAudioDecoder* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QAudioDecoder_QBaseReceivers(const QAudioDecoder* self, const char* signal) {
+int QAudioDecoder_SuperReceivers(const QAudioDecoder* self, const char* signal) {
     auto* vqaudiodecoder = const_cast<VirtualQAudioDecoder*>(dynamic_cast<const VirtualQAudioDecoder*>(self));
     if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
         vqaudiodecoder->setQAudioDecoder_Receivers_IsBase(true);
@@ -517,7 +517,7 @@ bool QAudioDecoder_IsSignalConnected(const QAudioDecoder* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QAudioDecoder_QBaseIsSignalConnected(const QAudioDecoder* self, const QMetaMethod* signal) {
+bool QAudioDecoder_SuperIsSignalConnected(const QAudioDecoder* self, const QMetaMethod* signal) {
     auto* vqaudiodecoder = const_cast<VirtualQAudioDecoder*>(dynamic_cast<const VirtualQAudioDecoder*>(self));
     if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
         vqaudiodecoder->setQAudioDecoder_IsSignalConnected_IsBase(true);

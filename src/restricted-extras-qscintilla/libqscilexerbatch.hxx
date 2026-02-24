@@ -1098,31 +1098,31 @@ class VirtualQsciLexerBatch final : public QsciLexerBatch {
 
     // Friend functions
     friend bool QsciLexerBatch_ReadProperties(QsciLexerBatch* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerBatch_QBaseReadProperties(QsciLexerBatch* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerBatch_SuperReadProperties(QsciLexerBatch* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerBatch_WriteProperties(const QsciLexerBatch* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerBatch_QBaseWriteProperties(const QsciLexerBatch* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerBatch_SuperWriteProperties(const QsciLexerBatch* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerBatch_TimerEvent(QsciLexerBatch* self, QTimerEvent* event);
-    friend void QsciLexerBatch_QBaseTimerEvent(QsciLexerBatch* self, QTimerEvent* event);
+    friend void QsciLexerBatch_SuperTimerEvent(QsciLexerBatch* self, QTimerEvent* event);
     friend void QsciLexerBatch_ChildEvent(QsciLexerBatch* self, QChildEvent* event);
-    friend void QsciLexerBatch_QBaseChildEvent(QsciLexerBatch* self, QChildEvent* event);
+    friend void QsciLexerBatch_SuperChildEvent(QsciLexerBatch* self, QChildEvent* event);
     friend void QsciLexerBatch_CustomEvent(QsciLexerBatch* self, QEvent* event);
-    friend void QsciLexerBatch_QBaseCustomEvent(QsciLexerBatch* self, QEvent* event);
+    friend void QsciLexerBatch_SuperCustomEvent(QsciLexerBatch* self, QEvent* event);
     friend void QsciLexerBatch_ConnectNotify(QsciLexerBatch* self, const QMetaMethod* signal);
-    friend void QsciLexerBatch_QBaseConnectNotify(QsciLexerBatch* self, const QMetaMethod* signal);
+    friend void QsciLexerBatch_SuperConnectNotify(QsciLexerBatch* self, const QMetaMethod* signal);
     friend void QsciLexerBatch_DisconnectNotify(QsciLexerBatch* self, const QMetaMethod* signal);
-    friend void QsciLexerBatch_QBaseDisconnectNotify(QsciLexerBatch* self, const QMetaMethod* signal);
+    friend void QsciLexerBatch_SuperDisconnectNotify(QsciLexerBatch* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerBatch_TextAsBytes(const QsciLexerBatch* self, const libqt_string text);
-    friend libqt_string QsciLexerBatch_QBaseTextAsBytes(const QsciLexerBatch* self, const libqt_string text);
+    friend libqt_string QsciLexerBatch_SuperTextAsBytes(const QsciLexerBatch* self, const libqt_string text);
     friend libqt_string QsciLexerBatch_BytesAsText(const QsciLexerBatch* self, const char* bytes, int size);
-    friend libqt_string QsciLexerBatch_QBaseBytesAsText(const QsciLexerBatch* self, const char* bytes, int size);
+    friend libqt_string QsciLexerBatch_SuperBytesAsText(const QsciLexerBatch* self, const char* bytes, int size);
     friend QObject* QsciLexerBatch_Sender(const QsciLexerBatch* self);
-    friend QObject* QsciLexerBatch_QBaseSender(const QsciLexerBatch* self);
+    friend QObject* QsciLexerBatch_SuperSender(const QsciLexerBatch* self);
     friend int QsciLexerBatch_SenderSignalIndex(const QsciLexerBatch* self);
-    friend int QsciLexerBatch_QBaseSenderSignalIndex(const QsciLexerBatch* self);
+    friend int QsciLexerBatch_SuperSenderSignalIndex(const QsciLexerBatch* self);
     friend int QsciLexerBatch_Receivers(const QsciLexerBatch* self, const char* signal);
-    friend int QsciLexerBatch_QBaseReceivers(const QsciLexerBatch* self, const char* signal);
+    friend int QsciLexerBatch_SuperReceivers(const QsciLexerBatch* self, const char* signal);
     friend bool QsciLexerBatch_IsSignalConnected(const QsciLexerBatch* self, const QMetaMethod* signal);
-    friend bool QsciLexerBatch_QBaseIsSignalConnected(const QsciLexerBatch* self, const QMetaMethod* signal);
+    friend bool QsciLexerBatch_SuperIsSignalConnected(const QsciLexerBatch* self, const QMetaMethod* signal);
 };
 
 #endif

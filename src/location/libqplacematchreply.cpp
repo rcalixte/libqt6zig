@@ -78,7 +78,7 @@ QPlaceMatchRequest* QPlaceMatchReply_Request(const QPlaceMatchReply* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QPlaceMatchReply_QBaseMetaObject(const QPlaceMatchReply* self) {
+QMetaObject* QPlaceMatchReply_SuperMetaObject(const QPlaceMatchReply* self) {
     auto* vqplacematchreply = const_cast<VirtualQPlaceMatchReply*>(dynamic_cast<const VirtualQPlaceMatchReply*>(self));
     if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
         vqplacematchreply->setQPlaceMatchReply_MetaObject_IsBase(true);
@@ -97,7 +97,7 @@ void QPlaceMatchReply_OnMetaObject(const QPlaceMatchReply* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* QPlaceMatchReply_QBaseMetacast(QPlaceMatchReply* self, const char* param1) {
+void* QPlaceMatchReply_SuperMetacast(QPlaceMatchReply* self, const char* param1) {
     auto* vqplacematchreply = dynamic_cast<VirtualQPlaceMatchReply*>(self);
     if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
         vqplacematchreply->setQPlaceMatchReply_Metacast_IsBase(true);
@@ -116,7 +116,7 @@ void QPlaceMatchReply_OnMetacast(QPlaceMatchReply* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPlaceMatchReply_QBaseMetacall(QPlaceMatchReply* self, int param1, int param2, void** param3) {
+int QPlaceMatchReply_SuperMetacall(QPlaceMatchReply* self, int param1, int param2, void** param3) {
     auto* vqplacematchreply = dynamic_cast<VirtualQPlaceMatchReply*>(self);
     if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
         vqplacematchreply->setQPlaceMatchReply_Metacall_IsBase(true);
@@ -135,7 +135,7 @@ void QPlaceMatchReply_OnMetacall(QPlaceMatchReply* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPlaceMatchReply_QBaseType(const QPlaceMatchReply* self) {
+int QPlaceMatchReply_SuperType(const QPlaceMatchReply* self) {
     auto* vqplacematchreply = const_cast<VirtualQPlaceMatchReply*>(dynamic_cast<const VirtualQPlaceMatchReply*>(self));
     if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
         vqplacematchreply->setQPlaceMatchReply_Type_IsBase(true);
@@ -164,7 +164,7 @@ void QPlaceMatchReply_Abort(QPlaceMatchReply* self) {
 }
 
 // Base class handler implementation
-void QPlaceMatchReply_QBaseAbort(QPlaceMatchReply* self) {
+void QPlaceMatchReply_SuperAbort(QPlaceMatchReply* self) {
     auto* vqplacematchreply = dynamic_cast<VirtualQPlaceMatchReply*>(self);
     if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
         vqplacematchreply->setQPlaceMatchReply_Abort_IsBase(true);
@@ -193,7 +193,7 @@ bool QPlaceMatchReply_Event(QPlaceMatchReply* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPlaceMatchReply_QBaseEvent(QPlaceMatchReply* self, QEvent* event) {
+bool QPlaceMatchReply_SuperEvent(QPlaceMatchReply* self, QEvent* event) {
     auto* vqplacematchreply = dynamic_cast<VirtualQPlaceMatchReply*>(self);
     if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
         vqplacematchreply->setQPlaceMatchReply_Event_IsBase(true);
@@ -222,7 +222,7 @@ bool QPlaceMatchReply_EventFilter(QPlaceMatchReply* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool QPlaceMatchReply_QBaseEventFilter(QPlaceMatchReply* self, QObject* watched, QEvent* event) {
+bool QPlaceMatchReply_SuperEventFilter(QPlaceMatchReply* self, QObject* watched, QEvent* event) {
     auto* vqplacematchreply = dynamic_cast<VirtualQPlaceMatchReply*>(self);
     if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
         vqplacematchreply->setQPlaceMatchReply_EventFilter_IsBase(true);
@@ -251,7 +251,7 @@ void QPlaceMatchReply_TimerEvent(QPlaceMatchReply* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QPlaceMatchReply_QBaseTimerEvent(QPlaceMatchReply* self, QTimerEvent* event) {
+void QPlaceMatchReply_SuperTimerEvent(QPlaceMatchReply* self, QTimerEvent* event) {
     auto* vqplacematchreply = dynamic_cast<VirtualQPlaceMatchReply*>(self);
     if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
         vqplacematchreply->setQPlaceMatchReply_TimerEvent_IsBase(true);
@@ -280,7 +280,7 @@ void QPlaceMatchReply_ChildEvent(QPlaceMatchReply* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QPlaceMatchReply_QBaseChildEvent(QPlaceMatchReply* self, QChildEvent* event) {
+void QPlaceMatchReply_SuperChildEvent(QPlaceMatchReply* self, QChildEvent* event) {
     auto* vqplacematchreply = dynamic_cast<VirtualQPlaceMatchReply*>(self);
     if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
         vqplacematchreply->setQPlaceMatchReply_ChildEvent_IsBase(true);
@@ -309,7 +309,7 @@ void QPlaceMatchReply_CustomEvent(QPlaceMatchReply* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPlaceMatchReply_QBaseCustomEvent(QPlaceMatchReply* self, QEvent* event) {
+void QPlaceMatchReply_SuperCustomEvent(QPlaceMatchReply* self, QEvent* event) {
     auto* vqplacematchreply = dynamic_cast<VirtualQPlaceMatchReply*>(self);
     if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
         vqplacematchreply->setQPlaceMatchReply_CustomEvent_IsBase(true);
@@ -338,7 +338,7 @@ void QPlaceMatchReply_ConnectNotify(QPlaceMatchReply* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void QPlaceMatchReply_QBaseConnectNotify(QPlaceMatchReply* self, const QMetaMethod* signal) {
+void QPlaceMatchReply_SuperConnectNotify(QPlaceMatchReply* self, const QMetaMethod* signal) {
     auto* vqplacematchreply = dynamic_cast<VirtualQPlaceMatchReply*>(self);
     if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
         vqplacematchreply->setQPlaceMatchReply_ConnectNotify_IsBase(true);
@@ -367,7 +367,7 @@ void QPlaceMatchReply_DisconnectNotify(QPlaceMatchReply* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void QPlaceMatchReply_QBaseDisconnectNotify(QPlaceMatchReply* self, const QMetaMethod* signal) {
+void QPlaceMatchReply_SuperDisconnectNotify(QPlaceMatchReply* self, const QMetaMethod* signal) {
     auto* vqplacematchreply = dynamic_cast<VirtualQPlaceMatchReply*>(self);
     if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
         vqplacematchreply->setQPlaceMatchReply_DisconnectNotify_IsBase(true);
@@ -402,7 +402,7 @@ void QPlaceMatchReply_SetPlaces(QPlaceMatchReply* self, const libqt_list /* of Q
 }
 
 // Base class handler implementation
-void QPlaceMatchReply_QBaseSetPlaces(QPlaceMatchReply* self, const libqt_list /* of QPlace* */ results) {
+void QPlaceMatchReply_SuperSetPlaces(QPlaceMatchReply* self, const libqt_list /* of QPlace* */ results) {
     auto* vqplacematchreply = dynamic_cast<VirtualQPlaceMatchReply*>(self);
     QList<QPlace> results_QList;
     results_QList.reserve(results.len);
@@ -437,7 +437,7 @@ void QPlaceMatchReply_SetRequest(QPlaceMatchReply* self, const QPlaceMatchReques
 }
 
 // Base class handler implementation
-void QPlaceMatchReply_QBaseSetRequest(QPlaceMatchReply* self, const QPlaceMatchRequest* request) {
+void QPlaceMatchReply_SuperSetRequest(QPlaceMatchReply* self, const QPlaceMatchRequest* request) {
     auto* vqplacematchreply = dynamic_cast<VirtualQPlaceMatchReply*>(self);
     if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
         vqplacematchreply->setQPlaceMatchReply_SetRequest_IsBase(true);
@@ -466,7 +466,7 @@ void QPlaceMatchReply_SetFinished(QPlaceMatchReply* self, bool finished) {
 }
 
 // Base class handler implementation
-void QPlaceMatchReply_QBaseSetFinished(QPlaceMatchReply* self, bool finished) {
+void QPlaceMatchReply_SuperSetFinished(QPlaceMatchReply* self, bool finished) {
     auto* vqplacematchreply = dynamic_cast<VirtualQPlaceMatchReply*>(self);
     if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
         vqplacematchreply->setQPlaceMatchReply_SetFinished_IsBase(true);
@@ -496,7 +496,7 @@ void QPlaceMatchReply_SetError(QPlaceMatchReply* self, int errorVal, const libqt
 }
 
 // Base class handler implementation
-void QPlaceMatchReply_QBaseSetError(QPlaceMatchReply* self, int errorVal, const libqt_string errorString) {
+void QPlaceMatchReply_SuperSetError(QPlaceMatchReply* self, int errorVal, const libqt_string errorString) {
     auto* vqplacematchreply = dynamic_cast<VirtualQPlaceMatchReply*>(self);
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
     if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
@@ -526,7 +526,7 @@ QObject* QPlaceMatchReply_Sender(const QPlaceMatchReply* self) {
 }
 
 // Base class handler implementation
-QObject* QPlaceMatchReply_QBaseSender(const QPlaceMatchReply* self) {
+QObject* QPlaceMatchReply_SuperSender(const QPlaceMatchReply* self) {
     auto* vqplacematchreply = const_cast<VirtualQPlaceMatchReply*>(dynamic_cast<const VirtualQPlaceMatchReply*>(self));
     if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
         vqplacematchreply->setQPlaceMatchReply_Sender_IsBase(true);
@@ -555,7 +555,7 @@ int QPlaceMatchReply_SenderSignalIndex(const QPlaceMatchReply* self) {
 }
 
 // Base class handler implementation
-int QPlaceMatchReply_QBaseSenderSignalIndex(const QPlaceMatchReply* self) {
+int QPlaceMatchReply_SuperSenderSignalIndex(const QPlaceMatchReply* self) {
     auto* vqplacematchreply = const_cast<VirtualQPlaceMatchReply*>(dynamic_cast<const VirtualQPlaceMatchReply*>(self));
     if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
         vqplacematchreply->setQPlaceMatchReply_SenderSignalIndex_IsBase(true);
@@ -584,7 +584,7 @@ int QPlaceMatchReply_Receivers(const QPlaceMatchReply* self, const char* signal)
 }
 
 // Base class handler implementation
-int QPlaceMatchReply_QBaseReceivers(const QPlaceMatchReply* self, const char* signal) {
+int QPlaceMatchReply_SuperReceivers(const QPlaceMatchReply* self, const char* signal) {
     auto* vqplacematchreply = const_cast<VirtualQPlaceMatchReply*>(dynamic_cast<const VirtualQPlaceMatchReply*>(self));
     if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
         vqplacematchreply->setQPlaceMatchReply_Receivers_IsBase(true);
@@ -613,7 +613,7 @@ bool QPlaceMatchReply_IsSignalConnected(const QPlaceMatchReply* self, const QMet
 }
 
 // Base class handler implementation
-bool QPlaceMatchReply_QBaseIsSignalConnected(const QPlaceMatchReply* self, const QMetaMethod* signal) {
+bool QPlaceMatchReply_SuperIsSignalConnected(const QPlaceMatchReply* self, const QMetaMethod* signal) {
     auto* vqplacematchreply = const_cast<VirtualQPlaceMatchReply*>(dynamic_cast<const VirtualQPlaceMatchReply*>(self));
     if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
         vqplacematchreply->setQPlaceMatchReply_IsSignalConnected_IsBase(true);

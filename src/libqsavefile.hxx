@@ -782,35 +782,35 @@ class VirtualQSaveFile final : public QSaveFile {
 
     // Friend functions
     friend long long QSaveFile_WriteData(QSaveFile* self, const char* data, long long lenVal);
-    friend long long QSaveFile_QBaseWriteData(QSaveFile* self, const char* data, long long lenVal);
+    friend long long QSaveFile_SuperWriteData(QSaveFile* self, const char* data, long long lenVal);
     friend long long QSaveFile_ReadData(QSaveFile* self, char* data, long long maxlen);
-    friend long long QSaveFile_QBaseReadData(QSaveFile* self, char* data, long long maxlen);
+    friend long long QSaveFile_SuperReadData(QSaveFile* self, char* data, long long maxlen);
     friend long long QSaveFile_ReadLineData(QSaveFile* self, char* data, long long maxlen);
-    friend long long QSaveFile_QBaseReadLineData(QSaveFile* self, char* data, long long maxlen);
+    friend long long QSaveFile_SuperReadLineData(QSaveFile* self, char* data, long long maxlen);
     friend long long QSaveFile_SkipData(QSaveFile* self, long long maxSize);
-    friend long long QSaveFile_QBaseSkipData(QSaveFile* self, long long maxSize);
+    friend long long QSaveFile_SuperSkipData(QSaveFile* self, long long maxSize);
     friend void QSaveFile_TimerEvent(QSaveFile* self, QTimerEvent* event);
-    friend void QSaveFile_QBaseTimerEvent(QSaveFile* self, QTimerEvent* event);
+    friend void QSaveFile_SuperTimerEvent(QSaveFile* self, QTimerEvent* event);
     friend void QSaveFile_ChildEvent(QSaveFile* self, QChildEvent* event);
-    friend void QSaveFile_QBaseChildEvent(QSaveFile* self, QChildEvent* event);
+    friend void QSaveFile_SuperChildEvent(QSaveFile* self, QChildEvent* event);
     friend void QSaveFile_CustomEvent(QSaveFile* self, QEvent* event);
-    friend void QSaveFile_QBaseCustomEvent(QSaveFile* self, QEvent* event);
+    friend void QSaveFile_SuperCustomEvent(QSaveFile* self, QEvent* event);
     friend void QSaveFile_ConnectNotify(QSaveFile* self, const QMetaMethod* signal);
-    friend void QSaveFile_QBaseConnectNotify(QSaveFile* self, const QMetaMethod* signal);
+    friend void QSaveFile_SuperConnectNotify(QSaveFile* self, const QMetaMethod* signal);
     friend void QSaveFile_DisconnectNotify(QSaveFile* self, const QMetaMethod* signal);
-    friend void QSaveFile_QBaseDisconnectNotify(QSaveFile* self, const QMetaMethod* signal);
+    friend void QSaveFile_SuperDisconnectNotify(QSaveFile* self, const QMetaMethod* signal);
     friend void QSaveFile_SetOpenMode(QSaveFile* self, int openMode);
-    friend void QSaveFile_QBaseSetOpenMode(QSaveFile* self, int openMode);
+    friend void QSaveFile_SuperSetOpenMode(QSaveFile* self, int openMode);
     friend void QSaveFile_SetErrorString(QSaveFile* self, const libqt_string errorString);
-    friend void QSaveFile_QBaseSetErrorString(QSaveFile* self, const libqt_string errorString);
+    friend void QSaveFile_SuperSetErrorString(QSaveFile* self, const libqt_string errorString);
     friend QObject* QSaveFile_Sender(const QSaveFile* self);
-    friend QObject* QSaveFile_QBaseSender(const QSaveFile* self);
+    friend QObject* QSaveFile_SuperSender(const QSaveFile* self);
     friend int QSaveFile_SenderSignalIndex(const QSaveFile* self);
-    friend int QSaveFile_QBaseSenderSignalIndex(const QSaveFile* self);
+    friend int QSaveFile_SuperSenderSignalIndex(const QSaveFile* self);
     friend int QSaveFile_Receivers(const QSaveFile* self, const char* signal);
-    friend int QSaveFile_QBaseReceivers(const QSaveFile* self, const char* signal);
+    friend int QSaveFile_SuperReceivers(const QSaveFile* self, const char* signal);
     friend bool QSaveFile_IsSignalConnected(const QSaveFile* self, const QMetaMethod* signal);
-    friend bool QSaveFile_QBaseIsSignalConnected(const QSaveFile* self, const QMetaMethod* signal);
+    friend bool QSaveFile_SuperIsSignalConnected(const QSaveFile* self, const QMetaMethod* signal);
 };
 
 #endif

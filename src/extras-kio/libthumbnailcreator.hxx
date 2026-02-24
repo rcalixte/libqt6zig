@@ -347,23 +347,23 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
 
     // Friend functions
     friend void KIO__ThumbnailCreator_TimerEvent(KIO::ThumbnailCreator* self, QTimerEvent* event);
-    friend void KIO__ThumbnailCreator_QBaseTimerEvent(KIO::ThumbnailCreator* self, QTimerEvent* event);
+    friend void KIO__ThumbnailCreator_SuperTimerEvent(KIO::ThumbnailCreator* self, QTimerEvent* event);
     friend void KIO__ThumbnailCreator_ChildEvent(KIO::ThumbnailCreator* self, QChildEvent* event);
-    friend void KIO__ThumbnailCreator_QBaseChildEvent(KIO::ThumbnailCreator* self, QChildEvent* event);
+    friend void KIO__ThumbnailCreator_SuperChildEvent(KIO::ThumbnailCreator* self, QChildEvent* event);
     friend void KIO__ThumbnailCreator_CustomEvent(KIO::ThumbnailCreator* self, QEvent* event);
-    friend void KIO__ThumbnailCreator_QBaseCustomEvent(KIO::ThumbnailCreator* self, QEvent* event);
+    friend void KIO__ThumbnailCreator_SuperCustomEvent(KIO::ThumbnailCreator* self, QEvent* event);
     friend void KIO__ThumbnailCreator_ConnectNotify(KIO::ThumbnailCreator* self, const QMetaMethod* signal);
-    friend void KIO__ThumbnailCreator_QBaseConnectNotify(KIO::ThumbnailCreator* self, const QMetaMethod* signal);
+    friend void KIO__ThumbnailCreator_SuperConnectNotify(KIO::ThumbnailCreator* self, const QMetaMethod* signal);
     friend void KIO__ThumbnailCreator_DisconnectNotify(KIO::ThumbnailCreator* self, const QMetaMethod* signal);
-    friend void KIO__ThumbnailCreator_QBaseDisconnectNotify(KIO::ThumbnailCreator* self, const QMetaMethod* signal);
+    friend void KIO__ThumbnailCreator_SuperDisconnectNotify(KIO::ThumbnailCreator* self, const QMetaMethod* signal);
     friend QObject* KIO__ThumbnailCreator_Sender(const KIO::ThumbnailCreator* self);
-    friend QObject* KIO__ThumbnailCreator_QBaseSender(const KIO::ThumbnailCreator* self);
+    friend QObject* KIO__ThumbnailCreator_SuperSender(const KIO::ThumbnailCreator* self);
     friend int KIO__ThumbnailCreator_SenderSignalIndex(const KIO::ThumbnailCreator* self);
-    friend int KIO__ThumbnailCreator_QBaseSenderSignalIndex(const KIO::ThumbnailCreator* self);
+    friend int KIO__ThumbnailCreator_SuperSenderSignalIndex(const KIO::ThumbnailCreator* self);
     friend int KIO__ThumbnailCreator_Receivers(const KIO::ThumbnailCreator* self, const char* signal);
-    friend int KIO__ThumbnailCreator_QBaseReceivers(const KIO::ThumbnailCreator* self, const char* signal);
+    friend int KIO__ThumbnailCreator_SuperReceivers(const KIO::ThumbnailCreator* self, const char* signal);
     friend bool KIO__ThumbnailCreator_IsSignalConnected(const KIO::ThumbnailCreator* self, const QMetaMethod* signal);
-    friend bool KIO__ThumbnailCreator_QBaseIsSignalConnected(const KIO::ThumbnailCreator* self, const QMetaMethod* signal);
+    friend bool KIO__ThumbnailCreator_SuperIsSignalConnected(const KIO::ThumbnailCreator* self, const QMetaMethod* signal);
 };
 
 #endif

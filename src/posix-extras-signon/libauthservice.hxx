@@ -328,23 +328,23 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
 
     // Friend functions
     friend void SignOn__AuthService_TimerEvent(SignOn::AuthService* self, QTimerEvent* event);
-    friend void SignOn__AuthService_QBaseTimerEvent(SignOn::AuthService* self, QTimerEvent* event);
+    friend void SignOn__AuthService_SuperTimerEvent(SignOn::AuthService* self, QTimerEvent* event);
     friend void SignOn__AuthService_ChildEvent(SignOn::AuthService* self, QChildEvent* event);
-    friend void SignOn__AuthService_QBaseChildEvent(SignOn::AuthService* self, QChildEvent* event);
+    friend void SignOn__AuthService_SuperChildEvent(SignOn::AuthService* self, QChildEvent* event);
     friend void SignOn__AuthService_CustomEvent(SignOn::AuthService* self, QEvent* event);
-    friend void SignOn__AuthService_QBaseCustomEvent(SignOn::AuthService* self, QEvent* event);
+    friend void SignOn__AuthService_SuperCustomEvent(SignOn::AuthService* self, QEvent* event);
     friend void SignOn__AuthService_ConnectNotify(SignOn::AuthService* self, const QMetaMethod* signal);
-    friend void SignOn__AuthService_QBaseConnectNotify(SignOn::AuthService* self, const QMetaMethod* signal);
+    friend void SignOn__AuthService_SuperConnectNotify(SignOn::AuthService* self, const QMetaMethod* signal);
     friend void SignOn__AuthService_DisconnectNotify(SignOn::AuthService* self, const QMetaMethod* signal);
-    friend void SignOn__AuthService_QBaseDisconnectNotify(SignOn::AuthService* self, const QMetaMethod* signal);
+    friend void SignOn__AuthService_SuperDisconnectNotify(SignOn::AuthService* self, const QMetaMethod* signal);
     friend QObject* SignOn__AuthService_Sender(const SignOn::AuthService* self);
-    friend QObject* SignOn__AuthService_QBaseSender(const SignOn::AuthService* self);
+    friend QObject* SignOn__AuthService_SuperSender(const SignOn::AuthService* self);
     friend int SignOn__AuthService_SenderSignalIndex(const SignOn::AuthService* self);
-    friend int SignOn__AuthService_QBaseSenderSignalIndex(const SignOn::AuthService* self);
+    friend int SignOn__AuthService_SuperSenderSignalIndex(const SignOn::AuthService* self);
     friend int SignOn__AuthService_Receivers(const SignOn::AuthService* self, const char* signal);
-    friend int SignOn__AuthService_QBaseReceivers(const SignOn::AuthService* self, const char* signal);
+    friend int SignOn__AuthService_SuperReceivers(const SignOn::AuthService* self, const char* signal);
     friend bool SignOn__AuthService_IsSignalConnected(const SignOn::AuthService* self, const QMetaMethod* signal);
-    friend bool SignOn__AuthService_QBaseIsSignalConnected(const SignOn::AuthService* self, const QMetaMethod* signal);
+    friend bool SignOn__AuthService_SuperIsSignalConnected(const SignOn::AuthService* self, const QMetaMethod* signal);
 };
 
 #endif

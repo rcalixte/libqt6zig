@@ -296,6 +296,10 @@ pub const qcursor = struct {
         qtc.QCursor_SetPos4(@ptrCast(screen), @ptrCast(p));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#dtor.QCursor)
     ///
     /// Delete this object from C++ memory.
@@ -304,7 +308,7 @@ pub const qcursor = struct {
     ///
     /// ` self: QtC.QCursor `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCursor_Delete(@ptrCast(self));
     }
 };

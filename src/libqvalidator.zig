@@ -47,6 +47,10 @@ pub const qvalidator = struct {
         qtc.QValidator_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -55,8 +59,8 @@ pub const qvalidator = struct {
     ///
     /// ` self: QtC.QValidator `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QValidator_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QValidator_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -82,6 +86,10 @@ pub const qvalidator = struct {
         qtc.QValidator_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -90,9 +98,9 @@ pub const qvalidator = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QValidator_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QValidator_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -121,6 +129,10 @@ pub const qvalidator = struct {
         qtc.QValidator_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -133,8 +145,8 @@ pub const qvalidator = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QValidator_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QValidator_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -212,6 +224,10 @@ pub const qvalidator = struct {
         qtc.QValidator_OnValidate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperValidate` instead
+    ///
+    pub const QBaseValidate = SuperValidate;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#validate)
     ///
     /// Base class method implementation
@@ -228,12 +244,12 @@ pub const qvalidator = struct {
     ///
     /// ` qvalidator_enums.State `
     ///
-    pub fn QBaseValidate(self: ?*anyopaque, param1: []const u8, param2: *i32) i32 {
+    pub fn SuperValidate(self: ?*anyopaque, param1: []const u8, param2: *i32) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        return qtc.QValidator_QBaseValidate(@ptrCast(self), param1_str, @ptrCast(param2));
+        return qtc.QValidator_SuperValidate(@ptrCast(self), param1_str, @ptrCast(param2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#fixup)
@@ -266,6 +282,10 @@ pub const qvalidator = struct {
         qtc.QValidator_OnFixup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFixup` instead
+    ///
+    pub const QBaseFixup = SuperFixup;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#fixup)
     ///
     /// Base class method implementation
@@ -276,12 +296,12 @@ pub const qvalidator = struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn QBaseFixup(self: ?*anyopaque, param1: []const u8) void {
+    pub fn SuperFixup(self: ?*anyopaque, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        qtc.QValidator_QBaseFixup(@ptrCast(self), param1_str);
+        qtc.QValidator_SuperFixup(@ptrCast(self), param1_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#changed)
@@ -1102,6 +1122,10 @@ pub const qvalidator = struct {
         return qtc.QValidator_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1114,8 +1138,8 @@ pub const qvalidator = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QValidator_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QValidator_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1152,6 +1176,10 @@ pub const qvalidator = struct {
         return qtc.QValidator_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1166,8 +1194,8 @@ pub const qvalidator = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QValidator_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QValidator_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1202,6 +1230,10 @@ pub const qvalidator = struct {
         qtc.QValidator_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1214,8 +1246,8 @@ pub const qvalidator = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QValidator_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QValidator_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1250,6 +1282,10 @@ pub const qvalidator = struct {
         qtc.QValidator_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1262,8 +1298,8 @@ pub const qvalidator = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QValidator_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QValidator_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1298,6 +1334,10 @@ pub const qvalidator = struct {
         qtc.QValidator_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1310,8 +1350,8 @@ pub const qvalidator = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QValidator_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QValidator_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1346,6 +1386,10 @@ pub const qvalidator = struct {
         qtc.QValidator_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1358,8 +1402,8 @@ pub const qvalidator = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QValidator_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QValidator_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1394,6 +1438,10 @@ pub const qvalidator = struct {
         qtc.QValidator_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1406,8 +1454,8 @@ pub const qvalidator = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QValidator_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QValidator_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1440,6 +1488,10 @@ pub const qvalidator = struct {
         return qtc.QValidator_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1450,8 +1502,8 @@ pub const qvalidator = struct {
     ///
     /// ` self: QtC.QValidator `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QValidator_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QValidator_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1484,6 +1536,10 @@ pub const qvalidator = struct {
         return qtc.QValidator_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1494,8 +1550,8 @@ pub const qvalidator = struct {
     ///
     /// ` self: QtC.QValidator `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QValidator_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QValidator_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1531,6 +1587,10 @@ pub const qvalidator = struct {
         return qtc.QValidator_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1543,9 +1603,9 @@ pub const qvalidator = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QValidator_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QValidator_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1580,6 +1640,10 @@ pub const qvalidator = struct {
         return qtc.QValidator_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -1592,8 +1656,8 @@ pub const qvalidator = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QValidator_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QValidator_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1627,6 +1691,9 @@ pub const qvalidator = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#dtor.QValidator)
     ///
@@ -1636,7 +1703,7 @@ pub const qvalidator = struct {
     ///
     /// ` self: QtC.QValidator `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QValidator_Delete(@ptrCast(self));
     }
 };
@@ -1709,6 +1776,10 @@ pub const qintvalidator = struct {
         qtc.QIntValidator_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -1717,8 +1788,8 @@ pub const qintvalidator = struct {
     ///
     /// ` self: QtC.QIntValidator `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QIntValidator_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QIntValidator_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -1744,6 +1815,10 @@ pub const qintvalidator = struct {
         qtc.QIntValidator_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -1752,9 +1827,9 @@ pub const qintvalidator = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QIntValidator_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QIntValidator_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -1783,6 +1858,10 @@ pub const qintvalidator = struct {
         qtc.QIntValidator_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -1795,8 +1874,8 @@ pub const qintvalidator = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QIntValidator_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QIntValidator_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1852,6 +1931,10 @@ pub const qintvalidator = struct {
         qtc.QIntValidator_OnValidate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperValidate` instead
+    ///
+    pub const QBaseValidate = SuperValidate;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#validate)
     ///
     /// Base class method implementation
@@ -1868,12 +1951,12 @@ pub const qintvalidator = struct {
     ///
     /// ` qvalidator_enums.State `
     ///
-    pub fn QBaseValidate(self: ?*anyopaque, param1: []const u8, param2: *i32) i32 {
+    pub fn SuperValidate(self: ?*anyopaque, param1: []const u8, param2: *i32) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        return qtc.QIntValidator_QBaseValidate(@ptrCast(self), param1_str, @ptrCast(param2));
+        return qtc.QIntValidator_SuperValidate(@ptrCast(self), param1_str, @ptrCast(param2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#fixup)
@@ -1906,6 +1989,10 @@ pub const qintvalidator = struct {
         qtc.QIntValidator_OnFixup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFixup` instead
+    ///
+    pub const QBaseFixup = SuperFixup;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#fixup)
     ///
     /// Base class method implementation
@@ -1916,12 +2003,12 @@ pub const qintvalidator = struct {
     ///
     /// ` input: []const u8 `
     ///
-    pub fn QBaseFixup(self: ?*anyopaque, input: []const u8) void {
+    pub fn SuperFixup(self: ?*anyopaque, input: []const u8) void {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
-        qtc.QIntValidator_QBaseFixup(@ptrCast(self), input_str);
+        qtc.QIntValidator_SuperFixup(@ptrCast(self), input_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#setBottom)
@@ -2878,6 +2965,10 @@ pub const qintvalidator = struct {
         return qtc.QIntValidator_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -2890,8 +2981,8 @@ pub const qintvalidator = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QIntValidator_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QIntValidator_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2928,6 +3019,10 @@ pub const qintvalidator = struct {
         return qtc.QIntValidator_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -2942,8 +3037,8 @@ pub const qintvalidator = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QIntValidator_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QIntValidator_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2978,6 +3073,10 @@ pub const qintvalidator = struct {
         qtc.QIntValidator_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -2990,8 +3089,8 @@ pub const qintvalidator = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QIntValidator_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QIntValidator_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3026,6 +3125,10 @@ pub const qintvalidator = struct {
         qtc.QIntValidator_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -3038,8 +3141,8 @@ pub const qintvalidator = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QIntValidator_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QIntValidator_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3074,6 +3177,10 @@ pub const qintvalidator = struct {
         qtc.QIntValidator_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -3086,8 +3193,8 @@ pub const qintvalidator = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QIntValidator_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QIntValidator_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3122,6 +3229,10 @@ pub const qintvalidator = struct {
         qtc.QIntValidator_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3134,8 +3245,8 @@ pub const qintvalidator = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QIntValidator_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QIntValidator_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3170,6 +3281,10 @@ pub const qintvalidator = struct {
         qtc.QIntValidator_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -3182,8 +3297,8 @@ pub const qintvalidator = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QIntValidator_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QIntValidator_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3216,6 +3331,10 @@ pub const qintvalidator = struct {
         return qtc.QIntValidator_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -3226,8 +3345,8 @@ pub const qintvalidator = struct {
     ///
     /// ` self: QtC.QIntValidator `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QIntValidator_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QIntValidator_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3260,6 +3379,10 @@ pub const qintvalidator = struct {
         return qtc.QIntValidator_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -3270,8 +3393,8 @@ pub const qintvalidator = struct {
     ///
     /// ` self: QtC.QIntValidator `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QIntValidator_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QIntValidator_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3307,6 +3430,10 @@ pub const qintvalidator = struct {
         return qtc.QIntValidator_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -3319,9 +3446,9 @@ pub const qintvalidator = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QIntValidator_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QIntValidator_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3356,6 +3483,10 @@ pub const qintvalidator = struct {
         return qtc.QIntValidator_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -3368,8 +3499,8 @@ pub const qintvalidator = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QIntValidator_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QIntValidator_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3403,6 +3534,9 @@ pub const qintvalidator = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qintvalidator.html#dtor.QIntValidator)
     ///
@@ -3412,7 +3546,7 @@ pub const qintvalidator = struct {
     ///
     /// ` self: QtC.QIntValidator `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QIntValidator_Delete(@ptrCast(self));
     }
 };
@@ -3489,6 +3623,10 @@ pub const qdoublevalidator = struct {
         qtc.QDoubleValidator_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -3497,8 +3635,8 @@ pub const qdoublevalidator = struct {
     ///
     /// ` self: QtC.QDoubleValidator `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QDoubleValidator_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QDoubleValidator_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -3524,6 +3662,10 @@ pub const qdoublevalidator = struct {
         qtc.QDoubleValidator_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -3532,9 +3674,9 @@ pub const qdoublevalidator = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QDoubleValidator_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QDoubleValidator_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -3563,6 +3705,10 @@ pub const qdoublevalidator = struct {
         qtc.QDoubleValidator_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -3575,8 +3721,8 @@ pub const qdoublevalidator = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDoubleValidator_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QDoubleValidator_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -3632,6 +3778,10 @@ pub const qdoublevalidator = struct {
         qtc.QDoubleValidator_OnValidate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperValidate` instead
+    ///
+    pub const QBaseValidate = SuperValidate;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#validate)
     ///
     /// Base class method implementation
@@ -3648,12 +3798,12 @@ pub const qdoublevalidator = struct {
     ///
     /// ` qvalidator_enums.State `
     ///
-    pub fn QBaseValidate(self: ?*anyopaque, param1: []const u8, param2: *i32) i32 {
+    pub fn SuperValidate(self: ?*anyopaque, param1: []const u8, param2: *i32) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        return qtc.QDoubleValidator_QBaseValidate(@ptrCast(self), param1_str, @ptrCast(param2));
+        return qtc.QDoubleValidator_SuperValidate(@ptrCast(self), param1_str, @ptrCast(param2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#fixup)
@@ -3686,6 +3836,10 @@ pub const qdoublevalidator = struct {
         qtc.QDoubleValidator_OnFixup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFixup` instead
+    ///
+    pub const QBaseFixup = SuperFixup;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#fixup)
     ///
     /// Base class method implementation
@@ -3696,12 +3850,12 @@ pub const qdoublevalidator = struct {
     ///
     /// ` input: []const u8 `
     ///
-    pub fn QBaseFixup(self: ?*anyopaque, input: []const u8) void {
+    pub fn SuperFixup(self: ?*anyopaque, input: []const u8) void {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
-        qtc.QDoubleValidator_QBaseFixup(@ptrCast(self), input_str);
+        qtc.QDoubleValidator_SuperFixup(@ptrCast(self), input_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#setRange)
@@ -4770,6 +4924,10 @@ pub const qdoublevalidator = struct {
         return qtc.QDoubleValidator_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -4782,8 +4940,8 @@ pub const qdoublevalidator = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDoubleValidator_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QDoubleValidator_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4820,6 +4978,10 @@ pub const qdoublevalidator = struct {
         return qtc.QDoubleValidator_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -4834,8 +4996,8 @@ pub const qdoublevalidator = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDoubleValidator_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QDoubleValidator_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4870,6 +5032,10 @@ pub const qdoublevalidator = struct {
         qtc.QDoubleValidator_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -4882,8 +5048,8 @@ pub const qdoublevalidator = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDoubleValidator_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QDoubleValidator_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4918,6 +5084,10 @@ pub const qdoublevalidator = struct {
         qtc.QDoubleValidator_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -4930,8 +5100,8 @@ pub const qdoublevalidator = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDoubleValidator_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QDoubleValidator_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4966,6 +5136,10 @@ pub const qdoublevalidator = struct {
         qtc.QDoubleValidator_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -4978,8 +5152,8 @@ pub const qdoublevalidator = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDoubleValidator_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QDoubleValidator_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -5014,6 +5188,10 @@ pub const qdoublevalidator = struct {
         qtc.QDoubleValidator_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -5026,8 +5204,8 @@ pub const qdoublevalidator = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDoubleValidator_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QDoubleValidator_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -5062,6 +5240,10 @@ pub const qdoublevalidator = struct {
         qtc.QDoubleValidator_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -5074,8 +5256,8 @@ pub const qdoublevalidator = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDoubleValidator_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QDoubleValidator_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -5108,6 +5290,10 @@ pub const qdoublevalidator = struct {
         return qtc.QDoubleValidator_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -5118,8 +5304,8 @@ pub const qdoublevalidator = struct {
     ///
     /// ` self: QtC.QDoubleValidator `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QDoubleValidator_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QDoubleValidator_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -5152,6 +5338,10 @@ pub const qdoublevalidator = struct {
         return qtc.QDoubleValidator_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -5162,8 +5352,8 @@ pub const qdoublevalidator = struct {
     ///
     /// ` self: QtC.QDoubleValidator `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QDoubleValidator_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QDoubleValidator_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -5199,6 +5389,10 @@ pub const qdoublevalidator = struct {
         return qtc.QDoubleValidator_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -5211,9 +5405,9 @@ pub const qdoublevalidator = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QDoubleValidator_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QDoubleValidator_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5248,6 +5442,10 @@ pub const qdoublevalidator = struct {
         return qtc.QDoubleValidator_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -5260,8 +5458,8 @@ pub const qdoublevalidator = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QDoubleValidator_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QDoubleValidator_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -5295,6 +5493,9 @@ pub const qdoublevalidator = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdoublevalidator.html#dtor.QDoubleValidator)
     ///
@@ -5304,7 +5505,7 @@ pub const qdoublevalidator = struct {
     ///
     /// ` self: QtC.QDoubleValidator `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDoubleValidator_Delete(@ptrCast(self));
     }
 };
@@ -5373,6 +5574,10 @@ pub const qregularexpressionvalidator = struct {
         qtc.QRegularExpressionValidator_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -5381,8 +5586,8 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` self: QtC.QRegularExpressionValidator `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QRegularExpressionValidator_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QRegularExpressionValidator_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -5408,6 +5613,10 @@ pub const qregularexpressionvalidator = struct {
         qtc.QRegularExpressionValidator_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -5416,9 +5625,9 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QRegularExpressionValidator_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QRegularExpressionValidator_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -5447,6 +5656,10 @@ pub const qregularexpressionvalidator = struct {
         qtc.QRegularExpressionValidator_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -5459,8 +5672,8 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QRegularExpressionValidator_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QRegularExpressionValidator_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -5516,6 +5729,10 @@ pub const qregularexpressionvalidator = struct {
         qtc.QRegularExpressionValidator_OnValidate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperValidate` instead
+    ///
+    pub const QBaseValidate = SuperValidate;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#validate)
     ///
     /// Base class method implementation
@@ -5532,12 +5749,12 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` qvalidator_enums.State `
     ///
-    pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: *i32) i32 {
+    pub fn SuperValidate(self: ?*anyopaque, input: []const u8, pos: *i32) i32 {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
-        return qtc.QRegularExpressionValidator_QBaseValidate(@ptrCast(self), input_str, @ptrCast(pos));
+        return qtc.QRegularExpressionValidator_SuperValidate(@ptrCast(self), input_str, @ptrCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#regularExpression)
@@ -6438,6 +6655,10 @@ pub const qregularexpressionvalidator = struct {
         qtc.QRegularExpressionValidator_Fixup(@ptrCast(self), param1_str);
     }
 
+    /// ### DEPRECATED: Use `SuperFixup` instead
+    ///
+    pub const QBaseFixup = SuperFixup;
+
     /// Inherited from QValidator
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalidator.html#fixup)
@@ -6450,12 +6671,12 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn QBaseFixup(self: ?*anyopaque, param1: []const u8) void {
+    pub fn SuperFixup(self: ?*anyopaque, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        qtc.QRegularExpressionValidator_QBaseFixup(@ptrCast(self), param1_str);
+        qtc.QRegularExpressionValidator_SuperFixup(@ptrCast(self), param1_str);
     }
 
     /// Inherited from QValidator
@@ -6490,6 +6711,10 @@ pub const qregularexpressionvalidator = struct {
         return qtc.QRegularExpressionValidator_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -6502,8 +6727,8 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QRegularExpressionValidator_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QRegularExpressionValidator_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -6540,6 +6765,10 @@ pub const qregularexpressionvalidator = struct {
         return qtc.QRegularExpressionValidator_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -6554,8 +6783,8 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QRegularExpressionValidator_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QRegularExpressionValidator_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -6590,6 +6819,10 @@ pub const qregularexpressionvalidator = struct {
         qtc.QRegularExpressionValidator_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -6602,8 +6835,8 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QRegularExpressionValidator_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QRegularExpressionValidator_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -6638,6 +6871,10 @@ pub const qregularexpressionvalidator = struct {
         qtc.QRegularExpressionValidator_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -6650,8 +6887,8 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QRegularExpressionValidator_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QRegularExpressionValidator_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -6686,6 +6923,10 @@ pub const qregularexpressionvalidator = struct {
         qtc.QRegularExpressionValidator_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -6698,8 +6939,8 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QRegularExpressionValidator_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QRegularExpressionValidator_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -6734,6 +6975,10 @@ pub const qregularexpressionvalidator = struct {
         qtc.QRegularExpressionValidator_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -6746,8 +6991,8 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QRegularExpressionValidator_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QRegularExpressionValidator_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -6782,6 +7027,10 @@ pub const qregularexpressionvalidator = struct {
         qtc.QRegularExpressionValidator_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -6794,8 +7043,8 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QRegularExpressionValidator_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QRegularExpressionValidator_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -6828,6 +7077,10 @@ pub const qregularexpressionvalidator = struct {
         return qtc.QRegularExpressionValidator_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -6838,8 +7091,8 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` self: QtC.QRegularExpressionValidator `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QRegularExpressionValidator_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QRegularExpressionValidator_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -6872,6 +7125,10 @@ pub const qregularexpressionvalidator = struct {
         return qtc.QRegularExpressionValidator_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -6882,8 +7139,8 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` self: QtC.QRegularExpressionValidator `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QRegularExpressionValidator_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QRegularExpressionValidator_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -6919,6 +7176,10 @@ pub const qregularexpressionvalidator = struct {
         return qtc.QRegularExpressionValidator_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -6931,9 +7192,9 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QRegularExpressionValidator_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QRegularExpressionValidator_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -6968,6 +7229,10 @@ pub const qregularexpressionvalidator = struct {
         return qtc.QRegularExpressionValidator_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -6980,8 +7245,8 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QRegularExpressionValidator_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QRegularExpressionValidator_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -7015,6 +7280,9 @@ pub const qregularexpressionvalidator = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#dtor.QRegularExpressionValidator)
     ///
@@ -7024,7 +7292,7 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ` self: QtC.QRegularExpressionValidator `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QRegularExpressionValidator_Delete(@ptrCast(self));
     }
 };

@@ -328,23 +328,23 @@ class VirtualQUndoGroup final : public QUndoGroup {
 
     // Friend functions
     friend void QUndoGroup_TimerEvent(QUndoGroup* self, QTimerEvent* event);
-    friend void QUndoGroup_QBaseTimerEvent(QUndoGroup* self, QTimerEvent* event);
+    friend void QUndoGroup_SuperTimerEvent(QUndoGroup* self, QTimerEvent* event);
     friend void QUndoGroup_ChildEvent(QUndoGroup* self, QChildEvent* event);
-    friend void QUndoGroup_QBaseChildEvent(QUndoGroup* self, QChildEvent* event);
+    friend void QUndoGroup_SuperChildEvent(QUndoGroup* self, QChildEvent* event);
     friend void QUndoGroup_CustomEvent(QUndoGroup* self, QEvent* event);
-    friend void QUndoGroup_QBaseCustomEvent(QUndoGroup* self, QEvent* event);
+    friend void QUndoGroup_SuperCustomEvent(QUndoGroup* self, QEvent* event);
     friend void QUndoGroup_ConnectNotify(QUndoGroup* self, const QMetaMethod* signal);
-    friend void QUndoGroup_QBaseConnectNotify(QUndoGroup* self, const QMetaMethod* signal);
+    friend void QUndoGroup_SuperConnectNotify(QUndoGroup* self, const QMetaMethod* signal);
     friend void QUndoGroup_DisconnectNotify(QUndoGroup* self, const QMetaMethod* signal);
-    friend void QUndoGroup_QBaseDisconnectNotify(QUndoGroup* self, const QMetaMethod* signal);
+    friend void QUndoGroup_SuperDisconnectNotify(QUndoGroup* self, const QMetaMethod* signal);
     friend QObject* QUndoGroup_Sender(const QUndoGroup* self);
-    friend QObject* QUndoGroup_QBaseSender(const QUndoGroup* self);
+    friend QObject* QUndoGroup_SuperSender(const QUndoGroup* self);
     friend int QUndoGroup_SenderSignalIndex(const QUndoGroup* self);
-    friend int QUndoGroup_QBaseSenderSignalIndex(const QUndoGroup* self);
+    friend int QUndoGroup_SuperSenderSignalIndex(const QUndoGroup* self);
     friend int QUndoGroup_Receivers(const QUndoGroup* self, const char* signal);
-    friend int QUndoGroup_QBaseReceivers(const QUndoGroup* self, const char* signal);
+    friend int QUndoGroup_SuperReceivers(const QUndoGroup* self, const char* signal);
     friend bool QUndoGroup_IsSignalConnected(const QUndoGroup* self, const QMetaMethod* signal);
-    friend bool QUndoGroup_QBaseIsSignalConnected(const QUndoGroup* self, const QMetaMethod* signal);
+    friend bool QUndoGroup_SuperIsSignalConnected(const QUndoGroup* self, const QMetaMethod* signal);
 };
 
 #endif

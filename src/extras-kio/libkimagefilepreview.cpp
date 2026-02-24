@@ -130,7 +130,7 @@ KIO__PreviewJob* KImageFilePreview_CreateJob(KImageFilePreview* self, const QUrl
 }
 
 // Base class handler implementation
-QMetaObject* KImageFilePreview_QBaseMetaObject(const KImageFilePreview* self) {
+QMetaObject* KImageFilePreview_SuperMetaObject(const KImageFilePreview* self) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_MetaObject_IsBase(true);
@@ -149,7 +149,7 @@ void KImageFilePreview_OnMetaObject(const KImageFilePreview* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* KImageFilePreview_QBaseMetacast(KImageFilePreview* self, const char* param1) {
+void* KImageFilePreview_SuperMetacast(KImageFilePreview* self, const char* param1) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_Metacast_IsBase(true);
@@ -168,7 +168,7 @@ void KImageFilePreview_OnMetacast(KImageFilePreview* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KImageFilePreview_QBaseMetacall(KImageFilePreview* self, int param1, int param2, void** param3) {
+int KImageFilePreview_SuperMetacall(KImageFilePreview* self, int param1, int param2, void** param3) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_Metacall_IsBase(true);
@@ -187,7 +187,7 @@ void KImageFilePreview_OnMetacall(KImageFilePreview* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* KImageFilePreview_QBaseSizeHint(const KImageFilePreview* self) {
+QSize* KImageFilePreview_SuperSizeHint(const KImageFilePreview* self) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_SizeHint_IsBase(true);
@@ -206,7 +206,7 @@ void KImageFilePreview_OnSizeHint(const KImageFilePreview* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseShowPreview(KImageFilePreview* self, const QUrl* url) {
+void KImageFilePreview_SuperShowPreview(KImageFilePreview* self, const QUrl* url) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_ShowPreview_IsBase(true);
@@ -225,7 +225,7 @@ void KImageFilePreview_OnShowPreview(KImageFilePreview* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseClearPreview(KImageFilePreview* self) {
+void KImageFilePreview_SuperClearPreview(KImageFilePreview* self) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_ClearPreview_IsBase(true);
@@ -244,7 +244,7 @@ void KImageFilePreview_OnClearPreview(KImageFilePreview* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseGotPreview(KImageFilePreview* self, const KFileItem* param1, const QPixmap* param2) {
+void KImageFilePreview_SuperGotPreview(KImageFilePreview* self, const KFileItem* param1, const QPixmap* param2) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_GotPreview_IsBase(true);
@@ -263,7 +263,7 @@ void KImageFilePreview_OnGotPreview(KImageFilePreview* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseResizeEvent(KImageFilePreview* self, QResizeEvent* event) {
+void KImageFilePreview_SuperResizeEvent(KImageFilePreview* self, QResizeEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_ResizeEvent_IsBase(true);
@@ -282,7 +282,7 @@ void KImageFilePreview_OnResizeEvent(KImageFilePreview* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KIO__PreviewJob* KImageFilePreview_QBaseCreateJob(KImageFilePreview* self, const QUrl* url, int width, int height) {
+KIO__PreviewJob* KImageFilePreview_SuperCreateJob(KImageFilePreview* self, const QUrl* url, int width, int height) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_CreateJob_IsBase(true);
@@ -311,7 +311,7 @@ int KImageFilePreview_DevType(const KImageFilePreview* self) {
 }
 
 // Base class handler implementation
-int KImageFilePreview_QBaseDevType(const KImageFilePreview* self) {
+int KImageFilePreview_SuperDevType(const KImageFilePreview* self) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_DevType_IsBase(true);
@@ -340,7 +340,7 @@ void KImageFilePreview_SetVisible(KImageFilePreview* self, bool visible) {
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseSetVisible(KImageFilePreview* self, bool visible) {
+void KImageFilePreview_SuperSetVisible(KImageFilePreview* self, bool visible) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_SetVisible_IsBase(true);
@@ -369,7 +369,7 @@ QSize* KImageFilePreview_MinimumSizeHint(const KImageFilePreview* self) {
 }
 
 // Base class handler implementation
-QSize* KImageFilePreview_QBaseMinimumSizeHint(const KImageFilePreview* self) {
+QSize* KImageFilePreview_SuperMinimumSizeHint(const KImageFilePreview* self) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_MinimumSizeHint_IsBase(true);
@@ -398,7 +398,7 @@ int KImageFilePreview_HeightForWidth(const KImageFilePreview* self, int param1) 
 }
 
 // Base class handler implementation
-int KImageFilePreview_QBaseHeightForWidth(const KImageFilePreview* self, int param1) {
+int KImageFilePreview_SuperHeightForWidth(const KImageFilePreview* self, int param1) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_HeightForWidth_IsBase(true);
@@ -427,7 +427,7 @@ bool KImageFilePreview_HasHeightForWidth(const KImageFilePreview* self) {
 }
 
 // Base class handler implementation
-bool KImageFilePreview_QBaseHasHeightForWidth(const KImageFilePreview* self) {
+bool KImageFilePreview_SuperHasHeightForWidth(const KImageFilePreview* self) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_HasHeightForWidth_IsBase(true);
@@ -456,7 +456,7 @@ QPaintEngine* KImageFilePreview_PaintEngine(const KImageFilePreview* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KImageFilePreview_QBasePaintEngine(const KImageFilePreview* self) {
+QPaintEngine* KImageFilePreview_SuperPaintEngine(const KImageFilePreview* self) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_PaintEngine_IsBase(true);
@@ -485,7 +485,7 @@ bool KImageFilePreview_Event(KImageFilePreview* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KImageFilePreview_QBaseEvent(KImageFilePreview* self, QEvent* event) {
+bool KImageFilePreview_SuperEvent(KImageFilePreview* self, QEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_Event_IsBase(true);
@@ -514,7 +514,7 @@ void KImageFilePreview_MousePressEvent(KImageFilePreview* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseMousePressEvent(KImageFilePreview* self, QMouseEvent* event) {
+void KImageFilePreview_SuperMousePressEvent(KImageFilePreview* self, QMouseEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_MousePressEvent_IsBase(true);
@@ -543,7 +543,7 @@ void KImageFilePreview_MouseReleaseEvent(KImageFilePreview* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseMouseReleaseEvent(KImageFilePreview* self, QMouseEvent* event) {
+void KImageFilePreview_SuperMouseReleaseEvent(KImageFilePreview* self, QMouseEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_MouseReleaseEvent_IsBase(true);
@@ -572,7 +572,7 @@ void KImageFilePreview_MouseDoubleClickEvent(KImageFilePreview* self, QMouseEven
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseMouseDoubleClickEvent(KImageFilePreview* self, QMouseEvent* event) {
+void KImageFilePreview_SuperMouseDoubleClickEvent(KImageFilePreview* self, QMouseEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_MouseDoubleClickEvent_IsBase(true);
@@ -601,7 +601,7 @@ void KImageFilePreview_MouseMoveEvent(KImageFilePreview* self, QMouseEvent* even
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseMouseMoveEvent(KImageFilePreview* self, QMouseEvent* event) {
+void KImageFilePreview_SuperMouseMoveEvent(KImageFilePreview* self, QMouseEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_MouseMoveEvent_IsBase(true);
@@ -630,7 +630,7 @@ void KImageFilePreview_WheelEvent(KImageFilePreview* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseWheelEvent(KImageFilePreview* self, QWheelEvent* event) {
+void KImageFilePreview_SuperWheelEvent(KImageFilePreview* self, QWheelEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_WheelEvent_IsBase(true);
@@ -659,7 +659,7 @@ void KImageFilePreview_KeyPressEvent(KImageFilePreview* self, QKeyEvent* event) 
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseKeyPressEvent(KImageFilePreview* self, QKeyEvent* event) {
+void KImageFilePreview_SuperKeyPressEvent(KImageFilePreview* self, QKeyEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_KeyPressEvent_IsBase(true);
@@ -688,7 +688,7 @@ void KImageFilePreview_KeyReleaseEvent(KImageFilePreview* self, QKeyEvent* event
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseKeyReleaseEvent(KImageFilePreview* self, QKeyEvent* event) {
+void KImageFilePreview_SuperKeyReleaseEvent(KImageFilePreview* self, QKeyEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_KeyReleaseEvent_IsBase(true);
@@ -717,7 +717,7 @@ void KImageFilePreview_FocusInEvent(KImageFilePreview* self, QFocusEvent* event)
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseFocusInEvent(KImageFilePreview* self, QFocusEvent* event) {
+void KImageFilePreview_SuperFocusInEvent(KImageFilePreview* self, QFocusEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_FocusInEvent_IsBase(true);
@@ -746,7 +746,7 @@ void KImageFilePreview_FocusOutEvent(KImageFilePreview* self, QFocusEvent* event
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseFocusOutEvent(KImageFilePreview* self, QFocusEvent* event) {
+void KImageFilePreview_SuperFocusOutEvent(KImageFilePreview* self, QFocusEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_FocusOutEvent_IsBase(true);
@@ -775,7 +775,7 @@ void KImageFilePreview_EnterEvent(KImageFilePreview* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseEnterEvent(KImageFilePreview* self, QEnterEvent* event) {
+void KImageFilePreview_SuperEnterEvent(KImageFilePreview* self, QEnterEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_EnterEvent_IsBase(true);
@@ -804,7 +804,7 @@ void KImageFilePreview_LeaveEvent(KImageFilePreview* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseLeaveEvent(KImageFilePreview* self, QEvent* event) {
+void KImageFilePreview_SuperLeaveEvent(KImageFilePreview* self, QEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_LeaveEvent_IsBase(true);
@@ -833,7 +833,7 @@ void KImageFilePreview_PaintEvent(KImageFilePreview* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBasePaintEvent(KImageFilePreview* self, QPaintEvent* event) {
+void KImageFilePreview_SuperPaintEvent(KImageFilePreview* self, QPaintEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_PaintEvent_IsBase(true);
@@ -862,7 +862,7 @@ void KImageFilePreview_MoveEvent(KImageFilePreview* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseMoveEvent(KImageFilePreview* self, QMoveEvent* event) {
+void KImageFilePreview_SuperMoveEvent(KImageFilePreview* self, QMoveEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_MoveEvent_IsBase(true);
@@ -891,7 +891,7 @@ void KImageFilePreview_CloseEvent(KImageFilePreview* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseCloseEvent(KImageFilePreview* self, QCloseEvent* event) {
+void KImageFilePreview_SuperCloseEvent(KImageFilePreview* self, QCloseEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_CloseEvent_IsBase(true);
@@ -920,7 +920,7 @@ void KImageFilePreview_ContextMenuEvent(KImageFilePreview* self, QContextMenuEve
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseContextMenuEvent(KImageFilePreview* self, QContextMenuEvent* event) {
+void KImageFilePreview_SuperContextMenuEvent(KImageFilePreview* self, QContextMenuEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_ContextMenuEvent_IsBase(true);
@@ -949,7 +949,7 @@ void KImageFilePreview_TabletEvent(KImageFilePreview* self, QTabletEvent* event)
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseTabletEvent(KImageFilePreview* self, QTabletEvent* event) {
+void KImageFilePreview_SuperTabletEvent(KImageFilePreview* self, QTabletEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_TabletEvent_IsBase(true);
@@ -978,7 +978,7 @@ void KImageFilePreview_ActionEvent(KImageFilePreview* self, QActionEvent* event)
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseActionEvent(KImageFilePreview* self, QActionEvent* event) {
+void KImageFilePreview_SuperActionEvent(KImageFilePreview* self, QActionEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_ActionEvent_IsBase(true);
@@ -1007,7 +1007,7 @@ void KImageFilePreview_DragEnterEvent(KImageFilePreview* self, QDragEnterEvent* 
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseDragEnterEvent(KImageFilePreview* self, QDragEnterEvent* event) {
+void KImageFilePreview_SuperDragEnterEvent(KImageFilePreview* self, QDragEnterEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_DragEnterEvent_IsBase(true);
@@ -1036,7 +1036,7 @@ void KImageFilePreview_DragMoveEvent(KImageFilePreview* self, QDragMoveEvent* ev
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseDragMoveEvent(KImageFilePreview* self, QDragMoveEvent* event) {
+void KImageFilePreview_SuperDragMoveEvent(KImageFilePreview* self, QDragMoveEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_DragMoveEvent_IsBase(true);
@@ -1065,7 +1065,7 @@ void KImageFilePreview_DragLeaveEvent(KImageFilePreview* self, QDragLeaveEvent* 
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseDragLeaveEvent(KImageFilePreview* self, QDragLeaveEvent* event) {
+void KImageFilePreview_SuperDragLeaveEvent(KImageFilePreview* self, QDragLeaveEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_DragLeaveEvent_IsBase(true);
@@ -1094,7 +1094,7 @@ void KImageFilePreview_DropEvent(KImageFilePreview* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseDropEvent(KImageFilePreview* self, QDropEvent* event) {
+void KImageFilePreview_SuperDropEvent(KImageFilePreview* self, QDropEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_DropEvent_IsBase(true);
@@ -1123,7 +1123,7 @@ void KImageFilePreview_ShowEvent(KImageFilePreview* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseShowEvent(KImageFilePreview* self, QShowEvent* event) {
+void KImageFilePreview_SuperShowEvent(KImageFilePreview* self, QShowEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_ShowEvent_IsBase(true);
@@ -1152,7 +1152,7 @@ void KImageFilePreview_HideEvent(KImageFilePreview* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseHideEvent(KImageFilePreview* self, QHideEvent* event) {
+void KImageFilePreview_SuperHideEvent(KImageFilePreview* self, QHideEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_HideEvent_IsBase(true);
@@ -1182,7 +1182,7 @@ bool KImageFilePreview_NativeEvent(KImageFilePreview* self, const libqt_string e
 }
 
 // Base class handler implementation
-bool KImageFilePreview_QBaseNativeEvent(KImageFilePreview* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KImageFilePreview_SuperNativeEvent(KImageFilePreview* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
@@ -1212,7 +1212,7 @@ void KImageFilePreview_ChangeEvent(KImageFilePreview* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseChangeEvent(KImageFilePreview* self, QEvent* param1) {
+void KImageFilePreview_SuperChangeEvent(KImageFilePreview* self, QEvent* param1) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_ChangeEvent_IsBase(true);
@@ -1241,7 +1241,7 @@ int KImageFilePreview_Metric(const KImageFilePreview* self, int param1) {
 }
 
 // Base class handler implementation
-int KImageFilePreview_QBaseMetric(const KImageFilePreview* self, int param1) {
+int KImageFilePreview_SuperMetric(const KImageFilePreview* self, int param1) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_Metric_IsBase(true);
@@ -1270,7 +1270,7 @@ void KImageFilePreview_InitPainter(const KImageFilePreview* self, QPainter* pain
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseInitPainter(const KImageFilePreview* self, QPainter* painter) {
+void KImageFilePreview_SuperInitPainter(const KImageFilePreview* self, QPainter* painter) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_InitPainter_IsBase(true);
@@ -1299,7 +1299,7 @@ QPaintDevice* KImageFilePreview_Redirected(const KImageFilePreview* self, QPoint
 }
 
 // Base class handler implementation
-QPaintDevice* KImageFilePreview_QBaseRedirected(const KImageFilePreview* self, QPoint* offset) {
+QPaintDevice* KImageFilePreview_SuperRedirected(const KImageFilePreview* self, QPoint* offset) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_Redirected_IsBase(true);
@@ -1328,7 +1328,7 @@ QPainter* KImageFilePreview_SharedPainter(const KImageFilePreview* self) {
 }
 
 // Base class handler implementation
-QPainter* KImageFilePreview_QBaseSharedPainter(const KImageFilePreview* self) {
+QPainter* KImageFilePreview_SuperSharedPainter(const KImageFilePreview* self) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_SharedPainter_IsBase(true);
@@ -1357,7 +1357,7 @@ void KImageFilePreview_InputMethodEvent(KImageFilePreview* self, QInputMethodEve
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseInputMethodEvent(KImageFilePreview* self, QInputMethodEvent* param1) {
+void KImageFilePreview_SuperInputMethodEvent(KImageFilePreview* self, QInputMethodEvent* param1) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_InputMethodEvent_IsBase(true);
@@ -1386,7 +1386,7 @@ QVariant* KImageFilePreview_InputMethodQuery(const KImageFilePreview* self, int 
 }
 
 // Base class handler implementation
-QVariant* KImageFilePreview_QBaseInputMethodQuery(const KImageFilePreview* self, int param1) {
+QVariant* KImageFilePreview_SuperInputMethodQuery(const KImageFilePreview* self, int param1) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_InputMethodQuery_IsBase(true);
@@ -1415,7 +1415,7 @@ bool KImageFilePreview_FocusNextPrevChild(KImageFilePreview* self, bool next) {
 }
 
 // Base class handler implementation
-bool KImageFilePreview_QBaseFocusNextPrevChild(KImageFilePreview* self, bool next) {
+bool KImageFilePreview_SuperFocusNextPrevChild(KImageFilePreview* self, bool next) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_FocusNextPrevChild_IsBase(true);
@@ -1444,7 +1444,7 @@ bool KImageFilePreview_EventFilter(KImageFilePreview* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool KImageFilePreview_QBaseEventFilter(KImageFilePreview* self, QObject* watched, QEvent* event) {
+bool KImageFilePreview_SuperEventFilter(KImageFilePreview* self, QObject* watched, QEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_EventFilter_IsBase(true);
@@ -1473,7 +1473,7 @@ void KImageFilePreview_TimerEvent(KImageFilePreview* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseTimerEvent(KImageFilePreview* self, QTimerEvent* event) {
+void KImageFilePreview_SuperTimerEvent(KImageFilePreview* self, QTimerEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_TimerEvent_IsBase(true);
@@ -1502,7 +1502,7 @@ void KImageFilePreview_ChildEvent(KImageFilePreview* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseChildEvent(KImageFilePreview* self, QChildEvent* event) {
+void KImageFilePreview_SuperChildEvent(KImageFilePreview* self, QChildEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_ChildEvent_IsBase(true);
@@ -1531,7 +1531,7 @@ void KImageFilePreview_CustomEvent(KImageFilePreview* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseCustomEvent(KImageFilePreview* self, QEvent* event) {
+void KImageFilePreview_SuperCustomEvent(KImageFilePreview* self, QEvent* event) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_CustomEvent_IsBase(true);
@@ -1560,7 +1560,7 @@ void KImageFilePreview_ConnectNotify(KImageFilePreview* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseConnectNotify(KImageFilePreview* self, const QMetaMethod* signal) {
+void KImageFilePreview_SuperConnectNotify(KImageFilePreview* self, const QMetaMethod* signal) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_ConnectNotify_IsBase(true);
@@ -1589,7 +1589,7 @@ void KImageFilePreview_DisconnectNotify(KImageFilePreview* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseDisconnectNotify(KImageFilePreview* self, const QMetaMethod* signal) {
+void KImageFilePreview_SuperDisconnectNotify(KImageFilePreview* self, const QMetaMethod* signal) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_DisconnectNotify_IsBase(true);
@@ -1618,7 +1618,7 @@ void KImageFilePreview_ShowPreview2(KImageFilePreview* self) {
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseShowPreview2(KImageFilePreview* self) {
+void KImageFilePreview_SuperShowPreview2(KImageFilePreview* self) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_ShowPreview2_IsBase(true);
@@ -1647,7 +1647,7 @@ void KImageFilePreview_ShowPreview3(KImageFilePreview* self, const QUrl* url, bo
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseShowPreview3(KImageFilePreview* self, const QUrl* url, bool force) {
+void KImageFilePreview_SuperShowPreview3(KImageFilePreview* self, const QUrl* url, bool force) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_ShowPreview3_IsBase(true);
@@ -1683,7 +1683,7 @@ void KImageFilePreview_SetSupportedMimeTypes(KImageFilePreview* self, const libq
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseSetSupportedMimeTypes(KImageFilePreview* self, const libqt_list /* of libqt_string */ mimeTypes) {
+void KImageFilePreview_SuperSetSupportedMimeTypes(KImageFilePreview* self, const libqt_list /* of libqt_string */ mimeTypes) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     QList<QString> mimeTypes_QList;
     mimeTypes_QList.reserve(mimeTypes.len);
@@ -1719,7 +1719,7 @@ void KImageFilePreview_UpdateMicroFocus(KImageFilePreview* self) {
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseUpdateMicroFocus(KImageFilePreview* self) {
+void KImageFilePreview_SuperUpdateMicroFocus(KImageFilePreview* self) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_UpdateMicroFocus_IsBase(true);
@@ -1748,7 +1748,7 @@ void KImageFilePreview_Create(KImageFilePreview* self) {
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseCreate(KImageFilePreview* self) {
+void KImageFilePreview_SuperCreate(KImageFilePreview* self) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_Create_IsBase(true);
@@ -1777,7 +1777,7 @@ void KImageFilePreview_Destroy(KImageFilePreview* self) {
 }
 
 // Base class handler implementation
-void KImageFilePreview_QBaseDestroy(KImageFilePreview* self) {
+void KImageFilePreview_SuperDestroy(KImageFilePreview* self) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_Destroy_IsBase(true);
@@ -1806,7 +1806,7 @@ bool KImageFilePreview_FocusNextChild(KImageFilePreview* self) {
 }
 
 // Base class handler implementation
-bool KImageFilePreview_QBaseFocusNextChild(KImageFilePreview* self) {
+bool KImageFilePreview_SuperFocusNextChild(KImageFilePreview* self) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_FocusNextChild_IsBase(true);
@@ -1835,7 +1835,7 @@ bool KImageFilePreview_FocusPreviousChild(KImageFilePreview* self) {
 }
 
 // Base class handler implementation
-bool KImageFilePreview_QBaseFocusPreviousChild(KImageFilePreview* self) {
+bool KImageFilePreview_SuperFocusPreviousChild(KImageFilePreview* self) {
     auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_FocusPreviousChild_IsBase(true);
@@ -1864,7 +1864,7 @@ QObject* KImageFilePreview_Sender(const KImageFilePreview* self) {
 }
 
 // Base class handler implementation
-QObject* KImageFilePreview_QBaseSender(const KImageFilePreview* self) {
+QObject* KImageFilePreview_SuperSender(const KImageFilePreview* self) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_Sender_IsBase(true);
@@ -1893,7 +1893,7 @@ int KImageFilePreview_SenderSignalIndex(const KImageFilePreview* self) {
 }
 
 // Base class handler implementation
-int KImageFilePreview_QBaseSenderSignalIndex(const KImageFilePreview* self) {
+int KImageFilePreview_SuperSenderSignalIndex(const KImageFilePreview* self) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_SenderSignalIndex_IsBase(true);
@@ -1922,7 +1922,7 @@ int KImageFilePreview_Receivers(const KImageFilePreview* self, const char* signa
 }
 
 // Base class handler implementation
-int KImageFilePreview_QBaseReceivers(const KImageFilePreview* self, const char* signal) {
+int KImageFilePreview_SuperReceivers(const KImageFilePreview* self, const char* signal) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_Receivers_IsBase(true);
@@ -1951,7 +1951,7 @@ bool KImageFilePreview_IsSignalConnected(const KImageFilePreview* self, const QM
 }
 
 // Base class handler implementation
-bool KImageFilePreview_QBaseIsSignalConnected(const KImageFilePreview* self, const QMetaMethod* signal) {
+bool KImageFilePreview_SuperIsSignalConnected(const KImageFilePreview* self, const QMetaMethod* signal) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_IsSignalConnected_IsBase(true);
@@ -1980,7 +1980,7 @@ double KImageFilePreview_GetDecodedMetricF(const KImageFilePreview* self, int me
 }
 
 // Base class handler implementation
-double KImageFilePreview_QBaseGetDecodedMetricF(const KImageFilePreview* self, int metricA, int metricB) {
+double KImageFilePreview_SuperGetDecodedMetricF(const KImageFilePreview* self, int metricA, int metricB) {
     auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
     if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
         vkimagefilepreview->setKImageFilePreview_GetDecodedMetricF_IsBase(true);

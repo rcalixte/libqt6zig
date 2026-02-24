@@ -749,6 +749,10 @@ pub const qfontdatabase = struct {
         return qtc.QFontDatabase_IsFixedPitch2(family_str, style_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#dtor.QFontDatabase)
     ///
     /// Delete this object from C++ memory.
@@ -757,7 +761,7 @@ pub const qfontdatabase = struct {
     ///
     /// ` self: QtC.QFontDatabase `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QFontDatabase_Delete(@ptrCast(self));
     }
 };

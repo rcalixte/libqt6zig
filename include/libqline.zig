@@ -310,6 +310,10 @@ pub const qline = struct {
         return qtc.QLine_ToLineF(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qline.html#dtor.QLine)
     ///
     /// Delete this object from C++ memory.
@@ -318,7 +322,7 @@ pub const qline = struct {
     ///
     /// ` self: QtC.QLine `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QLine_Delete(@ptrCast(self));
     }
 };
@@ -775,6 +779,10 @@ pub const qlinef = struct {
         return qtc.QLineF_Intersects2(@ptrCast(self), @ptrCast(l), @ptrCast(intersectionPoint));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#dtor.QLineF)
     ///
     /// Delete this object from C++ memory.
@@ -783,7 +791,7 @@ pub const qlinef = struct {
     ///
     /// ` self: QtC.QLineF `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QLineF_Delete(@ptrCast(self));
     }
 };

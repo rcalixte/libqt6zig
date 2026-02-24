@@ -104,7 +104,7 @@ void KUriFilterSearchProvider_OperatorAssign(KUriFilterSearchProvider* self, con
 }
 
 // Base class handler implementation
-libqt_string KUriFilterSearchProvider_QBaseIconName(const KUriFilterSearchProvider* self) {
+libqt_string KUriFilterSearchProvider_SuperIconName(const KUriFilterSearchProvider* self) {
     auto* vkurifiltersearchprovider = const_cast<VirtualKUriFilterSearchProvider*>(dynamic_cast<const VirtualKUriFilterSearchProvider*>(self));
     if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider) {
         vkurifiltersearchprovider->setKUriFilterSearchProvider_IconName_IsBase(true);
@@ -150,7 +150,7 @@ void KUriFilterSearchProvider_SetDesktopEntryName(KUriFilterSearchProvider* self
 }
 
 // Base class handler implementation
-void KUriFilterSearchProvider_QBaseSetDesktopEntryName(KUriFilterSearchProvider* self, const libqt_string desktopEntryName) {
+void KUriFilterSearchProvider_SuperSetDesktopEntryName(KUriFilterSearchProvider* self, const libqt_string desktopEntryName) {
     auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self);
     QString desktopEntryName_QString = QString::fromUtf8(desktopEntryName.data, desktopEntryName.len);
     if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider) {
@@ -181,7 +181,7 @@ void KUriFilterSearchProvider_SetIconName(KUriFilterSearchProvider* self, const 
 }
 
 // Base class handler implementation
-void KUriFilterSearchProvider_QBaseSetIconName(KUriFilterSearchProvider* self, const libqt_string iconName) {
+void KUriFilterSearchProvider_SuperSetIconName(KUriFilterSearchProvider* self, const libqt_string iconName) {
     auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self);
     QString iconName_QString = QString::fromUtf8(iconName.data, iconName.len);
     if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider) {
@@ -218,7 +218,7 @@ void KUriFilterSearchProvider_SetKeys(KUriFilterSearchProvider* self, const libq
 }
 
 // Base class handler implementation
-void KUriFilterSearchProvider_QBaseSetKeys(KUriFilterSearchProvider* self, const libqt_list /* of libqt_string */ keys) {
+void KUriFilterSearchProvider_SuperSetKeys(KUriFilterSearchProvider* self, const libqt_list /* of libqt_string */ keys) {
     auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self);
     QList<QString> keys_QList;
     keys_QList.reserve(keys.len);
@@ -255,7 +255,7 @@ void KUriFilterSearchProvider_SetName(KUriFilterSearchProvider* self, const libq
 }
 
 // Base class handler implementation
-void KUriFilterSearchProvider_QBaseSetName(KUriFilterSearchProvider* self, const libqt_string name) {
+void KUriFilterSearchProvider_SuperSetName(KUriFilterSearchProvider* self, const libqt_string name) {
     auto* vkurifiltersearchprovider = dynamic_cast<VirtualKUriFilterSearchProvider*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider) {

@@ -139,7 +139,7 @@ bool QThreadPool_WaitForDone1(QThreadPool* self, QDeadlineTimer* deadline) {
 }
 
 // Base class handler implementation
-QMetaObject* QThreadPool_QBaseMetaObject(const QThreadPool* self) {
+QMetaObject* QThreadPool_SuperMetaObject(const QThreadPool* self) {
     auto* vqthreadpool = const_cast<VirtualQThreadPool*>(dynamic_cast<const VirtualQThreadPool*>(self));
     if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
         vqthreadpool->setQThreadPool_MetaObject_IsBase(true);
@@ -158,7 +158,7 @@ void QThreadPool_OnMetaObject(const QThreadPool* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QThreadPool_QBaseMetacast(QThreadPool* self, const char* param1) {
+void* QThreadPool_SuperMetacast(QThreadPool* self, const char* param1) {
     auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
     if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
         vqthreadpool->setQThreadPool_Metacast_IsBase(true);
@@ -177,7 +177,7 @@ void QThreadPool_OnMetacast(QThreadPool* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QThreadPool_QBaseMetacall(QThreadPool* self, int param1, int param2, void** param3) {
+int QThreadPool_SuperMetacall(QThreadPool* self, int param1, int param2, void** param3) {
     auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
     if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
         vqthreadpool->setQThreadPool_Metacall_IsBase(true);
@@ -206,7 +206,7 @@ bool QThreadPool_Event(QThreadPool* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QThreadPool_QBaseEvent(QThreadPool* self, QEvent* event) {
+bool QThreadPool_SuperEvent(QThreadPool* self, QEvent* event) {
     auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
     if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
         vqthreadpool->setQThreadPool_Event_IsBase(true);
@@ -235,7 +235,7 @@ bool QThreadPool_EventFilter(QThreadPool* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QThreadPool_QBaseEventFilter(QThreadPool* self, QObject* watched, QEvent* event) {
+bool QThreadPool_SuperEventFilter(QThreadPool* self, QObject* watched, QEvent* event) {
     auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
     if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
         vqthreadpool->setQThreadPool_EventFilter_IsBase(true);
@@ -264,7 +264,7 @@ void QThreadPool_TimerEvent(QThreadPool* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QThreadPool_QBaseTimerEvent(QThreadPool* self, QTimerEvent* event) {
+void QThreadPool_SuperTimerEvent(QThreadPool* self, QTimerEvent* event) {
     auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
     if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
         vqthreadpool->setQThreadPool_TimerEvent_IsBase(true);
@@ -293,7 +293,7 @@ void QThreadPool_ChildEvent(QThreadPool* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QThreadPool_QBaseChildEvent(QThreadPool* self, QChildEvent* event) {
+void QThreadPool_SuperChildEvent(QThreadPool* self, QChildEvent* event) {
     auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
     if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
         vqthreadpool->setQThreadPool_ChildEvent_IsBase(true);
@@ -322,7 +322,7 @@ void QThreadPool_CustomEvent(QThreadPool* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QThreadPool_QBaseCustomEvent(QThreadPool* self, QEvent* event) {
+void QThreadPool_SuperCustomEvent(QThreadPool* self, QEvent* event) {
     auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
     if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
         vqthreadpool->setQThreadPool_CustomEvent_IsBase(true);
@@ -351,7 +351,7 @@ void QThreadPool_ConnectNotify(QThreadPool* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QThreadPool_QBaseConnectNotify(QThreadPool* self, const QMetaMethod* signal) {
+void QThreadPool_SuperConnectNotify(QThreadPool* self, const QMetaMethod* signal) {
     auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
     if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
         vqthreadpool->setQThreadPool_ConnectNotify_IsBase(true);
@@ -380,7 +380,7 @@ void QThreadPool_DisconnectNotify(QThreadPool* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QThreadPool_QBaseDisconnectNotify(QThreadPool* self, const QMetaMethod* signal) {
+void QThreadPool_SuperDisconnectNotify(QThreadPool* self, const QMetaMethod* signal) {
     auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
     if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
         vqthreadpool->setQThreadPool_DisconnectNotify_IsBase(true);
@@ -409,7 +409,7 @@ QObject* QThreadPool_Sender(const QThreadPool* self) {
 }
 
 // Base class handler implementation
-QObject* QThreadPool_QBaseSender(const QThreadPool* self) {
+QObject* QThreadPool_SuperSender(const QThreadPool* self) {
     auto* vqthreadpool = const_cast<VirtualQThreadPool*>(dynamic_cast<const VirtualQThreadPool*>(self));
     if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
         vqthreadpool->setQThreadPool_Sender_IsBase(true);
@@ -438,7 +438,7 @@ int QThreadPool_SenderSignalIndex(const QThreadPool* self) {
 }
 
 // Base class handler implementation
-int QThreadPool_QBaseSenderSignalIndex(const QThreadPool* self) {
+int QThreadPool_SuperSenderSignalIndex(const QThreadPool* self) {
     auto* vqthreadpool = const_cast<VirtualQThreadPool*>(dynamic_cast<const VirtualQThreadPool*>(self));
     if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
         vqthreadpool->setQThreadPool_SenderSignalIndex_IsBase(true);
@@ -467,7 +467,7 @@ int QThreadPool_Receivers(const QThreadPool* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QThreadPool_QBaseReceivers(const QThreadPool* self, const char* signal) {
+int QThreadPool_SuperReceivers(const QThreadPool* self, const char* signal) {
     auto* vqthreadpool = const_cast<VirtualQThreadPool*>(dynamic_cast<const VirtualQThreadPool*>(self));
     if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
         vqthreadpool->setQThreadPool_Receivers_IsBase(true);
@@ -496,7 +496,7 @@ bool QThreadPool_IsSignalConnected(const QThreadPool* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QThreadPool_QBaseIsSignalConnected(const QThreadPool* self, const QMetaMethod* signal) {
+bool QThreadPool_SuperIsSignalConnected(const QThreadPool* self, const QMetaMethod* signal) {
     auto* vqthreadpool = const_cast<VirtualQThreadPool*>(dynamic_cast<const VirtualQThreadPool*>(self));
     if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
         vqthreadpool->setQThreadPool_IsSignalConnected_IsBase(true);

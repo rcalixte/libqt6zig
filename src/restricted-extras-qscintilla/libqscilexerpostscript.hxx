@@ -1178,31 +1178,31 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
 
     // Friend functions
     friend bool QsciLexerPostScript_ReadProperties(QsciLexerPostScript* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerPostScript_QBaseReadProperties(QsciLexerPostScript* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerPostScript_SuperReadProperties(QsciLexerPostScript* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerPostScript_WriteProperties(const QsciLexerPostScript* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerPostScript_QBaseWriteProperties(const QsciLexerPostScript* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerPostScript_SuperWriteProperties(const QsciLexerPostScript* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerPostScript_TimerEvent(QsciLexerPostScript* self, QTimerEvent* event);
-    friend void QsciLexerPostScript_QBaseTimerEvent(QsciLexerPostScript* self, QTimerEvent* event);
+    friend void QsciLexerPostScript_SuperTimerEvent(QsciLexerPostScript* self, QTimerEvent* event);
     friend void QsciLexerPostScript_ChildEvent(QsciLexerPostScript* self, QChildEvent* event);
-    friend void QsciLexerPostScript_QBaseChildEvent(QsciLexerPostScript* self, QChildEvent* event);
+    friend void QsciLexerPostScript_SuperChildEvent(QsciLexerPostScript* self, QChildEvent* event);
     friend void QsciLexerPostScript_CustomEvent(QsciLexerPostScript* self, QEvent* event);
-    friend void QsciLexerPostScript_QBaseCustomEvent(QsciLexerPostScript* self, QEvent* event);
+    friend void QsciLexerPostScript_SuperCustomEvent(QsciLexerPostScript* self, QEvent* event);
     friend void QsciLexerPostScript_ConnectNotify(QsciLexerPostScript* self, const QMetaMethod* signal);
-    friend void QsciLexerPostScript_QBaseConnectNotify(QsciLexerPostScript* self, const QMetaMethod* signal);
+    friend void QsciLexerPostScript_SuperConnectNotify(QsciLexerPostScript* self, const QMetaMethod* signal);
     friend void QsciLexerPostScript_DisconnectNotify(QsciLexerPostScript* self, const QMetaMethod* signal);
-    friend void QsciLexerPostScript_QBaseDisconnectNotify(QsciLexerPostScript* self, const QMetaMethod* signal);
+    friend void QsciLexerPostScript_SuperDisconnectNotify(QsciLexerPostScript* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerPostScript_TextAsBytes(const QsciLexerPostScript* self, const libqt_string text);
-    friend libqt_string QsciLexerPostScript_QBaseTextAsBytes(const QsciLexerPostScript* self, const libqt_string text);
+    friend libqt_string QsciLexerPostScript_SuperTextAsBytes(const QsciLexerPostScript* self, const libqt_string text);
     friend libqt_string QsciLexerPostScript_BytesAsText(const QsciLexerPostScript* self, const char* bytes, int size);
-    friend libqt_string QsciLexerPostScript_QBaseBytesAsText(const QsciLexerPostScript* self, const char* bytes, int size);
+    friend libqt_string QsciLexerPostScript_SuperBytesAsText(const QsciLexerPostScript* self, const char* bytes, int size);
     friend QObject* QsciLexerPostScript_Sender(const QsciLexerPostScript* self);
-    friend QObject* QsciLexerPostScript_QBaseSender(const QsciLexerPostScript* self);
+    friend QObject* QsciLexerPostScript_SuperSender(const QsciLexerPostScript* self);
     friend int QsciLexerPostScript_SenderSignalIndex(const QsciLexerPostScript* self);
-    friend int QsciLexerPostScript_QBaseSenderSignalIndex(const QsciLexerPostScript* self);
+    friend int QsciLexerPostScript_SuperSenderSignalIndex(const QsciLexerPostScript* self);
     friend int QsciLexerPostScript_Receivers(const QsciLexerPostScript* self, const char* signal);
-    friend int QsciLexerPostScript_QBaseReceivers(const QsciLexerPostScript* self, const char* signal);
+    friend int QsciLexerPostScript_SuperReceivers(const QsciLexerPostScript* self, const char* signal);
     friend bool QsciLexerPostScript_IsSignalConnected(const QsciLexerPostScript* self, const QMetaMethod* signal);
-    friend bool QsciLexerPostScript_QBaseIsSignalConnected(const QsciLexerPostScript* self, const QMetaMethod* signal);
+    friend bool QsciLexerPostScript_SuperIsSignalConnected(const QsciLexerPostScript* self, const QMetaMethod* signal);
 };
 
 #endif

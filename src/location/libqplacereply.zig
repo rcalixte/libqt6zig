@@ -47,6 +47,10 @@ pub const qplacereply = struct {
         qtc.QPlaceReply_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -55,8 +59,8 @@ pub const qplacereply = struct {
     ///
     /// ` self: QtC.QPlaceReply `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QPlaceReply_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QPlaceReply_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -82,6 +86,10 @@ pub const qplacereply = struct {
         qtc.QPlaceReply_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -90,9 +98,9 @@ pub const qplacereply = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QPlaceReply_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QPlaceReply_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -121,6 +129,10 @@ pub const qplacereply = struct {
         qtc.QPlaceReply_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -133,8 +145,8 @@ pub const qplacereply = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QPlaceReply_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QPlaceReply_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -192,6 +204,10 @@ pub const qplacereply = struct {
         qtc.QPlaceReply_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperType` instead
+    ///
+    pub const QBaseType = SuperType;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacereply.html#type)
     ///
     /// Base class method implementation
@@ -204,8 +220,8 @@ pub const qplacereply = struct {
     ///
     /// ` qplacereply_enums.Type `
     ///
-    pub fn QBaseType(self: ?*anyopaque) i32 {
-        return qtc.QPlaceReply_QBaseType(@ptrCast(self));
+    pub fn SuperType(self: ?*anyopaque) i32 {
+        return qtc.QPlaceReply_SuperType(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacereply.html#errorString)
@@ -262,6 +278,10 @@ pub const qplacereply = struct {
         qtc.QPlaceReply_OnAbort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAbort` instead
+    ///
+    pub const QBaseAbort = SuperAbort;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacereply.html#abort)
     ///
     /// Base class method implementation
@@ -270,8 +290,8 @@ pub const qplacereply = struct {
     ///
     /// ` self: QtC.QPlaceReply `
     ///
-    pub fn QBaseAbort(self: ?*anyopaque) void {
-        qtc.QPlaceReply_QBaseAbort(@ptrCast(self));
+    pub fn SuperAbort(self: ?*anyopaque) void {
+        qtc.QPlaceReply_SuperAbort(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacereply.html#finished)
@@ -390,6 +410,10 @@ pub const qplacereply = struct {
         qtc.QPlaceReply_OnSetFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFinished` instead
+    ///
+    pub const QBaseSetFinished = SuperSetFinished;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacereply.html#setFinished)
     ///
     /// Base class method implementation
@@ -400,8 +424,8 @@ pub const qplacereply = struct {
     ///
     /// ` finished: bool `
     ///
-    pub fn QBaseSetFinished(self: ?*anyopaque, finished: bool) void {
-        qtc.QPlaceReply_QBaseSetFinished(@ptrCast(self), finished);
+    pub fn SuperSetFinished(self: ?*anyopaque, finished: bool) void {
+        qtc.QPlaceReply_SuperSetFinished(@ptrCast(self), finished);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacereply.html#setError)
@@ -436,6 +460,10 @@ pub const qplacereply = struct {
         qtc.QPlaceReply_OnSetError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetError` instead
+    ///
+    pub const QBaseSetError = SuperSetError;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacereply.html#setError)
     ///
     /// Base class method implementation
@@ -448,12 +476,12 @@ pub const qplacereply = struct {
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn QBaseSetError(self: ?*anyopaque, errorVal: i32, errorString: []const u8) void {
+    pub fn SuperSetError(self: ?*anyopaque, errorVal: i32, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QPlaceReply_QBaseSetError(@ptrCast(self), @bitCast(errorVal), errorString_str);
+        qtc.QPlaceReply_SuperSetError(@ptrCast(self), @bitCast(errorVal), errorString_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1282,6 +1310,10 @@ pub const qplacereply = struct {
         return qtc.QPlaceReply_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1294,8 +1326,8 @@ pub const qplacereply = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QPlaceReply_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QPlaceReply_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1332,6 +1364,10 @@ pub const qplacereply = struct {
         return qtc.QPlaceReply_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1346,8 +1382,8 @@ pub const qplacereply = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QPlaceReply_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QPlaceReply_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1382,6 +1418,10 @@ pub const qplacereply = struct {
         qtc.QPlaceReply_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1394,8 +1434,8 @@ pub const qplacereply = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPlaceReply_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPlaceReply_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1430,6 +1470,10 @@ pub const qplacereply = struct {
         qtc.QPlaceReply_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1442,8 +1486,8 @@ pub const qplacereply = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPlaceReply_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPlaceReply_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1478,6 +1522,10 @@ pub const qplacereply = struct {
         qtc.QPlaceReply_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1490,8 +1538,8 @@ pub const qplacereply = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPlaceReply_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPlaceReply_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1526,6 +1574,10 @@ pub const qplacereply = struct {
         qtc.QPlaceReply_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1538,8 +1590,8 @@ pub const qplacereply = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QPlaceReply_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QPlaceReply_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1574,6 +1626,10 @@ pub const qplacereply = struct {
         qtc.QPlaceReply_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1586,8 +1642,8 @@ pub const qplacereply = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QPlaceReply_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QPlaceReply_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1620,6 +1676,10 @@ pub const qplacereply = struct {
         return qtc.QPlaceReply_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1630,8 +1690,8 @@ pub const qplacereply = struct {
     ///
     /// ` self: QtC.QPlaceReply `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QPlaceReply_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QPlaceReply_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1664,6 +1724,10 @@ pub const qplacereply = struct {
         return qtc.QPlaceReply_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1674,8 +1738,8 @@ pub const qplacereply = struct {
     ///
     /// ` self: QtC.QPlaceReply `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QPlaceReply_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QPlaceReply_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1711,6 +1775,10 @@ pub const qplacereply = struct {
         return qtc.QPlaceReply_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1723,9 +1791,9 @@ pub const qplacereply = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QPlaceReply_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QPlaceReply_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1760,6 +1828,10 @@ pub const qplacereply = struct {
         return qtc.QPlaceReply_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -1772,8 +1844,8 @@ pub const qplacereply = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QPlaceReply_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QPlaceReply_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1807,6 +1879,9 @@ pub const qplacereply = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacereply.html#dtor.QPlaceReply)
     ///
@@ -1816,7 +1891,7 @@ pub const qplacereply = struct {
     ///
     /// ` self: QtC.QPlaceReply `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPlaceReply_Delete(@ptrCast(self));
     }
 };

@@ -154,7 +154,7 @@ KBookmarkGroup* KBookmarkDialog_SelectFolder1(KBookmarkDialog* self, KBookmark* 
 }
 
 // Base class handler implementation
-QMetaObject* KBookmarkDialog_QBaseMetaObject(const KBookmarkDialog* self) {
+QMetaObject* KBookmarkDialog_SuperMetaObject(const KBookmarkDialog* self) {
     auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_MetaObject_IsBase(true);
@@ -173,7 +173,7 @@ void KBookmarkDialog_OnMetaObject(const KBookmarkDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KBookmarkDialog_QBaseMetacast(KBookmarkDialog* self, const char* param1) {
+void* KBookmarkDialog_SuperMetacast(KBookmarkDialog* self, const char* param1) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_Metacast_IsBase(true);
@@ -192,7 +192,7 @@ void KBookmarkDialog_OnMetacast(KBookmarkDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KBookmarkDialog_QBaseMetacall(KBookmarkDialog* self, int param1, int param2, void** param3) {
+int KBookmarkDialog_SuperMetacall(KBookmarkDialog* self, int param1, int param2, void** param3) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_Metacall_IsBase(true);
@@ -211,7 +211,7 @@ void KBookmarkDialog_OnMetacall(KBookmarkDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseAccept(KBookmarkDialog* self) {
+void KBookmarkDialog_SuperAccept(KBookmarkDialog* self) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_Accept_IsBase(true);
@@ -240,7 +240,7 @@ void KBookmarkDialog_SetVisible(KBookmarkDialog* self, bool visible) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseSetVisible(KBookmarkDialog* self, bool visible) {
+void KBookmarkDialog_SuperSetVisible(KBookmarkDialog* self, bool visible) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_SetVisible_IsBase(true);
@@ -269,7 +269,7 @@ QSize* KBookmarkDialog_SizeHint(const KBookmarkDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KBookmarkDialog_QBaseSizeHint(const KBookmarkDialog* self) {
+QSize* KBookmarkDialog_SuperSizeHint(const KBookmarkDialog* self) {
     auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_SizeHint_IsBase(true);
@@ -298,7 +298,7 @@ QSize* KBookmarkDialog_MinimumSizeHint(const KBookmarkDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KBookmarkDialog_QBaseMinimumSizeHint(const KBookmarkDialog* self) {
+QSize* KBookmarkDialog_SuperMinimumSizeHint(const KBookmarkDialog* self) {
     auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_MinimumSizeHint_IsBase(true);
@@ -327,7 +327,7 @@ void KBookmarkDialog_Open(KBookmarkDialog* self) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseOpen(KBookmarkDialog* self) {
+void KBookmarkDialog_SuperOpen(KBookmarkDialog* self) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_Open_IsBase(true);
@@ -356,7 +356,7 @@ int KBookmarkDialog_Exec(KBookmarkDialog* self) {
 }
 
 // Base class handler implementation
-int KBookmarkDialog_QBaseExec(KBookmarkDialog* self) {
+int KBookmarkDialog_SuperExec(KBookmarkDialog* self) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_Exec_IsBase(true);
@@ -385,7 +385,7 @@ void KBookmarkDialog_Done(KBookmarkDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseDone(KBookmarkDialog* self, int param1) {
+void KBookmarkDialog_SuperDone(KBookmarkDialog* self, int param1) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_Done_IsBase(true);
@@ -414,7 +414,7 @@ void KBookmarkDialog_Reject(KBookmarkDialog* self) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseReject(KBookmarkDialog* self) {
+void KBookmarkDialog_SuperReject(KBookmarkDialog* self) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_Reject_IsBase(true);
@@ -443,7 +443,7 @@ void KBookmarkDialog_KeyPressEvent(KBookmarkDialog* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseKeyPressEvent(KBookmarkDialog* self, QKeyEvent* param1) {
+void KBookmarkDialog_SuperKeyPressEvent(KBookmarkDialog* self, QKeyEvent* param1) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_KeyPressEvent_IsBase(true);
@@ -472,7 +472,7 @@ void KBookmarkDialog_CloseEvent(KBookmarkDialog* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseCloseEvent(KBookmarkDialog* self, QCloseEvent* param1) {
+void KBookmarkDialog_SuperCloseEvent(KBookmarkDialog* self, QCloseEvent* param1) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_CloseEvent_IsBase(true);
@@ -501,7 +501,7 @@ void KBookmarkDialog_ShowEvent(KBookmarkDialog* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseShowEvent(KBookmarkDialog* self, QShowEvent* param1) {
+void KBookmarkDialog_SuperShowEvent(KBookmarkDialog* self, QShowEvent* param1) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_ShowEvent_IsBase(true);
@@ -530,7 +530,7 @@ void KBookmarkDialog_ResizeEvent(KBookmarkDialog* self, QResizeEvent* param1) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseResizeEvent(KBookmarkDialog* self, QResizeEvent* param1) {
+void KBookmarkDialog_SuperResizeEvent(KBookmarkDialog* self, QResizeEvent* param1) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_ResizeEvent_IsBase(true);
@@ -559,7 +559,7 @@ void KBookmarkDialog_ContextMenuEvent(KBookmarkDialog* self, QContextMenuEvent* 
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseContextMenuEvent(KBookmarkDialog* self, QContextMenuEvent* param1) {
+void KBookmarkDialog_SuperContextMenuEvent(KBookmarkDialog* self, QContextMenuEvent* param1) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_ContextMenuEvent_IsBase(true);
@@ -588,7 +588,7 @@ bool KBookmarkDialog_EventFilter(KBookmarkDialog* self, QObject* param1, QEvent*
 }
 
 // Base class handler implementation
-bool KBookmarkDialog_QBaseEventFilter(KBookmarkDialog* self, QObject* param1, QEvent* param2) {
+bool KBookmarkDialog_SuperEventFilter(KBookmarkDialog* self, QObject* param1, QEvent* param2) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_EventFilter_IsBase(true);
@@ -617,7 +617,7 @@ int KBookmarkDialog_DevType(const KBookmarkDialog* self) {
 }
 
 // Base class handler implementation
-int KBookmarkDialog_QBaseDevType(const KBookmarkDialog* self) {
+int KBookmarkDialog_SuperDevType(const KBookmarkDialog* self) {
     auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_DevType_IsBase(true);
@@ -646,7 +646,7 @@ int KBookmarkDialog_HeightForWidth(const KBookmarkDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KBookmarkDialog_QBaseHeightForWidth(const KBookmarkDialog* self, int param1) {
+int KBookmarkDialog_SuperHeightForWidth(const KBookmarkDialog* self, int param1) {
     auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_HeightForWidth_IsBase(true);
@@ -675,7 +675,7 @@ bool KBookmarkDialog_HasHeightForWidth(const KBookmarkDialog* self) {
 }
 
 // Base class handler implementation
-bool KBookmarkDialog_QBaseHasHeightForWidth(const KBookmarkDialog* self) {
+bool KBookmarkDialog_SuperHasHeightForWidth(const KBookmarkDialog* self) {
     auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_HasHeightForWidth_IsBase(true);
@@ -704,7 +704,7 @@ QPaintEngine* KBookmarkDialog_PaintEngine(const KBookmarkDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KBookmarkDialog_QBasePaintEngine(const KBookmarkDialog* self) {
+QPaintEngine* KBookmarkDialog_SuperPaintEngine(const KBookmarkDialog* self) {
     auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_PaintEngine_IsBase(true);
@@ -733,7 +733,7 @@ bool KBookmarkDialog_Event(KBookmarkDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KBookmarkDialog_QBaseEvent(KBookmarkDialog* self, QEvent* event) {
+bool KBookmarkDialog_SuperEvent(KBookmarkDialog* self, QEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_Event_IsBase(true);
@@ -762,7 +762,7 @@ void KBookmarkDialog_MousePressEvent(KBookmarkDialog* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseMousePressEvent(KBookmarkDialog* self, QMouseEvent* event) {
+void KBookmarkDialog_SuperMousePressEvent(KBookmarkDialog* self, QMouseEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_MousePressEvent_IsBase(true);
@@ -791,7 +791,7 @@ void KBookmarkDialog_MouseReleaseEvent(KBookmarkDialog* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseMouseReleaseEvent(KBookmarkDialog* self, QMouseEvent* event) {
+void KBookmarkDialog_SuperMouseReleaseEvent(KBookmarkDialog* self, QMouseEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_MouseReleaseEvent_IsBase(true);
@@ -820,7 +820,7 @@ void KBookmarkDialog_MouseDoubleClickEvent(KBookmarkDialog* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseMouseDoubleClickEvent(KBookmarkDialog* self, QMouseEvent* event) {
+void KBookmarkDialog_SuperMouseDoubleClickEvent(KBookmarkDialog* self, QMouseEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_MouseDoubleClickEvent_IsBase(true);
@@ -849,7 +849,7 @@ void KBookmarkDialog_MouseMoveEvent(KBookmarkDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseMouseMoveEvent(KBookmarkDialog* self, QMouseEvent* event) {
+void KBookmarkDialog_SuperMouseMoveEvent(KBookmarkDialog* self, QMouseEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_MouseMoveEvent_IsBase(true);
@@ -878,7 +878,7 @@ void KBookmarkDialog_WheelEvent(KBookmarkDialog* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseWheelEvent(KBookmarkDialog* self, QWheelEvent* event) {
+void KBookmarkDialog_SuperWheelEvent(KBookmarkDialog* self, QWheelEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_WheelEvent_IsBase(true);
@@ -907,7 +907,7 @@ void KBookmarkDialog_KeyReleaseEvent(KBookmarkDialog* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseKeyReleaseEvent(KBookmarkDialog* self, QKeyEvent* event) {
+void KBookmarkDialog_SuperKeyReleaseEvent(KBookmarkDialog* self, QKeyEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_KeyReleaseEvent_IsBase(true);
@@ -936,7 +936,7 @@ void KBookmarkDialog_FocusInEvent(KBookmarkDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseFocusInEvent(KBookmarkDialog* self, QFocusEvent* event) {
+void KBookmarkDialog_SuperFocusInEvent(KBookmarkDialog* self, QFocusEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_FocusInEvent_IsBase(true);
@@ -965,7 +965,7 @@ void KBookmarkDialog_FocusOutEvent(KBookmarkDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseFocusOutEvent(KBookmarkDialog* self, QFocusEvent* event) {
+void KBookmarkDialog_SuperFocusOutEvent(KBookmarkDialog* self, QFocusEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_FocusOutEvent_IsBase(true);
@@ -994,7 +994,7 @@ void KBookmarkDialog_EnterEvent(KBookmarkDialog* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseEnterEvent(KBookmarkDialog* self, QEnterEvent* event) {
+void KBookmarkDialog_SuperEnterEvent(KBookmarkDialog* self, QEnterEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_EnterEvent_IsBase(true);
@@ -1023,7 +1023,7 @@ void KBookmarkDialog_LeaveEvent(KBookmarkDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseLeaveEvent(KBookmarkDialog* self, QEvent* event) {
+void KBookmarkDialog_SuperLeaveEvent(KBookmarkDialog* self, QEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_LeaveEvent_IsBase(true);
@@ -1052,7 +1052,7 @@ void KBookmarkDialog_PaintEvent(KBookmarkDialog* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBasePaintEvent(KBookmarkDialog* self, QPaintEvent* event) {
+void KBookmarkDialog_SuperPaintEvent(KBookmarkDialog* self, QPaintEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_PaintEvent_IsBase(true);
@@ -1081,7 +1081,7 @@ void KBookmarkDialog_MoveEvent(KBookmarkDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseMoveEvent(KBookmarkDialog* self, QMoveEvent* event) {
+void KBookmarkDialog_SuperMoveEvent(KBookmarkDialog* self, QMoveEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_MoveEvent_IsBase(true);
@@ -1110,7 +1110,7 @@ void KBookmarkDialog_TabletEvent(KBookmarkDialog* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseTabletEvent(KBookmarkDialog* self, QTabletEvent* event) {
+void KBookmarkDialog_SuperTabletEvent(KBookmarkDialog* self, QTabletEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_TabletEvent_IsBase(true);
@@ -1139,7 +1139,7 @@ void KBookmarkDialog_ActionEvent(KBookmarkDialog* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseActionEvent(KBookmarkDialog* self, QActionEvent* event) {
+void KBookmarkDialog_SuperActionEvent(KBookmarkDialog* self, QActionEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_ActionEvent_IsBase(true);
@@ -1168,7 +1168,7 @@ void KBookmarkDialog_DragEnterEvent(KBookmarkDialog* self, QDragEnterEvent* even
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseDragEnterEvent(KBookmarkDialog* self, QDragEnterEvent* event) {
+void KBookmarkDialog_SuperDragEnterEvent(KBookmarkDialog* self, QDragEnterEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_DragEnterEvent_IsBase(true);
@@ -1197,7 +1197,7 @@ void KBookmarkDialog_DragMoveEvent(KBookmarkDialog* self, QDragMoveEvent* event)
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseDragMoveEvent(KBookmarkDialog* self, QDragMoveEvent* event) {
+void KBookmarkDialog_SuperDragMoveEvent(KBookmarkDialog* self, QDragMoveEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_DragMoveEvent_IsBase(true);
@@ -1226,7 +1226,7 @@ void KBookmarkDialog_DragLeaveEvent(KBookmarkDialog* self, QDragLeaveEvent* even
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseDragLeaveEvent(KBookmarkDialog* self, QDragLeaveEvent* event) {
+void KBookmarkDialog_SuperDragLeaveEvent(KBookmarkDialog* self, QDragLeaveEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_DragLeaveEvent_IsBase(true);
@@ -1255,7 +1255,7 @@ void KBookmarkDialog_DropEvent(KBookmarkDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseDropEvent(KBookmarkDialog* self, QDropEvent* event) {
+void KBookmarkDialog_SuperDropEvent(KBookmarkDialog* self, QDropEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_DropEvent_IsBase(true);
@@ -1284,7 +1284,7 @@ void KBookmarkDialog_HideEvent(KBookmarkDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseHideEvent(KBookmarkDialog* self, QHideEvent* event) {
+void KBookmarkDialog_SuperHideEvent(KBookmarkDialog* self, QHideEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_HideEvent_IsBase(true);
@@ -1314,7 +1314,7 @@ bool KBookmarkDialog_NativeEvent(KBookmarkDialog* self, const libqt_string event
 }
 
 // Base class handler implementation
-bool KBookmarkDialog_QBaseNativeEvent(KBookmarkDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KBookmarkDialog_SuperNativeEvent(KBookmarkDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
@@ -1344,7 +1344,7 @@ void KBookmarkDialog_ChangeEvent(KBookmarkDialog* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseChangeEvent(KBookmarkDialog* self, QEvent* param1) {
+void KBookmarkDialog_SuperChangeEvent(KBookmarkDialog* self, QEvent* param1) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_ChangeEvent_IsBase(true);
@@ -1373,7 +1373,7 @@ int KBookmarkDialog_Metric(const KBookmarkDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KBookmarkDialog_QBaseMetric(const KBookmarkDialog* self, int param1) {
+int KBookmarkDialog_SuperMetric(const KBookmarkDialog* self, int param1) {
     auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_Metric_IsBase(true);
@@ -1402,7 +1402,7 @@ void KBookmarkDialog_InitPainter(const KBookmarkDialog* self, QPainter* painter)
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseInitPainter(const KBookmarkDialog* self, QPainter* painter) {
+void KBookmarkDialog_SuperInitPainter(const KBookmarkDialog* self, QPainter* painter) {
     auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_InitPainter_IsBase(true);
@@ -1431,7 +1431,7 @@ QPaintDevice* KBookmarkDialog_Redirected(const KBookmarkDialog* self, QPoint* of
 }
 
 // Base class handler implementation
-QPaintDevice* KBookmarkDialog_QBaseRedirected(const KBookmarkDialog* self, QPoint* offset) {
+QPaintDevice* KBookmarkDialog_SuperRedirected(const KBookmarkDialog* self, QPoint* offset) {
     auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_Redirected_IsBase(true);
@@ -1460,7 +1460,7 @@ QPainter* KBookmarkDialog_SharedPainter(const KBookmarkDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* KBookmarkDialog_QBaseSharedPainter(const KBookmarkDialog* self) {
+QPainter* KBookmarkDialog_SuperSharedPainter(const KBookmarkDialog* self) {
     auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_SharedPainter_IsBase(true);
@@ -1489,7 +1489,7 @@ void KBookmarkDialog_InputMethodEvent(KBookmarkDialog* self, QInputMethodEvent* 
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseInputMethodEvent(KBookmarkDialog* self, QInputMethodEvent* param1) {
+void KBookmarkDialog_SuperInputMethodEvent(KBookmarkDialog* self, QInputMethodEvent* param1) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_InputMethodEvent_IsBase(true);
@@ -1518,7 +1518,7 @@ QVariant* KBookmarkDialog_InputMethodQuery(const KBookmarkDialog* self, int para
 }
 
 // Base class handler implementation
-QVariant* KBookmarkDialog_QBaseInputMethodQuery(const KBookmarkDialog* self, int param1) {
+QVariant* KBookmarkDialog_SuperInputMethodQuery(const KBookmarkDialog* self, int param1) {
     auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_InputMethodQuery_IsBase(true);
@@ -1547,7 +1547,7 @@ bool KBookmarkDialog_FocusNextPrevChild(KBookmarkDialog* self, bool next) {
 }
 
 // Base class handler implementation
-bool KBookmarkDialog_QBaseFocusNextPrevChild(KBookmarkDialog* self, bool next) {
+bool KBookmarkDialog_SuperFocusNextPrevChild(KBookmarkDialog* self, bool next) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_FocusNextPrevChild_IsBase(true);
@@ -1576,7 +1576,7 @@ void KBookmarkDialog_TimerEvent(KBookmarkDialog* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseTimerEvent(KBookmarkDialog* self, QTimerEvent* event) {
+void KBookmarkDialog_SuperTimerEvent(KBookmarkDialog* self, QTimerEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_TimerEvent_IsBase(true);
@@ -1605,7 +1605,7 @@ void KBookmarkDialog_ChildEvent(KBookmarkDialog* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseChildEvent(KBookmarkDialog* self, QChildEvent* event) {
+void KBookmarkDialog_SuperChildEvent(KBookmarkDialog* self, QChildEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_ChildEvent_IsBase(true);
@@ -1634,7 +1634,7 @@ void KBookmarkDialog_CustomEvent(KBookmarkDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseCustomEvent(KBookmarkDialog* self, QEvent* event) {
+void KBookmarkDialog_SuperCustomEvent(KBookmarkDialog* self, QEvent* event) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_CustomEvent_IsBase(true);
@@ -1663,7 +1663,7 @@ void KBookmarkDialog_ConnectNotify(KBookmarkDialog* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseConnectNotify(KBookmarkDialog* self, const QMetaMethod* signal) {
+void KBookmarkDialog_SuperConnectNotify(KBookmarkDialog* self, const QMetaMethod* signal) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_ConnectNotify_IsBase(true);
@@ -1692,7 +1692,7 @@ void KBookmarkDialog_DisconnectNotify(KBookmarkDialog* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseDisconnectNotify(KBookmarkDialog* self, const QMetaMethod* signal) {
+void KBookmarkDialog_SuperDisconnectNotify(KBookmarkDialog* self, const QMetaMethod* signal) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_DisconnectNotify_IsBase(true);
@@ -1721,7 +1721,7 @@ void KBookmarkDialog_NewFolderButton(KBookmarkDialog* self) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseNewFolderButton(KBookmarkDialog* self) {
+void KBookmarkDialog_SuperNewFolderButton(KBookmarkDialog* self) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_NewFolderButton_IsBase(true);
@@ -1750,7 +1750,7 @@ void KBookmarkDialog_AdjustPosition(KBookmarkDialog* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseAdjustPosition(KBookmarkDialog* self, QWidget* param1) {
+void KBookmarkDialog_SuperAdjustPosition(KBookmarkDialog* self, QWidget* param1) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_AdjustPosition_IsBase(true);
@@ -1779,7 +1779,7 @@ void KBookmarkDialog_UpdateMicroFocus(KBookmarkDialog* self) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseUpdateMicroFocus(KBookmarkDialog* self) {
+void KBookmarkDialog_SuperUpdateMicroFocus(KBookmarkDialog* self) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_UpdateMicroFocus_IsBase(true);
@@ -1808,7 +1808,7 @@ void KBookmarkDialog_Create(KBookmarkDialog* self) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseCreate(KBookmarkDialog* self) {
+void KBookmarkDialog_SuperCreate(KBookmarkDialog* self) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_Create_IsBase(true);
@@ -1837,7 +1837,7 @@ void KBookmarkDialog_Destroy(KBookmarkDialog* self) {
 }
 
 // Base class handler implementation
-void KBookmarkDialog_QBaseDestroy(KBookmarkDialog* self) {
+void KBookmarkDialog_SuperDestroy(KBookmarkDialog* self) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_Destroy_IsBase(true);
@@ -1866,7 +1866,7 @@ bool KBookmarkDialog_FocusNextChild(KBookmarkDialog* self) {
 }
 
 // Base class handler implementation
-bool KBookmarkDialog_QBaseFocusNextChild(KBookmarkDialog* self) {
+bool KBookmarkDialog_SuperFocusNextChild(KBookmarkDialog* self) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_FocusNextChild_IsBase(true);
@@ -1895,7 +1895,7 @@ bool KBookmarkDialog_FocusPreviousChild(KBookmarkDialog* self) {
 }
 
 // Base class handler implementation
-bool KBookmarkDialog_QBaseFocusPreviousChild(KBookmarkDialog* self) {
+bool KBookmarkDialog_SuperFocusPreviousChild(KBookmarkDialog* self) {
     auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_FocusPreviousChild_IsBase(true);
@@ -1924,7 +1924,7 @@ QObject* KBookmarkDialog_Sender(const KBookmarkDialog* self) {
 }
 
 // Base class handler implementation
-QObject* KBookmarkDialog_QBaseSender(const KBookmarkDialog* self) {
+QObject* KBookmarkDialog_SuperSender(const KBookmarkDialog* self) {
     auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_Sender_IsBase(true);
@@ -1953,7 +1953,7 @@ int KBookmarkDialog_SenderSignalIndex(const KBookmarkDialog* self) {
 }
 
 // Base class handler implementation
-int KBookmarkDialog_QBaseSenderSignalIndex(const KBookmarkDialog* self) {
+int KBookmarkDialog_SuperSenderSignalIndex(const KBookmarkDialog* self) {
     auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_SenderSignalIndex_IsBase(true);
@@ -1982,7 +1982,7 @@ int KBookmarkDialog_Receivers(const KBookmarkDialog* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KBookmarkDialog_QBaseReceivers(const KBookmarkDialog* self, const char* signal) {
+int KBookmarkDialog_SuperReceivers(const KBookmarkDialog* self, const char* signal) {
     auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_Receivers_IsBase(true);
@@ -2011,7 +2011,7 @@ bool KBookmarkDialog_IsSignalConnected(const KBookmarkDialog* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KBookmarkDialog_QBaseIsSignalConnected(const KBookmarkDialog* self, const QMetaMethod* signal) {
+bool KBookmarkDialog_SuperIsSignalConnected(const KBookmarkDialog* self, const QMetaMethod* signal) {
     auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_IsSignalConnected_IsBase(true);
@@ -2040,7 +2040,7 @@ double KBookmarkDialog_GetDecodedMetricF(const KBookmarkDialog* self, int metric
 }
 
 // Base class handler implementation
-double KBookmarkDialog_QBaseGetDecodedMetricF(const KBookmarkDialog* self, int metricA, int metricB) {
+double KBookmarkDialog_SuperGetDecodedMetricF(const KBookmarkDialog* self, int metricA, int metricB) {
     auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
     if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
         vkbookmarkdialog->setKBookmarkDialog_GetDecodedMetricF_IsBase(true);

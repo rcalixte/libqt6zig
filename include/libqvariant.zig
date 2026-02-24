@@ -1372,6 +1372,10 @@ pub const qvariant = struct {
         return qtc.QVariant_FromMetaType2(@ptrCast(typeVal), @ptrCast(copyVal));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#dtor.QVariant)
     ///
     /// Delete this object from C++ memory.
@@ -1380,7 +1384,7 @@ pub const qvariant = struct {
     ///
     /// ` self: QtC.QVariant `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QVariant_Delete(@ptrCast(self));
     }
 };
@@ -1439,6 +1443,10 @@ pub const qvariantconstpointer = struct {
         qtc.QVariantConstPointer_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariantconstpointer.html#dtor.QVariantConstPointer)
     ///
     /// Delete this object from C++ memory.
@@ -1447,7 +1455,7 @@ pub const qvariantconstpointer = struct {
     ///
     /// ` self: QtC.QVariantConstPointer `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QVariantConstPointer_Delete(@ptrCast(self));
     }
 };

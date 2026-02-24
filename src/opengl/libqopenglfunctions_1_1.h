@@ -360,16 +360,16 @@ void QOpenGLFunctions_1_1_GlDisableClientState(QOpenGLFunctions_1_1* self, uint3
 void QOpenGLFunctions_1_1_GlColorPointer(QOpenGLFunctions_1_1* self, int32_t size, uint32_t typeVal, int32_t stride, const void* pointer);
 void QOpenGLFunctions_1_1_GlArrayElement(QOpenGLFunctions_1_1* self, int32_t i);
 void QOpenGLFunctions_1_1_OnInitializeOpenGLFunctions(QOpenGLFunctions_1_1* self, intptr_t slot);
-bool QOpenGLFunctions_1_1_QBaseInitializeOpenGLFunctions(QOpenGLFunctions_1_1* self);
+bool QOpenGLFunctions_1_1_SuperInitializeOpenGLFunctions(QOpenGLFunctions_1_1* self);
 bool QOpenGLFunctions_1_1_IsInitialized(const QOpenGLFunctions_1_1* self);
 void QOpenGLFunctions_1_1_OnIsInitialized(const QOpenGLFunctions_1_1* self, intptr_t slot);
-bool QOpenGLFunctions_1_1_QBaseIsInitialized(const QOpenGLFunctions_1_1* self);
+bool QOpenGLFunctions_1_1_SuperIsInitialized(const QOpenGLFunctions_1_1* self);
 void QOpenGLFunctions_1_1_SetOwningContext(QOpenGLFunctions_1_1* self, const QOpenGLContext* context);
 void QOpenGLFunctions_1_1_OnSetOwningContext(QOpenGLFunctions_1_1* self, intptr_t slot);
-void QOpenGLFunctions_1_1_QBaseSetOwningContext(QOpenGLFunctions_1_1* self, const QOpenGLContext* context);
+void QOpenGLFunctions_1_1_SuperSetOwningContext(QOpenGLFunctions_1_1* self, const QOpenGLContext* context);
 QOpenGLContext* QOpenGLFunctions_1_1_OwningContext(const QOpenGLFunctions_1_1* self);
 void QOpenGLFunctions_1_1_OnOwningContext(const QOpenGLFunctions_1_1* self, intptr_t slot);
-QOpenGLContext* QOpenGLFunctions_1_1_QBaseOwningContext(const QOpenGLFunctions_1_1* self);
+QOpenGLContext* QOpenGLFunctions_1_1_SuperOwningContext(const QOpenGLFunctions_1_1* self);
 void QOpenGLFunctions_1_1_Delete(QOpenGLFunctions_1_1* self);
 
 #ifdef __cplusplus

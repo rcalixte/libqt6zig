@@ -1113,7 +1113,7 @@ void QTermWidget_ResizeEvent(QTermWidget* self, QResizeEvent* param1) {
 }
 
 // Base class handler implementation
-QMetaObject* QTermWidget_QBaseMetaObject(const QTermWidget* self) {
+QMetaObject* QTermWidget_SuperMetaObject(const QTermWidget* self) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_MetaObject_IsBase(true);
@@ -1132,7 +1132,7 @@ void QTermWidget_OnMetaObject(const QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QTermWidget_QBaseMetacast(QTermWidget* self, const char* param1) {
+void* QTermWidget_SuperMetacast(QTermWidget* self, const char* param1) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_Metacast_IsBase(true);
@@ -1151,7 +1151,7 @@ void QTermWidget_OnMetacast(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTermWidget_QBaseMetacall(QTermWidget* self, int param1, int param2, void** param3) {
+int QTermWidget_SuperMetacall(QTermWidget* self, int param1, int param2, void** param3) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_Metacall_IsBase(true);
@@ -1170,7 +1170,7 @@ void QTermWidget_OnMetacall(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QTermWidget_QBaseSizeHint(const QTermWidget* self) {
+QSize* QTermWidget_SuperSizeHint(const QTermWidget* self) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SizeHint_IsBase(true);
@@ -1189,7 +1189,7 @@ void QTermWidget_OnSizeHint(const QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetTerminalSizeHint(QTermWidget* self, bool enabled) {
+void QTermWidget_SuperSetTerminalSizeHint(QTermWidget* self, bool enabled) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetTerminalSizeHint_IsBase(true);
@@ -1208,7 +1208,7 @@ void QTermWidget_OnSetTerminalSizeHint(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QTermWidget_QBaseTerminalSizeHint(QTermWidget* self) {
+bool QTermWidget_SuperTerminalSizeHint(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_TerminalSizeHint_IsBase(true);
@@ -1227,7 +1227,7 @@ void QTermWidget_OnTerminalSizeHint(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseStartShellProgram(QTermWidget* self) {
+void QTermWidget_SuperStartShellProgram(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_StartShellProgram_IsBase(true);
@@ -1246,7 +1246,7 @@ void QTermWidget_OnStartShellProgram(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseStartTerminalTeletype(QTermWidget* self) {
+void QTermWidget_SuperStartTerminalTeletype(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_StartTerminalTeletype_IsBase(true);
@@ -1265,7 +1265,7 @@ void QTermWidget_OnStartTerminalTeletype(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTermWidget_QBaseGetShellPID(QTermWidget* self) {
+int QTermWidget_SuperGetShellPID(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_GetShellPID_IsBase(true);
@@ -1284,7 +1284,7 @@ void QTermWidget_OnGetShellPID(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTermWidget_QBaseGetForegroundProcessId(QTermWidget* self) {
+int QTermWidget_SuperGetForegroundProcessId(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_GetForegroundProcessId_IsBase(true);
@@ -1303,7 +1303,7 @@ void QTermWidget_OnGetForegroundProcessId(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseChangeDir(QTermWidget* self, const libqt_string dir) {
+void QTermWidget_SuperChangeDir(QTermWidget* self, const libqt_string dir) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     QString dir_QString = QString::fromUtf8(dir.data, dir.len);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
@@ -1323,7 +1323,7 @@ void QTermWidget_OnChangeDir(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetTerminalFont(QTermWidget* self, const QFont* font) {
+void QTermWidget_SuperSetTerminalFont(QTermWidget* self, const QFont* font) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetTerminalFont_IsBase(true);
@@ -1342,7 +1342,7 @@ void QTermWidget_OnSetTerminalFont(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QFont* QTermWidget_QBaseGetTerminalFont(QTermWidget* self) {
+QFont* QTermWidget_SuperGetTerminalFont(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_GetTerminalFont_IsBase(true);
@@ -1361,7 +1361,7 @@ void QTermWidget_OnGetTerminalFont(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetTerminalOpacity(QTermWidget* self, double level) {
+void QTermWidget_SuperSetTerminalOpacity(QTermWidget* self, double level) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetTerminalOpacity_IsBase(true);
@@ -1380,7 +1380,7 @@ void QTermWidget_OnSetTerminalOpacity(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetTerminalBackgroundImage(QTermWidget* self, const libqt_string backgroundImage) {
+void QTermWidget_SuperSetTerminalBackgroundImage(QTermWidget* self, const libqt_string backgroundImage) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     QString backgroundImage_QString = QString::fromUtf8(backgroundImage.data, backgroundImage.len);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
@@ -1400,7 +1400,7 @@ void QTermWidget_OnSetTerminalBackgroundImage(QTermWidget* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetTerminalBackgroundMode(QTermWidget* self, int mode) {
+void QTermWidget_SuperSetTerminalBackgroundMode(QTermWidget* self, int mode) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetTerminalBackgroundMode_IsBase(true);
@@ -1419,7 +1419,7 @@ void QTermWidget_OnSetTerminalBackgroundMode(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetEnvironment(QTermWidget* self, const libqt_list /* of libqt_string */ environment) {
+void QTermWidget_SuperSetEnvironment(QTermWidget* self, const libqt_list /* of libqt_string */ environment) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     QList<QString> environment_QList;
     environment_QList.reserve(environment.len);
@@ -1445,7 +1445,7 @@ void QTermWidget_OnSetEnvironment(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetShellProgram(QTermWidget* self, const libqt_string program) {
+void QTermWidget_SuperSetShellProgram(QTermWidget* self, const libqt_string program) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     QString program_QString = QString::fromUtf8(program.data, program.len);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
@@ -1465,7 +1465,7 @@ void QTermWidget_OnSetShellProgram(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetWorkingDirectory(QTermWidget* self, const libqt_string dir) {
+void QTermWidget_SuperSetWorkingDirectory(QTermWidget* self, const libqt_string dir) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     QString dir_QString = QString::fromUtf8(dir.data, dir.len);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
@@ -1485,7 +1485,7 @@ void QTermWidget_OnSetWorkingDirectory(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string QTermWidget_QBaseWorkingDirectory(QTermWidget* self) {
+libqt_string QTermWidget_SuperWorkingDirectory(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_WorkingDirectory_IsBase(true);
@@ -1520,7 +1520,7 @@ void QTermWidget_OnWorkingDirectory(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetArgs(QTermWidget* self, const libqt_list /* of libqt_string */ args) {
+void QTermWidget_SuperSetArgs(QTermWidget* self, const libqt_list /* of libqt_string */ args) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     QList<QString> args_QList;
     args_QList.reserve(args.len);
@@ -1546,7 +1546,7 @@ void QTermWidget_OnSetArgs(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetColorScheme(QTermWidget* self, const libqt_string name) {
+void QTermWidget_SuperSetColorScheme(QTermWidget* self, const libqt_string name) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
@@ -1566,7 +1566,7 @@ void QTermWidget_OnSetColorScheme(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QTermWidget_QBaseGetAvailableColorSchemes(QTermWidget* self) {
+libqt_list /* of libqt_string */ QTermWidget_SuperGetAvailableColorSchemes(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_GetAvailableColorSchemes_IsBase(true);
@@ -1619,7 +1619,7 @@ void QTermWidget_OnGetAvailableColorSchemes(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetHistorySize(QTermWidget* self, int lines) {
+void QTermWidget_SuperSetHistorySize(QTermWidget* self, int lines) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetHistorySize_IsBase(true);
@@ -1638,7 +1638,7 @@ void QTermWidget_OnSetHistorySize(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTermWidget_QBaseHistorySize(const QTermWidget* self) {
+int QTermWidget_SuperHistorySize(const QTermWidget* self) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_HistorySize_IsBase(true);
@@ -1657,7 +1657,7 @@ void QTermWidget_OnHistorySize(const QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetScrollBarPosition(QTermWidget* self, int scrollBarPosition) {
+void QTermWidget_SuperSetScrollBarPosition(QTermWidget* self, int scrollBarPosition) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetScrollBarPosition_IsBase(true);
@@ -1676,7 +1676,7 @@ void QTermWidget_OnSetScrollBarPosition(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseScrollToEnd(QTermWidget* self) {
+void QTermWidget_SuperScrollToEnd(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_ScrollToEnd_IsBase(true);
@@ -1695,7 +1695,7 @@ void QTermWidget_OnScrollToEnd(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSendText(QTermWidget* self, const libqt_string text) {
+void QTermWidget_SuperSendText(QTermWidget* self, const libqt_string text) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
@@ -1715,7 +1715,7 @@ void QTermWidget_OnSendText(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSendKeyEvent(QTermWidget* self, QKeyEvent* e) {
+void QTermWidget_SuperSendKeyEvent(QTermWidget* self, QKeyEvent* e) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SendKeyEvent_IsBase(true);
@@ -1734,7 +1734,7 @@ void QTermWidget_OnSendKeyEvent(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetFlowControlEnabled(QTermWidget* self, bool enabled) {
+void QTermWidget_SuperSetFlowControlEnabled(QTermWidget* self, bool enabled) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetFlowControlEnabled_IsBase(true);
@@ -1753,7 +1753,7 @@ void QTermWidget_OnSetFlowControlEnabled(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QTermWidget_QBaseFlowControlEnabled(QTermWidget* self) {
+bool QTermWidget_SuperFlowControlEnabled(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_FlowControlEnabled_IsBase(true);
@@ -1772,7 +1772,7 @@ void QTermWidget_OnFlowControlEnabled(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetFlowControlWarningEnabled(QTermWidget* self, bool enabled) {
+void QTermWidget_SuperSetFlowControlWarningEnabled(QTermWidget* self, bool enabled) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetFlowControlWarningEnabled_IsBase(true);
@@ -1791,7 +1791,7 @@ void QTermWidget_OnSetFlowControlWarningEnabled(QTermWidget* self, intptr_t slot
 }
 
 // Base class handler implementation
-libqt_string QTermWidget_QBaseKeyBindings(QTermWidget* self) {
+libqt_string QTermWidget_SuperKeyBindings(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_KeyBindings_IsBase(true);
@@ -1826,7 +1826,7 @@ void QTermWidget_OnKeyBindings(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetMotionAfterPasting(QTermWidget* self, int motionAfterPasting) {
+void QTermWidget_SuperSetMotionAfterPasting(QTermWidget* self, int motionAfterPasting) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetMotionAfterPasting_IsBase(true);
@@ -1845,7 +1845,7 @@ void QTermWidget_OnSetMotionAfterPasting(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTermWidget_QBaseHistoryLinesCount(QTermWidget* self) {
+int QTermWidget_SuperHistoryLinesCount(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_HistoryLinesCount_IsBase(true);
@@ -1864,7 +1864,7 @@ void QTermWidget_OnHistoryLinesCount(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTermWidget_QBaseScreenColumnsCount(QTermWidget* self) {
+int QTermWidget_SuperScreenColumnsCount(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_ScreenColumnsCount_IsBase(true);
@@ -1883,7 +1883,7 @@ void QTermWidget_OnScreenColumnsCount(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTermWidget_QBaseScreenLinesCount(QTermWidget* self) {
+int QTermWidget_SuperScreenLinesCount(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_ScreenLinesCount_IsBase(true);
@@ -1902,7 +1902,7 @@ void QTermWidget_OnScreenLinesCount(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetSelectionStart(QTermWidget* self, int row, int column) {
+void QTermWidget_SuperSetSelectionStart(QTermWidget* self, int row, int column) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetSelectionStart_IsBase(true);
@@ -1921,7 +1921,7 @@ void QTermWidget_OnSetSelectionStart(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetSelectionEnd(QTermWidget* self, int row, int column) {
+void QTermWidget_SuperSetSelectionEnd(QTermWidget* self, int row, int column) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetSelectionEnd_IsBase(true);
@@ -1940,7 +1940,7 @@ void QTermWidget_OnSetSelectionEnd(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseGetSelectionStart(QTermWidget* self, int* row, int* column) {
+void QTermWidget_SuperGetSelectionStart(QTermWidget* self, int* row, int* column) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_GetSelectionStart_IsBase(true);
@@ -1959,7 +1959,7 @@ void QTermWidget_OnGetSelectionStart(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseGetSelectionEnd(QTermWidget* self, int* row, int* column) {
+void QTermWidget_SuperGetSelectionEnd(QTermWidget* self, int* row, int* column) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_GetSelectionEnd_IsBase(true);
@@ -1978,7 +1978,7 @@ void QTermWidget_OnGetSelectionEnd(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string QTermWidget_QBaseSelectedText(QTermWidget* self, bool preserveLineBreaks) {
+libqt_string QTermWidget_SuperSelectedText(QTermWidget* self, bool preserveLineBreaks) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SelectedText_IsBase(true);
@@ -2013,7 +2013,7 @@ void QTermWidget_OnSelectedText(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetMonitorActivity(QTermWidget* self, bool monitorActivity) {
+void QTermWidget_SuperSetMonitorActivity(QTermWidget* self, bool monitorActivity) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetMonitorActivity_IsBase(true);
@@ -2032,7 +2032,7 @@ void QTermWidget_OnSetMonitorActivity(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetMonitorSilence(QTermWidget* self, bool monitorSilence) {
+void QTermWidget_SuperSetMonitorSilence(QTermWidget* self, bool monitorSilence) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetMonitorSilence_IsBase(true);
@@ -2051,7 +2051,7 @@ void QTermWidget_OnSetMonitorSilence(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetSilenceTimeout(QTermWidget* self, int seconds) {
+void QTermWidget_SuperSetSilenceTimeout(QTermWidget* self, int seconds) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetSilenceTimeout_IsBase(true);
@@ -2070,7 +2070,7 @@ void QTermWidget_OnSetSilenceTimeout(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of QAction* */ QTermWidget_QBaseFilterActions(QTermWidget* self, const QPoint* position) {
+libqt_list /* of QAction* */ QTermWidget_SuperFilterActions(QTermWidget* self, const QPoint* position) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_FilterActions_IsBase(true);
@@ -2107,7 +2107,7 @@ void QTermWidget_OnFilterActions(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTermWidget_QBaseGetPtySlaveFd(const QTermWidget* self) {
+int QTermWidget_SuperGetPtySlaveFd(const QTermWidget* self) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_GetPtySlaveFd_IsBase(true);
@@ -2126,7 +2126,7 @@ void QTermWidget_OnGetPtySlaveFd(const QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetBlinkingCursor(QTermWidget* self, bool blink) {
+void QTermWidget_SuperSetBlinkingCursor(QTermWidget* self, bool blink) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetBlinkingCursor_IsBase(true);
@@ -2145,7 +2145,7 @@ void QTermWidget_OnSetBlinkingCursor(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetBidiEnabled(QTermWidget* self, bool enabled) {
+void QTermWidget_SuperSetBidiEnabled(QTermWidget* self, bool enabled) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetBidiEnabled_IsBase(true);
@@ -2164,7 +2164,7 @@ void QTermWidget_OnSetBidiEnabled(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QTermWidget_QBaseIsBidiEnabled(QTermWidget* self) {
+bool QTermWidget_SuperIsBidiEnabled(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_IsBidiEnabled_IsBase(true);
@@ -2183,7 +2183,7 @@ void QTermWidget_OnIsBidiEnabled(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetAutoClose(QTermWidget* self, bool autoClose) {
+void QTermWidget_SuperSetAutoClose(QTermWidget* self, bool autoClose) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetAutoClose_IsBase(true);
@@ -2202,7 +2202,7 @@ void QTermWidget_OnSetAutoClose(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string QTermWidget_QBaseTitle(const QTermWidget* self) {
+libqt_string QTermWidget_SuperTitle(const QTermWidget* self) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_Title_IsBase(true);
@@ -2237,7 +2237,7 @@ void QTermWidget_OnTitle(const QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string QTermWidget_QBaseIcon(const QTermWidget* self) {
+libqt_string QTermWidget_SuperIcon(const QTermWidget* self) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_Icon_IsBase(true);
@@ -2272,7 +2272,7 @@ void QTermWidget_OnIcon(const QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QTermWidget_QBaseIsTitleChanged(const QTermWidget* self) {
+bool QTermWidget_SuperIsTitleChanged(const QTermWidget* self) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_IsTitleChanged_IsBase(true);
@@ -2291,7 +2291,7 @@ void QTermWidget_OnIsTitleChanged(const QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseBracketText(QTermWidget* self, libqt_string text) {
+void QTermWidget_SuperBracketText(QTermWidget* self, libqt_string text) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
@@ -2311,7 +2311,7 @@ void QTermWidget_OnBracketText(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseDisableBracketedPasteMode(QTermWidget* self, bool disable) {
+void QTermWidget_SuperDisableBracketedPasteMode(QTermWidget* self, bool disable) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_DisableBracketedPasteMode_IsBase(true);
@@ -2330,7 +2330,7 @@ void QTermWidget_OnDisableBracketedPasteMode(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QTermWidget_QBaseBracketedPasteModeIsDisabled(const QTermWidget* self) {
+bool QTermWidget_SuperBracketedPasteModeIsDisabled(const QTermWidget* self) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_BracketedPasteModeIsDisabled_IsBase(true);
@@ -2349,7 +2349,7 @@ void QTermWidget_OnBracketedPasteModeIsDisabled(const QTermWidget* self, intptr_
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetMargin(QTermWidget* self, int margin) {
+void QTermWidget_SuperSetMargin(QTermWidget* self, int margin) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetMargin_IsBase(true);
@@ -2368,7 +2368,7 @@ void QTermWidget_OnSetMargin(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTermWidget_QBaseGetMargin(const QTermWidget* self) {
+int QTermWidget_SuperGetMargin(const QTermWidget* self) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_GetMargin_IsBase(true);
@@ -2387,7 +2387,7 @@ void QTermWidget_OnGetMargin(const QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetDrawLineChars(QTermWidget* self, bool drawLineChars) {
+void QTermWidget_SuperSetDrawLineChars(QTermWidget* self, bool drawLineChars) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetDrawLineChars_IsBase(true);
@@ -2406,7 +2406,7 @@ void QTermWidget_OnSetDrawLineChars(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetBoldIntense(QTermWidget* self, bool boldIntense) {
+void QTermWidget_SuperSetBoldIntense(QTermWidget* self, bool boldIntense) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetBoldIntense_IsBase(true);
@@ -2425,7 +2425,7 @@ void QTermWidget_OnSetBoldIntense(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetConfirmMultilinePaste(QTermWidget* self, bool confirmMultilinePaste) {
+void QTermWidget_SuperSetConfirmMultilinePaste(QTermWidget* self, bool confirmMultilinePaste) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetConfirmMultilinePaste_IsBase(true);
@@ -2444,7 +2444,7 @@ void QTermWidget_OnSetConfirmMultilinePaste(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetTrimPastedTrailingNewlines(QTermWidget* self, bool trimPastedTrailingNewlines) {
+void QTermWidget_SuperSetTrimPastedTrailingNewlines(QTermWidget* self, bool trimPastedTrailingNewlines) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetTrimPastedTrailingNewlines_IsBase(true);
@@ -2463,7 +2463,7 @@ void QTermWidget_OnSetTrimPastedTrailingNewlines(QTermWidget* self, intptr_t slo
 }
 
 // Base class handler implementation
-libqt_string QTermWidget_QBaseWordCharacters(const QTermWidget* self) {
+libqt_string QTermWidget_SuperWordCharacters(const QTermWidget* self) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_WordCharacters_IsBase(true);
@@ -2498,7 +2498,7 @@ void QTermWidget_OnWordCharacters(const QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetWordCharacters(QTermWidget* self, const libqt_string chars) {
+void QTermWidget_SuperSetWordCharacters(QTermWidget* self, const libqt_string chars) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     QString chars_QString = QString::fromUtf8(chars.data, chars.len);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
@@ -2518,7 +2518,7 @@ void QTermWidget_OnSetWordCharacters(QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QTermWidgetInterface* QTermWidget_QBaseCreateWidget(const QTermWidget* self, int startnow) {
+QTermWidgetInterface* QTermWidget_SuperCreateWidget(const QTermWidget* self, int startnow) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_CreateWidget_IsBase(true);
@@ -2537,7 +2537,7 @@ void QTermWidget_OnCreateWidget(const QTermWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseResizeEvent(QTermWidget* self, QResizeEvent* param1) {
+void QTermWidget_SuperResizeEvent(QTermWidget* self, QResizeEvent* param1) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_ResizeEvent_IsBase(true);
@@ -2566,7 +2566,7 @@ int QTermWidget_DevType(const QTermWidget* self) {
 }
 
 // Base class handler implementation
-int QTermWidget_QBaseDevType(const QTermWidget* self) {
+int QTermWidget_SuperDevType(const QTermWidget* self) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_DevType_IsBase(true);
@@ -2595,7 +2595,7 @@ void QTermWidget_SetVisible(QTermWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSetVisible(QTermWidget* self, bool visible) {
+void QTermWidget_SuperSetVisible(QTermWidget* self, bool visible) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SetVisible_IsBase(true);
@@ -2624,7 +2624,7 @@ QSize* QTermWidget_MinimumSizeHint(const QTermWidget* self) {
 }
 
 // Base class handler implementation
-QSize* QTermWidget_QBaseMinimumSizeHint(const QTermWidget* self) {
+QSize* QTermWidget_SuperMinimumSizeHint(const QTermWidget* self) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_MinimumSizeHint_IsBase(true);
@@ -2653,7 +2653,7 @@ int QTermWidget_HeightForWidth(const QTermWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int QTermWidget_QBaseHeightForWidth(const QTermWidget* self, int param1) {
+int QTermWidget_SuperHeightForWidth(const QTermWidget* self, int param1) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_HeightForWidth_IsBase(true);
@@ -2682,7 +2682,7 @@ bool QTermWidget_HasHeightForWidth(const QTermWidget* self) {
 }
 
 // Base class handler implementation
-bool QTermWidget_QBaseHasHeightForWidth(const QTermWidget* self) {
+bool QTermWidget_SuperHasHeightForWidth(const QTermWidget* self) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_HasHeightForWidth_IsBase(true);
@@ -2711,7 +2711,7 @@ QPaintEngine* QTermWidget_PaintEngine(const QTermWidget* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QTermWidget_QBasePaintEngine(const QTermWidget* self) {
+QPaintEngine* QTermWidget_SuperPaintEngine(const QTermWidget* self) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_PaintEngine_IsBase(true);
@@ -2740,7 +2740,7 @@ bool QTermWidget_Event(QTermWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTermWidget_QBaseEvent(QTermWidget* self, QEvent* event) {
+bool QTermWidget_SuperEvent(QTermWidget* self, QEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_Event_IsBase(true);
@@ -2769,7 +2769,7 @@ void QTermWidget_MousePressEvent(QTermWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseMousePressEvent(QTermWidget* self, QMouseEvent* event) {
+void QTermWidget_SuperMousePressEvent(QTermWidget* self, QMouseEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_MousePressEvent_IsBase(true);
@@ -2798,7 +2798,7 @@ void QTermWidget_MouseReleaseEvent(QTermWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseMouseReleaseEvent(QTermWidget* self, QMouseEvent* event) {
+void QTermWidget_SuperMouseReleaseEvent(QTermWidget* self, QMouseEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_MouseReleaseEvent_IsBase(true);
@@ -2827,7 +2827,7 @@ void QTermWidget_MouseDoubleClickEvent(QTermWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseMouseDoubleClickEvent(QTermWidget* self, QMouseEvent* event) {
+void QTermWidget_SuperMouseDoubleClickEvent(QTermWidget* self, QMouseEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_MouseDoubleClickEvent_IsBase(true);
@@ -2856,7 +2856,7 @@ void QTermWidget_MouseMoveEvent(QTermWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseMouseMoveEvent(QTermWidget* self, QMouseEvent* event) {
+void QTermWidget_SuperMouseMoveEvent(QTermWidget* self, QMouseEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_MouseMoveEvent_IsBase(true);
@@ -2885,7 +2885,7 @@ void QTermWidget_WheelEvent(QTermWidget* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseWheelEvent(QTermWidget* self, QWheelEvent* event) {
+void QTermWidget_SuperWheelEvent(QTermWidget* self, QWheelEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_WheelEvent_IsBase(true);
@@ -2914,7 +2914,7 @@ void QTermWidget_KeyPressEvent(QTermWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseKeyPressEvent(QTermWidget* self, QKeyEvent* event) {
+void QTermWidget_SuperKeyPressEvent(QTermWidget* self, QKeyEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_KeyPressEvent_IsBase(true);
@@ -2943,7 +2943,7 @@ void QTermWidget_KeyReleaseEvent(QTermWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseKeyReleaseEvent(QTermWidget* self, QKeyEvent* event) {
+void QTermWidget_SuperKeyReleaseEvent(QTermWidget* self, QKeyEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_KeyReleaseEvent_IsBase(true);
@@ -2972,7 +2972,7 @@ void QTermWidget_FocusInEvent(QTermWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseFocusInEvent(QTermWidget* self, QFocusEvent* event) {
+void QTermWidget_SuperFocusInEvent(QTermWidget* self, QFocusEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_FocusInEvent_IsBase(true);
@@ -3001,7 +3001,7 @@ void QTermWidget_FocusOutEvent(QTermWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseFocusOutEvent(QTermWidget* self, QFocusEvent* event) {
+void QTermWidget_SuperFocusOutEvent(QTermWidget* self, QFocusEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_FocusOutEvent_IsBase(true);
@@ -3030,7 +3030,7 @@ void QTermWidget_EnterEvent(QTermWidget* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseEnterEvent(QTermWidget* self, QEnterEvent* event) {
+void QTermWidget_SuperEnterEvent(QTermWidget* self, QEnterEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_EnterEvent_IsBase(true);
@@ -3059,7 +3059,7 @@ void QTermWidget_LeaveEvent(QTermWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseLeaveEvent(QTermWidget* self, QEvent* event) {
+void QTermWidget_SuperLeaveEvent(QTermWidget* self, QEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_LeaveEvent_IsBase(true);
@@ -3088,7 +3088,7 @@ void QTermWidget_PaintEvent(QTermWidget* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBasePaintEvent(QTermWidget* self, QPaintEvent* event) {
+void QTermWidget_SuperPaintEvent(QTermWidget* self, QPaintEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_PaintEvent_IsBase(true);
@@ -3117,7 +3117,7 @@ void QTermWidget_MoveEvent(QTermWidget* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseMoveEvent(QTermWidget* self, QMoveEvent* event) {
+void QTermWidget_SuperMoveEvent(QTermWidget* self, QMoveEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_MoveEvent_IsBase(true);
@@ -3146,7 +3146,7 @@ void QTermWidget_CloseEvent(QTermWidget* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseCloseEvent(QTermWidget* self, QCloseEvent* event) {
+void QTermWidget_SuperCloseEvent(QTermWidget* self, QCloseEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_CloseEvent_IsBase(true);
@@ -3175,7 +3175,7 @@ void QTermWidget_ContextMenuEvent(QTermWidget* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseContextMenuEvent(QTermWidget* self, QContextMenuEvent* event) {
+void QTermWidget_SuperContextMenuEvent(QTermWidget* self, QContextMenuEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_ContextMenuEvent_IsBase(true);
@@ -3204,7 +3204,7 @@ void QTermWidget_TabletEvent(QTermWidget* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseTabletEvent(QTermWidget* self, QTabletEvent* event) {
+void QTermWidget_SuperTabletEvent(QTermWidget* self, QTabletEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_TabletEvent_IsBase(true);
@@ -3233,7 +3233,7 @@ void QTermWidget_ActionEvent(QTermWidget* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseActionEvent(QTermWidget* self, QActionEvent* event) {
+void QTermWidget_SuperActionEvent(QTermWidget* self, QActionEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_ActionEvent_IsBase(true);
@@ -3262,7 +3262,7 @@ void QTermWidget_DragEnterEvent(QTermWidget* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseDragEnterEvent(QTermWidget* self, QDragEnterEvent* event) {
+void QTermWidget_SuperDragEnterEvent(QTermWidget* self, QDragEnterEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_DragEnterEvent_IsBase(true);
@@ -3291,7 +3291,7 @@ void QTermWidget_DragMoveEvent(QTermWidget* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseDragMoveEvent(QTermWidget* self, QDragMoveEvent* event) {
+void QTermWidget_SuperDragMoveEvent(QTermWidget* self, QDragMoveEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_DragMoveEvent_IsBase(true);
@@ -3320,7 +3320,7 @@ void QTermWidget_DragLeaveEvent(QTermWidget* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseDragLeaveEvent(QTermWidget* self, QDragLeaveEvent* event) {
+void QTermWidget_SuperDragLeaveEvent(QTermWidget* self, QDragLeaveEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_DragLeaveEvent_IsBase(true);
@@ -3349,7 +3349,7 @@ void QTermWidget_DropEvent(QTermWidget* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseDropEvent(QTermWidget* self, QDropEvent* event) {
+void QTermWidget_SuperDropEvent(QTermWidget* self, QDropEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_DropEvent_IsBase(true);
@@ -3378,7 +3378,7 @@ void QTermWidget_ShowEvent(QTermWidget* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseShowEvent(QTermWidget* self, QShowEvent* event) {
+void QTermWidget_SuperShowEvent(QTermWidget* self, QShowEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_ShowEvent_IsBase(true);
@@ -3407,7 +3407,7 @@ void QTermWidget_HideEvent(QTermWidget* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseHideEvent(QTermWidget* self, QHideEvent* event) {
+void QTermWidget_SuperHideEvent(QTermWidget* self, QHideEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_HideEvent_IsBase(true);
@@ -3437,7 +3437,7 @@ bool QTermWidget_NativeEvent(QTermWidget* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool QTermWidget_QBaseNativeEvent(QTermWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QTermWidget_SuperNativeEvent(QTermWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
@@ -3467,7 +3467,7 @@ void QTermWidget_ChangeEvent(QTermWidget* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseChangeEvent(QTermWidget* self, QEvent* param1) {
+void QTermWidget_SuperChangeEvent(QTermWidget* self, QEvent* param1) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_ChangeEvent_IsBase(true);
@@ -3496,7 +3496,7 @@ int QTermWidget_Metric(const QTermWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int QTermWidget_QBaseMetric(const QTermWidget* self, int param1) {
+int QTermWidget_SuperMetric(const QTermWidget* self, int param1) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_Metric_IsBase(true);
@@ -3525,7 +3525,7 @@ void QTermWidget_InitPainter(const QTermWidget* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseInitPainter(const QTermWidget* self, QPainter* painter) {
+void QTermWidget_SuperInitPainter(const QTermWidget* self, QPainter* painter) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_InitPainter_IsBase(true);
@@ -3554,7 +3554,7 @@ QPaintDevice* QTermWidget_Redirected(const QTermWidget* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QTermWidget_QBaseRedirected(const QTermWidget* self, QPoint* offset) {
+QPaintDevice* QTermWidget_SuperRedirected(const QTermWidget* self, QPoint* offset) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_Redirected_IsBase(true);
@@ -3583,7 +3583,7 @@ QPainter* QTermWidget_SharedPainter(const QTermWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* QTermWidget_QBaseSharedPainter(const QTermWidget* self) {
+QPainter* QTermWidget_SuperSharedPainter(const QTermWidget* self) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SharedPainter_IsBase(true);
@@ -3612,7 +3612,7 @@ void QTermWidget_InputMethodEvent(QTermWidget* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseInputMethodEvent(QTermWidget* self, QInputMethodEvent* param1) {
+void QTermWidget_SuperInputMethodEvent(QTermWidget* self, QInputMethodEvent* param1) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_InputMethodEvent_IsBase(true);
@@ -3641,7 +3641,7 @@ QVariant* QTermWidget_InputMethodQuery(const QTermWidget* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QTermWidget_QBaseInputMethodQuery(const QTermWidget* self, int param1) {
+QVariant* QTermWidget_SuperInputMethodQuery(const QTermWidget* self, int param1) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_InputMethodQuery_IsBase(true);
@@ -3670,7 +3670,7 @@ bool QTermWidget_FocusNextPrevChild(QTermWidget* self, bool next) {
 }
 
 // Base class handler implementation
-bool QTermWidget_QBaseFocusNextPrevChild(QTermWidget* self, bool next) {
+bool QTermWidget_SuperFocusNextPrevChild(QTermWidget* self, bool next) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_FocusNextPrevChild_IsBase(true);
@@ -3699,7 +3699,7 @@ bool QTermWidget_EventFilter(QTermWidget* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QTermWidget_QBaseEventFilter(QTermWidget* self, QObject* watched, QEvent* event) {
+bool QTermWidget_SuperEventFilter(QTermWidget* self, QObject* watched, QEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_EventFilter_IsBase(true);
@@ -3728,7 +3728,7 @@ void QTermWidget_TimerEvent(QTermWidget* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseTimerEvent(QTermWidget* self, QTimerEvent* event) {
+void QTermWidget_SuperTimerEvent(QTermWidget* self, QTimerEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_TimerEvent_IsBase(true);
@@ -3757,7 +3757,7 @@ void QTermWidget_ChildEvent(QTermWidget* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseChildEvent(QTermWidget* self, QChildEvent* event) {
+void QTermWidget_SuperChildEvent(QTermWidget* self, QChildEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_ChildEvent_IsBase(true);
@@ -3786,7 +3786,7 @@ void QTermWidget_CustomEvent(QTermWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseCustomEvent(QTermWidget* self, QEvent* event) {
+void QTermWidget_SuperCustomEvent(QTermWidget* self, QEvent* event) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_CustomEvent_IsBase(true);
@@ -3815,7 +3815,7 @@ void QTermWidget_ConnectNotify(QTermWidget* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseConnectNotify(QTermWidget* self, const QMetaMethod* signal) {
+void QTermWidget_SuperConnectNotify(QTermWidget* self, const QMetaMethod* signal) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_ConnectNotify_IsBase(true);
@@ -3844,7 +3844,7 @@ void QTermWidget_DisconnectNotify(QTermWidget* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseDisconnectNotify(QTermWidget* self, const QMetaMethod* signal) {
+void QTermWidget_SuperDisconnectNotify(QTermWidget* self, const QMetaMethod* signal) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_DisconnectNotify_IsBase(true);
@@ -3873,7 +3873,7 @@ void QTermWidget_SessionFinished(QTermWidget* self) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSessionFinished(QTermWidget* self) {
+void QTermWidget_SuperSessionFinished(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SessionFinished_IsBase(true);
@@ -3902,7 +3902,7 @@ void QTermWidget_SelectionChanged(QTermWidget* self, bool textSelected) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseSelectionChanged(QTermWidget* self, bool textSelected) {
+void QTermWidget_SuperSelectionChanged(QTermWidget* self, bool textSelected) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SelectionChanged_IsBase(true);
@@ -3931,7 +3931,7 @@ void QTermWidget_UpdateMicroFocus(QTermWidget* self) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseUpdateMicroFocus(QTermWidget* self) {
+void QTermWidget_SuperUpdateMicroFocus(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_UpdateMicroFocus_IsBase(true);
@@ -3960,7 +3960,7 @@ void QTermWidget_Create(QTermWidget* self) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseCreate(QTermWidget* self) {
+void QTermWidget_SuperCreate(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_Create_IsBase(true);
@@ -3989,7 +3989,7 @@ void QTermWidget_Destroy(QTermWidget* self) {
 }
 
 // Base class handler implementation
-void QTermWidget_QBaseDestroy(QTermWidget* self) {
+void QTermWidget_SuperDestroy(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_Destroy_IsBase(true);
@@ -4018,7 +4018,7 @@ bool QTermWidget_FocusNextChild(QTermWidget* self) {
 }
 
 // Base class handler implementation
-bool QTermWidget_QBaseFocusNextChild(QTermWidget* self) {
+bool QTermWidget_SuperFocusNextChild(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_FocusNextChild_IsBase(true);
@@ -4047,7 +4047,7 @@ bool QTermWidget_FocusPreviousChild(QTermWidget* self) {
 }
 
 // Base class handler implementation
-bool QTermWidget_QBaseFocusPreviousChild(QTermWidget* self) {
+bool QTermWidget_SuperFocusPreviousChild(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_FocusPreviousChild_IsBase(true);
@@ -4076,7 +4076,7 @@ QObject* QTermWidget_Sender(const QTermWidget* self) {
 }
 
 // Base class handler implementation
-QObject* QTermWidget_QBaseSender(const QTermWidget* self) {
+QObject* QTermWidget_SuperSender(const QTermWidget* self) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_Sender_IsBase(true);
@@ -4105,7 +4105,7 @@ int QTermWidget_SenderSignalIndex(const QTermWidget* self) {
 }
 
 // Base class handler implementation
-int QTermWidget_QBaseSenderSignalIndex(const QTermWidget* self) {
+int QTermWidget_SuperSenderSignalIndex(const QTermWidget* self) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SenderSignalIndex_IsBase(true);
@@ -4134,7 +4134,7 @@ int QTermWidget_Receivers(const QTermWidget* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QTermWidget_QBaseReceivers(const QTermWidget* self, const char* signal) {
+int QTermWidget_SuperReceivers(const QTermWidget* self, const char* signal) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_Receivers_IsBase(true);
@@ -4163,7 +4163,7 @@ bool QTermWidget_IsSignalConnected(const QTermWidget* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QTermWidget_QBaseIsSignalConnected(const QTermWidget* self, const QMetaMethod* signal) {
+bool QTermWidget_SuperIsSignalConnected(const QTermWidget* self, const QMetaMethod* signal) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_IsSignalConnected_IsBase(true);
@@ -4192,7 +4192,7 @@ double QTermWidget_GetDecodedMetricF(const QTermWidget* self, int metricA, int m
 }
 
 // Base class handler implementation
-double QTermWidget_QBaseGetDecodedMetricF(const QTermWidget* self, int metricA, int metricB) {
+double QTermWidget_SuperGetDecodedMetricF(const QTermWidget* self, int metricA, int metricB) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_GetDecodedMetricF_IsBase(true);

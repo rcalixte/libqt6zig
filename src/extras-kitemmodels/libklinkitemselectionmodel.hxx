@@ -478,25 +478,25 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
 
     // Friend functions
     friend void KLinkItemSelectionModel_TimerEvent(KLinkItemSelectionModel* self, QTimerEvent* event);
-    friend void KLinkItemSelectionModel_QBaseTimerEvent(KLinkItemSelectionModel* self, QTimerEvent* event);
+    friend void KLinkItemSelectionModel_SuperTimerEvent(KLinkItemSelectionModel* self, QTimerEvent* event);
     friend void KLinkItemSelectionModel_ChildEvent(KLinkItemSelectionModel* self, QChildEvent* event);
-    friend void KLinkItemSelectionModel_QBaseChildEvent(KLinkItemSelectionModel* self, QChildEvent* event);
+    friend void KLinkItemSelectionModel_SuperChildEvent(KLinkItemSelectionModel* self, QChildEvent* event);
     friend void KLinkItemSelectionModel_CustomEvent(KLinkItemSelectionModel* self, QEvent* event);
-    friend void KLinkItemSelectionModel_QBaseCustomEvent(KLinkItemSelectionModel* self, QEvent* event);
+    friend void KLinkItemSelectionModel_SuperCustomEvent(KLinkItemSelectionModel* self, QEvent* event);
     friend void KLinkItemSelectionModel_ConnectNotify(KLinkItemSelectionModel* self, const QMetaMethod* signal);
-    friend void KLinkItemSelectionModel_QBaseConnectNotify(KLinkItemSelectionModel* self, const QMetaMethod* signal);
+    friend void KLinkItemSelectionModel_SuperConnectNotify(KLinkItemSelectionModel* self, const QMetaMethod* signal);
     friend void KLinkItemSelectionModel_DisconnectNotify(KLinkItemSelectionModel* self, const QMetaMethod* signal);
-    friend void KLinkItemSelectionModel_QBaseDisconnectNotify(KLinkItemSelectionModel* self, const QMetaMethod* signal);
+    friend void KLinkItemSelectionModel_SuperDisconnectNotify(KLinkItemSelectionModel* self, const QMetaMethod* signal);
     friend void KLinkItemSelectionModel_EmitSelectionChanged(KLinkItemSelectionModel* self, const QItemSelection* newSelection, const QItemSelection* oldSelection);
-    friend void KLinkItemSelectionModel_QBaseEmitSelectionChanged(KLinkItemSelectionModel* self, const QItemSelection* newSelection, const QItemSelection* oldSelection);
+    friend void KLinkItemSelectionModel_SuperEmitSelectionChanged(KLinkItemSelectionModel* self, const QItemSelection* newSelection, const QItemSelection* oldSelection);
     friend QObject* KLinkItemSelectionModel_Sender(const KLinkItemSelectionModel* self);
-    friend QObject* KLinkItemSelectionModel_QBaseSender(const KLinkItemSelectionModel* self);
+    friend QObject* KLinkItemSelectionModel_SuperSender(const KLinkItemSelectionModel* self);
     friend int KLinkItemSelectionModel_SenderSignalIndex(const KLinkItemSelectionModel* self);
-    friend int KLinkItemSelectionModel_QBaseSenderSignalIndex(const KLinkItemSelectionModel* self);
+    friend int KLinkItemSelectionModel_SuperSenderSignalIndex(const KLinkItemSelectionModel* self);
     friend int KLinkItemSelectionModel_Receivers(const KLinkItemSelectionModel* self, const char* signal);
-    friend int KLinkItemSelectionModel_QBaseReceivers(const KLinkItemSelectionModel* self, const char* signal);
+    friend int KLinkItemSelectionModel_SuperReceivers(const KLinkItemSelectionModel* self, const char* signal);
     friend bool KLinkItemSelectionModel_IsSignalConnected(const KLinkItemSelectionModel* self, const QMetaMethod* signal);
-    friend bool KLinkItemSelectionModel_QBaseIsSignalConnected(const KLinkItemSelectionModel* self, const QMetaMethod* signal);
+    friend bool KLinkItemSelectionModel_SuperIsSignalConnected(const KLinkItemSelectionModel* self, const QMetaMethod* signal);
 };
 
 #endif

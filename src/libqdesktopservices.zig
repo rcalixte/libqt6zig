@@ -90,6 +90,10 @@ pub const qdesktopservices = struct {
         qtc.QDesktopServices_UnsetUrlHandler(scheme_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesktopservices.html#dtor.QDesktopServices)
     ///
     /// Delete this object from C++ memory.
@@ -98,7 +102,7 @@ pub const qdesktopservices = struct {
     ///
     /// ` self: QtC.QDesktopServices `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDesktopServices_Delete(@ptrCast(self));
     }
 };

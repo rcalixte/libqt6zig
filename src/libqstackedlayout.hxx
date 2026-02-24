@@ -888,33 +888,33 @@ class VirtualQStackedLayout final : public QStackedLayout {
 
     // Friend functions
     friend void QStackedLayout_ChildEvent(QStackedLayout* self, QChildEvent* e);
-    friend void QStackedLayout_QBaseChildEvent(QStackedLayout* self, QChildEvent* e);
+    friend void QStackedLayout_SuperChildEvent(QStackedLayout* self, QChildEvent* e);
     friend void QStackedLayout_TimerEvent(QStackedLayout* self, QTimerEvent* event);
-    friend void QStackedLayout_QBaseTimerEvent(QStackedLayout* self, QTimerEvent* event);
+    friend void QStackedLayout_SuperTimerEvent(QStackedLayout* self, QTimerEvent* event);
     friend void QStackedLayout_CustomEvent(QStackedLayout* self, QEvent* event);
-    friend void QStackedLayout_QBaseCustomEvent(QStackedLayout* self, QEvent* event);
+    friend void QStackedLayout_SuperCustomEvent(QStackedLayout* self, QEvent* event);
     friend void QStackedLayout_ConnectNotify(QStackedLayout* self, const QMetaMethod* signal);
-    friend void QStackedLayout_QBaseConnectNotify(QStackedLayout* self, const QMetaMethod* signal);
+    friend void QStackedLayout_SuperConnectNotify(QStackedLayout* self, const QMetaMethod* signal);
     friend void QStackedLayout_DisconnectNotify(QStackedLayout* self, const QMetaMethod* signal);
-    friend void QStackedLayout_QBaseDisconnectNotify(QStackedLayout* self, const QMetaMethod* signal);
+    friend void QStackedLayout_SuperDisconnectNotify(QStackedLayout* self, const QMetaMethod* signal);
     friend void QStackedLayout_WidgetEvent(QStackedLayout* self, QEvent* param1);
-    friend void QStackedLayout_QBaseWidgetEvent(QStackedLayout* self, QEvent* param1);
+    friend void QStackedLayout_SuperWidgetEvent(QStackedLayout* self, QEvent* param1);
     friend void QStackedLayout_AddChildLayout(QStackedLayout* self, QLayout* l);
-    friend void QStackedLayout_QBaseAddChildLayout(QStackedLayout* self, QLayout* l);
+    friend void QStackedLayout_SuperAddChildLayout(QStackedLayout* self, QLayout* l);
     friend void QStackedLayout_AddChildWidget(QStackedLayout* self, QWidget* w);
-    friend void QStackedLayout_QBaseAddChildWidget(QStackedLayout* self, QWidget* w);
+    friend void QStackedLayout_SuperAddChildWidget(QStackedLayout* self, QWidget* w);
     friend bool QStackedLayout_AdoptLayout(QStackedLayout* self, QLayout* layout);
-    friend bool QStackedLayout_QBaseAdoptLayout(QStackedLayout* self, QLayout* layout);
+    friend bool QStackedLayout_SuperAdoptLayout(QStackedLayout* self, QLayout* layout);
     friend QRect* QStackedLayout_AlignmentRect(const QStackedLayout* self, const QRect* param1);
-    friend QRect* QStackedLayout_QBaseAlignmentRect(const QStackedLayout* self, const QRect* param1);
+    friend QRect* QStackedLayout_SuperAlignmentRect(const QStackedLayout* self, const QRect* param1);
     friend QObject* QStackedLayout_Sender(const QStackedLayout* self);
-    friend QObject* QStackedLayout_QBaseSender(const QStackedLayout* self);
+    friend QObject* QStackedLayout_SuperSender(const QStackedLayout* self);
     friend int QStackedLayout_SenderSignalIndex(const QStackedLayout* self);
-    friend int QStackedLayout_QBaseSenderSignalIndex(const QStackedLayout* self);
+    friend int QStackedLayout_SuperSenderSignalIndex(const QStackedLayout* self);
     friend int QStackedLayout_Receivers(const QStackedLayout* self, const char* signal);
-    friend int QStackedLayout_QBaseReceivers(const QStackedLayout* self, const char* signal);
+    friend int QStackedLayout_SuperReceivers(const QStackedLayout* self, const char* signal);
     friend bool QStackedLayout_IsSignalConnected(const QStackedLayout* self, const QMetaMethod* signal);
-    friend bool QStackedLayout_QBaseIsSignalConnected(const QStackedLayout* self, const QMetaMethod* signal);
+    friend bool QStackedLayout_SuperIsSignalConnected(const QStackedLayout* self, const QMetaMethod* signal);
 };
 
 #endif

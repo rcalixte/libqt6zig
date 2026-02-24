@@ -201,7 +201,7 @@ void QButtonGroup_AddButton2(QButtonGroup* self, QAbstractButton* param1, int id
 }
 
 // Base class handler implementation
-QMetaObject* QButtonGroup_QBaseMetaObject(const QButtonGroup* self) {
+QMetaObject* QButtonGroup_SuperMetaObject(const QButtonGroup* self) {
     auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self));
     if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
         vqbuttongroup->setQButtonGroup_MetaObject_IsBase(true);
@@ -220,7 +220,7 @@ void QButtonGroup_OnMetaObject(const QButtonGroup* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QButtonGroup_QBaseMetacast(QButtonGroup* self, const char* param1) {
+void* QButtonGroup_SuperMetacast(QButtonGroup* self, const char* param1) {
     auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
     if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
         vqbuttongroup->setQButtonGroup_Metacast_IsBase(true);
@@ -239,7 +239,7 @@ void QButtonGroup_OnMetacast(QButtonGroup* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QButtonGroup_QBaseMetacall(QButtonGroup* self, int param1, int param2, void** param3) {
+int QButtonGroup_SuperMetacall(QButtonGroup* self, int param1, int param2, void** param3) {
     auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
     if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
         vqbuttongroup->setQButtonGroup_Metacall_IsBase(true);
@@ -268,7 +268,7 @@ bool QButtonGroup_Event(QButtonGroup* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QButtonGroup_QBaseEvent(QButtonGroup* self, QEvent* event) {
+bool QButtonGroup_SuperEvent(QButtonGroup* self, QEvent* event) {
     auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
     if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
         vqbuttongroup->setQButtonGroup_Event_IsBase(true);
@@ -297,7 +297,7 @@ bool QButtonGroup_EventFilter(QButtonGroup* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool QButtonGroup_QBaseEventFilter(QButtonGroup* self, QObject* watched, QEvent* event) {
+bool QButtonGroup_SuperEventFilter(QButtonGroup* self, QObject* watched, QEvent* event) {
     auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
     if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
         vqbuttongroup->setQButtonGroup_EventFilter_IsBase(true);
@@ -326,7 +326,7 @@ void QButtonGroup_TimerEvent(QButtonGroup* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QButtonGroup_QBaseTimerEvent(QButtonGroup* self, QTimerEvent* event) {
+void QButtonGroup_SuperTimerEvent(QButtonGroup* self, QTimerEvent* event) {
     auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
     if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
         vqbuttongroup->setQButtonGroup_TimerEvent_IsBase(true);
@@ -355,7 +355,7 @@ void QButtonGroup_ChildEvent(QButtonGroup* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QButtonGroup_QBaseChildEvent(QButtonGroup* self, QChildEvent* event) {
+void QButtonGroup_SuperChildEvent(QButtonGroup* self, QChildEvent* event) {
     auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
     if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
         vqbuttongroup->setQButtonGroup_ChildEvent_IsBase(true);
@@ -384,7 +384,7 @@ void QButtonGroup_CustomEvent(QButtonGroup* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QButtonGroup_QBaseCustomEvent(QButtonGroup* self, QEvent* event) {
+void QButtonGroup_SuperCustomEvent(QButtonGroup* self, QEvent* event) {
     auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
     if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
         vqbuttongroup->setQButtonGroup_CustomEvent_IsBase(true);
@@ -413,7 +413,7 @@ void QButtonGroup_ConnectNotify(QButtonGroup* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QButtonGroup_QBaseConnectNotify(QButtonGroup* self, const QMetaMethod* signal) {
+void QButtonGroup_SuperConnectNotify(QButtonGroup* self, const QMetaMethod* signal) {
     auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
     if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
         vqbuttongroup->setQButtonGroup_ConnectNotify_IsBase(true);
@@ -442,7 +442,7 @@ void QButtonGroup_DisconnectNotify(QButtonGroup* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QButtonGroup_QBaseDisconnectNotify(QButtonGroup* self, const QMetaMethod* signal) {
+void QButtonGroup_SuperDisconnectNotify(QButtonGroup* self, const QMetaMethod* signal) {
     auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
     if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
         vqbuttongroup->setQButtonGroup_DisconnectNotify_IsBase(true);
@@ -471,7 +471,7 @@ QObject* QButtonGroup_Sender(const QButtonGroup* self) {
 }
 
 // Base class handler implementation
-QObject* QButtonGroup_QBaseSender(const QButtonGroup* self) {
+QObject* QButtonGroup_SuperSender(const QButtonGroup* self) {
     auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self));
     if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
         vqbuttongroup->setQButtonGroup_Sender_IsBase(true);
@@ -500,7 +500,7 @@ int QButtonGroup_SenderSignalIndex(const QButtonGroup* self) {
 }
 
 // Base class handler implementation
-int QButtonGroup_QBaseSenderSignalIndex(const QButtonGroup* self) {
+int QButtonGroup_SuperSenderSignalIndex(const QButtonGroup* self) {
     auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self));
     if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
         vqbuttongroup->setQButtonGroup_SenderSignalIndex_IsBase(true);
@@ -529,7 +529,7 @@ int QButtonGroup_Receivers(const QButtonGroup* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QButtonGroup_QBaseReceivers(const QButtonGroup* self, const char* signal) {
+int QButtonGroup_SuperReceivers(const QButtonGroup* self, const char* signal) {
     auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self));
     if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
         vqbuttongroup->setQButtonGroup_Receivers_IsBase(true);
@@ -558,7 +558,7 @@ bool QButtonGroup_IsSignalConnected(const QButtonGroup* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QButtonGroup_QBaseIsSignalConnected(const QButtonGroup* self, const QMetaMethod* signal) {
+bool QButtonGroup_SuperIsSignalConnected(const QButtonGroup* self, const QMetaMethod* signal) {
     auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self));
     if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
         vqbuttongroup->setQButtonGroup_IsSignalConnected_IsBase(true);

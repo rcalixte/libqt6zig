@@ -1050,7 +1050,7 @@ void QGraphicsItem_Scroll3(QGraphicsItem* self, double dx, double dy, const QRec
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseAdvance(QGraphicsItem* self, int phase) {
+void QGraphicsItem_SuperAdvance(QGraphicsItem* self, int phase) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_Advance_IsBase(true);
@@ -1069,7 +1069,7 @@ void QGraphicsItem_OnAdvance(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QRectF* QGraphicsItem_QBaseBoundingRect(const QGraphicsItem* self) {
+QRectF* QGraphicsItem_SuperBoundingRect(const QGraphicsItem* self) {
     auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_BoundingRect_IsBase(true);
@@ -1088,7 +1088,7 @@ void QGraphicsItem_OnBoundingRect(const QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsItem_QBaseShape(const QGraphicsItem* self) {
+QPainterPath* QGraphicsItem_SuperShape(const QGraphicsItem* self) {
     auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_Shape_IsBase(true);
@@ -1107,7 +1107,7 @@ void QGraphicsItem_OnShape(const QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsItem_QBaseContains(const QGraphicsItem* self, const QPointF* point) {
+bool QGraphicsItem_SuperContains(const QGraphicsItem* self, const QPointF* point) {
     auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_Contains_IsBase(true);
@@ -1126,7 +1126,7 @@ void QGraphicsItem_OnContains(const QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsItem_QBaseCollidesWithItem(const QGraphicsItem* self, const QGraphicsItem* other, int mode) {
+bool QGraphicsItem_SuperCollidesWithItem(const QGraphicsItem* self, const QGraphicsItem* other, int mode) {
     auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_CollidesWithItem_IsBase(true);
@@ -1145,7 +1145,7 @@ void QGraphicsItem_OnCollidesWithItem(const QGraphicsItem* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-bool QGraphicsItem_QBaseCollidesWithPath(const QGraphicsItem* self, const QPainterPath* path, int mode) {
+bool QGraphicsItem_SuperCollidesWithPath(const QGraphicsItem* self, const QPainterPath* path, int mode) {
     auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_CollidesWithPath_IsBase(true);
@@ -1164,7 +1164,7 @@ void QGraphicsItem_OnCollidesWithPath(const QGraphicsItem* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-bool QGraphicsItem_QBaseIsObscuredBy(const QGraphicsItem* self, const QGraphicsItem* item) {
+bool QGraphicsItem_SuperIsObscuredBy(const QGraphicsItem* self, const QGraphicsItem* item) {
     auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_IsObscuredBy_IsBase(true);
@@ -1183,7 +1183,7 @@ void QGraphicsItem_OnIsObscuredBy(const QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsItem_QBaseOpaqueArea(const QGraphicsItem* self) {
+QPainterPath* QGraphicsItem_SuperOpaqueArea(const QGraphicsItem* self) {
     auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_OpaqueArea_IsBase(true);
@@ -1202,7 +1202,7 @@ void QGraphicsItem_OnOpaqueArea(const QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBasePaint(QGraphicsItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void QGraphicsItem_SuperPaint(QGraphicsItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_Paint_IsBase(true);
@@ -1221,7 +1221,7 @@ void QGraphicsItem_OnPaint(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QGraphicsItem_QBaseType(const QGraphicsItem* self) {
+int QGraphicsItem_SuperType(const QGraphicsItem* self) {
     auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_Type_IsBase(true);
@@ -1240,7 +1240,7 @@ void QGraphicsItem_OnType(const QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsItem_QBaseSceneEventFilter(QGraphicsItem* self, QGraphicsItem* watched, QEvent* event) {
+bool QGraphicsItem_SuperSceneEventFilter(QGraphicsItem* self, QGraphicsItem* watched, QEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_SceneEventFilter_IsBase(true);
@@ -1259,7 +1259,7 @@ void QGraphicsItem_OnSceneEventFilter(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsItem_QBaseSceneEvent(QGraphicsItem* self, QEvent* event) {
+bool QGraphicsItem_SuperSceneEvent(QGraphicsItem* self, QEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_SceneEvent_IsBase(true);
@@ -1278,7 +1278,7 @@ void QGraphicsItem_OnSceneEvent(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseContextMenuEvent(QGraphicsItem* self, QGraphicsSceneContextMenuEvent* event) {
+void QGraphicsItem_SuperContextMenuEvent(QGraphicsItem* self, QGraphicsSceneContextMenuEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_ContextMenuEvent_IsBase(true);
@@ -1297,7 +1297,7 @@ void QGraphicsItem_OnContextMenuEvent(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseDragEnterEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsItem_SuperDragEnterEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_DragEnterEvent_IsBase(true);
@@ -1316,7 +1316,7 @@ void QGraphicsItem_OnDragEnterEvent(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseDragLeaveEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsItem_SuperDragLeaveEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_DragLeaveEvent_IsBase(true);
@@ -1335,7 +1335,7 @@ void QGraphicsItem_OnDragLeaveEvent(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseDragMoveEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsItem_SuperDragMoveEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_DragMoveEvent_IsBase(true);
@@ -1354,7 +1354,7 @@ void QGraphicsItem_OnDragMoveEvent(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseDropEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsItem_SuperDropEvent(QGraphicsItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_DropEvent_IsBase(true);
@@ -1373,7 +1373,7 @@ void QGraphicsItem_OnDropEvent(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseFocusInEvent(QGraphicsItem* self, QFocusEvent* event) {
+void QGraphicsItem_SuperFocusInEvent(QGraphicsItem* self, QFocusEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_FocusInEvent_IsBase(true);
@@ -1392,7 +1392,7 @@ void QGraphicsItem_OnFocusInEvent(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseFocusOutEvent(QGraphicsItem* self, QFocusEvent* event) {
+void QGraphicsItem_SuperFocusOutEvent(QGraphicsItem* self, QFocusEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_FocusOutEvent_IsBase(true);
@@ -1411,7 +1411,7 @@ void QGraphicsItem_OnFocusOutEvent(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseHoverEnterEvent(QGraphicsItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsItem_SuperHoverEnterEvent(QGraphicsItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_HoverEnterEvent_IsBase(true);
@@ -1430,7 +1430,7 @@ void QGraphicsItem_OnHoverEnterEvent(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseHoverMoveEvent(QGraphicsItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsItem_SuperHoverMoveEvent(QGraphicsItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_HoverMoveEvent_IsBase(true);
@@ -1449,7 +1449,7 @@ void QGraphicsItem_OnHoverMoveEvent(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseHoverLeaveEvent(QGraphicsItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsItem_SuperHoverLeaveEvent(QGraphicsItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_HoverLeaveEvent_IsBase(true);
@@ -1468,7 +1468,7 @@ void QGraphicsItem_OnHoverLeaveEvent(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseKeyPressEvent(QGraphicsItem* self, QKeyEvent* event) {
+void QGraphicsItem_SuperKeyPressEvent(QGraphicsItem* self, QKeyEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_KeyPressEvent_IsBase(true);
@@ -1487,7 +1487,7 @@ void QGraphicsItem_OnKeyPressEvent(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseKeyReleaseEvent(QGraphicsItem* self, QKeyEvent* event) {
+void QGraphicsItem_SuperKeyReleaseEvent(QGraphicsItem* self, QKeyEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_KeyReleaseEvent_IsBase(true);
@@ -1506,7 +1506,7 @@ void QGraphicsItem_OnKeyReleaseEvent(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseMousePressEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsItem_SuperMousePressEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_MousePressEvent_IsBase(true);
@@ -1525,7 +1525,7 @@ void QGraphicsItem_OnMousePressEvent(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseMouseMoveEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsItem_SuperMouseMoveEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_MouseMoveEvent_IsBase(true);
@@ -1544,7 +1544,7 @@ void QGraphicsItem_OnMouseMoveEvent(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseMouseReleaseEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsItem_SuperMouseReleaseEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_MouseReleaseEvent_IsBase(true);
@@ -1563,7 +1563,7 @@ void QGraphicsItem_OnMouseReleaseEvent(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseMouseDoubleClickEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsItem_SuperMouseDoubleClickEvent(QGraphicsItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_MouseDoubleClickEvent_IsBase(true);
@@ -1582,7 +1582,7 @@ void QGraphicsItem_OnMouseDoubleClickEvent(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseWheelEvent(QGraphicsItem* self, QGraphicsSceneWheelEvent* event) {
+void QGraphicsItem_SuperWheelEvent(QGraphicsItem* self, QGraphicsSceneWheelEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_WheelEvent_IsBase(true);
@@ -1601,7 +1601,7 @@ void QGraphicsItem_OnWheelEvent(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseInputMethodEvent(QGraphicsItem* self, QInputMethodEvent* event) {
+void QGraphicsItem_SuperInputMethodEvent(QGraphicsItem* self, QInputMethodEvent* event) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_InputMethodEvent_IsBase(true);
@@ -1620,7 +1620,7 @@ void QGraphicsItem_OnInputMethodEvent(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QGraphicsItem_QBaseInputMethodQuery(const QGraphicsItem* self, int query) {
+QVariant* QGraphicsItem_SuperInputMethodQuery(const QGraphicsItem* self, int query) {
     auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_InputMethodQuery_IsBase(true);
@@ -1638,7 +1638,7 @@ void QGraphicsItem_OnInputMethodQuery(const QGraphicsItem* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-QVariant* QGraphicsItem_QBaseItemChange(QGraphicsItem* self, int change, const QVariant* value) {
+QVariant* QGraphicsItem_SuperItemChange(QGraphicsItem* self, int change, const QVariant* value) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_ItemChange_IsBase(true);
@@ -1656,7 +1656,7 @@ void QGraphicsItem_OnItemChange(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsItem_QBaseSupportsExtension(const QGraphicsItem* self, int extension) {
+bool QGraphicsItem_SuperSupportsExtension(const QGraphicsItem* self, int extension) {
     auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_SupportsExtension_IsBase(true);
@@ -1675,7 +1675,7 @@ void QGraphicsItem_OnSupportsExtension(const QGraphicsItem* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseSetExtension(QGraphicsItem* self, int extension, const QVariant* variant) {
+void QGraphicsItem_SuperSetExtension(QGraphicsItem* self, int extension, const QVariant* variant) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_SetExtension_IsBase(true);
@@ -1694,7 +1694,7 @@ void QGraphicsItem_OnSetExtension(QGraphicsItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QGraphicsItem_QBaseExtension(const QGraphicsItem* self, const QVariant* variant) {
+QVariant* QGraphicsItem_SuperExtension(const QGraphicsItem* self, const QVariant* variant) {
     auto* vqgraphicsitem = const_cast<VirtualQGraphicsItem*>(dynamic_cast<const VirtualQGraphicsItem*>(self));
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_Extension_IsBase(true);
@@ -1722,7 +1722,7 @@ void QGraphicsItem_UpdateMicroFocus(QGraphicsItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseUpdateMicroFocus(QGraphicsItem* self) {
+void QGraphicsItem_SuperUpdateMicroFocus(QGraphicsItem* self) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_UpdateMicroFocus_IsBase(true);
@@ -1751,7 +1751,7 @@ void QGraphicsItem_AddToIndex(QGraphicsItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseAddToIndex(QGraphicsItem* self) {
+void QGraphicsItem_SuperAddToIndex(QGraphicsItem* self) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_AddToIndex_IsBase(true);
@@ -1780,7 +1780,7 @@ void QGraphicsItem_RemoveFromIndex(QGraphicsItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBaseRemoveFromIndex(QGraphicsItem* self) {
+void QGraphicsItem_SuperRemoveFromIndex(QGraphicsItem* self) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_RemoveFromIndex_IsBase(true);
@@ -1809,7 +1809,7 @@ void QGraphicsItem_PrepareGeometryChange(QGraphicsItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsItem_QBasePrepareGeometryChange(QGraphicsItem* self) {
+void QGraphicsItem_SuperPrepareGeometryChange(QGraphicsItem* self) {
     auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
     if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
         vqgraphicsitem->setQGraphicsItem_PrepareGeometryChange_IsBase(true);
@@ -2019,7 +2019,7 @@ void QGraphicsObject_GrabGesture2(QGraphicsObject* self, int typeVal, int flags)
 }
 
 // Base class handler implementation
-QMetaObject* QGraphicsObject_QBaseMetaObject(const QGraphicsObject* self) {
+QMetaObject* QGraphicsObject_SuperMetaObject(const QGraphicsObject* self) {
     auto* vqgraphicsobject = const_cast<VirtualQGraphicsObject*>(dynamic_cast<const VirtualQGraphicsObject*>(self));
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_MetaObject_IsBase(true);
@@ -2038,7 +2038,7 @@ void QGraphicsObject_OnMetaObject(const QGraphicsObject* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QGraphicsObject_QBaseMetacast(QGraphicsObject* self, const char* param1) {
+void* QGraphicsObject_SuperMetacast(QGraphicsObject* self, const char* param1) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_Metacast_IsBase(true);
@@ -2057,7 +2057,7 @@ void QGraphicsObject_OnMetacast(QGraphicsObject* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QGraphicsObject_QBaseMetacall(QGraphicsObject* self, int param1, int param2, void** param3) {
+int QGraphicsObject_SuperMetacall(QGraphicsObject* self, int param1, int param2, void** param3) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_Metacall_IsBase(true);
@@ -2076,7 +2076,7 @@ void QGraphicsObject_OnMetacall(QGraphicsObject* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsObject_QBaseEvent(QGraphicsObject* self, QEvent* ev) {
+bool QGraphicsObject_SuperEvent(QGraphicsObject* self, QEvent* ev) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_Event_IsBase(true);
@@ -2105,7 +2105,7 @@ bool QGraphicsObject_EventFilter(QGraphicsObject* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool QGraphicsObject_QBaseEventFilter(QGraphicsObject* self, QObject* watched, QEvent* event) {
+bool QGraphicsObject_SuperEventFilter(QGraphicsObject* self, QObject* watched, QEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_EventFilter_IsBase(true);
@@ -2134,7 +2134,7 @@ void QGraphicsObject_TimerEvent(QGraphicsObject* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseTimerEvent(QGraphicsObject* self, QTimerEvent* event) {
+void QGraphicsObject_SuperTimerEvent(QGraphicsObject* self, QTimerEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_TimerEvent_IsBase(true);
@@ -2163,7 +2163,7 @@ void QGraphicsObject_ChildEvent(QGraphicsObject* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseChildEvent(QGraphicsObject* self, QChildEvent* event) {
+void QGraphicsObject_SuperChildEvent(QGraphicsObject* self, QChildEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_ChildEvent_IsBase(true);
@@ -2192,7 +2192,7 @@ void QGraphicsObject_CustomEvent(QGraphicsObject* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseCustomEvent(QGraphicsObject* self, QEvent* event) {
+void QGraphicsObject_SuperCustomEvent(QGraphicsObject* self, QEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_CustomEvent_IsBase(true);
@@ -2221,7 +2221,7 @@ void QGraphicsObject_ConnectNotify(QGraphicsObject* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseConnectNotify(QGraphicsObject* self, const QMetaMethod* signal) {
+void QGraphicsObject_SuperConnectNotify(QGraphicsObject* self, const QMetaMethod* signal) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_ConnectNotify_IsBase(true);
@@ -2250,7 +2250,7 @@ void QGraphicsObject_DisconnectNotify(QGraphicsObject* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseDisconnectNotify(QGraphicsObject* self, const QMetaMethod* signal) {
+void QGraphicsObject_SuperDisconnectNotify(QGraphicsObject* self, const QMetaMethod* signal) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_DisconnectNotify_IsBase(true);
@@ -2279,7 +2279,7 @@ void QGraphicsObject_Advance(QGraphicsObject* self, int phase) {
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseAdvance(QGraphicsObject* self, int phase) {
+void QGraphicsObject_SuperAdvance(QGraphicsObject* self, int phase) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_Advance_IsBase(true);
@@ -2308,7 +2308,7 @@ QRectF* QGraphicsObject_BoundingRect(const QGraphicsObject* self) {
 }
 
 // Base class handler implementation
-QRectF* QGraphicsObject_QBaseBoundingRect(const QGraphicsObject* self) {
+QRectF* QGraphicsObject_SuperBoundingRect(const QGraphicsObject* self) {
     auto* vqgraphicsobject = const_cast<VirtualQGraphicsObject*>(dynamic_cast<const VirtualQGraphicsObject*>(self));
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_BoundingRect_IsBase(true);
@@ -2337,7 +2337,7 @@ QPainterPath* QGraphicsObject_Shape(const QGraphicsObject* self) {
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsObject_QBaseShape(const QGraphicsObject* self) {
+QPainterPath* QGraphicsObject_SuperShape(const QGraphicsObject* self) {
     auto* vqgraphicsobject = const_cast<VirtualQGraphicsObject*>(dynamic_cast<const VirtualQGraphicsObject*>(self));
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_Shape_IsBase(true);
@@ -2366,7 +2366,7 @@ bool QGraphicsObject_Contains(const QGraphicsObject* self, const QPointF* point)
 }
 
 // Base class handler implementation
-bool QGraphicsObject_QBaseContains(const QGraphicsObject* self, const QPointF* point) {
+bool QGraphicsObject_SuperContains(const QGraphicsObject* self, const QPointF* point) {
     auto* vqgraphicsobject = const_cast<VirtualQGraphicsObject*>(dynamic_cast<const VirtualQGraphicsObject*>(self));
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_Contains_IsBase(true);
@@ -2395,7 +2395,7 @@ bool QGraphicsObject_CollidesWithItem(const QGraphicsObject* self, const QGraphi
 }
 
 // Base class handler implementation
-bool QGraphicsObject_QBaseCollidesWithItem(const QGraphicsObject* self, const QGraphicsItem* other, int mode) {
+bool QGraphicsObject_SuperCollidesWithItem(const QGraphicsObject* self, const QGraphicsItem* other, int mode) {
     auto* vqgraphicsobject = const_cast<VirtualQGraphicsObject*>(dynamic_cast<const VirtualQGraphicsObject*>(self));
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_CollidesWithItem_IsBase(true);
@@ -2424,7 +2424,7 @@ bool QGraphicsObject_CollidesWithPath(const QGraphicsObject* self, const QPainte
 }
 
 // Base class handler implementation
-bool QGraphicsObject_QBaseCollidesWithPath(const QGraphicsObject* self, const QPainterPath* path, int mode) {
+bool QGraphicsObject_SuperCollidesWithPath(const QGraphicsObject* self, const QPainterPath* path, int mode) {
     auto* vqgraphicsobject = const_cast<VirtualQGraphicsObject*>(dynamic_cast<const VirtualQGraphicsObject*>(self));
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_CollidesWithPath_IsBase(true);
@@ -2453,7 +2453,7 @@ bool QGraphicsObject_IsObscuredBy(const QGraphicsObject* self, const QGraphicsIt
 }
 
 // Base class handler implementation
-bool QGraphicsObject_QBaseIsObscuredBy(const QGraphicsObject* self, const QGraphicsItem* item) {
+bool QGraphicsObject_SuperIsObscuredBy(const QGraphicsObject* self, const QGraphicsItem* item) {
     auto* vqgraphicsobject = const_cast<VirtualQGraphicsObject*>(dynamic_cast<const VirtualQGraphicsObject*>(self));
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_IsObscuredBy_IsBase(true);
@@ -2482,7 +2482,7 @@ QPainterPath* QGraphicsObject_OpaqueArea(const QGraphicsObject* self) {
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsObject_QBaseOpaqueArea(const QGraphicsObject* self) {
+QPainterPath* QGraphicsObject_SuperOpaqueArea(const QGraphicsObject* self) {
     auto* vqgraphicsobject = const_cast<VirtualQGraphicsObject*>(dynamic_cast<const VirtualQGraphicsObject*>(self));
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_OpaqueArea_IsBase(true);
@@ -2511,7 +2511,7 @@ void QGraphicsObject_Paint(QGraphicsObject* self, QPainter* painter, const QStyl
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBasePaint(QGraphicsObject* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void QGraphicsObject_SuperPaint(QGraphicsObject* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_Paint_IsBase(true);
@@ -2540,7 +2540,7 @@ int QGraphicsObject_Type(const QGraphicsObject* self) {
 }
 
 // Base class handler implementation
-int QGraphicsObject_QBaseType(const QGraphicsObject* self) {
+int QGraphicsObject_SuperType(const QGraphicsObject* self) {
     auto* vqgraphicsobject = const_cast<VirtualQGraphicsObject*>(dynamic_cast<const VirtualQGraphicsObject*>(self));
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_Type_IsBase(true);
@@ -2569,7 +2569,7 @@ bool QGraphicsObject_SceneEventFilter(QGraphicsObject* self, QGraphicsItem* watc
 }
 
 // Base class handler implementation
-bool QGraphicsObject_QBaseSceneEventFilter(QGraphicsObject* self, QGraphicsItem* watched, QEvent* event) {
+bool QGraphicsObject_SuperSceneEventFilter(QGraphicsObject* self, QGraphicsItem* watched, QEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_SceneEventFilter_IsBase(true);
@@ -2598,7 +2598,7 @@ bool QGraphicsObject_SceneEvent(QGraphicsObject* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QGraphicsObject_QBaseSceneEvent(QGraphicsObject* self, QEvent* event) {
+bool QGraphicsObject_SuperSceneEvent(QGraphicsObject* self, QEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_SceneEvent_IsBase(true);
@@ -2627,7 +2627,7 @@ void QGraphicsObject_ContextMenuEvent(QGraphicsObject* self, QGraphicsSceneConte
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseContextMenuEvent(QGraphicsObject* self, QGraphicsSceneContextMenuEvent* event) {
+void QGraphicsObject_SuperContextMenuEvent(QGraphicsObject* self, QGraphicsSceneContextMenuEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_ContextMenuEvent_IsBase(true);
@@ -2656,7 +2656,7 @@ void QGraphicsObject_DragEnterEvent(QGraphicsObject* self, QGraphicsSceneDragDro
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseDragEnterEvent(QGraphicsObject* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsObject_SuperDragEnterEvent(QGraphicsObject* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_DragEnterEvent_IsBase(true);
@@ -2685,7 +2685,7 @@ void QGraphicsObject_DragLeaveEvent(QGraphicsObject* self, QGraphicsSceneDragDro
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseDragLeaveEvent(QGraphicsObject* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsObject_SuperDragLeaveEvent(QGraphicsObject* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_DragLeaveEvent_IsBase(true);
@@ -2714,7 +2714,7 @@ void QGraphicsObject_DragMoveEvent(QGraphicsObject* self, QGraphicsSceneDragDrop
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseDragMoveEvent(QGraphicsObject* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsObject_SuperDragMoveEvent(QGraphicsObject* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_DragMoveEvent_IsBase(true);
@@ -2743,7 +2743,7 @@ void QGraphicsObject_DropEvent(QGraphicsObject* self, QGraphicsSceneDragDropEven
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseDropEvent(QGraphicsObject* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsObject_SuperDropEvent(QGraphicsObject* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_DropEvent_IsBase(true);
@@ -2772,7 +2772,7 @@ void QGraphicsObject_FocusInEvent(QGraphicsObject* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseFocusInEvent(QGraphicsObject* self, QFocusEvent* event) {
+void QGraphicsObject_SuperFocusInEvent(QGraphicsObject* self, QFocusEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_FocusInEvent_IsBase(true);
@@ -2801,7 +2801,7 @@ void QGraphicsObject_FocusOutEvent(QGraphicsObject* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseFocusOutEvent(QGraphicsObject* self, QFocusEvent* event) {
+void QGraphicsObject_SuperFocusOutEvent(QGraphicsObject* self, QFocusEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_FocusOutEvent_IsBase(true);
@@ -2830,7 +2830,7 @@ void QGraphicsObject_HoverEnterEvent(QGraphicsObject* self, QGraphicsSceneHoverE
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseHoverEnterEvent(QGraphicsObject* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsObject_SuperHoverEnterEvent(QGraphicsObject* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_HoverEnterEvent_IsBase(true);
@@ -2859,7 +2859,7 @@ void QGraphicsObject_HoverMoveEvent(QGraphicsObject* self, QGraphicsSceneHoverEv
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseHoverMoveEvent(QGraphicsObject* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsObject_SuperHoverMoveEvent(QGraphicsObject* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_HoverMoveEvent_IsBase(true);
@@ -2888,7 +2888,7 @@ void QGraphicsObject_HoverLeaveEvent(QGraphicsObject* self, QGraphicsSceneHoverE
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseHoverLeaveEvent(QGraphicsObject* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsObject_SuperHoverLeaveEvent(QGraphicsObject* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_HoverLeaveEvent_IsBase(true);
@@ -2917,7 +2917,7 @@ void QGraphicsObject_KeyPressEvent(QGraphicsObject* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseKeyPressEvent(QGraphicsObject* self, QKeyEvent* event) {
+void QGraphicsObject_SuperKeyPressEvent(QGraphicsObject* self, QKeyEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_KeyPressEvent_IsBase(true);
@@ -2946,7 +2946,7 @@ void QGraphicsObject_KeyReleaseEvent(QGraphicsObject* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseKeyReleaseEvent(QGraphicsObject* self, QKeyEvent* event) {
+void QGraphicsObject_SuperKeyReleaseEvent(QGraphicsObject* self, QKeyEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_KeyReleaseEvent_IsBase(true);
@@ -2975,7 +2975,7 @@ void QGraphicsObject_MousePressEvent(QGraphicsObject* self, QGraphicsSceneMouseE
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseMousePressEvent(QGraphicsObject* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsObject_SuperMousePressEvent(QGraphicsObject* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_MousePressEvent_IsBase(true);
@@ -3004,7 +3004,7 @@ void QGraphicsObject_MouseMoveEvent(QGraphicsObject* self, QGraphicsSceneMouseEv
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseMouseMoveEvent(QGraphicsObject* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsObject_SuperMouseMoveEvent(QGraphicsObject* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_MouseMoveEvent_IsBase(true);
@@ -3033,7 +3033,7 @@ void QGraphicsObject_MouseReleaseEvent(QGraphicsObject* self, QGraphicsSceneMous
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseMouseReleaseEvent(QGraphicsObject* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsObject_SuperMouseReleaseEvent(QGraphicsObject* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_MouseReleaseEvent_IsBase(true);
@@ -3062,7 +3062,7 @@ void QGraphicsObject_MouseDoubleClickEvent(QGraphicsObject* self, QGraphicsScene
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseMouseDoubleClickEvent(QGraphicsObject* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsObject_SuperMouseDoubleClickEvent(QGraphicsObject* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_MouseDoubleClickEvent_IsBase(true);
@@ -3091,7 +3091,7 @@ void QGraphicsObject_WheelEvent(QGraphicsObject* self, QGraphicsSceneWheelEvent*
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseWheelEvent(QGraphicsObject* self, QGraphicsSceneWheelEvent* event) {
+void QGraphicsObject_SuperWheelEvent(QGraphicsObject* self, QGraphicsSceneWheelEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_WheelEvent_IsBase(true);
@@ -3120,7 +3120,7 @@ void QGraphicsObject_InputMethodEvent(QGraphicsObject* self, QInputMethodEvent* 
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseInputMethodEvent(QGraphicsObject* self, QInputMethodEvent* event) {
+void QGraphicsObject_SuperInputMethodEvent(QGraphicsObject* self, QInputMethodEvent* event) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_InputMethodEvent_IsBase(true);
@@ -3148,7 +3148,7 @@ QVariant* QGraphicsObject_InputMethodQuery(const QGraphicsObject* self, int quer
 }
 
 // Base class handler implementation
-QVariant* QGraphicsObject_QBaseInputMethodQuery(const QGraphicsObject* self, int query) {
+QVariant* QGraphicsObject_SuperInputMethodQuery(const QGraphicsObject* self, int query) {
     auto* vqgraphicsobject = const_cast<VirtualQGraphicsObject*>(dynamic_cast<const VirtualQGraphicsObject*>(self));
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_InputMethodQuery_IsBase(true);
@@ -3175,7 +3175,7 @@ QVariant* QGraphicsObject_ItemChange(QGraphicsObject* self, int change, const QV
 }
 
 // Base class handler implementation
-QVariant* QGraphicsObject_QBaseItemChange(QGraphicsObject* self, int change, const QVariant* value) {
+QVariant* QGraphicsObject_SuperItemChange(QGraphicsObject* self, int change, const QVariant* value) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_ItemChange_IsBase(true);
@@ -3203,7 +3203,7 @@ bool QGraphicsObject_SupportsExtension(const QGraphicsObject* self, int extensio
 }
 
 // Base class handler implementation
-bool QGraphicsObject_QBaseSupportsExtension(const QGraphicsObject* self, int extension) {
+bool QGraphicsObject_SuperSupportsExtension(const QGraphicsObject* self, int extension) {
     auto* vqgraphicsobject = const_cast<VirtualQGraphicsObject*>(dynamic_cast<const VirtualQGraphicsObject*>(self));
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_SupportsExtension_IsBase(true);
@@ -3232,7 +3232,7 @@ void QGraphicsObject_SetExtension(QGraphicsObject* self, int extension, const QV
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseSetExtension(QGraphicsObject* self, int extension, const QVariant* variant) {
+void QGraphicsObject_SuperSetExtension(QGraphicsObject* self, int extension, const QVariant* variant) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_SetExtension_IsBase(true);
@@ -3260,7 +3260,7 @@ QVariant* QGraphicsObject_Extension(const QGraphicsObject* self, const QVariant*
 }
 
 // Base class handler implementation
-QVariant* QGraphicsObject_QBaseExtension(const QGraphicsObject* self, const QVariant* variant) {
+QVariant* QGraphicsObject_SuperExtension(const QGraphicsObject* self, const QVariant* variant) {
     auto* vqgraphicsobject = const_cast<VirtualQGraphicsObject*>(dynamic_cast<const VirtualQGraphicsObject*>(self));
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_Extension_IsBase(true);
@@ -3288,7 +3288,7 @@ void QGraphicsObject_UpdateMicroFocus(QGraphicsObject* self) {
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseUpdateMicroFocus(QGraphicsObject* self) {
+void QGraphicsObject_SuperUpdateMicroFocus(QGraphicsObject* self) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_UpdateMicroFocus_IsBase(true);
@@ -3317,7 +3317,7 @@ QObject* QGraphicsObject_Sender(const QGraphicsObject* self) {
 }
 
 // Base class handler implementation
-QObject* QGraphicsObject_QBaseSender(const QGraphicsObject* self) {
+QObject* QGraphicsObject_SuperSender(const QGraphicsObject* self) {
     auto* vqgraphicsobject = const_cast<VirtualQGraphicsObject*>(dynamic_cast<const VirtualQGraphicsObject*>(self));
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_Sender_IsBase(true);
@@ -3346,7 +3346,7 @@ int QGraphicsObject_SenderSignalIndex(const QGraphicsObject* self) {
 }
 
 // Base class handler implementation
-int QGraphicsObject_QBaseSenderSignalIndex(const QGraphicsObject* self) {
+int QGraphicsObject_SuperSenderSignalIndex(const QGraphicsObject* self) {
     auto* vqgraphicsobject = const_cast<VirtualQGraphicsObject*>(dynamic_cast<const VirtualQGraphicsObject*>(self));
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_SenderSignalIndex_IsBase(true);
@@ -3375,7 +3375,7 @@ int QGraphicsObject_Receivers(const QGraphicsObject* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QGraphicsObject_QBaseReceivers(const QGraphicsObject* self, const char* signal) {
+int QGraphicsObject_SuperReceivers(const QGraphicsObject* self, const char* signal) {
     auto* vqgraphicsobject = const_cast<VirtualQGraphicsObject*>(dynamic_cast<const VirtualQGraphicsObject*>(self));
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_Receivers_IsBase(true);
@@ -3404,7 +3404,7 @@ bool QGraphicsObject_IsSignalConnected(const QGraphicsObject* self, const QMetaM
 }
 
 // Base class handler implementation
-bool QGraphicsObject_QBaseIsSignalConnected(const QGraphicsObject* self, const QMetaMethod* signal) {
+bool QGraphicsObject_SuperIsSignalConnected(const QGraphicsObject* self, const QMetaMethod* signal) {
     auto* vqgraphicsobject = const_cast<VirtualQGraphicsObject*>(dynamic_cast<const VirtualQGraphicsObject*>(self));
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_IsSignalConnected_IsBase(true);
@@ -3433,7 +3433,7 @@ void QGraphicsObject_AddToIndex(QGraphicsObject* self) {
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseAddToIndex(QGraphicsObject* self) {
+void QGraphicsObject_SuperAddToIndex(QGraphicsObject* self) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_AddToIndex_IsBase(true);
@@ -3462,7 +3462,7 @@ void QGraphicsObject_RemoveFromIndex(QGraphicsObject* self) {
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBaseRemoveFromIndex(QGraphicsObject* self) {
+void QGraphicsObject_SuperRemoveFromIndex(QGraphicsObject* self) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_RemoveFromIndex_IsBase(true);
@@ -3491,7 +3491,7 @@ void QGraphicsObject_PrepareGeometryChange(QGraphicsObject* self) {
 }
 
 // Base class handler implementation
-void QGraphicsObject_QBasePrepareGeometryChange(QGraphicsObject* self) {
+void QGraphicsObject_SuperPrepareGeometryChange(QGraphicsObject* self) {
     auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
     if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
         vqgraphicsobject->setQGraphicsObject_PrepareGeometryChange_IsBase(true);
@@ -3556,7 +3556,7 @@ QPainterPath* QAbstractGraphicsShapeItem_OpaqueArea(const QAbstractGraphicsShape
 }
 
 // Base class handler implementation
-bool QAbstractGraphicsShapeItem_QBaseIsObscuredBy(const QAbstractGraphicsShapeItem* self, const QGraphicsItem* item) {
+bool QAbstractGraphicsShapeItem_SuperIsObscuredBy(const QAbstractGraphicsShapeItem* self, const QGraphicsItem* item) {
     auto* vqabstractgraphicsshapeitem = const_cast<VirtualQAbstractGraphicsShapeItem*>(dynamic_cast<const VirtualQAbstractGraphicsShapeItem*>(self));
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_IsObscuredBy_IsBase(true);
@@ -3575,7 +3575,7 @@ void QAbstractGraphicsShapeItem_OnIsObscuredBy(const QAbstractGraphicsShapeItem*
 }
 
 // Base class handler implementation
-QPainterPath* QAbstractGraphicsShapeItem_QBaseOpaqueArea(const QAbstractGraphicsShapeItem* self) {
+QPainterPath* QAbstractGraphicsShapeItem_SuperOpaqueArea(const QAbstractGraphicsShapeItem* self) {
     auto* vqabstractgraphicsshapeitem = const_cast<VirtualQAbstractGraphicsShapeItem*>(dynamic_cast<const VirtualQAbstractGraphicsShapeItem*>(self));
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_OpaqueArea_IsBase(true);
@@ -3604,7 +3604,7 @@ void QAbstractGraphicsShapeItem_Advance(QAbstractGraphicsShapeItem* self, int ph
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseAdvance(QAbstractGraphicsShapeItem* self, int phase) {
+void QAbstractGraphicsShapeItem_SuperAdvance(QAbstractGraphicsShapeItem* self, int phase) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_Advance_IsBase(true);
@@ -3633,7 +3633,7 @@ QRectF* QAbstractGraphicsShapeItem_BoundingRect(const QAbstractGraphicsShapeItem
 }
 
 // Base class handler implementation
-QRectF* QAbstractGraphicsShapeItem_QBaseBoundingRect(const QAbstractGraphicsShapeItem* self) {
+QRectF* QAbstractGraphicsShapeItem_SuperBoundingRect(const QAbstractGraphicsShapeItem* self) {
     auto* vqabstractgraphicsshapeitem = const_cast<VirtualQAbstractGraphicsShapeItem*>(dynamic_cast<const VirtualQAbstractGraphicsShapeItem*>(self));
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_BoundingRect_IsBase(true);
@@ -3662,7 +3662,7 @@ QPainterPath* QAbstractGraphicsShapeItem_Shape(const QAbstractGraphicsShapeItem*
 }
 
 // Base class handler implementation
-QPainterPath* QAbstractGraphicsShapeItem_QBaseShape(const QAbstractGraphicsShapeItem* self) {
+QPainterPath* QAbstractGraphicsShapeItem_SuperShape(const QAbstractGraphicsShapeItem* self) {
     auto* vqabstractgraphicsshapeitem = const_cast<VirtualQAbstractGraphicsShapeItem*>(dynamic_cast<const VirtualQAbstractGraphicsShapeItem*>(self));
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_Shape_IsBase(true);
@@ -3691,7 +3691,7 @@ bool QAbstractGraphicsShapeItem_Contains(const QAbstractGraphicsShapeItem* self,
 }
 
 // Base class handler implementation
-bool QAbstractGraphicsShapeItem_QBaseContains(const QAbstractGraphicsShapeItem* self, const QPointF* point) {
+bool QAbstractGraphicsShapeItem_SuperContains(const QAbstractGraphicsShapeItem* self, const QPointF* point) {
     auto* vqabstractgraphicsshapeitem = const_cast<VirtualQAbstractGraphicsShapeItem*>(dynamic_cast<const VirtualQAbstractGraphicsShapeItem*>(self));
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_Contains_IsBase(true);
@@ -3720,7 +3720,7 @@ bool QAbstractGraphicsShapeItem_CollidesWithItem(const QAbstractGraphicsShapeIte
 }
 
 // Base class handler implementation
-bool QAbstractGraphicsShapeItem_QBaseCollidesWithItem(const QAbstractGraphicsShapeItem* self, const QGraphicsItem* other, int mode) {
+bool QAbstractGraphicsShapeItem_SuperCollidesWithItem(const QAbstractGraphicsShapeItem* self, const QGraphicsItem* other, int mode) {
     auto* vqabstractgraphicsshapeitem = const_cast<VirtualQAbstractGraphicsShapeItem*>(dynamic_cast<const VirtualQAbstractGraphicsShapeItem*>(self));
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_CollidesWithItem_IsBase(true);
@@ -3749,7 +3749,7 @@ bool QAbstractGraphicsShapeItem_CollidesWithPath(const QAbstractGraphicsShapeIte
 }
 
 // Base class handler implementation
-bool QAbstractGraphicsShapeItem_QBaseCollidesWithPath(const QAbstractGraphicsShapeItem* self, const QPainterPath* path, int mode) {
+bool QAbstractGraphicsShapeItem_SuperCollidesWithPath(const QAbstractGraphicsShapeItem* self, const QPainterPath* path, int mode) {
     auto* vqabstractgraphicsshapeitem = const_cast<VirtualQAbstractGraphicsShapeItem*>(dynamic_cast<const VirtualQAbstractGraphicsShapeItem*>(self));
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_CollidesWithPath_IsBase(true);
@@ -3778,7 +3778,7 @@ void QAbstractGraphicsShapeItem_Paint(QAbstractGraphicsShapeItem* self, QPainter
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBasePaint(QAbstractGraphicsShapeItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void QAbstractGraphicsShapeItem_SuperPaint(QAbstractGraphicsShapeItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_Paint_IsBase(true);
@@ -3807,7 +3807,7 @@ int QAbstractGraphicsShapeItem_Type(const QAbstractGraphicsShapeItem* self) {
 }
 
 // Base class handler implementation
-int QAbstractGraphicsShapeItem_QBaseType(const QAbstractGraphicsShapeItem* self) {
+int QAbstractGraphicsShapeItem_SuperType(const QAbstractGraphicsShapeItem* self) {
     auto* vqabstractgraphicsshapeitem = const_cast<VirtualQAbstractGraphicsShapeItem*>(dynamic_cast<const VirtualQAbstractGraphicsShapeItem*>(self));
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_Type_IsBase(true);
@@ -3836,7 +3836,7 @@ bool QAbstractGraphicsShapeItem_SceneEventFilter(QAbstractGraphicsShapeItem* sel
 }
 
 // Base class handler implementation
-bool QAbstractGraphicsShapeItem_QBaseSceneEventFilter(QAbstractGraphicsShapeItem* self, QGraphicsItem* watched, QEvent* event) {
+bool QAbstractGraphicsShapeItem_SuperSceneEventFilter(QAbstractGraphicsShapeItem* self, QGraphicsItem* watched, QEvent* event) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_SceneEventFilter_IsBase(true);
@@ -3865,7 +3865,7 @@ bool QAbstractGraphicsShapeItem_SceneEvent(QAbstractGraphicsShapeItem* self, QEv
 }
 
 // Base class handler implementation
-bool QAbstractGraphicsShapeItem_QBaseSceneEvent(QAbstractGraphicsShapeItem* self, QEvent* event) {
+bool QAbstractGraphicsShapeItem_SuperSceneEvent(QAbstractGraphicsShapeItem* self, QEvent* event) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_SceneEvent_IsBase(true);
@@ -3894,7 +3894,7 @@ void QAbstractGraphicsShapeItem_ContextMenuEvent(QAbstractGraphicsShapeItem* sel
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseContextMenuEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneContextMenuEvent* event) {
+void QAbstractGraphicsShapeItem_SuperContextMenuEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneContextMenuEvent* event) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_ContextMenuEvent_IsBase(true);
@@ -3923,7 +3923,7 @@ void QAbstractGraphicsShapeItem_DragEnterEvent(QAbstractGraphicsShapeItem* self,
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseDragEnterEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneDragDropEvent* event) {
+void QAbstractGraphicsShapeItem_SuperDragEnterEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_DragEnterEvent_IsBase(true);
@@ -3952,7 +3952,7 @@ void QAbstractGraphicsShapeItem_DragLeaveEvent(QAbstractGraphicsShapeItem* self,
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseDragLeaveEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneDragDropEvent* event) {
+void QAbstractGraphicsShapeItem_SuperDragLeaveEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_DragLeaveEvent_IsBase(true);
@@ -3981,7 +3981,7 @@ void QAbstractGraphicsShapeItem_DragMoveEvent(QAbstractGraphicsShapeItem* self, 
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseDragMoveEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneDragDropEvent* event) {
+void QAbstractGraphicsShapeItem_SuperDragMoveEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_DragMoveEvent_IsBase(true);
@@ -4010,7 +4010,7 @@ void QAbstractGraphicsShapeItem_DropEvent(QAbstractGraphicsShapeItem* self, QGra
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseDropEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneDragDropEvent* event) {
+void QAbstractGraphicsShapeItem_SuperDropEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_DropEvent_IsBase(true);
@@ -4039,7 +4039,7 @@ void QAbstractGraphicsShapeItem_FocusInEvent(QAbstractGraphicsShapeItem* self, Q
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseFocusInEvent(QAbstractGraphicsShapeItem* self, QFocusEvent* event) {
+void QAbstractGraphicsShapeItem_SuperFocusInEvent(QAbstractGraphicsShapeItem* self, QFocusEvent* event) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_FocusInEvent_IsBase(true);
@@ -4068,7 +4068,7 @@ void QAbstractGraphicsShapeItem_FocusOutEvent(QAbstractGraphicsShapeItem* self, 
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseFocusOutEvent(QAbstractGraphicsShapeItem* self, QFocusEvent* event) {
+void QAbstractGraphicsShapeItem_SuperFocusOutEvent(QAbstractGraphicsShapeItem* self, QFocusEvent* event) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_FocusOutEvent_IsBase(true);
@@ -4097,7 +4097,7 @@ void QAbstractGraphicsShapeItem_HoverEnterEvent(QAbstractGraphicsShapeItem* self
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseHoverEnterEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneHoverEvent* event) {
+void QAbstractGraphicsShapeItem_SuperHoverEnterEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_HoverEnterEvent_IsBase(true);
@@ -4126,7 +4126,7 @@ void QAbstractGraphicsShapeItem_HoverMoveEvent(QAbstractGraphicsShapeItem* self,
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseHoverMoveEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneHoverEvent* event) {
+void QAbstractGraphicsShapeItem_SuperHoverMoveEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_HoverMoveEvent_IsBase(true);
@@ -4155,7 +4155,7 @@ void QAbstractGraphicsShapeItem_HoverLeaveEvent(QAbstractGraphicsShapeItem* self
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseHoverLeaveEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneHoverEvent* event) {
+void QAbstractGraphicsShapeItem_SuperHoverLeaveEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_HoverLeaveEvent_IsBase(true);
@@ -4184,7 +4184,7 @@ void QAbstractGraphicsShapeItem_KeyPressEvent(QAbstractGraphicsShapeItem* self, 
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseKeyPressEvent(QAbstractGraphicsShapeItem* self, QKeyEvent* event) {
+void QAbstractGraphicsShapeItem_SuperKeyPressEvent(QAbstractGraphicsShapeItem* self, QKeyEvent* event) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_KeyPressEvent_IsBase(true);
@@ -4213,7 +4213,7 @@ void QAbstractGraphicsShapeItem_KeyReleaseEvent(QAbstractGraphicsShapeItem* self
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseKeyReleaseEvent(QAbstractGraphicsShapeItem* self, QKeyEvent* event) {
+void QAbstractGraphicsShapeItem_SuperKeyReleaseEvent(QAbstractGraphicsShapeItem* self, QKeyEvent* event) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_KeyReleaseEvent_IsBase(true);
@@ -4242,7 +4242,7 @@ void QAbstractGraphicsShapeItem_MousePressEvent(QAbstractGraphicsShapeItem* self
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseMousePressEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneMouseEvent* event) {
+void QAbstractGraphicsShapeItem_SuperMousePressEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_MousePressEvent_IsBase(true);
@@ -4271,7 +4271,7 @@ void QAbstractGraphicsShapeItem_MouseMoveEvent(QAbstractGraphicsShapeItem* self,
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseMouseMoveEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneMouseEvent* event) {
+void QAbstractGraphicsShapeItem_SuperMouseMoveEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_MouseMoveEvent_IsBase(true);
@@ -4300,7 +4300,7 @@ void QAbstractGraphicsShapeItem_MouseReleaseEvent(QAbstractGraphicsShapeItem* se
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseMouseReleaseEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneMouseEvent* event) {
+void QAbstractGraphicsShapeItem_SuperMouseReleaseEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_MouseReleaseEvent_IsBase(true);
@@ -4329,7 +4329,7 @@ void QAbstractGraphicsShapeItem_MouseDoubleClickEvent(QAbstractGraphicsShapeItem
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseMouseDoubleClickEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneMouseEvent* event) {
+void QAbstractGraphicsShapeItem_SuperMouseDoubleClickEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_MouseDoubleClickEvent_IsBase(true);
@@ -4358,7 +4358,7 @@ void QAbstractGraphicsShapeItem_WheelEvent(QAbstractGraphicsShapeItem* self, QGr
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseWheelEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneWheelEvent* event) {
+void QAbstractGraphicsShapeItem_SuperWheelEvent(QAbstractGraphicsShapeItem* self, QGraphicsSceneWheelEvent* event) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_WheelEvent_IsBase(true);
@@ -4387,7 +4387,7 @@ void QAbstractGraphicsShapeItem_InputMethodEvent(QAbstractGraphicsShapeItem* sel
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseInputMethodEvent(QAbstractGraphicsShapeItem* self, QInputMethodEvent* event) {
+void QAbstractGraphicsShapeItem_SuperInputMethodEvent(QAbstractGraphicsShapeItem* self, QInputMethodEvent* event) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_InputMethodEvent_IsBase(true);
@@ -4415,7 +4415,7 @@ QVariant* QAbstractGraphicsShapeItem_InputMethodQuery(const QAbstractGraphicsSha
 }
 
 // Base class handler implementation
-QVariant* QAbstractGraphicsShapeItem_QBaseInputMethodQuery(const QAbstractGraphicsShapeItem* self, int query) {
+QVariant* QAbstractGraphicsShapeItem_SuperInputMethodQuery(const QAbstractGraphicsShapeItem* self, int query) {
     auto* vqabstractgraphicsshapeitem = const_cast<VirtualQAbstractGraphicsShapeItem*>(dynamic_cast<const VirtualQAbstractGraphicsShapeItem*>(self));
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_InputMethodQuery_IsBase(true);
@@ -4442,7 +4442,7 @@ QVariant* QAbstractGraphicsShapeItem_ItemChange(QAbstractGraphicsShapeItem* self
 }
 
 // Base class handler implementation
-QVariant* QAbstractGraphicsShapeItem_QBaseItemChange(QAbstractGraphicsShapeItem* self, int change, const QVariant* value) {
+QVariant* QAbstractGraphicsShapeItem_SuperItemChange(QAbstractGraphicsShapeItem* self, int change, const QVariant* value) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_ItemChange_IsBase(true);
@@ -4470,7 +4470,7 @@ bool QAbstractGraphicsShapeItem_SupportsExtension(const QAbstractGraphicsShapeIt
 }
 
 // Base class handler implementation
-bool QAbstractGraphicsShapeItem_QBaseSupportsExtension(const QAbstractGraphicsShapeItem* self, int extension) {
+bool QAbstractGraphicsShapeItem_SuperSupportsExtension(const QAbstractGraphicsShapeItem* self, int extension) {
     auto* vqabstractgraphicsshapeitem = const_cast<VirtualQAbstractGraphicsShapeItem*>(dynamic_cast<const VirtualQAbstractGraphicsShapeItem*>(self));
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_SupportsExtension_IsBase(true);
@@ -4499,7 +4499,7 @@ void QAbstractGraphicsShapeItem_SetExtension(QAbstractGraphicsShapeItem* self, i
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseSetExtension(QAbstractGraphicsShapeItem* self, int extension, const QVariant* variant) {
+void QAbstractGraphicsShapeItem_SuperSetExtension(QAbstractGraphicsShapeItem* self, int extension, const QVariant* variant) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_SetExtension_IsBase(true);
@@ -4527,7 +4527,7 @@ QVariant* QAbstractGraphicsShapeItem_Extension(const QAbstractGraphicsShapeItem*
 }
 
 // Base class handler implementation
-QVariant* QAbstractGraphicsShapeItem_QBaseExtension(const QAbstractGraphicsShapeItem* self, const QVariant* variant) {
+QVariant* QAbstractGraphicsShapeItem_SuperExtension(const QAbstractGraphicsShapeItem* self, const QVariant* variant) {
     auto* vqabstractgraphicsshapeitem = const_cast<VirtualQAbstractGraphicsShapeItem*>(dynamic_cast<const VirtualQAbstractGraphicsShapeItem*>(self));
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_Extension_IsBase(true);
@@ -4555,7 +4555,7 @@ void QAbstractGraphicsShapeItem_UpdateMicroFocus(QAbstractGraphicsShapeItem* sel
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseUpdateMicroFocus(QAbstractGraphicsShapeItem* self) {
+void QAbstractGraphicsShapeItem_SuperUpdateMicroFocus(QAbstractGraphicsShapeItem* self) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_UpdateMicroFocus_IsBase(true);
@@ -4584,7 +4584,7 @@ void QAbstractGraphicsShapeItem_AddToIndex(QAbstractGraphicsShapeItem* self) {
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseAddToIndex(QAbstractGraphicsShapeItem* self) {
+void QAbstractGraphicsShapeItem_SuperAddToIndex(QAbstractGraphicsShapeItem* self) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_AddToIndex_IsBase(true);
@@ -4613,7 +4613,7 @@ void QAbstractGraphicsShapeItem_RemoveFromIndex(QAbstractGraphicsShapeItem* self
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBaseRemoveFromIndex(QAbstractGraphicsShapeItem* self) {
+void QAbstractGraphicsShapeItem_SuperRemoveFromIndex(QAbstractGraphicsShapeItem* self) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_RemoveFromIndex_IsBase(true);
@@ -4642,7 +4642,7 @@ void QAbstractGraphicsShapeItem_PrepareGeometryChange(QAbstractGraphicsShapeItem
 }
 
 // Base class handler implementation
-void QAbstractGraphicsShapeItem_QBasePrepareGeometryChange(QAbstractGraphicsShapeItem* self) {
+void QAbstractGraphicsShapeItem_SuperPrepareGeometryChange(QAbstractGraphicsShapeItem* self) {
     auto* vqabstractgraphicsshapeitem = dynamic_cast<VirtualQAbstractGraphicsShapeItem*>(self);
     if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
         vqabstractgraphicsshapeitem->setQAbstractGraphicsShapeItem_PrepareGeometryChange_IsBase(true);
@@ -4775,7 +4775,7 @@ QVariant* QGraphicsPathItem_Extension(const QGraphicsPathItem* self, const QVari
 }
 
 // Base class handler implementation
-QRectF* QGraphicsPathItem_QBaseBoundingRect(const QGraphicsPathItem* self) {
+QRectF* QGraphicsPathItem_SuperBoundingRect(const QGraphicsPathItem* self) {
     auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_BoundingRect_IsBase(true);
@@ -4794,7 +4794,7 @@ void QGraphicsPathItem_OnBoundingRect(const QGraphicsPathItem* self, intptr_t sl
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsPathItem_QBaseShape(const QGraphicsPathItem* self) {
+QPainterPath* QGraphicsPathItem_SuperShape(const QGraphicsPathItem* self) {
     auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_Shape_IsBase(true);
@@ -4813,7 +4813,7 @@ void QGraphicsPathItem_OnShape(const QGraphicsPathItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsPathItem_QBaseContains(const QGraphicsPathItem* self, const QPointF* point) {
+bool QGraphicsPathItem_SuperContains(const QGraphicsPathItem* self, const QPointF* point) {
     auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_Contains_IsBase(true);
@@ -4832,7 +4832,7 @@ void QGraphicsPathItem_OnContains(const QGraphicsPathItem* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBasePaint(QGraphicsPathItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void QGraphicsPathItem_SuperPaint(QGraphicsPathItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_Paint_IsBase(true);
@@ -4851,7 +4851,7 @@ void QGraphicsPathItem_OnPaint(QGraphicsPathItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsPathItem_QBaseIsObscuredBy(const QGraphicsPathItem* self, const QGraphicsItem* item) {
+bool QGraphicsPathItem_SuperIsObscuredBy(const QGraphicsPathItem* self, const QGraphicsItem* item) {
     auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_IsObscuredBy_IsBase(true);
@@ -4870,7 +4870,7 @@ void QGraphicsPathItem_OnIsObscuredBy(const QGraphicsPathItem* self, intptr_t sl
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsPathItem_QBaseOpaqueArea(const QGraphicsPathItem* self) {
+QPainterPath* QGraphicsPathItem_SuperOpaqueArea(const QGraphicsPathItem* self) {
     auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_OpaqueArea_IsBase(true);
@@ -4889,7 +4889,7 @@ void QGraphicsPathItem_OnOpaqueArea(const QGraphicsPathItem* self, intptr_t slot
 }
 
 // Base class handler implementation
-int QGraphicsPathItem_QBaseType(const QGraphicsPathItem* self) {
+int QGraphicsPathItem_SuperType(const QGraphicsPathItem* self) {
     auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_Type_IsBase(true);
@@ -4908,7 +4908,7 @@ void QGraphicsPathItem_OnType(const QGraphicsPathItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsPathItem_QBaseSupportsExtension(const QGraphicsPathItem* self, int extension) {
+bool QGraphicsPathItem_SuperSupportsExtension(const QGraphicsPathItem* self, int extension) {
     auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_SupportsExtension_IsBase(true);
@@ -4927,7 +4927,7 @@ void QGraphicsPathItem_OnSupportsExtension(const QGraphicsPathItem* self, intptr
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseSetExtension(QGraphicsPathItem* self, int extension, const QVariant* variant) {
+void QGraphicsPathItem_SuperSetExtension(QGraphicsPathItem* self, int extension, const QVariant* variant) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_SetExtension_IsBase(true);
@@ -4946,7 +4946,7 @@ void QGraphicsPathItem_OnSetExtension(QGraphicsPathItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QGraphicsPathItem_QBaseExtension(const QGraphicsPathItem* self, const QVariant* variant) {
+QVariant* QGraphicsPathItem_SuperExtension(const QGraphicsPathItem* self, const QVariant* variant) {
     auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_Extension_IsBase(true);
@@ -4974,7 +4974,7 @@ void QGraphicsPathItem_Advance(QGraphicsPathItem* self, int phase) {
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseAdvance(QGraphicsPathItem* self, int phase) {
+void QGraphicsPathItem_SuperAdvance(QGraphicsPathItem* self, int phase) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_Advance_IsBase(true);
@@ -5003,7 +5003,7 @@ bool QGraphicsPathItem_CollidesWithItem(const QGraphicsPathItem* self, const QGr
 }
 
 // Base class handler implementation
-bool QGraphicsPathItem_QBaseCollidesWithItem(const QGraphicsPathItem* self, const QGraphicsItem* other, int mode) {
+bool QGraphicsPathItem_SuperCollidesWithItem(const QGraphicsPathItem* self, const QGraphicsItem* other, int mode) {
     auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_CollidesWithItem_IsBase(true);
@@ -5032,7 +5032,7 @@ bool QGraphicsPathItem_CollidesWithPath(const QGraphicsPathItem* self, const QPa
 }
 
 // Base class handler implementation
-bool QGraphicsPathItem_QBaseCollidesWithPath(const QGraphicsPathItem* self, const QPainterPath* path, int mode) {
+bool QGraphicsPathItem_SuperCollidesWithPath(const QGraphicsPathItem* self, const QPainterPath* path, int mode) {
     auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_CollidesWithPath_IsBase(true);
@@ -5061,7 +5061,7 @@ bool QGraphicsPathItem_SceneEventFilter(QGraphicsPathItem* self, QGraphicsItem* 
 }
 
 // Base class handler implementation
-bool QGraphicsPathItem_QBaseSceneEventFilter(QGraphicsPathItem* self, QGraphicsItem* watched, QEvent* event) {
+bool QGraphicsPathItem_SuperSceneEventFilter(QGraphicsPathItem* self, QGraphicsItem* watched, QEvent* event) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_SceneEventFilter_IsBase(true);
@@ -5090,7 +5090,7 @@ bool QGraphicsPathItem_SceneEvent(QGraphicsPathItem* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QGraphicsPathItem_QBaseSceneEvent(QGraphicsPathItem* self, QEvent* event) {
+bool QGraphicsPathItem_SuperSceneEvent(QGraphicsPathItem* self, QEvent* event) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_SceneEvent_IsBase(true);
@@ -5119,7 +5119,7 @@ void QGraphicsPathItem_ContextMenuEvent(QGraphicsPathItem* self, QGraphicsSceneC
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseContextMenuEvent(QGraphicsPathItem* self, QGraphicsSceneContextMenuEvent* event) {
+void QGraphicsPathItem_SuperContextMenuEvent(QGraphicsPathItem* self, QGraphicsSceneContextMenuEvent* event) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_ContextMenuEvent_IsBase(true);
@@ -5148,7 +5148,7 @@ void QGraphicsPathItem_DragEnterEvent(QGraphicsPathItem* self, QGraphicsSceneDra
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseDragEnterEvent(QGraphicsPathItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsPathItem_SuperDragEnterEvent(QGraphicsPathItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_DragEnterEvent_IsBase(true);
@@ -5177,7 +5177,7 @@ void QGraphicsPathItem_DragLeaveEvent(QGraphicsPathItem* self, QGraphicsSceneDra
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseDragLeaveEvent(QGraphicsPathItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsPathItem_SuperDragLeaveEvent(QGraphicsPathItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_DragLeaveEvent_IsBase(true);
@@ -5206,7 +5206,7 @@ void QGraphicsPathItem_DragMoveEvent(QGraphicsPathItem* self, QGraphicsSceneDrag
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseDragMoveEvent(QGraphicsPathItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsPathItem_SuperDragMoveEvent(QGraphicsPathItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_DragMoveEvent_IsBase(true);
@@ -5235,7 +5235,7 @@ void QGraphicsPathItem_DropEvent(QGraphicsPathItem* self, QGraphicsSceneDragDrop
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseDropEvent(QGraphicsPathItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsPathItem_SuperDropEvent(QGraphicsPathItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_DropEvent_IsBase(true);
@@ -5264,7 +5264,7 @@ void QGraphicsPathItem_FocusInEvent(QGraphicsPathItem* self, QFocusEvent* event)
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseFocusInEvent(QGraphicsPathItem* self, QFocusEvent* event) {
+void QGraphicsPathItem_SuperFocusInEvent(QGraphicsPathItem* self, QFocusEvent* event) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_FocusInEvent_IsBase(true);
@@ -5293,7 +5293,7 @@ void QGraphicsPathItem_FocusOutEvent(QGraphicsPathItem* self, QFocusEvent* event
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseFocusOutEvent(QGraphicsPathItem* self, QFocusEvent* event) {
+void QGraphicsPathItem_SuperFocusOutEvent(QGraphicsPathItem* self, QFocusEvent* event) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_FocusOutEvent_IsBase(true);
@@ -5322,7 +5322,7 @@ void QGraphicsPathItem_HoverEnterEvent(QGraphicsPathItem* self, QGraphicsSceneHo
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseHoverEnterEvent(QGraphicsPathItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsPathItem_SuperHoverEnterEvent(QGraphicsPathItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_HoverEnterEvent_IsBase(true);
@@ -5351,7 +5351,7 @@ void QGraphicsPathItem_HoverMoveEvent(QGraphicsPathItem* self, QGraphicsSceneHov
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseHoverMoveEvent(QGraphicsPathItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsPathItem_SuperHoverMoveEvent(QGraphicsPathItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_HoverMoveEvent_IsBase(true);
@@ -5380,7 +5380,7 @@ void QGraphicsPathItem_HoverLeaveEvent(QGraphicsPathItem* self, QGraphicsSceneHo
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseHoverLeaveEvent(QGraphicsPathItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsPathItem_SuperHoverLeaveEvent(QGraphicsPathItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_HoverLeaveEvent_IsBase(true);
@@ -5409,7 +5409,7 @@ void QGraphicsPathItem_KeyPressEvent(QGraphicsPathItem* self, QKeyEvent* event) 
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseKeyPressEvent(QGraphicsPathItem* self, QKeyEvent* event) {
+void QGraphicsPathItem_SuperKeyPressEvent(QGraphicsPathItem* self, QKeyEvent* event) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_KeyPressEvent_IsBase(true);
@@ -5438,7 +5438,7 @@ void QGraphicsPathItem_KeyReleaseEvent(QGraphicsPathItem* self, QKeyEvent* event
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseKeyReleaseEvent(QGraphicsPathItem* self, QKeyEvent* event) {
+void QGraphicsPathItem_SuperKeyReleaseEvent(QGraphicsPathItem* self, QKeyEvent* event) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_KeyReleaseEvent_IsBase(true);
@@ -5467,7 +5467,7 @@ void QGraphicsPathItem_MousePressEvent(QGraphicsPathItem* self, QGraphicsSceneMo
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseMousePressEvent(QGraphicsPathItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsPathItem_SuperMousePressEvent(QGraphicsPathItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_MousePressEvent_IsBase(true);
@@ -5496,7 +5496,7 @@ void QGraphicsPathItem_MouseMoveEvent(QGraphicsPathItem* self, QGraphicsSceneMou
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseMouseMoveEvent(QGraphicsPathItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsPathItem_SuperMouseMoveEvent(QGraphicsPathItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_MouseMoveEvent_IsBase(true);
@@ -5525,7 +5525,7 @@ void QGraphicsPathItem_MouseReleaseEvent(QGraphicsPathItem* self, QGraphicsScene
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseMouseReleaseEvent(QGraphicsPathItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsPathItem_SuperMouseReleaseEvent(QGraphicsPathItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_MouseReleaseEvent_IsBase(true);
@@ -5554,7 +5554,7 @@ void QGraphicsPathItem_MouseDoubleClickEvent(QGraphicsPathItem* self, QGraphicsS
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseMouseDoubleClickEvent(QGraphicsPathItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsPathItem_SuperMouseDoubleClickEvent(QGraphicsPathItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_MouseDoubleClickEvent_IsBase(true);
@@ -5583,7 +5583,7 @@ void QGraphicsPathItem_WheelEvent(QGraphicsPathItem* self, QGraphicsSceneWheelEv
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseWheelEvent(QGraphicsPathItem* self, QGraphicsSceneWheelEvent* event) {
+void QGraphicsPathItem_SuperWheelEvent(QGraphicsPathItem* self, QGraphicsSceneWheelEvent* event) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_WheelEvent_IsBase(true);
@@ -5612,7 +5612,7 @@ void QGraphicsPathItem_InputMethodEvent(QGraphicsPathItem* self, QInputMethodEve
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseInputMethodEvent(QGraphicsPathItem* self, QInputMethodEvent* event) {
+void QGraphicsPathItem_SuperInputMethodEvent(QGraphicsPathItem* self, QInputMethodEvent* event) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_InputMethodEvent_IsBase(true);
@@ -5640,7 +5640,7 @@ QVariant* QGraphicsPathItem_InputMethodQuery(const QGraphicsPathItem* self, int 
 }
 
 // Base class handler implementation
-QVariant* QGraphicsPathItem_QBaseInputMethodQuery(const QGraphicsPathItem* self, int query) {
+QVariant* QGraphicsPathItem_SuperInputMethodQuery(const QGraphicsPathItem* self, int query) {
     auto* vqgraphicspathitem = const_cast<VirtualQGraphicsPathItem*>(dynamic_cast<const VirtualQGraphicsPathItem*>(self));
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_InputMethodQuery_IsBase(true);
@@ -5667,7 +5667,7 @@ QVariant* QGraphicsPathItem_ItemChange(QGraphicsPathItem* self, int change, cons
 }
 
 // Base class handler implementation
-QVariant* QGraphicsPathItem_QBaseItemChange(QGraphicsPathItem* self, int change, const QVariant* value) {
+QVariant* QGraphicsPathItem_SuperItemChange(QGraphicsPathItem* self, int change, const QVariant* value) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_ItemChange_IsBase(true);
@@ -5695,7 +5695,7 @@ void QGraphicsPathItem_UpdateMicroFocus(QGraphicsPathItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseUpdateMicroFocus(QGraphicsPathItem* self) {
+void QGraphicsPathItem_SuperUpdateMicroFocus(QGraphicsPathItem* self) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_UpdateMicroFocus_IsBase(true);
@@ -5724,7 +5724,7 @@ void QGraphicsPathItem_AddToIndex(QGraphicsPathItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseAddToIndex(QGraphicsPathItem* self) {
+void QGraphicsPathItem_SuperAddToIndex(QGraphicsPathItem* self) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_AddToIndex_IsBase(true);
@@ -5753,7 +5753,7 @@ void QGraphicsPathItem_RemoveFromIndex(QGraphicsPathItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBaseRemoveFromIndex(QGraphicsPathItem* self) {
+void QGraphicsPathItem_SuperRemoveFromIndex(QGraphicsPathItem* self) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_RemoveFromIndex_IsBase(true);
@@ -5782,7 +5782,7 @@ void QGraphicsPathItem_PrepareGeometryChange(QGraphicsPathItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsPathItem_QBasePrepareGeometryChange(QGraphicsPathItem* self) {
+void QGraphicsPathItem_SuperPrepareGeometryChange(QGraphicsPathItem* self) {
     auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
     if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
         vqgraphicspathitem->setQGraphicsPathItem_PrepareGeometryChange_IsBase(true);
@@ -5927,7 +5927,7 @@ QVariant* QGraphicsRectItem_Extension(const QGraphicsRectItem* self, const QVari
 }
 
 // Base class handler implementation
-QRectF* QGraphicsRectItem_QBaseBoundingRect(const QGraphicsRectItem* self) {
+QRectF* QGraphicsRectItem_SuperBoundingRect(const QGraphicsRectItem* self) {
     auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_BoundingRect_IsBase(true);
@@ -5946,7 +5946,7 @@ void QGraphicsRectItem_OnBoundingRect(const QGraphicsRectItem* self, intptr_t sl
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsRectItem_QBaseShape(const QGraphicsRectItem* self) {
+QPainterPath* QGraphicsRectItem_SuperShape(const QGraphicsRectItem* self) {
     auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_Shape_IsBase(true);
@@ -5965,7 +5965,7 @@ void QGraphicsRectItem_OnShape(const QGraphicsRectItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsRectItem_QBaseContains(const QGraphicsRectItem* self, const QPointF* point) {
+bool QGraphicsRectItem_SuperContains(const QGraphicsRectItem* self, const QPointF* point) {
     auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_Contains_IsBase(true);
@@ -5984,7 +5984,7 @@ void QGraphicsRectItem_OnContains(const QGraphicsRectItem* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBasePaint(QGraphicsRectItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void QGraphicsRectItem_SuperPaint(QGraphicsRectItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_Paint_IsBase(true);
@@ -6003,7 +6003,7 @@ void QGraphicsRectItem_OnPaint(QGraphicsRectItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsRectItem_QBaseIsObscuredBy(const QGraphicsRectItem* self, const QGraphicsItem* item) {
+bool QGraphicsRectItem_SuperIsObscuredBy(const QGraphicsRectItem* self, const QGraphicsItem* item) {
     auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_IsObscuredBy_IsBase(true);
@@ -6022,7 +6022,7 @@ void QGraphicsRectItem_OnIsObscuredBy(const QGraphicsRectItem* self, intptr_t sl
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsRectItem_QBaseOpaqueArea(const QGraphicsRectItem* self) {
+QPainterPath* QGraphicsRectItem_SuperOpaqueArea(const QGraphicsRectItem* self) {
     auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_OpaqueArea_IsBase(true);
@@ -6041,7 +6041,7 @@ void QGraphicsRectItem_OnOpaqueArea(const QGraphicsRectItem* self, intptr_t slot
 }
 
 // Base class handler implementation
-int QGraphicsRectItem_QBaseType(const QGraphicsRectItem* self) {
+int QGraphicsRectItem_SuperType(const QGraphicsRectItem* self) {
     auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_Type_IsBase(true);
@@ -6060,7 +6060,7 @@ void QGraphicsRectItem_OnType(const QGraphicsRectItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsRectItem_QBaseSupportsExtension(const QGraphicsRectItem* self, int extension) {
+bool QGraphicsRectItem_SuperSupportsExtension(const QGraphicsRectItem* self, int extension) {
     auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_SupportsExtension_IsBase(true);
@@ -6079,7 +6079,7 @@ void QGraphicsRectItem_OnSupportsExtension(const QGraphicsRectItem* self, intptr
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseSetExtension(QGraphicsRectItem* self, int extension, const QVariant* variant) {
+void QGraphicsRectItem_SuperSetExtension(QGraphicsRectItem* self, int extension, const QVariant* variant) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_SetExtension_IsBase(true);
@@ -6098,7 +6098,7 @@ void QGraphicsRectItem_OnSetExtension(QGraphicsRectItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QGraphicsRectItem_QBaseExtension(const QGraphicsRectItem* self, const QVariant* variant) {
+QVariant* QGraphicsRectItem_SuperExtension(const QGraphicsRectItem* self, const QVariant* variant) {
     auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_Extension_IsBase(true);
@@ -6126,7 +6126,7 @@ void QGraphicsRectItem_Advance(QGraphicsRectItem* self, int phase) {
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseAdvance(QGraphicsRectItem* self, int phase) {
+void QGraphicsRectItem_SuperAdvance(QGraphicsRectItem* self, int phase) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_Advance_IsBase(true);
@@ -6155,7 +6155,7 @@ bool QGraphicsRectItem_CollidesWithItem(const QGraphicsRectItem* self, const QGr
 }
 
 // Base class handler implementation
-bool QGraphicsRectItem_QBaseCollidesWithItem(const QGraphicsRectItem* self, const QGraphicsItem* other, int mode) {
+bool QGraphicsRectItem_SuperCollidesWithItem(const QGraphicsRectItem* self, const QGraphicsItem* other, int mode) {
     auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_CollidesWithItem_IsBase(true);
@@ -6184,7 +6184,7 @@ bool QGraphicsRectItem_CollidesWithPath(const QGraphicsRectItem* self, const QPa
 }
 
 // Base class handler implementation
-bool QGraphicsRectItem_QBaseCollidesWithPath(const QGraphicsRectItem* self, const QPainterPath* path, int mode) {
+bool QGraphicsRectItem_SuperCollidesWithPath(const QGraphicsRectItem* self, const QPainterPath* path, int mode) {
     auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_CollidesWithPath_IsBase(true);
@@ -6213,7 +6213,7 @@ bool QGraphicsRectItem_SceneEventFilter(QGraphicsRectItem* self, QGraphicsItem* 
 }
 
 // Base class handler implementation
-bool QGraphicsRectItem_QBaseSceneEventFilter(QGraphicsRectItem* self, QGraphicsItem* watched, QEvent* event) {
+bool QGraphicsRectItem_SuperSceneEventFilter(QGraphicsRectItem* self, QGraphicsItem* watched, QEvent* event) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_SceneEventFilter_IsBase(true);
@@ -6242,7 +6242,7 @@ bool QGraphicsRectItem_SceneEvent(QGraphicsRectItem* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QGraphicsRectItem_QBaseSceneEvent(QGraphicsRectItem* self, QEvent* event) {
+bool QGraphicsRectItem_SuperSceneEvent(QGraphicsRectItem* self, QEvent* event) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_SceneEvent_IsBase(true);
@@ -6271,7 +6271,7 @@ void QGraphicsRectItem_ContextMenuEvent(QGraphicsRectItem* self, QGraphicsSceneC
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseContextMenuEvent(QGraphicsRectItem* self, QGraphicsSceneContextMenuEvent* event) {
+void QGraphicsRectItem_SuperContextMenuEvent(QGraphicsRectItem* self, QGraphicsSceneContextMenuEvent* event) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_ContextMenuEvent_IsBase(true);
@@ -6300,7 +6300,7 @@ void QGraphicsRectItem_DragEnterEvent(QGraphicsRectItem* self, QGraphicsSceneDra
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseDragEnterEvent(QGraphicsRectItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsRectItem_SuperDragEnterEvent(QGraphicsRectItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_DragEnterEvent_IsBase(true);
@@ -6329,7 +6329,7 @@ void QGraphicsRectItem_DragLeaveEvent(QGraphicsRectItem* self, QGraphicsSceneDra
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseDragLeaveEvent(QGraphicsRectItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsRectItem_SuperDragLeaveEvent(QGraphicsRectItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_DragLeaveEvent_IsBase(true);
@@ -6358,7 +6358,7 @@ void QGraphicsRectItem_DragMoveEvent(QGraphicsRectItem* self, QGraphicsSceneDrag
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseDragMoveEvent(QGraphicsRectItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsRectItem_SuperDragMoveEvent(QGraphicsRectItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_DragMoveEvent_IsBase(true);
@@ -6387,7 +6387,7 @@ void QGraphicsRectItem_DropEvent(QGraphicsRectItem* self, QGraphicsSceneDragDrop
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseDropEvent(QGraphicsRectItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsRectItem_SuperDropEvent(QGraphicsRectItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_DropEvent_IsBase(true);
@@ -6416,7 +6416,7 @@ void QGraphicsRectItem_FocusInEvent(QGraphicsRectItem* self, QFocusEvent* event)
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseFocusInEvent(QGraphicsRectItem* self, QFocusEvent* event) {
+void QGraphicsRectItem_SuperFocusInEvent(QGraphicsRectItem* self, QFocusEvent* event) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_FocusInEvent_IsBase(true);
@@ -6445,7 +6445,7 @@ void QGraphicsRectItem_FocusOutEvent(QGraphicsRectItem* self, QFocusEvent* event
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseFocusOutEvent(QGraphicsRectItem* self, QFocusEvent* event) {
+void QGraphicsRectItem_SuperFocusOutEvent(QGraphicsRectItem* self, QFocusEvent* event) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_FocusOutEvent_IsBase(true);
@@ -6474,7 +6474,7 @@ void QGraphicsRectItem_HoverEnterEvent(QGraphicsRectItem* self, QGraphicsSceneHo
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseHoverEnterEvent(QGraphicsRectItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsRectItem_SuperHoverEnterEvent(QGraphicsRectItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_HoverEnterEvent_IsBase(true);
@@ -6503,7 +6503,7 @@ void QGraphicsRectItem_HoverMoveEvent(QGraphicsRectItem* self, QGraphicsSceneHov
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseHoverMoveEvent(QGraphicsRectItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsRectItem_SuperHoverMoveEvent(QGraphicsRectItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_HoverMoveEvent_IsBase(true);
@@ -6532,7 +6532,7 @@ void QGraphicsRectItem_HoverLeaveEvent(QGraphicsRectItem* self, QGraphicsSceneHo
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseHoverLeaveEvent(QGraphicsRectItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsRectItem_SuperHoverLeaveEvent(QGraphicsRectItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_HoverLeaveEvent_IsBase(true);
@@ -6561,7 +6561,7 @@ void QGraphicsRectItem_KeyPressEvent(QGraphicsRectItem* self, QKeyEvent* event) 
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseKeyPressEvent(QGraphicsRectItem* self, QKeyEvent* event) {
+void QGraphicsRectItem_SuperKeyPressEvent(QGraphicsRectItem* self, QKeyEvent* event) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_KeyPressEvent_IsBase(true);
@@ -6590,7 +6590,7 @@ void QGraphicsRectItem_KeyReleaseEvent(QGraphicsRectItem* self, QKeyEvent* event
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseKeyReleaseEvent(QGraphicsRectItem* self, QKeyEvent* event) {
+void QGraphicsRectItem_SuperKeyReleaseEvent(QGraphicsRectItem* self, QKeyEvent* event) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_KeyReleaseEvent_IsBase(true);
@@ -6619,7 +6619,7 @@ void QGraphicsRectItem_MousePressEvent(QGraphicsRectItem* self, QGraphicsSceneMo
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseMousePressEvent(QGraphicsRectItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsRectItem_SuperMousePressEvent(QGraphicsRectItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_MousePressEvent_IsBase(true);
@@ -6648,7 +6648,7 @@ void QGraphicsRectItem_MouseMoveEvent(QGraphicsRectItem* self, QGraphicsSceneMou
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseMouseMoveEvent(QGraphicsRectItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsRectItem_SuperMouseMoveEvent(QGraphicsRectItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_MouseMoveEvent_IsBase(true);
@@ -6677,7 +6677,7 @@ void QGraphicsRectItem_MouseReleaseEvent(QGraphicsRectItem* self, QGraphicsScene
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseMouseReleaseEvent(QGraphicsRectItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsRectItem_SuperMouseReleaseEvent(QGraphicsRectItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_MouseReleaseEvent_IsBase(true);
@@ -6706,7 +6706,7 @@ void QGraphicsRectItem_MouseDoubleClickEvent(QGraphicsRectItem* self, QGraphicsS
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseMouseDoubleClickEvent(QGraphicsRectItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsRectItem_SuperMouseDoubleClickEvent(QGraphicsRectItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_MouseDoubleClickEvent_IsBase(true);
@@ -6735,7 +6735,7 @@ void QGraphicsRectItem_WheelEvent(QGraphicsRectItem* self, QGraphicsSceneWheelEv
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseWheelEvent(QGraphicsRectItem* self, QGraphicsSceneWheelEvent* event) {
+void QGraphicsRectItem_SuperWheelEvent(QGraphicsRectItem* self, QGraphicsSceneWheelEvent* event) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_WheelEvent_IsBase(true);
@@ -6764,7 +6764,7 @@ void QGraphicsRectItem_InputMethodEvent(QGraphicsRectItem* self, QInputMethodEve
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseInputMethodEvent(QGraphicsRectItem* self, QInputMethodEvent* event) {
+void QGraphicsRectItem_SuperInputMethodEvent(QGraphicsRectItem* self, QInputMethodEvent* event) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_InputMethodEvent_IsBase(true);
@@ -6792,7 +6792,7 @@ QVariant* QGraphicsRectItem_InputMethodQuery(const QGraphicsRectItem* self, int 
 }
 
 // Base class handler implementation
-QVariant* QGraphicsRectItem_QBaseInputMethodQuery(const QGraphicsRectItem* self, int query) {
+QVariant* QGraphicsRectItem_SuperInputMethodQuery(const QGraphicsRectItem* self, int query) {
     auto* vqgraphicsrectitem = const_cast<VirtualQGraphicsRectItem*>(dynamic_cast<const VirtualQGraphicsRectItem*>(self));
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_InputMethodQuery_IsBase(true);
@@ -6819,7 +6819,7 @@ QVariant* QGraphicsRectItem_ItemChange(QGraphicsRectItem* self, int change, cons
 }
 
 // Base class handler implementation
-QVariant* QGraphicsRectItem_QBaseItemChange(QGraphicsRectItem* self, int change, const QVariant* value) {
+QVariant* QGraphicsRectItem_SuperItemChange(QGraphicsRectItem* self, int change, const QVariant* value) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_ItemChange_IsBase(true);
@@ -6847,7 +6847,7 @@ void QGraphicsRectItem_UpdateMicroFocus(QGraphicsRectItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseUpdateMicroFocus(QGraphicsRectItem* self) {
+void QGraphicsRectItem_SuperUpdateMicroFocus(QGraphicsRectItem* self) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_UpdateMicroFocus_IsBase(true);
@@ -6876,7 +6876,7 @@ void QGraphicsRectItem_AddToIndex(QGraphicsRectItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseAddToIndex(QGraphicsRectItem* self) {
+void QGraphicsRectItem_SuperAddToIndex(QGraphicsRectItem* self) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_AddToIndex_IsBase(true);
@@ -6905,7 +6905,7 @@ void QGraphicsRectItem_RemoveFromIndex(QGraphicsRectItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBaseRemoveFromIndex(QGraphicsRectItem* self) {
+void QGraphicsRectItem_SuperRemoveFromIndex(QGraphicsRectItem* self) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_RemoveFromIndex_IsBase(true);
@@ -6934,7 +6934,7 @@ void QGraphicsRectItem_PrepareGeometryChange(QGraphicsRectItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsRectItem_QBasePrepareGeometryChange(QGraphicsRectItem* self) {
+void QGraphicsRectItem_SuperPrepareGeometryChange(QGraphicsRectItem* self) {
     auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
     if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
         vqgraphicsrectitem->setQGraphicsRectItem_PrepareGeometryChange_IsBase(true);
@@ -7095,7 +7095,7 @@ QVariant* QGraphicsEllipseItem_Extension(const QGraphicsEllipseItem* self, const
 }
 
 // Base class handler implementation
-QRectF* QGraphicsEllipseItem_QBaseBoundingRect(const QGraphicsEllipseItem* self) {
+QRectF* QGraphicsEllipseItem_SuperBoundingRect(const QGraphicsEllipseItem* self) {
     auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_BoundingRect_IsBase(true);
@@ -7114,7 +7114,7 @@ void QGraphicsEllipseItem_OnBoundingRect(const QGraphicsEllipseItem* self, intpt
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsEllipseItem_QBaseShape(const QGraphicsEllipseItem* self) {
+QPainterPath* QGraphicsEllipseItem_SuperShape(const QGraphicsEllipseItem* self) {
     auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_Shape_IsBase(true);
@@ -7133,7 +7133,7 @@ void QGraphicsEllipseItem_OnShape(const QGraphicsEllipseItem* self, intptr_t slo
 }
 
 // Base class handler implementation
-bool QGraphicsEllipseItem_QBaseContains(const QGraphicsEllipseItem* self, const QPointF* point) {
+bool QGraphicsEllipseItem_SuperContains(const QGraphicsEllipseItem* self, const QPointF* point) {
     auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_Contains_IsBase(true);
@@ -7152,7 +7152,7 @@ void QGraphicsEllipseItem_OnContains(const QGraphicsEllipseItem* self, intptr_t 
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBasePaint(QGraphicsEllipseItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void QGraphicsEllipseItem_SuperPaint(QGraphicsEllipseItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_Paint_IsBase(true);
@@ -7171,7 +7171,7 @@ void QGraphicsEllipseItem_OnPaint(QGraphicsEllipseItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsEllipseItem_QBaseIsObscuredBy(const QGraphicsEllipseItem* self, const QGraphicsItem* item) {
+bool QGraphicsEllipseItem_SuperIsObscuredBy(const QGraphicsEllipseItem* self, const QGraphicsItem* item) {
     auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_IsObscuredBy_IsBase(true);
@@ -7190,7 +7190,7 @@ void QGraphicsEllipseItem_OnIsObscuredBy(const QGraphicsEllipseItem* self, intpt
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsEllipseItem_QBaseOpaqueArea(const QGraphicsEllipseItem* self) {
+QPainterPath* QGraphicsEllipseItem_SuperOpaqueArea(const QGraphicsEllipseItem* self) {
     auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_OpaqueArea_IsBase(true);
@@ -7209,7 +7209,7 @@ void QGraphicsEllipseItem_OnOpaqueArea(const QGraphicsEllipseItem* self, intptr_
 }
 
 // Base class handler implementation
-int QGraphicsEllipseItem_QBaseType(const QGraphicsEllipseItem* self) {
+int QGraphicsEllipseItem_SuperType(const QGraphicsEllipseItem* self) {
     auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_Type_IsBase(true);
@@ -7228,7 +7228,7 @@ void QGraphicsEllipseItem_OnType(const QGraphicsEllipseItem* self, intptr_t slot
 }
 
 // Base class handler implementation
-bool QGraphicsEllipseItem_QBaseSupportsExtension(const QGraphicsEllipseItem* self, int extension) {
+bool QGraphicsEllipseItem_SuperSupportsExtension(const QGraphicsEllipseItem* self, int extension) {
     auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_SupportsExtension_IsBase(true);
@@ -7247,7 +7247,7 @@ void QGraphicsEllipseItem_OnSupportsExtension(const QGraphicsEllipseItem* self, 
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseSetExtension(QGraphicsEllipseItem* self, int extension, const QVariant* variant) {
+void QGraphicsEllipseItem_SuperSetExtension(QGraphicsEllipseItem* self, int extension, const QVariant* variant) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_SetExtension_IsBase(true);
@@ -7266,7 +7266,7 @@ void QGraphicsEllipseItem_OnSetExtension(QGraphicsEllipseItem* self, intptr_t sl
 }
 
 // Base class handler implementation
-QVariant* QGraphicsEllipseItem_QBaseExtension(const QGraphicsEllipseItem* self, const QVariant* variant) {
+QVariant* QGraphicsEllipseItem_SuperExtension(const QGraphicsEllipseItem* self, const QVariant* variant) {
     auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_Extension_IsBase(true);
@@ -7294,7 +7294,7 @@ void QGraphicsEllipseItem_Advance(QGraphicsEllipseItem* self, int phase) {
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseAdvance(QGraphicsEllipseItem* self, int phase) {
+void QGraphicsEllipseItem_SuperAdvance(QGraphicsEllipseItem* self, int phase) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_Advance_IsBase(true);
@@ -7323,7 +7323,7 @@ bool QGraphicsEllipseItem_CollidesWithItem(const QGraphicsEllipseItem* self, con
 }
 
 // Base class handler implementation
-bool QGraphicsEllipseItem_QBaseCollidesWithItem(const QGraphicsEllipseItem* self, const QGraphicsItem* other, int mode) {
+bool QGraphicsEllipseItem_SuperCollidesWithItem(const QGraphicsEllipseItem* self, const QGraphicsItem* other, int mode) {
     auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_CollidesWithItem_IsBase(true);
@@ -7352,7 +7352,7 @@ bool QGraphicsEllipseItem_CollidesWithPath(const QGraphicsEllipseItem* self, con
 }
 
 // Base class handler implementation
-bool QGraphicsEllipseItem_QBaseCollidesWithPath(const QGraphicsEllipseItem* self, const QPainterPath* path, int mode) {
+bool QGraphicsEllipseItem_SuperCollidesWithPath(const QGraphicsEllipseItem* self, const QPainterPath* path, int mode) {
     auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_CollidesWithPath_IsBase(true);
@@ -7381,7 +7381,7 @@ bool QGraphicsEllipseItem_SceneEventFilter(QGraphicsEllipseItem* self, QGraphics
 }
 
 // Base class handler implementation
-bool QGraphicsEllipseItem_QBaseSceneEventFilter(QGraphicsEllipseItem* self, QGraphicsItem* watched, QEvent* event) {
+bool QGraphicsEllipseItem_SuperSceneEventFilter(QGraphicsEllipseItem* self, QGraphicsItem* watched, QEvent* event) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_SceneEventFilter_IsBase(true);
@@ -7410,7 +7410,7 @@ bool QGraphicsEllipseItem_SceneEvent(QGraphicsEllipseItem* self, QEvent* event) 
 }
 
 // Base class handler implementation
-bool QGraphicsEllipseItem_QBaseSceneEvent(QGraphicsEllipseItem* self, QEvent* event) {
+bool QGraphicsEllipseItem_SuperSceneEvent(QGraphicsEllipseItem* self, QEvent* event) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_SceneEvent_IsBase(true);
@@ -7439,7 +7439,7 @@ void QGraphicsEllipseItem_ContextMenuEvent(QGraphicsEllipseItem* self, QGraphics
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseContextMenuEvent(QGraphicsEllipseItem* self, QGraphicsSceneContextMenuEvent* event) {
+void QGraphicsEllipseItem_SuperContextMenuEvent(QGraphicsEllipseItem* self, QGraphicsSceneContextMenuEvent* event) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_ContextMenuEvent_IsBase(true);
@@ -7468,7 +7468,7 @@ void QGraphicsEllipseItem_DragEnterEvent(QGraphicsEllipseItem* self, QGraphicsSc
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseDragEnterEvent(QGraphicsEllipseItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsEllipseItem_SuperDragEnterEvent(QGraphicsEllipseItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_DragEnterEvent_IsBase(true);
@@ -7497,7 +7497,7 @@ void QGraphicsEllipseItem_DragLeaveEvent(QGraphicsEllipseItem* self, QGraphicsSc
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseDragLeaveEvent(QGraphicsEllipseItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsEllipseItem_SuperDragLeaveEvent(QGraphicsEllipseItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_DragLeaveEvent_IsBase(true);
@@ -7526,7 +7526,7 @@ void QGraphicsEllipseItem_DragMoveEvent(QGraphicsEllipseItem* self, QGraphicsSce
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseDragMoveEvent(QGraphicsEllipseItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsEllipseItem_SuperDragMoveEvent(QGraphicsEllipseItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_DragMoveEvent_IsBase(true);
@@ -7555,7 +7555,7 @@ void QGraphicsEllipseItem_DropEvent(QGraphicsEllipseItem* self, QGraphicsSceneDr
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseDropEvent(QGraphicsEllipseItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsEllipseItem_SuperDropEvent(QGraphicsEllipseItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_DropEvent_IsBase(true);
@@ -7584,7 +7584,7 @@ void QGraphicsEllipseItem_FocusInEvent(QGraphicsEllipseItem* self, QFocusEvent* 
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseFocusInEvent(QGraphicsEllipseItem* self, QFocusEvent* event) {
+void QGraphicsEllipseItem_SuperFocusInEvent(QGraphicsEllipseItem* self, QFocusEvent* event) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_FocusInEvent_IsBase(true);
@@ -7613,7 +7613,7 @@ void QGraphicsEllipseItem_FocusOutEvent(QGraphicsEllipseItem* self, QFocusEvent*
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseFocusOutEvent(QGraphicsEllipseItem* self, QFocusEvent* event) {
+void QGraphicsEllipseItem_SuperFocusOutEvent(QGraphicsEllipseItem* self, QFocusEvent* event) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_FocusOutEvent_IsBase(true);
@@ -7642,7 +7642,7 @@ void QGraphicsEllipseItem_HoverEnterEvent(QGraphicsEllipseItem* self, QGraphicsS
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseHoverEnterEvent(QGraphicsEllipseItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsEllipseItem_SuperHoverEnterEvent(QGraphicsEllipseItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_HoverEnterEvent_IsBase(true);
@@ -7671,7 +7671,7 @@ void QGraphicsEllipseItem_HoverMoveEvent(QGraphicsEllipseItem* self, QGraphicsSc
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseHoverMoveEvent(QGraphicsEllipseItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsEllipseItem_SuperHoverMoveEvent(QGraphicsEllipseItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_HoverMoveEvent_IsBase(true);
@@ -7700,7 +7700,7 @@ void QGraphicsEllipseItem_HoverLeaveEvent(QGraphicsEllipseItem* self, QGraphicsS
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseHoverLeaveEvent(QGraphicsEllipseItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsEllipseItem_SuperHoverLeaveEvent(QGraphicsEllipseItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_HoverLeaveEvent_IsBase(true);
@@ -7729,7 +7729,7 @@ void QGraphicsEllipseItem_KeyPressEvent(QGraphicsEllipseItem* self, QKeyEvent* e
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseKeyPressEvent(QGraphicsEllipseItem* self, QKeyEvent* event) {
+void QGraphicsEllipseItem_SuperKeyPressEvent(QGraphicsEllipseItem* self, QKeyEvent* event) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_KeyPressEvent_IsBase(true);
@@ -7758,7 +7758,7 @@ void QGraphicsEllipseItem_KeyReleaseEvent(QGraphicsEllipseItem* self, QKeyEvent*
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseKeyReleaseEvent(QGraphicsEllipseItem* self, QKeyEvent* event) {
+void QGraphicsEllipseItem_SuperKeyReleaseEvent(QGraphicsEllipseItem* self, QKeyEvent* event) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_KeyReleaseEvent_IsBase(true);
@@ -7787,7 +7787,7 @@ void QGraphicsEllipseItem_MousePressEvent(QGraphicsEllipseItem* self, QGraphicsS
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseMousePressEvent(QGraphicsEllipseItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsEllipseItem_SuperMousePressEvent(QGraphicsEllipseItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_MousePressEvent_IsBase(true);
@@ -7816,7 +7816,7 @@ void QGraphicsEllipseItem_MouseMoveEvent(QGraphicsEllipseItem* self, QGraphicsSc
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseMouseMoveEvent(QGraphicsEllipseItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsEllipseItem_SuperMouseMoveEvent(QGraphicsEllipseItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_MouseMoveEvent_IsBase(true);
@@ -7845,7 +7845,7 @@ void QGraphicsEllipseItem_MouseReleaseEvent(QGraphicsEllipseItem* self, QGraphic
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseMouseReleaseEvent(QGraphicsEllipseItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsEllipseItem_SuperMouseReleaseEvent(QGraphicsEllipseItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_MouseReleaseEvent_IsBase(true);
@@ -7874,7 +7874,7 @@ void QGraphicsEllipseItem_MouseDoubleClickEvent(QGraphicsEllipseItem* self, QGra
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseMouseDoubleClickEvent(QGraphicsEllipseItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsEllipseItem_SuperMouseDoubleClickEvent(QGraphicsEllipseItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_MouseDoubleClickEvent_IsBase(true);
@@ -7903,7 +7903,7 @@ void QGraphicsEllipseItem_WheelEvent(QGraphicsEllipseItem* self, QGraphicsSceneW
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseWheelEvent(QGraphicsEllipseItem* self, QGraphicsSceneWheelEvent* event) {
+void QGraphicsEllipseItem_SuperWheelEvent(QGraphicsEllipseItem* self, QGraphicsSceneWheelEvent* event) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_WheelEvent_IsBase(true);
@@ -7932,7 +7932,7 @@ void QGraphicsEllipseItem_InputMethodEvent(QGraphicsEllipseItem* self, QInputMet
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseInputMethodEvent(QGraphicsEllipseItem* self, QInputMethodEvent* event) {
+void QGraphicsEllipseItem_SuperInputMethodEvent(QGraphicsEllipseItem* self, QInputMethodEvent* event) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_InputMethodEvent_IsBase(true);
@@ -7960,7 +7960,7 @@ QVariant* QGraphicsEllipseItem_InputMethodQuery(const QGraphicsEllipseItem* self
 }
 
 // Base class handler implementation
-QVariant* QGraphicsEllipseItem_QBaseInputMethodQuery(const QGraphicsEllipseItem* self, int query) {
+QVariant* QGraphicsEllipseItem_SuperInputMethodQuery(const QGraphicsEllipseItem* self, int query) {
     auto* vqgraphicsellipseitem = const_cast<VirtualQGraphicsEllipseItem*>(dynamic_cast<const VirtualQGraphicsEllipseItem*>(self));
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_InputMethodQuery_IsBase(true);
@@ -7987,7 +7987,7 @@ QVariant* QGraphicsEllipseItem_ItemChange(QGraphicsEllipseItem* self, int change
 }
 
 // Base class handler implementation
-QVariant* QGraphicsEllipseItem_QBaseItemChange(QGraphicsEllipseItem* self, int change, const QVariant* value) {
+QVariant* QGraphicsEllipseItem_SuperItemChange(QGraphicsEllipseItem* self, int change, const QVariant* value) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_ItemChange_IsBase(true);
@@ -8015,7 +8015,7 @@ void QGraphicsEllipseItem_UpdateMicroFocus(QGraphicsEllipseItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseUpdateMicroFocus(QGraphicsEllipseItem* self) {
+void QGraphicsEllipseItem_SuperUpdateMicroFocus(QGraphicsEllipseItem* self) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_UpdateMicroFocus_IsBase(true);
@@ -8044,7 +8044,7 @@ void QGraphicsEllipseItem_AddToIndex(QGraphicsEllipseItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseAddToIndex(QGraphicsEllipseItem* self) {
+void QGraphicsEllipseItem_SuperAddToIndex(QGraphicsEllipseItem* self) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_AddToIndex_IsBase(true);
@@ -8073,7 +8073,7 @@ void QGraphicsEllipseItem_RemoveFromIndex(QGraphicsEllipseItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBaseRemoveFromIndex(QGraphicsEllipseItem* self) {
+void QGraphicsEllipseItem_SuperRemoveFromIndex(QGraphicsEllipseItem* self) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_RemoveFromIndex_IsBase(true);
@@ -8102,7 +8102,7 @@ void QGraphicsEllipseItem_PrepareGeometryChange(QGraphicsEllipseItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsEllipseItem_QBasePrepareGeometryChange(QGraphicsEllipseItem* self) {
+void QGraphicsEllipseItem_SuperPrepareGeometryChange(QGraphicsEllipseItem* self) {
     auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
     if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
         vqgraphicsellipseitem->setQGraphicsEllipseItem_PrepareGeometryChange_IsBase(true);
@@ -8227,7 +8227,7 @@ QVariant* QGraphicsPolygonItem_Extension(const QGraphicsPolygonItem* self, const
 }
 
 // Base class handler implementation
-QRectF* QGraphicsPolygonItem_QBaseBoundingRect(const QGraphicsPolygonItem* self) {
+QRectF* QGraphicsPolygonItem_SuperBoundingRect(const QGraphicsPolygonItem* self) {
     auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_BoundingRect_IsBase(true);
@@ -8246,7 +8246,7 @@ void QGraphicsPolygonItem_OnBoundingRect(const QGraphicsPolygonItem* self, intpt
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsPolygonItem_QBaseShape(const QGraphicsPolygonItem* self) {
+QPainterPath* QGraphicsPolygonItem_SuperShape(const QGraphicsPolygonItem* self) {
     auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_Shape_IsBase(true);
@@ -8265,7 +8265,7 @@ void QGraphicsPolygonItem_OnShape(const QGraphicsPolygonItem* self, intptr_t slo
 }
 
 // Base class handler implementation
-bool QGraphicsPolygonItem_QBaseContains(const QGraphicsPolygonItem* self, const QPointF* point) {
+bool QGraphicsPolygonItem_SuperContains(const QGraphicsPolygonItem* self, const QPointF* point) {
     auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_Contains_IsBase(true);
@@ -8284,7 +8284,7 @@ void QGraphicsPolygonItem_OnContains(const QGraphicsPolygonItem* self, intptr_t 
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBasePaint(QGraphicsPolygonItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void QGraphicsPolygonItem_SuperPaint(QGraphicsPolygonItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_Paint_IsBase(true);
@@ -8303,7 +8303,7 @@ void QGraphicsPolygonItem_OnPaint(QGraphicsPolygonItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsPolygonItem_QBaseIsObscuredBy(const QGraphicsPolygonItem* self, const QGraphicsItem* item) {
+bool QGraphicsPolygonItem_SuperIsObscuredBy(const QGraphicsPolygonItem* self, const QGraphicsItem* item) {
     auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_IsObscuredBy_IsBase(true);
@@ -8322,7 +8322,7 @@ void QGraphicsPolygonItem_OnIsObscuredBy(const QGraphicsPolygonItem* self, intpt
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsPolygonItem_QBaseOpaqueArea(const QGraphicsPolygonItem* self) {
+QPainterPath* QGraphicsPolygonItem_SuperOpaqueArea(const QGraphicsPolygonItem* self) {
     auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_OpaqueArea_IsBase(true);
@@ -8341,7 +8341,7 @@ void QGraphicsPolygonItem_OnOpaqueArea(const QGraphicsPolygonItem* self, intptr_
 }
 
 // Base class handler implementation
-int QGraphicsPolygonItem_QBaseType(const QGraphicsPolygonItem* self) {
+int QGraphicsPolygonItem_SuperType(const QGraphicsPolygonItem* self) {
     auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_Type_IsBase(true);
@@ -8360,7 +8360,7 @@ void QGraphicsPolygonItem_OnType(const QGraphicsPolygonItem* self, intptr_t slot
 }
 
 // Base class handler implementation
-bool QGraphicsPolygonItem_QBaseSupportsExtension(const QGraphicsPolygonItem* self, int extension) {
+bool QGraphicsPolygonItem_SuperSupportsExtension(const QGraphicsPolygonItem* self, int extension) {
     auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_SupportsExtension_IsBase(true);
@@ -8379,7 +8379,7 @@ void QGraphicsPolygonItem_OnSupportsExtension(const QGraphicsPolygonItem* self, 
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseSetExtension(QGraphicsPolygonItem* self, int extension, const QVariant* variant) {
+void QGraphicsPolygonItem_SuperSetExtension(QGraphicsPolygonItem* self, int extension, const QVariant* variant) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_SetExtension_IsBase(true);
@@ -8398,7 +8398,7 @@ void QGraphicsPolygonItem_OnSetExtension(QGraphicsPolygonItem* self, intptr_t sl
 }
 
 // Base class handler implementation
-QVariant* QGraphicsPolygonItem_QBaseExtension(const QGraphicsPolygonItem* self, const QVariant* variant) {
+QVariant* QGraphicsPolygonItem_SuperExtension(const QGraphicsPolygonItem* self, const QVariant* variant) {
     auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_Extension_IsBase(true);
@@ -8426,7 +8426,7 @@ void QGraphicsPolygonItem_Advance(QGraphicsPolygonItem* self, int phase) {
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseAdvance(QGraphicsPolygonItem* self, int phase) {
+void QGraphicsPolygonItem_SuperAdvance(QGraphicsPolygonItem* self, int phase) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_Advance_IsBase(true);
@@ -8455,7 +8455,7 @@ bool QGraphicsPolygonItem_CollidesWithItem(const QGraphicsPolygonItem* self, con
 }
 
 // Base class handler implementation
-bool QGraphicsPolygonItem_QBaseCollidesWithItem(const QGraphicsPolygonItem* self, const QGraphicsItem* other, int mode) {
+bool QGraphicsPolygonItem_SuperCollidesWithItem(const QGraphicsPolygonItem* self, const QGraphicsItem* other, int mode) {
     auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_CollidesWithItem_IsBase(true);
@@ -8484,7 +8484,7 @@ bool QGraphicsPolygonItem_CollidesWithPath(const QGraphicsPolygonItem* self, con
 }
 
 // Base class handler implementation
-bool QGraphicsPolygonItem_QBaseCollidesWithPath(const QGraphicsPolygonItem* self, const QPainterPath* path, int mode) {
+bool QGraphicsPolygonItem_SuperCollidesWithPath(const QGraphicsPolygonItem* self, const QPainterPath* path, int mode) {
     auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_CollidesWithPath_IsBase(true);
@@ -8513,7 +8513,7 @@ bool QGraphicsPolygonItem_SceneEventFilter(QGraphicsPolygonItem* self, QGraphics
 }
 
 // Base class handler implementation
-bool QGraphicsPolygonItem_QBaseSceneEventFilter(QGraphicsPolygonItem* self, QGraphicsItem* watched, QEvent* event) {
+bool QGraphicsPolygonItem_SuperSceneEventFilter(QGraphicsPolygonItem* self, QGraphicsItem* watched, QEvent* event) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_SceneEventFilter_IsBase(true);
@@ -8542,7 +8542,7 @@ bool QGraphicsPolygonItem_SceneEvent(QGraphicsPolygonItem* self, QEvent* event) 
 }
 
 // Base class handler implementation
-bool QGraphicsPolygonItem_QBaseSceneEvent(QGraphicsPolygonItem* self, QEvent* event) {
+bool QGraphicsPolygonItem_SuperSceneEvent(QGraphicsPolygonItem* self, QEvent* event) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_SceneEvent_IsBase(true);
@@ -8571,7 +8571,7 @@ void QGraphicsPolygonItem_ContextMenuEvent(QGraphicsPolygonItem* self, QGraphics
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseContextMenuEvent(QGraphicsPolygonItem* self, QGraphicsSceneContextMenuEvent* event) {
+void QGraphicsPolygonItem_SuperContextMenuEvent(QGraphicsPolygonItem* self, QGraphicsSceneContextMenuEvent* event) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_ContextMenuEvent_IsBase(true);
@@ -8600,7 +8600,7 @@ void QGraphicsPolygonItem_DragEnterEvent(QGraphicsPolygonItem* self, QGraphicsSc
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseDragEnterEvent(QGraphicsPolygonItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsPolygonItem_SuperDragEnterEvent(QGraphicsPolygonItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_DragEnterEvent_IsBase(true);
@@ -8629,7 +8629,7 @@ void QGraphicsPolygonItem_DragLeaveEvent(QGraphicsPolygonItem* self, QGraphicsSc
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseDragLeaveEvent(QGraphicsPolygonItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsPolygonItem_SuperDragLeaveEvent(QGraphicsPolygonItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_DragLeaveEvent_IsBase(true);
@@ -8658,7 +8658,7 @@ void QGraphicsPolygonItem_DragMoveEvent(QGraphicsPolygonItem* self, QGraphicsSce
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseDragMoveEvent(QGraphicsPolygonItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsPolygonItem_SuperDragMoveEvent(QGraphicsPolygonItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_DragMoveEvent_IsBase(true);
@@ -8687,7 +8687,7 @@ void QGraphicsPolygonItem_DropEvent(QGraphicsPolygonItem* self, QGraphicsSceneDr
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseDropEvent(QGraphicsPolygonItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsPolygonItem_SuperDropEvent(QGraphicsPolygonItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_DropEvent_IsBase(true);
@@ -8716,7 +8716,7 @@ void QGraphicsPolygonItem_FocusInEvent(QGraphicsPolygonItem* self, QFocusEvent* 
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseFocusInEvent(QGraphicsPolygonItem* self, QFocusEvent* event) {
+void QGraphicsPolygonItem_SuperFocusInEvent(QGraphicsPolygonItem* self, QFocusEvent* event) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_FocusInEvent_IsBase(true);
@@ -8745,7 +8745,7 @@ void QGraphicsPolygonItem_FocusOutEvent(QGraphicsPolygonItem* self, QFocusEvent*
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseFocusOutEvent(QGraphicsPolygonItem* self, QFocusEvent* event) {
+void QGraphicsPolygonItem_SuperFocusOutEvent(QGraphicsPolygonItem* self, QFocusEvent* event) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_FocusOutEvent_IsBase(true);
@@ -8774,7 +8774,7 @@ void QGraphicsPolygonItem_HoverEnterEvent(QGraphicsPolygonItem* self, QGraphicsS
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseHoverEnterEvent(QGraphicsPolygonItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsPolygonItem_SuperHoverEnterEvent(QGraphicsPolygonItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_HoverEnterEvent_IsBase(true);
@@ -8803,7 +8803,7 @@ void QGraphicsPolygonItem_HoverMoveEvent(QGraphicsPolygonItem* self, QGraphicsSc
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseHoverMoveEvent(QGraphicsPolygonItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsPolygonItem_SuperHoverMoveEvent(QGraphicsPolygonItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_HoverMoveEvent_IsBase(true);
@@ -8832,7 +8832,7 @@ void QGraphicsPolygonItem_HoverLeaveEvent(QGraphicsPolygonItem* self, QGraphicsS
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseHoverLeaveEvent(QGraphicsPolygonItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsPolygonItem_SuperHoverLeaveEvent(QGraphicsPolygonItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_HoverLeaveEvent_IsBase(true);
@@ -8861,7 +8861,7 @@ void QGraphicsPolygonItem_KeyPressEvent(QGraphicsPolygonItem* self, QKeyEvent* e
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseKeyPressEvent(QGraphicsPolygonItem* self, QKeyEvent* event) {
+void QGraphicsPolygonItem_SuperKeyPressEvent(QGraphicsPolygonItem* self, QKeyEvent* event) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_KeyPressEvent_IsBase(true);
@@ -8890,7 +8890,7 @@ void QGraphicsPolygonItem_KeyReleaseEvent(QGraphicsPolygonItem* self, QKeyEvent*
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseKeyReleaseEvent(QGraphicsPolygonItem* self, QKeyEvent* event) {
+void QGraphicsPolygonItem_SuperKeyReleaseEvent(QGraphicsPolygonItem* self, QKeyEvent* event) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_KeyReleaseEvent_IsBase(true);
@@ -8919,7 +8919,7 @@ void QGraphicsPolygonItem_MousePressEvent(QGraphicsPolygonItem* self, QGraphicsS
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseMousePressEvent(QGraphicsPolygonItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsPolygonItem_SuperMousePressEvent(QGraphicsPolygonItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_MousePressEvent_IsBase(true);
@@ -8948,7 +8948,7 @@ void QGraphicsPolygonItem_MouseMoveEvent(QGraphicsPolygonItem* self, QGraphicsSc
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseMouseMoveEvent(QGraphicsPolygonItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsPolygonItem_SuperMouseMoveEvent(QGraphicsPolygonItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_MouseMoveEvent_IsBase(true);
@@ -8977,7 +8977,7 @@ void QGraphicsPolygonItem_MouseReleaseEvent(QGraphicsPolygonItem* self, QGraphic
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseMouseReleaseEvent(QGraphicsPolygonItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsPolygonItem_SuperMouseReleaseEvent(QGraphicsPolygonItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_MouseReleaseEvent_IsBase(true);
@@ -9006,7 +9006,7 @@ void QGraphicsPolygonItem_MouseDoubleClickEvent(QGraphicsPolygonItem* self, QGra
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseMouseDoubleClickEvent(QGraphicsPolygonItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsPolygonItem_SuperMouseDoubleClickEvent(QGraphicsPolygonItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_MouseDoubleClickEvent_IsBase(true);
@@ -9035,7 +9035,7 @@ void QGraphicsPolygonItem_WheelEvent(QGraphicsPolygonItem* self, QGraphicsSceneW
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseWheelEvent(QGraphicsPolygonItem* self, QGraphicsSceneWheelEvent* event) {
+void QGraphicsPolygonItem_SuperWheelEvent(QGraphicsPolygonItem* self, QGraphicsSceneWheelEvent* event) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_WheelEvent_IsBase(true);
@@ -9064,7 +9064,7 @@ void QGraphicsPolygonItem_InputMethodEvent(QGraphicsPolygonItem* self, QInputMet
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseInputMethodEvent(QGraphicsPolygonItem* self, QInputMethodEvent* event) {
+void QGraphicsPolygonItem_SuperInputMethodEvent(QGraphicsPolygonItem* self, QInputMethodEvent* event) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_InputMethodEvent_IsBase(true);
@@ -9092,7 +9092,7 @@ QVariant* QGraphicsPolygonItem_InputMethodQuery(const QGraphicsPolygonItem* self
 }
 
 // Base class handler implementation
-QVariant* QGraphicsPolygonItem_QBaseInputMethodQuery(const QGraphicsPolygonItem* self, int query) {
+QVariant* QGraphicsPolygonItem_SuperInputMethodQuery(const QGraphicsPolygonItem* self, int query) {
     auto* vqgraphicspolygonitem = const_cast<VirtualQGraphicsPolygonItem*>(dynamic_cast<const VirtualQGraphicsPolygonItem*>(self));
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_InputMethodQuery_IsBase(true);
@@ -9119,7 +9119,7 @@ QVariant* QGraphicsPolygonItem_ItemChange(QGraphicsPolygonItem* self, int change
 }
 
 // Base class handler implementation
-QVariant* QGraphicsPolygonItem_QBaseItemChange(QGraphicsPolygonItem* self, int change, const QVariant* value) {
+QVariant* QGraphicsPolygonItem_SuperItemChange(QGraphicsPolygonItem* self, int change, const QVariant* value) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_ItemChange_IsBase(true);
@@ -9147,7 +9147,7 @@ void QGraphicsPolygonItem_UpdateMicroFocus(QGraphicsPolygonItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseUpdateMicroFocus(QGraphicsPolygonItem* self) {
+void QGraphicsPolygonItem_SuperUpdateMicroFocus(QGraphicsPolygonItem* self) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_UpdateMicroFocus_IsBase(true);
@@ -9176,7 +9176,7 @@ void QGraphicsPolygonItem_AddToIndex(QGraphicsPolygonItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseAddToIndex(QGraphicsPolygonItem* self) {
+void QGraphicsPolygonItem_SuperAddToIndex(QGraphicsPolygonItem* self) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_AddToIndex_IsBase(true);
@@ -9205,7 +9205,7 @@ void QGraphicsPolygonItem_RemoveFromIndex(QGraphicsPolygonItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBaseRemoveFromIndex(QGraphicsPolygonItem* self) {
+void QGraphicsPolygonItem_SuperRemoveFromIndex(QGraphicsPolygonItem* self) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_RemoveFromIndex_IsBase(true);
@@ -9234,7 +9234,7 @@ void QGraphicsPolygonItem_PrepareGeometryChange(QGraphicsPolygonItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsPolygonItem_QBasePrepareGeometryChange(QGraphicsPolygonItem* self) {
+void QGraphicsPolygonItem_SuperPrepareGeometryChange(QGraphicsPolygonItem* self) {
     auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
     if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
         vqgraphicspolygonitem->setQGraphicsPolygonItem_PrepareGeometryChange_IsBase(true);
@@ -9387,7 +9387,7 @@ QVariant* QGraphicsLineItem_Extension(const QGraphicsLineItem* self, const QVari
 }
 
 // Base class handler implementation
-QRectF* QGraphicsLineItem_QBaseBoundingRect(const QGraphicsLineItem* self) {
+QRectF* QGraphicsLineItem_SuperBoundingRect(const QGraphicsLineItem* self) {
     auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_BoundingRect_IsBase(true);
@@ -9406,7 +9406,7 @@ void QGraphicsLineItem_OnBoundingRect(const QGraphicsLineItem* self, intptr_t sl
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsLineItem_QBaseShape(const QGraphicsLineItem* self) {
+QPainterPath* QGraphicsLineItem_SuperShape(const QGraphicsLineItem* self) {
     auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_Shape_IsBase(true);
@@ -9425,7 +9425,7 @@ void QGraphicsLineItem_OnShape(const QGraphicsLineItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsLineItem_QBaseContains(const QGraphicsLineItem* self, const QPointF* point) {
+bool QGraphicsLineItem_SuperContains(const QGraphicsLineItem* self, const QPointF* point) {
     auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_Contains_IsBase(true);
@@ -9444,7 +9444,7 @@ void QGraphicsLineItem_OnContains(const QGraphicsLineItem* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBasePaint(QGraphicsLineItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void QGraphicsLineItem_SuperPaint(QGraphicsLineItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_Paint_IsBase(true);
@@ -9463,7 +9463,7 @@ void QGraphicsLineItem_OnPaint(QGraphicsLineItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsLineItem_QBaseIsObscuredBy(const QGraphicsLineItem* self, const QGraphicsItem* item) {
+bool QGraphicsLineItem_SuperIsObscuredBy(const QGraphicsLineItem* self, const QGraphicsItem* item) {
     auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_IsObscuredBy_IsBase(true);
@@ -9482,7 +9482,7 @@ void QGraphicsLineItem_OnIsObscuredBy(const QGraphicsLineItem* self, intptr_t sl
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsLineItem_QBaseOpaqueArea(const QGraphicsLineItem* self) {
+QPainterPath* QGraphicsLineItem_SuperOpaqueArea(const QGraphicsLineItem* self) {
     auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_OpaqueArea_IsBase(true);
@@ -9501,7 +9501,7 @@ void QGraphicsLineItem_OnOpaqueArea(const QGraphicsLineItem* self, intptr_t slot
 }
 
 // Base class handler implementation
-int QGraphicsLineItem_QBaseType(const QGraphicsLineItem* self) {
+int QGraphicsLineItem_SuperType(const QGraphicsLineItem* self) {
     auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_Type_IsBase(true);
@@ -9520,7 +9520,7 @@ void QGraphicsLineItem_OnType(const QGraphicsLineItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsLineItem_QBaseSupportsExtension(const QGraphicsLineItem* self, int extension) {
+bool QGraphicsLineItem_SuperSupportsExtension(const QGraphicsLineItem* self, int extension) {
     auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_SupportsExtension_IsBase(true);
@@ -9539,7 +9539,7 @@ void QGraphicsLineItem_OnSupportsExtension(const QGraphicsLineItem* self, intptr
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseSetExtension(QGraphicsLineItem* self, int extension, const QVariant* variant) {
+void QGraphicsLineItem_SuperSetExtension(QGraphicsLineItem* self, int extension, const QVariant* variant) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_SetExtension_IsBase(true);
@@ -9558,7 +9558,7 @@ void QGraphicsLineItem_OnSetExtension(QGraphicsLineItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QGraphicsLineItem_QBaseExtension(const QGraphicsLineItem* self, const QVariant* variant) {
+QVariant* QGraphicsLineItem_SuperExtension(const QGraphicsLineItem* self, const QVariant* variant) {
     auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_Extension_IsBase(true);
@@ -9586,7 +9586,7 @@ void QGraphicsLineItem_Advance(QGraphicsLineItem* self, int phase) {
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseAdvance(QGraphicsLineItem* self, int phase) {
+void QGraphicsLineItem_SuperAdvance(QGraphicsLineItem* self, int phase) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_Advance_IsBase(true);
@@ -9615,7 +9615,7 @@ bool QGraphicsLineItem_CollidesWithItem(const QGraphicsLineItem* self, const QGr
 }
 
 // Base class handler implementation
-bool QGraphicsLineItem_QBaseCollidesWithItem(const QGraphicsLineItem* self, const QGraphicsItem* other, int mode) {
+bool QGraphicsLineItem_SuperCollidesWithItem(const QGraphicsLineItem* self, const QGraphicsItem* other, int mode) {
     auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_CollidesWithItem_IsBase(true);
@@ -9644,7 +9644,7 @@ bool QGraphicsLineItem_CollidesWithPath(const QGraphicsLineItem* self, const QPa
 }
 
 // Base class handler implementation
-bool QGraphicsLineItem_QBaseCollidesWithPath(const QGraphicsLineItem* self, const QPainterPath* path, int mode) {
+bool QGraphicsLineItem_SuperCollidesWithPath(const QGraphicsLineItem* self, const QPainterPath* path, int mode) {
     auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_CollidesWithPath_IsBase(true);
@@ -9673,7 +9673,7 @@ bool QGraphicsLineItem_SceneEventFilter(QGraphicsLineItem* self, QGraphicsItem* 
 }
 
 // Base class handler implementation
-bool QGraphicsLineItem_QBaseSceneEventFilter(QGraphicsLineItem* self, QGraphicsItem* watched, QEvent* event) {
+bool QGraphicsLineItem_SuperSceneEventFilter(QGraphicsLineItem* self, QGraphicsItem* watched, QEvent* event) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_SceneEventFilter_IsBase(true);
@@ -9702,7 +9702,7 @@ bool QGraphicsLineItem_SceneEvent(QGraphicsLineItem* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QGraphicsLineItem_QBaseSceneEvent(QGraphicsLineItem* self, QEvent* event) {
+bool QGraphicsLineItem_SuperSceneEvent(QGraphicsLineItem* self, QEvent* event) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_SceneEvent_IsBase(true);
@@ -9731,7 +9731,7 @@ void QGraphicsLineItem_ContextMenuEvent(QGraphicsLineItem* self, QGraphicsSceneC
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseContextMenuEvent(QGraphicsLineItem* self, QGraphicsSceneContextMenuEvent* event) {
+void QGraphicsLineItem_SuperContextMenuEvent(QGraphicsLineItem* self, QGraphicsSceneContextMenuEvent* event) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_ContextMenuEvent_IsBase(true);
@@ -9760,7 +9760,7 @@ void QGraphicsLineItem_DragEnterEvent(QGraphicsLineItem* self, QGraphicsSceneDra
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseDragEnterEvent(QGraphicsLineItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsLineItem_SuperDragEnterEvent(QGraphicsLineItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_DragEnterEvent_IsBase(true);
@@ -9789,7 +9789,7 @@ void QGraphicsLineItem_DragLeaveEvent(QGraphicsLineItem* self, QGraphicsSceneDra
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseDragLeaveEvent(QGraphicsLineItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsLineItem_SuperDragLeaveEvent(QGraphicsLineItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_DragLeaveEvent_IsBase(true);
@@ -9818,7 +9818,7 @@ void QGraphicsLineItem_DragMoveEvent(QGraphicsLineItem* self, QGraphicsSceneDrag
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseDragMoveEvent(QGraphicsLineItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsLineItem_SuperDragMoveEvent(QGraphicsLineItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_DragMoveEvent_IsBase(true);
@@ -9847,7 +9847,7 @@ void QGraphicsLineItem_DropEvent(QGraphicsLineItem* self, QGraphicsSceneDragDrop
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseDropEvent(QGraphicsLineItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsLineItem_SuperDropEvent(QGraphicsLineItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_DropEvent_IsBase(true);
@@ -9876,7 +9876,7 @@ void QGraphicsLineItem_FocusInEvent(QGraphicsLineItem* self, QFocusEvent* event)
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseFocusInEvent(QGraphicsLineItem* self, QFocusEvent* event) {
+void QGraphicsLineItem_SuperFocusInEvent(QGraphicsLineItem* self, QFocusEvent* event) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_FocusInEvent_IsBase(true);
@@ -9905,7 +9905,7 @@ void QGraphicsLineItem_FocusOutEvent(QGraphicsLineItem* self, QFocusEvent* event
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseFocusOutEvent(QGraphicsLineItem* self, QFocusEvent* event) {
+void QGraphicsLineItem_SuperFocusOutEvent(QGraphicsLineItem* self, QFocusEvent* event) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_FocusOutEvent_IsBase(true);
@@ -9934,7 +9934,7 @@ void QGraphicsLineItem_HoverEnterEvent(QGraphicsLineItem* self, QGraphicsSceneHo
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseHoverEnterEvent(QGraphicsLineItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsLineItem_SuperHoverEnterEvent(QGraphicsLineItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_HoverEnterEvent_IsBase(true);
@@ -9963,7 +9963,7 @@ void QGraphicsLineItem_HoverMoveEvent(QGraphicsLineItem* self, QGraphicsSceneHov
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseHoverMoveEvent(QGraphicsLineItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsLineItem_SuperHoverMoveEvent(QGraphicsLineItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_HoverMoveEvent_IsBase(true);
@@ -9992,7 +9992,7 @@ void QGraphicsLineItem_HoverLeaveEvent(QGraphicsLineItem* self, QGraphicsSceneHo
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseHoverLeaveEvent(QGraphicsLineItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsLineItem_SuperHoverLeaveEvent(QGraphicsLineItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_HoverLeaveEvent_IsBase(true);
@@ -10021,7 +10021,7 @@ void QGraphicsLineItem_KeyPressEvent(QGraphicsLineItem* self, QKeyEvent* event) 
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseKeyPressEvent(QGraphicsLineItem* self, QKeyEvent* event) {
+void QGraphicsLineItem_SuperKeyPressEvent(QGraphicsLineItem* self, QKeyEvent* event) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_KeyPressEvent_IsBase(true);
@@ -10050,7 +10050,7 @@ void QGraphicsLineItem_KeyReleaseEvent(QGraphicsLineItem* self, QKeyEvent* event
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseKeyReleaseEvent(QGraphicsLineItem* self, QKeyEvent* event) {
+void QGraphicsLineItem_SuperKeyReleaseEvent(QGraphicsLineItem* self, QKeyEvent* event) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_KeyReleaseEvent_IsBase(true);
@@ -10079,7 +10079,7 @@ void QGraphicsLineItem_MousePressEvent(QGraphicsLineItem* self, QGraphicsSceneMo
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseMousePressEvent(QGraphicsLineItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsLineItem_SuperMousePressEvent(QGraphicsLineItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_MousePressEvent_IsBase(true);
@@ -10108,7 +10108,7 @@ void QGraphicsLineItem_MouseMoveEvent(QGraphicsLineItem* self, QGraphicsSceneMou
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseMouseMoveEvent(QGraphicsLineItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsLineItem_SuperMouseMoveEvent(QGraphicsLineItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_MouseMoveEvent_IsBase(true);
@@ -10137,7 +10137,7 @@ void QGraphicsLineItem_MouseReleaseEvent(QGraphicsLineItem* self, QGraphicsScene
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseMouseReleaseEvent(QGraphicsLineItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsLineItem_SuperMouseReleaseEvent(QGraphicsLineItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_MouseReleaseEvent_IsBase(true);
@@ -10166,7 +10166,7 @@ void QGraphicsLineItem_MouseDoubleClickEvent(QGraphicsLineItem* self, QGraphicsS
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseMouseDoubleClickEvent(QGraphicsLineItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsLineItem_SuperMouseDoubleClickEvent(QGraphicsLineItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_MouseDoubleClickEvent_IsBase(true);
@@ -10195,7 +10195,7 @@ void QGraphicsLineItem_WheelEvent(QGraphicsLineItem* self, QGraphicsSceneWheelEv
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseWheelEvent(QGraphicsLineItem* self, QGraphicsSceneWheelEvent* event) {
+void QGraphicsLineItem_SuperWheelEvent(QGraphicsLineItem* self, QGraphicsSceneWheelEvent* event) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_WheelEvent_IsBase(true);
@@ -10224,7 +10224,7 @@ void QGraphicsLineItem_InputMethodEvent(QGraphicsLineItem* self, QInputMethodEve
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseInputMethodEvent(QGraphicsLineItem* self, QInputMethodEvent* event) {
+void QGraphicsLineItem_SuperInputMethodEvent(QGraphicsLineItem* self, QInputMethodEvent* event) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_InputMethodEvent_IsBase(true);
@@ -10252,7 +10252,7 @@ QVariant* QGraphicsLineItem_InputMethodQuery(const QGraphicsLineItem* self, int 
 }
 
 // Base class handler implementation
-QVariant* QGraphicsLineItem_QBaseInputMethodQuery(const QGraphicsLineItem* self, int query) {
+QVariant* QGraphicsLineItem_SuperInputMethodQuery(const QGraphicsLineItem* self, int query) {
     auto* vqgraphicslineitem = const_cast<VirtualQGraphicsLineItem*>(dynamic_cast<const VirtualQGraphicsLineItem*>(self));
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_InputMethodQuery_IsBase(true);
@@ -10279,7 +10279,7 @@ QVariant* QGraphicsLineItem_ItemChange(QGraphicsLineItem* self, int change, cons
 }
 
 // Base class handler implementation
-QVariant* QGraphicsLineItem_QBaseItemChange(QGraphicsLineItem* self, int change, const QVariant* value) {
+QVariant* QGraphicsLineItem_SuperItemChange(QGraphicsLineItem* self, int change, const QVariant* value) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_ItemChange_IsBase(true);
@@ -10307,7 +10307,7 @@ void QGraphicsLineItem_UpdateMicroFocus(QGraphicsLineItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseUpdateMicroFocus(QGraphicsLineItem* self) {
+void QGraphicsLineItem_SuperUpdateMicroFocus(QGraphicsLineItem* self) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_UpdateMicroFocus_IsBase(true);
@@ -10336,7 +10336,7 @@ void QGraphicsLineItem_AddToIndex(QGraphicsLineItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseAddToIndex(QGraphicsLineItem* self) {
+void QGraphicsLineItem_SuperAddToIndex(QGraphicsLineItem* self) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_AddToIndex_IsBase(true);
@@ -10365,7 +10365,7 @@ void QGraphicsLineItem_RemoveFromIndex(QGraphicsLineItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBaseRemoveFromIndex(QGraphicsLineItem* self) {
+void QGraphicsLineItem_SuperRemoveFromIndex(QGraphicsLineItem* self) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_RemoveFromIndex_IsBase(true);
@@ -10394,7 +10394,7 @@ void QGraphicsLineItem_PrepareGeometryChange(QGraphicsLineItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsLineItem_QBasePrepareGeometryChange(QGraphicsLineItem* self) {
+void QGraphicsLineItem_SuperPrepareGeometryChange(QGraphicsLineItem* self) {
     auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
     if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
         vqgraphicslineitem->setQGraphicsLineItem_PrepareGeometryChange_IsBase(true);
@@ -10555,7 +10555,7 @@ QVariant* QGraphicsPixmapItem_Extension(const QGraphicsPixmapItem* self, const Q
 }
 
 // Base class handler implementation
-QRectF* QGraphicsPixmapItem_QBaseBoundingRect(const QGraphicsPixmapItem* self) {
+QRectF* QGraphicsPixmapItem_SuperBoundingRect(const QGraphicsPixmapItem* self) {
     auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_BoundingRect_IsBase(true);
@@ -10574,7 +10574,7 @@ void QGraphicsPixmapItem_OnBoundingRect(const QGraphicsPixmapItem* self, intptr_
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsPixmapItem_QBaseShape(const QGraphicsPixmapItem* self) {
+QPainterPath* QGraphicsPixmapItem_SuperShape(const QGraphicsPixmapItem* self) {
     auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_Shape_IsBase(true);
@@ -10593,7 +10593,7 @@ void QGraphicsPixmapItem_OnShape(const QGraphicsPixmapItem* self, intptr_t slot)
 }
 
 // Base class handler implementation
-bool QGraphicsPixmapItem_QBaseContains(const QGraphicsPixmapItem* self, const QPointF* point) {
+bool QGraphicsPixmapItem_SuperContains(const QGraphicsPixmapItem* self, const QPointF* point) {
     auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_Contains_IsBase(true);
@@ -10612,7 +10612,7 @@ void QGraphicsPixmapItem_OnContains(const QGraphicsPixmapItem* self, intptr_t sl
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBasePaint(QGraphicsPixmapItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void QGraphicsPixmapItem_SuperPaint(QGraphicsPixmapItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_Paint_IsBase(true);
@@ -10631,7 +10631,7 @@ void QGraphicsPixmapItem_OnPaint(QGraphicsPixmapItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsPixmapItem_QBaseIsObscuredBy(const QGraphicsPixmapItem* self, const QGraphicsItem* item) {
+bool QGraphicsPixmapItem_SuperIsObscuredBy(const QGraphicsPixmapItem* self, const QGraphicsItem* item) {
     auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_IsObscuredBy_IsBase(true);
@@ -10650,7 +10650,7 @@ void QGraphicsPixmapItem_OnIsObscuredBy(const QGraphicsPixmapItem* self, intptr_
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsPixmapItem_QBaseOpaqueArea(const QGraphicsPixmapItem* self) {
+QPainterPath* QGraphicsPixmapItem_SuperOpaqueArea(const QGraphicsPixmapItem* self) {
     auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_OpaqueArea_IsBase(true);
@@ -10669,7 +10669,7 @@ void QGraphicsPixmapItem_OnOpaqueArea(const QGraphicsPixmapItem* self, intptr_t 
 }
 
 // Base class handler implementation
-int QGraphicsPixmapItem_QBaseType(const QGraphicsPixmapItem* self) {
+int QGraphicsPixmapItem_SuperType(const QGraphicsPixmapItem* self) {
     auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_Type_IsBase(true);
@@ -10688,7 +10688,7 @@ void QGraphicsPixmapItem_OnType(const QGraphicsPixmapItem* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-bool QGraphicsPixmapItem_QBaseSupportsExtension(const QGraphicsPixmapItem* self, int extension) {
+bool QGraphicsPixmapItem_SuperSupportsExtension(const QGraphicsPixmapItem* self, int extension) {
     auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_SupportsExtension_IsBase(true);
@@ -10707,7 +10707,7 @@ void QGraphicsPixmapItem_OnSupportsExtension(const QGraphicsPixmapItem* self, in
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseSetExtension(QGraphicsPixmapItem* self, int extension, const QVariant* variant) {
+void QGraphicsPixmapItem_SuperSetExtension(QGraphicsPixmapItem* self, int extension, const QVariant* variant) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_SetExtension_IsBase(true);
@@ -10726,7 +10726,7 @@ void QGraphicsPixmapItem_OnSetExtension(QGraphicsPixmapItem* self, intptr_t slot
 }
 
 // Base class handler implementation
-QVariant* QGraphicsPixmapItem_QBaseExtension(const QGraphicsPixmapItem* self, const QVariant* variant) {
+QVariant* QGraphicsPixmapItem_SuperExtension(const QGraphicsPixmapItem* self, const QVariant* variant) {
     auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_Extension_IsBase(true);
@@ -10754,7 +10754,7 @@ void QGraphicsPixmapItem_Advance(QGraphicsPixmapItem* self, int phase) {
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseAdvance(QGraphicsPixmapItem* self, int phase) {
+void QGraphicsPixmapItem_SuperAdvance(QGraphicsPixmapItem* self, int phase) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_Advance_IsBase(true);
@@ -10783,7 +10783,7 @@ bool QGraphicsPixmapItem_CollidesWithItem(const QGraphicsPixmapItem* self, const
 }
 
 // Base class handler implementation
-bool QGraphicsPixmapItem_QBaseCollidesWithItem(const QGraphicsPixmapItem* self, const QGraphicsItem* other, int mode) {
+bool QGraphicsPixmapItem_SuperCollidesWithItem(const QGraphicsPixmapItem* self, const QGraphicsItem* other, int mode) {
     auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_CollidesWithItem_IsBase(true);
@@ -10812,7 +10812,7 @@ bool QGraphicsPixmapItem_CollidesWithPath(const QGraphicsPixmapItem* self, const
 }
 
 // Base class handler implementation
-bool QGraphicsPixmapItem_QBaseCollidesWithPath(const QGraphicsPixmapItem* self, const QPainterPath* path, int mode) {
+bool QGraphicsPixmapItem_SuperCollidesWithPath(const QGraphicsPixmapItem* self, const QPainterPath* path, int mode) {
     auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_CollidesWithPath_IsBase(true);
@@ -10841,7 +10841,7 @@ bool QGraphicsPixmapItem_SceneEventFilter(QGraphicsPixmapItem* self, QGraphicsIt
 }
 
 // Base class handler implementation
-bool QGraphicsPixmapItem_QBaseSceneEventFilter(QGraphicsPixmapItem* self, QGraphicsItem* watched, QEvent* event) {
+bool QGraphicsPixmapItem_SuperSceneEventFilter(QGraphicsPixmapItem* self, QGraphicsItem* watched, QEvent* event) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_SceneEventFilter_IsBase(true);
@@ -10870,7 +10870,7 @@ bool QGraphicsPixmapItem_SceneEvent(QGraphicsPixmapItem* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QGraphicsPixmapItem_QBaseSceneEvent(QGraphicsPixmapItem* self, QEvent* event) {
+bool QGraphicsPixmapItem_SuperSceneEvent(QGraphicsPixmapItem* self, QEvent* event) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_SceneEvent_IsBase(true);
@@ -10899,7 +10899,7 @@ void QGraphicsPixmapItem_ContextMenuEvent(QGraphicsPixmapItem* self, QGraphicsSc
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseContextMenuEvent(QGraphicsPixmapItem* self, QGraphicsSceneContextMenuEvent* event) {
+void QGraphicsPixmapItem_SuperContextMenuEvent(QGraphicsPixmapItem* self, QGraphicsSceneContextMenuEvent* event) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_ContextMenuEvent_IsBase(true);
@@ -10928,7 +10928,7 @@ void QGraphicsPixmapItem_DragEnterEvent(QGraphicsPixmapItem* self, QGraphicsScen
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseDragEnterEvent(QGraphicsPixmapItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsPixmapItem_SuperDragEnterEvent(QGraphicsPixmapItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_DragEnterEvent_IsBase(true);
@@ -10957,7 +10957,7 @@ void QGraphicsPixmapItem_DragLeaveEvent(QGraphicsPixmapItem* self, QGraphicsScen
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseDragLeaveEvent(QGraphicsPixmapItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsPixmapItem_SuperDragLeaveEvent(QGraphicsPixmapItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_DragLeaveEvent_IsBase(true);
@@ -10986,7 +10986,7 @@ void QGraphicsPixmapItem_DragMoveEvent(QGraphicsPixmapItem* self, QGraphicsScene
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseDragMoveEvent(QGraphicsPixmapItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsPixmapItem_SuperDragMoveEvent(QGraphicsPixmapItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_DragMoveEvent_IsBase(true);
@@ -11015,7 +11015,7 @@ void QGraphicsPixmapItem_DropEvent(QGraphicsPixmapItem* self, QGraphicsSceneDrag
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseDropEvent(QGraphicsPixmapItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsPixmapItem_SuperDropEvent(QGraphicsPixmapItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_DropEvent_IsBase(true);
@@ -11044,7 +11044,7 @@ void QGraphicsPixmapItem_FocusInEvent(QGraphicsPixmapItem* self, QFocusEvent* ev
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseFocusInEvent(QGraphicsPixmapItem* self, QFocusEvent* event) {
+void QGraphicsPixmapItem_SuperFocusInEvent(QGraphicsPixmapItem* self, QFocusEvent* event) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_FocusInEvent_IsBase(true);
@@ -11073,7 +11073,7 @@ void QGraphicsPixmapItem_FocusOutEvent(QGraphicsPixmapItem* self, QFocusEvent* e
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseFocusOutEvent(QGraphicsPixmapItem* self, QFocusEvent* event) {
+void QGraphicsPixmapItem_SuperFocusOutEvent(QGraphicsPixmapItem* self, QFocusEvent* event) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_FocusOutEvent_IsBase(true);
@@ -11102,7 +11102,7 @@ void QGraphicsPixmapItem_HoverEnterEvent(QGraphicsPixmapItem* self, QGraphicsSce
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseHoverEnterEvent(QGraphicsPixmapItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsPixmapItem_SuperHoverEnterEvent(QGraphicsPixmapItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_HoverEnterEvent_IsBase(true);
@@ -11131,7 +11131,7 @@ void QGraphicsPixmapItem_HoverMoveEvent(QGraphicsPixmapItem* self, QGraphicsScen
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseHoverMoveEvent(QGraphicsPixmapItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsPixmapItem_SuperHoverMoveEvent(QGraphicsPixmapItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_HoverMoveEvent_IsBase(true);
@@ -11160,7 +11160,7 @@ void QGraphicsPixmapItem_HoverLeaveEvent(QGraphicsPixmapItem* self, QGraphicsSce
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseHoverLeaveEvent(QGraphicsPixmapItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsPixmapItem_SuperHoverLeaveEvent(QGraphicsPixmapItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_HoverLeaveEvent_IsBase(true);
@@ -11189,7 +11189,7 @@ void QGraphicsPixmapItem_KeyPressEvent(QGraphicsPixmapItem* self, QKeyEvent* eve
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseKeyPressEvent(QGraphicsPixmapItem* self, QKeyEvent* event) {
+void QGraphicsPixmapItem_SuperKeyPressEvent(QGraphicsPixmapItem* self, QKeyEvent* event) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_KeyPressEvent_IsBase(true);
@@ -11218,7 +11218,7 @@ void QGraphicsPixmapItem_KeyReleaseEvent(QGraphicsPixmapItem* self, QKeyEvent* e
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseKeyReleaseEvent(QGraphicsPixmapItem* self, QKeyEvent* event) {
+void QGraphicsPixmapItem_SuperKeyReleaseEvent(QGraphicsPixmapItem* self, QKeyEvent* event) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_KeyReleaseEvent_IsBase(true);
@@ -11247,7 +11247,7 @@ void QGraphicsPixmapItem_MousePressEvent(QGraphicsPixmapItem* self, QGraphicsSce
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseMousePressEvent(QGraphicsPixmapItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsPixmapItem_SuperMousePressEvent(QGraphicsPixmapItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_MousePressEvent_IsBase(true);
@@ -11276,7 +11276,7 @@ void QGraphicsPixmapItem_MouseMoveEvent(QGraphicsPixmapItem* self, QGraphicsScen
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseMouseMoveEvent(QGraphicsPixmapItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsPixmapItem_SuperMouseMoveEvent(QGraphicsPixmapItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_MouseMoveEvent_IsBase(true);
@@ -11305,7 +11305,7 @@ void QGraphicsPixmapItem_MouseReleaseEvent(QGraphicsPixmapItem* self, QGraphicsS
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseMouseReleaseEvent(QGraphicsPixmapItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsPixmapItem_SuperMouseReleaseEvent(QGraphicsPixmapItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_MouseReleaseEvent_IsBase(true);
@@ -11334,7 +11334,7 @@ void QGraphicsPixmapItem_MouseDoubleClickEvent(QGraphicsPixmapItem* self, QGraph
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseMouseDoubleClickEvent(QGraphicsPixmapItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsPixmapItem_SuperMouseDoubleClickEvent(QGraphicsPixmapItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_MouseDoubleClickEvent_IsBase(true);
@@ -11363,7 +11363,7 @@ void QGraphicsPixmapItem_WheelEvent(QGraphicsPixmapItem* self, QGraphicsSceneWhe
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseWheelEvent(QGraphicsPixmapItem* self, QGraphicsSceneWheelEvent* event) {
+void QGraphicsPixmapItem_SuperWheelEvent(QGraphicsPixmapItem* self, QGraphicsSceneWheelEvent* event) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_WheelEvent_IsBase(true);
@@ -11392,7 +11392,7 @@ void QGraphicsPixmapItem_InputMethodEvent(QGraphicsPixmapItem* self, QInputMetho
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseInputMethodEvent(QGraphicsPixmapItem* self, QInputMethodEvent* event) {
+void QGraphicsPixmapItem_SuperInputMethodEvent(QGraphicsPixmapItem* self, QInputMethodEvent* event) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_InputMethodEvent_IsBase(true);
@@ -11420,7 +11420,7 @@ QVariant* QGraphicsPixmapItem_InputMethodQuery(const QGraphicsPixmapItem* self, 
 }
 
 // Base class handler implementation
-QVariant* QGraphicsPixmapItem_QBaseInputMethodQuery(const QGraphicsPixmapItem* self, int query) {
+QVariant* QGraphicsPixmapItem_SuperInputMethodQuery(const QGraphicsPixmapItem* self, int query) {
     auto* vqgraphicspixmapitem = const_cast<VirtualQGraphicsPixmapItem*>(dynamic_cast<const VirtualQGraphicsPixmapItem*>(self));
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_InputMethodQuery_IsBase(true);
@@ -11447,7 +11447,7 @@ QVariant* QGraphicsPixmapItem_ItemChange(QGraphicsPixmapItem* self, int change, 
 }
 
 // Base class handler implementation
-QVariant* QGraphicsPixmapItem_QBaseItemChange(QGraphicsPixmapItem* self, int change, const QVariant* value) {
+QVariant* QGraphicsPixmapItem_SuperItemChange(QGraphicsPixmapItem* self, int change, const QVariant* value) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_ItemChange_IsBase(true);
@@ -11475,7 +11475,7 @@ void QGraphicsPixmapItem_UpdateMicroFocus(QGraphicsPixmapItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseUpdateMicroFocus(QGraphicsPixmapItem* self) {
+void QGraphicsPixmapItem_SuperUpdateMicroFocus(QGraphicsPixmapItem* self) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_UpdateMicroFocus_IsBase(true);
@@ -11504,7 +11504,7 @@ void QGraphicsPixmapItem_AddToIndex(QGraphicsPixmapItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseAddToIndex(QGraphicsPixmapItem* self) {
+void QGraphicsPixmapItem_SuperAddToIndex(QGraphicsPixmapItem* self) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_AddToIndex_IsBase(true);
@@ -11533,7 +11533,7 @@ void QGraphicsPixmapItem_RemoveFromIndex(QGraphicsPixmapItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBaseRemoveFromIndex(QGraphicsPixmapItem* self) {
+void QGraphicsPixmapItem_SuperRemoveFromIndex(QGraphicsPixmapItem* self) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_RemoveFromIndex_IsBase(true);
@@ -11562,7 +11562,7 @@ void QGraphicsPixmapItem_PrepareGeometryChange(QGraphicsPixmapItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsPixmapItem_QBasePrepareGeometryChange(QGraphicsPixmapItem* self) {
+void QGraphicsPixmapItem_SuperPrepareGeometryChange(QGraphicsPixmapItem* self) {
     auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
     if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
         vqgraphicspixmapitem->setQGraphicsPixmapItem_PrepareGeometryChange_IsBase(true);
@@ -11995,7 +11995,7 @@ QVariant* QGraphicsTextItem_Extension(const QGraphicsTextItem* self, const QVari
 }
 
 // Base class handler implementation
-QMetaObject* QGraphicsTextItem_QBaseMetaObject(const QGraphicsTextItem* self) {
+QMetaObject* QGraphicsTextItem_SuperMetaObject(const QGraphicsTextItem* self) {
     auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_MetaObject_IsBase(true);
@@ -12014,7 +12014,7 @@ void QGraphicsTextItem_OnMetaObject(const QGraphicsTextItem* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* QGraphicsTextItem_QBaseMetacast(QGraphicsTextItem* self, const char* param1) {
+void* QGraphicsTextItem_SuperMetacast(QGraphicsTextItem* self, const char* param1) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_Metacast_IsBase(true);
@@ -12033,7 +12033,7 @@ void QGraphicsTextItem_OnMetacast(QGraphicsTextItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QGraphicsTextItem_QBaseMetacall(QGraphicsTextItem* self, int param1, int param2, void** param3) {
+int QGraphicsTextItem_SuperMetacall(QGraphicsTextItem* self, int param1, int param2, void** param3) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_Metacall_IsBase(true);
@@ -12052,7 +12052,7 @@ void QGraphicsTextItem_OnMetacall(QGraphicsTextItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QRectF* QGraphicsTextItem_QBaseBoundingRect(const QGraphicsTextItem* self) {
+QRectF* QGraphicsTextItem_SuperBoundingRect(const QGraphicsTextItem* self) {
     auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_BoundingRect_IsBase(true);
@@ -12071,7 +12071,7 @@ void QGraphicsTextItem_OnBoundingRect(const QGraphicsTextItem* self, intptr_t sl
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsTextItem_QBaseShape(const QGraphicsTextItem* self) {
+QPainterPath* QGraphicsTextItem_SuperShape(const QGraphicsTextItem* self) {
     auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_Shape_IsBase(true);
@@ -12090,7 +12090,7 @@ void QGraphicsTextItem_OnShape(const QGraphicsTextItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsTextItem_QBaseContains(const QGraphicsTextItem* self, const QPointF* point) {
+bool QGraphicsTextItem_SuperContains(const QGraphicsTextItem* self, const QPointF* point) {
     auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_Contains_IsBase(true);
@@ -12109,7 +12109,7 @@ void QGraphicsTextItem_OnContains(const QGraphicsTextItem* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBasePaint(QGraphicsTextItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void QGraphicsTextItem_SuperPaint(QGraphicsTextItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_Paint_IsBase(true);
@@ -12128,7 +12128,7 @@ void QGraphicsTextItem_OnPaint(QGraphicsTextItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsTextItem_QBaseIsObscuredBy(const QGraphicsTextItem* self, const QGraphicsItem* item) {
+bool QGraphicsTextItem_SuperIsObscuredBy(const QGraphicsTextItem* self, const QGraphicsItem* item) {
     auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_IsObscuredBy_IsBase(true);
@@ -12147,7 +12147,7 @@ void QGraphicsTextItem_OnIsObscuredBy(const QGraphicsTextItem* self, intptr_t sl
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsTextItem_QBaseOpaqueArea(const QGraphicsTextItem* self) {
+QPainterPath* QGraphicsTextItem_SuperOpaqueArea(const QGraphicsTextItem* self) {
     auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_OpaqueArea_IsBase(true);
@@ -12166,7 +12166,7 @@ void QGraphicsTextItem_OnOpaqueArea(const QGraphicsTextItem* self, intptr_t slot
 }
 
 // Base class handler implementation
-int QGraphicsTextItem_QBaseType(const QGraphicsTextItem* self) {
+int QGraphicsTextItem_SuperType(const QGraphicsTextItem* self) {
     auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_Type_IsBase(true);
@@ -12185,7 +12185,7 @@ void QGraphicsTextItem_OnType(const QGraphicsTextItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsTextItem_QBaseSceneEvent(QGraphicsTextItem* self, QEvent* event) {
+bool QGraphicsTextItem_SuperSceneEvent(QGraphicsTextItem* self, QEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_SceneEvent_IsBase(true);
@@ -12204,7 +12204,7 @@ void QGraphicsTextItem_OnSceneEvent(QGraphicsTextItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseMousePressEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsTextItem_SuperMousePressEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_MousePressEvent_IsBase(true);
@@ -12223,7 +12223,7 @@ void QGraphicsTextItem_OnMousePressEvent(QGraphicsTextItem* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseMouseMoveEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsTextItem_SuperMouseMoveEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_MouseMoveEvent_IsBase(true);
@@ -12242,7 +12242,7 @@ void QGraphicsTextItem_OnMouseMoveEvent(QGraphicsTextItem* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseMouseReleaseEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsTextItem_SuperMouseReleaseEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_MouseReleaseEvent_IsBase(true);
@@ -12261,7 +12261,7 @@ void QGraphicsTextItem_OnMouseReleaseEvent(QGraphicsTextItem* self, intptr_t slo
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseMouseDoubleClickEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsTextItem_SuperMouseDoubleClickEvent(QGraphicsTextItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_MouseDoubleClickEvent_IsBase(true);
@@ -12280,7 +12280,7 @@ void QGraphicsTextItem_OnMouseDoubleClickEvent(QGraphicsTextItem* self, intptr_t
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseContextMenuEvent(QGraphicsTextItem* self, QGraphicsSceneContextMenuEvent* event) {
+void QGraphicsTextItem_SuperContextMenuEvent(QGraphicsTextItem* self, QGraphicsSceneContextMenuEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_ContextMenuEvent_IsBase(true);
@@ -12299,7 +12299,7 @@ void QGraphicsTextItem_OnContextMenuEvent(QGraphicsTextItem* self, intptr_t slot
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseKeyPressEvent(QGraphicsTextItem* self, QKeyEvent* event) {
+void QGraphicsTextItem_SuperKeyPressEvent(QGraphicsTextItem* self, QKeyEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_KeyPressEvent_IsBase(true);
@@ -12318,7 +12318,7 @@ void QGraphicsTextItem_OnKeyPressEvent(QGraphicsTextItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseKeyReleaseEvent(QGraphicsTextItem* self, QKeyEvent* event) {
+void QGraphicsTextItem_SuperKeyReleaseEvent(QGraphicsTextItem* self, QKeyEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_KeyReleaseEvent_IsBase(true);
@@ -12337,7 +12337,7 @@ void QGraphicsTextItem_OnKeyReleaseEvent(QGraphicsTextItem* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseFocusInEvent(QGraphicsTextItem* self, QFocusEvent* event) {
+void QGraphicsTextItem_SuperFocusInEvent(QGraphicsTextItem* self, QFocusEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_FocusInEvent_IsBase(true);
@@ -12356,7 +12356,7 @@ void QGraphicsTextItem_OnFocusInEvent(QGraphicsTextItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseFocusOutEvent(QGraphicsTextItem* self, QFocusEvent* event) {
+void QGraphicsTextItem_SuperFocusOutEvent(QGraphicsTextItem* self, QFocusEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_FocusOutEvent_IsBase(true);
@@ -12375,7 +12375,7 @@ void QGraphicsTextItem_OnFocusOutEvent(QGraphicsTextItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseDragEnterEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsTextItem_SuperDragEnterEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_DragEnterEvent_IsBase(true);
@@ -12394,7 +12394,7 @@ void QGraphicsTextItem_OnDragEnterEvent(QGraphicsTextItem* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseDragLeaveEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsTextItem_SuperDragLeaveEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_DragLeaveEvent_IsBase(true);
@@ -12413,7 +12413,7 @@ void QGraphicsTextItem_OnDragLeaveEvent(QGraphicsTextItem* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseDragMoveEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsTextItem_SuperDragMoveEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_DragMoveEvent_IsBase(true);
@@ -12432,7 +12432,7 @@ void QGraphicsTextItem_OnDragMoveEvent(QGraphicsTextItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseDropEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsTextItem_SuperDropEvent(QGraphicsTextItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_DropEvent_IsBase(true);
@@ -12451,7 +12451,7 @@ void QGraphicsTextItem_OnDropEvent(QGraphicsTextItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseInputMethodEvent(QGraphicsTextItem* self, QInputMethodEvent* event) {
+void QGraphicsTextItem_SuperInputMethodEvent(QGraphicsTextItem* self, QInputMethodEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_InputMethodEvent_IsBase(true);
@@ -12470,7 +12470,7 @@ void QGraphicsTextItem_OnInputMethodEvent(QGraphicsTextItem* self, intptr_t slot
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseHoverEnterEvent(QGraphicsTextItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsTextItem_SuperHoverEnterEvent(QGraphicsTextItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_HoverEnterEvent_IsBase(true);
@@ -12489,7 +12489,7 @@ void QGraphicsTextItem_OnHoverEnterEvent(QGraphicsTextItem* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseHoverMoveEvent(QGraphicsTextItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsTextItem_SuperHoverMoveEvent(QGraphicsTextItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_HoverMoveEvent_IsBase(true);
@@ -12508,7 +12508,7 @@ void QGraphicsTextItem_OnHoverMoveEvent(QGraphicsTextItem* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseHoverLeaveEvent(QGraphicsTextItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsTextItem_SuperHoverLeaveEvent(QGraphicsTextItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_HoverLeaveEvent_IsBase(true);
@@ -12527,7 +12527,7 @@ void QGraphicsTextItem_OnHoverLeaveEvent(QGraphicsTextItem* self, intptr_t slot)
 }
 
 // Base class handler implementation
-QVariant* QGraphicsTextItem_QBaseInputMethodQuery(const QGraphicsTextItem* self, int query) {
+QVariant* QGraphicsTextItem_SuperInputMethodQuery(const QGraphicsTextItem* self, int query) {
     auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_InputMethodQuery_IsBase(true);
@@ -12545,7 +12545,7 @@ void QGraphicsTextItem_OnInputMethodQuery(const QGraphicsTextItem* self, intptr_
 }
 
 // Base class handler implementation
-bool QGraphicsTextItem_QBaseSupportsExtension(const QGraphicsTextItem* self, int extension) {
+bool QGraphicsTextItem_SuperSupportsExtension(const QGraphicsTextItem* self, int extension) {
     auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_SupportsExtension_IsBase(true);
@@ -12564,7 +12564,7 @@ void QGraphicsTextItem_OnSupportsExtension(const QGraphicsTextItem* self, intptr
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseSetExtension(QGraphicsTextItem* self, int extension, const QVariant* variant) {
+void QGraphicsTextItem_SuperSetExtension(QGraphicsTextItem* self, int extension, const QVariant* variant) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_SetExtension_IsBase(true);
@@ -12583,7 +12583,7 @@ void QGraphicsTextItem_OnSetExtension(QGraphicsTextItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QGraphicsTextItem_QBaseExtension(const QGraphicsTextItem* self, const QVariant* variant) {
+QVariant* QGraphicsTextItem_SuperExtension(const QGraphicsTextItem* self, const QVariant* variant) {
     auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_Extension_IsBase(true);
@@ -12611,7 +12611,7 @@ bool QGraphicsTextItem_Event(QGraphicsTextItem* self, QEvent* ev) {
 }
 
 // Base class handler implementation
-bool QGraphicsTextItem_QBaseEvent(QGraphicsTextItem* self, QEvent* ev) {
+bool QGraphicsTextItem_SuperEvent(QGraphicsTextItem* self, QEvent* ev) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_Event_IsBase(true);
@@ -12640,7 +12640,7 @@ bool QGraphicsTextItem_EventFilter(QGraphicsTextItem* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool QGraphicsTextItem_QBaseEventFilter(QGraphicsTextItem* self, QObject* watched, QEvent* event) {
+bool QGraphicsTextItem_SuperEventFilter(QGraphicsTextItem* self, QObject* watched, QEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_EventFilter_IsBase(true);
@@ -12669,7 +12669,7 @@ void QGraphicsTextItem_TimerEvent(QGraphicsTextItem* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseTimerEvent(QGraphicsTextItem* self, QTimerEvent* event) {
+void QGraphicsTextItem_SuperTimerEvent(QGraphicsTextItem* self, QTimerEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_TimerEvent_IsBase(true);
@@ -12698,7 +12698,7 @@ void QGraphicsTextItem_ChildEvent(QGraphicsTextItem* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseChildEvent(QGraphicsTextItem* self, QChildEvent* event) {
+void QGraphicsTextItem_SuperChildEvent(QGraphicsTextItem* self, QChildEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_ChildEvent_IsBase(true);
@@ -12727,7 +12727,7 @@ void QGraphicsTextItem_CustomEvent(QGraphicsTextItem* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseCustomEvent(QGraphicsTextItem* self, QEvent* event) {
+void QGraphicsTextItem_SuperCustomEvent(QGraphicsTextItem* self, QEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_CustomEvent_IsBase(true);
@@ -12756,7 +12756,7 @@ void QGraphicsTextItem_ConnectNotify(QGraphicsTextItem* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseConnectNotify(QGraphicsTextItem* self, const QMetaMethod* signal) {
+void QGraphicsTextItem_SuperConnectNotify(QGraphicsTextItem* self, const QMetaMethod* signal) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_ConnectNotify_IsBase(true);
@@ -12785,7 +12785,7 @@ void QGraphicsTextItem_DisconnectNotify(QGraphicsTextItem* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseDisconnectNotify(QGraphicsTextItem* self, const QMetaMethod* signal) {
+void QGraphicsTextItem_SuperDisconnectNotify(QGraphicsTextItem* self, const QMetaMethod* signal) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_DisconnectNotify_IsBase(true);
@@ -12814,7 +12814,7 @@ void QGraphicsTextItem_Advance(QGraphicsTextItem* self, int phase) {
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseAdvance(QGraphicsTextItem* self, int phase) {
+void QGraphicsTextItem_SuperAdvance(QGraphicsTextItem* self, int phase) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_Advance_IsBase(true);
@@ -12843,7 +12843,7 @@ bool QGraphicsTextItem_CollidesWithItem(const QGraphicsTextItem* self, const QGr
 }
 
 // Base class handler implementation
-bool QGraphicsTextItem_QBaseCollidesWithItem(const QGraphicsTextItem* self, const QGraphicsItem* other, int mode) {
+bool QGraphicsTextItem_SuperCollidesWithItem(const QGraphicsTextItem* self, const QGraphicsItem* other, int mode) {
     auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_CollidesWithItem_IsBase(true);
@@ -12872,7 +12872,7 @@ bool QGraphicsTextItem_CollidesWithPath(const QGraphicsTextItem* self, const QPa
 }
 
 // Base class handler implementation
-bool QGraphicsTextItem_QBaseCollidesWithPath(const QGraphicsTextItem* self, const QPainterPath* path, int mode) {
+bool QGraphicsTextItem_SuperCollidesWithPath(const QGraphicsTextItem* self, const QPainterPath* path, int mode) {
     auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_CollidesWithPath_IsBase(true);
@@ -12901,7 +12901,7 @@ bool QGraphicsTextItem_SceneEventFilter(QGraphicsTextItem* self, QGraphicsItem* 
 }
 
 // Base class handler implementation
-bool QGraphicsTextItem_QBaseSceneEventFilter(QGraphicsTextItem* self, QGraphicsItem* watched, QEvent* event) {
+bool QGraphicsTextItem_SuperSceneEventFilter(QGraphicsTextItem* self, QGraphicsItem* watched, QEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_SceneEventFilter_IsBase(true);
@@ -12930,7 +12930,7 @@ void QGraphicsTextItem_WheelEvent(QGraphicsTextItem* self, QGraphicsSceneWheelEv
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseWheelEvent(QGraphicsTextItem* self, QGraphicsSceneWheelEvent* event) {
+void QGraphicsTextItem_SuperWheelEvent(QGraphicsTextItem* self, QGraphicsSceneWheelEvent* event) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_WheelEvent_IsBase(true);
@@ -12958,7 +12958,7 @@ QVariant* QGraphicsTextItem_ItemChange(QGraphicsTextItem* self, int change, cons
 }
 
 // Base class handler implementation
-QVariant* QGraphicsTextItem_QBaseItemChange(QGraphicsTextItem* self, int change, const QVariant* value) {
+QVariant* QGraphicsTextItem_SuperItemChange(QGraphicsTextItem* self, int change, const QVariant* value) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_ItemChange_IsBase(true);
@@ -12986,7 +12986,7 @@ void QGraphicsTextItem_UpdateMicroFocus(QGraphicsTextItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseUpdateMicroFocus(QGraphicsTextItem* self) {
+void QGraphicsTextItem_SuperUpdateMicroFocus(QGraphicsTextItem* self) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_UpdateMicroFocus_IsBase(true);
@@ -13015,7 +13015,7 @@ QObject* QGraphicsTextItem_Sender(const QGraphicsTextItem* self) {
 }
 
 // Base class handler implementation
-QObject* QGraphicsTextItem_QBaseSender(const QGraphicsTextItem* self) {
+QObject* QGraphicsTextItem_SuperSender(const QGraphicsTextItem* self) {
     auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_Sender_IsBase(true);
@@ -13044,7 +13044,7 @@ int QGraphicsTextItem_SenderSignalIndex(const QGraphicsTextItem* self) {
 }
 
 // Base class handler implementation
-int QGraphicsTextItem_QBaseSenderSignalIndex(const QGraphicsTextItem* self) {
+int QGraphicsTextItem_SuperSenderSignalIndex(const QGraphicsTextItem* self) {
     auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_SenderSignalIndex_IsBase(true);
@@ -13073,7 +13073,7 @@ int QGraphicsTextItem_Receivers(const QGraphicsTextItem* self, const char* signa
 }
 
 // Base class handler implementation
-int QGraphicsTextItem_QBaseReceivers(const QGraphicsTextItem* self, const char* signal) {
+int QGraphicsTextItem_SuperReceivers(const QGraphicsTextItem* self, const char* signal) {
     auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_Receivers_IsBase(true);
@@ -13102,7 +13102,7 @@ bool QGraphicsTextItem_IsSignalConnected(const QGraphicsTextItem* self, const QM
 }
 
 // Base class handler implementation
-bool QGraphicsTextItem_QBaseIsSignalConnected(const QGraphicsTextItem* self, const QMetaMethod* signal) {
+bool QGraphicsTextItem_SuperIsSignalConnected(const QGraphicsTextItem* self, const QMetaMethod* signal) {
     auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_IsSignalConnected_IsBase(true);
@@ -13131,7 +13131,7 @@ void QGraphicsTextItem_AddToIndex(QGraphicsTextItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseAddToIndex(QGraphicsTextItem* self) {
+void QGraphicsTextItem_SuperAddToIndex(QGraphicsTextItem* self) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_AddToIndex_IsBase(true);
@@ -13160,7 +13160,7 @@ void QGraphicsTextItem_RemoveFromIndex(QGraphicsTextItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBaseRemoveFromIndex(QGraphicsTextItem* self) {
+void QGraphicsTextItem_SuperRemoveFromIndex(QGraphicsTextItem* self) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_RemoveFromIndex_IsBase(true);
@@ -13189,7 +13189,7 @@ void QGraphicsTextItem_PrepareGeometryChange(QGraphicsTextItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsTextItem_QBasePrepareGeometryChange(QGraphicsTextItem* self) {
+void QGraphicsTextItem_SuperPrepareGeometryChange(QGraphicsTextItem* self) {
     auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
     if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
         vqgraphicstextitem->setQGraphicsTextItem_PrepareGeometryChange_IsBase(true);
@@ -13341,7 +13341,7 @@ QVariant* QGraphicsSimpleTextItem_Extension(const QGraphicsSimpleTextItem* self,
 }
 
 // Base class handler implementation
-QRectF* QGraphicsSimpleTextItem_QBaseBoundingRect(const QGraphicsSimpleTextItem* self) {
+QRectF* QGraphicsSimpleTextItem_SuperBoundingRect(const QGraphicsSimpleTextItem* self) {
     auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_BoundingRect_IsBase(true);
@@ -13360,7 +13360,7 @@ void QGraphicsSimpleTextItem_OnBoundingRect(const QGraphicsSimpleTextItem* self,
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsSimpleTextItem_QBaseShape(const QGraphicsSimpleTextItem* self) {
+QPainterPath* QGraphicsSimpleTextItem_SuperShape(const QGraphicsSimpleTextItem* self) {
     auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Shape_IsBase(true);
@@ -13379,7 +13379,7 @@ void QGraphicsSimpleTextItem_OnShape(const QGraphicsSimpleTextItem* self, intptr
 }
 
 // Base class handler implementation
-bool QGraphicsSimpleTextItem_QBaseContains(const QGraphicsSimpleTextItem* self, const QPointF* point) {
+bool QGraphicsSimpleTextItem_SuperContains(const QGraphicsSimpleTextItem* self, const QPointF* point) {
     auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Contains_IsBase(true);
@@ -13398,7 +13398,7 @@ void QGraphicsSimpleTextItem_OnContains(const QGraphicsSimpleTextItem* self, int
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBasePaint(QGraphicsSimpleTextItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void QGraphicsSimpleTextItem_SuperPaint(QGraphicsSimpleTextItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Paint_IsBase(true);
@@ -13417,7 +13417,7 @@ void QGraphicsSimpleTextItem_OnPaint(QGraphicsSimpleTextItem* self, intptr_t slo
 }
 
 // Base class handler implementation
-bool QGraphicsSimpleTextItem_QBaseIsObscuredBy(const QGraphicsSimpleTextItem* self, const QGraphicsItem* item) {
+bool QGraphicsSimpleTextItem_SuperIsObscuredBy(const QGraphicsSimpleTextItem* self, const QGraphicsItem* item) {
     auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_IsObscuredBy_IsBase(true);
@@ -13436,7 +13436,7 @@ void QGraphicsSimpleTextItem_OnIsObscuredBy(const QGraphicsSimpleTextItem* self,
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsSimpleTextItem_QBaseOpaqueArea(const QGraphicsSimpleTextItem* self) {
+QPainterPath* QGraphicsSimpleTextItem_SuperOpaqueArea(const QGraphicsSimpleTextItem* self) {
     auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_OpaqueArea_IsBase(true);
@@ -13455,7 +13455,7 @@ void QGraphicsSimpleTextItem_OnOpaqueArea(const QGraphicsSimpleTextItem* self, i
 }
 
 // Base class handler implementation
-int QGraphicsSimpleTextItem_QBaseType(const QGraphicsSimpleTextItem* self) {
+int QGraphicsSimpleTextItem_SuperType(const QGraphicsSimpleTextItem* self) {
     auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Type_IsBase(true);
@@ -13474,7 +13474,7 @@ void QGraphicsSimpleTextItem_OnType(const QGraphicsSimpleTextItem* self, intptr_
 }
 
 // Base class handler implementation
-bool QGraphicsSimpleTextItem_QBaseSupportsExtension(const QGraphicsSimpleTextItem* self, int extension) {
+bool QGraphicsSimpleTextItem_SuperSupportsExtension(const QGraphicsSimpleTextItem* self, int extension) {
     auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_SupportsExtension_IsBase(true);
@@ -13493,7 +13493,7 @@ void QGraphicsSimpleTextItem_OnSupportsExtension(const QGraphicsSimpleTextItem* 
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseSetExtension(QGraphicsSimpleTextItem* self, int extension, const QVariant* variant) {
+void QGraphicsSimpleTextItem_SuperSetExtension(QGraphicsSimpleTextItem* self, int extension, const QVariant* variant) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_SetExtension_IsBase(true);
@@ -13512,7 +13512,7 @@ void QGraphicsSimpleTextItem_OnSetExtension(QGraphicsSimpleTextItem* self, intpt
 }
 
 // Base class handler implementation
-QVariant* QGraphicsSimpleTextItem_QBaseExtension(const QGraphicsSimpleTextItem* self, const QVariant* variant) {
+QVariant* QGraphicsSimpleTextItem_SuperExtension(const QGraphicsSimpleTextItem* self, const QVariant* variant) {
     auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Extension_IsBase(true);
@@ -13540,7 +13540,7 @@ void QGraphicsSimpleTextItem_Advance(QGraphicsSimpleTextItem* self, int phase) {
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseAdvance(QGraphicsSimpleTextItem* self, int phase) {
+void QGraphicsSimpleTextItem_SuperAdvance(QGraphicsSimpleTextItem* self, int phase) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_Advance_IsBase(true);
@@ -13569,7 +13569,7 @@ bool QGraphicsSimpleTextItem_CollidesWithItem(const QGraphicsSimpleTextItem* sel
 }
 
 // Base class handler implementation
-bool QGraphicsSimpleTextItem_QBaseCollidesWithItem(const QGraphicsSimpleTextItem* self, const QGraphicsItem* other, int mode) {
+bool QGraphicsSimpleTextItem_SuperCollidesWithItem(const QGraphicsSimpleTextItem* self, const QGraphicsItem* other, int mode) {
     auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_CollidesWithItem_IsBase(true);
@@ -13598,7 +13598,7 @@ bool QGraphicsSimpleTextItem_CollidesWithPath(const QGraphicsSimpleTextItem* sel
 }
 
 // Base class handler implementation
-bool QGraphicsSimpleTextItem_QBaseCollidesWithPath(const QGraphicsSimpleTextItem* self, const QPainterPath* path, int mode) {
+bool QGraphicsSimpleTextItem_SuperCollidesWithPath(const QGraphicsSimpleTextItem* self, const QPainterPath* path, int mode) {
     auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_CollidesWithPath_IsBase(true);
@@ -13627,7 +13627,7 @@ bool QGraphicsSimpleTextItem_SceneEventFilter(QGraphicsSimpleTextItem* self, QGr
 }
 
 // Base class handler implementation
-bool QGraphicsSimpleTextItem_QBaseSceneEventFilter(QGraphicsSimpleTextItem* self, QGraphicsItem* watched, QEvent* event) {
+bool QGraphicsSimpleTextItem_SuperSceneEventFilter(QGraphicsSimpleTextItem* self, QGraphicsItem* watched, QEvent* event) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_SceneEventFilter_IsBase(true);
@@ -13656,7 +13656,7 @@ bool QGraphicsSimpleTextItem_SceneEvent(QGraphicsSimpleTextItem* self, QEvent* e
 }
 
 // Base class handler implementation
-bool QGraphicsSimpleTextItem_QBaseSceneEvent(QGraphicsSimpleTextItem* self, QEvent* event) {
+bool QGraphicsSimpleTextItem_SuperSceneEvent(QGraphicsSimpleTextItem* self, QEvent* event) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_SceneEvent_IsBase(true);
@@ -13685,7 +13685,7 @@ void QGraphicsSimpleTextItem_ContextMenuEvent(QGraphicsSimpleTextItem* self, QGr
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseContextMenuEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneContextMenuEvent* event) {
+void QGraphicsSimpleTextItem_SuperContextMenuEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneContextMenuEvent* event) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_ContextMenuEvent_IsBase(true);
@@ -13714,7 +13714,7 @@ void QGraphicsSimpleTextItem_DragEnterEvent(QGraphicsSimpleTextItem* self, QGrap
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseDragEnterEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsSimpleTextItem_SuperDragEnterEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_DragEnterEvent_IsBase(true);
@@ -13743,7 +13743,7 @@ void QGraphicsSimpleTextItem_DragLeaveEvent(QGraphicsSimpleTextItem* self, QGrap
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseDragLeaveEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsSimpleTextItem_SuperDragLeaveEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_DragLeaveEvent_IsBase(true);
@@ -13772,7 +13772,7 @@ void QGraphicsSimpleTextItem_DragMoveEvent(QGraphicsSimpleTextItem* self, QGraph
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseDragMoveEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsSimpleTextItem_SuperDragMoveEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_DragMoveEvent_IsBase(true);
@@ -13801,7 +13801,7 @@ void QGraphicsSimpleTextItem_DropEvent(QGraphicsSimpleTextItem* self, QGraphicsS
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseDropEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsSimpleTextItem_SuperDropEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_DropEvent_IsBase(true);
@@ -13830,7 +13830,7 @@ void QGraphicsSimpleTextItem_FocusInEvent(QGraphicsSimpleTextItem* self, QFocusE
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseFocusInEvent(QGraphicsSimpleTextItem* self, QFocusEvent* event) {
+void QGraphicsSimpleTextItem_SuperFocusInEvent(QGraphicsSimpleTextItem* self, QFocusEvent* event) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_FocusInEvent_IsBase(true);
@@ -13859,7 +13859,7 @@ void QGraphicsSimpleTextItem_FocusOutEvent(QGraphicsSimpleTextItem* self, QFocus
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseFocusOutEvent(QGraphicsSimpleTextItem* self, QFocusEvent* event) {
+void QGraphicsSimpleTextItem_SuperFocusOutEvent(QGraphicsSimpleTextItem* self, QFocusEvent* event) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_FocusOutEvent_IsBase(true);
@@ -13888,7 +13888,7 @@ void QGraphicsSimpleTextItem_HoverEnterEvent(QGraphicsSimpleTextItem* self, QGra
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseHoverEnterEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsSimpleTextItem_SuperHoverEnterEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_HoverEnterEvent_IsBase(true);
@@ -13917,7 +13917,7 @@ void QGraphicsSimpleTextItem_HoverMoveEvent(QGraphicsSimpleTextItem* self, QGrap
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseHoverMoveEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsSimpleTextItem_SuperHoverMoveEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_HoverMoveEvent_IsBase(true);
@@ -13946,7 +13946,7 @@ void QGraphicsSimpleTextItem_HoverLeaveEvent(QGraphicsSimpleTextItem* self, QGra
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseHoverLeaveEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsSimpleTextItem_SuperHoverLeaveEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_HoverLeaveEvent_IsBase(true);
@@ -13975,7 +13975,7 @@ void QGraphicsSimpleTextItem_KeyPressEvent(QGraphicsSimpleTextItem* self, QKeyEv
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseKeyPressEvent(QGraphicsSimpleTextItem* self, QKeyEvent* event) {
+void QGraphicsSimpleTextItem_SuperKeyPressEvent(QGraphicsSimpleTextItem* self, QKeyEvent* event) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_KeyPressEvent_IsBase(true);
@@ -14004,7 +14004,7 @@ void QGraphicsSimpleTextItem_KeyReleaseEvent(QGraphicsSimpleTextItem* self, QKey
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseKeyReleaseEvent(QGraphicsSimpleTextItem* self, QKeyEvent* event) {
+void QGraphicsSimpleTextItem_SuperKeyReleaseEvent(QGraphicsSimpleTextItem* self, QKeyEvent* event) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_KeyReleaseEvent_IsBase(true);
@@ -14033,7 +14033,7 @@ void QGraphicsSimpleTextItem_MousePressEvent(QGraphicsSimpleTextItem* self, QGra
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseMousePressEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsSimpleTextItem_SuperMousePressEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_MousePressEvent_IsBase(true);
@@ -14062,7 +14062,7 @@ void QGraphicsSimpleTextItem_MouseMoveEvent(QGraphicsSimpleTextItem* self, QGrap
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseMouseMoveEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsSimpleTextItem_SuperMouseMoveEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_MouseMoveEvent_IsBase(true);
@@ -14091,7 +14091,7 @@ void QGraphicsSimpleTextItem_MouseReleaseEvent(QGraphicsSimpleTextItem* self, QG
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseMouseReleaseEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsSimpleTextItem_SuperMouseReleaseEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_MouseReleaseEvent_IsBase(true);
@@ -14120,7 +14120,7 @@ void QGraphicsSimpleTextItem_MouseDoubleClickEvent(QGraphicsSimpleTextItem* self
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseMouseDoubleClickEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsSimpleTextItem_SuperMouseDoubleClickEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_MouseDoubleClickEvent_IsBase(true);
@@ -14149,7 +14149,7 @@ void QGraphicsSimpleTextItem_WheelEvent(QGraphicsSimpleTextItem* self, QGraphics
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseWheelEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneWheelEvent* event) {
+void QGraphicsSimpleTextItem_SuperWheelEvent(QGraphicsSimpleTextItem* self, QGraphicsSceneWheelEvent* event) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_WheelEvent_IsBase(true);
@@ -14178,7 +14178,7 @@ void QGraphicsSimpleTextItem_InputMethodEvent(QGraphicsSimpleTextItem* self, QIn
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseInputMethodEvent(QGraphicsSimpleTextItem* self, QInputMethodEvent* event) {
+void QGraphicsSimpleTextItem_SuperInputMethodEvent(QGraphicsSimpleTextItem* self, QInputMethodEvent* event) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_InputMethodEvent_IsBase(true);
@@ -14206,7 +14206,7 @@ QVariant* QGraphicsSimpleTextItem_InputMethodQuery(const QGraphicsSimpleTextItem
 }
 
 // Base class handler implementation
-QVariant* QGraphicsSimpleTextItem_QBaseInputMethodQuery(const QGraphicsSimpleTextItem* self, int query) {
+QVariant* QGraphicsSimpleTextItem_SuperInputMethodQuery(const QGraphicsSimpleTextItem* self, int query) {
     auto* vqgraphicssimpletextitem = const_cast<VirtualQGraphicsSimpleTextItem*>(dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self));
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_InputMethodQuery_IsBase(true);
@@ -14233,7 +14233,7 @@ QVariant* QGraphicsSimpleTextItem_ItemChange(QGraphicsSimpleTextItem* self, int 
 }
 
 // Base class handler implementation
-QVariant* QGraphicsSimpleTextItem_QBaseItemChange(QGraphicsSimpleTextItem* self, int change, const QVariant* value) {
+QVariant* QGraphicsSimpleTextItem_SuperItemChange(QGraphicsSimpleTextItem* self, int change, const QVariant* value) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_ItemChange_IsBase(true);
@@ -14261,7 +14261,7 @@ void QGraphicsSimpleTextItem_UpdateMicroFocus(QGraphicsSimpleTextItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseUpdateMicroFocus(QGraphicsSimpleTextItem* self) {
+void QGraphicsSimpleTextItem_SuperUpdateMicroFocus(QGraphicsSimpleTextItem* self) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_UpdateMicroFocus_IsBase(true);
@@ -14290,7 +14290,7 @@ void QGraphicsSimpleTextItem_AddToIndex(QGraphicsSimpleTextItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseAddToIndex(QGraphicsSimpleTextItem* self) {
+void QGraphicsSimpleTextItem_SuperAddToIndex(QGraphicsSimpleTextItem* self) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_AddToIndex_IsBase(true);
@@ -14319,7 +14319,7 @@ void QGraphicsSimpleTextItem_RemoveFromIndex(QGraphicsSimpleTextItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBaseRemoveFromIndex(QGraphicsSimpleTextItem* self) {
+void QGraphicsSimpleTextItem_SuperRemoveFromIndex(QGraphicsSimpleTextItem* self) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_RemoveFromIndex_IsBase(true);
@@ -14348,7 +14348,7 @@ void QGraphicsSimpleTextItem_PrepareGeometryChange(QGraphicsSimpleTextItem* self
 }
 
 // Base class handler implementation
-void QGraphicsSimpleTextItem_QBasePrepareGeometryChange(QGraphicsSimpleTextItem* self) {
+void QGraphicsSimpleTextItem_SuperPrepareGeometryChange(QGraphicsSimpleTextItem* self) {
     auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
     if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
         vqgraphicssimpletextitem->setQGraphicsSimpleTextItem_PrepareGeometryChange_IsBase(true);
@@ -14432,7 +14432,7 @@ int QGraphicsItemGroup_Type(const QGraphicsItemGroup* self) {
 }
 
 // Base class handler implementation
-QRectF* QGraphicsItemGroup_QBaseBoundingRect(const QGraphicsItemGroup* self) {
+QRectF* QGraphicsItemGroup_SuperBoundingRect(const QGraphicsItemGroup* self) {
     auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_BoundingRect_IsBase(true);
@@ -14451,7 +14451,7 @@ void QGraphicsItemGroup_OnBoundingRect(const QGraphicsItemGroup* self, intptr_t 
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBasePaint(QGraphicsItemGroup* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void QGraphicsItemGroup_SuperPaint(QGraphicsItemGroup* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_Paint_IsBase(true);
@@ -14470,7 +14470,7 @@ void QGraphicsItemGroup_OnPaint(QGraphicsItemGroup* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsItemGroup_QBaseIsObscuredBy(const QGraphicsItemGroup* self, const QGraphicsItem* item) {
+bool QGraphicsItemGroup_SuperIsObscuredBy(const QGraphicsItemGroup* self, const QGraphicsItem* item) {
     auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_IsObscuredBy_IsBase(true);
@@ -14489,7 +14489,7 @@ void QGraphicsItemGroup_OnIsObscuredBy(const QGraphicsItemGroup* self, intptr_t 
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsItemGroup_QBaseOpaqueArea(const QGraphicsItemGroup* self) {
+QPainterPath* QGraphicsItemGroup_SuperOpaqueArea(const QGraphicsItemGroup* self) {
     auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_OpaqueArea_IsBase(true);
@@ -14508,7 +14508,7 @@ void QGraphicsItemGroup_OnOpaqueArea(const QGraphicsItemGroup* self, intptr_t sl
 }
 
 // Base class handler implementation
-int QGraphicsItemGroup_QBaseType(const QGraphicsItemGroup* self) {
+int QGraphicsItemGroup_SuperType(const QGraphicsItemGroup* self) {
     auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_Type_IsBase(true);
@@ -14537,7 +14537,7 @@ void QGraphicsItemGroup_Advance(QGraphicsItemGroup* self, int phase) {
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseAdvance(QGraphicsItemGroup* self, int phase) {
+void QGraphicsItemGroup_SuperAdvance(QGraphicsItemGroup* self, int phase) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_Advance_IsBase(true);
@@ -14566,7 +14566,7 @@ QPainterPath* QGraphicsItemGroup_Shape(const QGraphicsItemGroup* self) {
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsItemGroup_QBaseShape(const QGraphicsItemGroup* self) {
+QPainterPath* QGraphicsItemGroup_SuperShape(const QGraphicsItemGroup* self) {
     auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_Shape_IsBase(true);
@@ -14595,7 +14595,7 @@ bool QGraphicsItemGroup_Contains(const QGraphicsItemGroup* self, const QPointF* 
 }
 
 // Base class handler implementation
-bool QGraphicsItemGroup_QBaseContains(const QGraphicsItemGroup* self, const QPointF* point) {
+bool QGraphicsItemGroup_SuperContains(const QGraphicsItemGroup* self, const QPointF* point) {
     auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_Contains_IsBase(true);
@@ -14624,7 +14624,7 @@ bool QGraphicsItemGroup_CollidesWithItem(const QGraphicsItemGroup* self, const Q
 }
 
 // Base class handler implementation
-bool QGraphicsItemGroup_QBaseCollidesWithItem(const QGraphicsItemGroup* self, const QGraphicsItem* other, int mode) {
+bool QGraphicsItemGroup_SuperCollidesWithItem(const QGraphicsItemGroup* self, const QGraphicsItem* other, int mode) {
     auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_CollidesWithItem_IsBase(true);
@@ -14653,7 +14653,7 @@ bool QGraphicsItemGroup_CollidesWithPath(const QGraphicsItemGroup* self, const Q
 }
 
 // Base class handler implementation
-bool QGraphicsItemGroup_QBaseCollidesWithPath(const QGraphicsItemGroup* self, const QPainterPath* path, int mode) {
+bool QGraphicsItemGroup_SuperCollidesWithPath(const QGraphicsItemGroup* self, const QPainterPath* path, int mode) {
     auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_CollidesWithPath_IsBase(true);
@@ -14682,7 +14682,7 @@ bool QGraphicsItemGroup_SceneEventFilter(QGraphicsItemGroup* self, QGraphicsItem
 }
 
 // Base class handler implementation
-bool QGraphicsItemGroup_QBaseSceneEventFilter(QGraphicsItemGroup* self, QGraphicsItem* watched, QEvent* event) {
+bool QGraphicsItemGroup_SuperSceneEventFilter(QGraphicsItemGroup* self, QGraphicsItem* watched, QEvent* event) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_SceneEventFilter_IsBase(true);
@@ -14711,7 +14711,7 @@ bool QGraphicsItemGroup_SceneEvent(QGraphicsItemGroup* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QGraphicsItemGroup_QBaseSceneEvent(QGraphicsItemGroup* self, QEvent* event) {
+bool QGraphicsItemGroup_SuperSceneEvent(QGraphicsItemGroup* self, QEvent* event) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_SceneEvent_IsBase(true);
@@ -14740,7 +14740,7 @@ void QGraphicsItemGroup_ContextMenuEvent(QGraphicsItemGroup* self, QGraphicsScen
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseContextMenuEvent(QGraphicsItemGroup* self, QGraphicsSceneContextMenuEvent* event) {
+void QGraphicsItemGroup_SuperContextMenuEvent(QGraphicsItemGroup* self, QGraphicsSceneContextMenuEvent* event) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_ContextMenuEvent_IsBase(true);
@@ -14769,7 +14769,7 @@ void QGraphicsItemGroup_DragEnterEvent(QGraphicsItemGroup* self, QGraphicsSceneD
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseDragEnterEvent(QGraphicsItemGroup* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsItemGroup_SuperDragEnterEvent(QGraphicsItemGroup* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_DragEnterEvent_IsBase(true);
@@ -14798,7 +14798,7 @@ void QGraphicsItemGroup_DragLeaveEvent(QGraphicsItemGroup* self, QGraphicsSceneD
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseDragLeaveEvent(QGraphicsItemGroup* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsItemGroup_SuperDragLeaveEvent(QGraphicsItemGroup* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_DragLeaveEvent_IsBase(true);
@@ -14827,7 +14827,7 @@ void QGraphicsItemGroup_DragMoveEvent(QGraphicsItemGroup* self, QGraphicsSceneDr
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseDragMoveEvent(QGraphicsItemGroup* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsItemGroup_SuperDragMoveEvent(QGraphicsItemGroup* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_DragMoveEvent_IsBase(true);
@@ -14856,7 +14856,7 @@ void QGraphicsItemGroup_DropEvent(QGraphicsItemGroup* self, QGraphicsSceneDragDr
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseDropEvent(QGraphicsItemGroup* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsItemGroup_SuperDropEvent(QGraphicsItemGroup* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_DropEvent_IsBase(true);
@@ -14885,7 +14885,7 @@ void QGraphicsItemGroup_FocusInEvent(QGraphicsItemGroup* self, QFocusEvent* even
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseFocusInEvent(QGraphicsItemGroup* self, QFocusEvent* event) {
+void QGraphicsItemGroup_SuperFocusInEvent(QGraphicsItemGroup* self, QFocusEvent* event) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_FocusInEvent_IsBase(true);
@@ -14914,7 +14914,7 @@ void QGraphicsItemGroup_FocusOutEvent(QGraphicsItemGroup* self, QFocusEvent* eve
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseFocusOutEvent(QGraphicsItemGroup* self, QFocusEvent* event) {
+void QGraphicsItemGroup_SuperFocusOutEvent(QGraphicsItemGroup* self, QFocusEvent* event) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_FocusOutEvent_IsBase(true);
@@ -14943,7 +14943,7 @@ void QGraphicsItemGroup_HoverEnterEvent(QGraphicsItemGroup* self, QGraphicsScene
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseHoverEnterEvent(QGraphicsItemGroup* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsItemGroup_SuperHoverEnterEvent(QGraphicsItemGroup* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_HoverEnterEvent_IsBase(true);
@@ -14972,7 +14972,7 @@ void QGraphicsItemGroup_HoverMoveEvent(QGraphicsItemGroup* self, QGraphicsSceneH
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseHoverMoveEvent(QGraphicsItemGroup* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsItemGroup_SuperHoverMoveEvent(QGraphicsItemGroup* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_HoverMoveEvent_IsBase(true);
@@ -15001,7 +15001,7 @@ void QGraphicsItemGroup_HoverLeaveEvent(QGraphicsItemGroup* self, QGraphicsScene
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseHoverLeaveEvent(QGraphicsItemGroup* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsItemGroup_SuperHoverLeaveEvent(QGraphicsItemGroup* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_HoverLeaveEvent_IsBase(true);
@@ -15030,7 +15030,7 @@ void QGraphicsItemGroup_KeyPressEvent(QGraphicsItemGroup* self, QKeyEvent* event
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseKeyPressEvent(QGraphicsItemGroup* self, QKeyEvent* event) {
+void QGraphicsItemGroup_SuperKeyPressEvent(QGraphicsItemGroup* self, QKeyEvent* event) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_KeyPressEvent_IsBase(true);
@@ -15059,7 +15059,7 @@ void QGraphicsItemGroup_KeyReleaseEvent(QGraphicsItemGroup* self, QKeyEvent* eve
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseKeyReleaseEvent(QGraphicsItemGroup* self, QKeyEvent* event) {
+void QGraphicsItemGroup_SuperKeyReleaseEvent(QGraphicsItemGroup* self, QKeyEvent* event) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_KeyReleaseEvent_IsBase(true);
@@ -15088,7 +15088,7 @@ void QGraphicsItemGroup_MousePressEvent(QGraphicsItemGroup* self, QGraphicsScene
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseMousePressEvent(QGraphicsItemGroup* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsItemGroup_SuperMousePressEvent(QGraphicsItemGroup* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_MousePressEvent_IsBase(true);
@@ -15117,7 +15117,7 @@ void QGraphicsItemGroup_MouseMoveEvent(QGraphicsItemGroup* self, QGraphicsSceneM
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseMouseMoveEvent(QGraphicsItemGroup* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsItemGroup_SuperMouseMoveEvent(QGraphicsItemGroup* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_MouseMoveEvent_IsBase(true);
@@ -15146,7 +15146,7 @@ void QGraphicsItemGroup_MouseReleaseEvent(QGraphicsItemGroup* self, QGraphicsSce
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseMouseReleaseEvent(QGraphicsItemGroup* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsItemGroup_SuperMouseReleaseEvent(QGraphicsItemGroup* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_MouseReleaseEvent_IsBase(true);
@@ -15175,7 +15175,7 @@ void QGraphicsItemGroup_MouseDoubleClickEvent(QGraphicsItemGroup* self, QGraphic
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseMouseDoubleClickEvent(QGraphicsItemGroup* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsItemGroup_SuperMouseDoubleClickEvent(QGraphicsItemGroup* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_MouseDoubleClickEvent_IsBase(true);
@@ -15204,7 +15204,7 @@ void QGraphicsItemGroup_WheelEvent(QGraphicsItemGroup* self, QGraphicsSceneWheel
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseWheelEvent(QGraphicsItemGroup* self, QGraphicsSceneWheelEvent* event) {
+void QGraphicsItemGroup_SuperWheelEvent(QGraphicsItemGroup* self, QGraphicsSceneWheelEvent* event) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_WheelEvent_IsBase(true);
@@ -15233,7 +15233,7 @@ void QGraphicsItemGroup_InputMethodEvent(QGraphicsItemGroup* self, QInputMethodE
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseInputMethodEvent(QGraphicsItemGroup* self, QInputMethodEvent* event) {
+void QGraphicsItemGroup_SuperInputMethodEvent(QGraphicsItemGroup* self, QInputMethodEvent* event) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_InputMethodEvent_IsBase(true);
@@ -15261,7 +15261,7 @@ QVariant* QGraphicsItemGroup_InputMethodQuery(const QGraphicsItemGroup* self, in
 }
 
 // Base class handler implementation
-QVariant* QGraphicsItemGroup_QBaseInputMethodQuery(const QGraphicsItemGroup* self, int query) {
+QVariant* QGraphicsItemGroup_SuperInputMethodQuery(const QGraphicsItemGroup* self, int query) {
     auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_InputMethodQuery_IsBase(true);
@@ -15288,7 +15288,7 @@ QVariant* QGraphicsItemGroup_ItemChange(QGraphicsItemGroup* self, int change, co
 }
 
 // Base class handler implementation
-QVariant* QGraphicsItemGroup_QBaseItemChange(QGraphicsItemGroup* self, int change, const QVariant* value) {
+QVariant* QGraphicsItemGroup_SuperItemChange(QGraphicsItemGroup* self, int change, const QVariant* value) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_ItemChange_IsBase(true);
@@ -15316,7 +15316,7 @@ bool QGraphicsItemGroup_SupportsExtension(const QGraphicsItemGroup* self, int ex
 }
 
 // Base class handler implementation
-bool QGraphicsItemGroup_QBaseSupportsExtension(const QGraphicsItemGroup* self, int extension) {
+bool QGraphicsItemGroup_SuperSupportsExtension(const QGraphicsItemGroup* self, int extension) {
     auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_SupportsExtension_IsBase(true);
@@ -15345,7 +15345,7 @@ void QGraphicsItemGroup_SetExtension(QGraphicsItemGroup* self, int extension, co
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseSetExtension(QGraphicsItemGroup* self, int extension, const QVariant* variant) {
+void QGraphicsItemGroup_SuperSetExtension(QGraphicsItemGroup* self, int extension, const QVariant* variant) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_SetExtension_IsBase(true);
@@ -15373,7 +15373,7 @@ QVariant* QGraphicsItemGroup_Extension(const QGraphicsItemGroup* self, const QVa
 }
 
 // Base class handler implementation
-QVariant* QGraphicsItemGroup_QBaseExtension(const QGraphicsItemGroup* self, const QVariant* variant) {
+QVariant* QGraphicsItemGroup_SuperExtension(const QGraphicsItemGroup* self, const QVariant* variant) {
     auto* vqgraphicsitemgroup = const_cast<VirtualQGraphicsItemGroup*>(dynamic_cast<const VirtualQGraphicsItemGroup*>(self));
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_Extension_IsBase(true);
@@ -15401,7 +15401,7 @@ void QGraphicsItemGroup_UpdateMicroFocus(QGraphicsItemGroup* self) {
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseUpdateMicroFocus(QGraphicsItemGroup* self) {
+void QGraphicsItemGroup_SuperUpdateMicroFocus(QGraphicsItemGroup* self) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_UpdateMicroFocus_IsBase(true);
@@ -15430,7 +15430,7 @@ void QGraphicsItemGroup_AddToIndex(QGraphicsItemGroup* self) {
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseAddToIndex(QGraphicsItemGroup* self) {
+void QGraphicsItemGroup_SuperAddToIndex(QGraphicsItemGroup* self) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_AddToIndex_IsBase(true);
@@ -15459,7 +15459,7 @@ void QGraphicsItemGroup_RemoveFromIndex(QGraphicsItemGroup* self) {
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBaseRemoveFromIndex(QGraphicsItemGroup* self) {
+void QGraphicsItemGroup_SuperRemoveFromIndex(QGraphicsItemGroup* self) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_RemoveFromIndex_IsBase(true);
@@ -15488,7 +15488,7 @@ void QGraphicsItemGroup_PrepareGeometryChange(QGraphicsItemGroup* self) {
 }
 
 // Base class handler implementation
-void QGraphicsItemGroup_QBasePrepareGeometryChange(QGraphicsItemGroup* self) {
+void QGraphicsItemGroup_SuperPrepareGeometryChange(QGraphicsItemGroup* self) {
     auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
     if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
         vqgraphicsitemgroup->setQGraphicsItemGroup_PrepareGeometryChange_IsBase(true);

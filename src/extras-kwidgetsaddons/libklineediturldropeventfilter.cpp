@@ -56,7 +56,7 @@ bool KLineEditUrlDropEventFilter_EventFilter(KLineEditUrlDropEventFilter* self, 
 }
 
 // Base class handler implementation
-QMetaObject* KLineEditUrlDropEventFilter_QBaseMetaObject(const KLineEditUrlDropEventFilter* self) {
+QMetaObject* KLineEditUrlDropEventFilter_SuperMetaObject(const KLineEditUrlDropEventFilter* self) {
     auto* vklineediturldropeventfilter = const_cast<VirtualKLineEditUrlDropEventFilter*>(dynamic_cast<const VirtualKLineEditUrlDropEventFilter*>(self));
     if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_MetaObject_IsBase(true);
@@ -75,7 +75,7 @@ void KLineEditUrlDropEventFilter_OnMetaObject(const KLineEditUrlDropEventFilter*
 }
 
 // Base class handler implementation
-void* KLineEditUrlDropEventFilter_QBaseMetacast(KLineEditUrlDropEventFilter* self, const char* param1) {
+void* KLineEditUrlDropEventFilter_SuperMetacast(KLineEditUrlDropEventFilter* self, const char* param1) {
     auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
     if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_Metacast_IsBase(true);
@@ -94,7 +94,7 @@ void KLineEditUrlDropEventFilter_OnMetacast(KLineEditUrlDropEventFilter* self, i
 }
 
 // Base class handler implementation
-int KLineEditUrlDropEventFilter_QBaseMetacall(KLineEditUrlDropEventFilter* self, int param1, int param2, void** param3) {
+int KLineEditUrlDropEventFilter_SuperMetacall(KLineEditUrlDropEventFilter* self, int param1, int param2, void** param3) {
     auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
     if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_Metacall_IsBase(true);
@@ -113,7 +113,7 @@ void KLineEditUrlDropEventFilter_OnMetacall(KLineEditUrlDropEventFilter* self, i
 }
 
 // Base class handler implementation
-bool KLineEditUrlDropEventFilter_QBaseEventFilter(KLineEditUrlDropEventFilter* self, QObject* object, QEvent* event) {
+bool KLineEditUrlDropEventFilter_SuperEventFilter(KLineEditUrlDropEventFilter* self, QObject* object, QEvent* event) {
     auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
     if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_EventFilter_IsBase(true);
@@ -142,7 +142,7 @@ bool KLineEditUrlDropEventFilter_Event(KLineEditUrlDropEventFilter* self, QEvent
 }
 
 // Base class handler implementation
-bool KLineEditUrlDropEventFilter_QBaseEvent(KLineEditUrlDropEventFilter* self, QEvent* event) {
+bool KLineEditUrlDropEventFilter_SuperEvent(KLineEditUrlDropEventFilter* self, QEvent* event) {
     auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
     if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_Event_IsBase(true);
@@ -171,7 +171,7 @@ void KLineEditUrlDropEventFilter_TimerEvent(KLineEditUrlDropEventFilter* self, Q
 }
 
 // Base class handler implementation
-void KLineEditUrlDropEventFilter_QBaseTimerEvent(KLineEditUrlDropEventFilter* self, QTimerEvent* event) {
+void KLineEditUrlDropEventFilter_SuperTimerEvent(KLineEditUrlDropEventFilter* self, QTimerEvent* event) {
     auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
     if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_TimerEvent_IsBase(true);
@@ -200,7 +200,7 @@ void KLineEditUrlDropEventFilter_ChildEvent(KLineEditUrlDropEventFilter* self, Q
 }
 
 // Base class handler implementation
-void KLineEditUrlDropEventFilter_QBaseChildEvent(KLineEditUrlDropEventFilter* self, QChildEvent* event) {
+void KLineEditUrlDropEventFilter_SuperChildEvent(KLineEditUrlDropEventFilter* self, QChildEvent* event) {
     auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
     if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_ChildEvent_IsBase(true);
@@ -229,7 +229,7 @@ void KLineEditUrlDropEventFilter_CustomEvent(KLineEditUrlDropEventFilter* self, 
 }
 
 // Base class handler implementation
-void KLineEditUrlDropEventFilter_QBaseCustomEvent(KLineEditUrlDropEventFilter* self, QEvent* event) {
+void KLineEditUrlDropEventFilter_SuperCustomEvent(KLineEditUrlDropEventFilter* self, QEvent* event) {
     auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
     if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_CustomEvent_IsBase(true);
@@ -258,7 +258,7 @@ void KLineEditUrlDropEventFilter_ConnectNotify(KLineEditUrlDropEventFilter* self
 }
 
 // Base class handler implementation
-void KLineEditUrlDropEventFilter_QBaseConnectNotify(KLineEditUrlDropEventFilter* self, const QMetaMethod* signal) {
+void KLineEditUrlDropEventFilter_SuperConnectNotify(KLineEditUrlDropEventFilter* self, const QMetaMethod* signal) {
     auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
     if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_ConnectNotify_IsBase(true);
@@ -287,7 +287,7 @@ void KLineEditUrlDropEventFilter_DisconnectNotify(KLineEditUrlDropEventFilter* s
 }
 
 // Base class handler implementation
-void KLineEditUrlDropEventFilter_QBaseDisconnectNotify(KLineEditUrlDropEventFilter* self, const QMetaMethod* signal) {
+void KLineEditUrlDropEventFilter_SuperDisconnectNotify(KLineEditUrlDropEventFilter* self, const QMetaMethod* signal) {
     auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
     if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_DisconnectNotify_IsBase(true);
@@ -316,7 +316,7 @@ QObject* KLineEditUrlDropEventFilter_Sender(const KLineEditUrlDropEventFilter* s
 }
 
 // Base class handler implementation
-QObject* KLineEditUrlDropEventFilter_QBaseSender(const KLineEditUrlDropEventFilter* self) {
+QObject* KLineEditUrlDropEventFilter_SuperSender(const KLineEditUrlDropEventFilter* self) {
     auto* vklineediturldropeventfilter = const_cast<VirtualKLineEditUrlDropEventFilter*>(dynamic_cast<const VirtualKLineEditUrlDropEventFilter*>(self));
     if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_Sender_IsBase(true);
@@ -345,7 +345,7 @@ int KLineEditUrlDropEventFilter_SenderSignalIndex(const KLineEditUrlDropEventFil
 }
 
 // Base class handler implementation
-int KLineEditUrlDropEventFilter_QBaseSenderSignalIndex(const KLineEditUrlDropEventFilter* self) {
+int KLineEditUrlDropEventFilter_SuperSenderSignalIndex(const KLineEditUrlDropEventFilter* self) {
     auto* vklineediturldropeventfilter = const_cast<VirtualKLineEditUrlDropEventFilter*>(dynamic_cast<const VirtualKLineEditUrlDropEventFilter*>(self));
     if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_SenderSignalIndex_IsBase(true);
@@ -374,7 +374,7 @@ int KLineEditUrlDropEventFilter_Receivers(const KLineEditUrlDropEventFilter* sel
 }
 
 // Base class handler implementation
-int KLineEditUrlDropEventFilter_QBaseReceivers(const KLineEditUrlDropEventFilter* self, const char* signal) {
+int KLineEditUrlDropEventFilter_SuperReceivers(const KLineEditUrlDropEventFilter* self, const char* signal) {
     auto* vklineediturldropeventfilter = const_cast<VirtualKLineEditUrlDropEventFilter*>(dynamic_cast<const VirtualKLineEditUrlDropEventFilter*>(self));
     if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_Receivers_IsBase(true);
@@ -403,7 +403,7 @@ bool KLineEditUrlDropEventFilter_IsSignalConnected(const KLineEditUrlDropEventFi
 }
 
 // Base class handler implementation
-bool KLineEditUrlDropEventFilter_QBaseIsSignalConnected(const KLineEditUrlDropEventFilter* self, const QMetaMethod* signal) {
+bool KLineEditUrlDropEventFilter_SuperIsSignalConnected(const KLineEditUrlDropEventFilter* self, const QMetaMethod* signal) {
     auto* vklineediturldropeventfilter = const_cast<VirtualKLineEditUrlDropEventFilter*>(dynamic_cast<const VirtualKLineEditUrlDropEventFilter*>(self));
     if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
         vklineediturldropeventfilter->setKLineEditUrlDropEventFilter_IsSignalConnected_IsBase(true);

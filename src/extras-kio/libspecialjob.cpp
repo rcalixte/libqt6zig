@@ -72,7 +72,7 @@ libqt_string KIO__SpecialJob_Arguments(const KIO__SpecialJob* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KIO__SpecialJob_QBaseMetaObject(const KIO__SpecialJob* self) {
+QMetaObject* KIO__SpecialJob_SuperMetaObject(const KIO__SpecialJob* self) {
     auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_MetaObject_IsBase(true);
@@ -91,7 +91,7 @@ void KIO__SpecialJob_OnMetaObject(const KIO__SpecialJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KIO__SpecialJob_QBaseMetacast(KIO__SpecialJob* self, const char* param1) {
+void* KIO__SpecialJob_SuperMetacast(KIO__SpecialJob* self, const char* param1) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_Metacast_IsBase(true);
@@ -110,7 +110,7 @@ void KIO__SpecialJob_OnMetacast(KIO__SpecialJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KIO__SpecialJob_QBaseMetacall(KIO__SpecialJob* self, int param1, int param2, void** param3) {
+int KIO__SpecialJob_SuperMetacall(KIO__SpecialJob* self, int param1, int param2, void** param3) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_Metacall_IsBase(true);
@@ -139,7 +139,7 @@ bool KIO__SpecialJob_DoResume(KIO__SpecialJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__SpecialJob_QBaseDoResume(KIO__SpecialJob* self) {
+bool KIO__SpecialJob_SuperDoResume(KIO__SpecialJob* self) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_DoResume_IsBase(true);
@@ -168,7 +168,7 @@ void KIO__SpecialJob_SlotRedirection(KIO__SpecialJob* self, const QUrl* url) {
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseSlotRedirection(KIO__SpecialJob* self, const QUrl* url) {
+void KIO__SpecialJob_SuperSlotRedirection(KIO__SpecialJob* self, const QUrl* url) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_SlotRedirection_IsBase(true);
@@ -197,7 +197,7 @@ void KIO__SpecialJob_SlotFinished(KIO__SpecialJob* self) {
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseSlotFinished(KIO__SpecialJob* self) {
+void KIO__SpecialJob_SuperSlotFinished(KIO__SpecialJob* self) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_SlotFinished_IsBase(true);
@@ -227,7 +227,7 @@ void KIO__SpecialJob_SlotData(KIO__SpecialJob* self, const libqt_string data) {
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseSlotData(KIO__SpecialJob* self, const libqt_string data) {
+void KIO__SpecialJob_SuperSlotData(KIO__SpecialJob* self, const libqt_string data) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     QByteArray data_QByteArray(data.data, data.len);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
@@ -257,7 +257,7 @@ void KIO__SpecialJob_SlotDataReq(KIO__SpecialJob* self) {
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseSlotDataReq(KIO__SpecialJob* self) {
+void KIO__SpecialJob_SuperSlotDataReq(KIO__SpecialJob* self) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_SlotDataReq_IsBase(true);
@@ -287,7 +287,7 @@ void KIO__SpecialJob_SlotMimetype(KIO__SpecialJob* self, const libqt_string mime
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseSlotMimetype(KIO__SpecialJob* self, const libqt_string mimetype) {
+void KIO__SpecialJob_SuperSlotMimetype(KIO__SpecialJob* self, const libqt_string mimetype) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     QString mimetype_QString = QString::fromUtf8(mimetype.data, mimetype.len);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
@@ -317,7 +317,7 @@ bool KIO__SpecialJob_DoSuspend(KIO__SpecialJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__SpecialJob_QBaseDoSuspend(KIO__SpecialJob* self) {
+bool KIO__SpecialJob_SuperDoSuspend(KIO__SpecialJob* self) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_DoSuspend_IsBase(true);
@@ -346,7 +346,7 @@ bool KIO__SpecialJob_DoKill(KIO__SpecialJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__SpecialJob_QBaseDoKill(KIO__SpecialJob* self) {
+bool KIO__SpecialJob_SuperDoKill(KIO__SpecialJob* self) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_DoKill_IsBase(true);
@@ -375,7 +375,7 @@ void KIO__SpecialJob_PutOnHold(KIO__SpecialJob* self) {
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBasePutOnHold(KIO__SpecialJob* self) {
+void KIO__SpecialJob_SuperPutOnHold(KIO__SpecialJob* self) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_PutOnHold_IsBase(true);
@@ -405,7 +405,7 @@ void KIO__SpecialJob_SlotWarning(KIO__SpecialJob* self, const libqt_string param
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseSlotWarning(KIO__SpecialJob* self, const libqt_string param1) {
+void KIO__SpecialJob_SuperSlotWarning(KIO__SpecialJob* self, const libqt_string param1) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
@@ -435,7 +435,7 @@ void KIO__SpecialJob_SlotMetaData(KIO__SpecialJob* self, const KIO__MetaData* _m
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseSlotMetaData(KIO__SpecialJob* self, const KIO__MetaData* _metaData) {
+void KIO__SpecialJob_SuperSlotMetaData(KIO__SpecialJob* self, const KIO__MetaData* _metaData) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_SlotMetaData_IsBase(true);
@@ -464,7 +464,7 @@ void KIO__SpecialJob_Start(KIO__SpecialJob* self) {
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseStart(KIO__SpecialJob* self) {
+void KIO__SpecialJob_SuperStart(KIO__SpecialJob* self) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_Start_IsBase(true);
@@ -509,7 +509,7 @@ libqt_string KIO__SpecialJob_ErrorString(const KIO__SpecialJob* self) {
 }
 
 // Base class handler implementation
-libqt_string KIO__SpecialJob_QBaseErrorString(const KIO__SpecialJob* self) {
+libqt_string KIO__SpecialJob_SuperErrorString(const KIO__SpecialJob* self) {
     auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_ErrorString_IsBase(true);
@@ -554,7 +554,7 @@ bool KIO__SpecialJob_AddSubjob(KIO__SpecialJob* self, KJob* job) {
 }
 
 // Base class handler implementation
-bool KIO__SpecialJob_QBaseAddSubjob(KIO__SpecialJob* self, KJob* job) {
+bool KIO__SpecialJob_SuperAddSubjob(KIO__SpecialJob* self, KJob* job) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_AddSubjob_IsBase(true);
@@ -583,7 +583,7 @@ bool KIO__SpecialJob_RemoveSubjob(KIO__SpecialJob* self, KJob* job) {
 }
 
 // Base class handler implementation
-bool KIO__SpecialJob_QBaseRemoveSubjob(KIO__SpecialJob* self, KJob* job) {
+bool KIO__SpecialJob_SuperRemoveSubjob(KIO__SpecialJob* self, KJob* job) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_RemoveSubjob_IsBase(true);
@@ -612,7 +612,7 @@ void KIO__SpecialJob_SlotResult(KIO__SpecialJob* self, KJob* job) {
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseSlotResult(KIO__SpecialJob* self, KJob* job) {
+void KIO__SpecialJob_SuperSlotResult(KIO__SpecialJob* self, KJob* job) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_SlotResult_IsBase(true);
@@ -642,7 +642,7 @@ void KIO__SpecialJob_SlotInfoMessage(KIO__SpecialJob* self, KJob* job, const lib
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseSlotInfoMessage(KIO__SpecialJob* self, KJob* job, const libqt_string message) {
+void KIO__SpecialJob_SuperSlotInfoMessage(KIO__SpecialJob* self, KJob* job, const libqt_string message) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     QString message_QString = QString::fromUtf8(message.data, message.len);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
@@ -672,7 +672,7 @@ bool KIO__SpecialJob_Event(KIO__SpecialJob* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KIO__SpecialJob_QBaseEvent(KIO__SpecialJob* self, QEvent* event) {
+bool KIO__SpecialJob_SuperEvent(KIO__SpecialJob* self, QEvent* event) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_Event_IsBase(true);
@@ -701,7 +701,7 @@ bool KIO__SpecialJob_EventFilter(KIO__SpecialJob* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool KIO__SpecialJob_QBaseEventFilter(KIO__SpecialJob* self, QObject* watched, QEvent* event) {
+bool KIO__SpecialJob_SuperEventFilter(KIO__SpecialJob* self, QObject* watched, QEvent* event) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_EventFilter_IsBase(true);
@@ -730,7 +730,7 @@ void KIO__SpecialJob_TimerEvent(KIO__SpecialJob* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseTimerEvent(KIO__SpecialJob* self, QTimerEvent* event) {
+void KIO__SpecialJob_SuperTimerEvent(KIO__SpecialJob* self, QTimerEvent* event) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_TimerEvent_IsBase(true);
@@ -759,7 +759,7 @@ void KIO__SpecialJob_ChildEvent(KIO__SpecialJob* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseChildEvent(KIO__SpecialJob* self, QChildEvent* event) {
+void KIO__SpecialJob_SuperChildEvent(KIO__SpecialJob* self, QChildEvent* event) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_ChildEvent_IsBase(true);
@@ -788,7 +788,7 @@ void KIO__SpecialJob_CustomEvent(KIO__SpecialJob* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseCustomEvent(KIO__SpecialJob* self, QEvent* event) {
+void KIO__SpecialJob_SuperCustomEvent(KIO__SpecialJob* self, QEvent* event) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_CustomEvent_IsBase(true);
@@ -817,7 +817,7 @@ void KIO__SpecialJob_ConnectNotify(KIO__SpecialJob* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseConnectNotify(KIO__SpecialJob* self, const QMetaMethod* signal) {
+void KIO__SpecialJob_SuperConnectNotify(KIO__SpecialJob* self, const QMetaMethod* signal) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_ConnectNotify_IsBase(true);
@@ -846,7 +846,7 @@ void KIO__SpecialJob_DisconnectNotify(KIO__SpecialJob* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseDisconnectNotify(KIO__SpecialJob* self, const QMetaMethod* signal) {
+void KIO__SpecialJob_SuperDisconnectNotify(KIO__SpecialJob* self, const QMetaMethod* signal) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_DisconnectNotify_IsBase(true);
@@ -875,7 +875,7 @@ bool KIO__SpecialJob_HasSubjobs(const KIO__SpecialJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__SpecialJob_QBaseHasSubjobs(const KIO__SpecialJob* self) {
+bool KIO__SpecialJob_SuperHasSubjobs(const KIO__SpecialJob* self) {
     auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_HasSubjobs_IsBase(true);
@@ -922,7 +922,7 @@ libqt_list /* of KJob* */ KIO__SpecialJob_Subjobs(const KIO__SpecialJob* self) {
 }
 
 // Base class handler implementation
-libqt_list /* of KJob* */ KIO__SpecialJob_QBaseSubjobs(const KIO__SpecialJob* self) {
+libqt_list /* of KJob* */ KIO__SpecialJob_SuperSubjobs(const KIO__SpecialJob* self) {
     auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_Subjobs_IsBase(true);
@@ -969,7 +969,7 @@ void KIO__SpecialJob_ClearSubjobs(KIO__SpecialJob* self) {
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseClearSubjobs(KIO__SpecialJob* self) {
+void KIO__SpecialJob_SuperClearSubjobs(KIO__SpecialJob* self) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_ClearSubjobs_IsBase(true);
@@ -998,7 +998,7 @@ void KIO__SpecialJob_SetCapabilities(KIO__SpecialJob* self, int capabilities) {
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseSetCapabilities(KIO__SpecialJob* self, int capabilities) {
+void KIO__SpecialJob_SuperSetCapabilities(KIO__SpecialJob* self, int capabilities) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_SetCapabilities_IsBase(true);
@@ -1027,7 +1027,7 @@ bool KIO__SpecialJob_IsFinished(const KIO__SpecialJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__SpecialJob_QBaseIsFinished(const KIO__SpecialJob* self) {
+bool KIO__SpecialJob_SuperIsFinished(const KIO__SpecialJob* self) {
     auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_IsFinished_IsBase(true);
@@ -1056,7 +1056,7 @@ void KIO__SpecialJob_SetError(KIO__SpecialJob* self, int errorCode) {
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseSetError(KIO__SpecialJob* self, int errorCode) {
+void KIO__SpecialJob_SuperSetError(KIO__SpecialJob* self, int errorCode) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_SetError_IsBase(true);
@@ -1086,7 +1086,7 @@ void KIO__SpecialJob_SetErrorText(KIO__SpecialJob* self, const libqt_string erro
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseSetErrorText(KIO__SpecialJob* self, const libqt_string errorText) {
+void KIO__SpecialJob_SuperSetErrorText(KIO__SpecialJob* self, const libqt_string errorText) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
@@ -1116,7 +1116,7 @@ void KIO__SpecialJob_SetProcessedAmount(KIO__SpecialJob* self, int unit, unsigne
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseSetProcessedAmount(KIO__SpecialJob* self, int unit, unsigned long long amount) {
+void KIO__SpecialJob_SuperSetProcessedAmount(KIO__SpecialJob* self, int unit, unsigned long long amount) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_SetProcessedAmount_IsBase(true);
@@ -1145,7 +1145,7 @@ void KIO__SpecialJob_SetTotalAmount(KIO__SpecialJob* self, int unit, unsigned lo
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseSetTotalAmount(KIO__SpecialJob* self, int unit, unsigned long long amount) {
+void KIO__SpecialJob_SuperSetTotalAmount(KIO__SpecialJob* self, int unit, unsigned long long amount) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_SetTotalAmount_IsBase(true);
@@ -1174,7 +1174,7 @@ void KIO__SpecialJob_SetProgressUnit(KIO__SpecialJob* self, int unit) {
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseSetProgressUnit(KIO__SpecialJob* self, int unit) {
+void KIO__SpecialJob_SuperSetProgressUnit(KIO__SpecialJob* self, int unit) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_SetProgressUnit_IsBase(true);
@@ -1203,7 +1203,7 @@ void KIO__SpecialJob_SetPercent(KIO__SpecialJob* self, unsigned long percentage)
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseSetPercent(KIO__SpecialJob* self, unsigned long percentage) {
+void KIO__SpecialJob_SuperSetPercent(KIO__SpecialJob* self, unsigned long percentage) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_SetPercent_IsBase(true);
@@ -1232,7 +1232,7 @@ void KIO__SpecialJob_EmitResult(KIO__SpecialJob* self) {
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseEmitResult(KIO__SpecialJob* self) {
+void KIO__SpecialJob_SuperEmitResult(KIO__SpecialJob* self) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_EmitResult_IsBase(true);
@@ -1261,7 +1261,7 @@ void KIO__SpecialJob_EmitPercent(KIO__SpecialJob* self, unsigned long long proce
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseEmitPercent(KIO__SpecialJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
+void KIO__SpecialJob_SuperEmitPercent(KIO__SpecialJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_EmitPercent_IsBase(true);
@@ -1290,7 +1290,7 @@ void KIO__SpecialJob_EmitSpeed(KIO__SpecialJob* self, unsigned long speed) {
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseEmitSpeed(KIO__SpecialJob* self, unsigned long speed) {
+void KIO__SpecialJob_SuperEmitSpeed(KIO__SpecialJob* self, unsigned long speed) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_EmitSpeed_IsBase(true);
@@ -1319,7 +1319,7 @@ void KIO__SpecialJob_StartElapsedTimer(KIO__SpecialJob* self) {
 }
 
 // Base class handler implementation
-void KIO__SpecialJob_QBaseStartElapsedTimer(KIO__SpecialJob* self) {
+void KIO__SpecialJob_SuperStartElapsedTimer(KIO__SpecialJob* self) {
     auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_StartElapsedTimer_IsBase(true);
@@ -1348,7 +1348,7 @@ QObject* KIO__SpecialJob_Sender(const KIO__SpecialJob* self) {
 }
 
 // Base class handler implementation
-QObject* KIO__SpecialJob_QBaseSender(const KIO__SpecialJob* self) {
+QObject* KIO__SpecialJob_SuperSender(const KIO__SpecialJob* self) {
     auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_Sender_IsBase(true);
@@ -1377,7 +1377,7 @@ int KIO__SpecialJob_SenderSignalIndex(const KIO__SpecialJob* self) {
 }
 
 // Base class handler implementation
-int KIO__SpecialJob_QBaseSenderSignalIndex(const KIO__SpecialJob* self) {
+int KIO__SpecialJob_SuperSenderSignalIndex(const KIO__SpecialJob* self) {
     auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_SenderSignalIndex_IsBase(true);
@@ -1406,7 +1406,7 @@ int KIO__SpecialJob_Receivers(const KIO__SpecialJob* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KIO__SpecialJob_QBaseReceivers(const KIO__SpecialJob* self, const char* signal) {
+int KIO__SpecialJob_SuperReceivers(const KIO__SpecialJob* self, const char* signal) {
     auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_Receivers_IsBase(true);
@@ -1435,7 +1435,7 @@ bool KIO__SpecialJob_IsSignalConnected(const KIO__SpecialJob* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KIO__SpecialJob_QBaseIsSignalConnected(const KIO__SpecialJob* self, const QMetaMethod* signal) {
+bool KIO__SpecialJob_SuperIsSignalConnected(const KIO__SpecialJob* self, const QMetaMethod* signal) {
     auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_IsSignalConnected_IsBase(true);

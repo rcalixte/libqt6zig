@@ -86,7 +86,7 @@ void KParts__ListingFilterExtension_SetFilter(KParts__ListingFilterExtension* se
 }
 
 // Base class handler implementation
-QMetaObject* KParts__ListingFilterExtension_QBaseMetaObject(const KParts__ListingFilterExtension* self) {
+QMetaObject* KParts__ListingFilterExtension_SuperMetaObject(const KParts__ListingFilterExtension* self) {
     auto* vkpartslistingfilterextension = const_cast<VirtualKPartsListingFilterExtension*>(dynamic_cast<const VirtualKPartsListingFilterExtension*>(self));
     if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_MetaObject_IsBase(true);
@@ -105,7 +105,7 @@ void KParts__ListingFilterExtension_OnMetaObject(const KParts__ListingFilterExte
 }
 
 // Base class handler implementation
-void* KParts__ListingFilterExtension_QBaseMetacast(KParts__ListingFilterExtension* self, const char* param1) {
+void* KParts__ListingFilterExtension_SuperMetacast(KParts__ListingFilterExtension* self, const char* param1) {
     auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
     if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_Metacast_IsBase(true);
@@ -124,7 +124,7 @@ void KParts__ListingFilterExtension_OnMetacast(KParts__ListingFilterExtension* s
 }
 
 // Base class handler implementation
-int KParts__ListingFilterExtension_QBaseMetacall(KParts__ListingFilterExtension* self, int param1, int param2, void** param3) {
+int KParts__ListingFilterExtension_SuperMetacall(KParts__ListingFilterExtension* self, int param1, int param2, void** param3) {
     auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
     if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_Metacall_IsBase(true);
@@ -143,7 +143,7 @@ void KParts__ListingFilterExtension_OnMetacall(KParts__ListingFilterExtension* s
 }
 
 // Base class handler implementation
-int KParts__ListingFilterExtension_QBaseSupportedFilterModes(const KParts__ListingFilterExtension* self) {
+int KParts__ListingFilterExtension_SuperSupportedFilterModes(const KParts__ListingFilterExtension* self) {
     auto* vkpartslistingfilterextension = const_cast<VirtualKPartsListingFilterExtension*>(dynamic_cast<const VirtualKPartsListingFilterExtension*>(self));
     if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_SupportedFilterModes_IsBase(true);
@@ -162,7 +162,7 @@ void KParts__ListingFilterExtension_OnSupportedFilterModes(const KParts__Listing
 }
 
 // Base class handler implementation
-bool KParts__ListingFilterExtension_QBaseSupportsMultipleFilters(const KParts__ListingFilterExtension* self, int mode) {
+bool KParts__ListingFilterExtension_SuperSupportsMultipleFilters(const KParts__ListingFilterExtension* self, int mode) {
     auto* vkpartslistingfilterextension = const_cast<VirtualKPartsListingFilterExtension*>(dynamic_cast<const VirtualKPartsListingFilterExtension*>(self));
     if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_SupportsMultipleFilters_IsBase(true);
@@ -181,7 +181,7 @@ void KParts__ListingFilterExtension_OnSupportsMultipleFilters(const KParts__List
 }
 
 // Base class handler implementation
-QVariant* KParts__ListingFilterExtension_QBaseFilter(const KParts__ListingFilterExtension* self, int mode) {
+QVariant* KParts__ListingFilterExtension_SuperFilter(const KParts__ListingFilterExtension* self, int mode) {
     auto* vkpartslistingfilterextension = const_cast<VirtualKPartsListingFilterExtension*>(dynamic_cast<const VirtualKPartsListingFilterExtension*>(self));
     if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_Filter_IsBase(true);
@@ -200,7 +200,7 @@ void KParts__ListingFilterExtension_OnFilter(const KParts__ListingFilterExtensio
 }
 
 // Base class handler implementation
-void KParts__ListingFilterExtension_QBaseSetFilter(KParts__ListingFilterExtension* self, int mode, const QVariant* filter) {
+void KParts__ListingFilterExtension_SuperSetFilter(KParts__ListingFilterExtension* self, int mode, const QVariant* filter) {
     auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
     if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_SetFilter_IsBase(true);
@@ -229,7 +229,7 @@ bool KParts__ListingFilterExtension_Event(KParts__ListingFilterExtension* self, 
 }
 
 // Base class handler implementation
-bool KParts__ListingFilterExtension_QBaseEvent(KParts__ListingFilterExtension* self, QEvent* event) {
+bool KParts__ListingFilterExtension_SuperEvent(KParts__ListingFilterExtension* self, QEvent* event) {
     auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
     if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_Event_IsBase(true);
@@ -258,7 +258,7 @@ bool KParts__ListingFilterExtension_EventFilter(KParts__ListingFilterExtension* 
 }
 
 // Base class handler implementation
-bool KParts__ListingFilterExtension_QBaseEventFilter(KParts__ListingFilterExtension* self, QObject* watched, QEvent* event) {
+bool KParts__ListingFilterExtension_SuperEventFilter(KParts__ListingFilterExtension* self, QObject* watched, QEvent* event) {
     auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
     if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_EventFilter_IsBase(true);
@@ -287,7 +287,7 @@ void KParts__ListingFilterExtension_TimerEvent(KParts__ListingFilterExtension* s
 }
 
 // Base class handler implementation
-void KParts__ListingFilterExtension_QBaseTimerEvent(KParts__ListingFilterExtension* self, QTimerEvent* event) {
+void KParts__ListingFilterExtension_SuperTimerEvent(KParts__ListingFilterExtension* self, QTimerEvent* event) {
     auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
     if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_TimerEvent_IsBase(true);
@@ -316,7 +316,7 @@ void KParts__ListingFilterExtension_ChildEvent(KParts__ListingFilterExtension* s
 }
 
 // Base class handler implementation
-void KParts__ListingFilterExtension_QBaseChildEvent(KParts__ListingFilterExtension* self, QChildEvent* event) {
+void KParts__ListingFilterExtension_SuperChildEvent(KParts__ListingFilterExtension* self, QChildEvent* event) {
     auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
     if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_ChildEvent_IsBase(true);
@@ -345,7 +345,7 @@ void KParts__ListingFilterExtension_CustomEvent(KParts__ListingFilterExtension* 
 }
 
 // Base class handler implementation
-void KParts__ListingFilterExtension_QBaseCustomEvent(KParts__ListingFilterExtension* self, QEvent* event) {
+void KParts__ListingFilterExtension_SuperCustomEvent(KParts__ListingFilterExtension* self, QEvent* event) {
     auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
     if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_CustomEvent_IsBase(true);
@@ -374,7 +374,7 @@ void KParts__ListingFilterExtension_ConnectNotify(KParts__ListingFilterExtension
 }
 
 // Base class handler implementation
-void KParts__ListingFilterExtension_QBaseConnectNotify(KParts__ListingFilterExtension* self, const QMetaMethod* signal) {
+void KParts__ListingFilterExtension_SuperConnectNotify(KParts__ListingFilterExtension* self, const QMetaMethod* signal) {
     auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
     if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_ConnectNotify_IsBase(true);
@@ -403,7 +403,7 @@ void KParts__ListingFilterExtension_DisconnectNotify(KParts__ListingFilterExtens
 }
 
 // Base class handler implementation
-void KParts__ListingFilterExtension_QBaseDisconnectNotify(KParts__ListingFilterExtension* self, const QMetaMethod* signal) {
+void KParts__ListingFilterExtension_SuperDisconnectNotify(KParts__ListingFilterExtension* self, const QMetaMethod* signal) {
     auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
     if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_DisconnectNotify_IsBase(true);
@@ -432,7 +432,7 @@ QObject* KParts__ListingFilterExtension_Sender(const KParts__ListingFilterExtens
 }
 
 // Base class handler implementation
-QObject* KParts__ListingFilterExtension_QBaseSender(const KParts__ListingFilterExtension* self) {
+QObject* KParts__ListingFilterExtension_SuperSender(const KParts__ListingFilterExtension* self) {
     auto* vkpartslistingfilterextension = const_cast<VirtualKPartsListingFilterExtension*>(dynamic_cast<const VirtualKPartsListingFilterExtension*>(self));
     if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_Sender_IsBase(true);
@@ -461,7 +461,7 @@ int KParts__ListingFilterExtension_SenderSignalIndex(const KParts__ListingFilter
 }
 
 // Base class handler implementation
-int KParts__ListingFilterExtension_QBaseSenderSignalIndex(const KParts__ListingFilterExtension* self) {
+int KParts__ListingFilterExtension_SuperSenderSignalIndex(const KParts__ListingFilterExtension* self) {
     auto* vkpartslistingfilterextension = const_cast<VirtualKPartsListingFilterExtension*>(dynamic_cast<const VirtualKPartsListingFilterExtension*>(self));
     if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_SenderSignalIndex_IsBase(true);
@@ -490,7 +490,7 @@ int KParts__ListingFilterExtension_Receivers(const KParts__ListingFilterExtensio
 }
 
 // Base class handler implementation
-int KParts__ListingFilterExtension_QBaseReceivers(const KParts__ListingFilterExtension* self, const char* signal) {
+int KParts__ListingFilterExtension_SuperReceivers(const KParts__ListingFilterExtension* self, const char* signal) {
     auto* vkpartslistingfilterextension = const_cast<VirtualKPartsListingFilterExtension*>(dynamic_cast<const VirtualKPartsListingFilterExtension*>(self));
     if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_Receivers_IsBase(true);
@@ -519,7 +519,7 @@ bool KParts__ListingFilterExtension_IsSignalConnected(const KParts__ListingFilte
 }
 
 // Base class handler implementation
-bool KParts__ListingFilterExtension_QBaseIsSignalConnected(const KParts__ListingFilterExtension* self, const QMetaMethod* signal) {
+bool KParts__ListingFilterExtension_SuperIsSignalConnected(const KParts__ListingFilterExtension* self, const QMetaMethod* signal) {
     auto* vkpartslistingfilterextension = const_cast<VirtualKPartsListingFilterExtension*>(dynamic_cast<const VirtualKPartsListingFilterExtension*>(self));
     if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
         vkpartslistingfilterextension->setKParts__ListingFilterExtension_IsSignalConnected_IsBase(true);

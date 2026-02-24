@@ -139,7 +139,7 @@ QDialog* KReplace_ReplaceNextDialog1(KReplace* self, bool create) {
 }
 
 // Base class handler implementation
-QMetaObject* KReplace_QBaseMetaObject(const KReplace* self) {
+QMetaObject* KReplace_SuperMetaObject(const KReplace* self) {
     auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
     if (vkreplace && vkreplace->isVirtualKReplace) {
         vkreplace->setKReplace_MetaObject_IsBase(true);
@@ -158,7 +158,7 @@ void KReplace_OnMetaObject(const KReplace* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KReplace_QBaseMetacast(KReplace* self, const char* param1) {
+void* KReplace_SuperMetacast(KReplace* self, const char* param1) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
     if (vkreplace && vkreplace->isVirtualKReplace) {
         vkreplace->setKReplace_Metacast_IsBase(true);
@@ -177,7 +177,7 @@ void KReplace_OnMetacast(KReplace* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KReplace_QBaseMetacall(KReplace* self, int param1, int param2, void** param3) {
+int KReplace_SuperMetacall(KReplace* self, int param1, int param2, void** param3) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
     if (vkreplace && vkreplace->isVirtualKReplace) {
         vkreplace->setKReplace_Metacall_IsBase(true);
@@ -196,7 +196,7 @@ void KReplace_OnMetacall(KReplace* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KReplace_QBaseResetCounts(KReplace* self) {
+void KReplace_SuperResetCounts(KReplace* self) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
     if (vkreplace && vkreplace->isVirtualKReplace) {
         vkreplace->setKReplace_ResetCounts_IsBase(true);
@@ -215,7 +215,7 @@ void KReplace_OnResetCounts(KReplace* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KReplace_QBaseShouldRestart(const KReplace* self, bool forceAsking, bool showNumMatches) {
+bool KReplace_SuperShouldRestart(const KReplace* self, bool forceAsking, bool showNumMatches) {
     auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
     if (vkreplace && vkreplace->isVirtualKReplace) {
         vkreplace->setKReplace_ShouldRestart_IsBase(true);
@@ -234,7 +234,7 @@ void KReplace_OnShouldRestart(const KReplace* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KReplace_QBaseDisplayFinalDialog(const KReplace* self) {
+void KReplace_SuperDisplayFinalDialog(const KReplace* self) {
     auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
     if (vkreplace && vkreplace->isVirtualKReplace) {
         vkreplace->setKReplace_DisplayFinalDialog_IsBase(true);
@@ -263,7 +263,7 @@ void KReplace_SetOptions(KReplace* self, long options) {
 }
 
 // Base class handler implementation
-void KReplace_QBaseSetOptions(KReplace* self, long options) {
+void KReplace_SuperSetOptions(KReplace* self, long options) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
     if (vkreplace && vkreplace->isVirtualKReplace) {
         vkreplace->setKReplace_SetOptions_IsBase(true);
@@ -293,7 +293,7 @@ bool KReplace_ValidateMatch(KReplace* self, const libqt_string text, int index, 
 }
 
 // Base class handler implementation
-bool KReplace_QBaseValidateMatch(KReplace* self, const libqt_string text, int index, int matchedlength) {
+bool KReplace_SuperValidateMatch(KReplace* self, const libqt_string text, int index, int matchedlength) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vkreplace && vkreplace->isVirtualKReplace) {
@@ -323,7 +323,7 @@ bool KReplace_Event(KReplace* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KReplace_QBaseEvent(KReplace* self, QEvent* event) {
+bool KReplace_SuperEvent(KReplace* self, QEvent* event) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
     if (vkreplace && vkreplace->isVirtualKReplace) {
         vkreplace->setKReplace_Event_IsBase(true);
@@ -352,7 +352,7 @@ bool KReplace_EventFilter(KReplace* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KReplace_QBaseEventFilter(KReplace* self, QObject* watched, QEvent* event) {
+bool KReplace_SuperEventFilter(KReplace* self, QObject* watched, QEvent* event) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
     if (vkreplace && vkreplace->isVirtualKReplace) {
         vkreplace->setKReplace_EventFilter_IsBase(true);
@@ -381,7 +381,7 @@ void KReplace_TimerEvent(KReplace* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KReplace_QBaseTimerEvent(KReplace* self, QTimerEvent* event) {
+void KReplace_SuperTimerEvent(KReplace* self, QTimerEvent* event) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
     if (vkreplace && vkreplace->isVirtualKReplace) {
         vkreplace->setKReplace_TimerEvent_IsBase(true);
@@ -410,7 +410,7 @@ void KReplace_ChildEvent(KReplace* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KReplace_QBaseChildEvent(KReplace* self, QChildEvent* event) {
+void KReplace_SuperChildEvent(KReplace* self, QChildEvent* event) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
     if (vkreplace && vkreplace->isVirtualKReplace) {
         vkreplace->setKReplace_ChildEvent_IsBase(true);
@@ -439,7 +439,7 @@ void KReplace_CustomEvent(KReplace* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KReplace_QBaseCustomEvent(KReplace* self, QEvent* event) {
+void KReplace_SuperCustomEvent(KReplace* self, QEvent* event) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
     if (vkreplace && vkreplace->isVirtualKReplace) {
         vkreplace->setKReplace_CustomEvent_IsBase(true);
@@ -468,7 +468,7 @@ void KReplace_ConnectNotify(KReplace* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KReplace_QBaseConnectNotify(KReplace* self, const QMetaMethod* signal) {
+void KReplace_SuperConnectNotify(KReplace* self, const QMetaMethod* signal) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
     if (vkreplace && vkreplace->isVirtualKReplace) {
         vkreplace->setKReplace_ConnectNotify_IsBase(true);
@@ -497,7 +497,7 @@ void KReplace_DisconnectNotify(KReplace* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KReplace_QBaseDisconnectNotify(KReplace* self, const QMetaMethod* signal) {
+void KReplace_SuperDisconnectNotify(KReplace* self, const QMetaMethod* signal) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
     if (vkreplace && vkreplace->isVirtualKReplace) {
         vkreplace->setKReplace_DisconnectNotify_IsBase(true);
@@ -526,7 +526,7 @@ QWidget* KReplace_ParentWidget(const KReplace* self) {
 }
 
 // Base class handler implementation
-QWidget* KReplace_QBaseParentWidget(const KReplace* self) {
+QWidget* KReplace_SuperParentWidget(const KReplace* self) {
     auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
     if (vkreplace && vkreplace->isVirtualKReplace) {
         vkreplace->setKReplace_ParentWidget_IsBase(true);
@@ -555,7 +555,7 @@ QWidget* KReplace_DialogsParent(const KReplace* self) {
 }
 
 // Base class handler implementation
-QWidget* KReplace_QBaseDialogsParent(const KReplace* self) {
+QWidget* KReplace_SuperDialogsParent(const KReplace* self) {
     auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
     if (vkreplace && vkreplace->isVirtualKReplace) {
         vkreplace->setKReplace_DialogsParent_IsBase(true);
@@ -584,7 +584,7 @@ QObject* KReplace_Sender(const KReplace* self) {
 }
 
 // Base class handler implementation
-QObject* KReplace_QBaseSender(const KReplace* self) {
+QObject* KReplace_SuperSender(const KReplace* self) {
     auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
     if (vkreplace && vkreplace->isVirtualKReplace) {
         vkreplace->setKReplace_Sender_IsBase(true);
@@ -613,7 +613,7 @@ int KReplace_SenderSignalIndex(const KReplace* self) {
 }
 
 // Base class handler implementation
-int KReplace_QBaseSenderSignalIndex(const KReplace* self) {
+int KReplace_SuperSenderSignalIndex(const KReplace* self) {
     auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
     if (vkreplace && vkreplace->isVirtualKReplace) {
         vkreplace->setKReplace_SenderSignalIndex_IsBase(true);
@@ -642,7 +642,7 @@ int KReplace_Receivers(const KReplace* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KReplace_QBaseReceivers(const KReplace* self, const char* signal) {
+int KReplace_SuperReceivers(const KReplace* self, const char* signal) {
     auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
     if (vkreplace && vkreplace->isVirtualKReplace) {
         vkreplace->setKReplace_Receivers_IsBase(true);
@@ -671,7 +671,7 @@ bool KReplace_IsSignalConnected(const KReplace* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-bool KReplace_QBaseIsSignalConnected(const KReplace* self, const QMetaMethod* signal) {
+bool KReplace_SuperIsSignalConnected(const KReplace* self, const QMetaMethod* signal) {
     auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
     if (vkreplace && vkreplace->isVirtualKReplace) {
         vkreplace->setKReplace_IsSignalConnected_IsBase(true);

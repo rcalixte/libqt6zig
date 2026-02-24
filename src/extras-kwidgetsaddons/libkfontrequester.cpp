@@ -173,7 +173,7 @@ bool KFontRequester_EventFilter(KFontRequester* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-QMetaObject* KFontRequester_QBaseMetaObject(const KFontRequester* self) {
+QMetaObject* KFontRequester_SuperMetaObject(const KFontRequester* self) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_MetaObject_IsBase(true);
@@ -192,7 +192,7 @@ void KFontRequester_OnMetaObject(const KFontRequester* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KFontRequester_QBaseMetacast(KFontRequester* self, const char* param1) {
+void* KFontRequester_SuperMetacast(KFontRequester* self, const char* param1) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_Metacast_IsBase(true);
@@ -211,7 +211,7 @@ void KFontRequester_OnMetacast(KFontRequester* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFontRequester_QBaseMetacall(KFontRequester* self, int param1, int param2, void** param3) {
+int KFontRequester_SuperMetacall(KFontRequester* self, int param1, int param2, void** param3) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_Metacall_IsBase(true);
@@ -230,7 +230,7 @@ void KFontRequester_OnMetacall(KFontRequester* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseSetFont(KFontRequester* self, const QFont* font, bool onlyFixed) {
+void KFontRequester_SuperSetFont(KFontRequester* self, const QFont* font, bool onlyFixed) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_SetFont_IsBase(true);
@@ -249,7 +249,7 @@ void KFontRequester_OnSetFont(KFontRequester* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseSetSampleText(KFontRequester* self, const libqt_string text) {
+void KFontRequester_SuperSetSampleText(KFontRequester* self, const libqt_string text) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
@@ -269,7 +269,7 @@ void KFontRequester_OnSetSampleText(KFontRequester* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseSetTitle(KFontRequester* self, const libqt_string title) {
+void KFontRequester_SuperSetTitle(KFontRequester* self, const libqt_string title) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     QString title_QString = QString::fromUtf8(title.data, title.len);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
@@ -289,7 +289,7 @@ void KFontRequester_OnSetTitle(KFontRequester* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KFontRequester_QBaseEventFilter(KFontRequester* self, QObject* watched, QEvent* event) {
+bool KFontRequester_SuperEventFilter(KFontRequester* self, QObject* watched, QEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_EventFilter_IsBase(true);
@@ -318,7 +318,7 @@ int KFontRequester_DevType(const KFontRequester* self) {
 }
 
 // Base class handler implementation
-int KFontRequester_QBaseDevType(const KFontRequester* self) {
+int KFontRequester_SuperDevType(const KFontRequester* self) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_DevType_IsBase(true);
@@ -347,7 +347,7 @@ void KFontRequester_SetVisible(KFontRequester* self, bool visible) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseSetVisible(KFontRequester* self, bool visible) {
+void KFontRequester_SuperSetVisible(KFontRequester* self, bool visible) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_SetVisible_IsBase(true);
@@ -376,7 +376,7 @@ QSize* KFontRequester_SizeHint(const KFontRequester* self) {
 }
 
 // Base class handler implementation
-QSize* KFontRequester_QBaseSizeHint(const KFontRequester* self) {
+QSize* KFontRequester_SuperSizeHint(const KFontRequester* self) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_SizeHint_IsBase(true);
@@ -405,7 +405,7 @@ QSize* KFontRequester_MinimumSizeHint(const KFontRequester* self) {
 }
 
 // Base class handler implementation
-QSize* KFontRequester_QBaseMinimumSizeHint(const KFontRequester* self) {
+QSize* KFontRequester_SuperMinimumSizeHint(const KFontRequester* self) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_MinimumSizeHint_IsBase(true);
@@ -434,7 +434,7 @@ int KFontRequester_HeightForWidth(const KFontRequester* self, int param1) {
 }
 
 // Base class handler implementation
-int KFontRequester_QBaseHeightForWidth(const KFontRequester* self, int param1) {
+int KFontRequester_SuperHeightForWidth(const KFontRequester* self, int param1) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_HeightForWidth_IsBase(true);
@@ -463,7 +463,7 @@ bool KFontRequester_HasHeightForWidth(const KFontRequester* self) {
 }
 
 // Base class handler implementation
-bool KFontRequester_QBaseHasHeightForWidth(const KFontRequester* self) {
+bool KFontRequester_SuperHasHeightForWidth(const KFontRequester* self) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_HasHeightForWidth_IsBase(true);
@@ -492,7 +492,7 @@ QPaintEngine* KFontRequester_PaintEngine(const KFontRequester* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KFontRequester_QBasePaintEngine(const KFontRequester* self) {
+QPaintEngine* KFontRequester_SuperPaintEngine(const KFontRequester* self) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_PaintEngine_IsBase(true);
@@ -521,7 +521,7 @@ bool KFontRequester_Event(KFontRequester* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KFontRequester_QBaseEvent(KFontRequester* self, QEvent* event) {
+bool KFontRequester_SuperEvent(KFontRequester* self, QEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_Event_IsBase(true);
@@ -550,7 +550,7 @@ void KFontRequester_MousePressEvent(KFontRequester* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseMousePressEvent(KFontRequester* self, QMouseEvent* event) {
+void KFontRequester_SuperMousePressEvent(KFontRequester* self, QMouseEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_MousePressEvent_IsBase(true);
@@ -579,7 +579,7 @@ void KFontRequester_MouseReleaseEvent(KFontRequester* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseMouseReleaseEvent(KFontRequester* self, QMouseEvent* event) {
+void KFontRequester_SuperMouseReleaseEvent(KFontRequester* self, QMouseEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_MouseReleaseEvent_IsBase(true);
@@ -608,7 +608,7 @@ void KFontRequester_MouseDoubleClickEvent(KFontRequester* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseMouseDoubleClickEvent(KFontRequester* self, QMouseEvent* event) {
+void KFontRequester_SuperMouseDoubleClickEvent(KFontRequester* self, QMouseEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_MouseDoubleClickEvent_IsBase(true);
@@ -637,7 +637,7 @@ void KFontRequester_MouseMoveEvent(KFontRequester* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseMouseMoveEvent(KFontRequester* self, QMouseEvent* event) {
+void KFontRequester_SuperMouseMoveEvent(KFontRequester* self, QMouseEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_MouseMoveEvent_IsBase(true);
@@ -666,7 +666,7 @@ void KFontRequester_WheelEvent(KFontRequester* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseWheelEvent(KFontRequester* self, QWheelEvent* event) {
+void KFontRequester_SuperWheelEvent(KFontRequester* self, QWheelEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_WheelEvent_IsBase(true);
@@ -695,7 +695,7 @@ void KFontRequester_KeyPressEvent(KFontRequester* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseKeyPressEvent(KFontRequester* self, QKeyEvent* event) {
+void KFontRequester_SuperKeyPressEvent(KFontRequester* self, QKeyEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_KeyPressEvent_IsBase(true);
@@ -724,7 +724,7 @@ void KFontRequester_KeyReleaseEvent(KFontRequester* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseKeyReleaseEvent(KFontRequester* self, QKeyEvent* event) {
+void KFontRequester_SuperKeyReleaseEvent(KFontRequester* self, QKeyEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_KeyReleaseEvent_IsBase(true);
@@ -753,7 +753,7 @@ void KFontRequester_FocusInEvent(KFontRequester* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseFocusInEvent(KFontRequester* self, QFocusEvent* event) {
+void KFontRequester_SuperFocusInEvent(KFontRequester* self, QFocusEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_FocusInEvent_IsBase(true);
@@ -782,7 +782,7 @@ void KFontRequester_FocusOutEvent(KFontRequester* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseFocusOutEvent(KFontRequester* self, QFocusEvent* event) {
+void KFontRequester_SuperFocusOutEvent(KFontRequester* self, QFocusEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_FocusOutEvent_IsBase(true);
@@ -811,7 +811,7 @@ void KFontRequester_EnterEvent(KFontRequester* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseEnterEvent(KFontRequester* self, QEnterEvent* event) {
+void KFontRequester_SuperEnterEvent(KFontRequester* self, QEnterEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_EnterEvent_IsBase(true);
@@ -840,7 +840,7 @@ void KFontRequester_LeaveEvent(KFontRequester* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseLeaveEvent(KFontRequester* self, QEvent* event) {
+void KFontRequester_SuperLeaveEvent(KFontRequester* self, QEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_LeaveEvent_IsBase(true);
@@ -869,7 +869,7 @@ void KFontRequester_PaintEvent(KFontRequester* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBasePaintEvent(KFontRequester* self, QPaintEvent* event) {
+void KFontRequester_SuperPaintEvent(KFontRequester* self, QPaintEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_PaintEvent_IsBase(true);
@@ -898,7 +898,7 @@ void KFontRequester_MoveEvent(KFontRequester* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseMoveEvent(KFontRequester* self, QMoveEvent* event) {
+void KFontRequester_SuperMoveEvent(KFontRequester* self, QMoveEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_MoveEvent_IsBase(true);
@@ -927,7 +927,7 @@ void KFontRequester_ResizeEvent(KFontRequester* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseResizeEvent(KFontRequester* self, QResizeEvent* event) {
+void KFontRequester_SuperResizeEvent(KFontRequester* self, QResizeEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_ResizeEvent_IsBase(true);
@@ -956,7 +956,7 @@ void KFontRequester_CloseEvent(KFontRequester* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseCloseEvent(KFontRequester* self, QCloseEvent* event) {
+void KFontRequester_SuperCloseEvent(KFontRequester* self, QCloseEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_CloseEvent_IsBase(true);
@@ -985,7 +985,7 @@ void KFontRequester_ContextMenuEvent(KFontRequester* self, QContextMenuEvent* ev
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseContextMenuEvent(KFontRequester* self, QContextMenuEvent* event) {
+void KFontRequester_SuperContextMenuEvent(KFontRequester* self, QContextMenuEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_ContextMenuEvent_IsBase(true);
@@ -1014,7 +1014,7 @@ void KFontRequester_TabletEvent(KFontRequester* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseTabletEvent(KFontRequester* self, QTabletEvent* event) {
+void KFontRequester_SuperTabletEvent(KFontRequester* self, QTabletEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_TabletEvent_IsBase(true);
@@ -1043,7 +1043,7 @@ void KFontRequester_ActionEvent(KFontRequester* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseActionEvent(KFontRequester* self, QActionEvent* event) {
+void KFontRequester_SuperActionEvent(KFontRequester* self, QActionEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_ActionEvent_IsBase(true);
@@ -1072,7 +1072,7 @@ void KFontRequester_DragEnterEvent(KFontRequester* self, QDragEnterEvent* event)
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseDragEnterEvent(KFontRequester* self, QDragEnterEvent* event) {
+void KFontRequester_SuperDragEnterEvent(KFontRequester* self, QDragEnterEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_DragEnterEvent_IsBase(true);
@@ -1101,7 +1101,7 @@ void KFontRequester_DragMoveEvent(KFontRequester* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseDragMoveEvent(KFontRequester* self, QDragMoveEvent* event) {
+void KFontRequester_SuperDragMoveEvent(KFontRequester* self, QDragMoveEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_DragMoveEvent_IsBase(true);
@@ -1130,7 +1130,7 @@ void KFontRequester_DragLeaveEvent(KFontRequester* self, QDragLeaveEvent* event)
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseDragLeaveEvent(KFontRequester* self, QDragLeaveEvent* event) {
+void KFontRequester_SuperDragLeaveEvent(KFontRequester* self, QDragLeaveEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_DragLeaveEvent_IsBase(true);
@@ -1159,7 +1159,7 @@ void KFontRequester_DropEvent(KFontRequester* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseDropEvent(KFontRequester* self, QDropEvent* event) {
+void KFontRequester_SuperDropEvent(KFontRequester* self, QDropEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_DropEvent_IsBase(true);
@@ -1188,7 +1188,7 @@ void KFontRequester_ShowEvent(KFontRequester* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseShowEvent(KFontRequester* self, QShowEvent* event) {
+void KFontRequester_SuperShowEvent(KFontRequester* self, QShowEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_ShowEvent_IsBase(true);
@@ -1217,7 +1217,7 @@ void KFontRequester_HideEvent(KFontRequester* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseHideEvent(KFontRequester* self, QHideEvent* event) {
+void KFontRequester_SuperHideEvent(KFontRequester* self, QHideEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_HideEvent_IsBase(true);
@@ -1247,7 +1247,7 @@ bool KFontRequester_NativeEvent(KFontRequester* self, const libqt_string eventTy
 }
 
 // Base class handler implementation
-bool KFontRequester_QBaseNativeEvent(KFontRequester* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KFontRequester_SuperNativeEvent(KFontRequester* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
@@ -1277,7 +1277,7 @@ void KFontRequester_ChangeEvent(KFontRequester* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseChangeEvent(KFontRequester* self, QEvent* param1) {
+void KFontRequester_SuperChangeEvent(KFontRequester* self, QEvent* param1) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_ChangeEvent_IsBase(true);
@@ -1306,7 +1306,7 @@ int KFontRequester_Metric(const KFontRequester* self, int param1) {
 }
 
 // Base class handler implementation
-int KFontRequester_QBaseMetric(const KFontRequester* self, int param1) {
+int KFontRequester_SuperMetric(const KFontRequester* self, int param1) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_Metric_IsBase(true);
@@ -1335,7 +1335,7 @@ void KFontRequester_InitPainter(const KFontRequester* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseInitPainter(const KFontRequester* self, QPainter* painter) {
+void KFontRequester_SuperInitPainter(const KFontRequester* self, QPainter* painter) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_InitPainter_IsBase(true);
@@ -1364,7 +1364,7 @@ QPaintDevice* KFontRequester_Redirected(const KFontRequester* self, QPoint* offs
 }
 
 // Base class handler implementation
-QPaintDevice* KFontRequester_QBaseRedirected(const KFontRequester* self, QPoint* offset) {
+QPaintDevice* KFontRequester_SuperRedirected(const KFontRequester* self, QPoint* offset) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_Redirected_IsBase(true);
@@ -1393,7 +1393,7 @@ QPainter* KFontRequester_SharedPainter(const KFontRequester* self) {
 }
 
 // Base class handler implementation
-QPainter* KFontRequester_QBaseSharedPainter(const KFontRequester* self) {
+QPainter* KFontRequester_SuperSharedPainter(const KFontRequester* self) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_SharedPainter_IsBase(true);
@@ -1422,7 +1422,7 @@ void KFontRequester_InputMethodEvent(KFontRequester* self, QInputMethodEvent* pa
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseInputMethodEvent(KFontRequester* self, QInputMethodEvent* param1) {
+void KFontRequester_SuperInputMethodEvent(KFontRequester* self, QInputMethodEvent* param1) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_InputMethodEvent_IsBase(true);
@@ -1451,7 +1451,7 @@ QVariant* KFontRequester_InputMethodQuery(const KFontRequester* self, int param1
 }
 
 // Base class handler implementation
-QVariant* KFontRequester_QBaseInputMethodQuery(const KFontRequester* self, int param1) {
+QVariant* KFontRequester_SuperInputMethodQuery(const KFontRequester* self, int param1) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_InputMethodQuery_IsBase(true);
@@ -1480,7 +1480,7 @@ bool KFontRequester_FocusNextPrevChild(KFontRequester* self, bool next) {
 }
 
 // Base class handler implementation
-bool KFontRequester_QBaseFocusNextPrevChild(KFontRequester* self, bool next) {
+bool KFontRequester_SuperFocusNextPrevChild(KFontRequester* self, bool next) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_FocusNextPrevChild_IsBase(true);
@@ -1509,7 +1509,7 @@ void KFontRequester_TimerEvent(KFontRequester* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseTimerEvent(KFontRequester* self, QTimerEvent* event) {
+void KFontRequester_SuperTimerEvent(KFontRequester* self, QTimerEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_TimerEvent_IsBase(true);
@@ -1538,7 +1538,7 @@ void KFontRequester_ChildEvent(KFontRequester* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseChildEvent(KFontRequester* self, QChildEvent* event) {
+void KFontRequester_SuperChildEvent(KFontRequester* self, QChildEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_ChildEvent_IsBase(true);
@@ -1567,7 +1567,7 @@ void KFontRequester_CustomEvent(KFontRequester* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseCustomEvent(KFontRequester* self, QEvent* event) {
+void KFontRequester_SuperCustomEvent(KFontRequester* self, QEvent* event) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_CustomEvent_IsBase(true);
@@ -1596,7 +1596,7 @@ void KFontRequester_ConnectNotify(KFontRequester* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseConnectNotify(KFontRequester* self, const QMetaMethod* signal) {
+void KFontRequester_SuperConnectNotify(KFontRequester* self, const QMetaMethod* signal) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_ConnectNotify_IsBase(true);
@@ -1625,7 +1625,7 @@ void KFontRequester_DisconnectNotify(KFontRequester* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseDisconnectNotify(KFontRequester* self, const QMetaMethod* signal) {
+void KFontRequester_SuperDisconnectNotify(KFontRequester* self, const QMetaMethod* signal) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_DisconnectNotify_IsBase(true);
@@ -1654,7 +1654,7 @@ void KFontRequester_UpdateMicroFocus(KFontRequester* self) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseUpdateMicroFocus(KFontRequester* self) {
+void KFontRequester_SuperUpdateMicroFocus(KFontRequester* self) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_UpdateMicroFocus_IsBase(true);
@@ -1683,7 +1683,7 @@ void KFontRequester_Create(KFontRequester* self) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseCreate(KFontRequester* self) {
+void KFontRequester_SuperCreate(KFontRequester* self) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_Create_IsBase(true);
@@ -1712,7 +1712,7 @@ void KFontRequester_Destroy(KFontRequester* self) {
 }
 
 // Base class handler implementation
-void KFontRequester_QBaseDestroy(KFontRequester* self) {
+void KFontRequester_SuperDestroy(KFontRequester* self) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_Destroy_IsBase(true);
@@ -1741,7 +1741,7 @@ bool KFontRequester_FocusNextChild(KFontRequester* self) {
 }
 
 // Base class handler implementation
-bool KFontRequester_QBaseFocusNextChild(KFontRequester* self) {
+bool KFontRequester_SuperFocusNextChild(KFontRequester* self) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_FocusNextChild_IsBase(true);
@@ -1770,7 +1770,7 @@ bool KFontRequester_FocusPreviousChild(KFontRequester* self) {
 }
 
 // Base class handler implementation
-bool KFontRequester_QBaseFocusPreviousChild(KFontRequester* self) {
+bool KFontRequester_SuperFocusPreviousChild(KFontRequester* self) {
     auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_FocusPreviousChild_IsBase(true);
@@ -1799,7 +1799,7 @@ QObject* KFontRequester_Sender(const KFontRequester* self) {
 }
 
 // Base class handler implementation
-QObject* KFontRequester_QBaseSender(const KFontRequester* self) {
+QObject* KFontRequester_SuperSender(const KFontRequester* self) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_Sender_IsBase(true);
@@ -1828,7 +1828,7 @@ int KFontRequester_SenderSignalIndex(const KFontRequester* self) {
 }
 
 // Base class handler implementation
-int KFontRequester_QBaseSenderSignalIndex(const KFontRequester* self) {
+int KFontRequester_SuperSenderSignalIndex(const KFontRequester* self) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_SenderSignalIndex_IsBase(true);
@@ -1857,7 +1857,7 @@ int KFontRequester_Receivers(const KFontRequester* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KFontRequester_QBaseReceivers(const KFontRequester* self, const char* signal) {
+int KFontRequester_SuperReceivers(const KFontRequester* self, const char* signal) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_Receivers_IsBase(true);
@@ -1886,7 +1886,7 @@ bool KFontRequester_IsSignalConnected(const KFontRequester* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool KFontRequester_QBaseIsSignalConnected(const KFontRequester* self, const QMetaMethod* signal) {
+bool KFontRequester_SuperIsSignalConnected(const KFontRequester* self, const QMetaMethod* signal) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_IsSignalConnected_IsBase(true);
@@ -1915,7 +1915,7 @@ double KFontRequester_GetDecodedMetricF(const KFontRequester* self, int metricA,
 }
 
 // Base class handler implementation
-double KFontRequester_QBaseGetDecodedMetricF(const KFontRequester* self, int metricA, int metricB) {
+double KFontRequester_SuperGetDecodedMetricF(const KFontRequester* self, int metricA, int metricB) {
     auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
     if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
         vkfontrequester->setKFontRequester_GetDecodedMetricF_IsBase(true);

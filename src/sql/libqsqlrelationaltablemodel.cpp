@@ -272,7 +272,7 @@ libqt_string QSqlRelationalTableModel_OrderByClause(const QSqlRelationalTableMod
 }
 
 // Base class handler implementation
-QMetaObject* QSqlRelationalTableModel_QBaseMetaObject(const QSqlRelationalTableModel* self) {
+QMetaObject* QSqlRelationalTableModel_SuperMetaObject(const QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_MetaObject_IsBase(true);
@@ -291,7 +291,7 @@ void QSqlRelationalTableModel_OnMetaObject(const QSqlRelationalTableModel* self,
 }
 
 // Base class handler implementation
-void* QSqlRelationalTableModel_QBaseMetacast(QSqlRelationalTableModel* self, const char* param1) {
+void* QSqlRelationalTableModel_SuperMetacast(QSqlRelationalTableModel* self, const char* param1) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Metacast_IsBase(true);
@@ -310,7 +310,7 @@ void QSqlRelationalTableModel_OnMetacast(QSqlRelationalTableModel* self, intptr_
 }
 
 // Base class handler implementation
-int QSqlRelationalTableModel_QBaseMetacall(QSqlRelationalTableModel* self, int param1, int param2, void** param3) {
+int QSqlRelationalTableModel_SuperMetacall(QSqlRelationalTableModel* self, int param1, int param2, void** param3) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Metacall_IsBase(true);
@@ -329,7 +329,7 @@ void QSqlRelationalTableModel_OnMetacall(QSqlRelationalTableModel* self, intptr_
 }
 
 // Base class handler implementation
-QVariant* QSqlRelationalTableModel_QBaseData(const QSqlRelationalTableModel* self, const QModelIndex* item, int role) {
+QVariant* QSqlRelationalTableModel_SuperData(const QSqlRelationalTableModel* self, const QModelIndex* item, int role) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Data_IsBase(true);
@@ -348,7 +348,7 @@ void QSqlRelationalTableModel_OnData(const QSqlRelationalTableModel* self, intpt
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseSetData(QSqlRelationalTableModel* self, const QModelIndex* item, const QVariant* value, int role) {
+bool QSqlRelationalTableModel_SuperSetData(QSqlRelationalTableModel* self, const QModelIndex* item, const QVariant* value, int role) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetData_IsBase(true);
@@ -367,7 +367,7 @@ void QSqlRelationalTableModel_OnSetData(QSqlRelationalTableModel* self, intptr_t
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseRemoveColumns(QSqlRelationalTableModel* self, int column, int count, const QModelIndex* parent) {
+bool QSqlRelationalTableModel_SuperRemoveColumns(QSqlRelationalTableModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RemoveColumns_IsBase(true);
@@ -386,7 +386,7 @@ void QSqlRelationalTableModel_OnRemoveColumns(QSqlRelationalTableModel* self, in
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseClear(QSqlRelationalTableModel* self) {
+void QSqlRelationalTableModel_SuperClear(QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Clear_IsBase(true);
@@ -405,7 +405,7 @@ void QSqlRelationalTableModel_OnClear(QSqlRelationalTableModel* self, intptr_t s
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseSelect(QSqlRelationalTableModel* self) {
+bool QSqlRelationalTableModel_SuperSelect(QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Select_IsBase(true);
@@ -424,7 +424,7 @@ void QSqlRelationalTableModel_OnSelect(QSqlRelationalTableModel* self, intptr_t 
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseSetTable(QSqlRelationalTableModel* self, const libqt_string tableName) {
+void QSqlRelationalTableModel_SuperSetTable(QSqlRelationalTableModel* self, const libqt_string tableName) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     QString tableName_QString = QString::fromUtf8(tableName.data, tableName.len);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
@@ -444,7 +444,7 @@ void QSqlRelationalTableModel_OnSetTable(QSqlRelationalTableModel* self, intptr_
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseSetRelation(QSqlRelationalTableModel* self, int column, const QSqlRelation* relation) {
+void QSqlRelationalTableModel_SuperSetRelation(QSqlRelationalTableModel* self, int column, const QSqlRelation* relation) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetRelation_IsBase(true);
@@ -463,7 +463,7 @@ void QSqlRelationalTableModel_OnSetRelation(QSqlRelationalTableModel* self, intp
 }
 
 // Base class handler implementation
-QSqlTableModel* QSqlRelationalTableModel_QBaseRelationModel(const QSqlRelationalTableModel* self, int column) {
+QSqlTableModel* QSqlRelationalTableModel_SuperRelationModel(const QSqlRelationalTableModel* self, int column) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RelationModel_IsBase(true);
@@ -482,7 +482,7 @@ void QSqlRelationalTableModel_OnRelationModel(const QSqlRelationalTableModel* se
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseRevertRow(QSqlRelationalTableModel* self, int row) {
+void QSqlRelationalTableModel_SuperRevertRow(QSqlRelationalTableModel* self, int row) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RevertRow_IsBase(true);
@@ -501,7 +501,7 @@ void QSqlRelationalTableModel_OnRevertRow(QSqlRelationalTableModel* self, intptr
 }
 
 // Base class handler implementation
-libqt_string QSqlRelationalTableModel_QBaseSelectStatement(const QSqlRelationalTableModel* self) {
+libqt_string QSqlRelationalTableModel_SuperSelectStatement(const QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SelectStatement_IsBase(true);
@@ -536,7 +536,7 @@ void QSqlRelationalTableModel_OnSelectStatement(const QSqlRelationalTableModel* 
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseUpdateRowInTable(QSqlRelationalTableModel* self, int row, const QSqlRecord* values) {
+bool QSqlRelationalTableModel_SuperUpdateRowInTable(QSqlRelationalTableModel* self, int row, const QSqlRecord* values) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_UpdateRowInTable_IsBase(true);
@@ -555,7 +555,7 @@ void QSqlRelationalTableModel_OnUpdateRowInTable(QSqlRelationalTableModel* self,
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseInsertRowIntoTable(QSqlRelationalTableModel* self, const QSqlRecord* values) {
+bool QSqlRelationalTableModel_SuperInsertRowIntoTable(QSqlRelationalTableModel* self, const QSqlRecord* values) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_InsertRowIntoTable_IsBase(true);
@@ -574,7 +574,7 @@ void QSqlRelationalTableModel_OnInsertRowIntoTable(QSqlRelationalTableModel* sel
 }
 
 // Base class handler implementation
-libqt_string QSqlRelationalTableModel_QBaseOrderByClause(const QSqlRelationalTableModel* self) {
+libqt_string QSqlRelationalTableModel_SuperOrderByClause(const QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_OrderByClause_IsBase(true);
@@ -619,7 +619,7 @@ int QSqlRelationalTableModel_Flags(const QSqlRelationalTableModel* self, const Q
 }
 
 // Base class handler implementation
-int QSqlRelationalTableModel_QBaseFlags(const QSqlRelationalTableModel* self, const QModelIndex* index) {
+int QSqlRelationalTableModel_SuperFlags(const QSqlRelationalTableModel* self, const QModelIndex* index) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Flags_IsBase(true);
@@ -648,7 +648,7 @@ bool QSqlRelationalTableModel_ClearItemData(QSqlRelationalTableModel* self, cons
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseClearItemData(QSqlRelationalTableModel* self, const QModelIndex* index) {
+bool QSqlRelationalTableModel_SuperClearItemData(QSqlRelationalTableModel* self, const QModelIndex* index) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_ClearItemData_IsBase(true);
@@ -677,7 +677,7 @@ QVariant* QSqlRelationalTableModel_HeaderData(const QSqlRelationalTableModel* se
 }
 
 // Base class handler implementation
-QVariant* QSqlRelationalTableModel_QBaseHeaderData(const QSqlRelationalTableModel* self, int section, int orientation, int role) {
+QVariant* QSqlRelationalTableModel_SuperHeaderData(const QSqlRelationalTableModel* self, int section, int orientation, int role) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_HeaderData_IsBase(true);
@@ -706,7 +706,7 @@ void QSqlRelationalTableModel_SetEditStrategy(QSqlRelationalTableModel* self, in
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseSetEditStrategy(QSqlRelationalTableModel* self, int strategy) {
+void QSqlRelationalTableModel_SuperSetEditStrategy(QSqlRelationalTableModel* self, int strategy) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetEditStrategy_IsBase(true);
@@ -735,7 +735,7 @@ void QSqlRelationalTableModel_Sort(QSqlRelationalTableModel* self, int column, i
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseSort(QSqlRelationalTableModel* self, int column, int order) {
+void QSqlRelationalTableModel_SuperSort(QSqlRelationalTableModel* self, int column, int order) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Sort_IsBase(true);
@@ -764,7 +764,7 @@ void QSqlRelationalTableModel_SetSort(QSqlRelationalTableModel* self, int column
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseSetSort(QSqlRelationalTableModel* self, int column, int order) {
+void QSqlRelationalTableModel_SuperSetSort(QSqlRelationalTableModel* self, int column, int order) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetSort_IsBase(true);
@@ -794,7 +794,7 @@ void QSqlRelationalTableModel_SetFilter(QSqlRelationalTableModel* self, const li
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseSetFilter(QSqlRelationalTableModel* self, const libqt_string filter) {
+void QSqlRelationalTableModel_SuperSetFilter(QSqlRelationalTableModel* self, const libqt_string filter) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     QString filter_QString = QString::fromUtf8(filter.data, filter.len);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
@@ -824,7 +824,7 @@ int QSqlRelationalTableModel_RowCount(const QSqlRelationalTableModel* self, cons
 }
 
 // Base class handler implementation
-int QSqlRelationalTableModel_QBaseRowCount(const QSqlRelationalTableModel* self, const QModelIndex* parent) {
+int QSqlRelationalTableModel_SuperRowCount(const QSqlRelationalTableModel* self, const QModelIndex* parent) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RowCount_IsBase(true);
@@ -853,7 +853,7 @@ bool QSqlRelationalTableModel_RemoveRows(QSqlRelationalTableModel* self, int row
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseRemoveRows(QSqlRelationalTableModel* self, int row, int count, const QModelIndex* parent) {
+bool QSqlRelationalTableModel_SuperRemoveRows(QSqlRelationalTableModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RemoveRows_IsBase(true);
@@ -882,7 +882,7 @@ bool QSqlRelationalTableModel_InsertRows(QSqlRelationalTableModel* self, int row
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseInsertRows(QSqlRelationalTableModel* self, int row, int count, const QModelIndex* parent) {
+bool QSqlRelationalTableModel_SuperInsertRows(QSqlRelationalTableModel* self, int row, int count, const QModelIndex* parent) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_InsertRows_IsBase(true);
@@ -911,7 +911,7 @@ bool QSqlRelationalTableModel_SelectRow(QSqlRelationalTableModel* self, int row)
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseSelectRow(QSqlRelationalTableModel* self, int row) {
+bool QSqlRelationalTableModel_SuperSelectRow(QSqlRelationalTableModel* self, int row) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SelectRow_IsBase(true);
@@ -940,7 +940,7 @@ bool QSqlRelationalTableModel_Submit(QSqlRelationalTableModel* self) {
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseSubmit(QSqlRelationalTableModel* self) {
+bool QSqlRelationalTableModel_SuperSubmit(QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Submit_IsBase(true);
@@ -969,7 +969,7 @@ void QSqlRelationalTableModel_Revert(QSqlRelationalTableModel* self) {
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseRevert(QSqlRelationalTableModel* self) {
+void QSqlRelationalTableModel_SuperRevert(QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Revert_IsBase(true);
@@ -998,7 +998,7 @@ bool QSqlRelationalTableModel_DeleteRowFromTable(QSqlRelationalTableModel* self,
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseDeleteRowFromTable(QSqlRelationalTableModel* self, int row) {
+bool QSqlRelationalTableModel_SuperDeleteRowFromTable(QSqlRelationalTableModel* self, int row) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_DeleteRowFromTable_IsBase(true);
@@ -1026,7 +1026,7 @@ QModelIndex* QSqlRelationalTableModel_IndexInQuery(const QSqlRelationalTableMode
 }
 
 // Base class handler implementation
-QModelIndex* QSqlRelationalTableModel_QBaseIndexInQuery(const QSqlRelationalTableModel* self, const QModelIndex* item) {
+QModelIndex* QSqlRelationalTableModel_SuperIndexInQuery(const QSqlRelationalTableModel* self, const QModelIndex* item) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_IndexInQuery_IsBase(true);
@@ -1054,7 +1054,7 @@ int QSqlRelationalTableModel_ColumnCount(const QSqlRelationalTableModel* self, c
 }
 
 // Base class handler implementation
-int QSqlRelationalTableModel_QBaseColumnCount(const QSqlRelationalTableModel* self, const QModelIndex* parent) {
+int QSqlRelationalTableModel_SuperColumnCount(const QSqlRelationalTableModel* self, const QModelIndex* parent) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_ColumnCount_IsBase(true);
@@ -1083,7 +1083,7 @@ bool QSqlRelationalTableModel_SetHeaderData(QSqlRelationalTableModel* self, int 
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseSetHeaderData(QSqlRelationalTableModel* self, int section, int orientation, const QVariant* value, int role) {
+bool QSqlRelationalTableModel_SuperSetHeaderData(QSqlRelationalTableModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetHeaderData_IsBase(true);
@@ -1112,7 +1112,7 @@ bool QSqlRelationalTableModel_InsertColumns(QSqlRelationalTableModel* self, int 
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseInsertColumns(QSqlRelationalTableModel* self, int column, int count, const QModelIndex* parent) {
+bool QSqlRelationalTableModel_SuperInsertColumns(QSqlRelationalTableModel* self, int column, int count, const QModelIndex* parent) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_InsertColumns_IsBase(true);
@@ -1141,7 +1141,7 @@ void QSqlRelationalTableModel_FetchMore(QSqlRelationalTableModel* self, const QM
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseFetchMore(QSqlRelationalTableModel* self, const QModelIndex* parent) {
+void QSqlRelationalTableModel_SuperFetchMore(QSqlRelationalTableModel* self, const QModelIndex* parent) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_FetchMore_IsBase(true);
@@ -1170,7 +1170,7 @@ bool QSqlRelationalTableModel_CanFetchMore(const QSqlRelationalTableModel* self,
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseCanFetchMore(const QSqlRelationalTableModel* self, const QModelIndex* parent) {
+bool QSqlRelationalTableModel_SuperCanFetchMore(const QSqlRelationalTableModel* self, const QModelIndex* parent) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_CanFetchMore_IsBase(true);
@@ -1237,7 +1237,7 @@ libqt_map /* of int to libqt_string */ QSqlRelationalTableModel_RoleNames(const 
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ QSqlRelationalTableModel_QBaseRoleNames(const QSqlRelationalTableModel* self) {
+libqt_map /* of int to libqt_string */ QSqlRelationalTableModel_SuperRoleNames(const QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_RoleNames_IsBase(true);
@@ -1304,7 +1304,7 @@ void QSqlRelationalTableModel_QueryChange(QSqlRelationalTableModel* self) {
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseQueryChange(QSqlRelationalTableModel* self) {
+void QSqlRelationalTableModel_SuperQueryChange(QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_QueryChange_IsBase(true);
@@ -1333,7 +1333,7 @@ QModelIndex* QSqlRelationalTableModel_Index(const QSqlRelationalTableModel* self
 }
 
 // Base class handler implementation
-QModelIndex* QSqlRelationalTableModel_QBaseIndex(const QSqlRelationalTableModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* QSqlRelationalTableModel_SuperIndex(const QSqlRelationalTableModel* self, int row, int column, const QModelIndex* parent) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Index_IsBase(true);
@@ -1362,7 +1362,7 @@ QModelIndex* QSqlRelationalTableModel_Sibling(const QSqlRelationalTableModel* se
 }
 
 // Base class handler implementation
-QModelIndex* QSqlRelationalTableModel_QBaseSibling(const QSqlRelationalTableModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* QSqlRelationalTableModel_SuperSibling(const QSqlRelationalTableModel* self, int row, int column, const QModelIndex* idx) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Sibling_IsBase(true);
@@ -1391,7 +1391,7 @@ bool QSqlRelationalTableModel_DropMimeData(QSqlRelationalTableModel* self, const
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseDropMimeData(QSqlRelationalTableModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QSqlRelationalTableModel_SuperDropMimeData(QSqlRelationalTableModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_DropMimeData_IsBase(true);
@@ -1448,7 +1448,7 @@ libqt_map /* of int to QVariant* */ QSqlRelationalTableModel_ItemData(const QSql
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ QSqlRelationalTableModel_QBaseItemData(const QSqlRelationalTableModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ QSqlRelationalTableModel_SuperItemData(const QSqlRelationalTableModel* self, const QModelIndex* index) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_ItemData_IsBase(true);
@@ -1511,7 +1511,7 @@ bool QSqlRelationalTableModel_SetItemData(QSqlRelationalTableModel* self, const 
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseSetItemData(QSqlRelationalTableModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool QSqlRelationalTableModel_SuperSetItemData(QSqlRelationalTableModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -1580,7 +1580,7 @@ libqt_list /* of libqt_string */ QSqlRelationalTableModel_MimeTypes(const QSqlRe
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QSqlRelationalTableModel_QBaseMimeTypes(const QSqlRelationalTableModel* self) {
+libqt_list /* of libqt_string */ QSqlRelationalTableModel_SuperMimeTypes(const QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_MimeTypes_IsBase(true);
@@ -1649,7 +1649,7 @@ QMimeData* QSqlRelationalTableModel_MimeData(const QSqlRelationalTableModel* sel
 }
 
 // Base class handler implementation
-QMimeData* QSqlRelationalTableModel_QBaseMimeData(const QSqlRelationalTableModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* QSqlRelationalTableModel_SuperMimeData(const QSqlRelationalTableModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -1684,7 +1684,7 @@ bool QSqlRelationalTableModel_CanDropMimeData(const QSqlRelationalTableModel* se
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseCanDropMimeData(const QSqlRelationalTableModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool QSqlRelationalTableModel_SuperCanDropMimeData(const QSqlRelationalTableModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_CanDropMimeData_IsBase(true);
@@ -1713,7 +1713,7 @@ int QSqlRelationalTableModel_SupportedDropActions(const QSqlRelationalTableModel
 }
 
 // Base class handler implementation
-int QSqlRelationalTableModel_QBaseSupportedDropActions(const QSqlRelationalTableModel* self) {
+int QSqlRelationalTableModel_SuperSupportedDropActions(const QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SupportedDropActions_IsBase(true);
@@ -1742,7 +1742,7 @@ int QSqlRelationalTableModel_SupportedDragActions(const QSqlRelationalTableModel
 }
 
 // Base class handler implementation
-int QSqlRelationalTableModel_QBaseSupportedDragActions(const QSqlRelationalTableModel* self) {
+int QSqlRelationalTableModel_SuperSupportedDragActions(const QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SupportedDragActions_IsBase(true);
@@ -1771,7 +1771,7 @@ bool QSqlRelationalTableModel_MoveRows(QSqlRelationalTableModel* self, const QMo
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseMoveRows(QSqlRelationalTableModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QSqlRelationalTableModel_SuperMoveRows(QSqlRelationalTableModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_MoveRows_IsBase(true);
@@ -1800,7 +1800,7 @@ bool QSqlRelationalTableModel_MoveColumns(QSqlRelationalTableModel* self, const 
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseMoveColumns(QSqlRelationalTableModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool QSqlRelationalTableModel_SuperMoveColumns(QSqlRelationalTableModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_MoveColumns_IsBase(true);
@@ -1829,7 +1829,7 @@ QModelIndex* QSqlRelationalTableModel_Buddy(const QSqlRelationalTableModel* self
 }
 
 // Base class handler implementation
-QModelIndex* QSqlRelationalTableModel_QBaseBuddy(const QSqlRelationalTableModel* self, const QModelIndex* index) {
+QModelIndex* QSqlRelationalTableModel_SuperBuddy(const QSqlRelationalTableModel* self, const QModelIndex* index) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Buddy_IsBase(true);
@@ -1876,7 +1876,7 @@ libqt_list /* of QModelIndex* */ QSqlRelationalTableModel_Match(const QSqlRelati
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QSqlRelationalTableModel_QBaseMatch(const QSqlRelationalTableModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ QSqlRelationalTableModel_SuperMatch(const QSqlRelationalTableModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Match_IsBase(true);
@@ -1923,7 +1923,7 @@ QSize* QSqlRelationalTableModel_Span(const QSqlRelationalTableModel* self, const
 }
 
 // Base class handler implementation
-QSize* QSqlRelationalTableModel_QBaseSpan(const QSqlRelationalTableModel* self, const QModelIndex* index) {
+QSize* QSqlRelationalTableModel_SuperSpan(const QSqlRelationalTableModel* self, const QModelIndex* index) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Span_IsBase(true);
@@ -1952,7 +1952,7 @@ void QSqlRelationalTableModel_MultiData(const QSqlRelationalTableModel* self, co
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseMultiData(const QSqlRelationalTableModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void QSqlRelationalTableModel_SuperMultiData(const QSqlRelationalTableModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_MultiData_IsBase(true);
@@ -1981,7 +1981,7 @@ void QSqlRelationalTableModel_ResetInternalData(QSqlRelationalTableModel* self) 
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseResetInternalData(QSqlRelationalTableModel* self) {
+void QSqlRelationalTableModel_SuperResetInternalData(QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_ResetInternalData_IsBase(true);
@@ -2010,7 +2010,7 @@ bool QSqlRelationalTableModel_Event(QSqlRelationalTableModel* self, QEvent* even
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseEvent(QSqlRelationalTableModel* self, QEvent* event) {
+bool QSqlRelationalTableModel_SuperEvent(QSqlRelationalTableModel* self, QEvent* event) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Event_IsBase(true);
@@ -2039,7 +2039,7 @@ bool QSqlRelationalTableModel_EventFilter(QSqlRelationalTableModel* self, QObjec
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseEventFilter(QSqlRelationalTableModel* self, QObject* watched, QEvent* event) {
+bool QSqlRelationalTableModel_SuperEventFilter(QSqlRelationalTableModel* self, QObject* watched, QEvent* event) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_EventFilter_IsBase(true);
@@ -2068,7 +2068,7 @@ void QSqlRelationalTableModel_TimerEvent(QSqlRelationalTableModel* self, QTimerE
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseTimerEvent(QSqlRelationalTableModel* self, QTimerEvent* event) {
+void QSqlRelationalTableModel_SuperTimerEvent(QSqlRelationalTableModel* self, QTimerEvent* event) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_TimerEvent_IsBase(true);
@@ -2097,7 +2097,7 @@ void QSqlRelationalTableModel_ChildEvent(QSqlRelationalTableModel* self, QChildE
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseChildEvent(QSqlRelationalTableModel* self, QChildEvent* event) {
+void QSqlRelationalTableModel_SuperChildEvent(QSqlRelationalTableModel* self, QChildEvent* event) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_ChildEvent_IsBase(true);
@@ -2126,7 +2126,7 @@ void QSqlRelationalTableModel_CustomEvent(QSqlRelationalTableModel* self, QEvent
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseCustomEvent(QSqlRelationalTableModel* self, QEvent* event) {
+void QSqlRelationalTableModel_SuperCustomEvent(QSqlRelationalTableModel* self, QEvent* event) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_CustomEvent_IsBase(true);
@@ -2155,7 +2155,7 @@ void QSqlRelationalTableModel_ConnectNotify(QSqlRelationalTableModel* self, cons
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseConnectNotify(QSqlRelationalTableModel* self, const QMetaMethod* signal) {
+void QSqlRelationalTableModel_SuperConnectNotify(QSqlRelationalTableModel* self, const QMetaMethod* signal) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_ConnectNotify_IsBase(true);
@@ -2184,7 +2184,7 @@ void QSqlRelationalTableModel_DisconnectNotify(QSqlRelationalTableModel* self, c
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseDisconnectNotify(QSqlRelationalTableModel* self, const QMetaMethod* signal) {
+void QSqlRelationalTableModel_SuperDisconnectNotify(QSqlRelationalTableModel* self, const QMetaMethod* signal) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_DisconnectNotify_IsBase(true);
@@ -2213,7 +2213,7 @@ void QSqlRelationalTableModel_SetPrimaryKey(QSqlRelationalTableModel* self, cons
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseSetPrimaryKey(QSqlRelationalTableModel* self, const QSqlIndex* key) {
+void QSqlRelationalTableModel_SuperSetPrimaryKey(QSqlRelationalTableModel* self, const QSqlIndex* key) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetPrimaryKey_IsBase(true);
@@ -2241,7 +2241,7 @@ QSqlRecord* QSqlRelationalTableModel_PrimaryValues(const QSqlRelationalTableMode
 }
 
 // Base class handler implementation
-QSqlRecord* QSqlRelationalTableModel_QBasePrimaryValues(const QSqlRelationalTableModel* self, int row) {
+QSqlRecord* QSqlRelationalTableModel_SuperPrimaryValues(const QSqlRelationalTableModel* self, int row) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_PrimaryValues_IsBase(true);
@@ -2269,7 +2269,7 @@ void QSqlRelationalTableModel_BeginInsertRows(QSqlRelationalTableModel* self, co
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseBeginInsertRows(QSqlRelationalTableModel* self, const QModelIndex* parent, int first, int last) {
+void QSqlRelationalTableModel_SuperBeginInsertRows(QSqlRelationalTableModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_BeginInsertRows_IsBase(true);
@@ -2298,7 +2298,7 @@ void QSqlRelationalTableModel_EndInsertRows(QSqlRelationalTableModel* self) {
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseEndInsertRows(QSqlRelationalTableModel* self) {
+void QSqlRelationalTableModel_SuperEndInsertRows(QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_EndInsertRows_IsBase(true);
@@ -2327,7 +2327,7 @@ void QSqlRelationalTableModel_BeginRemoveRows(QSqlRelationalTableModel* self, co
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseBeginRemoveRows(QSqlRelationalTableModel* self, const QModelIndex* parent, int first, int last) {
+void QSqlRelationalTableModel_SuperBeginRemoveRows(QSqlRelationalTableModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_BeginRemoveRows_IsBase(true);
@@ -2356,7 +2356,7 @@ void QSqlRelationalTableModel_EndRemoveRows(QSqlRelationalTableModel* self) {
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseEndRemoveRows(QSqlRelationalTableModel* self) {
+void QSqlRelationalTableModel_SuperEndRemoveRows(QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_EndRemoveRows_IsBase(true);
@@ -2385,7 +2385,7 @@ void QSqlRelationalTableModel_BeginInsertColumns(QSqlRelationalTableModel* self,
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseBeginInsertColumns(QSqlRelationalTableModel* self, const QModelIndex* parent, int first, int last) {
+void QSqlRelationalTableModel_SuperBeginInsertColumns(QSqlRelationalTableModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_BeginInsertColumns_IsBase(true);
@@ -2414,7 +2414,7 @@ void QSqlRelationalTableModel_EndInsertColumns(QSqlRelationalTableModel* self) {
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseEndInsertColumns(QSqlRelationalTableModel* self) {
+void QSqlRelationalTableModel_SuperEndInsertColumns(QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_EndInsertColumns_IsBase(true);
@@ -2443,7 +2443,7 @@ void QSqlRelationalTableModel_BeginRemoveColumns(QSqlRelationalTableModel* self,
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseBeginRemoveColumns(QSqlRelationalTableModel* self, const QModelIndex* parent, int first, int last) {
+void QSqlRelationalTableModel_SuperBeginRemoveColumns(QSqlRelationalTableModel* self, const QModelIndex* parent, int first, int last) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_BeginRemoveColumns_IsBase(true);
@@ -2472,7 +2472,7 @@ void QSqlRelationalTableModel_EndRemoveColumns(QSqlRelationalTableModel* self) {
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseEndRemoveColumns(QSqlRelationalTableModel* self) {
+void QSqlRelationalTableModel_SuperEndRemoveColumns(QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_EndRemoveColumns_IsBase(true);
@@ -2501,7 +2501,7 @@ void QSqlRelationalTableModel_BeginResetModel(QSqlRelationalTableModel* self) {
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseBeginResetModel(QSqlRelationalTableModel* self) {
+void QSqlRelationalTableModel_SuperBeginResetModel(QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_BeginResetModel_IsBase(true);
@@ -2530,7 +2530,7 @@ void QSqlRelationalTableModel_EndResetModel(QSqlRelationalTableModel* self) {
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseEndResetModel(QSqlRelationalTableModel* self) {
+void QSqlRelationalTableModel_SuperEndResetModel(QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_EndResetModel_IsBase(true);
@@ -2559,7 +2559,7 @@ void QSqlRelationalTableModel_SetLastError(QSqlRelationalTableModel* self, const
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseSetLastError(QSqlRelationalTableModel* self, const QSqlError* errorVal) {
+void QSqlRelationalTableModel_SuperSetLastError(QSqlRelationalTableModel* self, const QSqlError* errorVal) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SetLastError_IsBase(true);
@@ -2587,7 +2587,7 @@ QModelIndex* QSqlRelationalTableModel_CreateIndex(const QSqlRelationalTableModel
 }
 
 // Base class handler implementation
-QModelIndex* QSqlRelationalTableModel_QBaseCreateIndex(const QSqlRelationalTableModel* self, int row, int column) {
+QModelIndex* QSqlRelationalTableModel_SuperCreateIndex(const QSqlRelationalTableModel* self, int row, int column) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_CreateIndex_IsBase(true);
@@ -2621,7 +2621,7 @@ void QSqlRelationalTableModel_EncodeData(const QSqlRelationalTableModel* self, c
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseEncodeData(const QSqlRelationalTableModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void QSqlRelationalTableModel_SuperEncodeData(const QSqlRelationalTableModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -2656,7 +2656,7 @@ bool QSqlRelationalTableModel_DecodeData(QSqlRelationalTableModel* self, int row
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseDecodeData(QSqlRelationalTableModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool QSqlRelationalTableModel_SuperDecodeData(QSqlRelationalTableModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_DecodeData_IsBase(true);
@@ -2685,7 +2685,7 @@ bool QSqlRelationalTableModel_BeginMoveRows(QSqlRelationalTableModel* self, cons
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseBeginMoveRows(QSqlRelationalTableModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool QSqlRelationalTableModel_SuperBeginMoveRows(QSqlRelationalTableModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_BeginMoveRows_IsBase(true);
@@ -2714,7 +2714,7 @@ void QSqlRelationalTableModel_EndMoveRows(QSqlRelationalTableModel* self) {
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseEndMoveRows(QSqlRelationalTableModel* self) {
+void QSqlRelationalTableModel_SuperEndMoveRows(QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_EndMoveRows_IsBase(true);
@@ -2743,7 +2743,7 @@ bool QSqlRelationalTableModel_BeginMoveColumns(QSqlRelationalTableModel* self, c
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseBeginMoveColumns(QSqlRelationalTableModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool QSqlRelationalTableModel_SuperBeginMoveColumns(QSqlRelationalTableModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_BeginMoveColumns_IsBase(true);
@@ -2772,7 +2772,7 @@ void QSqlRelationalTableModel_EndMoveColumns(QSqlRelationalTableModel* self) {
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseEndMoveColumns(QSqlRelationalTableModel* self) {
+void QSqlRelationalTableModel_SuperEndMoveColumns(QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_EndMoveColumns_IsBase(true);
@@ -2801,7 +2801,7 @@ void QSqlRelationalTableModel_ChangePersistentIndex(QSqlRelationalTableModel* se
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseChangePersistentIndex(QSqlRelationalTableModel* self, const QModelIndex* from, const QModelIndex* to) {
+void QSqlRelationalTableModel_SuperChangePersistentIndex(QSqlRelationalTableModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_ChangePersistentIndex_IsBase(true);
@@ -2842,7 +2842,7 @@ void QSqlRelationalTableModel_ChangePersistentIndexList(QSqlRelationalTableModel
 }
 
 // Base class handler implementation
-void QSqlRelationalTableModel_QBaseChangePersistentIndexList(QSqlRelationalTableModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void QSqlRelationalTableModel_SuperChangePersistentIndexList(QSqlRelationalTableModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2901,7 +2901,7 @@ libqt_list /* of QModelIndex* */ QSqlRelationalTableModel_PersistentIndexList(co
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QSqlRelationalTableModel_QBasePersistentIndexList(const QSqlRelationalTableModel* self) {
+libqt_list /* of QModelIndex* */ QSqlRelationalTableModel_SuperPersistentIndexList(const QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_PersistentIndexList_IsBase(true);
@@ -2948,7 +2948,7 @@ QObject* QSqlRelationalTableModel_Sender(const QSqlRelationalTableModel* self) {
 }
 
 // Base class handler implementation
-QObject* QSqlRelationalTableModel_QBaseSender(const QSqlRelationalTableModel* self) {
+QObject* QSqlRelationalTableModel_SuperSender(const QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Sender_IsBase(true);
@@ -2977,7 +2977,7 @@ int QSqlRelationalTableModel_SenderSignalIndex(const QSqlRelationalTableModel* s
 }
 
 // Base class handler implementation
-int QSqlRelationalTableModel_QBaseSenderSignalIndex(const QSqlRelationalTableModel* self) {
+int QSqlRelationalTableModel_SuperSenderSignalIndex(const QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SenderSignalIndex_IsBase(true);
@@ -3006,7 +3006,7 @@ int QSqlRelationalTableModel_Receivers(const QSqlRelationalTableModel* self, con
 }
 
 // Base class handler implementation
-int QSqlRelationalTableModel_QBaseReceivers(const QSqlRelationalTableModel* self, const char* signal) {
+int QSqlRelationalTableModel_SuperReceivers(const QSqlRelationalTableModel* self, const char* signal) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Receivers_IsBase(true);
@@ -3035,7 +3035,7 @@ bool QSqlRelationalTableModel_IsSignalConnected(const QSqlRelationalTableModel* 
 }
 
 // Base class handler implementation
-bool QSqlRelationalTableModel_QBaseIsSignalConnected(const QSqlRelationalTableModel* self, const QMetaMethod* signal) {
+bool QSqlRelationalTableModel_SuperIsSignalConnected(const QSqlRelationalTableModel* self, const QMetaMethod* signal) {
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_IsSignalConnected_IsBase(true);

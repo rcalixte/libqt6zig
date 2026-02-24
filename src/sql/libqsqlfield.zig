@@ -521,6 +521,10 @@ pub const qsqlfield = struct {
         return qtc.QSqlField_IsValid(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#dtor.QSqlField)
     ///
     /// Delete this object from C++ memory.
@@ -529,7 +533,7 @@ pub const qsqlfield = struct {
     ///
     /// ` self: QtC.QSqlField `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSqlField_Delete(@ptrCast(self));
     }
 };

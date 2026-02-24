@@ -48,6 +48,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -56,8 +60,8 @@ pub const qlayout = struct {
     ///
     /// ` self: QtC.QLayout `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QLayout_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QLayout_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -83,6 +87,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -91,9 +99,9 @@ pub const qlayout = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QLayout_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QLayout_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -122,6 +130,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -134,8 +146,8 @@ pub const qlayout = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QLayout_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QLayout_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -179,6 +191,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnSpacing(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSpacing` instead
+    ///
+    pub const QBaseSpacing = SuperSpacing;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#spacing)
     ///
     /// Base class method implementation
@@ -187,8 +203,8 @@ pub const qlayout = struct {
     ///
     /// ` self: QtC.QLayout `
     ///
-    pub fn QBaseSpacing(self: ?*anyopaque) i32 {
-        return qtc.QLayout_QBaseSpacing(@ptrCast(self));
+    pub fn SuperSpacing(self: ?*anyopaque) i32 {
+        return qtc.QLayout_SuperSpacing(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setSpacing)
@@ -217,6 +233,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnSetSpacing(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetSpacing` instead
+    ///
+    pub const QBaseSetSpacing = SuperSetSpacing;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setSpacing)
     ///
     /// Base class method implementation
@@ -227,8 +247,8 @@ pub const qlayout = struct {
     ///
     /// ` spacing: i32 `
     ///
-    pub fn QBaseSetSpacing(self: ?*anyopaque, spacing: i32) void {
-        qtc.QLayout_QBaseSetSpacing(@ptrCast(self), @bitCast(spacing));
+    pub fn SuperSetSpacing(self: ?*anyopaque, spacing: i32) void {
+        qtc.QLayout_SuperSetSpacing(@ptrCast(self), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
@@ -419,6 +439,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnInvalidate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInvalidate` instead
+    ///
+    pub const QBaseInvalidate = SuperInvalidate;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#invalidate)
     ///
     /// Base class method implementation
@@ -427,8 +451,8 @@ pub const qlayout = struct {
     ///
     /// ` self: QtC.QLayout `
     ///
-    pub fn QBaseInvalidate(self: ?*anyopaque) void {
-        qtc.QLayout_QBaseInvalidate(@ptrCast(self));
+    pub fn SuperInvalidate(self: ?*anyopaque) void {
+        qtc.QLayout_SuperInvalidate(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#geometry)
@@ -455,6 +479,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGeometry` instead
+    ///
+    pub const QBaseGeometry = SuperGeometry;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#geometry)
     ///
     /// Base class method implementation
@@ -463,8 +491,8 @@ pub const qlayout = struct {
     ///
     /// ` self: QtC.QLayout `
     ///
-    pub fn QBaseGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QLayout_QBaseGeometry(@ptrCast(self));
+    pub fn SuperGeometry(self: ?*anyopaque) QtC.QRect {
+        return qtc.QLayout_SuperGeometry(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#activate)
@@ -525,6 +553,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnAddItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAddItem` instead
+    ///
+    pub const QBaseAddItem = SuperAddItem;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addItem)
     ///
     /// Base class method implementation
@@ -535,8 +567,8 @@ pub const qlayout = struct {
     ///
     /// ` param1: QtC.QLayoutItem `
     ///
-    pub fn QBaseAddItem(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QLayout_QBaseAddItem(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperAddItem(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QLayout_SuperAddItem(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#removeWidget)
@@ -591,6 +623,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnExpandingDirections(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperExpandingDirections` instead
+    ///
+    pub const QBaseExpandingDirections = SuperExpandingDirections;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#expandingDirections)
     ///
     /// Base class method implementation
@@ -603,8 +639,8 @@ pub const qlayout = struct {
     ///
     /// ` flag of qnamespace_enums.Orientation `
     ///
-    pub fn QBaseExpandingDirections(self: ?*anyopaque) i32 {
-        return qtc.QLayout_QBaseExpandingDirections(@ptrCast(self));
+    pub fn SuperExpandingDirections(self: ?*anyopaque) i32 {
+        return qtc.QLayout_SuperExpandingDirections(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#minimumSize)
@@ -631,6 +667,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnMinimumSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSize` instead
+    ///
+    pub const QBaseMinimumSize = SuperMinimumSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#minimumSize)
     ///
     /// Base class method implementation
@@ -639,8 +679,8 @@ pub const qlayout = struct {
     ///
     /// ` self: QtC.QLayout `
     ///
-    pub fn QBaseMinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QLayout_QBaseMinimumSize(@ptrCast(self));
+    pub fn SuperMinimumSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QLayout_SuperMinimumSize(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#maximumSize)
@@ -667,6 +707,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnMaximumSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMaximumSize` instead
+    ///
+    pub const QBaseMaximumSize = SuperMaximumSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#maximumSize)
     ///
     /// Base class method implementation
@@ -675,8 +719,8 @@ pub const qlayout = struct {
     ///
     /// ` self: QtC.QLayout `
     ///
-    pub fn QBaseMaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QLayout_QBaseMaximumSize(@ptrCast(self));
+    pub fn SuperMaximumSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QLayout_SuperMaximumSize(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setGeometry)
@@ -705,6 +749,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnSetGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetGeometry` instead
+    ///
+    pub const QBaseSetGeometry = SuperSetGeometry;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setGeometry)
     ///
     /// Base class method implementation
@@ -715,8 +763,8 @@ pub const qlayout = struct {
     ///
     /// ` geometry: QtC.QRect `
     ///
-    pub fn QBaseSetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QLayout_QBaseSetGeometry(@ptrCast(self), @ptrCast(geometry));
+    pub fn SuperSetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
+        qtc.QLayout_SuperSetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#itemAt)
@@ -745,6 +793,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnItemAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperItemAt` instead
+    ///
+    pub const QBaseItemAt = SuperItemAt;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#itemAt)
     ///
     /// Base class method implementation
@@ -755,8 +807,8 @@ pub const qlayout = struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn QBaseItemAt(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
-        return qtc.QLayout_QBaseItemAt(@ptrCast(self), @bitCast(index));
+    pub fn SuperItemAt(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
+        return qtc.QLayout_SuperItemAt(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#takeAt)
@@ -785,6 +837,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnTakeAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperTakeAt` instead
+    ///
+    pub const QBaseTakeAt = SuperTakeAt;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#takeAt)
     ///
     /// Base class method implementation
@@ -795,8 +851,8 @@ pub const qlayout = struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn QBaseTakeAt(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
-        return qtc.QLayout_QBaseTakeAt(@ptrCast(self), @bitCast(index));
+    pub fn SuperTakeAt(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
+        return qtc.QLayout_SuperTakeAt(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
@@ -825,6 +881,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnIndexOf(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIndexOf` instead
+    ///
+    pub const QBaseIndexOf = SuperIndexOf;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Base class method implementation
@@ -835,8 +895,8 @@ pub const qlayout = struct {
     ///
     /// ` param1: QtC.QWidget `
     ///
-    pub fn QBaseIndexOf(self: ?*anyopaque, param1: ?*anyopaque) i32 {
-        return qtc.QLayout_QBaseIndexOf(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperIndexOf(self: ?*anyopaque, param1: ?*anyopaque) i32 {
+        return qtc.QLayout_SuperIndexOf(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
@@ -865,6 +925,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnIndexOf2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIndexOf2` instead
+    ///
+    pub const QBaseIndexOf2 = SuperIndexOf2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// Base class method implementation
@@ -875,8 +939,8 @@ pub const qlayout = struct {
     ///
     /// ` param1: QtC.QLayoutItem `
     ///
-    pub fn QBaseIndexOf2(self: ?*anyopaque, param1: ?*anyopaque) i32 {
-        return qtc.QLayout_QBaseIndexOf2(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperIndexOf2(self: ?*anyopaque, param1: ?*anyopaque) i32 {
+        return qtc.QLayout_SuperIndexOf2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#count)
@@ -903,6 +967,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCount` instead
+    ///
+    pub const QBaseCount = SuperCount;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#count)
     ///
     /// Base class method implementation
@@ -911,8 +979,8 @@ pub const qlayout = struct {
     ///
     /// ` self: QtC.QLayout `
     ///
-    pub fn QBaseCount(self: ?*anyopaque) i32 {
-        return qtc.QLayout_QBaseCount(@ptrCast(self));
+    pub fn SuperCount(self: ?*anyopaque) i32 {
+        return qtc.QLayout_SuperCount(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
@@ -939,6 +1007,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnIsEmpty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsEmpty` instead
+    ///
+    pub const QBaseIsEmpty = SuperIsEmpty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#isEmpty)
     ///
     /// Base class method implementation
@@ -947,8 +1019,8 @@ pub const qlayout = struct {
     ///
     /// ` self: QtC.QLayout `
     ///
-    pub fn QBaseIsEmpty(self: ?*anyopaque) bool {
-        return qtc.QLayout_QBaseIsEmpty(@ptrCast(self));
+    pub fn SuperIsEmpty(self: ?*anyopaque) bool {
+        return qtc.QLayout_SuperIsEmpty(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
@@ -979,6 +1051,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnControlTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperControlTypes` instead
+    ///
+    pub const QBaseControlTypes = SuperControlTypes;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
     ///
     /// Base class method implementation
@@ -991,8 +1067,8 @@ pub const qlayout = struct {
     ///
     /// ` flag of qsizepolicy_enums.ControlType `
     ///
-    pub fn QBaseControlTypes(self: ?*anyopaque) i32 {
-        return qtc.QLayout_QBaseControlTypes(@ptrCast(self));
+    pub fn SuperControlTypes(self: ?*anyopaque) i32 {
+        return qtc.QLayout_SuperControlTypes(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
@@ -1025,6 +1101,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnReplaceWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperReplaceWidget` instead
+    ///
+    pub const QBaseReplaceWidget = SuperReplaceWidget;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
     ///
     /// Base class method implementation
@@ -1039,8 +1119,8 @@ pub const qlayout = struct {
     ///
     /// ` options: flag of qnamespace_enums.FindChildOption `
     ///
-    pub fn QBaseReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i32) QtC.QLayoutItem {
-        return qtc.QLayout_QBaseReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @bitCast(options));
+    pub fn SuperReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i32) QtC.QLayoutItem {
+        return qtc.QLayout_SuperReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#totalMinimumHeightForWidth)
@@ -1121,6 +1201,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperLayout` instead
+    ///
+    pub const QBaseLayout = SuperLayout;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#layout)
     ///
     /// Base class method implementation
@@ -1129,8 +1213,8 @@ pub const qlayout = struct {
     ///
     /// ` self: QtC.QLayout `
     ///
-    pub fn QBaseLayout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QLayout_QBaseLayout(@ptrCast(self));
+    pub fn SuperLayout(self: ?*anyopaque) QtC.QLayout {
+        return qtc.QLayout_SuperLayout(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#setEnabled)
@@ -1193,6 +1277,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnWidgetEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWidgetEvent` instead
+    ///
+    pub const QBaseWidgetEvent = SuperWidgetEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
     ///
     /// Base class method implementation
@@ -1203,8 +1291,8 @@ pub const qlayout = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseWidgetEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QLayout_QBaseWidgetEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperWidgetEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QLayout_SuperWidgetEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#childEvent)
@@ -1233,6 +1321,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#childEvent)
     ///
     /// Base class method implementation
@@ -1243,8 +1335,8 @@ pub const qlayout = struct {
     ///
     /// ` e: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QLayout_QBaseChildEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperChildEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QLayout_SuperChildEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
@@ -1273,6 +1365,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnAddChildLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAddChildLayout` instead
+    ///
+    pub const QBaseAddChildLayout = SuperAddChildLayout;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
     ///
     /// Base class method implementation
@@ -1283,8 +1379,8 @@ pub const qlayout = struct {
     ///
     /// ` l: QtC.QLayout `
     ///
-    pub fn QBaseAddChildLayout(self: ?*anyopaque, l: ?*anyopaque) void {
-        qtc.QLayout_QBaseAddChildLayout(@ptrCast(self), @ptrCast(l));
+    pub fn SuperAddChildLayout(self: ?*anyopaque, l: ?*anyopaque) void {
+        qtc.QLayout_SuperAddChildLayout(@ptrCast(self), @ptrCast(l));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
@@ -1313,6 +1409,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnAddChildWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAddChildWidget` instead
+    ///
+    pub const QBaseAddChildWidget = SuperAddChildWidget;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
     ///
     /// Base class method implementation
@@ -1323,8 +1423,8 @@ pub const qlayout = struct {
     ///
     /// ` w: QtC.QWidget `
     ///
-    pub fn QBaseAddChildWidget(self: ?*anyopaque, w: ?*anyopaque) void {
-        qtc.QLayout_QBaseAddChildWidget(@ptrCast(self), @ptrCast(w));
+    pub fn SuperAddChildWidget(self: ?*anyopaque, w: ?*anyopaque) void {
+        qtc.QLayout_SuperAddChildWidget(@ptrCast(self), @ptrCast(w));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
@@ -1353,6 +1453,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnAdoptLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAdoptLayout` instead
+    ///
+    pub const QBaseAdoptLayout = SuperAdoptLayout;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
     ///
     /// Base class method implementation
@@ -1363,8 +1467,8 @@ pub const qlayout = struct {
     ///
     /// ` layout: QtC.QLayout `
     ///
-    pub fn QBaseAdoptLayout(self: ?*anyopaque, layout: ?*anyopaque) bool {
-        return qtc.QLayout_QBaseAdoptLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SuperAdoptLayout(self: ?*anyopaque, layout: ?*anyopaque) bool {
+        return qtc.QLayout_SuperAdoptLayout(@ptrCast(self), @ptrCast(layout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
@@ -1393,6 +1497,10 @@ pub const qlayout = struct {
         qtc.QLayout_OnAlignmentRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAlignmentRect` instead
+    ///
+    pub const QBaseAlignmentRect = SuperAlignmentRect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
     ///
     /// Base class method implementation
@@ -1403,8 +1511,8 @@ pub const qlayout = struct {
     ///
     /// ` param1: QtC.QRect `
     ///
-    pub fn QBaseAlignmentRect(self: ?*anyopaque, param1: ?*anyopaque) QtC.QRect {
-        return qtc.QLayout_QBaseAlignmentRect(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperAlignmentRect(self: ?*anyopaque, param1: ?*anyopaque) QtC.QRect {
+        return qtc.QLayout_SuperAlignmentRect(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2219,6 +2327,10 @@ pub const qlayout = struct {
         return qtc.QLayout_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -2231,8 +2343,8 @@ pub const qlayout = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QLayout_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QLayout_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2269,6 +2381,10 @@ pub const qlayout = struct {
         return qtc.QLayout_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -2283,8 +2399,8 @@ pub const qlayout = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QLayout_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QLayout_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2319,6 +2435,10 @@ pub const qlayout = struct {
         qtc.QLayout_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -2331,8 +2451,8 @@ pub const qlayout = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLayout_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QLayout_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2367,6 +2487,10 @@ pub const qlayout = struct {
         qtc.QLayout_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -2379,8 +2503,8 @@ pub const qlayout = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLayout_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QLayout_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2415,6 +2539,10 @@ pub const qlayout = struct {
         qtc.QLayout_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2427,8 +2555,8 @@ pub const qlayout = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QLayout_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QLayout_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2463,6 +2591,10 @@ pub const qlayout = struct {
         qtc.QLayout_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2475,8 +2607,8 @@ pub const qlayout = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QLayout_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QLayout_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2509,6 +2641,10 @@ pub const qlayout = struct {
         return qtc.QLayout_SizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#sizeHint)
@@ -2519,8 +2655,8 @@ pub const qlayout = struct {
     ///
     /// ` self: QtC.QLayout `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QLayout_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QLayout_SuperSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
@@ -2553,6 +2689,10 @@ pub const qlayout = struct {
         return qtc.QLayout_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
@@ -2563,8 +2703,8 @@ pub const qlayout = struct {
     ///
     /// ` self: QtC.QLayout `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QLayout_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.QLayout_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
@@ -2599,6 +2739,10 @@ pub const qlayout = struct {
         return qtc.QLayout_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
@@ -2611,8 +2755,8 @@ pub const qlayout = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QLayout_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QLayout_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QLayoutItem
@@ -2647,6 +2791,10 @@ pub const qlayout = struct {
         return qtc.QLayout_MinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumHeightForWidth` instead
+    ///
+    pub const QBaseMinimumHeightForWidth = SuperMinimumHeightForWidth;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
@@ -2659,8 +2807,8 @@ pub const qlayout = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseMinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QLayout_QBaseMinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QLayout_SuperMinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QLayoutItem
@@ -2693,6 +2841,10 @@ pub const qlayout = struct {
         return qtc.QLayout_Widget(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperWidget` instead
+    ///
+    pub const QBaseWidget = SuperWidget;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
@@ -2703,8 +2855,8 @@ pub const qlayout = struct {
     ///
     /// ` self: QtC.QLayout `
     ///
-    pub fn QBaseWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QLayout_QBaseWidget(@ptrCast(self));
+    pub fn SuperWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QLayout_SuperWidget(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
@@ -2737,6 +2889,10 @@ pub const qlayout = struct {
         return qtc.QLayout_SpacerItem(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSpacerItem` instead
+    ///
+    pub const QBaseSpacerItem = SuperSpacerItem;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
@@ -2747,8 +2903,8 @@ pub const qlayout = struct {
     ///
     /// ` self: QtC.QLayout `
     ///
-    pub fn QBaseSpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
-        return qtc.QLayout_QBaseSpacerItem(@ptrCast(self));
+    pub fn SuperSpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
+        return qtc.QLayout_SuperSpacerItem(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
@@ -2781,6 +2937,10 @@ pub const qlayout = struct {
         return qtc.QLayout_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2791,8 +2951,8 @@ pub const qlayout = struct {
     ///
     /// ` self: QtC.QLayout `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QLayout_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QLayout_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2825,6 +2985,10 @@ pub const qlayout = struct {
         return qtc.QLayout_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2835,8 +2999,8 @@ pub const qlayout = struct {
     ///
     /// ` self: QtC.QLayout `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QLayout_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QLayout_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2872,6 +3036,10 @@ pub const qlayout = struct {
         return qtc.QLayout_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2884,9 +3052,9 @@ pub const qlayout = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QLayout_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QLayout_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2921,6 +3089,10 @@ pub const qlayout = struct {
         return qtc.QLayout_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2933,8 +3105,8 @@ pub const qlayout = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QLayout_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QLayout_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2968,6 +3140,9 @@ pub const qlayout = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#dtor.QLayout)
     ///
@@ -2977,7 +3152,7 @@ pub const qlayout = struct {
     ///
     /// ` self: QtC.QLayout `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QLayout_Delete(@ptrCast(self));
     }
 };

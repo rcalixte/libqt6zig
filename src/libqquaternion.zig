@@ -614,6 +614,10 @@ pub const qquaternion = struct {
         return qtc.QQuaternion_Nlerp(@ptrCast(q1), @ptrCast(q2), @bitCast(t));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qquaternion.html#dtor.QQuaternion)
     ///
     /// Delete this object from C++ memory.
@@ -622,7 +626,7 @@ pub const qquaternion = struct {
     ///
     /// ` self: QtC.QQuaternion `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QQuaternion_Delete(@ptrCast(self));
     }
 };

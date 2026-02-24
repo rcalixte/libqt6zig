@@ -207,7 +207,7 @@ void KSvg__FrameSvg_PaintFrame22(KSvg__FrameSvg* self, QPainter* painter, const 
 }
 
 // Base class handler implementation
-QMetaObject* KSvg__FrameSvg_QBaseMetaObject(const KSvg__FrameSvg* self) {
+QMetaObject* KSvg__FrameSvg_SuperMetaObject(const KSvg__FrameSvg* self) {
     auto* vksvgframesvg = const_cast<VirtualKSvgFrameSvg*>(dynamic_cast<const VirtualKSvgFrameSvg*>(self));
     if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
         vksvgframesvg->setKSvg__FrameSvg_MetaObject_IsBase(true);
@@ -226,7 +226,7 @@ void KSvg__FrameSvg_OnMetaObject(const KSvg__FrameSvg* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KSvg__FrameSvg_QBaseMetacast(KSvg__FrameSvg* self, const char* param1) {
+void* KSvg__FrameSvg_SuperMetacast(KSvg__FrameSvg* self, const char* param1) {
     auto* vksvgframesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
     if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
         vksvgframesvg->setKSvg__FrameSvg_Metacast_IsBase(true);
@@ -245,7 +245,7 @@ void KSvg__FrameSvg_OnMetacast(KSvg__FrameSvg* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KSvg__FrameSvg_QBaseMetacall(KSvg__FrameSvg* self, int param1, int param2, void** param3) {
+int KSvg__FrameSvg_SuperMetacall(KSvg__FrameSvg* self, int param1, int param2, void** param3) {
     auto* vksvgframesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
     if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
         vksvgframesvg->setKSvg__FrameSvg_Metacall_IsBase(true);
@@ -264,7 +264,7 @@ void KSvg__FrameSvg_OnMetacall(KSvg__FrameSvg* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KSvg__FrameSvg_QBaseSetImagePath(KSvg__FrameSvg* self, const libqt_string path) {
+void KSvg__FrameSvg_SuperSetImagePath(KSvg__FrameSvg* self, const libqt_string path) {
     auto* vksvgframesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
     QString path_QString = QString::fromUtf8(path.data, path.len);
     if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
@@ -294,7 +294,7 @@ bool KSvg__FrameSvg_Event(KSvg__FrameSvg* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KSvg__FrameSvg_QBaseEvent(KSvg__FrameSvg* self, QEvent* event) {
+bool KSvg__FrameSvg_SuperEvent(KSvg__FrameSvg* self, QEvent* event) {
     auto* vksvgframesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
     if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
         vksvgframesvg->setKSvg__FrameSvg_Event_IsBase(true);
@@ -323,7 +323,7 @@ void KSvg__FrameSvg_TimerEvent(KSvg__FrameSvg* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KSvg__FrameSvg_QBaseTimerEvent(KSvg__FrameSvg* self, QTimerEvent* event) {
+void KSvg__FrameSvg_SuperTimerEvent(KSvg__FrameSvg* self, QTimerEvent* event) {
     auto* vksvgframesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
     if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
         vksvgframesvg->setKSvg__FrameSvg_TimerEvent_IsBase(true);
@@ -352,7 +352,7 @@ void KSvg__FrameSvg_ChildEvent(KSvg__FrameSvg* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KSvg__FrameSvg_QBaseChildEvent(KSvg__FrameSvg* self, QChildEvent* event) {
+void KSvg__FrameSvg_SuperChildEvent(KSvg__FrameSvg* self, QChildEvent* event) {
     auto* vksvgframesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
     if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
         vksvgframesvg->setKSvg__FrameSvg_ChildEvent_IsBase(true);
@@ -381,7 +381,7 @@ void KSvg__FrameSvg_CustomEvent(KSvg__FrameSvg* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KSvg__FrameSvg_QBaseCustomEvent(KSvg__FrameSvg* self, QEvent* event) {
+void KSvg__FrameSvg_SuperCustomEvent(KSvg__FrameSvg* self, QEvent* event) {
     auto* vksvgframesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
     if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
         vksvgframesvg->setKSvg__FrameSvg_CustomEvent_IsBase(true);
@@ -410,7 +410,7 @@ void KSvg__FrameSvg_ConnectNotify(KSvg__FrameSvg* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void KSvg__FrameSvg_QBaseConnectNotify(KSvg__FrameSvg* self, const QMetaMethod* signal) {
+void KSvg__FrameSvg_SuperConnectNotify(KSvg__FrameSvg* self, const QMetaMethod* signal) {
     auto* vksvgframesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
     if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
         vksvgframesvg->setKSvg__FrameSvg_ConnectNotify_IsBase(true);
@@ -439,7 +439,7 @@ void KSvg__FrameSvg_DisconnectNotify(KSvg__FrameSvg* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void KSvg__FrameSvg_QBaseDisconnectNotify(KSvg__FrameSvg* self, const QMetaMethod* signal) {
+void KSvg__FrameSvg_SuperDisconnectNotify(KSvg__FrameSvg* self, const QMetaMethod* signal) {
     auto* vksvgframesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
     if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
         vksvgframesvg->setKSvg__FrameSvg_DisconnectNotify_IsBase(true);
@@ -468,7 +468,7 @@ QObject* KSvg__FrameSvg_Sender(const KSvg__FrameSvg* self) {
 }
 
 // Base class handler implementation
-QObject* KSvg__FrameSvg_QBaseSender(const KSvg__FrameSvg* self) {
+QObject* KSvg__FrameSvg_SuperSender(const KSvg__FrameSvg* self) {
     auto* vksvgframesvg = const_cast<VirtualKSvgFrameSvg*>(dynamic_cast<const VirtualKSvgFrameSvg*>(self));
     if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
         vksvgframesvg->setKSvg__FrameSvg_Sender_IsBase(true);
@@ -497,7 +497,7 @@ int KSvg__FrameSvg_SenderSignalIndex(const KSvg__FrameSvg* self) {
 }
 
 // Base class handler implementation
-int KSvg__FrameSvg_QBaseSenderSignalIndex(const KSvg__FrameSvg* self) {
+int KSvg__FrameSvg_SuperSenderSignalIndex(const KSvg__FrameSvg* self) {
     auto* vksvgframesvg = const_cast<VirtualKSvgFrameSvg*>(dynamic_cast<const VirtualKSvgFrameSvg*>(self));
     if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
         vksvgframesvg->setKSvg__FrameSvg_SenderSignalIndex_IsBase(true);
@@ -526,7 +526,7 @@ int KSvg__FrameSvg_Receivers(const KSvg__FrameSvg* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KSvg__FrameSvg_QBaseReceivers(const KSvg__FrameSvg* self, const char* signal) {
+int KSvg__FrameSvg_SuperReceivers(const KSvg__FrameSvg* self, const char* signal) {
     auto* vksvgframesvg = const_cast<VirtualKSvgFrameSvg*>(dynamic_cast<const VirtualKSvgFrameSvg*>(self));
     if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
         vksvgframesvg->setKSvg__FrameSvg_Receivers_IsBase(true);
@@ -555,7 +555,7 @@ bool KSvg__FrameSvg_IsSignalConnected(const KSvg__FrameSvg* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool KSvg__FrameSvg_QBaseIsSignalConnected(const KSvg__FrameSvg* self, const QMetaMethod* signal) {
+bool KSvg__FrameSvg_SuperIsSignalConnected(const KSvg__FrameSvg* self, const QMetaMethod* signal) {
     auto* vksvgframesvg = const_cast<VirtualKSvgFrameSvg*>(dynamic_cast<const VirtualKSvgFrameSvg*>(self));
     if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
         vksvgframesvg->setKSvg__FrameSvg_IsSignalConnected_IsBase(true);

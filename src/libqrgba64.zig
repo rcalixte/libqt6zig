@@ -281,6 +281,10 @@ pub const qrgba64 = struct {
         qtc.QRgba64_OperatorAssign(@ptrCast(self), @bitCast(_rgba));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrgba64.html#dtor.QRgba64)
     ///
     /// Delete this object from C++ memory.
@@ -289,7 +293,7 @@ pub const qrgba64 = struct {
     ///
     /// ` self: QtC.QRgba64 `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QRgba64_Delete(@ptrCast(self));
     }
 };

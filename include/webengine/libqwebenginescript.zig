@@ -225,6 +225,10 @@ pub const qwebenginescript = struct {
         qtc.QWebEngineScript_Swap(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#dtor.QWebEngineScript)
     ///
     /// Delete this object from C++ memory.
@@ -233,7 +237,7 @@ pub const qwebenginescript = struct {
     ///
     /// ` self: QtC.QWebEngineScript `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebEngineScript_Delete(@ptrCast(self));
     }
 };

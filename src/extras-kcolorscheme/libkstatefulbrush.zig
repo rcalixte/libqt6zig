@@ -115,6 +115,10 @@ pub const kstatefulbrush = struct {
         return qtc.KStatefulBrush_Brush2(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kstatefulbrush.html#dtor.KStatefulBrush)
     ///
     /// Delete this object from C++ memory.
@@ -123,7 +127,7 @@ pub const kstatefulbrush = struct {
     ///
     /// ` self: QtC.KStatefulBrush `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KStatefulBrush_Delete(@ptrCast(self));
     }
 };

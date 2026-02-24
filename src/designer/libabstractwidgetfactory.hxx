@@ -460,23 +460,23 @@ class VirtualQDesignerWidgetFactoryInterface : public QDesignerWidgetFactoryInte
 
     // Friend functions
     friend void QDesignerWidgetFactoryInterface_TimerEvent(QDesignerWidgetFactoryInterface* self, QTimerEvent* event);
-    friend void QDesignerWidgetFactoryInterface_QBaseTimerEvent(QDesignerWidgetFactoryInterface* self, QTimerEvent* event);
+    friend void QDesignerWidgetFactoryInterface_SuperTimerEvent(QDesignerWidgetFactoryInterface* self, QTimerEvent* event);
     friend void QDesignerWidgetFactoryInterface_ChildEvent(QDesignerWidgetFactoryInterface* self, QChildEvent* event);
-    friend void QDesignerWidgetFactoryInterface_QBaseChildEvent(QDesignerWidgetFactoryInterface* self, QChildEvent* event);
+    friend void QDesignerWidgetFactoryInterface_SuperChildEvent(QDesignerWidgetFactoryInterface* self, QChildEvent* event);
     friend void QDesignerWidgetFactoryInterface_CustomEvent(QDesignerWidgetFactoryInterface* self, QEvent* event);
-    friend void QDesignerWidgetFactoryInterface_QBaseCustomEvent(QDesignerWidgetFactoryInterface* self, QEvent* event);
+    friend void QDesignerWidgetFactoryInterface_SuperCustomEvent(QDesignerWidgetFactoryInterface* self, QEvent* event);
     friend void QDesignerWidgetFactoryInterface_ConnectNotify(QDesignerWidgetFactoryInterface* self, const QMetaMethod* signal);
-    friend void QDesignerWidgetFactoryInterface_QBaseConnectNotify(QDesignerWidgetFactoryInterface* self, const QMetaMethod* signal);
+    friend void QDesignerWidgetFactoryInterface_SuperConnectNotify(QDesignerWidgetFactoryInterface* self, const QMetaMethod* signal);
     friend void QDesignerWidgetFactoryInterface_DisconnectNotify(QDesignerWidgetFactoryInterface* self, const QMetaMethod* signal);
-    friend void QDesignerWidgetFactoryInterface_QBaseDisconnectNotify(QDesignerWidgetFactoryInterface* self, const QMetaMethod* signal);
+    friend void QDesignerWidgetFactoryInterface_SuperDisconnectNotify(QDesignerWidgetFactoryInterface* self, const QMetaMethod* signal);
     friend QObject* QDesignerWidgetFactoryInterface_Sender(const QDesignerWidgetFactoryInterface* self);
-    friend QObject* QDesignerWidgetFactoryInterface_QBaseSender(const QDesignerWidgetFactoryInterface* self);
+    friend QObject* QDesignerWidgetFactoryInterface_SuperSender(const QDesignerWidgetFactoryInterface* self);
     friend int QDesignerWidgetFactoryInterface_SenderSignalIndex(const QDesignerWidgetFactoryInterface* self);
-    friend int QDesignerWidgetFactoryInterface_QBaseSenderSignalIndex(const QDesignerWidgetFactoryInterface* self);
+    friend int QDesignerWidgetFactoryInterface_SuperSenderSignalIndex(const QDesignerWidgetFactoryInterface* self);
     friend int QDesignerWidgetFactoryInterface_Receivers(const QDesignerWidgetFactoryInterface* self, const char* signal);
-    friend int QDesignerWidgetFactoryInterface_QBaseReceivers(const QDesignerWidgetFactoryInterface* self, const char* signal);
+    friend int QDesignerWidgetFactoryInterface_SuperReceivers(const QDesignerWidgetFactoryInterface* self, const char* signal);
     friend bool QDesignerWidgetFactoryInterface_IsSignalConnected(const QDesignerWidgetFactoryInterface* self, const QMetaMethod* signal);
-    friend bool QDesignerWidgetFactoryInterface_QBaseIsSignalConnected(const QDesignerWidgetFactoryInterface* self, const QMetaMethod* signal);
+    friend bool QDesignerWidgetFactoryInterface_SuperIsSignalConnected(const QDesignerWidgetFactoryInterface* self, const QMetaMethod* signal);
 };
 
 #endif

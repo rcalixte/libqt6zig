@@ -442,29 +442,29 @@ class VirtualQPlaceIdReply final : public QPlaceIdReply {
 
     // Friend functions
     friend void QPlaceIdReply_TimerEvent(QPlaceIdReply* self, QTimerEvent* event);
-    friend void QPlaceIdReply_QBaseTimerEvent(QPlaceIdReply* self, QTimerEvent* event);
+    friend void QPlaceIdReply_SuperTimerEvent(QPlaceIdReply* self, QTimerEvent* event);
     friend void QPlaceIdReply_ChildEvent(QPlaceIdReply* self, QChildEvent* event);
-    friend void QPlaceIdReply_QBaseChildEvent(QPlaceIdReply* self, QChildEvent* event);
+    friend void QPlaceIdReply_SuperChildEvent(QPlaceIdReply* self, QChildEvent* event);
     friend void QPlaceIdReply_CustomEvent(QPlaceIdReply* self, QEvent* event);
-    friend void QPlaceIdReply_QBaseCustomEvent(QPlaceIdReply* self, QEvent* event);
+    friend void QPlaceIdReply_SuperCustomEvent(QPlaceIdReply* self, QEvent* event);
     friend void QPlaceIdReply_ConnectNotify(QPlaceIdReply* self, const QMetaMethod* signal);
-    friend void QPlaceIdReply_QBaseConnectNotify(QPlaceIdReply* self, const QMetaMethod* signal);
+    friend void QPlaceIdReply_SuperConnectNotify(QPlaceIdReply* self, const QMetaMethod* signal);
     friend void QPlaceIdReply_DisconnectNotify(QPlaceIdReply* self, const QMetaMethod* signal);
-    friend void QPlaceIdReply_QBaseDisconnectNotify(QPlaceIdReply* self, const QMetaMethod* signal);
+    friend void QPlaceIdReply_SuperDisconnectNotify(QPlaceIdReply* self, const QMetaMethod* signal);
     friend void QPlaceIdReply_SetId(QPlaceIdReply* self, const libqt_string identifier);
-    friend void QPlaceIdReply_QBaseSetId(QPlaceIdReply* self, const libqt_string identifier);
+    friend void QPlaceIdReply_SuperSetId(QPlaceIdReply* self, const libqt_string identifier);
     friend void QPlaceIdReply_SetFinished(QPlaceIdReply* self, bool finished);
-    friend void QPlaceIdReply_QBaseSetFinished(QPlaceIdReply* self, bool finished);
+    friend void QPlaceIdReply_SuperSetFinished(QPlaceIdReply* self, bool finished);
     friend void QPlaceIdReply_SetError(QPlaceIdReply* self, int errorVal, const libqt_string errorString);
-    friend void QPlaceIdReply_QBaseSetError(QPlaceIdReply* self, int errorVal, const libqt_string errorString);
+    friend void QPlaceIdReply_SuperSetError(QPlaceIdReply* self, int errorVal, const libqt_string errorString);
     friend QObject* QPlaceIdReply_Sender(const QPlaceIdReply* self);
-    friend QObject* QPlaceIdReply_QBaseSender(const QPlaceIdReply* self);
+    friend QObject* QPlaceIdReply_SuperSender(const QPlaceIdReply* self);
     friend int QPlaceIdReply_SenderSignalIndex(const QPlaceIdReply* self);
-    friend int QPlaceIdReply_QBaseSenderSignalIndex(const QPlaceIdReply* self);
+    friend int QPlaceIdReply_SuperSenderSignalIndex(const QPlaceIdReply* self);
     friend int QPlaceIdReply_Receivers(const QPlaceIdReply* self, const char* signal);
-    friend int QPlaceIdReply_QBaseReceivers(const QPlaceIdReply* self, const char* signal);
+    friend int QPlaceIdReply_SuperReceivers(const QPlaceIdReply* self, const char* signal);
     friend bool QPlaceIdReply_IsSignalConnected(const QPlaceIdReply* self, const QMetaMethod* signal);
-    friend bool QPlaceIdReply_QBaseIsSignalConnected(const QPlaceIdReply* self, const QMetaMethod* signal);
+    friend bool QPlaceIdReply_SuperIsSignalConnected(const QPlaceIdReply* self, const QMetaMethod* signal);
 };
 
 #endif

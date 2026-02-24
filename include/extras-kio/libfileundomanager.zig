@@ -1204,6 +1204,10 @@ pub const kio__fileundomanager__uiinterface = struct {
         qtc.KIO__FileUndoManager__UiInterface_OnJobError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperJobError` instead
+    ///
+    pub const QBaseJobError = SuperJobError;
+
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager-uiinterface.html#jobError)
     ///
     /// Base class method implementation
@@ -1214,8 +1218,8 @@ pub const kio__fileundomanager__uiinterface = struct {
     ///
     /// ` job: QtC.KIO__Job `
     ///
-    pub fn QBaseJobError(self: ?*anyopaque, job: ?*anyopaque) void {
-        qtc.KIO__FileUndoManager__UiInterface_QBaseJobError(@ptrCast(self), @ptrCast(job));
+    pub fn SuperJobError(self: ?*anyopaque, job: ?*anyopaque) void {
+        qtc.KIO__FileUndoManager__UiInterface_SuperJobError(@ptrCast(self), @ptrCast(job));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager-uiinterface.html#copiedFileWasModified)
@@ -1250,6 +1254,10 @@ pub const kio__fileundomanager__uiinterface = struct {
         qtc.KIO__FileUndoManager__UiInterface_OnCopiedFileWasModified(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCopiedFileWasModified` instead
+    ///
+    pub const QBaseCopiedFileWasModified = SuperCopiedFileWasModified;
+
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager-uiinterface.html#copiedFileWasModified)
     ///
     /// Base class method implementation
@@ -1266,8 +1274,8 @@ pub const kio__fileundomanager__uiinterface = struct {
     ///
     /// ` destTime: QtC.QDateTime `
     ///
-    pub fn QBaseCopiedFileWasModified(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, srcTime: ?*anyopaque, destTime: ?*anyopaque) bool {
-        return qtc.KIO__FileUndoManager__UiInterface_QBaseCopiedFileWasModified(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @ptrCast(srcTime), @ptrCast(destTime));
+    pub fn SuperCopiedFileWasModified(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, srcTime: ?*anyopaque, destTime: ?*anyopaque) bool {
+        return qtc.KIO__FileUndoManager__UiInterface_SuperCopiedFileWasModified(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @ptrCast(srcTime), @ptrCast(destTime));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager-uiinterface.html#virtual_hook)
@@ -1298,6 +1306,10 @@ pub const kio__fileundomanager__uiinterface = struct {
         qtc.KIO__FileUndoManager__UiInterface_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperVirtualHook` instead
+    ///
+    pub const QBaseVirtualHook = SuperVirtualHook;
+
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager-uiinterface.html#virtual_hook)
     ///
     /// Base class method implementation
@@ -1310,9 +1322,12 @@ pub const kio__fileundomanager__uiinterface = struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KIO__FileUndoManager__UiInterface_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
+    pub fn SuperVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
+        qtc.KIO__FileUndoManager__UiInterface_SuperVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -1320,7 +1335,7 @@ pub const kio__fileundomanager__uiinterface = struct {
     ///
     /// ` self: QtC.KIO__FileUndoManager__UiInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KIO__FileUndoManager__UiInterface_Delete(@ptrCast(self));
     }
 };

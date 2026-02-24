@@ -313,6 +313,10 @@ pub const qresource = struct {
         return qtc.QResource_UnregisterResource23(@ptrCast(rccData), resourceRoot_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#dtor.QResource)
     ///
     /// Delete this object from C++ memory.
@@ -321,7 +325,7 @@ pub const qresource = struct {
     ///
     /// ` self: QtC.QResource `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QResource_Delete(@ptrCast(self));
     }
 };

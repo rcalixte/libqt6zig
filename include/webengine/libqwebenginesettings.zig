@@ -233,6 +233,10 @@ pub const qwebenginesettings = struct {
         qtc.QWebEngineSettings_ResetImageAnimationPolicy(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#dtor.QWebEngineSettings)
     ///
     /// Delete this object from C++ memory.
@@ -241,7 +245,7 @@ pub const qwebenginesettings = struct {
     ///
     /// ` self: QtC.QWebEngineSettings `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebEngineSettings_Delete(@ptrCast(self));
     }
 };

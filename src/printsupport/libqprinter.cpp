@@ -322,7 +322,7 @@ int QPrinter_Metric(const QPrinter* self, int param1) {
 }
 
 // Base class handler implementation
-int QPrinter_QBaseDevType(const QPrinter* self) {
+int QPrinter_SuperDevType(const QPrinter* self) {
     auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
     if (vqprinter && vqprinter->isVirtualQPrinter) {
         vqprinter->setQPrinter_DevType_IsBase(true);
@@ -341,7 +341,7 @@ void QPrinter_OnDevType(const QPrinter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QPrinter_QBaseNewPage(QPrinter* self) {
+bool QPrinter_SuperNewPage(QPrinter* self) {
     auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
     if (vqprinter && vqprinter->isVirtualQPrinter) {
         vqprinter->setQPrinter_NewPage_IsBase(true);
@@ -360,7 +360,7 @@ void QPrinter_OnNewPage(QPrinter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPaintEngine* QPrinter_QBasePaintEngine(const QPrinter* self) {
+QPaintEngine* QPrinter_SuperPaintEngine(const QPrinter* self) {
     auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
     if (vqprinter && vqprinter->isVirtualQPrinter) {
         vqprinter->setQPrinter_PaintEngine_IsBase(true);
@@ -379,7 +379,7 @@ void QPrinter_OnPaintEngine(const QPrinter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPrinter_QBaseMetric(const QPrinter* self, int param1) {
+int QPrinter_SuperMetric(const QPrinter* self, int param1) {
     auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
     if (vqprinter && vqprinter->isVirtualQPrinter) {
         vqprinter->setQPrinter_Metric_IsBase(true);
@@ -408,7 +408,7 @@ bool QPrinter_SetPageLayout(QPrinter* self, const QPageLayout* pageLayout) {
 }
 
 // Base class handler implementation
-bool QPrinter_QBaseSetPageLayout(QPrinter* self, const QPageLayout* pageLayout) {
+bool QPrinter_SuperSetPageLayout(QPrinter* self, const QPageLayout* pageLayout) {
     auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
     if (vqprinter && vqprinter->isVirtualQPrinter) {
         vqprinter->setQPrinter_SetPageLayout_IsBase(true);
@@ -437,7 +437,7 @@ bool QPrinter_SetPageSize(QPrinter* self, const QPageSize* pageSize) {
 }
 
 // Base class handler implementation
-bool QPrinter_QBaseSetPageSize(QPrinter* self, const QPageSize* pageSize) {
+bool QPrinter_SuperSetPageSize(QPrinter* self, const QPageSize* pageSize) {
     auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
     if (vqprinter && vqprinter->isVirtualQPrinter) {
         vqprinter->setQPrinter_SetPageSize_IsBase(true);
@@ -466,7 +466,7 @@ bool QPrinter_SetPageOrientation(QPrinter* self, int orientation) {
 }
 
 // Base class handler implementation
-bool QPrinter_QBaseSetPageOrientation(QPrinter* self, int orientation) {
+bool QPrinter_SuperSetPageOrientation(QPrinter* self, int orientation) {
     auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
     if (vqprinter && vqprinter->isVirtualQPrinter) {
         vqprinter->setQPrinter_SetPageOrientation_IsBase(true);
@@ -495,7 +495,7 @@ bool QPrinter_SetPageMargins(QPrinter* self, const QMarginsF* margins, int units
 }
 
 // Base class handler implementation
-bool QPrinter_QBaseSetPageMargins(QPrinter* self, const QMarginsF* margins, int units) {
+bool QPrinter_SuperSetPageMargins(QPrinter* self, const QMarginsF* margins, int units) {
     auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
     if (vqprinter && vqprinter->isVirtualQPrinter) {
         vqprinter->setQPrinter_SetPageMargins_IsBase(true);
@@ -524,7 +524,7 @@ void QPrinter_SetPageRanges(QPrinter* self, const QPageRanges* ranges) {
 }
 
 // Base class handler implementation
-void QPrinter_QBaseSetPageRanges(QPrinter* self, const QPageRanges* ranges) {
+void QPrinter_SuperSetPageRanges(QPrinter* self, const QPageRanges* ranges) {
     auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
     if (vqprinter && vqprinter->isVirtualQPrinter) {
         vqprinter->setQPrinter_SetPageRanges_IsBase(true);
@@ -553,7 +553,7 @@ void QPrinter_InitPainter(const QPrinter* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QPrinter_QBaseInitPainter(const QPrinter* self, QPainter* painter) {
+void QPrinter_SuperInitPainter(const QPrinter* self, QPainter* painter) {
     auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
     if (vqprinter && vqprinter->isVirtualQPrinter) {
         vqprinter->setQPrinter_InitPainter_IsBase(true);
@@ -582,7 +582,7 @@ QPaintDevice* QPrinter_Redirected(const QPrinter* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QPrinter_QBaseRedirected(const QPrinter* self, QPoint* offset) {
+QPaintDevice* QPrinter_SuperRedirected(const QPrinter* self, QPoint* offset) {
     auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
     if (vqprinter && vqprinter->isVirtualQPrinter) {
         vqprinter->setQPrinter_Redirected_IsBase(true);
@@ -611,7 +611,7 @@ QPainter* QPrinter_SharedPainter(const QPrinter* self) {
 }
 
 // Base class handler implementation
-QPainter* QPrinter_QBaseSharedPainter(const QPrinter* self) {
+QPainter* QPrinter_SuperSharedPainter(const QPrinter* self) {
     auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
     if (vqprinter && vqprinter->isVirtualQPrinter) {
         vqprinter->setQPrinter_SharedPainter_IsBase(true);
@@ -640,7 +640,7 @@ void QPrinter_SetEngines(QPrinter* self, QPrintEngine* printEngine, QPaintEngine
 }
 
 // Base class handler implementation
-void QPrinter_QBaseSetEngines(QPrinter* self, QPrintEngine* printEngine, QPaintEngine* paintEngine) {
+void QPrinter_SuperSetEngines(QPrinter* self, QPrintEngine* printEngine, QPaintEngine* paintEngine) {
     auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
     if (vqprinter && vqprinter->isVirtualQPrinter) {
         vqprinter->setQPrinter_SetEngines_IsBase(true);
@@ -669,7 +669,7 @@ double QPrinter_GetDecodedMetricF(const QPrinter* self, int metricA, int metricB
 }
 
 // Base class handler implementation
-double QPrinter_QBaseGetDecodedMetricF(const QPrinter* self, int metricA, int metricB) {
+double QPrinter_SuperGetDecodedMetricF(const QPrinter* self, int metricA, int metricB) {
     auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
     if (vqprinter && vqprinter->isVirtualQPrinter) {
         vqprinter->setQPrinter_GetDecodedMetricF_IsBase(true);

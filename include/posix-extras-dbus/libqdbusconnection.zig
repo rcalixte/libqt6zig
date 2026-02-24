@@ -906,6 +906,10 @@ pub const qdbusconnection = struct {
         return qtc.QDBusConnection_RegisterVirtualObject3(@ptrCast(self), path_str, @ptrCast(object), @bitCast(options));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#dtor.QDBusConnection)
     ///
     /// Delete this object from C++ memory.
@@ -914,7 +918,7 @@ pub const qdbusconnection = struct {
     ///
     /// ` self: QtC.QDBusConnection `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDBusConnection_Delete(@ptrCast(self));
     }
 };

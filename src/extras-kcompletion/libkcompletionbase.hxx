@@ -283,15 +283,15 @@ class VirtualKCompletionBase : public KCompletionBase {
 
     // Friend functions
     friend void KCompletionBase_VirtualHook(KCompletionBase* self, int id, void* data);
-    friend void KCompletionBase_QBaseVirtualHook(KCompletionBase* self, int id, void* data);
+    friend void KCompletionBase_SuperVirtualHook(KCompletionBase* self, int id, void* data);
     friend libqt_map /* of int to libqt_list of QKeySequence* */ KCompletionBase_KeyBindingMap(const KCompletionBase* self);
-    friend libqt_map /* of int to libqt_list of QKeySequence* */ KCompletionBase_QBaseKeyBindingMap(const KCompletionBase* self);
+    friend libqt_map /* of int to libqt_list of QKeySequence* */ KCompletionBase_SuperKeyBindingMap(const KCompletionBase* self);
     friend void KCompletionBase_SetKeyBindingMap(KCompletionBase* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
-    friend void KCompletionBase_QBaseSetKeyBindingMap(KCompletionBase* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
+    friend void KCompletionBase_SuperSetKeyBindingMap(KCompletionBase* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
     friend void KCompletionBase_SetDelegate(KCompletionBase* self, KCompletionBase* delegate);
-    friend void KCompletionBase_QBaseSetDelegate(KCompletionBase* self, KCompletionBase* delegate);
+    friend void KCompletionBase_SuperSetDelegate(KCompletionBase* self, KCompletionBase* delegate);
     friend KCompletionBase* KCompletionBase_Delegate(const KCompletionBase* self);
-    friend KCompletionBase* KCompletionBase_QBaseDelegate(const KCompletionBase* self);
+    friend KCompletionBase* KCompletionBase_SuperDelegate(const KCompletionBase* self);
 };
 
 #endif

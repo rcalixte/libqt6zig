@@ -477,25 +477,25 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
 
     // Friend functions
     friend void QItemSelectionModel_TimerEvent(QItemSelectionModel* self, QTimerEvent* event);
-    friend void QItemSelectionModel_QBaseTimerEvent(QItemSelectionModel* self, QTimerEvent* event);
+    friend void QItemSelectionModel_SuperTimerEvent(QItemSelectionModel* self, QTimerEvent* event);
     friend void QItemSelectionModel_ChildEvent(QItemSelectionModel* self, QChildEvent* event);
-    friend void QItemSelectionModel_QBaseChildEvent(QItemSelectionModel* self, QChildEvent* event);
+    friend void QItemSelectionModel_SuperChildEvent(QItemSelectionModel* self, QChildEvent* event);
     friend void QItemSelectionModel_CustomEvent(QItemSelectionModel* self, QEvent* event);
-    friend void QItemSelectionModel_QBaseCustomEvent(QItemSelectionModel* self, QEvent* event);
+    friend void QItemSelectionModel_SuperCustomEvent(QItemSelectionModel* self, QEvent* event);
     friend void QItemSelectionModel_ConnectNotify(QItemSelectionModel* self, const QMetaMethod* signal);
-    friend void QItemSelectionModel_QBaseConnectNotify(QItemSelectionModel* self, const QMetaMethod* signal);
+    friend void QItemSelectionModel_SuperConnectNotify(QItemSelectionModel* self, const QMetaMethod* signal);
     friend void QItemSelectionModel_DisconnectNotify(QItemSelectionModel* self, const QMetaMethod* signal);
-    friend void QItemSelectionModel_QBaseDisconnectNotify(QItemSelectionModel* self, const QMetaMethod* signal);
+    friend void QItemSelectionModel_SuperDisconnectNotify(QItemSelectionModel* self, const QMetaMethod* signal);
     friend void QItemSelectionModel_EmitSelectionChanged(QItemSelectionModel* self, const QItemSelection* newSelection, const QItemSelection* oldSelection);
-    friend void QItemSelectionModel_QBaseEmitSelectionChanged(QItemSelectionModel* self, const QItemSelection* newSelection, const QItemSelection* oldSelection);
+    friend void QItemSelectionModel_SuperEmitSelectionChanged(QItemSelectionModel* self, const QItemSelection* newSelection, const QItemSelection* oldSelection);
     friend QObject* QItemSelectionModel_Sender(const QItemSelectionModel* self);
-    friend QObject* QItemSelectionModel_QBaseSender(const QItemSelectionModel* self);
+    friend QObject* QItemSelectionModel_SuperSender(const QItemSelectionModel* self);
     friend int QItemSelectionModel_SenderSignalIndex(const QItemSelectionModel* self);
-    friend int QItemSelectionModel_QBaseSenderSignalIndex(const QItemSelectionModel* self);
+    friend int QItemSelectionModel_SuperSenderSignalIndex(const QItemSelectionModel* self);
     friend int QItemSelectionModel_Receivers(const QItemSelectionModel* self, const char* signal);
-    friend int QItemSelectionModel_QBaseReceivers(const QItemSelectionModel* self, const char* signal);
+    friend int QItemSelectionModel_SuperReceivers(const QItemSelectionModel* self, const char* signal);
     friend bool QItemSelectionModel_IsSignalConnected(const QItemSelectionModel* self, const QMetaMethod* signal);
-    friend bool QItemSelectionModel_QBaseIsSignalConnected(const QItemSelectionModel* self, const QMetaMethod* signal);
+    friend bool QItemSelectionModel_SuperIsSignalConnected(const QItemSelectionModel* self, const QMetaMethod* signal);
 };
 
 #endif

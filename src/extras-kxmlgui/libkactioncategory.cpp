@@ -138,7 +138,7 @@ QAction* KActionCategory_AddAction34(KActionCategory* self, const libqt_string n
 }
 
 // Base class handler implementation
-QMetaObject* KActionCategory_QBaseMetaObject(const KActionCategory* self) {
+QMetaObject* KActionCategory_SuperMetaObject(const KActionCategory* self) {
     auto* vkactioncategory = const_cast<VirtualKActionCategory*>(dynamic_cast<const VirtualKActionCategory*>(self));
     if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
         vkactioncategory->setKActionCategory_MetaObject_IsBase(true);
@@ -157,7 +157,7 @@ void KActionCategory_OnMetaObject(const KActionCategory* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KActionCategory_QBaseMetacast(KActionCategory* self, const char* param1) {
+void* KActionCategory_SuperMetacast(KActionCategory* self, const char* param1) {
     auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
     if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
         vkactioncategory->setKActionCategory_Metacast_IsBase(true);
@@ -176,7 +176,7 @@ void KActionCategory_OnMetacast(KActionCategory* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KActionCategory_QBaseMetacall(KActionCategory* self, int param1, int param2, void** param3) {
+int KActionCategory_SuperMetacall(KActionCategory* self, int param1, int param2, void** param3) {
     auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
     if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
         vkactioncategory->setKActionCategory_Metacall_IsBase(true);
@@ -205,7 +205,7 @@ bool KActionCategory_Event(KActionCategory* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KActionCategory_QBaseEvent(KActionCategory* self, QEvent* event) {
+bool KActionCategory_SuperEvent(KActionCategory* self, QEvent* event) {
     auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
     if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
         vkactioncategory->setKActionCategory_Event_IsBase(true);
@@ -234,7 +234,7 @@ bool KActionCategory_EventFilter(KActionCategory* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool KActionCategory_QBaseEventFilter(KActionCategory* self, QObject* watched, QEvent* event) {
+bool KActionCategory_SuperEventFilter(KActionCategory* self, QObject* watched, QEvent* event) {
     auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
     if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
         vkactioncategory->setKActionCategory_EventFilter_IsBase(true);
@@ -263,7 +263,7 @@ void KActionCategory_TimerEvent(KActionCategory* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KActionCategory_QBaseTimerEvent(KActionCategory* self, QTimerEvent* event) {
+void KActionCategory_SuperTimerEvent(KActionCategory* self, QTimerEvent* event) {
     auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
     if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
         vkactioncategory->setKActionCategory_TimerEvent_IsBase(true);
@@ -292,7 +292,7 @@ void KActionCategory_ChildEvent(KActionCategory* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KActionCategory_QBaseChildEvent(KActionCategory* self, QChildEvent* event) {
+void KActionCategory_SuperChildEvent(KActionCategory* self, QChildEvent* event) {
     auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
     if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
         vkactioncategory->setKActionCategory_ChildEvent_IsBase(true);
@@ -321,7 +321,7 @@ void KActionCategory_CustomEvent(KActionCategory* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KActionCategory_QBaseCustomEvent(KActionCategory* self, QEvent* event) {
+void KActionCategory_SuperCustomEvent(KActionCategory* self, QEvent* event) {
     auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
     if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
         vkactioncategory->setKActionCategory_CustomEvent_IsBase(true);
@@ -350,7 +350,7 @@ void KActionCategory_ConnectNotify(KActionCategory* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KActionCategory_QBaseConnectNotify(KActionCategory* self, const QMetaMethod* signal) {
+void KActionCategory_SuperConnectNotify(KActionCategory* self, const QMetaMethod* signal) {
     auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
     if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
         vkactioncategory->setKActionCategory_ConnectNotify_IsBase(true);
@@ -379,7 +379,7 @@ void KActionCategory_DisconnectNotify(KActionCategory* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KActionCategory_QBaseDisconnectNotify(KActionCategory* self, const QMetaMethod* signal) {
+void KActionCategory_SuperDisconnectNotify(KActionCategory* self, const QMetaMethod* signal) {
     auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
     if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
         vkactioncategory->setKActionCategory_DisconnectNotify_IsBase(true);
@@ -408,7 +408,7 @@ QObject* KActionCategory_Sender(const KActionCategory* self) {
 }
 
 // Base class handler implementation
-QObject* KActionCategory_QBaseSender(const KActionCategory* self) {
+QObject* KActionCategory_SuperSender(const KActionCategory* self) {
     auto* vkactioncategory = const_cast<VirtualKActionCategory*>(dynamic_cast<const VirtualKActionCategory*>(self));
     if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
         vkactioncategory->setKActionCategory_Sender_IsBase(true);
@@ -437,7 +437,7 @@ int KActionCategory_SenderSignalIndex(const KActionCategory* self) {
 }
 
 // Base class handler implementation
-int KActionCategory_QBaseSenderSignalIndex(const KActionCategory* self) {
+int KActionCategory_SuperSenderSignalIndex(const KActionCategory* self) {
     auto* vkactioncategory = const_cast<VirtualKActionCategory*>(dynamic_cast<const VirtualKActionCategory*>(self));
     if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
         vkactioncategory->setKActionCategory_SenderSignalIndex_IsBase(true);
@@ -466,7 +466,7 @@ int KActionCategory_Receivers(const KActionCategory* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KActionCategory_QBaseReceivers(const KActionCategory* self, const char* signal) {
+int KActionCategory_SuperReceivers(const KActionCategory* self, const char* signal) {
     auto* vkactioncategory = const_cast<VirtualKActionCategory*>(dynamic_cast<const VirtualKActionCategory*>(self));
     if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
         vkactioncategory->setKActionCategory_Receivers_IsBase(true);
@@ -495,7 +495,7 @@ bool KActionCategory_IsSignalConnected(const KActionCategory* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KActionCategory_QBaseIsSignalConnected(const KActionCategory* self, const QMetaMethod* signal) {
+bool KActionCategory_SuperIsSignalConnected(const KActionCategory* self, const QMetaMethod* signal) {
     auto* vkactioncategory = const_cast<VirtualKActionCategory*>(dynamic_cast<const VirtualKActionCategory*>(self));
     if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
         vkactioncategory->setKActionCategory_IsSignalConnected_IsBase(true);

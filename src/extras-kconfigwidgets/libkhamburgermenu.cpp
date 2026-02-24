@@ -105,7 +105,7 @@ QWidget* KHamburgerMenu_CreateWidget(KHamburgerMenu* self, QWidget* parent) {
 }
 
 // Base class handler implementation
-QMetaObject* KHamburgerMenu_QBaseMetaObject(const KHamburgerMenu* self) {
+QMetaObject* KHamburgerMenu_SuperMetaObject(const KHamburgerMenu* self) {
     auto* vkhamburgermenu = const_cast<VirtualKHamburgerMenu*>(dynamic_cast<const VirtualKHamburgerMenu*>(self));
     if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
         vkhamburgermenu->setKHamburgerMenu_MetaObject_IsBase(true);
@@ -124,7 +124,7 @@ void KHamburgerMenu_OnMetaObject(const KHamburgerMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KHamburgerMenu_QBaseMetacast(KHamburgerMenu* self, const char* param1) {
+void* KHamburgerMenu_SuperMetacast(KHamburgerMenu* self, const char* param1) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
     if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
         vkhamburgermenu->setKHamburgerMenu_Metacast_IsBase(true);
@@ -143,7 +143,7 @@ void KHamburgerMenu_OnMetacast(KHamburgerMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KHamburgerMenu_QBaseMetacall(KHamburgerMenu* self, int param1, int param2, void** param3) {
+int KHamburgerMenu_SuperMetacall(KHamburgerMenu* self, int param1, int param2, void** param3) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
     if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
         vkhamburgermenu->setKHamburgerMenu_Metacall_IsBase(true);
@@ -162,7 +162,7 @@ void KHamburgerMenu_OnMetacall(KHamburgerMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QWidget* KHamburgerMenu_QBaseCreateWidget(KHamburgerMenu* self, QWidget* parent) {
+QWidget* KHamburgerMenu_SuperCreateWidget(KHamburgerMenu* self, QWidget* parent) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
     if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
         vkhamburgermenu->setKHamburgerMenu_CreateWidget_IsBase(true);
@@ -191,7 +191,7 @@ bool KHamburgerMenu_Event(KHamburgerMenu* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool KHamburgerMenu_QBaseEvent(KHamburgerMenu* self, QEvent* param1) {
+bool KHamburgerMenu_SuperEvent(KHamburgerMenu* self, QEvent* param1) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
     if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
         vkhamburgermenu->setKHamburgerMenu_Event_IsBase(true);
@@ -220,7 +220,7 @@ bool KHamburgerMenu_EventFilter(KHamburgerMenu* self, QObject* param1, QEvent* p
 }
 
 // Base class handler implementation
-bool KHamburgerMenu_QBaseEventFilter(KHamburgerMenu* self, QObject* param1, QEvent* param2) {
+bool KHamburgerMenu_SuperEventFilter(KHamburgerMenu* self, QObject* param1, QEvent* param2) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
     if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
         vkhamburgermenu->setKHamburgerMenu_EventFilter_IsBase(true);
@@ -249,7 +249,7 @@ void KHamburgerMenu_DeleteWidget(KHamburgerMenu* self, QWidget* widget) {
 }
 
 // Base class handler implementation
-void KHamburgerMenu_QBaseDeleteWidget(KHamburgerMenu* self, QWidget* widget) {
+void KHamburgerMenu_SuperDeleteWidget(KHamburgerMenu* self, QWidget* widget) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
     if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
         vkhamburgermenu->setKHamburgerMenu_DeleteWidget_IsBase(true);
@@ -278,7 +278,7 @@ void KHamburgerMenu_TimerEvent(KHamburgerMenu* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KHamburgerMenu_QBaseTimerEvent(KHamburgerMenu* self, QTimerEvent* event) {
+void KHamburgerMenu_SuperTimerEvent(KHamburgerMenu* self, QTimerEvent* event) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
     if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
         vkhamburgermenu->setKHamburgerMenu_TimerEvent_IsBase(true);
@@ -307,7 +307,7 @@ void KHamburgerMenu_ChildEvent(KHamburgerMenu* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KHamburgerMenu_QBaseChildEvent(KHamburgerMenu* self, QChildEvent* event) {
+void KHamburgerMenu_SuperChildEvent(KHamburgerMenu* self, QChildEvent* event) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
     if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
         vkhamburgermenu->setKHamburgerMenu_ChildEvent_IsBase(true);
@@ -336,7 +336,7 @@ void KHamburgerMenu_CustomEvent(KHamburgerMenu* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KHamburgerMenu_QBaseCustomEvent(KHamburgerMenu* self, QEvent* event) {
+void KHamburgerMenu_SuperCustomEvent(KHamburgerMenu* self, QEvent* event) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
     if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
         vkhamburgermenu->setKHamburgerMenu_CustomEvent_IsBase(true);
@@ -365,7 +365,7 @@ void KHamburgerMenu_ConnectNotify(KHamburgerMenu* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void KHamburgerMenu_QBaseConnectNotify(KHamburgerMenu* self, const QMetaMethod* signal) {
+void KHamburgerMenu_SuperConnectNotify(KHamburgerMenu* self, const QMetaMethod* signal) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
     if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
         vkhamburgermenu->setKHamburgerMenu_ConnectNotify_IsBase(true);
@@ -394,7 +394,7 @@ void KHamburgerMenu_DisconnectNotify(KHamburgerMenu* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void KHamburgerMenu_QBaseDisconnectNotify(KHamburgerMenu* self, const QMetaMethod* signal) {
+void KHamburgerMenu_SuperDisconnectNotify(KHamburgerMenu* self, const QMetaMethod* signal) {
     auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
     if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
         vkhamburgermenu->setKHamburgerMenu_DisconnectNotify_IsBase(true);
@@ -441,7 +441,7 @@ libqt_list /* of QWidget* */ KHamburgerMenu_CreatedWidgets(const KHamburgerMenu*
 }
 
 // Base class handler implementation
-libqt_list /* of QWidget* */ KHamburgerMenu_QBaseCreatedWidgets(const KHamburgerMenu* self) {
+libqt_list /* of QWidget* */ KHamburgerMenu_SuperCreatedWidgets(const KHamburgerMenu* self) {
     auto* vkhamburgermenu = const_cast<VirtualKHamburgerMenu*>(dynamic_cast<const VirtualKHamburgerMenu*>(self));
     if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
         vkhamburgermenu->setKHamburgerMenu_CreatedWidgets_IsBase(true);
@@ -488,7 +488,7 @@ QObject* KHamburgerMenu_Sender(const KHamburgerMenu* self) {
 }
 
 // Base class handler implementation
-QObject* KHamburgerMenu_QBaseSender(const KHamburgerMenu* self) {
+QObject* KHamburgerMenu_SuperSender(const KHamburgerMenu* self) {
     auto* vkhamburgermenu = const_cast<VirtualKHamburgerMenu*>(dynamic_cast<const VirtualKHamburgerMenu*>(self));
     if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
         vkhamburgermenu->setKHamburgerMenu_Sender_IsBase(true);
@@ -517,7 +517,7 @@ int KHamburgerMenu_SenderSignalIndex(const KHamburgerMenu* self) {
 }
 
 // Base class handler implementation
-int KHamburgerMenu_QBaseSenderSignalIndex(const KHamburgerMenu* self) {
+int KHamburgerMenu_SuperSenderSignalIndex(const KHamburgerMenu* self) {
     auto* vkhamburgermenu = const_cast<VirtualKHamburgerMenu*>(dynamic_cast<const VirtualKHamburgerMenu*>(self));
     if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
         vkhamburgermenu->setKHamburgerMenu_SenderSignalIndex_IsBase(true);
@@ -546,7 +546,7 @@ int KHamburgerMenu_Receivers(const KHamburgerMenu* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KHamburgerMenu_QBaseReceivers(const KHamburgerMenu* self, const char* signal) {
+int KHamburgerMenu_SuperReceivers(const KHamburgerMenu* self, const char* signal) {
     auto* vkhamburgermenu = const_cast<VirtualKHamburgerMenu*>(dynamic_cast<const VirtualKHamburgerMenu*>(self));
     if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
         vkhamburgermenu->setKHamburgerMenu_Receivers_IsBase(true);
@@ -575,7 +575,7 @@ bool KHamburgerMenu_IsSignalConnected(const KHamburgerMenu* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool KHamburgerMenu_QBaseIsSignalConnected(const KHamburgerMenu* self, const QMetaMethod* signal) {
+bool KHamburgerMenu_SuperIsSignalConnected(const KHamburgerMenu* self, const QMetaMethod* signal) {
     auto* vkhamburgermenu = const_cast<VirtualKHamburgerMenu*>(dynamic_cast<const VirtualKHamburgerMenu*>(self));
     if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
         vkhamburgermenu->setKHamburgerMenu_IsSignalConnected_IsBase(true);

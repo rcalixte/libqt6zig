@@ -328,23 +328,23 @@ class VirtualAccountsAccountService final : public Accounts::AccountService {
 
     // Friend functions
     friend void Accounts__AccountService_TimerEvent(Accounts::AccountService* self, QTimerEvent* event);
-    friend void Accounts__AccountService_QBaseTimerEvent(Accounts::AccountService* self, QTimerEvent* event);
+    friend void Accounts__AccountService_SuperTimerEvent(Accounts::AccountService* self, QTimerEvent* event);
     friend void Accounts__AccountService_ChildEvent(Accounts::AccountService* self, QChildEvent* event);
-    friend void Accounts__AccountService_QBaseChildEvent(Accounts::AccountService* self, QChildEvent* event);
+    friend void Accounts__AccountService_SuperChildEvent(Accounts::AccountService* self, QChildEvent* event);
     friend void Accounts__AccountService_CustomEvent(Accounts::AccountService* self, QEvent* event);
-    friend void Accounts__AccountService_QBaseCustomEvent(Accounts::AccountService* self, QEvent* event);
+    friend void Accounts__AccountService_SuperCustomEvent(Accounts::AccountService* self, QEvent* event);
     friend void Accounts__AccountService_ConnectNotify(Accounts::AccountService* self, const QMetaMethod* signal);
-    friend void Accounts__AccountService_QBaseConnectNotify(Accounts::AccountService* self, const QMetaMethod* signal);
+    friend void Accounts__AccountService_SuperConnectNotify(Accounts::AccountService* self, const QMetaMethod* signal);
     friend void Accounts__AccountService_DisconnectNotify(Accounts::AccountService* self, const QMetaMethod* signal);
-    friend void Accounts__AccountService_QBaseDisconnectNotify(Accounts::AccountService* self, const QMetaMethod* signal);
+    friend void Accounts__AccountService_SuperDisconnectNotify(Accounts::AccountService* self, const QMetaMethod* signal);
     friend QObject* Accounts__AccountService_Sender(const Accounts::AccountService* self);
-    friend QObject* Accounts__AccountService_QBaseSender(const Accounts::AccountService* self);
+    friend QObject* Accounts__AccountService_SuperSender(const Accounts::AccountService* self);
     friend int Accounts__AccountService_SenderSignalIndex(const Accounts::AccountService* self);
-    friend int Accounts__AccountService_QBaseSenderSignalIndex(const Accounts::AccountService* self);
+    friend int Accounts__AccountService_SuperSenderSignalIndex(const Accounts::AccountService* self);
     friend int Accounts__AccountService_Receivers(const Accounts::AccountService* self, const char* signal);
-    friend int Accounts__AccountService_QBaseReceivers(const Accounts::AccountService* self, const char* signal);
+    friend int Accounts__AccountService_SuperReceivers(const Accounts::AccountService* self, const char* signal);
     friend bool Accounts__AccountService_IsSignalConnected(const Accounts::AccountService* self, const QMetaMethod* signal);
-    friend bool Accounts__AccountService_QBaseIsSignalConnected(const Accounts::AccountService* self, const QMetaMethod* signal);
+    friend bool Accounts__AccountService_SuperIsSignalConnected(const Accounts::AccountService* self, const QMetaMethod* signal);
 };
 
 #endif

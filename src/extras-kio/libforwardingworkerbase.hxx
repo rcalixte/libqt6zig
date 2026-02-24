@@ -1077,31 +1077,31 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
 
     // Friend functions
     friend bool KIO__ForwardingWorkerBase_RewriteUrl(KIO::ForwardingWorkerBase* self, const QUrl* url, QUrl* newURL);
-    friend bool KIO__ForwardingWorkerBase_QBaseRewriteUrl(KIO::ForwardingWorkerBase* self, const QUrl* url, QUrl* newURL);
+    friend bool KIO__ForwardingWorkerBase_SuperRewriteUrl(KIO::ForwardingWorkerBase* self, const QUrl* url, QUrl* newURL);
     friend void KIO__ForwardingWorkerBase_AdjustUDSEntry(const KIO::ForwardingWorkerBase* self, KIO__UDSEntry* entry, int creationMode);
-    friend void KIO__ForwardingWorkerBase_QBaseAdjustUDSEntry(const KIO::ForwardingWorkerBase* self, KIO__UDSEntry* entry, int creationMode);
+    friend void KIO__ForwardingWorkerBase_SuperAdjustUDSEntry(const KIO::ForwardingWorkerBase* self, KIO__UDSEntry* entry, int creationMode);
     friend void KIO__ForwardingWorkerBase_TimerEvent(KIO::ForwardingWorkerBase* self, QTimerEvent* event);
-    friend void KIO__ForwardingWorkerBase_QBaseTimerEvent(KIO::ForwardingWorkerBase* self, QTimerEvent* event);
+    friend void KIO__ForwardingWorkerBase_SuperTimerEvent(KIO::ForwardingWorkerBase* self, QTimerEvent* event);
     friend void KIO__ForwardingWorkerBase_ChildEvent(KIO::ForwardingWorkerBase* self, QChildEvent* event);
-    friend void KIO__ForwardingWorkerBase_QBaseChildEvent(KIO::ForwardingWorkerBase* self, QChildEvent* event);
+    friend void KIO__ForwardingWorkerBase_SuperChildEvent(KIO::ForwardingWorkerBase* self, QChildEvent* event);
     friend void KIO__ForwardingWorkerBase_CustomEvent(KIO::ForwardingWorkerBase* self, QEvent* event);
-    friend void KIO__ForwardingWorkerBase_QBaseCustomEvent(KIO::ForwardingWorkerBase* self, QEvent* event);
+    friend void KIO__ForwardingWorkerBase_SuperCustomEvent(KIO::ForwardingWorkerBase* self, QEvent* event);
     friend void KIO__ForwardingWorkerBase_ConnectNotify(KIO::ForwardingWorkerBase* self, const QMetaMethod* signal);
-    friend void KIO__ForwardingWorkerBase_QBaseConnectNotify(KIO::ForwardingWorkerBase* self, const QMetaMethod* signal);
+    friend void KIO__ForwardingWorkerBase_SuperConnectNotify(KIO::ForwardingWorkerBase* self, const QMetaMethod* signal);
     friend void KIO__ForwardingWorkerBase_DisconnectNotify(KIO::ForwardingWorkerBase* self, const QMetaMethod* signal);
-    friend void KIO__ForwardingWorkerBase_QBaseDisconnectNotify(KIO::ForwardingWorkerBase* self, const QMetaMethod* signal);
+    friend void KIO__ForwardingWorkerBase_SuperDisconnectNotify(KIO::ForwardingWorkerBase* self, const QMetaMethod* signal);
     friend QUrl* KIO__ForwardingWorkerBase_ProcessedUrl(const KIO::ForwardingWorkerBase* self);
-    friend QUrl* KIO__ForwardingWorkerBase_QBaseProcessedUrl(const KIO::ForwardingWorkerBase* self);
+    friend QUrl* KIO__ForwardingWorkerBase_SuperProcessedUrl(const KIO::ForwardingWorkerBase* self);
     friend QUrl* KIO__ForwardingWorkerBase_RequestedUrl(const KIO::ForwardingWorkerBase* self);
-    friend QUrl* KIO__ForwardingWorkerBase_QBaseRequestedUrl(const KIO::ForwardingWorkerBase* self);
+    friend QUrl* KIO__ForwardingWorkerBase_SuperRequestedUrl(const KIO::ForwardingWorkerBase* self);
     friend QObject* KIO__ForwardingWorkerBase_Sender(const KIO::ForwardingWorkerBase* self);
-    friend QObject* KIO__ForwardingWorkerBase_QBaseSender(const KIO::ForwardingWorkerBase* self);
+    friend QObject* KIO__ForwardingWorkerBase_SuperSender(const KIO::ForwardingWorkerBase* self);
     friend int KIO__ForwardingWorkerBase_SenderSignalIndex(const KIO::ForwardingWorkerBase* self);
-    friend int KIO__ForwardingWorkerBase_QBaseSenderSignalIndex(const KIO::ForwardingWorkerBase* self);
+    friend int KIO__ForwardingWorkerBase_SuperSenderSignalIndex(const KIO::ForwardingWorkerBase* self);
     friend int KIO__ForwardingWorkerBase_Receivers(const KIO::ForwardingWorkerBase* self, const char* signal);
-    friend int KIO__ForwardingWorkerBase_QBaseReceivers(const KIO::ForwardingWorkerBase* self, const char* signal);
+    friend int KIO__ForwardingWorkerBase_SuperReceivers(const KIO::ForwardingWorkerBase* self, const char* signal);
     friend bool KIO__ForwardingWorkerBase_IsSignalConnected(const KIO::ForwardingWorkerBase* self, const QMetaMethod* signal);
-    friend bool KIO__ForwardingWorkerBase_QBaseIsSignalConnected(const KIO::ForwardingWorkerBase* self, const QMetaMethod* signal);
+    friend bool KIO__ForwardingWorkerBase_SuperIsSignalConnected(const KIO::ForwardingWorkerBase* self, const QMetaMethod* signal);
 };
 
 #endif

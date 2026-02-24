@@ -386,23 +386,23 @@ class VirtualKEmailValidator final : public KEmailValidator {
 
     // Friend functions
     friend void KEmailValidator_TimerEvent(KEmailValidator* self, QTimerEvent* event);
-    friend void KEmailValidator_QBaseTimerEvent(KEmailValidator* self, QTimerEvent* event);
+    friend void KEmailValidator_SuperTimerEvent(KEmailValidator* self, QTimerEvent* event);
     friend void KEmailValidator_ChildEvent(KEmailValidator* self, QChildEvent* event);
-    friend void KEmailValidator_QBaseChildEvent(KEmailValidator* self, QChildEvent* event);
+    friend void KEmailValidator_SuperChildEvent(KEmailValidator* self, QChildEvent* event);
     friend void KEmailValidator_CustomEvent(KEmailValidator* self, QEvent* event);
-    friend void KEmailValidator_QBaseCustomEvent(KEmailValidator* self, QEvent* event);
+    friend void KEmailValidator_SuperCustomEvent(KEmailValidator* self, QEvent* event);
     friend void KEmailValidator_ConnectNotify(KEmailValidator* self, const QMetaMethod* signal);
-    friend void KEmailValidator_QBaseConnectNotify(KEmailValidator* self, const QMetaMethod* signal);
+    friend void KEmailValidator_SuperConnectNotify(KEmailValidator* self, const QMetaMethod* signal);
     friend void KEmailValidator_DisconnectNotify(KEmailValidator* self, const QMetaMethod* signal);
-    friend void KEmailValidator_QBaseDisconnectNotify(KEmailValidator* self, const QMetaMethod* signal);
+    friend void KEmailValidator_SuperDisconnectNotify(KEmailValidator* self, const QMetaMethod* signal);
     friend QObject* KEmailValidator_Sender(const KEmailValidator* self);
-    friend QObject* KEmailValidator_QBaseSender(const KEmailValidator* self);
+    friend QObject* KEmailValidator_SuperSender(const KEmailValidator* self);
     friend int KEmailValidator_SenderSignalIndex(const KEmailValidator* self);
-    friend int KEmailValidator_QBaseSenderSignalIndex(const KEmailValidator* self);
+    friend int KEmailValidator_SuperSenderSignalIndex(const KEmailValidator* self);
     friend int KEmailValidator_Receivers(const KEmailValidator* self, const char* signal);
-    friend int KEmailValidator_QBaseReceivers(const KEmailValidator* self, const char* signal);
+    friend int KEmailValidator_SuperReceivers(const KEmailValidator* self, const char* signal);
     friend bool KEmailValidator_IsSignalConnected(const KEmailValidator* self, const QMetaMethod* signal);
-    friend bool KEmailValidator_QBaseIsSignalConnected(const KEmailValidator* self, const QMetaMethod* signal);
+    friend bool KEmailValidator_SuperIsSignalConnected(const KEmailValidator* self, const QMetaMethod* signal);
 };
 
 #endif

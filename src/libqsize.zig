@@ -356,6 +356,10 @@ pub const qsize = struct {
         return qtc.QSize_ToSizeF(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#dtor.QSize)
     ///
     /// Delete this object from C++ memory.
@@ -364,7 +368,7 @@ pub const qsize = struct {
     ///
     /// ` self: QtC.QSize `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSize_Delete(@ptrCast(self));
     }
 };
@@ -733,6 +737,10 @@ pub const qsizef = struct {
         return qtc.QSizeF_ToSize(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html#dtor.QSizeF)
     ///
     /// Delete this object from C++ memory.
@@ -741,7 +749,7 @@ pub const qsizef = struct {
     ///
     /// ` self: QtC.QSizeF `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSizeF_Delete(@ptrCast(self));
     }
 };

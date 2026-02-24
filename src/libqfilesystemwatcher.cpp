@@ -179,7 +179,7 @@ libqt_list /* of libqt_string */ QFileSystemWatcher_Directories(const QFileSyste
 }
 
 // Base class handler implementation
-QMetaObject* QFileSystemWatcher_QBaseMetaObject(const QFileSystemWatcher* self) {
+QMetaObject* QFileSystemWatcher_SuperMetaObject(const QFileSystemWatcher* self) {
     auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
     if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
         vqfilesystemwatcher->setQFileSystemWatcher_MetaObject_IsBase(true);
@@ -198,7 +198,7 @@ void QFileSystemWatcher_OnMetaObject(const QFileSystemWatcher* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* QFileSystemWatcher_QBaseMetacast(QFileSystemWatcher* self, const char* param1) {
+void* QFileSystemWatcher_SuperMetacast(QFileSystemWatcher* self, const char* param1) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
     if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
         vqfilesystemwatcher->setQFileSystemWatcher_Metacast_IsBase(true);
@@ -217,7 +217,7 @@ void QFileSystemWatcher_OnMetacast(QFileSystemWatcher* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QFileSystemWatcher_QBaseMetacall(QFileSystemWatcher* self, int param1, int param2, void** param3) {
+int QFileSystemWatcher_SuperMetacall(QFileSystemWatcher* self, int param1, int param2, void** param3) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
     if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
         vqfilesystemwatcher->setQFileSystemWatcher_Metacall_IsBase(true);
@@ -246,7 +246,7 @@ bool QFileSystemWatcher_Event(QFileSystemWatcher* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QFileSystemWatcher_QBaseEvent(QFileSystemWatcher* self, QEvent* event) {
+bool QFileSystemWatcher_SuperEvent(QFileSystemWatcher* self, QEvent* event) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
     if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
         vqfilesystemwatcher->setQFileSystemWatcher_Event_IsBase(true);
@@ -275,7 +275,7 @@ bool QFileSystemWatcher_EventFilter(QFileSystemWatcher* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool QFileSystemWatcher_QBaseEventFilter(QFileSystemWatcher* self, QObject* watched, QEvent* event) {
+bool QFileSystemWatcher_SuperEventFilter(QFileSystemWatcher* self, QObject* watched, QEvent* event) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
     if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
         vqfilesystemwatcher->setQFileSystemWatcher_EventFilter_IsBase(true);
@@ -304,7 +304,7 @@ void QFileSystemWatcher_TimerEvent(QFileSystemWatcher* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void QFileSystemWatcher_QBaseTimerEvent(QFileSystemWatcher* self, QTimerEvent* event) {
+void QFileSystemWatcher_SuperTimerEvent(QFileSystemWatcher* self, QTimerEvent* event) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
     if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
         vqfilesystemwatcher->setQFileSystemWatcher_TimerEvent_IsBase(true);
@@ -333,7 +333,7 @@ void QFileSystemWatcher_ChildEvent(QFileSystemWatcher* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void QFileSystemWatcher_QBaseChildEvent(QFileSystemWatcher* self, QChildEvent* event) {
+void QFileSystemWatcher_SuperChildEvent(QFileSystemWatcher* self, QChildEvent* event) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
     if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
         vqfilesystemwatcher->setQFileSystemWatcher_ChildEvent_IsBase(true);
@@ -362,7 +362,7 @@ void QFileSystemWatcher_CustomEvent(QFileSystemWatcher* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QFileSystemWatcher_QBaseCustomEvent(QFileSystemWatcher* self, QEvent* event) {
+void QFileSystemWatcher_SuperCustomEvent(QFileSystemWatcher* self, QEvent* event) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
     if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
         vqfilesystemwatcher->setQFileSystemWatcher_CustomEvent_IsBase(true);
@@ -391,7 +391,7 @@ void QFileSystemWatcher_ConnectNotify(QFileSystemWatcher* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void QFileSystemWatcher_QBaseConnectNotify(QFileSystemWatcher* self, const QMetaMethod* signal) {
+void QFileSystemWatcher_SuperConnectNotify(QFileSystemWatcher* self, const QMetaMethod* signal) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
     if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
         vqfilesystemwatcher->setQFileSystemWatcher_ConnectNotify_IsBase(true);
@@ -420,7 +420,7 @@ void QFileSystemWatcher_DisconnectNotify(QFileSystemWatcher* self, const QMetaMe
 }
 
 // Base class handler implementation
-void QFileSystemWatcher_QBaseDisconnectNotify(QFileSystemWatcher* self, const QMetaMethod* signal) {
+void QFileSystemWatcher_SuperDisconnectNotify(QFileSystemWatcher* self, const QMetaMethod* signal) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
     if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
         vqfilesystemwatcher->setQFileSystemWatcher_DisconnectNotify_IsBase(true);
@@ -449,7 +449,7 @@ QObject* QFileSystemWatcher_Sender(const QFileSystemWatcher* self) {
 }
 
 // Base class handler implementation
-QObject* QFileSystemWatcher_QBaseSender(const QFileSystemWatcher* self) {
+QObject* QFileSystemWatcher_SuperSender(const QFileSystemWatcher* self) {
     auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
     if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
         vqfilesystemwatcher->setQFileSystemWatcher_Sender_IsBase(true);
@@ -478,7 +478,7 @@ int QFileSystemWatcher_SenderSignalIndex(const QFileSystemWatcher* self) {
 }
 
 // Base class handler implementation
-int QFileSystemWatcher_QBaseSenderSignalIndex(const QFileSystemWatcher* self) {
+int QFileSystemWatcher_SuperSenderSignalIndex(const QFileSystemWatcher* self) {
     auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
     if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
         vqfilesystemwatcher->setQFileSystemWatcher_SenderSignalIndex_IsBase(true);
@@ -507,7 +507,7 @@ int QFileSystemWatcher_Receivers(const QFileSystemWatcher* self, const char* sig
 }
 
 // Base class handler implementation
-int QFileSystemWatcher_QBaseReceivers(const QFileSystemWatcher* self, const char* signal) {
+int QFileSystemWatcher_SuperReceivers(const QFileSystemWatcher* self, const char* signal) {
     auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
     if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
         vqfilesystemwatcher->setQFileSystemWatcher_Receivers_IsBase(true);
@@ -536,7 +536,7 @@ bool QFileSystemWatcher_IsSignalConnected(const QFileSystemWatcher* self, const 
 }
 
 // Base class handler implementation
-bool QFileSystemWatcher_QBaseIsSignalConnected(const QFileSystemWatcher* self, const QMetaMethod* signal) {
+bool QFileSystemWatcher_SuperIsSignalConnected(const QFileSystemWatcher* self, const QMetaMethod* signal) {
     auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
     if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
         vqfilesystemwatcher->setQFileSystemWatcher_IsSignalConnected_IsBase(true);

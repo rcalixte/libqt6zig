@@ -478,37 +478,37 @@ class VirtualKSelectAction final : public KSelectAction {
 
     // Friend functions
     friend void KSelectAction_SlotActionTriggered(KSelectAction* self, QAction* action);
-    friend void KSelectAction_QBaseSlotActionTriggered(KSelectAction* self, QAction* action);
+    friend void KSelectAction_SuperSlotActionTriggered(KSelectAction* self, QAction* action);
     friend QWidget* KSelectAction_CreateWidget(KSelectAction* self, QWidget* parent);
-    friend QWidget* KSelectAction_QBaseCreateWidget(KSelectAction* self, QWidget* parent);
+    friend QWidget* KSelectAction_SuperCreateWidget(KSelectAction* self, QWidget* parent);
     friend void KSelectAction_DeleteWidget(KSelectAction* self, QWidget* widget);
-    friend void KSelectAction_QBaseDeleteWidget(KSelectAction* self, QWidget* widget);
+    friend void KSelectAction_SuperDeleteWidget(KSelectAction* self, QWidget* widget);
     friend bool KSelectAction_Event(KSelectAction* self, QEvent* event);
-    friend bool KSelectAction_QBaseEvent(KSelectAction* self, QEvent* event);
+    friend bool KSelectAction_SuperEvent(KSelectAction* self, QEvent* event);
     friend bool KSelectAction_EventFilter(KSelectAction* self, QObject* watched, QEvent* event);
-    friend bool KSelectAction_QBaseEventFilter(KSelectAction* self, QObject* watched, QEvent* event);
+    friend bool KSelectAction_SuperEventFilter(KSelectAction* self, QObject* watched, QEvent* event);
     friend void KSelectAction_TimerEvent(KSelectAction* self, QTimerEvent* event);
-    friend void KSelectAction_QBaseTimerEvent(KSelectAction* self, QTimerEvent* event);
+    friend void KSelectAction_SuperTimerEvent(KSelectAction* self, QTimerEvent* event);
     friend void KSelectAction_ChildEvent(KSelectAction* self, QChildEvent* event);
-    friend void KSelectAction_QBaseChildEvent(KSelectAction* self, QChildEvent* event);
+    friend void KSelectAction_SuperChildEvent(KSelectAction* self, QChildEvent* event);
     friend void KSelectAction_CustomEvent(KSelectAction* self, QEvent* event);
-    friend void KSelectAction_QBaseCustomEvent(KSelectAction* self, QEvent* event);
+    friend void KSelectAction_SuperCustomEvent(KSelectAction* self, QEvent* event);
     friend void KSelectAction_ConnectNotify(KSelectAction* self, const QMetaMethod* signal);
-    friend void KSelectAction_QBaseConnectNotify(KSelectAction* self, const QMetaMethod* signal);
+    friend void KSelectAction_SuperConnectNotify(KSelectAction* self, const QMetaMethod* signal);
     friend void KSelectAction_DisconnectNotify(KSelectAction* self, const QMetaMethod* signal);
-    friend void KSelectAction_QBaseDisconnectNotify(KSelectAction* self, const QMetaMethod* signal);
+    friend void KSelectAction_SuperDisconnectNotify(KSelectAction* self, const QMetaMethod* signal);
     friend void KSelectAction_SlotToggled(KSelectAction* self, bool param1);
-    friend void KSelectAction_QBaseSlotToggled(KSelectAction* self, bool param1);
+    friend void KSelectAction_SuperSlotToggled(KSelectAction* self, bool param1);
     friend libqt_list /* of QWidget* */ KSelectAction_CreatedWidgets(const KSelectAction* self);
-    friend libqt_list /* of QWidget* */ KSelectAction_QBaseCreatedWidgets(const KSelectAction* self);
+    friend libqt_list /* of QWidget* */ KSelectAction_SuperCreatedWidgets(const KSelectAction* self);
     friend QObject* KSelectAction_Sender(const KSelectAction* self);
-    friend QObject* KSelectAction_QBaseSender(const KSelectAction* self);
+    friend QObject* KSelectAction_SuperSender(const KSelectAction* self);
     friend int KSelectAction_SenderSignalIndex(const KSelectAction* self);
-    friend int KSelectAction_QBaseSenderSignalIndex(const KSelectAction* self);
+    friend int KSelectAction_SuperSenderSignalIndex(const KSelectAction* self);
     friend int KSelectAction_Receivers(const KSelectAction* self, const char* signal);
-    friend int KSelectAction_QBaseReceivers(const KSelectAction* self, const char* signal);
+    friend int KSelectAction_SuperReceivers(const KSelectAction* self, const char* signal);
     friend bool KSelectAction_IsSignalConnected(const KSelectAction* self, const QMetaMethod* signal);
-    friend bool KSelectAction_QBaseIsSignalConnected(const KSelectAction* self, const QMetaMethod* signal);
+    friend bool KSelectAction_SuperIsSignalConnected(const KSelectAction* self, const QMetaMethod* signal);
 };
 
 #endif

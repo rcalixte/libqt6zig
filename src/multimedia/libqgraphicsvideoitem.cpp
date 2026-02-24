@@ -155,7 +155,7 @@ QVariant* QGraphicsVideoItem_ItemChange(QGraphicsVideoItem* self, int change, co
 }
 
 // Base class handler implementation
-QMetaObject* QGraphicsVideoItem_QBaseMetaObject(const QGraphicsVideoItem* self) {
+QMetaObject* QGraphicsVideoItem_SuperMetaObject(const QGraphicsVideoItem* self) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_MetaObject_IsBase(true);
@@ -174,7 +174,7 @@ void QGraphicsVideoItem_OnMetaObject(const QGraphicsVideoItem* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* QGraphicsVideoItem_QBaseMetacast(QGraphicsVideoItem* self, const char* param1) {
+void* QGraphicsVideoItem_SuperMetacast(QGraphicsVideoItem* self, const char* param1) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_Metacast_IsBase(true);
@@ -193,7 +193,7 @@ void QGraphicsVideoItem_OnMetacast(QGraphicsVideoItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QGraphicsVideoItem_QBaseMetacall(QGraphicsVideoItem* self, int param1, int param2, void** param3) {
+int QGraphicsVideoItem_SuperMetacall(QGraphicsVideoItem* self, int param1, int param2, void** param3) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_Metacall_IsBase(true);
@@ -212,7 +212,7 @@ void QGraphicsVideoItem_OnMetacall(QGraphicsVideoItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QRectF* QGraphicsVideoItem_QBaseBoundingRect(const QGraphicsVideoItem* self) {
+QRectF* QGraphicsVideoItem_SuperBoundingRect(const QGraphicsVideoItem* self) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_BoundingRect_IsBase(true);
@@ -231,7 +231,7 @@ void QGraphicsVideoItem_OnBoundingRect(const QGraphicsVideoItem* self, intptr_t 
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBasePaint(QGraphicsVideoItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void QGraphicsVideoItem_SuperPaint(QGraphicsVideoItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_Paint_IsBase(true);
@@ -250,7 +250,7 @@ void QGraphicsVideoItem_OnPaint(QGraphicsVideoItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QGraphicsVideoItem_QBaseType(const QGraphicsVideoItem* self) {
+int QGraphicsVideoItem_SuperType(const QGraphicsVideoItem* self) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_Type_IsBase(true);
@@ -269,7 +269,7 @@ void QGraphicsVideoItem_OnType(const QGraphicsVideoItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseTimerEvent(QGraphicsVideoItem* self, QTimerEvent* event) {
+void QGraphicsVideoItem_SuperTimerEvent(QGraphicsVideoItem* self, QTimerEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_TimerEvent_IsBase(true);
@@ -288,7 +288,7 @@ void QGraphicsVideoItem_OnTimerEvent(QGraphicsVideoItem* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QGraphicsVideoItem_QBaseItemChange(QGraphicsVideoItem* self, int change, const QVariant* value) {
+QVariant* QGraphicsVideoItem_SuperItemChange(QGraphicsVideoItem* self, int change, const QVariant* value) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_ItemChange_IsBase(true);
@@ -316,7 +316,7 @@ bool QGraphicsVideoItem_Event(QGraphicsVideoItem* self, QEvent* ev) {
 }
 
 // Base class handler implementation
-bool QGraphicsVideoItem_QBaseEvent(QGraphicsVideoItem* self, QEvent* ev) {
+bool QGraphicsVideoItem_SuperEvent(QGraphicsVideoItem* self, QEvent* ev) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_Event_IsBase(true);
@@ -345,7 +345,7 @@ bool QGraphicsVideoItem_EventFilter(QGraphicsVideoItem* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool QGraphicsVideoItem_QBaseEventFilter(QGraphicsVideoItem* self, QObject* watched, QEvent* event) {
+bool QGraphicsVideoItem_SuperEventFilter(QGraphicsVideoItem* self, QObject* watched, QEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_EventFilter_IsBase(true);
@@ -374,7 +374,7 @@ void QGraphicsVideoItem_ChildEvent(QGraphicsVideoItem* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseChildEvent(QGraphicsVideoItem* self, QChildEvent* event) {
+void QGraphicsVideoItem_SuperChildEvent(QGraphicsVideoItem* self, QChildEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_ChildEvent_IsBase(true);
@@ -403,7 +403,7 @@ void QGraphicsVideoItem_CustomEvent(QGraphicsVideoItem* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseCustomEvent(QGraphicsVideoItem* self, QEvent* event) {
+void QGraphicsVideoItem_SuperCustomEvent(QGraphicsVideoItem* self, QEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_CustomEvent_IsBase(true);
@@ -432,7 +432,7 @@ void QGraphicsVideoItem_ConnectNotify(QGraphicsVideoItem* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseConnectNotify(QGraphicsVideoItem* self, const QMetaMethod* signal) {
+void QGraphicsVideoItem_SuperConnectNotify(QGraphicsVideoItem* self, const QMetaMethod* signal) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_ConnectNotify_IsBase(true);
@@ -461,7 +461,7 @@ void QGraphicsVideoItem_DisconnectNotify(QGraphicsVideoItem* self, const QMetaMe
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseDisconnectNotify(QGraphicsVideoItem* self, const QMetaMethod* signal) {
+void QGraphicsVideoItem_SuperDisconnectNotify(QGraphicsVideoItem* self, const QMetaMethod* signal) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_DisconnectNotify_IsBase(true);
@@ -490,7 +490,7 @@ void QGraphicsVideoItem_Advance(QGraphicsVideoItem* self, int phase) {
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseAdvance(QGraphicsVideoItem* self, int phase) {
+void QGraphicsVideoItem_SuperAdvance(QGraphicsVideoItem* self, int phase) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_Advance_IsBase(true);
@@ -519,7 +519,7 @@ QPainterPath* QGraphicsVideoItem_Shape(const QGraphicsVideoItem* self) {
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsVideoItem_QBaseShape(const QGraphicsVideoItem* self) {
+QPainterPath* QGraphicsVideoItem_SuperShape(const QGraphicsVideoItem* self) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_Shape_IsBase(true);
@@ -548,7 +548,7 @@ bool QGraphicsVideoItem_Contains(const QGraphicsVideoItem* self, const QPointF* 
 }
 
 // Base class handler implementation
-bool QGraphicsVideoItem_QBaseContains(const QGraphicsVideoItem* self, const QPointF* point) {
+bool QGraphicsVideoItem_SuperContains(const QGraphicsVideoItem* self, const QPointF* point) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_Contains_IsBase(true);
@@ -577,7 +577,7 @@ bool QGraphicsVideoItem_CollidesWithItem(const QGraphicsVideoItem* self, const Q
 }
 
 // Base class handler implementation
-bool QGraphicsVideoItem_QBaseCollidesWithItem(const QGraphicsVideoItem* self, const QGraphicsItem* other, int mode) {
+bool QGraphicsVideoItem_SuperCollidesWithItem(const QGraphicsVideoItem* self, const QGraphicsItem* other, int mode) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_CollidesWithItem_IsBase(true);
@@ -606,7 +606,7 @@ bool QGraphicsVideoItem_CollidesWithPath(const QGraphicsVideoItem* self, const Q
 }
 
 // Base class handler implementation
-bool QGraphicsVideoItem_QBaseCollidesWithPath(const QGraphicsVideoItem* self, const QPainterPath* path, int mode) {
+bool QGraphicsVideoItem_SuperCollidesWithPath(const QGraphicsVideoItem* self, const QPainterPath* path, int mode) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_CollidesWithPath_IsBase(true);
@@ -635,7 +635,7 @@ bool QGraphicsVideoItem_IsObscuredBy(const QGraphicsVideoItem* self, const QGrap
 }
 
 // Base class handler implementation
-bool QGraphicsVideoItem_QBaseIsObscuredBy(const QGraphicsVideoItem* self, const QGraphicsItem* item) {
+bool QGraphicsVideoItem_SuperIsObscuredBy(const QGraphicsVideoItem* self, const QGraphicsItem* item) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_IsObscuredBy_IsBase(true);
@@ -664,7 +664,7 @@ QPainterPath* QGraphicsVideoItem_OpaqueArea(const QGraphicsVideoItem* self) {
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsVideoItem_QBaseOpaqueArea(const QGraphicsVideoItem* self) {
+QPainterPath* QGraphicsVideoItem_SuperOpaqueArea(const QGraphicsVideoItem* self) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_OpaqueArea_IsBase(true);
@@ -693,7 +693,7 @@ bool QGraphicsVideoItem_SceneEventFilter(QGraphicsVideoItem* self, QGraphicsItem
 }
 
 // Base class handler implementation
-bool QGraphicsVideoItem_QBaseSceneEventFilter(QGraphicsVideoItem* self, QGraphicsItem* watched, QEvent* event) {
+bool QGraphicsVideoItem_SuperSceneEventFilter(QGraphicsVideoItem* self, QGraphicsItem* watched, QEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_SceneEventFilter_IsBase(true);
@@ -722,7 +722,7 @@ bool QGraphicsVideoItem_SceneEvent(QGraphicsVideoItem* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QGraphicsVideoItem_QBaseSceneEvent(QGraphicsVideoItem* self, QEvent* event) {
+bool QGraphicsVideoItem_SuperSceneEvent(QGraphicsVideoItem* self, QEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_SceneEvent_IsBase(true);
@@ -751,7 +751,7 @@ void QGraphicsVideoItem_ContextMenuEvent(QGraphicsVideoItem* self, QGraphicsScen
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseContextMenuEvent(QGraphicsVideoItem* self, QGraphicsSceneContextMenuEvent* event) {
+void QGraphicsVideoItem_SuperContextMenuEvent(QGraphicsVideoItem* self, QGraphicsSceneContextMenuEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_ContextMenuEvent_IsBase(true);
@@ -780,7 +780,7 @@ void QGraphicsVideoItem_DragEnterEvent(QGraphicsVideoItem* self, QGraphicsSceneD
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseDragEnterEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsVideoItem_SuperDragEnterEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_DragEnterEvent_IsBase(true);
@@ -809,7 +809,7 @@ void QGraphicsVideoItem_DragLeaveEvent(QGraphicsVideoItem* self, QGraphicsSceneD
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseDragLeaveEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsVideoItem_SuperDragLeaveEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_DragLeaveEvent_IsBase(true);
@@ -838,7 +838,7 @@ void QGraphicsVideoItem_DragMoveEvent(QGraphicsVideoItem* self, QGraphicsSceneDr
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseDragMoveEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsVideoItem_SuperDragMoveEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_DragMoveEvent_IsBase(true);
@@ -867,7 +867,7 @@ void QGraphicsVideoItem_DropEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDr
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseDropEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsVideoItem_SuperDropEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_DropEvent_IsBase(true);
@@ -896,7 +896,7 @@ void QGraphicsVideoItem_FocusInEvent(QGraphicsVideoItem* self, QFocusEvent* even
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseFocusInEvent(QGraphicsVideoItem* self, QFocusEvent* event) {
+void QGraphicsVideoItem_SuperFocusInEvent(QGraphicsVideoItem* self, QFocusEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_FocusInEvent_IsBase(true);
@@ -925,7 +925,7 @@ void QGraphicsVideoItem_FocusOutEvent(QGraphicsVideoItem* self, QFocusEvent* eve
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseFocusOutEvent(QGraphicsVideoItem* self, QFocusEvent* event) {
+void QGraphicsVideoItem_SuperFocusOutEvent(QGraphicsVideoItem* self, QFocusEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_FocusOutEvent_IsBase(true);
@@ -954,7 +954,7 @@ void QGraphicsVideoItem_HoverEnterEvent(QGraphicsVideoItem* self, QGraphicsScene
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseHoverEnterEvent(QGraphicsVideoItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsVideoItem_SuperHoverEnterEvent(QGraphicsVideoItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_HoverEnterEvent_IsBase(true);
@@ -983,7 +983,7 @@ void QGraphicsVideoItem_HoverMoveEvent(QGraphicsVideoItem* self, QGraphicsSceneH
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseHoverMoveEvent(QGraphicsVideoItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsVideoItem_SuperHoverMoveEvent(QGraphicsVideoItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_HoverMoveEvent_IsBase(true);
@@ -1012,7 +1012,7 @@ void QGraphicsVideoItem_HoverLeaveEvent(QGraphicsVideoItem* self, QGraphicsScene
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseHoverLeaveEvent(QGraphicsVideoItem* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsVideoItem_SuperHoverLeaveEvent(QGraphicsVideoItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_HoverLeaveEvent_IsBase(true);
@@ -1041,7 +1041,7 @@ void QGraphicsVideoItem_KeyPressEvent(QGraphicsVideoItem* self, QKeyEvent* event
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseKeyPressEvent(QGraphicsVideoItem* self, QKeyEvent* event) {
+void QGraphicsVideoItem_SuperKeyPressEvent(QGraphicsVideoItem* self, QKeyEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_KeyPressEvent_IsBase(true);
@@ -1070,7 +1070,7 @@ void QGraphicsVideoItem_KeyReleaseEvent(QGraphicsVideoItem* self, QKeyEvent* eve
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseKeyReleaseEvent(QGraphicsVideoItem* self, QKeyEvent* event) {
+void QGraphicsVideoItem_SuperKeyReleaseEvent(QGraphicsVideoItem* self, QKeyEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_KeyReleaseEvent_IsBase(true);
@@ -1099,7 +1099,7 @@ void QGraphicsVideoItem_MousePressEvent(QGraphicsVideoItem* self, QGraphicsScene
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseMousePressEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsVideoItem_SuperMousePressEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_MousePressEvent_IsBase(true);
@@ -1128,7 +1128,7 @@ void QGraphicsVideoItem_MouseMoveEvent(QGraphicsVideoItem* self, QGraphicsSceneM
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseMouseMoveEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsVideoItem_SuperMouseMoveEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_MouseMoveEvent_IsBase(true);
@@ -1157,7 +1157,7 @@ void QGraphicsVideoItem_MouseReleaseEvent(QGraphicsVideoItem* self, QGraphicsSce
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseMouseReleaseEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsVideoItem_SuperMouseReleaseEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_MouseReleaseEvent_IsBase(true);
@@ -1186,7 +1186,7 @@ void QGraphicsVideoItem_MouseDoubleClickEvent(QGraphicsVideoItem* self, QGraphic
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseMouseDoubleClickEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsVideoItem_SuperMouseDoubleClickEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_MouseDoubleClickEvent_IsBase(true);
@@ -1215,7 +1215,7 @@ void QGraphicsVideoItem_WheelEvent(QGraphicsVideoItem* self, QGraphicsSceneWheel
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseWheelEvent(QGraphicsVideoItem* self, QGraphicsSceneWheelEvent* event) {
+void QGraphicsVideoItem_SuperWheelEvent(QGraphicsVideoItem* self, QGraphicsSceneWheelEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_WheelEvent_IsBase(true);
@@ -1244,7 +1244,7 @@ void QGraphicsVideoItem_InputMethodEvent(QGraphicsVideoItem* self, QInputMethodE
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseInputMethodEvent(QGraphicsVideoItem* self, QInputMethodEvent* event) {
+void QGraphicsVideoItem_SuperInputMethodEvent(QGraphicsVideoItem* self, QInputMethodEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_InputMethodEvent_IsBase(true);
@@ -1272,7 +1272,7 @@ QVariant* QGraphicsVideoItem_InputMethodQuery(const QGraphicsVideoItem* self, in
 }
 
 // Base class handler implementation
-QVariant* QGraphicsVideoItem_QBaseInputMethodQuery(const QGraphicsVideoItem* self, int query) {
+QVariant* QGraphicsVideoItem_SuperInputMethodQuery(const QGraphicsVideoItem* self, int query) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_InputMethodQuery_IsBase(true);
@@ -1300,7 +1300,7 @@ bool QGraphicsVideoItem_SupportsExtension(const QGraphicsVideoItem* self, int ex
 }
 
 // Base class handler implementation
-bool QGraphicsVideoItem_QBaseSupportsExtension(const QGraphicsVideoItem* self, int extension) {
+bool QGraphicsVideoItem_SuperSupportsExtension(const QGraphicsVideoItem* self, int extension) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_SupportsExtension_IsBase(true);
@@ -1329,7 +1329,7 @@ void QGraphicsVideoItem_SetExtension(QGraphicsVideoItem* self, int extension, co
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseSetExtension(QGraphicsVideoItem* self, int extension, const QVariant* variant) {
+void QGraphicsVideoItem_SuperSetExtension(QGraphicsVideoItem* self, int extension, const QVariant* variant) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_SetExtension_IsBase(true);
@@ -1357,7 +1357,7 @@ QVariant* QGraphicsVideoItem_Extension(const QGraphicsVideoItem* self, const QVa
 }
 
 // Base class handler implementation
-QVariant* QGraphicsVideoItem_QBaseExtension(const QGraphicsVideoItem* self, const QVariant* variant) {
+QVariant* QGraphicsVideoItem_SuperExtension(const QGraphicsVideoItem* self, const QVariant* variant) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_Extension_IsBase(true);
@@ -1385,7 +1385,7 @@ void QGraphicsVideoItem_UpdateMicroFocus(QGraphicsVideoItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseUpdateMicroFocus(QGraphicsVideoItem* self) {
+void QGraphicsVideoItem_SuperUpdateMicroFocus(QGraphicsVideoItem* self) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_UpdateMicroFocus_IsBase(true);
@@ -1414,7 +1414,7 @@ QObject* QGraphicsVideoItem_Sender(const QGraphicsVideoItem* self) {
 }
 
 // Base class handler implementation
-QObject* QGraphicsVideoItem_QBaseSender(const QGraphicsVideoItem* self) {
+QObject* QGraphicsVideoItem_SuperSender(const QGraphicsVideoItem* self) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_Sender_IsBase(true);
@@ -1443,7 +1443,7 @@ int QGraphicsVideoItem_SenderSignalIndex(const QGraphicsVideoItem* self) {
 }
 
 // Base class handler implementation
-int QGraphicsVideoItem_QBaseSenderSignalIndex(const QGraphicsVideoItem* self) {
+int QGraphicsVideoItem_SuperSenderSignalIndex(const QGraphicsVideoItem* self) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_SenderSignalIndex_IsBase(true);
@@ -1472,7 +1472,7 @@ int QGraphicsVideoItem_Receivers(const QGraphicsVideoItem* self, const char* sig
 }
 
 // Base class handler implementation
-int QGraphicsVideoItem_QBaseReceivers(const QGraphicsVideoItem* self, const char* signal) {
+int QGraphicsVideoItem_SuperReceivers(const QGraphicsVideoItem* self, const char* signal) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_Receivers_IsBase(true);
@@ -1501,7 +1501,7 @@ bool QGraphicsVideoItem_IsSignalConnected(const QGraphicsVideoItem* self, const 
 }
 
 // Base class handler implementation
-bool QGraphicsVideoItem_QBaseIsSignalConnected(const QGraphicsVideoItem* self, const QMetaMethod* signal) {
+bool QGraphicsVideoItem_SuperIsSignalConnected(const QGraphicsVideoItem* self, const QMetaMethod* signal) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_IsSignalConnected_IsBase(true);
@@ -1530,7 +1530,7 @@ void QGraphicsVideoItem_AddToIndex(QGraphicsVideoItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseAddToIndex(QGraphicsVideoItem* self) {
+void QGraphicsVideoItem_SuperAddToIndex(QGraphicsVideoItem* self) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_AddToIndex_IsBase(true);
@@ -1559,7 +1559,7 @@ void QGraphicsVideoItem_RemoveFromIndex(QGraphicsVideoItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBaseRemoveFromIndex(QGraphicsVideoItem* self) {
+void QGraphicsVideoItem_SuperRemoveFromIndex(QGraphicsVideoItem* self) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_RemoveFromIndex_IsBase(true);
@@ -1588,7 +1588,7 @@ void QGraphicsVideoItem_PrepareGeometryChange(QGraphicsVideoItem* self) {
 }
 
 // Base class handler implementation
-void QGraphicsVideoItem_QBasePrepareGeometryChange(QGraphicsVideoItem* self) {
+void QGraphicsVideoItem_SuperPrepareGeometryChange(QGraphicsVideoItem* self) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
     if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
         vqgraphicsvideoitem->setQGraphicsVideoItem_PrepareGeometryChange_IsBase(true);

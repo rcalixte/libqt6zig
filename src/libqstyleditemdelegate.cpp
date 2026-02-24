@@ -171,7 +171,7 @@ bool QStyledItemDelegate_EditorEvent(QStyledItemDelegate* self, QEvent* event, Q
 }
 
 // Base class handler implementation
-QMetaObject* QStyledItemDelegate_QBaseMetaObject(const QStyledItemDelegate* self) {
+QMetaObject* QStyledItemDelegate_SuperMetaObject(const QStyledItemDelegate* self) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_MetaObject_IsBase(true);
@@ -190,7 +190,7 @@ void QStyledItemDelegate_OnMetaObject(const QStyledItemDelegate* self, intptr_t 
 }
 
 // Base class handler implementation
-void* QStyledItemDelegate_QBaseMetacast(QStyledItemDelegate* self, const char* param1) {
+void* QStyledItemDelegate_SuperMetacast(QStyledItemDelegate* self, const char* param1) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_Metacast_IsBase(true);
@@ -209,7 +209,7 @@ void QStyledItemDelegate_OnMetacast(QStyledItemDelegate* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QStyledItemDelegate_QBaseMetacall(QStyledItemDelegate* self, int param1, int param2, void** param3) {
+int QStyledItemDelegate_SuperMetacall(QStyledItemDelegate* self, int param1, int param2, void** param3) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_Metacall_IsBase(true);
@@ -228,7 +228,7 @@ void QStyledItemDelegate_OnMetacall(QStyledItemDelegate* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QStyledItemDelegate_QBasePaint(const QStyledItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
+void QStyledItemDelegate_SuperPaint(const QStyledItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_Paint_IsBase(true);
@@ -247,7 +247,7 @@ void QStyledItemDelegate_OnPaint(const QStyledItemDelegate* self, intptr_t slot)
 }
 
 // Base class handler implementation
-QSize* QStyledItemDelegate_QBaseSizeHint(const QStyledItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
+QSize* QStyledItemDelegate_SuperSizeHint(const QStyledItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_SizeHint_IsBase(true);
@@ -266,7 +266,7 @@ void QStyledItemDelegate_OnSizeHint(const QStyledItemDelegate* self, intptr_t sl
 }
 
 // Base class handler implementation
-QWidget* QStyledItemDelegate_QBaseCreateEditor(const QStyledItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
+QWidget* QStyledItemDelegate_SuperCreateEditor(const QStyledItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_CreateEditor_IsBase(true);
@@ -285,7 +285,7 @@ void QStyledItemDelegate_OnCreateEditor(const QStyledItemDelegate* self, intptr_
 }
 
 // Base class handler implementation
-void QStyledItemDelegate_QBaseSetEditorData(const QStyledItemDelegate* self, QWidget* editor, const QModelIndex* index) {
+void QStyledItemDelegate_SuperSetEditorData(const QStyledItemDelegate* self, QWidget* editor, const QModelIndex* index) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_SetEditorData_IsBase(true);
@@ -304,7 +304,7 @@ void QStyledItemDelegate_OnSetEditorData(const QStyledItemDelegate* self, intptr
 }
 
 // Base class handler implementation
-void QStyledItemDelegate_QBaseSetModelData(const QStyledItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
+void QStyledItemDelegate_SuperSetModelData(const QStyledItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_SetModelData_IsBase(true);
@@ -323,7 +323,7 @@ void QStyledItemDelegate_OnSetModelData(const QStyledItemDelegate* self, intptr_
 }
 
 // Base class handler implementation
-void QStyledItemDelegate_QBaseUpdateEditorGeometry(const QStyledItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
+void QStyledItemDelegate_SuperUpdateEditorGeometry(const QStyledItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_UpdateEditorGeometry_IsBase(true);
@@ -342,7 +342,7 @@ void QStyledItemDelegate_OnUpdateEditorGeometry(const QStyledItemDelegate* self,
 }
 
 // Base class handler implementation
-libqt_string QStyledItemDelegate_QBaseDisplayText(const QStyledItemDelegate* self, const QVariant* value, const QLocale* locale) {
+libqt_string QStyledItemDelegate_SuperDisplayText(const QStyledItemDelegate* self, const QVariant* value, const QLocale* locale) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_DisplayText_IsBase(true);
@@ -377,7 +377,7 @@ void QStyledItemDelegate_OnDisplayText(const QStyledItemDelegate* self, intptr_t
 }
 
 // Base class handler implementation
-void QStyledItemDelegate_QBaseInitStyleOption(const QStyledItemDelegate* self, QStyleOptionViewItem* option, const QModelIndex* index) {
+void QStyledItemDelegate_SuperInitStyleOption(const QStyledItemDelegate* self, QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_InitStyleOption_IsBase(true);
@@ -396,7 +396,7 @@ void QStyledItemDelegate_OnInitStyleOption(const QStyledItemDelegate* self, intp
 }
 
 // Base class handler implementation
-bool QStyledItemDelegate_QBaseEventFilter(QStyledItemDelegate* self, QObject* object, QEvent* event) {
+bool QStyledItemDelegate_SuperEventFilter(QStyledItemDelegate* self, QObject* object, QEvent* event) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_EventFilter_IsBase(true);
@@ -415,7 +415,7 @@ void QStyledItemDelegate_OnEventFilter(QStyledItemDelegate* self, intptr_t slot)
 }
 
 // Base class handler implementation
-bool QStyledItemDelegate_QBaseEditorEvent(QStyledItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
+bool QStyledItemDelegate_SuperEditorEvent(QStyledItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_EditorEvent_IsBase(true);
@@ -444,7 +444,7 @@ void QStyledItemDelegate_DestroyEditor(const QStyledItemDelegate* self, QWidget*
 }
 
 // Base class handler implementation
-void QStyledItemDelegate_QBaseDestroyEditor(const QStyledItemDelegate* self, QWidget* editor, const QModelIndex* index) {
+void QStyledItemDelegate_SuperDestroyEditor(const QStyledItemDelegate* self, QWidget* editor, const QModelIndex* index) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_DestroyEditor_IsBase(true);
@@ -473,7 +473,7 @@ bool QStyledItemDelegate_HelpEvent(QStyledItemDelegate* self, QHelpEvent* event,
 }
 
 // Base class handler implementation
-bool QStyledItemDelegate_QBaseHelpEvent(QStyledItemDelegate* self, QHelpEvent* event, QAbstractItemView* view, const QStyleOptionViewItem* option, const QModelIndex* index) {
+bool QStyledItemDelegate_SuperHelpEvent(QStyledItemDelegate* self, QHelpEvent* event, QAbstractItemView* view, const QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_HelpEvent_IsBase(true);
@@ -520,7 +520,7 @@ libqt_list /* of int */ QStyledItemDelegate_PaintingRoles(const QStyledItemDeleg
 }
 
 // Base class handler implementation
-libqt_list /* of int */ QStyledItemDelegate_QBasePaintingRoles(const QStyledItemDelegate* self) {
+libqt_list /* of int */ QStyledItemDelegate_SuperPaintingRoles(const QStyledItemDelegate* self) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_PaintingRoles_IsBase(true);
@@ -567,7 +567,7 @@ bool QStyledItemDelegate_Event(QStyledItemDelegate* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QStyledItemDelegate_QBaseEvent(QStyledItemDelegate* self, QEvent* event) {
+bool QStyledItemDelegate_SuperEvent(QStyledItemDelegate* self, QEvent* event) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_Event_IsBase(true);
@@ -596,7 +596,7 @@ void QStyledItemDelegate_TimerEvent(QStyledItemDelegate* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void QStyledItemDelegate_QBaseTimerEvent(QStyledItemDelegate* self, QTimerEvent* event) {
+void QStyledItemDelegate_SuperTimerEvent(QStyledItemDelegate* self, QTimerEvent* event) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_TimerEvent_IsBase(true);
@@ -625,7 +625,7 @@ void QStyledItemDelegate_ChildEvent(QStyledItemDelegate* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void QStyledItemDelegate_QBaseChildEvent(QStyledItemDelegate* self, QChildEvent* event) {
+void QStyledItemDelegate_SuperChildEvent(QStyledItemDelegate* self, QChildEvent* event) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_ChildEvent_IsBase(true);
@@ -654,7 +654,7 @@ void QStyledItemDelegate_CustomEvent(QStyledItemDelegate* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QStyledItemDelegate_QBaseCustomEvent(QStyledItemDelegate* self, QEvent* event) {
+void QStyledItemDelegate_SuperCustomEvent(QStyledItemDelegate* self, QEvent* event) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_CustomEvent_IsBase(true);
@@ -683,7 +683,7 @@ void QStyledItemDelegate_ConnectNotify(QStyledItemDelegate* self, const QMetaMet
 }
 
 // Base class handler implementation
-void QStyledItemDelegate_QBaseConnectNotify(QStyledItemDelegate* self, const QMetaMethod* signal) {
+void QStyledItemDelegate_SuperConnectNotify(QStyledItemDelegate* self, const QMetaMethod* signal) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_ConnectNotify_IsBase(true);
@@ -712,7 +712,7 @@ void QStyledItemDelegate_DisconnectNotify(QStyledItemDelegate* self, const QMeta
 }
 
 // Base class handler implementation
-void QStyledItemDelegate_QBaseDisconnectNotify(QStyledItemDelegate* self, const QMetaMethod* signal) {
+void QStyledItemDelegate_SuperDisconnectNotify(QStyledItemDelegate* self, const QMetaMethod* signal) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_DisconnectNotify_IsBase(true);
@@ -741,7 +741,7 @@ QObject* QStyledItemDelegate_Sender(const QStyledItemDelegate* self) {
 }
 
 // Base class handler implementation
-QObject* QStyledItemDelegate_QBaseSender(const QStyledItemDelegate* self) {
+QObject* QStyledItemDelegate_SuperSender(const QStyledItemDelegate* self) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_Sender_IsBase(true);
@@ -770,7 +770,7 @@ int QStyledItemDelegate_SenderSignalIndex(const QStyledItemDelegate* self) {
 }
 
 // Base class handler implementation
-int QStyledItemDelegate_QBaseSenderSignalIndex(const QStyledItemDelegate* self) {
+int QStyledItemDelegate_SuperSenderSignalIndex(const QStyledItemDelegate* self) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_SenderSignalIndex_IsBase(true);
@@ -799,7 +799,7 @@ int QStyledItemDelegate_Receivers(const QStyledItemDelegate* self, const char* s
 }
 
 // Base class handler implementation
-int QStyledItemDelegate_QBaseReceivers(const QStyledItemDelegate* self, const char* signal) {
+int QStyledItemDelegate_SuperReceivers(const QStyledItemDelegate* self, const char* signal) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_Receivers_IsBase(true);
@@ -828,7 +828,7 @@ bool QStyledItemDelegate_IsSignalConnected(const QStyledItemDelegate* self, cons
 }
 
 // Base class handler implementation
-bool QStyledItemDelegate_QBaseIsSignalConnected(const QStyledItemDelegate* self, const QMetaMethod* signal) {
+bool QStyledItemDelegate_SuperIsSignalConnected(const QStyledItemDelegate* self, const QMetaMethod* signal) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_IsSignalConnected_IsBase(true);

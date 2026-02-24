@@ -74,7 +74,7 @@ void KColumnResizer_AddWidgetsFromLayout2(KColumnResizer* self, QLayout* layout,
 }
 
 // Base class handler implementation
-QMetaObject* KColumnResizer_QBaseMetaObject(const KColumnResizer* self) {
+QMetaObject* KColumnResizer_SuperMetaObject(const KColumnResizer* self) {
     auto* vkcolumnresizer = const_cast<VirtualKColumnResizer*>(dynamic_cast<const VirtualKColumnResizer*>(self));
     if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
         vkcolumnresizer->setKColumnResizer_MetaObject_IsBase(true);
@@ -93,7 +93,7 @@ void KColumnResizer_OnMetaObject(const KColumnResizer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KColumnResizer_QBaseMetacast(KColumnResizer* self, const char* param1) {
+void* KColumnResizer_SuperMetacast(KColumnResizer* self, const char* param1) {
     auto* vkcolumnresizer = dynamic_cast<VirtualKColumnResizer*>(self);
     if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
         vkcolumnresizer->setKColumnResizer_Metacast_IsBase(true);
@@ -112,7 +112,7 @@ void KColumnResizer_OnMetacast(KColumnResizer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KColumnResizer_QBaseMetacall(KColumnResizer* self, int param1, int param2, void** param3) {
+int KColumnResizer_SuperMetacall(KColumnResizer* self, int param1, int param2, void** param3) {
     auto* vkcolumnresizer = dynamic_cast<VirtualKColumnResizer*>(self);
     if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
         vkcolumnresizer->setKColumnResizer_Metacall_IsBase(true);
@@ -131,7 +131,7 @@ void KColumnResizer_OnMetacall(KColumnResizer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KColumnResizer_QBaseEventFilter(KColumnResizer* self, QObject* param1, QEvent* event) {
+bool KColumnResizer_SuperEventFilter(KColumnResizer* self, QObject* param1, QEvent* event) {
     auto* vkcolumnresizer = dynamic_cast<VirtualKColumnResizer*>(self);
     if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
         vkcolumnresizer->setKColumnResizer_EventFilter_IsBase(true);
@@ -160,7 +160,7 @@ bool KColumnResizer_Event(KColumnResizer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KColumnResizer_QBaseEvent(KColumnResizer* self, QEvent* event) {
+bool KColumnResizer_SuperEvent(KColumnResizer* self, QEvent* event) {
     auto* vkcolumnresizer = dynamic_cast<VirtualKColumnResizer*>(self);
     if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
         vkcolumnresizer->setKColumnResizer_Event_IsBase(true);
@@ -189,7 +189,7 @@ void KColumnResizer_TimerEvent(KColumnResizer* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KColumnResizer_QBaseTimerEvent(KColumnResizer* self, QTimerEvent* event) {
+void KColumnResizer_SuperTimerEvent(KColumnResizer* self, QTimerEvent* event) {
     auto* vkcolumnresizer = dynamic_cast<VirtualKColumnResizer*>(self);
     if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
         vkcolumnresizer->setKColumnResizer_TimerEvent_IsBase(true);
@@ -218,7 +218,7 @@ void KColumnResizer_ChildEvent(KColumnResizer* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KColumnResizer_QBaseChildEvent(KColumnResizer* self, QChildEvent* event) {
+void KColumnResizer_SuperChildEvent(KColumnResizer* self, QChildEvent* event) {
     auto* vkcolumnresizer = dynamic_cast<VirtualKColumnResizer*>(self);
     if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
         vkcolumnresizer->setKColumnResizer_ChildEvent_IsBase(true);
@@ -247,7 +247,7 @@ void KColumnResizer_CustomEvent(KColumnResizer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KColumnResizer_QBaseCustomEvent(KColumnResizer* self, QEvent* event) {
+void KColumnResizer_SuperCustomEvent(KColumnResizer* self, QEvent* event) {
     auto* vkcolumnresizer = dynamic_cast<VirtualKColumnResizer*>(self);
     if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
         vkcolumnresizer->setKColumnResizer_CustomEvent_IsBase(true);
@@ -276,7 +276,7 @@ void KColumnResizer_ConnectNotify(KColumnResizer* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void KColumnResizer_QBaseConnectNotify(KColumnResizer* self, const QMetaMethod* signal) {
+void KColumnResizer_SuperConnectNotify(KColumnResizer* self, const QMetaMethod* signal) {
     auto* vkcolumnresizer = dynamic_cast<VirtualKColumnResizer*>(self);
     if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
         vkcolumnresizer->setKColumnResizer_ConnectNotify_IsBase(true);
@@ -305,7 +305,7 @@ void KColumnResizer_DisconnectNotify(KColumnResizer* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void KColumnResizer_QBaseDisconnectNotify(KColumnResizer* self, const QMetaMethod* signal) {
+void KColumnResizer_SuperDisconnectNotify(KColumnResizer* self, const QMetaMethod* signal) {
     auto* vkcolumnresizer = dynamic_cast<VirtualKColumnResizer*>(self);
     if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
         vkcolumnresizer->setKColumnResizer_DisconnectNotify_IsBase(true);
@@ -334,7 +334,7 @@ QObject* KColumnResizer_Sender(const KColumnResizer* self) {
 }
 
 // Base class handler implementation
-QObject* KColumnResizer_QBaseSender(const KColumnResizer* self) {
+QObject* KColumnResizer_SuperSender(const KColumnResizer* self) {
     auto* vkcolumnresizer = const_cast<VirtualKColumnResizer*>(dynamic_cast<const VirtualKColumnResizer*>(self));
     if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
         vkcolumnresizer->setKColumnResizer_Sender_IsBase(true);
@@ -363,7 +363,7 @@ int KColumnResizer_SenderSignalIndex(const KColumnResizer* self) {
 }
 
 // Base class handler implementation
-int KColumnResizer_QBaseSenderSignalIndex(const KColumnResizer* self) {
+int KColumnResizer_SuperSenderSignalIndex(const KColumnResizer* self) {
     auto* vkcolumnresizer = const_cast<VirtualKColumnResizer*>(dynamic_cast<const VirtualKColumnResizer*>(self));
     if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
         vkcolumnresizer->setKColumnResizer_SenderSignalIndex_IsBase(true);
@@ -392,7 +392,7 @@ int KColumnResizer_Receivers(const KColumnResizer* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KColumnResizer_QBaseReceivers(const KColumnResizer* self, const char* signal) {
+int KColumnResizer_SuperReceivers(const KColumnResizer* self, const char* signal) {
     auto* vkcolumnresizer = const_cast<VirtualKColumnResizer*>(dynamic_cast<const VirtualKColumnResizer*>(self));
     if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
         vkcolumnresizer->setKColumnResizer_Receivers_IsBase(true);
@@ -421,7 +421,7 @@ bool KColumnResizer_IsSignalConnected(const KColumnResizer* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool KColumnResizer_QBaseIsSignalConnected(const KColumnResizer* self, const QMetaMethod* signal) {
+bool KColumnResizer_SuperIsSignalConnected(const KColumnResizer* self, const QMetaMethod* signal) {
     auto* vkcolumnresizer = const_cast<VirtualKColumnResizer*>(dynamic_cast<const VirtualKColumnResizer*>(self));
     if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
         vkcolumnresizer->setKColumnResizer_IsSignalConnected_IsBase(true);

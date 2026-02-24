@@ -1198,31 +1198,31 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
 
     // Friend functions
     friend bool QsciLexerVHDL_ReadProperties(QsciLexerVHDL* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerVHDL_QBaseReadProperties(QsciLexerVHDL* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerVHDL_SuperReadProperties(QsciLexerVHDL* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerVHDL_WriteProperties(const QsciLexerVHDL* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerVHDL_QBaseWriteProperties(const QsciLexerVHDL* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerVHDL_SuperWriteProperties(const QsciLexerVHDL* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerVHDL_TimerEvent(QsciLexerVHDL* self, QTimerEvent* event);
-    friend void QsciLexerVHDL_QBaseTimerEvent(QsciLexerVHDL* self, QTimerEvent* event);
+    friend void QsciLexerVHDL_SuperTimerEvent(QsciLexerVHDL* self, QTimerEvent* event);
     friend void QsciLexerVHDL_ChildEvent(QsciLexerVHDL* self, QChildEvent* event);
-    friend void QsciLexerVHDL_QBaseChildEvent(QsciLexerVHDL* self, QChildEvent* event);
+    friend void QsciLexerVHDL_SuperChildEvent(QsciLexerVHDL* self, QChildEvent* event);
     friend void QsciLexerVHDL_CustomEvent(QsciLexerVHDL* self, QEvent* event);
-    friend void QsciLexerVHDL_QBaseCustomEvent(QsciLexerVHDL* self, QEvent* event);
+    friend void QsciLexerVHDL_SuperCustomEvent(QsciLexerVHDL* self, QEvent* event);
     friend void QsciLexerVHDL_ConnectNotify(QsciLexerVHDL* self, const QMetaMethod* signal);
-    friend void QsciLexerVHDL_QBaseConnectNotify(QsciLexerVHDL* self, const QMetaMethod* signal);
+    friend void QsciLexerVHDL_SuperConnectNotify(QsciLexerVHDL* self, const QMetaMethod* signal);
     friend void QsciLexerVHDL_DisconnectNotify(QsciLexerVHDL* self, const QMetaMethod* signal);
-    friend void QsciLexerVHDL_QBaseDisconnectNotify(QsciLexerVHDL* self, const QMetaMethod* signal);
+    friend void QsciLexerVHDL_SuperDisconnectNotify(QsciLexerVHDL* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerVHDL_TextAsBytes(const QsciLexerVHDL* self, const libqt_string text);
-    friend libqt_string QsciLexerVHDL_QBaseTextAsBytes(const QsciLexerVHDL* self, const libqt_string text);
+    friend libqt_string QsciLexerVHDL_SuperTextAsBytes(const QsciLexerVHDL* self, const libqt_string text);
     friend libqt_string QsciLexerVHDL_BytesAsText(const QsciLexerVHDL* self, const char* bytes, int size);
-    friend libqt_string QsciLexerVHDL_QBaseBytesAsText(const QsciLexerVHDL* self, const char* bytes, int size);
+    friend libqt_string QsciLexerVHDL_SuperBytesAsText(const QsciLexerVHDL* self, const char* bytes, int size);
     friend QObject* QsciLexerVHDL_Sender(const QsciLexerVHDL* self);
-    friend QObject* QsciLexerVHDL_QBaseSender(const QsciLexerVHDL* self);
+    friend QObject* QsciLexerVHDL_SuperSender(const QsciLexerVHDL* self);
     friend int QsciLexerVHDL_SenderSignalIndex(const QsciLexerVHDL* self);
-    friend int QsciLexerVHDL_QBaseSenderSignalIndex(const QsciLexerVHDL* self);
+    friend int QsciLexerVHDL_SuperSenderSignalIndex(const QsciLexerVHDL* self);
     friend int QsciLexerVHDL_Receivers(const QsciLexerVHDL* self, const char* signal);
-    friend int QsciLexerVHDL_QBaseReceivers(const QsciLexerVHDL* self, const char* signal);
+    friend int QsciLexerVHDL_SuperReceivers(const QsciLexerVHDL* self, const char* signal);
     friend bool QsciLexerVHDL_IsSignalConnected(const QsciLexerVHDL* self, const QMetaMethod* signal);
-    friend bool QsciLexerVHDL_QBaseIsSignalConnected(const QsciLexerVHDL* self, const QMetaMethod* signal);
+    friend bool QsciLexerVHDL_SuperIsSignalConnected(const QsciLexerVHDL* self, const QMetaMethod* signal);
 };
 
 #endif

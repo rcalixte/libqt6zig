@@ -345,6 +345,10 @@ pub const qbrush = struct {
         return qtc.QBrush_IsDetached(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#dtor.QBrush)
     ///
     /// Delete this object from C++ memory.
@@ -353,7 +357,7 @@ pub const qbrush = struct {
     ///
     /// ` self: QtC.QBrush `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QBrush_Delete(@ptrCast(self));
     }
 };
@@ -549,6 +553,10 @@ pub const qgradient = struct {
         return qtc.QGradient_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#dtor.QGradient)
     ///
     /// Delete this object from C++ memory.
@@ -557,7 +565,7 @@ pub const qgradient = struct {
     ///
     /// ` self: QtC.QGradient `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGradient_Delete(@ptrCast(self));
     }
 };
@@ -867,6 +875,10 @@ pub const qlineargradient = struct {
         return qtc.QGradient_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#dtor.QLinearGradient)
     ///
     /// Delete this object from C++ memory.
@@ -875,7 +887,7 @@ pub const qlineargradient = struct {
     ///
     /// ` self: QtC.QLinearGradient `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QLinearGradient_Delete(@ptrCast(self));
     }
 };
@@ -1317,6 +1329,10 @@ pub const qradialgradient = struct {
         return qtc.QGradient_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#dtor.QRadialGradient)
     ///
     /// Delete this object from C++ memory.
@@ -1325,7 +1341,7 @@ pub const qradialgradient = struct {
     ///
     /// ` self: QtC.QRadialGradient `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QRadialGradient_Delete(@ptrCast(self));
     }
 };
@@ -1619,6 +1635,10 @@ pub const qconicalgradient = struct {
         return qtc.QGradient_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconicalgradient.html#dtor.QConicalGradient)
     ///
     /// Delete this object from C++ memory.
@@ -1627,7 +1647,7 @@ pub const qconicalgradient = struct {
     ///
     /// ` self: QtC.QConicalGradient `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QConicalGradient_Delete(@ptrCast(self));
     }
 };
@@ -1644,13 +1664,17 @@ pub const qgradient__qgradientdata = struct {
         return qtc.QGradient__QGradientData_new(@ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QGradient__QGradientData `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGradient__QGradientData_Delete(@ptrCast(self));
     }
 };

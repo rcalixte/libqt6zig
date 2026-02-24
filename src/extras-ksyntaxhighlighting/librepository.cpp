@@ -186,7 +186,7 @@ KSyntaxHighlighting__Theme* KSyntaxHighlighting__Repository_DefaultTheme1(const 
 }
 
 // Base class handler implementation
-QMetaObject* KSyntaxHighlighting__Repository_QBaseMetaObject(const KSyntaxHighlighting__Repository* self) {
+QMetaObject* KSyntaxHighlighting__Repository_SuperMetaObject(const KSyntaxHighlighting__Repository* self) {
     auto* vksyntaxhighlightingrepository = const_cast<VirtualKSyntaxHighlightingRepository*>(dynamic_cast<const VirtualKSyntaxHighlightingRepository*>(self));
     if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_MetaObject_IsBase(true);
@@ -205,7 +205,7 @@ void KSyntaxHighlighting__Repository_OnMetaObject(const KSyntaxHighlighting__Rep
 }
 
 // Base class handler implementation
-void* KSyntaxHighlighting__Repository_QBaseMetacast(KSyntaxHighlighting__Repository* self, const char* param1) {
+void* KSyntaxHighlighting__Repository_SuperMetacast(KSyntaxHighlighting__Repository* self, const char* param1) {
     auto* vksyntaxhighlightingrepository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
     if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_Metacast_IsBase(true);
@@ -224,7 +224,7 @@ void KSyntaxHighlighting__Repository_OnMetacast(KSyntaxHighlighting__Repository*
 }
 
 // Base class handler implementation
-int KSyntaxHighlighting__Repository_QBaseMetacall(KSyntaxHighlighting__Repository* self, int param1, int param2, void** param3) {
+int KSyntaxHighlighting__Repository_SuperMetacall(KSyntaxHighlighting__Repository* self, int param1, int param2, void** param3) {
     auto* vksyntaxhighlightingrepository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
     if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_Metacall_IsBase(true);
@@ -253,7 +253,7 @@ bool KSyntaxHighlighting__Repository_Event(KSyntaxHighlighting__Repository* self
 }
 
 // Base class handler implementation
-bool KSyntaxHighlighting__Repository_QBaseEvent(KSyntaxHighlighting__Repository* self, QEvent* event) {
+bool KSyntaxHighlighting__Repository_SuperEvent(KSyntaxHighlighting__Repository* self, QEvent* event) {
     auto* vksyntaxhighlightingrepository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
     if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_Event_IsBase(true);
@@ -282,7 +282,7 @@ bool KSyntaxHighlighting__Repository_EventFilter(KSyntaxHighlighting__Repository
 }
 
 // Base class handler implementation
-bool KSyntaxHighlighting__Repository_QBaseEventFilter(KSyntaxHighlighting__Repository* self, QObject* watched, QEvent* event) {
+bool KSyntaxHighlighting__Repository_SuperEventFilter(KSyntaxHighlighting__Repository* self, QObject* watched, QEvent* event) {
     auto* vksyntaxhighlightingrepository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
     if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_EventFilter_IsBase(true);
@@ -311,7 +311,7 @@ void KSyntaxHighlighting__Repository_TimerEvent(KSyntaxHighlighting__Repository*
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__Repository_QBaseTimerEvent(KSyntaxHighlighting__Repository* self, QTimerEvent* event) {
+void KSyntaxHighlighting__Repository_SuperTimerEvent(KSyntaxHighlighting__Repository* self, QTimerEvent* event) {
     auto* vksyntaxhighlightingrepository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
     if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_TimerEvent_IsBase(true);
@@ -340,7 +340,7 @@ void KSyntaxHighlighting__Repository_ChildEvent(KSyntaxHighlighting__Repository*
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__Repository_QBaseChildEvent(KSyntaxHighlighting__Repository* self, QChildEvent* event) {
+void KSyntaxHighlighting__Repository_SuperChildEvent(KSyntaxHighlighting__Repository* self, QChildEvent* event) {
     auto* vksyntaxhighlightingrepository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
     if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_ChildEvent_IsBase(true);
@@ -369,7 +369,7 @@ void KSyntaxHighlighting__Repository_CustomEvent(KSyntaxHighlighting__Repository
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__Repository_QBaseCustomEvent(KSyntaxHighlighting__Repository* self, QEvent* event) {
+void KSyntaxHighlighting__Repository_SuperCustomEvent(KSyntaxHighlighting__Repository* self, QEvent* event) {
     auto* vksyntaxhighlightingrepository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
     if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_CustomEvent_IsBase(true);
@@ -398,7 +398,7 @@ void KSyntaxHighlighting__Repository_ConnectNotify(KSyntaxHighlighting__Reposito
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__Repository_QBaseConnectNotify(KSyntaxHighlighting__Repository* self, const QMetaMethod* signal) {
+void KSyntaxHighlighting__Repository_SuperConnectNotify(KSyntaxHighlighting__Repository* self, const QMetaMethod* signal) {
     auto* vksyntaxhighlightingrepository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
     if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_ConnectNotify_IsBase(true);
@@ -427,7 +427,7 @@ void KSyntaxHighlighting__Repository_DisconnectNotify(KSyntaxHighlighting__Repos
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__Repository_QBaseDisconnectNotify(KSyntaxHighlighting__Repository* self, const QMetaMethod* signal) {
+void KSyntaxHighlighting__Repository_SuperDisconnectNotify(KSyntaxHighlighting__Repository* self, const QMetaMethod* signal) {
     auto* vksyntaxhighlightingrepository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
     if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_DisconnectNotify_IsBase(true);
@@ -456,7 +456,7 @@ QObject* KSyntaxHighlighting__Repository_Sender(const KSyntaxHighlighting__Repos
 }
 
 // Base class handler implementation
-QObject* KSyntaxHighlighting__Repository_QBaseSender(const KSyntaxHighlighting__Repository* self) {
+QObject* KSyntaxHighlighting__Repository_SuperSender(const KSyntaxHighlighting__Repository* self) {
     auto* vksyntaxhighlightingrepository = const_cast<VirtualKSyntaxHighlightingRepository*>(dynamic_cast<const VirtualKSyntaxHighlightingRepository*>(self));
     if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_Sender_IsBase(true);
@@ -485,7 +485,7 @@ int KSyntaxHighlighting__Repository_SenderSignalIndex(const KSyntaxHighlighting_
 }
 
 // Base class handler implementation
-int KSyntaxHighlighting__Repository_QBaseSenderSignalIndex(const KSyntaxHighlighting__Repository* self) {
+int KSyntaxHighlighting__Repository_SuperSenderSignalIndex(const KSyntaxHighlighting__Repository* self) {
     auto* vksyntaxhighlightingrepository = const_cast<VirtualKSyntaxHighlightingRepository*>(dynamic_cast<const VirtualKSyntaxHighlightingRepository*>(self));
     if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_SenderSignalIndex_IsBase(true);
@@ -514,7 +514,7 @@ int KSyntaxHighlighting__Repository_Receivers(const KSyntaxHighlighting__Reposit
 }
 
 // Base class handler implementation
-int KSyntaxHighlighting__Repository_QBaseReceivers(const KSyntaxHighlighting__Repository* self, const char* signal) {
+int KSyntaxHighlighting__Repository_SuperReceivers(const KSyntaxHighlighting__Repository* self, const char* signal) {
     auto* vksyntaxhighlightingrepository = const_cast<VirtualKSyntaxHighlightingRepository*>(dynamic_cast<const VirtualKSyntaxHighlightingRepository*>(self));
     if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_Receivers_IsBase(true);
@@ -543,7 +543,7 @@ bool KSyntaxHighlighting__Repository_IsSignalConnected(const KSyntaxHighlighting
 }
 
 // Base class handler implementation
-bool KSyntaxHighlighting__Repository_QBaseIsSignalConnected(const KSyntaxHighlighting__Repository* self, const QMetaMethod* signal) {
+bool KSyntaxHighlighting__Repository_SuperIsSignalConnected(const KSyntaxHighlighting__Repository* self, const QMetaMethod* signal) {
     auto* vksyntaxhighlightingrepository = const_cast<VirtualKSyntaxHighlightingRepository*>(dynamic_cast<const VirtualKSyntaxHighlightingRepository*>(self));
     if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
         vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_IsSignalConnected_IsBase(true);

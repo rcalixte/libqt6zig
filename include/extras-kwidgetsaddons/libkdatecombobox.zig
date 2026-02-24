@@ -54,6 +54,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -62,8 +66,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` self: QtC.KDateComboBox `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KDateComboBox_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KDateComboBox_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -89,6 +93,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -97,9 +105,9 @@ pub const kdatecombobox = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KDateComboBox_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KDateComboBox_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -128,6 +136,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -140,8 +152,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KDateComboBox_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KDateComboBox_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -510,6 +522,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html#eventFilter)
     ///
     /// Base class method implementation
@@ -522,8 +538,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KDateComboBox_QBaseEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KDateComboBox_SuperEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html#showPopup)
@@ -550,6 +566,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnShowPopup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperShowPopup` instead
+    ///
+    pub const QBaseShowPopup = SuperShowPopup;
+
     /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html#showPopup)
     ///
     /// Base class method implementation
@@ -558,8 +578,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` self: QtC.KDateComboBox `
     ///
-    pub fn QBaseShowPopup(self: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseShowPopup(@ptrCast(self));
+    pub fn SuperShowPopup(self: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperShowPopup(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html#hidePopup)
@@ -586,6 +606,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnHidePopup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHidePopup` instead
+    ///
+    pub const QBaseHidePopup = SuperHidePopup;
+
     /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html#hidePopup)
     ///
     /// Base class method implementation
@@ -594,8 +618,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` self: QtC.KDateComboBox `
     ///
-    pub fn QBaseHidePopup(self: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseHidePopup(@ptrCast(self));
+    pub fn SuperHidePopup(self: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperHidePopup(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html#mousePressEvent)
@@ -624,6 +648,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html#mousePressEvent)
     ///
     /// Base class method implementation
@@ -634,8 +662,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html#wheelEvent)
@@ -664,6 +692,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html#wheelEvent)
     ///
     /// Base class method implementation
@@ -674,8 +706,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html#keyPressEvent)
@@ -704,6 +736,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html#keyPressEvent)
     ///
     /// Base class method implementation
@@ -714,8 +750,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperKeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html#focusInEvent)
@@ -744,6 +780,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html#focusInEvent)
     ///
     /// Base class method implementation
@@ -754,8 +794,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html#focusOutEvent)
@@ -784,6 +824,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html#focusOutEvent)
     ///
     /// Base class method implementation
@@ -794,8 +838,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html#resizeEvent)
@@ -824,6 +868,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html#resizeEvent)
     ///
     /// Base class method implementation
@@ -834,8 +882,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html#assignDate)
@@ -864,6 +912,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_OnAssignDate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAssignDate` instead
+    ///
+    pub const QBaseAssignDate = SuperAssignDate;
+
     /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html#assignDate)
     ///
     /// Base class method implementation
@@ -874,8 +926,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` date: QtC.QDate `
     ///
-    pub fn QBaseAssignDate(self: ?*anyopaque, date: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseAssignDate(@ptrCast(self), @ptrCast(date));
+    pub fn SuperAssignDate(self: ?*anyopaque, date: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperAssignDate(@ptrCast(self), @ptrCast(date));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -7057,6 +7109,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_SetModel(@ptrCast(self), @ptrCast(model));
     }
 
+    /// ### DEPRECATED: Use `SuperSetModel` instead
+    ///
+    pub const QBaseSetModel = SuperSetModel;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#setModel)
@@ -7069,8 +7125,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` model: QtC.QAbstractItemModel `
     ///
-    pub fn QBaseSetModel(self: ?*anyopaque, model: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseSetModel(@ptrCast(self), @ptrCast(model));
+    pub fn SuperSetModel(self: ?*anyopaque, model: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperSetModel(@ptrCast(self), @ptrCast(model));
     }
 
     /// Inherited from QComboBox
@@ -7103,6 +7159,10 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_SizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#sizeHint)
@@ -7113,8 +7173,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` self: QtC.KDateComboBox `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KDateComboBox_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.KDateComboBox_SuperSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QComboBox
@@ -7147,6 +7207,10 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_MinimumSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    ///
+    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#minimumSizeHint)
@@ -7157,8 +7221,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` self: QtC.KDateComboBox `
     ///
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KDateComboBox_QBaseMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.KDateComboBox_SuperMinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QComboBox
@@ -7193,6 +7257,10 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#event)
@@ -7205,8 +7273,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KDateComboBox_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KDateComboBox_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QComboBox
@@ -7241,6 +7309,10 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_InputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#inputMethodQuery)
@@ -7253,8 +7325,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.KDateComboBox_QBaseInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
+        return qtc.KDateComboBox_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QComboBox
@@ -7289,6 +7361,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_ChangeEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    ///
+    pub const QBaseChangeEvent = SuperChangeEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#changeEvent)
@@ -7301,8 +7377,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` e: QtC.QEvent `
     ///
-    pub fn QBaseChangeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseChangeEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperChangeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperChangeEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QComboBox
@@ -7337,6 +7413,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_PaintEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    ///
+    pub const QBasePaintEvent = SuperPaintEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#paintEvent)
@@ -7349,8 +7429,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` e: QtC.QPaintEvent `
     ///
-    pub fn QBasePaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KDateComboBox_QBasePaintEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperPaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperPaintEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QComboBox
@@ -7385,6 +7465,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_ShowEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#showEvent)
@@ -7397,8 +7481,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` e: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseShowEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperShowEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperShowEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QComboBox
@@ -7433,6 +7517,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_HideEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#hideEvent)
@@ -7445,8 +7533,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` e: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseHideEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperHideEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperHideEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QComboBox
@@ -7481,6 +7569,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_MouseReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#mouseReleaseEvent)
@@ -7493,8 +7585,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` e: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QComboBox
@@ -7529,6 +7621,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_KeyReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#keyReleaseEvent)
@@ -7541,8 +7637,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` e: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QComboBox
@@ -7577,6 +7673,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_ContextMenuEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#contextMenuEvent)
@@ -7589,8 +7689,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` e: QtC.QContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperContextMenuEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QComboBox
@@ -7625,6 +7725,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#inputMethodEvent)
@@ -7637,8 +7741,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` param1: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QComboBox
@@ -7673,6 +7777,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_InitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
+    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    ///
+    pub const QBaseInitStyleOption = SuperInitStyleOption;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#initStyleOption)
@@ -7685,8 +7793,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` option: QtC.QStyleOptionComboBox `
     ///
-    pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// Inherited from QComboBox
@@ -7719,6 +7827,10 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_DevType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
@@ -7729,8 +7841,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` self: QtC.KDateComboBox `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.KDateComboBox_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.KDateComboBox_SuperDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7765,6 +7877,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_SetVisible(@ptrCast(self), visible);
     }
 
+    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    ///
+    pub const QBaseSetVisible = SuperSetVisible;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
@@ -7777,8 +7893,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.KDateComboBox_QBaseSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
+        qtc.KDateComboBox_SuperSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
@@ -7813,6 +7929,10 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
@@ -7825,8 +7945,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KDateComboBox_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.KDateComboBox_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7859,6 +7979,10 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
@@ -7869,8 +7993,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` self: QtC.KDateComboBox `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.KDateComboBox_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.KDateComboBox_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7903,6 +8027,10 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_PaintEngine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
@@ -7913,8 +8041,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` self: QtC.KDateComboBox `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.KDateComboBox_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.KDateComboBox_SuperPaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7949,6 +8077,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -7961,8 +8093,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7997,6 +8129,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -8009,8 +8145,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8045,6 +8181,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    ///
+    pub const QBaseEnterEvent = SuperEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
@@ -8057,8 +8197,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QEnterEvent `
     ///
-    pub fn QBaseEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8093,6 +8233,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    ///
+    pub const QBaseLeaveEvent = SuperLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
@@ -8105,8 +8249,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8141,6 +8285,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
@@ -8153,8 +8301,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8189,6 +8337,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
@@ -8201,8 +8353,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8237,6 +8389,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    ///
+    pub const QBaseTabletEvent = SuperTabletEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
@@ -8249,8 +8405,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QTabletEvent `
     ///
-    pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8285,6 +8441,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_ActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    ///
+    pub const QBaseActionEvent = SuperActionEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
@@ -8297,8 +8457,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QActionEvent `
     ///
-    pub fn QBaseActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8333,6 +8493,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_DragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
@@ -8345,8 +8509,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QDragEnterEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8381,6 +8545,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_DragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
@@ -8393,8 +8561,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QDragMoveEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8429,6 +8597,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
@@ -8441,8 +8613,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QDragLeaveEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8477,6 +8649,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_DropEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
@@ -8489,8 +8665,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8533,6 +8709,10 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    ///
+    pub const QBaseNativeEvent = SuperNativeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
@@ -8549,12 +8729,12 @@ pub const kdatecombobox = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KDateComboBox_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KDateComboBox_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -8589,6 +8769,10 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_Metric(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
@@ -8601,8 +8785,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KDateComboBox_QBaseMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.KDateComboBox_SuperMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -8637,6 +8821,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
@@ -8649,8 +8837,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
@@ -8685,6 +8873,10 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
@@ -8697,8 +8889,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.KDateComboBox_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.KDateComboBox_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
@@ -8731,6 +8923,10 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
@@ -8741,8 +8937,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` self: QtC.KDateComboBox `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.KDateComboBox_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.KDateComboBox_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8777,6 +8973,10 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_FocusNextPrevChild(@ptrCast(self), next);
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    ///
+    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
@@ -8789,8 +8989,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` next: bool `
     ///
-    pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.KDateComboBox_QBaseFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
+        return qtc.KDateComboBox_SuperFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QWidget
@@ -8825,6 +9025,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -8837,8 +9041,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -8873,6 +9077,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -8885,8 +9093,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -8921,6 +9129,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -8933,8 +9145,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -8969,6 +9181,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8981,8 +9197,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -9017,6 +9233,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -9029,8 +9249,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -9063,6 +9283,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -9073,8 +9297,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` self: QtC.KDateComboBox `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9107,6 +9331,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_Create(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreate` instead
+    ///
+    pub const QBaseCreate = SuperCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -9117,8 +9345,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` self: QtC.KDateComboBox `
     ///
-    pub fn QBaseCreate(self: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseCreate(@ptrCast(self));
+    pub fn SuperCreate(self: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9151,6 +9379,10 @@ pub const kdatecombobox = struct {
         qtc.KDateComboBox_Destroy(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroy` instead
+    ///
+    pub const QBaseDestroy = SuperDestroy;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
@@ -9161,8 +9393,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` self: QtC.KDateComboBox `
     ///
-    pub fn QBaseDestroy(self: ?*anyopaque) void {
-        qtc.KDateComboBox_QBaseDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: ?*anyopaque) void {
+        qtc.KDateComboBox_SuperDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9195,6 +9427,10 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_FocusNextChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    ///
+    pub const QBaseFocusNextChild = SuperFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -9205,8 +9441,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` self: QtC.KDateComboBox `
     ///
-    pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.KDateComboBox_QBaseFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
+        return qtc.KDateComboBox_SuperFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9239,6 +9475,10 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_FocusPreviousChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    ///
+    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
@@ -9249,8 +9489,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` self: QtC.KDateComboBox `
     ///
-    pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.KDateComboBox_QBaseFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
+        return qtc.KDateComboBox_SuperFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9283,6 +9523,10 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -9293,8 +9537,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` self: QtC.KDateComboBox `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KDateComboBox_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KDateComboBox_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -9327,6 +9571,10 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -9337,8 +9585,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` self: QtC.KDateComboBox `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KDateComboBox_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KDateComboBox_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -9374,6 +9622,10 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -9386,9 +9638,9 @@ pub const kdatecombobox = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KDateComboBox_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KDateComboBox_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -9423,6 +9675,10 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -9435,8 +9691,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KDateComboBox_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KDateComboBox_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -9473,6 +9729,10 @@ pub const kdatecombobox = struct {
         return qtc.KDateComboBox_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -9487,8 +9747,8 @@ pub const kdatecombobox = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KDateComboBox_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.KDateComboBox_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -9522,6 +9782,9 @@ pub const kdatecombobox = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kdatecombobox.html#dtor.KDateComboBox)
     ///
@@ -9531,7 +9794,7 @@ pub const kdatecombobox = struct {
     ///
     /// ` self: QtC.KDateComboBox `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KDateComboBox_Delete(@ptrCast(self));
     }
 };

@@ -533,7 +533,7 @@ void KIconLoader_DrawOverlays4(const KIconLoader* self, const libqt_list /* of l
 }
 
 // Base class handler implementation
-QMetaObject* KIconLoader_QBaseMetaObject(const KIconLoader* self) {
+QMetaObject* KIconLoader_SuperMetaObject(const KIconLoader* self) {
     auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
     if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
         vkiconloader->setKIconLoader_MetaObject_IsBase(true);
@@ -552,7 +552,7 @@ void KIconLoader_OnMetaObject(const KIconLoader* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KIconLoader_QBaseMetacast(KIconLoader* self, const char* param1) {
+void* KIconLoader_SuperMetacast(KIconLoader* self, const char* param1) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
     if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
         vkiconloader->setKIconLoader_Metacast_IsBase(true);
@@ -571,7 +571,7 @@ void KIconLoader_OnMetacast(KIconLoader* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KIconLoader_QBaseMetacall(KIconLoader* self, int param1, int param2, void** param3) {
+int KIconLoader_SuperMetacall(KIconLoader* self, int param1, int param2, void** param3) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
     if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
         vkiconloader->setKIconLoader_Metacall_IsBase(true);
@@ -600,7 +600,7 @@ bool KIconLoader_Event(KIconLoader* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KIconLoader_QBaseEvent(KIconLoader* self, QEvent* event) {
+bool KIconLoader_SuperEvent(KIconLoader* self, QEvent* event) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
     if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
         vkiconloader->setKIconLoader_Event_IsBase(true);
@@ -629,7 +629,7 @@ bool KIconLoader_EventFilter(KIconLoader* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool KIconLoader_QBaseEventFilter(KIconLoader* self, QObject* watched, QEvent* event) {
+bool KIconLoader_SuperEventFilter(KIconLoader* self, QObject* watched, QEvent* event) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
     if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
         vkiconloader->setKIconLoader_EventFilter_IsBase(true);
@@ -658,7 +658,7 @@ void KIconLoader_TimerEvent(KIconLoader* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KIconLoader_QBaseTimerEvent(KIconLoader* self, QTimerEvent* event) {
+void KIconLoader_SuperTimerEvent(KIconLoader* self, QTimerEvent* event) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
     if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
         vkiconloader->setKIconLoader_TimerEvent_IsBase(true);
@@ -687,7 +687,7 @@ void KIconLoader_ChildEvent(KIconLoader* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KIconLoader_QBaseChildEvent(KIconLoader* self, QChildEvent* event) {
+void KIconLoader_SuperChildEvent(KIconLoader* self, QChildEvent* event) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
     if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
         vkiconloader->setKIconLoader_ChildEvent_IsBase(true);
@@ -716,7 +716,7 @@ void KIconLoader_CustomEvent(KIconLoader* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KIconLoader_QBaseCustomEvent(KIconLoader* self, QEvent* event) {
+void KIconLoader_SuperCustomEvent(KIconLoader* self, QEvent* event) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
     if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
         vkiconloader->setKIconLoader_CustomEvent_IsBase(true);
@@ -745,7 +745,7 @@ void KIconLoader_ConnectNotify(KIconLoader* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KIconLoader_QBaseConnectNotify(KIconLoader* self, const QMetaMethod* signal) {
+void KIconLoader_SuperConnectNotify(KIconLoader* self, const QMetaMethod* signal) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
     if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
         vkiconloader->setKIconLoader_ConnectNotify_IsBase(true);
@@ -774,7 +774,7 @@ void KIconLoader_DisconnectNotify(KIconLoader* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void KIconLoader_QBaseDisconnectNotify(KIconLoader* self, const QMetaMethod* signal) {
+void KIconLoader_SuperDisconnectNotify(KIconLoader* self, const QMetaMethod* signal) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
     if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
         vkiconloader->setKIconLoader_DisconnectNotify_IsBase(true);
@@ -803,7 +803,7 @@ QObject* KIconLoader_Sender(const KIconLoader* self) {
 }
 
 // Base class handler implementation
-QObject* KIconLoader_QBaseSender(const KIconLoader* self) {
+QObject* KIconLoader_SuperSender(const KIconLoader* self) {
     auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
     if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
         vkiconloader->setKIconLoader_Sender_IsBase(true);
@@ -832,7 +832,7 @@ int KIconLoader_SenderSignalIndex(const KIconLoader* self) {
 }
 
 // Base class handler implementation
-int KIconLoader_QBaseSenderSignalIndex(const KIconLoader* self) {
+int KIconLoader_SuperSenderSignalIndex(const KIconLoader* self) {
     auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
     if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
         vkiconloader->setKIconLoader_SenderSignalIndex_IsBase(true);
@@ -861,7 +861,7 @@ int KIconLoader_Receivers(const KIconLoader* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KIconLoader_QBaseReceivers(const KIconLoader* self, const char* signal) {
+int KIconLoader_SuperReceivers(const KIconLoader* self, const char* signal) {
     auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
     if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
         vkiconloader->setKIconLoader_Receivers_IsBase(true);
@@ -890,7 +890,7 @@ bool KIconLoader_IsSignalConnected(const KIconLoader* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool KIconLoader_QBaseIsSignalConnected(const KIconLoader* self, const QMetaMethod* signal) {
+bool KIconLoader_SuperIsSignalConnected(const KIconLoader* self, const QMetaMethod* signal) {
     auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
     if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
         vkiconloader->setKIconLoader_IsSignalConnected_IsBase(true);

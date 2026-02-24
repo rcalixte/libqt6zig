@@ -209,6 +209,10 @@ pub const qdesignercomponents = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercomponents.html#dtor.QDesignerComponents)
     ///
     /// Delete this object from C++ memory.
@@ -217,7 +221,7 @@ pub const qdesignercomponents = struct {
     ///
     /// ` self: QtC.QDesignerComponents `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDesignerComponents_Delete(@ptrCast(self));
     }
 };

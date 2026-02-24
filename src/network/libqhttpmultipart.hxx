@@ -330,23 +330,23 @@ class VirtualQHttpMultiPart final : public QHttpMultiPart {
 
     // Friend functions
     friend void QHttpMultiPart_TimerEvent(QHttpMultiPart* self, QTimerEvent* event);
-    friend void QHttpMultiPart_QBaseTimerEvent(QHttpMultiPart* self, QTimerEvent* event);
+    friend void QHttpMultiPart_SuperTimerEvent(QHttpMultiPart* self, QTimerEvent* event);
     friend void QHttpMultiPart_ChildEvent(QHttpMultiPart* self, QChildEvent* event);
-    friend void QHttpMultiPart_QBaseChildEvent(QHttpMultiPart* self, QChildEvent* event);
+    friend void QHttpMultiPart_SuperChildEvent(QHttpMultiPart* self, QChildEvent* event);
     friend void QHttpMultiPart_CustomEvent(QHttpMultiPart* self, QEvent* event);
-    friend void QHttpMultiPart_QBaseCustomEvent(QHttpMultiPart* self, QEvent* event);
+    friend void QHttpMultiPart_SuperCustomEvent(QHttpMultiPart* self, QEvent* event);
     friend void QHttpMultiPart_ConnectNotify(QHttpMultiPart* self, const QMetaMethod* signal);
-    friend void QHttpMultiPart_QBaseConnectNotify(QHttpMultiPart* self, const QMetaMethod* signal);
+    friend void QHttpMultiPart_SuperConnectNotify(QHttpMultiPart* self, const QMetaMethod* signal);
     friend void QHttpMultiPart_DisconnectNotify(QHttpMultiPart* self, const QMetaMethod* signal);
-    friend void QHttpMultiPart_QBaseDisconnectNotify(QHttpMultiPart* self, const QMetaMethod* signal);
+    friend void QHttpMultiPart_SuperDisconnectNotify(QHttpMultiPart* self, const QMetaMethod* signal);
     friend QObject* QHttpMultiPart_Sender(const QHttpMultiPart* self);
-    friend QObject* QHttpMultiPart_QBaseSender(const QHttpMultiPart* self);
+    friend QObject* QHttpMultiPart_SuperSender(const QHttpMultiPart* self);
     friend int QHttpMultiPart_SenderSignalIndex(const QHttpMultiPart* self);
-    friend int QHttpMultiPart_QBaseSenderSignalIndex(const QHttpMultiPart* self);
+    friend int QHttpMultiPart_SuperSenderSignalIndex(const QHttpMultiPart* self);
     friend int QHttpMultiPart_Receivers(const QHttpMultiPart* self, const char* signal);
-    friend int QHttpMultiPart_QBaseReceivers(const QHttpMultiPart* self, const char* signal);
+    friend int QHttpMultiPart_SuperReceivers(const QHttpMultiPart* self, const char* signal);
     friend bool QHttpMultiPart_IsSignalConnected(const QHttpMultiPart* self, const QMetaMethod* signal);
-    friend bool QHttpMultiPart_QBaseIsSignalConnected(const QHttpMultiPart* self, const QMetaMethod* signal);
+    friend bool QHttpMultiPart_SuperIsSignalConnected(const QHttpMultiPart* self, const QMetaMethod* signal);
 };
 
 #endif

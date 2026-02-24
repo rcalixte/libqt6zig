@@ -220,7 +220,7 @@ void QPrintPreviewWidget_ZoomOut1(QPrintPreviewWidget* self, double zoom) {
 }
 
 // Base class handler implementation
-QMetaObject* QPrintPreviewWidget_QBaseMetaObject(const QPrintPreviewWidget* self) {
+QMetaObject* QPrintPreviewWidget_SuperMetaObject(const QPrintPreviewWidget* self) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_MetaObject_IsBase(true);
@@ -239,7 +239,7 @@ void QPrintPreviewWidget_OnMetaObject(const QPrintPreviewWidget* self, intptr_t 
 }
 
 // Base class handler implementation
-void* QPrintPreviewWidget_QBaseMetacast(QPrintPreviewWidget* self, const char* param1) {
+void* QPrintPreviewWidget_SuperMetacast(QPrintPreviewWidget* self, const char* param1) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_Metacast_IsBase(true);
@@ -258,7 +258,7 @@ void QPrintPreviewWidget_OnMetacast(QPrintPreviewWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPrintPreviewWidget_QBaseMetacall(QPrintPreviewWidget* self, int param1, int param2, void** param3) {
+int QPrintPreviewWidget_SuperMetacall(QPrintPreviewWidget* self, int param1, int param2, void** param3) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_Metacall_IsBase(true);
@@ -277,7 +277,7 @@ void QPrintPreviewWidget_OnMetacall(QPrintPreviewWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseSetVisible(QPrintPreviewWidget* self, bool visible) {
+void QPrintPreviewWidget_SuperSetVisible(QPrintPreviewWidget* self, bool visible) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_SetVisible_IsBase(true);
@@ -306,7 +306,7 @@ int QPrintPreviewWidget_DevType(const QPrintPreviewWidget* self) {
 }
 
 // Base class handler implementation
-int QPrintPreviewWidget_QBaseDevType(const QPrintPreviewWidget* self) {
+int QPrintPreviewWidget_SuperDevType(const QPrintPreviewWidget* self) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_DevType_IsBase(true);
@@ -335,7 +335,7 @@ QSize* QPrintPreviewWidget_SizeHint(const QPrintPreviewWidget* self) {
 }
 
 // Base class handler implementation
-QSize* QPrintPreviewWidget_QBaseSizeHint(const QPrintPreviewWidget* self) {
+QSize* QPrintPreviewWidget_SuperSizeHint(const QPrintPreviewWidget* self) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_SizeHint_IsBase(true);
@@ -364,7 +364,7 @@ QSize* QPrintPreviewWidget_MinimumSizeHint(const QPrintPreviewWidget* self) {
 }
 
 // Base class handler implementation
-QSize* QPrintPreviewWidget_QBaseMinimumSizeHint(const QPrintPreviewWidget* self) {
+QSize* QPrintPreviewWidget_SuperMinimumSizeHint(const QPrintPreviewWidget* self) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_MinimumSizeHint_IsBase(true);
@@ -393,7 +393,7 @@ int QPrintPreviewWidget_HeightForWidth(const QPrintPreviewWidget* self, int para
 }
 
 // Base class handler implementation
-int QPrintPreviewWidget_QBaseHeightForWidth(const QPrintPreviewWidget* self, int param1) {
+int QPrintPreviewWidget_SuperHeightForWidth(const QPrintPreviewWidget* self, int param1) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_HeightForWidth_IsBase(true);
@@ -422,7 +422,7 @@ bool QPrintPreviewWidget_HasHeightForWidth(const QPrintPreviewWidget* self) {
 }
 
 // Base class handler implementation
-bool QPrintPreviewWidget_QBaseHasHeightForWidth(const QPrintPreviewWidget* self) {
+bool QPrintPreviewWidget_SuperHasHeightForWidth(const QPrintPreviewWidget* self) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_HasHeightForWidth_IsBase(true);
@@ -451,7 +451,7 @@ QPaintEngine* QPrintPreviewWidget_PaintEngine(const QPrintPreviewWidget* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QPrintPreviewWidget_QBasePaintEngine(const QPrintPreviewWidget* self) {
+QPaintEngine* QPrintPreviewWidget_SuperPaintEngine(const QPrintPreviewWidget* self) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_PaintEngine_IsBase(true);
@@ -480,7 +480,7 @@ bool QPrintPreviewWidget_Event(QPrintPreviewWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPrintPreviewWidget_QBaseEvent(QPrintPreviewWidget* self, QEvent* event) {
+bool QPrintPreviewWidget_SuperEvent(QPrintPreviewWidget* self, QEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_Event_IsBase(true);
@@ -509,7 +509,7 @@ void QPrintPreviewWidget_MousePressEvent(QPrintPreviewWidget* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseMousePressEvent(QPrintPreviewWidget* self, QMouseEvent* event) {
+void QPrintPreviewWidget_SuperMousePressEvent(QPrintPreviewWidget* self, QMouseEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_MousePressEvent_IsBase(true);
@@ -538,7 +538,7 @@ void QPrintPreviewWidget_MouseReleaseEvent(QPrintPreviewWidget* self, QMouseEven
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseMouseReleaseEvent(QPrintPreviewWidget* self, QMouseEvent* event) {
+void QPrintPreviewWidget_SuperMouseReleaseEvent(QPrintPreviewWidget* self, QMouseEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_MouseReleaseEvent_IsBase(true);
@@ -567,7 +567,7 @@ void QPrintPreviewWidget_MouseDoubleClickEvent(QPrintPreviewWidget* self, QMouse
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseMouseDoubleClickEvent(QPrintPreviewWidget* self, QMouseEvent* event) {
+void QPrintPreviewWidget_SuperMouseDoubleClickEvent(QPrintPreviewWidget* self, QMouseEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_MouseDoubleClickEvent_IsBase(true);
@@ -596,7 +596,7 @@ void QPrintPreviewWidget_MouseMoveEvent(QPrintPreviewWidget* self, QMouseEvent* 
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseMouseMoveEvent(QPrintPreviewWidget* self, QMouseEvent* event) {
+void QPrintPreviewWidget_SuperMouseMoveEvent(QPrintPreviewWidget* self, QMouseEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_MouseMoveEvent_IsBase(true);
@@ -625,7 +625,7 @@ void QPrintPreviewWidget_WheelEvent(QPrintPreviewWidget* self, QWheelEvent* even
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseWheelEvent(QPrintPreviewWidget* self, QWheelEvent* event) {
+void QPrintPreviewWidget_SuperWheelEvent(QPrintPreviewWidget* self, QWheelEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_WheelEvent_IsBase(true);
@@ -654,7 +654,7 @@ void QPrintPreviewWidget_KeyPressEvent(QPrintPreviewWidget* self, QKeyEvent* eve
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseKeyPressEvent(QPrintPreviewWidget* self, QKeyEvent* event) {
+void QPrintPreviewWidget_SuperKeyPressEvent(QPrintPreviewWidget* self, QKeyEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_KeyPressEvent_IsBase(true);
@@ -683,7 +683,7 @@ void QPrintPreviewWidget_KeyReleaseEvent(QPrintPreviewWidget* self, QKeyEvent* e
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseKeyReleaseEvent(QPrintPreviewWidget* self, QKeyEvent* event) {
+void QPrintPreviewWidget_SuperKeyReleaseEvent(QPrintPreviewWidget* self, QKeyEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_KeyReleaseEvent_IsBase(true);
@@ -712,7 +712,7 @@ void QPrintPreviewWidget_FocusInEvent(QPrintPreviewWidget* self, QFocusEvent* ev
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseFocusInEvent(QPrintPreviewWidget* self, QFocusEvent* event) {
+void QPrintPreviewWidget_SuperFocusInEvent(QPrintPreviewWidget* self, QFocusEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_FocusInEvent_IsBase(true);
@@ -741,7 +741,7 @@ void QPrintPreviewWidget_FocusOutEvent(QPrintPreviewWidget* self, QFocusEvent* e
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseFocusOutEvent(QPrintPreviewWidget* self, QFocusEvent* event) {
+void QPrintPreviewWidget_SuperFocusOutEvent(QPrintPreviewWidget* self, QFocusEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_FocusOutEvent_IsBase(true);
@@ -770,7 +770,7 @@ void QPrintPreviewWidget_EnterEvent(QPrintPreviewWidget* self, QEnterEvent* even
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseEnterEvent(QPrintPreviewWidget* self, QEnterEvent* event) {
+void QPrintPreviewWidget_SuperEnterEvent(QPrintPreviewWidget* self, QEnterEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_EnterEvent_IsBase(true);
@@ -799,7 +799,7 @@ void QPrintPreviewWidget_LeaveEvent(QPrintPreviewWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseLeaveEvent(QPrintPreviewWidget* self, QEvent* event) {
+void QPrintPreviewWidget_SuperLeaveEvent(QPrintPreviewWidget* self, QEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_LeaveEvent_IsBase(true);
@@ -828,7 +828,7 @@ void QPrintPreviewWidget_PaintEvent(QPrintPreviewWidget* self, QPaintEvent* even
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBasePaintEvent(QPrintPreviewWidget* self, QPaintEvent* event) {
+void QPrintPreviewWidget_SuperPaintEvent(QPrintPreviewWidget* self, QPaintEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_PaintEvent_IsBase(true);
@@ -857,7 +857,7 @@ void QPrintPreviewWidget_MoveEvent(QPrintPreviewWidget* self, QMoveEvent* event)
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseMoveEvent(QPrintPreviewWidget* self, QMoveEvent* event) {
+void QPrintPreviewWidget_SuperMoveEvent(QPrintPreviewWidget* self, QMoveEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_MoveEvent_IsBase(true);
@@ -886,7 +886,7 @@ void QPrintPreviewWidget_ResizeEvent(QPrintPreviewWidget* self, QResizeEvent* ev
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseResizeEvent(QPrintPreviewWidget* self, QResizeEvent* event) {
+void QPrintPreviewWidget_SuperResizeEvent(QPrintPreviewWidget* self, QResizeEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_ResizeEvent_IsBase(true);
@@ -915,7 +915,7 @@ void QPrintPreviewWidget_CloseEvent(QPrintPreviewWidget* self, QCloseEvent* even
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseCloseEvent(QPrintPreviewWidget* self, QCloseEvent* event) {
+void QPrintPreviewWidget_SuperCloseEvent(QPrintPreviewWidget* self, QCloseEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_CloseEvent_IsBase(true);
@@ -944,7 +944,7 @@ void QPrintPreviewWidget_ContextMenuEvent(QPrintPreviewWidget* self, QContextMen
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseContextMenuEvent(QPrintPreviewWidget* self, QContextMenuEvent* event) {
+void QPrintPreviewWidget_SuperContextMenuEvent(QPrintPreviewWidget* self, QContextMenuEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_ContextMenuEvent_IsBase(true);
@@ -973,7 +973,7 @@ void QPrintPreviewWidget_TabletEvent(QPrintPreviewWidget* self, QTabletEvent* ev
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseTabletEvent(QPrintPreviewWidget* self, QTabletEvent* event) {
+void QPrintPreviewWidget_SuperTabletEvent(QPrintPreviewWidget* self, QTabletEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_TabletEvent_IsBase(true);
@@ -1002,7 +1002,7 @@ void QPrintPreviewWidget_ActionEvent(QPrintPreviewWidget* self, QActionEvent* ev
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseActionEvent(QPrintPreviewWidget* self, QActionEvent* event) {
+void QPrintPreviewWidget_SuperActionEvent(QPrintPreviewWidget* self, QActionEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_ActionEvent_IsBase(true);
@@ -1031,7 +1031,7 @@ void QPrintPreviewWidget_DragEnterEvent(QPrintPreviewWidget* self, QDragEnterEve
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseDragEnterEvent(QPrintPreviewWidget* self, QDragEnterEvent* event) {
+void QPrintPreviewWidget_SuperDragEnterEvent(QPrintPreviewWidget* self, QDragEnterEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_DragEnterEvent_IsBase(true);
@@ -1060,7 +1060,7 @@ void QPrintPreviewWidget_DragMoveEvent(QPrintPreviewWidget* self, QDragMoveEvent
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseDragMoveEvent(QPrintPreviewWidget* self, QDragMoveEvent* event) {
+void QPrintPreviewWidget_SuperDragMoveEvent(QPrintPreviewWidget* self, QDragMoveEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_DragMoveEvent_IsBase(true);
@@ -1089,7 +1089,7 @@ void QPrintPreviewWidget_DragLeaveEvent(QPrintPreviewWidget* self, QDragLeaveEve
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseDragLeaveEvent(QPrintPreviewWidget* self, QDragLeaveEvent* event) {
+void QPrintPreviewWidget_SuperDragLeaveEvent(QPrintPreviewWidget* self, QDragLeaveEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_DragLeaveEvent_IsBase(true);
@@ -1118,7 +1118,7 @@ void QPrintPreviewWidget_DropEvent(QPrintPreviewWidget* self, QDropEvent* event)
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseDropEvent(QPrintPreviewWidget* self, QDropEvent* event) {
+void QPrintPreviewWidget_SuperDropEvent(QPrintPreviewWidget* self, QDropEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_DropEvent_IsBase(true);
@@ -1147,7 +1147,7 @@ void QPrintPreviewWidget_ShowEvent(QPrintPreviewWidget* self, QShowEvent* event)
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseShowEvent(QPrintPreviewWidget* self, QShowEvent* event) {
+void QPrintPreviewWidget_SuperShowEvent(QPrintPreviewWidget* self, QShowEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_ShowEvent_IsBase(true);
@@ -1176,7 +1176,7 @@ void QPrintPreviewWidget_HideEvent(QPrintPreviewWidget* self, QHideEvent* event)
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseHideEvent(QPrintPreviewWidget* self, QHideEvent* event) {
+void QPrintPreviewWidget_SuperHideEvent(QPrintPreviewWidget* self, QHideEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_HideEvent_IsBase(true);
@@ -1206,7 +1206,7 @@ bool QPrintPreviewWidget_NativeEvent(QPrintPreviewWidget* self, const libqt_stri
 }
 
 // Base class handler implementation
-bool QPrintPreviewWidget_QBaseNativeEvent(QPrintPreviewWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QPrintPreviewWidget_SuperNativeEvent(QPrintPreviewWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
@@ -1236,7 +1236,7 @@ void QPrintPreviewWidget_ChangeEvent(QPrintPreviewWidget* self, QEvent* param1) 
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseChangeEvent(QPrintPreviewWidget* self, QEvent* param1) {
+void QPrintPreviewWidget_SuperChangeEvent(QPrintPreviewWidget* self, QEvent* param1) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_ChangeEvent_IsBase(true);
@@ -1265,7 +1265,7 @@ int QPrintPreviewWidget_Metric(const QPrintPreviewWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int QPrintPreviewWidget_QBaseMetric(const QPrintPreviewWidget* self, int param1) {
+int QPrintPreviewWidget_SuperMetric(const QPrintPreviewWidget* self, int param1) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_Metric_IsBase(true);
@@ -1294,7 +1294,7 @@ void QPrintPreviewWidget_InitPainter(const QPrintPreviewWidget* self, QPainter* 
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseInitPainter(const QPrintPreviewWidget* self, QPainter* painter) {
+void QPrintPreviewWidget_SuperInitPainter(const QPrintPreviewWidget* self, QPainter* painter) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_InitPainter_IsBase(true);
@@ -1323,7 +1323,7 @@ QPaintDevice* QPrintPreviewWidget_Redirected(const QPrintPreviewWidget* self, QP
 }
 
 // Base class handler implementation
-QPaintDevice* QPrintPreviewWidget_QBaseRedirected(const QPrintPreviewWidget* self, QPoint* offset) {
+QPaintDevice* QPrintPreviewWidget_SuperRedirected(const QPrintPreviewWidget* self, QPoint* offset) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_Redirected_IsBase(true);
@@ -1352,7 +1352,7 @@ QPainter* QPrintPreviewWidget_SharedPainter(const QPrintPreviewWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* QPrintPreviewWidget_QBaseSharedPainter(const QPrintPreviewWidget* self) {
+QPainter* QPrintPreviewWidget_SuperSharedPainter(const QPrintPreviewWidget* self) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_SharedPainter_IsBase(true);
@@ -1381,7 +1381,7 @@ void QPrintPreviewWidget_InputMethodEvent(QPrintPreviewWidget* self, QInputMetho
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseInputMethodEvent(QPrintPreviewWidget* self, QInputMethodEvent* param1) {
+void QPrintPreviewWidget_SuperInputMethodEvent(QPrintPreviewWidget* self, QInputMethodEvent* param1) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_InputMethodEvent_IsBase(true);
@@ -1410,7 +1410,7 @@ QVariant* QPrintPreviewWidget_InputMethodQuery(const QPrintPreviewWidget* self, 
 }
 
 // Base class handler implementation
-QVariant* QPrintPreviewWidget_QBaseInputMethodQuery(const QPrintPreviewWidget* self, int param1) {
+QVariant* QPrintPreviewWidget_SuperInputMethodQuery(const QPrintPreviewWidget* self, int param1) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_InputMethodQuery_IsBase(true);
@@ -1439,7 +1439,7 @@ bool QPrintPreviewWidget_FocusNextPrevChild(QPrintPreviewWidget* self, bool next
 }
 
 // Base class handler implementation
-bool QPrintPreviewWidget_QBaseFocusNextPrevChild(QPrintPreviewWidget* self, bool next) {
+bool QPrintPreviewWidget_SuperFocusNextPrevChild(QPrintPreviewWidget* self, bool next) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_FocusNextPrevChild_IsBase(true);
@@ -1468,7 +1468,7 @@ bool QPrintPreviewWidget_EventFilter(QPrintPreviewWidget* self, QObject* watched
 }
 
 // Base class handler implementation
-bool QPrintPreviewWidget_QBaseEventFilter(QPrintPreviewWidget* self, QObject* watched, QEvent* event) {
+bool QPrintPreviewWidget_SuperEventFilter(QPrintPreviewWidget* self, QObject* watched, QEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_EventFilter_IsBase(true);
@@ -1497,7 +1497,7 @@ void QPrintPreviewWidget_TimerEvent(QPrintPreviewWidget* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseTimerEvent(QPrintPreviewWidget* self, QTimerEvent* event) {
+void QPrintPreviewWidget_SuperTimerEvent(QPrintPreviewWidget* self, QTimerEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_TimerEvent_IsBase(true);
@@ -1526,7 +1526,7 @@ void QPrintPreviewWidget_ChildEvent(QPrintPreviewWidget* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseChildEvent(QPrintPreviewWidget* self, QChildEvent* event) {
+void QPrintPreviewWidget_SuperChildEvent(QPrintPreviewWidget* self, QChildEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_ChildEvent_IsBase(true);
@@ -1555,7 +1555,7 @@ void QPrintPreviewWidget_CustomEvent(QPrintPreviewWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseCustomEvent(QPrintPreviewWidget* self, QEvent* event) {
+void QPrintPreviewWidget_SuperCustomEvent(QPrintPreviewWidget* self, QEvent* event) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_CustomEvent_IsBase(true);
@@ -1584,7 +1584,7 @@ void QPrintPreviewWidget_ConnectNotify(QPrintPreviewWidget* self, const QMetaMet
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseConnectNotify(QPrintPreviewWidget* self, const QMetaMethod* signal) {
+void QPrintPreviewWidget_SuperConnectNotify(QPrintPreviewWidget* self, const QMetaMethod* signal) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_ConnectNotify_IsBase(true);
@@ -1613,7 +1613,7 @@ void QPrintPreviewWidget_DisconnectNotify(QPrintPreviewWidget* self, const QMeta
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseDisconnectNotify(QPrintPreviewWidget* self, const QMetaMethod* signal) {
+void QPrintPreviewWidget_SuperDisconnectNotify(QPrintPreviewWidget* self, const QMetaMethod* signal) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_DisconnectNotify_IsBase(true);
@@ -1642,7 +1642,7 @@ void QPrintPreviewWidget_UpdateMicroFocus(QPrintPreviewWidget* self) {
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseUpdateMicroFocus(QPrintPreviewWidget* self) {
+void QPrintPreviewWidget_SuperUpdateMicroFocus(QPrintPreviewWidget* self) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_UpdateMicroFocus_IsBase(true);
@@ -1671,7 +1671,7 @@ void QPrintPreviewWidget_Create(QPrintPreviewWidget* self) {
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseCreate(QPrintPreviewWidget* self) {
+void QPrintPreviewWidget_SuperCreate(QPrintPreviewWidget* self) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_Create_IsBase(true);
@@ -1700,7 +1700,7 @@ void QPrintPreviewWidget_Destroy(QPrintPreviewWidget* self) {
 }
 
 // Base class handler implementation
-void QPrintPreviewWidget_QBaseDestroy(QPrintPreviewWidget* self) {
+void QPrintPreviewWidget_SuperDestroy(QPrintPreviewWidget* self) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_Destroy_IsBase(true);
@@ -1729,7 +1729,7 @@ bool QPrintPreviewWidget_FocusNextChild(QPrintPreviewWidget* self) {
 }
 
 // Base class handler implementation
-bool QPrintPreviewWidget_QBaseFocusNextChild(QPrintPreviewWidget* self) {
+bool QPrintPreviewWidget_SuperFocusNextChild(QPrintPreviewWidget* self) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_FocusNextChild_IsBase(true);
@@ -1758,7 +1758,7 @@ bool QPrintPreviewWidget_FocusPreviousChild(QPrintPreviewWidget* self) {
 }
 
 // Base class handler implementation
-bool QPrintPreviewWidget_QBaseFocusPreviousChild(QPrintPreviewWidget* self) {
+bool QPrintPreviewWidget_SuperFocusPreviousChild(QPrintPreviewWidget* self) {
     auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_FocusPreviousChild_IsBase(true);
@@ -1787,7 +1787,7 @@ QObject* QPrintPreviewWidget_Sender(const QPrintPreviewWidget* self) {
 }
 
 // Base class handler implementation
-QObject* QPrintPreviewWidget_QBaseSender(const QPrintPreviewWidget* self) {
+QObject* QPrintPreviewWidget_SuperSender(const QPrintPreviewWidget* self) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_Sender_IsBase(true);
@@ -1816,7 +1816,7 @@ int QPrintPreviewWidget_SenderSignalIndex(const QPrintPreviewWidget* self) {
 }
 
 // Base class handler implementation
-int QPrintPreviewWidget_QBaseSenderSignalIndex(const QPrintPreviewWidget* self) {
+int QPrintPreviewWidget_SuperSenderSignalIndex(const QPrintPreviewWidget* self) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_SenderSignalIndex_IsBase(true);
@@ -1845,7 +1845,7 @@ int QPrintPreviewWidget_Receivers(const QPrintPreviewWidget* self, const char* s
 }
 
 // Base class handler implementation
-int QPrintPreviewWidget_QBaseReceivers(const QPrintPreviewWidget* self, const char* signal) {
+int QPrintPreviewWidget_SuperReceivers(const QPrintPreviewWidget* self, const char* signal) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_Receivers_IsBase(true);
@@ -1874,7 +1874,7 @@ bool QPrintPreviewWidget_IsSignalConnected(const QPrintPreviewWidget* self, cons
 }
 
 // Base class handler implementation
-bool QPrintPreviewWidget_QBaseIsSignalConnected(const QPrintPreviewWidget* self, const QMetaMethod* signal) {
+bool QPrintPreviewWidget_SuperIsSignalConnected(const QPrintPreviewWidget* self, const QMetaMethod* signal) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_IsSignalConnected_IsBase(true);
@@ -1903,7 +1903,7 @@ double QPrintPreviewWidget_GetDecodedMetricF(const QPrintPreviewWidget* self, in
 }
 
 // Base class handler implementation
-double QPrintPreviewWidget_QBaseGetDecodedMetricF(const QPrintPreviewWidget* self, int metricA, int metricB) {
+double QPrintPreviewWidget_SuperGetDecodedMetricF(const QPrintPreviewWidget* self, int metricA, int metricB) {
     auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
     if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
         vqprintpreviewwidget->setQPrintPreviewWidget_GetDecodedMetricF_IsBase(true);

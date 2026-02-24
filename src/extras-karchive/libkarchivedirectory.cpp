@@ -97,7 +97,7 @@ bool KArchiveDirectory_CopyTo2(const KArchiveDirectory* self, const libqt_string
 }
 
 // Base class handler implementation
-bool KArchiveDirectory_QBaseIsDirectory(const KArchiveDirectory* self) {
+bool KArchiveDirectory_SuperIsDirectory(const KArchiveDirectory* self) {
     auto* vkarchivedirectory = const_cast<VirtualKArchiveDirectory*>(dynamic_cast<const VirtualKArchiveDirectory*>(self));
     if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory) {
         vkarchivedirectory->setKArchiveDirectory_IsDirectory_IsBase(true);
@@ -116,7 +116,7 @@ void KArchiveDirectory_OnIsDirectory(const KArchiveDirectory* self, intptr_t slo
 }
 
 // Base class handler implementation
-void KArchiveDirectory_QBaseVirtualHook(KArchiveDirectory* self, int id, void* data) {
+void KArchiveDirectory_SuperVirtualHook(KArchiveDirectory* self, int id, void* data) {
     auto* vkarchivedirectory = dynamic_cast<VirtualKArchiveDirectory*>(self);
     if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory) {
         vkarchivedirectory->setKArchiveDirectory_VirtualHook_IsBase(true);
@@ -145,7 +145,7 @@ bool KArchiveDirectory_IsFile(const KArchiveDirectory* self) {
 }
 
 // Base class handler implementation
-bool KArchiveDirectory_QBaseIsFile(const KArchiveDirectory* self) {
+bool KArchiveDirectory_SuperIsFile(const KArchiveDirectory* self) {
     auto* vkarchivedirectory = const_cast<VirtualKArchiveDirectory*>(dynamic_cast<const VirtualKArchiveDirectory*>(self));
     if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory) {
         vkarchivedirectory->setKArchiveDirectory_IsFile_IsBase(true);
@@ -174,7 +174,7 @@ KArchive* KArchiveDirectory_Archive(const KArchiveDirectory* self) {
 }
 
 // Base class handler implementation
-KArchive* KArchiveDirectory_QBaseArchive(const KArchiveDirectory* self) {
+KArchive* KArchiveDirectory_SuperArchive(const KArchiveDirectory* self) {
     auto* vkarchivedirectory = const_cast<VirtualKArchiveDirectory*>(dynamic_cast<const VirtualKArchiveDirectory*>(self));
     if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory) {
         vkarchivedirectory->setKArchiveDirectory_Archive_IsBase(true);

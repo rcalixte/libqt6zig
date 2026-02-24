@@ -345,23 +345,23 @@ class VirtualQWebChannelAbstractTransport : public QWebChannelAbstractTransport 
 
     // Friend functions
     friend void QWebChannelAbstractTransport_TimerEvent(QWebChannelAbstractTransport* self, QTimerEvent* event);
-    friend void QWebChannelAbstractTransport_QBaseTimerEvent(QWebChannelAbstractTransport* self, QTimerEvent* event);
+    friend void QWebChannelAbstractTransport_SuperTimerEvent(QWebChannelAbstractTransport* self, QTimerEvent* event);
     friend void QWebChannelAbstractTransport_ChildEvent(QWebChannelAbstractTransport* self, QChildEvent* event);
-    friend void QWebChannelAbstractTransport_QBaseChildEvent(QWebChannelAbstractTransport* self, QChildEvent* event);
+    friend void QWebChannelAbstractTransport_SuperChildEvent(QWebChannelAbstractTransport* self, QChildEvent* event);
     friend void QWebChannelAbstractTransport_CustomEvent(QWebChannelAbstractTransport* self, QEvent* event);
-    friend void QWebChannelAbstractTransport_QBaseCustomEvent(QWebChannelAbstractTransport* self, QEvent* event);
+    friend void QWebChannelAbstractTransport_SuperCustomEvent(QWebChannelAbstractTransport* self, QEvent* event);
     friend void QWebChannelAbstractTransport_ConnectNotify(QWebChannelAbstractTransport* self, const QMetaMethod* signal);
-    friend void QWebChannelAbstractTransport_QBaseConnectNotify(QWebChannelAbstractTransport* self, const QMetaMethod* signal);
+    friend void QWebChannelAbstractTransport_SuperConnectNotify(QWebChannelAbstractTransport* self, const QMetaMethod* signal);
     friend void QWebChannelAbstractTransport_DisconnectNotify(QWebChannelAbstractTransport* self, const QMetaMethod* signal);
-    friend void QWebChannelAbstractTransport_QBaseDisconnectNotify(QWebChannelAbstractTransport* self, const QMetaMethod* signal);
+    friend void QWebChannelAbstractTransport_SuperDisconnectNotify(QWebChannelAbstractTransport* self, const QMetaMethod* signal);
     friend QObject* QWebChannelAbstractTransport_Sender(const QWebChannelAbstractTransport* self);
-    friend QObject* QWebChannelAbstractTransport_QBaseSender(const QWebChannelAbstractTransport* self);
+    friend QObject* QWebChannelAbstractTransport_SuperSender(const QWebChannelAbstractTransport* self);
     friend int QWebChannelAbstractTransport_SenderSignalIndex(const QWebChannelAbstractTransport* self);
-    friend int QWebChannelAbstractTransport_QBaseSenderSignalIndex(const QWebChannelAbstractTransport* self);
+    friend int QWebChannelAbstractTransport_SuperSenderSignalIndex(const QWebChannelAbstractTransport* self);
     friend int QWebChannelAbstractTransport_Receivers(const QWebChannelAbstractTransport* self, const char* signal);
-    friend int QWebChannelAbstractTransport_QBaseReceivers(const QWebChannelAbstractTransport* self, const char* signal);
+    friend int QWebChannelAbstractTransport_SuperReceivers(const QWebChannelAbstractTransport* self, const char* signal);
     friend bool QWebChannelAbstractTransport_IsSignalConnected(const QWebChannelAbstractTransport* self, const QMetaMethod* signal);
-    friend bool QWebChannelAbstractTransport_QBaseIsSignalConnected(const QWebChannelAbstractTransport* self, const QMetaMethod* signal);
+    friend bool QWebChannelAbstractTransport_SuperIsSignalConnected(const QWebChannelAbstractTransport* self, const QMetaMethod* signal);
 };
 
 #endif

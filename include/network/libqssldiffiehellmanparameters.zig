@@ -154,6 +154,10 @@ pub const qssldiffiehellmanparameters = struct {
         return qtc.QSslDiffieHellmanParameters_FromEncoded23(@ptrCast(device), @bitCast(format));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#dtor.QSslDiffieHellmanParameters)
     ///
     /// Delete this object from C++ memory.
@@ -162,7 +166,7 @@ pub const qssldiffiehellmanparameters = struct {
     ///
     /// ` self: QtC.QSslDiffieHellmanParameters `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSslDiffieHellmanParameters_Delete(@ptrCast(self));
     }
 };

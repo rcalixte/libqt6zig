@@ -59,6 +59,10 @@ pub const qpdfwriter = struct {
         qtc.QPdfWriter_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -67,8 +71,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` self: QtC.QPdfWriter `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QPdfWriter_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QPdfWriter_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -94,6 +98,10 @@ pub const qpdfwriter = struct {
         qtc.QPdfWriter_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -102,9 +110,9 @@ pub const qpdfwriter = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QPdfWriter_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QPdfWriter_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -133,6 +141,10 @@ pub const qpdfwriter = struct {
         qtc.QPdfWriter_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -145,8 +157,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QPdfWriter_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QPdfWriter_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -302,6 +314,10 @@ pub const qpdfwriter = struct {
         qtc.QPdfWriter_OnNewPage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperNewPage` instead
+    ///
+    pub const QBaseNewPage = SuperNewPage;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#newPage)
     ///
     /// Base class method implementation
@@ -310,8 +326,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` self: QtC.QPdfWriter `
     ///
-    pub fn QBaseNewPage(self: ?*anyopaque) bool {
-        return qtc.QPdfWriter_QBaseNewPage(@ptrCast(self));
+    pub fn SuperNewPage(self: ?*anyopaque) bool {
+        return qtc.QPdfWriter_SuperNewPage(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#setResolution)
@@ -462,6 +478,10 @@ pub const qpdfwriter = struct {
         qtc.QPdfWriter_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#paintEngine)
     ///
     /// Base class method implementation
@@ -470,8 +490,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` self: QtC.QPdfWriter `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QPdfWriter_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.QPdfWriter_SuperPaintEngine(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#metric)
@@ -500,6 +520,10 @@ pub const qpdfwriter = struct {
         qtc.QPdfWriter_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#metric)
     ///
     /// Base class method implementation
@@ -510,8 +534,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` id: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, id: i32) i32 {
-        return qtc.QPdfWriter_QBaseMetric(@ptrCast(self), @bitCast(id));
+    pub fn SuperMetric(self: ?*anyopaque, id: i32) i32 {
+        return qtc.QPdfWriter_SuperMetric(@ptrCast(self), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1540,6 +1564,10 @@ pub const qpdfwriter = struct {
         return qtc.QPdfWriter_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1552,8 +1580,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QPdfWriter_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QPdfWriter_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1590,6 +1618,10 @@ pub const qpdfwriter = struct {
         return qtc.QPdfWriter_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1604,8 +1636,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QPdfWriter_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QPdfWriter_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1640,6 +1672,10 @@ pub const qpdfwriter = struct {
         qtc.QPdfWriter_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1652,8 +1688,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPdfWriter_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPdfWriter_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1688,6 +1724,10 @@ pub const qpdfwriter = struct {
         qtc.QPdfWriter_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1700,8 +1740,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPdfWriter_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPdfWriter_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1736,6 +1776,10 @@ pub const qpdfwriter = struct {
         qtc.QPdfWriter_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1748,8 +1792,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPdfWriter_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPdfWriter_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1784,6 +1828,10 @@ pub const qpdfwriter = struct {
         qtc.QPdfWriter_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1796,8 +1844,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QPdfWriter_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QPdfWriter_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1832,6 +1880,10 @@ pub const qpdfwriter = struct {
         qtc.QPdfWriter_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1844,8 +1896,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QPdfWriter_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QPdfWriter_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1880,6 +1932,10 @@ pub const qpdfwriter = struct {
         return qtc.QPdfWriter_SetPageLayout(@ptrCast(self), @ptrCast(pageLayout));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPageLayout` instead
+    ///
+    pub const QBaseSetPageLayout = SuperSetPageLayout;
+
     /// Inherited from QPagedPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageLayout)
@@ -1892,8 +1948,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` pageLayout: QtC.QPageLayout `
     ///
-    pub fn QBaseSetPageLayout(self: ?*anyopaque, pageLayout: ?*anyopaque) bool {
-        return qtc.QPdfWriter_QBaseSetPageLayout(@ptrCast(self), @ptrCast(pageLayout));
+    pub fn SuperSetPageLayout(self: ?*anyopaque, pageLayout: ?*anyopaque) bool {
+        return qtc.QPdfWriter_SuperSetPageLayout(@ptrCast(self), @ptrCast(pageLayout));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1928,6 +1984,10 @@ pub const qpdfwriter = struct {
         return qtc.QPdfWriter_SetPageSize(@ptrCast(self), @ptrCast(pageSize));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPageSize` instead
+    ///
+    pub const QBaseSetPageSize = SuperSetPageSize;
+
     /// Inherited from QPagedPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageSize)
@@ -1940,8 +2000,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` pageSize: QtC.QPageSize `
     ///
-    pub fn QBaseSetPageSize(self: ?*anyopaque, pageSize: ?*anyopaque) bool {
-        return qtc.QPdfWriter_QBaseSetPageSize(@ptrCast(self), @ptrCast(pageSize));
+    pub fn SuperSetPageSize(self: ?*anyopaque, pageSize: ?*anyopaque) bool {
+        return qtc.QPdfWriter_SuperSetPageSize(@ptrCast(self), @ptrCast(pageSize));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1976,6 +2036,10 @@ pub const qpdfwriter = struct {
         return qtc.QPdfWriter_SetPageOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPageOrientation` instead
+    ///
+    pub const QBaseSetPageOrientation = SuperSetPageOrientation;
+
     /// Inherited from QPagedPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageOrientation)
@@ -1988,8 +2052,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` orientation: qpagelayout_enums.Orientation `
     ///
-    pub fn QBaseSetPageOrientation(self: ?*anyopaque, orientation: i32) bool {
-        return qtc.QPdfWriter_QBaseSetPageOrientation(@ptrCast(self), @bitCast(orientation));
+    pub fn SuperSetPageOrientation(self: ?*anyopaque, orientation: i32) bool {
+        return qtc.QPdfWriter_SuperSetPageOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -2026,6 +2090,10 @@ pub const qpdfwriter = struct {
         return qtc.QPdfWriter_SetPageMargins(@ptrCast(self), @ptrCast(margins), @bitCast(units));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPageMargins` instead
+    ///
+    pub const QBaseSetPageMargins = SuperSetPageMargins;
+
     /// Inherited from QPagedPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageMargins)
@@ -2040,8 +2108,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` units: qpagelayout_enums.Unit `
     ///
-    pub fn QBaseSetPageMargins(self: ?*anyopaque, margins: ?*anyopaque, units: i32) bool {
-        return qtc.QPdfWriter_QBaseSetPageMargins(@ptrCast(self), @ptrCast(margins), @bitCast(units));
+    pub fn SuperSetPageMargins(self: ?*anyopaque, margins: ?*anyopaque, units: i32) bool {
+        return qtc.QPdfWriter_SuperSetPageMargins(@ptrCast(self), @ptrCast(margins), @bitCast(units));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -2076,6 +2144,10 @@ pub const qpdfwriter = struct {
         qtc.QPdfWriter_SetPageRanges(@ptrCast(self), @ptrCast(ranges));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPageRanges` instead
+    ///
+    pub const QBaseSetPageRanges = SuperSetPageRanges;
+
     /// Inherited from QPagedPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageRanges)
@@ -2088,8 +2160,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` ranges: QtC.QPageRanges `
     ///
-    pub fn QBaseSetPageRanges(self: ?*anyopaque, ranges: ?*anyopaque) void {
-        qtc.QPdfWriter_QBaseSetPageRanges(@ptrCast(self), @ptrCast(ranges));
+    pub fn SuperSetPageRanges(self: ?*anyopaque, ranges: ?*anyopaque) void {
+        qtc.QPdfWriter_SuperSetPageRanges(@ptrCast(self), @ptrCast(ranges));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -2122,6 +2194,10 @@ pub const qpdfwriter = struct {
         return qtc.QPdfWriter_DevType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devType)
@@ -2132,8 +2208,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` self: QtC.QPdfWriter `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.QPdfWriter_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.QPdfWriter_SuperDevType(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
@@ -2168,6 +2244,10 @@ pub const qpdfwriter = struct {
         qtc.QPdfWriter_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
@@ -2180,8 +2260,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QPdfWriter_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QPdfWriter_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QPaintDevice
@@ -2216,6 +2296,10 @@ pub const qpdfwriter = struct {
         return qtc.QPdfWriter_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
@@ -2228,8 +2312,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QPdfWriter_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.QPdfWriter_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QPaintDevice
@@ -2262,6 +2346,10 @@ pub const qpdfwriter = struct {
         return qtc.QPdfWriter_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
@@ -2272,8 +2360,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` self: QtC.QPdfWriter `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QPdfWriter_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.QPdfWriter_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
@@ -2306,6 +2394,10 @@ pub const qpdfwriter = struct {
         return qtc.QPdfWriter_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2316,8 +2408,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` self: QtC.QPdfWriter `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QPdfWriter_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QPdfWriter_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2350,6 +2442,10 @@ pub const qpdfwriter = struct {
         return qtc.QPdfWriter_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2360,8 +2456,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` self: QtC.QPdfWriter `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QPdfWriter_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QPdfWriter_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2397,6 +2493,10 @@ pub const qpdfwriter = struct {
         return qtc.QPdfWriter_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2409,9 +2509,9 @@ pub const qpdfwriter = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QPdfWriter_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QPdfWriter_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2446,6 +2546,10 @@ pub const qpdfwriter = struct {
         return qtc.QPdfWriter_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2458,8 +2562,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QPdfWriter_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QPdfWriter_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2496,6 +2600,10 @@ pub const qpdfwriter = struct {
         return qtc.QPdfWriter_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -2510,8 +2618,8 @@ pub const qpdfwriter = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QPdfWriter_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.QPdfWriter_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -2545,6 +2653,9 @@ pub const qpdfwriter = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#dtor.QPdfWriter)
     ///
@@ -2554,7 +2665,7 @@ pub const qpdfwriter = struct {
     ///
     /// ` self: QtC.QPdfWriter `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPdfWriter_Delete(@ptrCast(self));
     }
 };

@@ -86,7 +86,7 @@ void KBugReport_Accept(KBugReport* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KBugReport_QBaseMetaObject(const KBugReport* self) {
+QMetaObject* KBugReport_SuperMetaObject(const KBugReport* self) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_MetaObject_IsBase(true);
@@ -105,7 +105,7 @@ void KBugReport_OnMetaObject(const KBugReport* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KBugReport_QBaseMetacast(KBugReport* self, const char* param1) {
+void* KBugReport_SuperMetacast(KBugReport* self, const char* param1) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_Metacast_IsBase(true);
@@ -124,7 +124,7 @@ void KBugReport_OnMetacast(KBugReport* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KBugReport_QBaseMetacall(KBugReport* self, int param1, int param2, void** param3) {
+int KBugReport_SuperMetacall(KBugReport* self, int param1, int param2, void** param3) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_Metacall_IsBase(true);
@@ -143,7 +143,7 @@ void KBugReport_OnMetacall(KBugReport* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseAccept(KBugReport* self) {
+void KBugReport_SuperAccept(KBugReport* self) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_Accept_IsBase(true);
@@ -172,7 +172,7 @@ void KBugReport_SetVisible(KBugReport* self, bool visible) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseSetVisible(KBugReport* self, bool visible) {
+void KBugReport_SuperSetVisible(KBugReport* self, bool visible) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_SetVisible_IsBase(true);
@@ -201,7 +201,7 @@ QSize* KBugReport_SizeHint(const KBugReport* self) {
 }
 
 // Base class handler implementation
-QSize* KBugReport_QBaseSizeHint(const KBugReport* self) {
+QSize* KBugReport_SuperSizeHint(const KBugReport* self) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_SizeHint_IsBase(true);
@@ -230,7 +230,7 @@ QSize* KBugReport_MinimumSizeHint(const KBugReport* self) {
 }
 
 // Base class handler implementation
-QSize* KBugReport_QBaseMinimumSizeHint(const KBugReport* self) {
+QSize* KBugReport_SuperMinimumSizeHint(const KBugReport* self) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_MinimumSizeHint_IsBase(true);
@@ -259,7 +259,7 @@ void KBugReport_Open(KBugReport* self) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseOpen(KBugReport* self) {
+void KBugReport_SuperOpen(KBugReport* self) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_Open_IsBase(true);
@@ -288,7 +288,7 @@ int KBugReport_Exec(KBugReport* self) {
 }
 
 // Base class handler implementation
-int KBugReport_QBaseExec(KBugReport* self) {
+int KBugReport_SuperExec(KBugReport* self) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_Exec_IsBase(true);
@@ -317,7 +317,7 @@ void KBugReport_Done(KBugReport* self, int param1) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseDone(KBugReport* self, int param1) {
+void KBugReport_SuperDone(KBugReport* self, int param1) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_Done_IsBase(true);
@@ -346,7 +346,7 @@ void KBugReport_Reject(KBugReport* self) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseReject(KBugReport* self) {
+void KBugReport_SuperReject(KBugReport* self) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_Reject_IsBase(true);
@@ -375,7 +375,7 @@ void KBugReport_KeyPressEvent(KBugReport* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseKeyPressEvent(KBugReport* self, QKeyEvent* param1) {
+void KBugReport_SuperKeyPressEvent(KBugReport* self, QKeyEvent* param1) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_KeyPressEvent_IsBase(true);
@@ -404,7 +404,7 @@ void KBugReport_CloseEvent(KBugReport* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseCloseEvent(KBugReport* self, QCloseEvent* param1) {
+void KBugReport_SuperCloseEvent(KBugReport* self, QCloseEvent* param1) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_CloseEvent_IsBase(true);
@@ -433,7 +433,7 @@ void KBugReport_ShowEvent(KBugReport* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseShowEvent(KBugReport* self, QShowEvent* param1) {
+void KBugReport_SuperShowEvent(KBugReport* self, QShowEvent* param1) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_ShowEvent_IsBase(true);
@@ -462,7 +462,7 @@ void KBugReport_ResizeEvent(KBugReport* self, QResizeEvent* param1) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseResizeEvent(KBugReport* self, QResizeEvent* param1) {
+void KBugReport_SuperResizeEvent(KBugReport* self, QResizeEvent* param1) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_ResizeEvent_IsBase(true);
@@ -491,7 +491,7 @@ void KBugReport_ContextMenuEvent(KBugReport* self, QContextMenuEvent* param1) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseContextMenuEvent(KBugReport* self, QContextMenuEvent* param1) {
+void KBugReport_SuperContextMenuEvent(KBugReport* self, QContextMenuEvent* param1) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_ContextMenuEvent_IsBase(true);
@@ -520,7 +520,7 @@ bool KBugReport_EventFilter(KBugReport* self, QObject* param1, QEvent* param2) {
 }
 
 // Base class handler implementation
-bool KBugReport_QBaseEventFilter(KBugReport* self, QObject* param1, QEvent* param2) {
+bool KBugReport_SuperEventFilter(KBugReport* self, QObject* param1, QEvent* param2) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_EventFilter_IsBase(true);
@@ -549,7 +549,7 @@ int KBugReport_DevType(const KBugReport* self) {
 }
 
 // Base class handler implementation
-int KBugReport_QBaseDevType(const KBugReport* self) {
+int KBugReport_SuperDevType(const KBugReport* self) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_DevType_IsBase(true);
@@ -578,7 +578,7 @@ int KBugReport_HeightForWidth(const KBugReport* self, int param1) {
 }
 
 // Base class handler implementation
-int KBugReport_QBaseHeightForWidth(const KBugReport* self, int param1) {
+int KBugReport_SuperHeightForWidth(const KBugReport* self, int param1) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_HeightForWidth_IsBase(true);
@@ -607,7 +607,7 @@ bool KBugReport_HasHeightForWidth(const KBugReport* self) {
 }
 
 // Base class handler implementation
-bool KBugReport_QBaseHasHeightForWidth(const KBugReport* self) {
+bool KBugReport_SuperHasHeightForWidth(const KBugReport* self) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_HasHeightForWidth_IsBase(true);
@@ -636,7 +636,7 @@ QPaintEngine* KBugReport_PaintEngine(const KBugReport* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KBugReport_QBasePaintEngine(const KBugReport* self) {
+QPaintEngine* KBugReport_SuperPaintEngine(const KBugReport* self) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_PaintEngine_IsBase(true);
@@ -665,7 +665,7 @@ bool KBugReport_Event(KBugReport* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KBugReport_QBaseEvent(KBugReport* self, QEvent* event) {
+bool KBugReport_SuperEvent(KBugReport* self, QEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_Event_IsBase(true);
@@ -694,7 +694,7 @@ void KBugReport_MousePressEvent(KBugReport* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseMousePressEvent(KBugReport* self, QMouseEvent* event) {
+void KBugReport_SuperMousePressEvent(KBugReport* self, QMouseEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_MousePressEvent_IsBase(true);
@@ -723,7 +723,7 @@ void KBugReport_MouseReleaseEvent(KBugReport* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseMouseReleaseEvent(KBugReport* self, QMouseEvent* event) {
+void KBugReport_SuperMouseReleaseEvent(KBugReport* self, QMouseEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_MouseReleaseEvent_IsBase(true);
@@ -752,7 +752,7 @@ void KBugReport_MouseDoubleClickEvent(KBugReport* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseMouseDoubleClickEvent(KBugReport* self, QMouseEvent* event) {
+void KBugReport_SuperMouseDoubleClickEvent(KBugReport* self, QMouseEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_MouseDoubleClickEvent_IsBase(true);
@@ -781,7 +781,7 @@ void KBugReport_MouseMoveEvent(KBugReport* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseMouseMoveEvent(KBugReport* self, QMouseEvent* event) {
+void KBugReport_SuperMouseMoveEvent(KBugReport* self, QMouseEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_MouseMoveEvent_IsBase(true);
@@ -810,7 +810,7 @@ void KBugReport_WheelEvent(KBugReport* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseWheelEvent(KBugReport* self, QWheelEvent* event) {
+void KBugReport_SuperWheelEvent(KBugReport* self, QWheelEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_WheelEvent_IsBase(true);
@@ -839,7 +839,7 @@ void KBugReport_KeyReleaseEvent(KBugReport* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseKeyReleaseEvent(KBugReport* self, QKeyEvent* event) {
+void KBugReport_SuperKeyReleaseEvent(KBugReport* self, QKeyEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_KeyReleaseEvent_IsBase(true);
@@ -868,7 +868,7 @@ void KBugReport_FocusInEvent(KBugReport* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseFocusInEvent(KBugReport* self, QFocusEvent* event) {
+void KBugReport_SuperFocusInEvent(KBugReport* self, QFocusEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_FocusInEvent_IsBase(true);
@@ -897,7 +897,7 @@ void KBugReport_FocusOutEvent(KBugReport* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseFocusOutEvent(KBugReport* self, QFocusEvent* event) {
+void KBugReport_SuperFocusOutEvent(KBugReport* self, QFocusEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_FocusOutEvent_IsBase(true);
@@ -926,7 +926,7 @@ void KBugReport_EnterEvent(KBugReport* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseEnterEvent(KBugReport* self, QEnterEvent* event) {
+void KBugReport_SuperEnterEvent(KBugReport* self, QEnterEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_EnterEvent_IsBase(true);
@@ -955,7 +955,7 @@ void KBugReport_LeaveEvent(KBugReport* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseLeaveEvent(KBugReport* self, QEvent* event) {
+void KBugReport_SuperLeaveEvent(KBugReport* self, QEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_LeaveEvent_IsBase(true);
@@ -984,7 +984,7 @@ void KBugReport_PaintEvent(KBugReport* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBasePaintEvent(KBugReport* self, QPaintEvent* event) {
+void KBugReport_SuperPaintEvent(KBugReport* self, QPaintEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_PaintEvent_IsBase(true);
@@ -1013,7 +1013,7 @@ void KBugReport_MoveEvent(KBugReport* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseMoveEvent(KBugReport* self, QMoveEvent* event) {
+void KBugReport_SuperMoveEvent(KBugReport* self, QMoveEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_MoveEvent_IsBase(true);
@@ -1042,7 +1042,7 @@ void KBugReport_TabletEvent(KBugReport* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseTabletEvent(KBugReport* self, QTabletEvent* event) {
+void KBugReport_SuperTabletEvent(KBugReport* self, QTabletEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_TabletEvent_IsBase(true);
@@ -1071,7 +1071,7 @@ void KBugReport_ActionEvent(KBugReport* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseActionEvent(KBugReport* self, QActionEvent* event) {
+void KBugReport_SuperActionEvent(KBugReport* self, QActionEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_ActionEvent_IsBase(true);
@@ -1100,7 +1100,7 @@ void KBugReport_DragEnterEvent(KBugReport* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseDragEnterEvent(KBugReport* self, QDragEnterEvent* event) {
+void KBugReport_SuperDragEnterEvent(KBugReport* self, QDragEnterEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_DragEnterEvent_IsBase(true);
@@ -1129,7 +1129,7 @@ void KBugReport_DragMoveEvent(KBugReport* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseDragMoveEvent(KBugReport* self, QDragMoveEvent* event) {
+void KBugReport_SuperDragMoveEvent(KBugReport* self, QDragMoveEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_DragMoveEvent_IsBase(true);
@@ -1158,7 +1158,7 @@ void KBugReport_DragLeaveEvent(KBugReport* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseDragLeaveEvent(KBugReport* self, QDragLeaveEvent* event) {
+void KBugReport_SuperDragLeaveEvent(KBugReport* self, QDragLeaveEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_DragLeaveEvent_IsBase(true);
@@ -1187,7 +1187,7 @@ void KBugReport_DropEvent(KBugReport* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseDropEvent(KBugReport* self, QDropEvent* event) {
+void KBugReport_SuperDropEvent(KBugReport* self, QDropEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_DropEvent_IsBase(true);
@@ -1216,7 +1216,7 @@ void KBugReport_HideEvent(KBugReport* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseHideEvent(KBugReport* self, QHideEvent* event) {
+void KBugReport_SuperHideEvent(KBugReport* self, QHideEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_HideEvent_IsBase(true);
@@ -1246,7 +1246,7 @@ bool KBugReport_NativeEvent(KBugReport* self, const libqt_string eventType, void
 }
 
 // Base class handler implementation
-bool KBugReport_QBaseNativeEvent(KBugReport* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KBugReport_SuperNativeEvent(KBugReport* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
@@ -1276,7 +1276,7 @@ void KBugReport_ChangeEvent(KBugReport* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseChangeEvent(KBugReport* self, QEvent* param1) {
+void KBugReport_SuperChangeEvent(KBugReport* self, QEvent* param1) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_ChangeEvent_IsBase(true);
@@ -1305,7 +1305,7 @@ int KBugReport_Metric(const KBugReport* self, int param1) {
 }
 
 // Base class handler implementation
-int KBugReport_QBaseMetric(const KBugReport* self, int param1) {
+int KBugReport_SuperMetric(const KBugReport* self, int param1) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_Metric_IsBase(true);
@@ -1334,7 +1334,7 @@ void KBugReport_InitPainter(const KBugReport* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseInitPainter(const KBugReport* self, QPainter* painter) {
+void KBugReport_SuperInitPainter(const KBugReport* self, QPainter* painter) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_InitPainter_IsBase(true);
@@ -1363,7 +1363,7 @@ QPaintDevice* KBugReport_Redirected(const KBugReport* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KBugReport_QBaseRedirected(const KBugReport* self, QPoint* offset) {
+QPaintDevice* KBugReport_SuperRedirected(const KBugReport* self, QPoint* offset) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_Redirected_IsBase(true);
@@ -1392,7 +1392,7 @@ QPainter* KBugReport_SharedPainter(const KBugReport* self) {
 }
 
 // Base class handler implementation
-QPainter* KBugReport_QBaseSharedPainter(const KBugReport* self) {
+QPainter* KBugReport_SuperSharedPainter(const KBugReport* self) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_SharedPainter_IsBase(true);
@@ -1421,7 +1421,7 @@ void KBugReport_InputMethodEvent(KBugReport* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseInputMethodEvent(KBugReport* self, QInputMethodEvent* param1) {
+void KBugReport_SuperInputMethodEvent(KBugReport* self, QInputMethodEvent* param1) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_InputMethodEvent_IsBase(true);
@@ -1450,7 +1450,7 @@ QVariant* KBugReport_InputMethodQuery(const KBugReport* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KBugReport_QBaseInputMethodQuery(const KBugReport* self, int param1) {
+QVariant* KBugReport_SuperInputMethodQuery(const KBugReport* self, int param1) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_InputMethodQuery_IsBase(true);
@@ -1479,7 +1479,7 @@ bool KBugReport_FocusNextPrevChild(KBugReport* self, bool next) {
 }
 
 // Base class handler implementation
-bool KBugReport_QBaseFocusNextPrevChild(KBugReport* self, bool next) {
+bool KBugReport_SuperFocusNextPrevChild(KBugReport* self, bool next) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_FocusNextPrevChild_IsBase(true);
@@ -1508,7 +1508,7 @@ void KBugReport_TimerEvent(KBugReport* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseTimerEvent(KBugReport* self, QTimerEvent* event) {
+void KBugReport_SuperTimerEvent(KBugReport* self, QTimerEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_TimerEvent_IsBase(true);
@@ -1537,7 +1537,7 @@ void KBugReport_ChildEvent(KBugReport* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseChildEvent(KBugReport* self, QChildEvent* event) {
+void KBugReport_SuperChildEvent(KBugReport* self, QChildEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_ChildEvent_IsBase(true);
@@ -1566,7 +1566,7 @@ void KBugReport_CustomEvent(KBugReport* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseCustomEvent(KBugReport* self, QEvent* event) {
+void KBugReport_SuperCustomEvent(KBugReport* self, QEvent* event) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_CustomEvent_IsBase(true);
@@ -1595,7 +1595,7 @@ void KBugReport_ConnectNotify(KBugReport* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseConnectNotify(KBugReport* self, const QMetaMethod* signal) {
+void KBugReport_SuperConnectNotify(KBugReport* self, const QMetaMethod* signal) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_ConnectNotify_IsBase(true);
@@ -1624,7 +1624,7 @@ void KBugReport_DisconnectNotify(KBugReport* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseDisconnectNotify(KBugReport* self, const QMetaMethod* signal) {
+void KBugReport_SuperDisconnectNotify(KBugReport* self, const QMetaMethod* signal) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_DisconnectNotify_IsBase(true);
@@ -1653,7 +1653,7 @@ bool KBugReport_SendBugReport(KBugReport* self) {
 }
 
 // Base class handler implementation
-bool KBugReport_QBaseSendBugReport(KBugReport* self) {
+bool KBugReport_SuperSendBugReport(KBugReport* self) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_SendBugReport_IsBase(true);
@@ -1682,7 +1682,7 @@ void KBugReport_AdjustPosition(KBugReport* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseAdjustPosition(KBugReport* self, QWidget* param1) {
+void KBugReport_SuperAdjustPosition(KBugReport* self, QWidget* param1) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_AdjustPosition_IsBase(true);
@@ -1711,7 +1711,7 @@ void KBugReport_UpdateMicroFocus(KBugReport* self) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseUpdateMicroFocus(KBugReport* self) {
+void KBugReport_SuperUpdateMicroFocus(KBugReport* self) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_UpdateMicroFocus_IsBase(true);
@@ -1740,7 +1740,7 @@ void KBugReport_Create(KBugReport* self) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseCreate(KBugReport* self) {
+void KBugReport_SuperCreate(KBugReport* self) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_Create_IsBase(true);
@@ -1769,7 +1769,7 @@ void KBugReport_Destroy(KBugReport* self) {
 }
 
 // Base class handler implementation
-void KBugReport_QBaseDestroy(KBugReport* self) {
+void KBugReport_SuperDestroy(KBugReport* self) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_Destroy_IsBase(true);
@@ -1798,7 +1798,7 @@ bool KBugReport_FocusNextChild(KBugReport* self) {
 }
 
 // Base class handler implementation
-bool KBugReport_QBaseFocusNextChild(KBugReport* self) {
+bool KBugReport_SuperFocusNextChild(KBugReport* self) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_FocusNextChild_IsBase(true);
@@ -1827,7 +1827,7 @@ bool KBugReport_FocusPreviousChild(KBugReport* self) {
 }
 
 // Base class handler implementation
-bool KBugReport_QBaseFocusPreviousChild(KBugReport* self) {
+bool KBugReport_SuperFocusPreviousChild(KBugReport* self) {
     auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_FocusPreviousChild_IsBase(true);
@@ -1856,7 +1856,7 @@ QObject* KBugReport_Sender(const KBugReport* self) {
 }
 
 // Base class handler implementation
-QObject* KBugReport_QBaseSender(const KBugReport* self) {
+QObject* KBugReport_SuperSender(const KBugReport* self) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_Sender_IsBase(true);
@@ -1885,7 +1885,7 @@ int KBugReport_SenderSignalIndex(const KBugReport* self) {
 }
 
 // Base class handler implementation
-int KBugReport_QBaseSenderSignalIndex(const KBugReport* self) {
+int KBugReport_SuperSenderSignalIndex(const KBugReport* self) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_SenderSignalIndex_IsBase(true);
@@ -1914,7 +1914,7 @@ int KBugReport_Receivers(const KBugReport* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KBugReport_QBaseReceivers(const KBugReport* self, const char* signal) {
+int KBugReport_SuperReceivers(const KBugReport* self, const char* signal) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_Receivers_IsBase(true);
@@ -1943,7 +1943,7 @@ bool KBugReport_IsSignalConnected(const KBugReport* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool KBugReport_QBaseIsSignalConnected(const KBugReport* self, const QMetaMethod* signal) {
+bool KBugReport_SuperIsSignalConnected(const KBugReport* self, const QMetaMethod* signal) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_IsSignalConnected_IsBase(true);
@@ -1972,7 +1972,7 @@ double KBugReport_GetDecodedMetricF(const KBugReport* self, int metricA, int met
 }
 
 // Base class handler implementation
-double KBugReport_QBaseGetDecodedMetricF(const KBugReport* self, int metricA, int metricB) {
+double KBugReport_SuperGetDecodedMetricF(const KBugReport* self, int metricA, int metricB) {
     auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
     if (vkbugreport && vkbugreport->isVirtualKBugReport) {
         vkbugreport->setKBugReport_GetDecodedMetricF_IsBase(true);

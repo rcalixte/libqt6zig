@@ -577,23 +577,23 @@ class VirtualKIOWidgetsAskUserActionHandler final : public KIO::WidgetsAskUserAc
 
     // Friend functions
     friend void KIO__WidgetsAskUserActionHandler_TimerEvent(KIO::WidgetsAskUserActionHandler* self, QTimerEvent* event);
-    friend void KIO__WidgetsAskUserActionHandler_QBaseTimerEvent(KIO::WidgetsAskUserActionHandler* self, QTimerEvent* event);
+    friend void KIO__WidgetsAskUserActionHandler_SuperTimerEvent(KIO::WidgetsAskUserActionHandler* self, QTimerEvent* event);
     friend void KIO__WidgetsAskUserActionHandler_ChildEvent(KIO::WidgetsAskUserActionHandler* self, QChildEvent* event);
-    friend void KIO__WidgetsAskUserActionHandler_QBaseChildEvent(KIO::WidgetsAskUserActionHandler* self, QChildEvent* event);
+    friend void KIO__WidgetsAskUserActionHandler_SuperChildEvent(KIO::WidgetsAskUserActionHandler* self, QChildEvent* event);
     friend void KIO__WidgetsAskUserActionHandler_CustomEvent(KIO::WidgetsAskUserActionHandler* self, QEvent* event);
-    friend void KIO__WidgetsAskUserActionHandler_QBaseCustomEvent(KIO::WidgetsAskUserActionHandler* self, QEvent* event);
+    friend void KIO__WidgetsAskUserActionHandler_SuperCustomEvent(KIO::WidgetsAskUserActionHandler* self, QEvent* event);
     friend void KIO__WidgetsAskUserActionHandler_ConnectNotify(KIO::WidgetsAskUserActionHandler* self, const QMetaMethod* signal);
-    friend void KIO__WidgetsAskUserActionHandler_QBaseConnectNotify(KIO::WidgetsAskUserActionHandler* self, const QMetaMethod* signal);
+    friend void KIO__WidgetsAskUserActionHandler_SuperConnectNotify(KIO::WidgetsAskUserActionHandler* self, const QMetaMethod* signal);
     friend void KIO__WidgetsAskUserActionHandler_DisconnectNotify(KIO::WidgetsAskUserActionHandler* self, const QMetaMethod* signal);
-    friend void KIO__WidgetsAskUserActionHandler_QBaseDisconnectNotify(KIO::WidgetsAskUserActionHandler* self, const QMetaMethod* signal);
+    friend void KIO__WidgetsAskUserActionHandler_SuperDisconnectNotify(KIO::WidgetsAskUserActionHandler* self, const QMetaMethod* signal);
     friend QObject* KIO__WidgetsAskUserActionHandler_Sender(const KIO::WidgetsAskUserActionHandler* self);
-    friend QObject* KIO__WidgetsAskUserActionHandler_QBaseSender(const KIO::WidgetsAskUserActionHandler* self);
+    friend QObject* KIO__WidgetsAskUserActionHandler_SuperSender(const KIO::WidgetsAskUserActionHandler* self);
     friend int KIO__WidgetsAskUserActionHandler_SenderSignalIndex(const KIO::WidgetsAskUserActionHandler* self);
-    friend int KIO__WidgetsAskUserActionHandler_QBaseSenderSignalIndex(const KIO::WidgetsAskUserActionHandler* self);
+    friend int KIO__WidgetsAskUserActionHandler_SuperSenderSignalIndex(const KIO::WidgetsAskUserActionHandler* self);
     friend int KIO__WidgetsAskUserActionHandler_Receivers(const KIO::WidgetsAskUserActionHandler* self, const char* signal);
-    friend int KIO__WidgetsAskUserActionHandler_QBaseReceivers(const KIO::WidgetsAskUserActionHandler* self, const char* signal);
+    friend int KIO__WidgetsAskUserActionHandler_SuperReceivers(const KIO::WidgetsAskUserActionHandler* self, const char* signal);
     friend bool KIO__WidgetsAskUserActionHandler_IsSignalConnected(const KIO::WidgetsAskUserActionHandler* self, const QMetaMethod* signal);
-    friend bool KIO__WidgetsAskUserActionHandler_QBaseIsSignalConnected(const KIO::WidgetsAskUserActionHandler* self, const QMetaMethod* signal);
+    friend bool KIO__WidgetsAskUserActionHandler_SuperIsSignalConnected(const KIO::WidgetsAskUserActionHandler* self, const QMetaMethod* signal);
 };
 
 #endif

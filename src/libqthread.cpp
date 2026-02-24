@@ -186,7 +186,7 @@ bool QThread_Wait1(QThread* self, QDeadlineTimer* deadline) {
 }
 
 // Base class handler implementation
-QMetaObject* QThread_QBaseMetaObject(const QThread* self) {
+QMetaObject* QThread_SuperMetaObject(const QThread* self) {
     auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
     if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_MetaObject_IsBase(true);
@@ -205,7 +205,7 @@ void QThread_OnMetaObject(const QThread* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QThread_QBaseMetacast(QThread* self, const char* param1) {
+void* QThread_SuperMetacast(QThread* self, const char* param1) {
     auto* vqthread = dynamic_cast<VirtualQThread*>(self);
     if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_Metacast_IsBase(true);
@@ -224,7 +224,7 @@ void QThread_OnMetacast(QThread* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QThread_QBaseMetacall(QThread* self, int param1, int param2, void** param3) {
+int QThread_SuperMetacall(QThread* self, int param1, int param2, void** param3) {
     auto* vqthread = dynamic_cast<VirtualQThread*>(self);
     if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_Metacall_IsBase(true);
@@ -243,7 +243,7 @@ void QThread_OnMetacall(QThread* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QThread_QBaseEvent(QThread* self, QEvent* event) {
+bool QThread_SuperEvent(QThread* self, QEvent* event) {
     auto* vqthread = dynamic_cast<VirtualQThread*>(self);
     if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_Event_IsBase(true);
@@ -262,7 +262,7 @@ void QThread_OnEvent(QThread* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QThread_QBaseRun(QThread* self) {
+void QThread_SuperRun(QThread* self) {
     auto* vqthread = dynamic_cast<VirtualQThread*>(self);
     if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_Run_IsBase(true);
@@ -291,7 +291,7 @@ bool QThread_EventFilter(QThread* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QThread_QBaseEventFilter(QThread* self, QObject* watched, QEvent* event) {
+bool QThread_SuperEventFilter(QThread* self, QObject* watched, QEvent* event) {
     auto* vqthread = dynamic_cast<VirtualQThread*>(self);
     if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_EventFilter_IsBase(true);
@@ -320,7 +320,7 @@ void QThread_TimerEvent(QThread* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QThread_QBaseTimerEvent(QThread* self, QTimerEvent* event) {
+void QThread_SuperTimerEvent(QThread* self, QTimerEvent* event) {
     auto* vqthread = dynamic_cast<VirtualQThread*>(self);
     if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_TimerEvent_IsBase(true);
@@ -349,7 +349,7 @@ void QThread_ChildEvent(QThread* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QThread_QBaseChildEvent(QThread* self, QChildEvent* event) {
+void QThread_SuperChildEvent(QThread* self, QChildEvent* event) {
     auto* vqthread = dynamic_cast<VirtualQThread*>(self);
     if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_ChildEvent_IsBase(true);
@@ -378,7 +378,7 @@ void QThread_CustomEvent(QThread* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QThread_QBaseCustomEvent(QThread* self, QEvent* event) {
+void QThread_SuperCustomEvent(QThread* self, QEvent* event) {
     auto* vqthread = dynamic_cast<VirtualQThread*>(self);
     if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_CustomEvent_IsBase(true);
@@ -407,7 +407,7 @@ void QThread_ConnectNotify(QThread* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QThread_QBaseConnectNotify(QThread* self, const QMetaMethod* signal) {
+void QThread_SuperConnectNotify(QThread* self, const QMetaMethod* signal) {
     auto* vqthread = dynamic_cast<VirtualQThread*>(self);
     if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_ConnectNotify_IsBase(true);
@@ -436,7 +436,7 @@ void QThread_DisconnectNotify(QThread* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QThread_QBaseDisconnectNotify(QThread* self, const QMetaMethod* signal) {
+void QThread_SuperDisconnectNotify(QThread* self, const QMetaMethod* signal) {
     auto* vqthread = dynamic_cast<VirtualQThread*>(self);
     if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_DisconnectNotify_IsBase(true);
@@ -465,7 +465,7 @@ int QThread_Exec(QThread* self) {
 }
 
 // Base class handler implementation
-int QThread_QBaseExec(QThread* self) {
+int QThread_SuperExec(QThread* self) {
     auto* vqthread = dynamic_cast<VirtualQThread*>(self);
     if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_Exec_IsBase(true);
@@ -494,7 +494,7 @@ QObject* QThread_Sender(const QThread* self) {
 }
 
 // Base class handler implementation
-QObject* QThread_QBaseSender(const QThread* self) {
+QObject* QThread_SuperSender(const QThread* self) {
     auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
     if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_Sender_IsBase(true);
@@ -523,7 +523,7 @@ int QThread_SenderSignalIndex(const QThread* self) {
 }
 
 // Base class handler implementation
-int QThread_QBaseSenderSignalIndex(const QThread* self) {
+int QThread_SuperSenderSignalIndex(const QThread* self) {
     auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
     if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_SenderSignalIndex_IsBase(true);
@@ -552,7 +552,7 @@ int QThread_Receivers(const QThread* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QThread_QBaseReceivers(const QThread* self, const char* signal) {
+int QThread_SuperReceivers(const QThread* self, const char* signal) {
     auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
     if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_Receivers_IsBase(true);
@@ -581,7 +581,7 @@ bool QThread_IsSignalConnected(const QThread* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QThread_QBaseIsSignalConnected(const QThread* self, const QMetaMethod* signal) {
+bool QThread_SuperIsSignalConnected(const QThread* self, const QMetaMethod* signal) {
     auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
     if (vqthread && vqthread->isVirtualQThread) {
         vqthread->setQThread_IsSignalConnected_IsBase(true);

@@ -607,6 +607,10 @@ pub const qopenglframebufferobject = struct {
         qtc.QOpenGLFramebufferObject_BlitFramebuffer42(@ptrCast(target), @ptrCast(source), @bitCast(buffers), @bitCast(filter));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglframebufferobject.html#dtor.QOpenGLFramebufferObject)
     ///
     /// Delete this object from C++ memory.
@@ -615,7 +619,7 @@ pub const qopenglframebufferobject = struct {
     ///
     /// ` self: QtC.QOpenGLFramebufferObject `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QOpenGLFramebufferObject_Delete(@ptrCast(self));
     }
 };
@@ -768,6 +772,10 @@ pub const qopenglframebufferobjectformat = struct {
         return qtc.QOpenGLFramebufferObjectFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglframebufferobjectformat.html#dtor.QOpenGLFramebufferObjectFormat)
     ///
     /// Delete this object from C++ memory.
@@ -776,7 +784,7 @@ pub const qopenglframebufferobjectformat = struct {
     ///
     /// ` self: QtC.QOpenGLFramebufferObjectFormat `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QOpenGLFramebufferObjectFormat_Delete(@ptrCast(self));
     }
 };

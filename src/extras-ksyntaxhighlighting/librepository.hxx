@@ -327,23 +327,23 @@ class VirtualKSyntaxHighlightingRepository final : public KSyntaxHighlighting::R
 
     // Friend functions
     friend void KSyntaxHighlighting__Repository_TimerEvent(KSyntaxHighlighting::Repository* self, QTimerEvent* event);
-    friend void KSyntaxHighlighting__Repository_QBaseTimerEvent(KSyntaxHighlighting::Repository* self, QTimerEvent* event);
+    friend void KSyntaxHighlighting__Repository_SuperTimerEvent(KSyntaxHighlighting::Repository* self, QTimerEvent* event);
     friend void KSyntaxHighlighting__Repository_ChildEvent(KSyntaxHighlighting::Repository* self, QChildEvent* event);
-    friend void KSyntaxHighlighting__Repository_QBaseChildEvent(KSyntaxHighlighting::Repository* self, QChildEvent* event);
+    friend void KSyntaxHighlighting__Repository_SuperChildEvent(KSyntaxHighlighting::Repository* self, QChildEvent* event);
     friend void KSyntaxHighlighting__Repository_CustomEvent(KSyntaxHighlighting::Repository* self, QEvent* event);
-    friend void KSyntaxHighlighting__Repository_QBaseCustomEvent(KSyntaxHighlighting::Repository* self, QEvent* event);
+    friend void KSyntaxHighlighting__Repository_SuperCustomEvent(KSyntaxHighlighting::Repository* self, QEvent* event);
     friend void KSyntaxHighlighting__Repository_ConnectNotify(KSyntaxHighlighting::Repository* self, const QMetaMethod* signal);
-    friend void KSyntaxHighlighting__Repository_QBaseConnectNotify(KSyntaxHighlighting::Repository* self, const QMetaMethod* signal);
+    friend void KSyntaxHighlighting__Repository_SuperConnectNotify(KSyntaxHighlighting::Repository* self, const QMetaMethod* signal);
     friend void KSyntaxHighlighting__Repository_DisconnectNotify(KSyntaxHighlighting::Repository* self, const QMetaMethod* signal);
-    friend void KSyntaxHighlighting__Repository_QBaseDisconnectNotify(KSyntaxHighlighting::Repository* self, const QMetaMethod* signal);
+    friend void KSyntaxHighlighting__Repository_SuperDisconnectNotify(KSyntaxHighlighting::Repository* self, const QMetaMethod* signal);
     friend QObject* KSyntaxHighlighting__Repository_Sender(const KSyntaxHighlighting::Repository* self);
-    friend QObject* KSyntaxHighlighting__Repository_QBaseSender(const KSyntaxHighlighting::Repository* self);
+    friend QObject* KSyntaxHighlighting__Repository_SuperSender(const KSyntaxHighlighting::Repository* self);
     friend int KSyntaxHighlighting__Repository_SenderSignalIndex(const KSyntaxHighlighting::Repository* self);
-    friend int KSyntaxHighlighting__Repository_QBaseSenderSignalIndex(const KSyntaxHighlighting::Repository* self);
+    friend int KSyntaxHighlighting__Repository_SuperSenderSignalIndex(const KSyntaxHighlighting::Repository* self);
     friend int KSyntaxHighlighting__Repository_Receivers(const KSyntaxHighlighting::Repository* self, const char* signal);
-    friend int KSyntaxHighlighting__Repository_QBaseReceivers(const KSyntaxHighlighting::Repository* self, const char* signal);
+    friend int KSyntaxHighlighting__Repository_SuperReceivers(const KSyntaxHighlighting::Repository* self, const char* signal);
     friend bool KSyntaxHighlighting__Repository_IsSignalConnected(const KSyntaxHighlighting::Repository* self, const QMetaMethod* signal);
-    friend bool KSyntaxHighlighting__Repository_QBaseIsSignalConnected(const KSyntaxHighlighting::Repository* self, const QMetaMethod* signal);
+    friend bool KSyntaxHighlighting__Repository_SuperIsSignalConnected(const KSyntaxHighlighting::Repository* self, const QMetaMethod* signal);
 };
 
 #endif

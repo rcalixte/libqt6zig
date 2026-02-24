@@ -327,7 +327,7 @@ class VirtualQLayoutItem : public QLayoutItem {
 
     // Friend functions
     friend void QLayoutItem_OperatorAssign(QLayoutItem* self, const QLayoutItem* param1);
-    friend void QLayoutItem_QBaseOperatorAssign(QLayoutItem* self, const QLayoutItem* param1);
+    friend void QLayoutItem_SuperOperatorAssign(QLayoutItem* self, const QLayoutItem* param1);
 };
 
 // This class is a subclass of QSpacerItem so that we can call protected methods

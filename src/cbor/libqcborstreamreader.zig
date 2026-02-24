@@ -700,6 +700,10 @@ pub const qcborstreamreader = struct {
         return qtc.QCborStreamReader_Next1(@ptrCast(self), @bitCast(maxRecursion));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#dtor.QCborStreamReader)
     ///
     /// Delete this object from C++ memory.
@@ -708,7 +712,7 @@ pub const qcborstreamreader = struct {
     ///
     /// ` self: QtC.QCborStreamReader `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCborStreamReader_Delete(@ptrCast(self));
     }
 };

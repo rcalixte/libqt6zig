@@ -196,7 +196,7 @@ bool QTcpServer_WaitForNewConnection2(QTcpServer* self, int msec, bool* timedOut
 }
 
 // Base class handler implementation
-QMetaObject* QTcpServer_QBaseMetaObject(const QTcpServer* self) {
+QMetaObject* QTcpServer_SuperMetaObject(const QTcpServer* self) {
     auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
     if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
         vqtcpserver->setQTcpServer_MetaObject_IsBase(true);
@@ -215,7 +215,7 @@ void QTcpServer_OnMetaObject(const QTcpServer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QTcpServer_QBaseMetacast(QTcpServer* self, const char* param1) {
+void* QTcpServer_SuperMetacast(QTcpServer* self, const char* param1) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
     if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
         vqtcpserver->setQTcpServer_Metacast_IsBase(true);
@@ -234,7 +234,7 @@ void QTcpServer_OnMetacast(QTcpServer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTcpServer_QBaseMetacall(QTcpServer* self, int param1, int param2, void** param3) {
+int QTcpServer_SuperMetacall(QTcpServer* self, int param1, int param2, void** param3) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
     if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
         vqtcpserver->setQTcpServer_Metacall_IsBase(true);
@@ -253,7 +253,7 @@ void QTcpServer_OnMetacall(QTcpServer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QTcpServer_QBaseHasPendingConnections(const QTcpServer* self) {
+bool QTcpServer_SuperHasPendingConnections(const QTcpServer* self) {
     auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
     if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
         vqtcpserver->setQTcpServer_HasPendingConnections_IsBase(true);
@@ -272,7 +272,7 @@ void QTcpServer_OnHasPendingConnections(const QTcpServer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QTcpSocket* QTcpServer_QBaseNextPendingConnection(QTcpServer* self) {
+QTcpSocket* QTcpServer_SuperNextPendingConnection(QTcpServer* self) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
     if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
         vqtcpserver->setQTcpServer_NextPendingConnection_IsBase(true);
@@ -291,7 +291,7 @@ void QTcpServer_OnNextPendingConnection(QTcpServer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QTcpServer_QBaseIncomingConnection(QTcpServer* self, intptr_t handle) {
+void QTcpServer_SuperIncomingConnection(QTcpServer* self, intptr_t handle) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
     if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
         vqtcpserver->setQTcpServer_IncomingConnection_IsBase(true);
@@ -320,7 +320,7 @@ bool QTcpServer_Event(QTcpServer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTcpServer_QBaseEvent(QTcpServer* self, QEvent* event) {
+bool QTcpServer_SuperEvent(QTcpServer* self, QEvent* event) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
     if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
         vqtcpserver->setQTcpServer_Event_IsBase(true);
@@ -349,7 +349,7 @@ bool QTcpServer_EventFilter(QTcpServer* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTcpServer_QBaseEventFilter(QTcpServer* self, QObject* watched, QEvent* event) {
+bool QTcpServer_SuperEventFilter(QTcpServer* self, QObject* watched, QEvent* event) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
     if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
         vqtcpserver->setQTcpServer_EventFilter_IsBase(true);
@@ -378,7 +378,7 @@ void QTcpServer_TimerEvent(QTcpServer* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QTcpServer_QBaseTimerEvent(QTcpServer* self, QTimerEvent* event) {
+void QTcpServer_SuperTimerEvent(QTcpServer* self, QTimerEvent* event) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
     if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
         vqtcpserver->setQTcpServer_TimerEvent_IsBase(true);
@@ -407,7 +407,7 @@ void QTcpServer_ChildEvent(QTcpServer* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QTcpServer_QBaseChildEvent(QTcpServer* self, QChildEvent* event) {
+void QTcpServer_SuperChildEvent(QTcpServer* self, QChildEvent* event) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
     if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
         vqtcpserver->setQTcpServer_ChildEvent_IsBase(true);
@@ -436,7 +436,7 @@ void QTcpServer_CustomEvent(QTcpServer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTcpServer_QBaseCustomEvent(QTcpServer* self, QEvent* event) {
+void QTcpServer_SuperCustomEvent(QTcpServer* self, QEvent* event) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
     if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
         vqtcpserver->setQTcpServer_CustomEvent_IsBase(true);
@@ -465,7 +465,7 @@ void QTcpServer_ConnectNotify(QTcpServer* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTcpServer_QBaseConnectNotify(QTcpServer* self, const QMetaMethod* signal) {
+void QTcpServer_SuperConnectNotify(QTcpServer* self, const QMetaMethod* signal) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
     if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
         vqtcpserver->setQTcpServer_ConnectNotify_IsBase(true);
@@ -494,7 +494,7 @@ void QTcpServer_DisconnectNotify(QTcpServer* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTcpServer_QBaseDisconnectNotify(QTcpServer* self, const QMetaMethod* signal) {
+void QTcpServer_SuperDisconnectNotify(QTcpServer* self, const QMetaMethod* signal) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
     if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
         vqtcpserver->setQTcpServer_DisconnectNotify_IsBase(true);
@@ -523,7 +523,7 @@ void QTcpServer_AddPendingConnection(QTcpServer* self, QTcpSocket* socket) {
 }
 
 // Base class handler implementation
-void QTcpServer_QBaseAddPendingConnection(QTcpServer* self, QTcpSocket* socket) {
+void QTcpServer_SuperAddPendingConnection(QTcpServer* self, QTcpSocket* socket) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
     if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
         vqtcpserver->setQTcpServer_AddPendingConnection_IsBase(true);
@@ -552,7 +552,7 @@ QObject* QTcpServer_Sender(const QTcpServer* self) {
 }
 
 // Base class handler implementation
-QObject* QTcpServer_QBaseSender(const QTcpServer* self) {
+QObject* QTcpServer_SuperSender(const QTcpServer* self) {
     auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
     if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
         vqtcpserver->setQTcpServer_Sender_IsBase(true);
@@ -581,7 +581,7 @@ int QTcpServer_SenderSignalIndex(const QTcpServer* self) {
 }
 
 // Base class handler implementation
-int QTcpServer_QBaseSenderSignalIndex(const QTcpServer* self) {
+int QTcpServer_SuperSenderSignalIndex(const QTcpServer* self) {
     auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
     if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
         vqtcpserver->setQTcpServer_SenderSignalIndex_IsBase(true);
@@ -610,7 +610,7 @@ int QTcpServer_Receivers(const QTcpServer* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QTcpServer_QBaseReceivers(const QTcpServer* self, const char* signal) {
+int QTcpServer_SuperReceivers(const QTcpServer* self, const char* signal) {
     auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
     if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
         vqtcpserver->setQTcpServer_Receivers_IsBase(true);
@@ -639,7 +639,7 @@ bool QTcpServer_IsSignalConnected(const QTcpServer* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QTcpServer_QBaseIsSignalConnected(const QTcpServer* self, const QMetaMethod* signal) {
+bool QTcpServer_SuperIsSignalConnected(const QTcpServer* self, const QMetaMethod* signal) {
     auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
     if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
         vqtcpserver->setQTcpServer_IsSignalConnected_IsBase(true);

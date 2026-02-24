@@ -383,7 +383,7 @@ void KTextEdit_ShowSpellConfigDialog1(KTextEdit* self, const libqt_string window
 }
 
 // Base class handler implementation
-QMetaObject* KTextEdit_QBaseMetaObject(const KTextEdit* self) {
+QMetaObject* KTextEdit_SuperMetaObject(const KTextEdit* self) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_MetaObject_IsBase(true);
@@ -402,7 +402,7 @@ void KTextEdit_OnMetaObject(const KTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KTextEdit_QBaseMetacast(KTextEdit* self, const char* param1) {
+void* KTextEdit_SuperMetacast(KTextEdit* self, const char* param1) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_Metacast_IsBase(true);
@@ -421,7 +421,7 @@ void KTextEdit_OnMetacast(KTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KTextEdit_QBaseMetacall(KTextEdit* self, int param1, int param2, void** param3) {
+int KTextEdit_SuperMetacall(KTextEdit* self, int param1, int param2, void** param3) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_Metacall_IsBase(true);
@@ -440,7 +440,7 @@ void KTextEdit_OnMetacall(KTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseSetReadOnly(KTextEdit* self, bool readOnly) {
+void KTextEdit_SuperSetReadOnly(KTextEdit* self, bool readOnly) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_SetReadOnly_IsBase(true);
@@ -459,7 +459,7 @@ void KTextEdit_OnSetReadOnly(KTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseSetCheckSpellingEnabled(KTextEdit* self, bool check) {
+void KTextEdit_SuperSetCheckSpellingEnabled(KTextEdit* self, bool check) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_SetCheckSpellingEnabled_IsBase(true);
@@ -478,7 +478,7 @@ void KTextEdit_OnSetCheckSpellingEnabled(KTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KTextEdit_QBaseCheckSpellingEnabled(const KTextEdit* self) {
+bool KTextEdit_SuperCheckSpellingEnabled(const KTextEdit* self) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_CheckSpellingEnabled_IsBase(true);
@@ -497,7 +497,7 @@ void KTextEdit_OnCheckSpellingEnabled(const KTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KTextEdit_QBaseShouldBlockBeSpellChecked(const KTextEdit* self, const libqt_string block) {
+bool KTextEdit_SuperShouldBlockBeSpellChecked(const KTextEdit* self, const libqt_string block) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     QString block_QString = QString::fromUtf8(block.data, block.len);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
@@ -517,7 +517,7 @@ void KTextEdit_OnShouldBlockBeSpellChecked(const KTextEdit* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseCreateHighlighter(KTextEdit* self) {
+void KTextEdit_SuperCreateHighlighter(KTextEdit* self) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_CreateHighlighter_IsBase(true);
@@ -536,7 +536,7 @@ void KTextEdit_OnCreateHighlighter(KTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMenu* KTextEdit_QBaseMousePopupMenu(KTextEdit* self) {
+QMenu* KTextEdit_SuperMousePopupMenu(KTextEdit* self) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_MousePopupMenu_IsBase(true);
@@ -555,7 +555,7 @@ void KTextEdit_OnMousePopupMenu(KTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KTextEdit_QBaseEvent(KTextEdit* self, QEvent* param1) {
+bool KTextEdit_SuperEvent(KTextEdit* self, QEvent* param1) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_Event_IsBase(true);
@@ -574,7 +574,7 @@ void KTextEdit_OnEvent(KTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseKeyPressEvent(KTextEdit* self, QKeyEvent* param1) {
+void KTextEdit_SuperKeyPressEvent(KTextEdit* self, QKeyEvent* param1) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_KeyPressEvent_IsBase(true);
@@ -593,7 +593,7 @@ void KTextEdit_OnKeyPressEvent(KTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseFocusInEvent(KTextEdit* self, QFocusEvent* param1) {
+void KTextEdit_SuperFocusInEvent(KTextEdit* self, QFocusEvent* param1) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_FocusInEvent_IsBase(true);
@@ -612,7 +612,7 @@ void KTextEdit_OnFocusInEvent(KTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseDeleteWordBack(KTextEdit* self) {
+void KTextEdit_SuperDeleteWordBack(KTextEdit* self) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_DeleteWordBack_IsBase(true);
@@ -631,7 +631,7 @@ void KTextEdit_OnDeleteWordBack(KTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseDeleteWordForward(KTextEdit* self) {
+void KTextEdit_SuperDeleteWordForward(KTextEdit* self) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_DeleteWordForward_IsBase(true);
@@ -650,7 +650,7 @@ void KTextEdit_OnDeleteWordForward(KTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseContextMenuEvent(KTextEdit* self, QContextMenuEvent* param1) {
+void KTextEdit_SuperContextMenuEvent(KTextEdit* self, QContextMenuEvent* param1) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_ContextMenuEvent_IsBase(true);
@@ -679,7 +679,7 @@ QVariant* KTextEdit_LoadResource(KTextEdit* self, int typeVal, const QUrl* name)
 }
 
 // Base class handler implementation
-QVariant* KTextEdit_QBaseLoadResource(KTextEdit* self, int typeVal, const QUrl* name) {
+QVariant* KTextEdit_SuperLoadResource(KTextEdit* self, int typeVal, const QUrl* name) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_LoadResource_IsBase(true);
@@ -708,7 +708,7 @@ QVariant* KTextEdit_InputMethodQuery(const KTextEdit* self, int property) {
 }
 
 // Base class handler implementation
-QVariant* KTextEdit_QBaseInputMethodQuery(const KTextEdit* self, int property) {
+QVariant* KTextEdit_SuperInputMethodQuery(const KTextEdit* self, int property) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_InputMethodQuery_IsBase(true);
@@ -737,7 +737,7 @@ void KTextEdit_TimerEvent(KTextEdit* self, QTimerEvent* e) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseTimerEvent(KTextEdit* self, QTimerEvent* e) {
+void KTextEdit_SuperTimerEvent(KTextEdit* self, QTimerEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_TimerEvent_IsBase(true);
@@ -766,7 +766,7 @@ void KTextEdit_KeyReleaseEvent(KTextEdit* self, QKeyEvent* e) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseKeyReleaseEvent(KTextEdit* self, QKeyEvent* e) {
+void KTextEdit_SuperKeyReleaseEvent(KTextEdit* self, QKeyEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_KeyReleaseEvent_IsBase(true);
@@ -795,7 +795,7 @@ void KTextEdit_ResizeEvent(KTextEdit* self, QResizeEvent* e) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseResizeEvent(KTextEdit* self, QResizeEvent* e) {
+void KTextEdit_SuperResizeEvent(KTextEdit* self, QResizeEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_ResizeEvent_IsBase(true);
@@ -824,7 +824,7 @@ void KTextEdit_PaintEvent(KTextEdit* self, QPaintEvent* e) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBasePaintEvent(KTextEdit* self, QPaintEvent* e) {
+void KTextEdit_SuperPaintEvent(KTextEdit* self, QPaintEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_PaintEvent_IsBase(true);
@@ -853,7 +853,7 @@ void KTextEdit_MousePressEvent(KTextEdit* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseMousePressEvent(KTextEdit* self, QMouseEvent* e) {
+void KTextEdit_SuperMousePressEvent(KTextEdit* self, QMouseEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_MousePressEvent_IsBase(true);
@@ -882,7 +882,7 @@ void KTextEdit_MouseMoveEvent(KTextEdit* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseMouseMoveEvent(KTextEdit* self, QMouseEvent* e) {
+void KTextEdit_SuperMouseMoveEvent(KTextEdit* self, QMouseEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_MouseMoveEvent_IsBase(true);
@@ -911,7 +911,7 @@ void KTextEdit_MouseReleaseEvent(KTextEdit* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseMouseReleaseEvent(KTextEdit* self, QMouseEvent* e) {
+void KTextEdit_SuperMouseReleaseEvent(KTextEdit* self, QMouseEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_MouseReleaseEvent_IsBase(true);
@@ -940,7 +940,7 @@ void KTextEdit_MouseDoubleClickEvent(KTextEdit* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseMouseDoubleClickEvent(KTextEdit* self, QMouseEvent* e) {
+void KTextEdit_SuperMouseDoubleClickEvent(KTextEdit* self, QMouseEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_MouseDoubleClickEvent_IsBase(true);
@@ -969,7 +969,7 @@ bool KTextEdit_FocusNextPrevChild(KTextEdit* self, bool next) {
 }
 
 // Base class handler implementation
-bool KTextEdit_QBaseFocusNextPrevChild(KTextEdit* self, bool next) {
+bool KTextEdit_SuperFocusNextPrevChild(KTextEdit* self, bool next) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_FocusNextPrevChild_IsBase(true);
@@ -998,7 +998,7 @@ void KTextEdit_DragEnterEvent(KTextEdit* self, QDragEnterEvent* e) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseDragEnterEvent(KTextEdit* self, QDragEnterEvent* e) {
+void KTextEdit_SuperDragEnterEvent(KTextEdit* self, QDragEnterEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_DragEnterEvent_IsBase(true);
@@ -1027,7 +1027,7 @@ void KTextEdit_DragLeaveEvent(KTextEdit* self, QDragLeaveEvent* e) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseDragLeaveEvent(KTextEdit* self, QDragLeaveEvent* e) {
+void KTextEdit_SuperDragLeaveEvent(KTextEdit* self, QDragLeaveEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_DragLeaveEvent_IsBase(true);
@@ -1056,7 +1056,7 @@ void KTextEdit_DragMoveEvent(KTextEdit* self, QDragMoveEvent* e) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseDragMoveEvent(KTextEdit* self, QDragMoveEvent* e) {
+void KTextEdit_SuperDragMoveEvent(KTextEdit* self, QDragMoveEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_DragMoveEvent_IsBase(true);
@@ -1085,7 +1085,7 @@ void KTextEdit_DropEvent(KTextEdit* self, QDropEvent* e) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseDropEvent(KTextEdit* self, QDropEvent* e) {
+void KTextEdit_SuperDropEvent(KTextEdit* self, QDropEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_DropEvent_IsBase(true);
@@ -1114,7 +1114,7 @@ void KTextEdit_FocusOutEvent(KTextEdit* self, QFocusEvent* e) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseFocusOutEvent(KTextEdit* self, QFocusEvent* e) {
+void KTextEdit_SuperFocusOutEvent(KTextEdit* self, QFocusEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_FocusOutEvent_IsBase(true);
@@ -1143,7 +1143,7 @@ void KTextEdit_ShowEvent(KTextEdit* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseShowEvent(KTextEdit* self, QShowEvent* param1) {
+void KTextEdit_SuperShowEvent(KTextEdit* self, QShowEvent* param1) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_ShowEvent_IsBase(true);
@@ -1172,7 +1172,7 @@ void KTextEdit_ChangeEvent(KTextEdit* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseChangeEvent(KTextEdit* self, QEvent* e) {
+void KTextEdit_SuperChangeEvent(KTextEdit* self, QEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_ChangeEvent_IsBase(true);
@@ -1201,7 +1201,7 @@ void KTextEdit_WheelEvent(KTextEdit* self, QWheelEvent* e) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseWheelEvent(KTextEdit* self, QWheelEvent* e) {
+void KTextEdit_SuperWheelEvent(KTextEdit* self, QWheelEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_WheelEvent_IsBase(true);
@@ -1230,7 +1230,7 @@ QMimeData* KTextEdit_CreateMimeDataFromSelection(const KTextEdit* self) {
 }
 
 // Base class handler implementation
-QMimeData* KTextEdit_QBaseCreateMimeDataFromSelection(const KTextEdit* self) {
+QMimeData* KTextEdit_SuperCreateMimeDataFromSelection(const KTextEdit* self) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_CreateMimeDataFromSelection_IsBase(true);
@@ -1259,7 +1259,7 @@ bool KTextEdit_CanInsertFromMimeData(const KTextEdit* self, const QMimeData* sou
 }
 
 // Base class handler implementation
-bool KTextEdit_QBaseCanInsertFromMimeData(const KTextEdit* self, const QMimeData* source) {
+bool KTextEdit_SuperCanInsertFromMimeData(const KTextEdit* self, const QMimeData* source) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_CanInsertFromMimeData_IsBase(true);
@@ -1288,7 +1288,7 @@ void KTextEdit_InsertFromMimeData(KTextEdit* self, const QMimeData* source) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseInsertFromMimeData(KTextEdit* self, const QMimeData* source) {
+void KTextEdit_SuperInsertFromMimeData(KTextEdit* self, const QMimeData* source) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_InsertFromMimeData_IsBase(true);
@@ -1317,7 +1317,7 @@ void KTextEdit_InputMethodEvent(KTextEdit* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseInputMethodEvent(KTextEdit* self, QInputMethodEvent* param1) {
+void KTextEdit_SuperInputMethodEvent(KTextEdit* self, QInputMethodEvent* param1) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_InputMethodEvent_IsBase(true);
@@ -1346,7 +1346,7 @@ void KTextEdit_ScrollContentsBy(KTextEdit* self, int dx, int dy) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseScrollContentsBy(KTextEdit* self, int dx, int dy) {
+void KTextEdit_SuperScrollContentsBy(KTextEdit* self, int dx, int dy) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_ScrollContentsBy_IsBase(true);
@@ -1375,7 +1375,7 @@ void KTextEdit_DoSetTextCursor(KTextEdit* self, const QTextCursor* cursor) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseDoSetTextCursor(KTextEdit* self, const QTextCursor* cursor) {
+void KTextEdit_SuperDoSetTextCursor(KTextEdit* self, const QTextCursor* cursor) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_DoSetTextCursor_IsBase(true);
@@ -1404,7 +1404,7 @@ QSize* KTextEdit_MinimumSizeHint(const KTextEdit* self) {
 }
 
 // Base class handler implementation
-QSize* KTextEdit_QBaseMinimumSizeHint(const KTextEdit* self) {
+QSize* KTextEdit_SuperMinimumSizeHint(const KTextEdit* self) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_MinimumSizeHint_IsBase(true);
@@ -1433,7 +1433,7 @@ QSize* KTextEdit_SizeHint(const KTextEdit* self) {
 }
 
 // Base class handler implementation
-QSize* KTextEdit_QBaseSizeHint(const KTextEdit* self) {
+QSize* KTextEdit_SuperSizeHint(const KTextEdit* self) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_SizeHint_IsBase(true);
@@ -1462,7 +1462,7 @@ void KTextEdit_SetupViewport(KTextEdit* self, QWidget* viewport) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseSetupViewport(KTextEdit* self, QWidget* viewport) {
+void KTextEdit_SuperSetupViewport(KTextEdit* self, QWidget* viewport) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_SetupViewport_IsBase(true);
@@ -1491,7 +1491,7 @@ bool KTextEdit_EventFilter(KTextEdit* self, QObject* param1, QEvent* param2) {
 }
 
 // Base class handler implementation
-bool KTextEdit_QBaseEventFilter(KTextEdit* self, QObject* param1, QEvent* param2) {
+bool KTextEdit_SuperEventFilter(KTextEdit* self, QObject* param1, QEvent* param2) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_EventFilter_IsBase(true);
@@ -1520,7 +1520,7 @@ bool KTextEdit_ViewportEvent(KTextEdit* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool KTextEdit_QBaseViewportEvent(KTextEdit* self, QEvent* param1) {
+bool KTextEdit_SuperViewportEvent(KTextEdit* self, QEvent* param1) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_ViewportEvent_IsBase(true);
@@ -1548,7 +1548,7 @@ QSize* KTextEdit_ViewportSizeHint(const KTextEdit* self) {
 }
 
 // Base class handler implementation
-QSize* KTextEdit_QBaseViewportSizeHint(const KTextEdit* self) {
+QSize* KTextEdit_SuperViewportSizeHint(const KTextEdit* self) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_ViewportSizeHint_IsBase(true);
@@ -1576,7 +1576,7 @@ void KTextEdit_InitStyleOption(const KTextEdit* self, QStyleOptionFrame* option)
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseInitStyleOption(const KTextEdit* self, QStyleOptionFrame* option) {
+void KTextEdit_SuperInitStyleOption(const KTextEdit* self, QStyleOptionFrame* option) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_InitStyleOption_IsBase(true);
@@ -1605,7 +1605,7 @@ int KTextEdit_DevType(const KTextEdit* self) {
 }
 
 // Base class handler implementation
-int KTextEdit_QBaseDevType(const KTextEdit* self) {
+int KTextEdit_SuperDevType(const KTextEdit* self) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_DevType_IsBase(true);
@@ -1634,7 +1634,7 @@ void KTextEdit_SetVisible(KTextEdit* self, bool visible) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseSetVisible(KTextEdit* self, bool visible) {
+void KTextEdit_SuperSetVisible(KTextEdit* self, bool visible) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_SetVisible_IsBase(true);
@@ -1663,7 +1663,7 @@ int KTextEdit_HeightForWidth(const KTextEdit* self, int param1) {
 }
 
 // Base class handler implementation
-int KTextEdit_QBaseHeightForWidth(const KTextEdit* self, int param1) {
+int KTextEdit_SuperHeightForWidth(const KTextEdit* self, int param1) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_HeightForWidth_IsBase(true);
@@ -1692,7 +1692,7 @@ bool KTextEdit_HasHeightForWidth(const KTextEdit* self) {
 }
 
 // Base class handler implementation
-bool KTextEdit_QBaseHasHeightForWidth(const KTextEdit* self) {
+bool KTextEdit_SuperHasHeightForWidth(const KTextEdit* self) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_HasHeightForWidth_IsBase(true);
@@ -1721,7 +1721,7 @@ QPaintEngine* KTextEdit_PaintEngine(const KTextEdit* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KTextEdit_QBasePaintEngine(const KTextEdit* self) {
+QPaintEngine* KTextEdit_SuperPaintEngine(const KTextEdit* self) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_PaintEngine_IsBase(true);
@@ -1750,7 +1750,7 @@ void KTextEdit_EnterEvent(KTextEdit* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseEnterEvent(KTextEdit* self, QEnterEvent* event) {
+void KTextEdit_SuperEnterEvent(KTextEdit* self, QEnterEvent* event) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_EnterEvent_IsBase(true);
@@ -1779,7 +1779,7 @@ void KTextEdit_LeaveEvent(KTextEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseLeaveEvent(KTextEdit* self, QEvent* event) {
+void KTextEdit_SuperLeaveEvent(KTextEdit* self, QEvent* event) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_LeaveEvent_IsBase(true);
@@ -1808,7 +1808,7 @@ void KTextEdit_MoveEvent(KTextEdit* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseMoveEvent(KTextEdit* self, QMoveEvent* event) {
+void KTextEdit_SuperMoveEvent(KTextEdit* self, QMoveEvent* event) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_MoveEvent_IsBase(true);
@@ -1837,7 +1837,7 @@ void KTextEdit_CloseEvent(KTextEdit* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseCloseEvent(KTextEdit* self, QCloseEvent* event) {
+void KTextEdit_SuperCloseEvent(KTextEdit* self, QCloseEvent* event) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_CloseEvent_IsBase(true);
@@ -1866,7 +1866,7 @@ void KTextEdit_TabletEvent(KTextEdit* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseTabletEvent(KTextEdit* self, QTabletEvent* event) {
+void KTextEdit_SuperTabletEvent(KTextEdit* self, QTabletEvent* event) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_TabletEvent_IsBase(true);
@@ -1895,7 +1895,7 @@ void KTextEdit_ActionEvent(KTextEdit* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseActionEvent(KTextEdit* self, QActionEvent* event) {
+void KTextEdit_SuperActionEvent(KTextEdit* self, QActionEvent* event) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_ActionEvent_IsBase(true);
@@ -1924,7 +1924,7 @@ void KTextEdit_HideEvent(KTextEdit* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseHideEvent(KTextEdit* self, QHideEvent* event) {
+void KTextEdit_SuperHideEvent(KTextEdit* self, QHideEvent* event) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_HideEvent_IsBase(true);
@@ -1954,7 +1954,7 @@ bool KTextEdit_NativeEvent(KTextEdit* self, const libqt_string eventType, void* 
 }
 
 // Base class handler implementation
-bool KTextEdit_QBaseNativeEvent(KTextEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KTextEdit_SuperNativeEvent(KTextEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
@@ -1984,7 +1984,7 @@ int KTextEdit_Metric(const KTextEdit* self, int param1) {
 }
 
 // Base class handler implementation
-int KTextEdit_QBaseMetric(const KTextEdit* self, int param1) {
+int KTextEdit_SuperMetric(const KTextEdit* self, int param1) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_Metric_IsBase(true);
@@ -2013,7 +2013,7 @@ void KTextEdit_InitPainter(const KTextEdit* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseInitPainter(const KTextEdit* self, QPainter* painter) {
+void KTextEdit_SuperInitPainter(const KTextEdit* self, QPainter* painter) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_InitPainter_IsBase(true);
@@ -2042,7 +2042,7 @@ QPaintDevice* KTextEdit_Redirected(const KTextEdit* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KTextEdit_QBaseRedirected(const KTextEdit* self, QPoint* offset) {
+QPaintDevice* KTextEdit_SuperRedirected(const KTextEdit* self, QPoint* offset) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_Redirected_IsBase(true);
@@ -2071,7 +2071,7 @@ QPainter* KTextEdit_SharedPainter(const KTextEdit* self) {
 }
 
 // Base class handler implementation
-QPainter* KTextEdit_QBaseSharedPainter(const KTextEdit* self) {
+QPainter* KTextEdit_SuperSharedPainter(const KTextEdit* self) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_SharedPainter_IsBase(true);
@@ -2100,7 +2100,7 @@ void KTextEdit_ChildEvent(KTextEdit* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseChildEvent(KTextEdit* self, QChildEvent* event) {
+void KTextEdit_SuperChildEvent(KTextEdit* self, QChildEvent* event) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_ChildEvent_IsBase(true);
@@ -2129,7 +2129,7 @@ void KTextEdit_CustomEvent(KTextEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseCustomEvent(KTextEdit* self, QEvent* event) {
+void KTextEdit_SuperCustomEvent(KTextEdit* self, QEvent* event) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_CustomEvent_IsBase(true);
@@ -2158,7 +2158,7 @@ void KTextEdit_ConnectNotify(KTextEdit* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseConnectNotify(KTextEdit* self, const QMetaMethod* signal) {
+void KTextEdit_SuperConnectNotify(KTextEdit* self, const QMetaMethod* signal) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_ConnectNotify_IsBase(true);
@@ -2187,7 +2187,7 @@ void KTextEdit_DisconnectNotify(KTextEdit* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseDisconnectNotify(KTextEdit* self, const QMetaMethod* signal) {
+void KTextEdit_SuperDisconnectNotify(KTextEdit* self, const QMetaMethod* signal) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_DisconnectNotify_IsBase(true);
@@ -2216,7 +2216,7 @@ void KTextEdit_SlotDoReplace(KTextEdit* self) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseSlotDoReplace(KTextEdit* self) {
+void KTextEdit_SuperSlotDoReplace(KTextEdit* self) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_SlotDoReplace_IsBase(true);
@@ -2245,7 +2245,7 @@ void KTextEdit_SlotReplaceNext(KTextEdit* self) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseSlotReplaceNext(KTextEdit* self) {
+void KTextEdit_SuperSlotReplaceNext(KTextEdit* self) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_SlotReplaceNext_IsBase(true);
@@ -2274,7 +2274,7 @@ void KTextEdit_SlotDoFind(KTextEdit* self) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseSlotDoFind(KTextEdit* self) {
+void KTextEdit_SuperSlotDoFind(KTextEdit* self) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_SlotDoFind_IsBase(true);
@@ -2303,7 +2303,7 @@ void KTextEdit_SlotFind(KTextEdit* self) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseSlotFind(KTextEdit* self) {
+void KTextEdit_SuperSlotFind(KTextEdit* self) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_SlotFind_IsBase(true);
@@ -2332,7 +2332,7 @@ void KTextEdit_SlotFindNext(KTextEdit* self) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseSlotFindNext(KTextEdit* self) {
+void KTextEdit_SuperSlotFindNext(KTextEdit* self) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_SlotFindNext_IsBase(true);
@@ -2361,7 +2361,7 @@ void KTextEdit_SlotFindPrevious(KTextEdit* self) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseSlotFindPrevious(KTextEdit* self) {
+void KTextEdit_SuperSlotFindPrevious(KTextEdit* self) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_SlotFindPrevious_IsBase(true);
@@ -2390,7 +2390,7 @@ void KTextEdit_SlotReplace(KTextEdit* self) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseSlotReplace(KTextEdit* self) {
+void KTextEdit_SuperSlotReplace(KTextEdit* self) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_SlotReplace_IsBase(true);
@@ -2419,7 +2419,7 @@ void KTextEdit_SlotSpeakText(KTextEdit* self) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseSlotSpeakText(KTextEdit* self) {
+void KTextEdit_SuperSlotSpeakText(KTextEdit* self) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_SlotSpeakText_IsBase(true);
@@ -2448,7 +2448,7 @@ void KTextEdit_ZoomInF(KTextEdit* self, float range) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseZoomInF(KTextEdit* self, float range) {
+void KTextEdit_SuperZoomInF(KTextEdit* self, float range) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_ZoomInF_IsBase(true);
@@ -2477,7 +2477,7 @@ void KTextEdit_SetViewportMargins(KTextEdit* self, int left, int top, int right,
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseSetViewportMargins(KTextEdit* self, int left, int top, int right, int bottom) {
+void KTextEdit_SuperSetViewportMargins(KTextEdit* self, int left, int top, int right, int bottom) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_SetViewportMargins_IsBase(true);
@@ -2505,7 +2505,7 @@ QMargins* KTextEdit_ViewportMargins(const KTextEdit* self) {
 }
 
 // Base class handler implementation
-QMargins* KTextEdit_QBaseViewportMargins(const KTextEdit* self) {
+QMargins* KTextEdit_SuperViewportMargins(const KTextEdit* self) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_ViewportMargins_IsBase(true);
@@ -2533,7 +2533,7 @@ void KTextEdit_DrawFrame(KTextEdit* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseDrawFrame(KTextEdit* self, QPainter* param1) {
+void KTextEdit_SuperDrawFrame(KTextEdit* self, QPainter* param1) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_DrawFrame_IsBase(true);
@@ -2562,7 +2562,7 @@ void KTextEdit_UpdateMicroFocus(KTextEdit* self) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseUpdateMicroFocus(KTextEdit* self) {
+void KTextEdit_SuperUpdateMicroFocus(KTextEdit* self) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_UpdateMicroFocus_IsBase(true);
@@ -2591,7 +2591,7 @@ void KTextEdit_Create(KTextEdit* self) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseCreate(KTextEdit* self) {
+void KTextEdit_SuperCreate(KTextEdit* self) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_Create_IsBase(true);
@@ -2620,7 +2620,7 @@ void KTextEdit_Destroy(KTextEdit* self) {
 }
 
 // Base class handler implementation
-void KTextEdit_QBaseDestroy(KTextEdit* self) {
+void KTextEdit_SuperDestroy(KTextEdit* self) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_Destroy_IsBase(true);
@@ -2649,7 +2649,7 @@ bool KTextEdit_FocusNextChild(KTextEdit* self) {
 }
 
 // Base class handler implementation
-bool KTextEdit_QBaseFocusNextChild(KTextEdit* self) {
+bool KTextEdit_SuperFocusNextChild(KTextEdit* self) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_FocusNextChild_IsBase(true);
@@ -2678,7 +2678,7 @@ bool KTextEdit_FocusPreviousChild(KTextEdit* self) {
 }
 
 // Base class handler implementation
-bool KTextEdit_QBaseFocusPreviousChild(KTextEdit* self) {
+bool KTextEdit_SuperFocusPreviousChild(KTextEdit* self) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_FocusPreviousChild_IsBase(true);
@@ -2707,7 +2707,7 @@ QObject* KTextEdit_Sender(const KTextEdit* self) {
 }
 
 // Base class handler implementation
-QObject* KTextEdit_QBaseSender(const KTextEdit* self) {
+QObject* KTextEdit_SuperSender(const KTextEdit* self) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_Sender_IsBase(true);
@@ -2736,7 +2736,7 @@ int KTextEdit_SenderSignalIndex(const KTextEdit* self) {
 }
 
 // Base class handler implementation
-int KTextEdit_QBaseSenderSignalIndex(const KTextEdit* self) {
+int KTextEdit_SuperSenderSignalIndex(const KTextEdit* self) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_SenderSignalIndex_IsBase(true);
@@ -2765,7 +2765,7 @@ int KTextEdit_Receivers(const KTextEdit* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KTextEdit_QBaseReceivers(const KTextEdit* self, const char* signal) {
+int KTextEdit_SuperReceivers(const KTextEdit* self, const char* signal) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_Receivers_IsBase(true);
@@ -2794,7 +2794,7 @@ bool KTextEdit_IsSignalConnected(const KTextEdit* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool KTextEdit_QBaseIsSignalConnected(const KTextEdit* self, const QMetaMethod* signal) {
+bool KTextEdit_SuperIsSignalConnected(const KTextEdit* self, const QMetaMethod* signal) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_IsSignalConnected_IsBase(true);
@@ -2823,7 +2823,7 @@ double KTextEdit_GetDecodedMetricF(const KTextEdit* self, int metricA, int metri
 }
 
 // Base class handler implementation
-double KTextEdit_QBaseGetDecodedMetricF(const KTextEdit* self, int metricA, int metricB) {
+double KTextEdit_SuperGetDecodedMetricF(const KTextEdit* self, int metricA, int metricB) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     if (vktextedit && vktextedit->isVirtualKTextEdit) {
         vktextedit->setKTextEdit_GetDecodedMetricF_IsBase(true);

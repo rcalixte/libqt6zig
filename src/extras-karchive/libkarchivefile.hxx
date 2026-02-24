@@ -153,9 +153,9 @@ class VirtualKArchiveFile final : public KArchiveFile {
 
     // Friend functions
     friend void KArchiveFile_VirtualHook(KArchiveFile* self, int id, void* data);
-    friend void KArchiveFile_QBaseVirtualHook(KArchiveFile* self, int id, void* data);
+    friend void KArchiveFile_SuperVirtualHook(KArchiveFile* self, int id, void* data);
     friend KArchive* KArchiveFile_Archive(const KArchiveFile* self);
-    friend KArchive* KArchiveFile_QBaseArchive(const KArchiveFile* self);
+    friend KArchive* KArchiveFile_SuperArchive(const KArchiveFile* self);
 };
 
 #endif

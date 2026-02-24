@@ -200,7 +200,7 @@ void KLanguageButton_InsertSeparator1(KLanguageButton* self, int index) {
 }
 
 // Base class handler implementation
-QMetaObject* KLanguageButton_QBaseMetaObject(const KLanguageButton* self) {
+QMetaObject* KLanguageButton_SuperMetaObject(const KLanguageButton* self) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_MetaObject_IsBase(true);
@@ -219,7 +219,7 @@ void KLanguageButton_OnMetaObject(const KLanguageButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KLanguageButton_QBaseMetacast(KLanguageButton* self, const char* param1) {
+void* KLanguageButton_SuperMetacast(KLanguageButton* self, const char* param1) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_Metacast_IsBase(true);
@@ -238,7 +238,7 @@ void KLanguageButton_OnMetacast(KLanguageButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KLanguageButton_QBaseMetacall(KLanguageButton* self, int param1, int param2, void** param3) {
+int KLanguageButton_SuperMetacall(KLanguageButton* self, int param1, int param2, void** param3) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_Metacall_IsBase(true);
@@ -267,7 +267,7 @@ int KLanguageButton_DevType(const KLanguageButton* self) {
 }
 
 // Base class handler implementation
-int KLanguageButton_QBaseDevType(const KLanguageButton* self) {
+int KLanguageButton_SuperDevType(const KLanguageButton* self) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_DevType_IsBase(true);
@@ -296,7 +296,7 @@ void KLanguageButton_SetVisible(KLanguageButton* self, bool visible) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseSetVisible(KLanguageButton* self, bool visible) {
+void KLanguageButton_SuperSetVisible(KLanguageButton* self, bool visible) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_SetVisible_IsBase(true);
@@ -325,7 +325,7 @@ QSize* KLanguageButton_SizeHint(const KLanguageButton* self) {
 }
 
 // Base class handler implementation
-QSize* KLanguageButton_QBaseSizeHint(const KLanguageButton* self) {
+QSize* KLanguageButton_SuperSizeHint(const KLanguageButton* self) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_SizeHint_IsBase(true);
@@ -354,7 +354,7 @@ QSize* KLanguageButton_MinimumSizeHint(const KLanguageButton* self) {
 }
 
 // Base class handler implementation
-QSize* KLanguageButton_QBaseMinimumSizeHint(const KLanguageButton* self) {
+QSize* KLanguageButton_SuperMinimumSizeHint(const KLanguageButton* self) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_MinimumSizeHint_IsBase(true);
@@ -383,7 +383,7 @@ int KLanguageButton_HeightForWidth(const KLanguageButton* self, int param1) {
 }
 
 // Base class handler implementation
-int KLanguageButton_QBaseHeightForWidth(const KLanguageButton* self, int param1) {
+int KLanguageButton_SuperHeightForWidth(const KLanguageButton* self, int param1) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_HeightForWidth_IsBase(true);
@@ -412,7 +412,7 @@ bool KLanguageButton_HasHeightForWidth(const KLanguageButton* self) {
 }
 
 // Base class handler implementation
-bool KLanguageButton_QBaseHasHeightForWidth(const KLanguageButton* self) {
+bool KLanguageButton_SuperHasHeightForWidth(const KLanguageButton* self) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_HasHeightForWidth_IsBase(true);
@@ -441,7 +441,7 @@ QPaintEngine* KLanguageButton_PaintEngine(const KLanguageButton* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KLanguageButton_QBasePaintEngine(const KLanguageButton* self) {
+QPaintEngine* KLanguageButton_SuperPaintEngine(const KLanguageButton* self) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_PaintEngine_IsBase(true);
@@ -470,7 +470,7 @@ bool KLanguageButton_Event(KLanguageButton* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KLanguageButton_QBaseEvent(KLanguageButton* self, QEvent* event) {
+bool KLanguageButton_SuperEvent(KLanguageButton* self, QEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_Event_IsBase(true);
@@ -499,7 +499,7 @@ void KLanguageButton_MousePressEvent(KLanguageButton* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseMousePressEvent(KLanguageButton* self, QMouseEvent* event) {
+void KLanguageButton_SuperMousePressEvent(KLanguageButton* self, QMouseEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_MousePressEvent_IsBase(true);
@@ -528,7 +528,7 @@ void KLanguageButton_MouseReleaseEvent(KLanguageButton* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseMouseReleaseEvent(KLanguageButton* self, QMouseEvent* event) {
+void KLanguageButton_SuperMouseReleaseEvent(KLanguageButton* self, QMouseEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_MouseReleaseEvent_IsBase(true);
@@ -557,7 +557,7 @@ void KLanguageButton_MouseDoubleClickEvent(KLanguageButton* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseMouseDoubleClickEvent(KLanguageButton* self, QMouseEvent* event) {
+void KLanguageButton_SuperMouseDoubleClickEvent(KLanguageButton* self, QMouseEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_MouseDoubleClickEvent_IsBase(true);
@@ -586,7 +586,7 @@ void KLanguageButton_MouseMoveEvent(KLanguageButton* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseMouseMoveEvent(KLanguageButton* self, QMouseEvent* event) {
+void KLanguageButton_SuperMouseMoveEvent(KLanguageButton* self, QMouseEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_MouseMoveEvent_IsBase(true);
@@ -615,7 +615,7 @@ void KLanguageButton_WheelEvent(KLanguageButton* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseWheelEvent(KLanguageButton* self, QWheelEvent* event) {
+void KLanguageButton_SuperWheelEvent(KLanguageButton* self, QWheelEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_WheelEvent_IsBase(true);
@@ -644,7 +644,7 @@ void KLanguageButton_KeyPressEvent(KLanguageButton* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseKeyPressEvent(KLanguageButton* self, QKeyEvent* event) {
+void KLanguageButton_SuperKeyPressEvent(KLanguageButton* self, QKeyEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_KeyPressEvent_IsBase(true);
@@ -673,7 +673,7 @@ void KLanguageButton_KeyReleaseEvent(KLanguageButton* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseKeyReleaseEvent(KLanguageButton* self, QKeyEvent* event) {
+void KLanguageButton_SuperKeyReleaseEvent(KLanguageButton* self, QKeyEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_KeyReleaseEvent_IsBase(true);
@@ -702,7 +702,7 @@ void KLanguageButton_FocusInEvent(KLanguageButton* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseFocusInEvent(KLanguageButton* self, QFocusEvent* event) {
+void KLanguageButton_SuperFocusInEvent(KLanguageButton* self, QFocusEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_FocusInEvent_IsBase(true);
@@ -731,7 +731,7 @@ void KLanguageButton_FocusOutEvent(KLanguageButton* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseFocusOutEvent(KLanguageButton* self, QFocusEvent* event) {
+void KLanguageButton_SuperFocusOutEvent(KLanguageButton* self, QFocusEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_FocusOutEvent_IsBase(true);
@@ -760,7 +760,7 @@ void KLanguageButton_EnterEvent(KLanguageButton* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseEnterEvent(KLanguageButton* self, QEnterEvent* event) {
+void KLanguageButton_SuperEnterEvent(KLanguageButton* self, QEnterEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_EnterEvent_IsBase(true);
@@ -789,7 +789,7 @@ void KLanguageButton_LeaveEvent(KLanguageButton* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseLeaveEvent(KLanguageButton* self, QEvent* event) {
+void KLanguageButton_SuperLeaveEvent(KLanguageButton* self, QEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_LeaveEvent_IsBase(true);
@@ -818,7 +818,7 @@ void KLanguageButton_PaintEvent(KLanguageButton* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBasePaintEvent(KLanguageButton* self, QPaintEvent* event) {
+void KLanguageButton_SuperPaintEvent(KLanguageButton* self, QPaintEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_PaintEvent_IsBase(true);
@@ -847,7 +847,7 @@ void KLanguageButton_MoveEvent(KLanguageButton* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseMoveEvent(KLanguageButton* self, QMoveEvent* event) {
+void KLanguageButton_SuperMoveEvent(KLanguageButton* self, QMoveEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_MoveEvent_IsBase(true);
@@ -876,7 +876,7 @@ void KLanguageButton_ResizeEvent(KLanguageButton* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseResizeEvent(KLanguageButton* self, QResizeEvent* event) {
+void KLanguageButton_SuperResizeEvent(KLanguageButton* self, QResizeEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_ResizeEvent_IsBase(true);
@@ -905,7 +905,7 @@ void KLanguageButton_CloseEvent(KLanguageButton* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseCloseEvent(KLanguageButton* self, QCloseEvent* event) {
+void KLanguageButton_SuperCloseEvent(KLanguageButton* self, QCloseEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_CloseEvent_IsBase(true);
@@ -934,7 +934,7 @@ void KLanguageButton_ContextMenuEvent(KLanguageButton* self, QContextMenuEvent* 
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseContextMenuEvent(KLanguageButton* self, QContextMenuEvent* event) {
+void KLanguageButton_SuperContextMenuEvent(KLanguageButton* self, QContextMenuEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_ContextMenuEvent_IsBase(true);
@@ -963,7 +963,7 @@ void KLanguageButton_TabletEvent(KLanguageButton* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseTabletEvent(KLanguageButton* self, QTabletEvent* event) {
+void KLanguageButton_SuperTabletEvent(KLanguageButton* self, QTabletEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_TabletEvent_IsBase(true);
@@ -992,7 +992,7 @@ void KLanguageButton_ActionEvent(KLanguageButton* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseActionEvent(KLanguageButton* self, QActionEvent* event) {
+void KLanguageButton_SuperActionEvent(KLanguageButton* self, QActionEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_ActionEvent_IsBase(true);
@@ -1021,7 +1021,7 @@ void KLanguageButton_DragEnterEvent(KLanguageButton* self, QDragEnterEvent* even
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseDragEnterEvent(KLanguageButton* self, QDragEnterEvent* event) {
+void KLanguageButton_SuperDragEnterEvent(KLanguageButton* self, QDragEnterEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_DragEnterEvent_IsBase(true);
@@ -1050,7 +1050,7 @@ void KLanguageButton_DragMoveEvent(KLanguageButton* self, QDragMoveEvent* event)
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseDragMoveEvent(KLanguageButton* self, QDragMoveEvent* event) {
+void KLanguageButton_SuperDragMoveEvent(KLanguageButton* self, QDragMoveEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_DragMoveEvent_IsBase(true);
@@ -1079,7 +1079,7 @@ void KLanguageButton_DragLeaveEvent(KLanguageButton* self, QDragLeaveEvent* even
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseDragLeaveEvent(KLanguageButton* self, QDragLeaveEvent* event) {
+void KLanguageButton_SuperDragLeaveEvent(KLanguageButton* self, QDragLeaveEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_DragLeaveEvent_IsBase(true);
@@ -1108,7 +1108,7 @@ void KLanguageButton_DropEvent(KLanguageButton* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseDropEvent(KLanguageButton* self, QDropEvent* event) {
+void KLanguageButton_SuperDropEvent(KLanguageButton* self, QDropEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_DropEvent_IsBase(true);
@@ -1137,7 +1137,7 @@ void KLanguageButton_ShowEvent(KLanguageButton* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseShowEvent(KLanguageButton* self, QShowEvent* event) {
+void KLanguageButton_SuperShowEvent(KLanguageButton* self, QShowEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_ShowEvent_IsBase(true);
@@ -1166,7 +1166,7 @@ void KLanguageButton_HideEvent(KLanguageButton* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseHideEvent(KLanguageButton* self, QHideEvent* event) {
+void KLanguageButton_SuperHideEvent(KLanguageButton* self, QHideEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_HideEvent_IsBase(true);
@@ -1196,7 +1196,7 @@ bool KLanguageButton_NativeEvent(KLanguageButton* self, const libqt_string event
 }
 
 // Base class handler implementation
-bool KLanguageButton_QBaseNativeEvent(KLanguageButton* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KLanguageButton_SuperNativeEvent(KLanguageButton* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
@@ -1226,7 +1226,7 @@ void KLanguageButton_ChangeEvent(KLanguageButton* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseChangeEvent(KLanguageButton* self, QEvent* param1) {
+void KLanguageButton_SuperChangeEvent(KLanguageButton* self, QEvent* param1) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_ChangeEvent_IsBase(true);
@@ -1255,7 +1255,7 @@ int KLanguageButton_Metric(const KLanguageButton* self, int param1) {
 }
 
 // Base class handler implementation
-int KLanguageButton_QBaseMetric(const KLanguageButton* self, int param1) {
+int KLanguageButton_SuperMetric(const KLanguageButton* self, int param1) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_Metric_IsBase(true);
@@ -1284,7 +1284,7 @@ void KLanguageButton_InitPainter(const KLanguageButton* self, QPainter* painter)
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseInitPainter(const KLanguageButton* self, QPainter* painter) {
+void KLanguageButton_SuperInitPainter(const KLanguageButton* self, QPainter* painter) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_InitPainter_IsBase(true);
@@ -1313,7 +1313,7 @@ QPaintDevice* KLanguageButton_Redirected(const KLanguageButton* self, QPoint* of
 }
 
 // Base class handler implementation
-QPaintDevice* KLanguageButton_QBaseRedirected(const KLanguageButton* self, QPoint* offset) {
+QPaintDevice* KLanguageButton_SuperRedirected(const KLanguageButton* self, QPoint* offset) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_Redirected_IsBase(true);
@@ -1342,7 +1342,7 @@ QPainter* KLanguageButton_SharedPainter(const KLanguageButton* self) {
 }
 
 // Base class handler implementation
-QPainter* KLanguageButton_QBaseSharedPainter(const KLanguageButton* self) {
+QPainter* KLanguageButton_SuperSharedPainter(const KLanguageButton* self) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_SharedPainter_IsBase(true);
@@ -1371,7 +1371,7 @@ void KLanguageButton_InputMethodEvent(KLanguageButton* self, QInputMethodEvent* 
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseInputMethodEvent(KLanguageButton* self, QInputMethodEvent* param1) {
+void KLanguageButton_SuperInputMethodEvent(KLanguageButton* self, QInputMethodEvent* param1) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_InputMethodEvent_IsBase(true);
@@ -1400,7 +1400,7 @@ QVariant* KLanguageButton_InputMethodQuery(const KLanguageButton* self, int para
 }
 
 // Base class handler implementation
-QVariant* KLanguageButton_QBaseInputMethodQuery(const KLanguageButton* self, int param1) {
+QVariant* KLanguageButton_SuperInputMethodQuery(const KLanguageButton* self, int param1) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_InputMethodQuery_IsBase(true);
@@ -1429,7 +1429,7 @@ bool KLanguageButton_FocusNextPrevChild(KLanguageButton* self, bool next) {
 }
 
 // Base class handler implementation
-bool KLanguageButton_QBaseFocusNextPrevChild(KLanguageButton* self, bool next) {
+bool KLanguageButton_SuperFocusNextPrevChild(KLanguageButton* self, bool next) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_FocusNextPrevChild_IsBase(true);
@@ -1458,7 +1458,7 @@ bool KLanguageButton_EventFilter(KLanguageButton* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool KLanguageButton_QBaseEventFilter(KLanguageButton* self, QObject* watched, QEvent* event) {
+bool KLanguageButton_SuperEventFilter(KLanguageButton* self, QObject* watched, QEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_EventFilter_IsBase(true);
@@ -1487,7 +1487,7 @@ void KLanguageButton_TimerEvent(KLanguageButton* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseTimerEvent(KLanguageButton* self, QTimerEvent* event) {
+void KLanguageButton_SuperTimerEvent(KLanguageButton* self, QTimerEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_TimerEvent_IsBase(true);
@@ -1516,7 +1516,7 @@ void KLanguageButton_ChildEvent(KLanguageButton* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseChildEvent(KLanguageButton* self, QChildEvent* event) {
+void KLanguageButton_SuperChildEvent(KLanguageButton* self, QChildEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_ChildEvent_IsBase(true);
@@ -1545,7 +1545,7 @@ void KLanguageButton_CustomEvent(KLanguageButton* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseCustomEvent(KLanguageButton* self, QEvent* event) {
+void KLanguageButton_SuperCustomEvent(KLanguageButton* self, QEvent* event) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_CustomEvent_IsBase(true);
@@ -1574,7 +1574,7 @@ void KLanguageButton_ConnectNotify(KLanguageButton* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseConnectNotify(KLanguageButton* self, const QMetaMethod* signal) {
+void KLanguageButton_SuperConnectNotify(KLanguageButton* self, const QMetaMethod* signal) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_ConnectNotify_IsBase(true);
@@ -1603,7 +1603,7 @@ void KLanguageButton_DisconnectNotify(KLanguageButton* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseDisconnectNotify(KLanguageButton* self, const QMetaMethod* signal) {
+void KLanguageButton_SuperDisconnectNotify(KLanguageButton* self, const QMetaMethod* signal) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_DisconnectNotify_IsBase(true);
@@ -1632,7 +1632,7 @@ void KLanguageButton_UpdateMicroFocus(KLanguageButton* self) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseUpdateMicroFocus(KLanguageButton* self) {
+void KLanguageButton_SuperUpdateMicroFocus(KLanguageButton* self) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_UpdateMicroFocus_IsBase(true);
@@ -1661,7 +1661,7 @@ void KLanguageButton_Create(KLanguageButton* self) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseCreate(KLanguageButton* self) {
+void KLanguageButton_SuperCreate(KLanguageButton* self) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_Create_IsBase(true);
@@ -1690,7 +1690,7 @@ void KLanguageButton_Destroy(KLanguageButton* self) {
 }
 
 // Base class handler implementation
-void KLanguageButton_QBaseDestroy(KLanguageButton* self) {
+void KLanguageButton_SuperDestroy(KLanguageButton* self) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_Destroy_IsBase(true);
@@ -1719,7 +1719,7 @@ bool KLanguageButton_FocusNextChild(KLanguageButton* self) {
 }
 
 // Base class handler implementation
-bool KLanguageButton_QBaseFocusNextChild(KLanguageButton* self) {
+bool KLanguageButton_SuperFocusNextChild(KLanguageButton* self) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_FocusNextChild_IsBase(true);
@@ -1748,7 +1748,7 @@ bool KLanguageButton_FocusPreviousChild(KLanguageButton* self) {
 }
 
 // Base class handler implementation
-bool KLanguageButton_QBaseFocusPreviousChild(KLanguageButton* self) {
+bool KLanguageButton_SuperFocusPreviousChild(KLanguageButton* self) {
     auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_FocusPreviousChild_IsBase(true);
@@ -1777,7 +1777,7 @@ QObject* KLanguageButton_Sender(const KLanguageButton* self) {
 }
 
 // Base class handler implementation
-QObject* KLanguageButton_QBaseSender(const KLanguageButton* self) {
+QObject* KLanguageButton_SuperSender(const KLanguageButton* self) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_Sender_IsBase(true);
@@ -1806,7 +1806,7 @@ int KLanguageButton_SenderSignalIndex(const KLanguageButton* self) {
 }
 
 // Base class handler implementation
-int KLanguageButton_QBaseSenderSignalIndex(const KLanguageButton* self) {
+int KLanguageButton_SuperSenderSignalIndex(const KLanguageButton* self) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_SenderSignalIndex_IsBase(true);
@@ -1835,7 +1835,7 @@ int KLanguageButton_Receivers(const KLanguageButton* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KLanguageButton_QBaseReceivers(const KLanguageButton* self, const char* signal) {
+int KLanguageButton_SuperReceivers(const KLanguageButton* self, const char* signal) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_Receivers_IsBase(true);
@@ -1864,7 +1864,7 @@ bool KLanguageButton_IsSignalConnected(const KLanguageButton* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KLanguageButton_QBaseIsSignalConnected(const KLanguageButton* self, const QMetaMethod* signal) {
+bool KLanguageButton_SuperIsSignalConnected(const KLanguageButton* self, const QMetaMethod* signal) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_IsSignalConnected_IsBase(true);
@@ -1893,7 +1893,7 @@ double KLanguageButton_GetDecodedMetricF(const KLanguageButton* self, int metric
 }
 
 // Base class handler implementation
-double KLanguageButton_QBaseGetDecodedMetricF(const KLanguageButton* self, int metricA, int metricB) {
+double KLanguageButton_SuperGetDecodedMetricF(const KLanguageButton* self, int metricA, int metricB) {
     auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
     if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
         vklanguagebutton->setKLanguageButton_GetDecodedMetricF_IsBase(true);

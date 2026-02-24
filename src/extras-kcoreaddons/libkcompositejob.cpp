@@ -81,7 +81,7 @@ void KCompositeJob_SlotInfoMessage(KCompositeJob* self, KJob* job, const libqt_s
 }
 
 // Base class handler implementation
-QMetaObject* KCompositeJob_QBaseMetaObject(const KCompositeJob* self) {
+QMetaObject* KCompositeJob_SuperMetaObject(const KCompositeJob* self) {
     auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_MetaObject_IsBase(true);
@@ -100,7 +100,7 @@ void KCompositeJob_OnMetaObject(const KCompositeJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KCompositeJob_QBaseMetacast(KCompositeJob* self, const char* param1) {
+void* KCompositeJob_SuperMetacast(KCompositeJob* self, const char* param1) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_Metacast_IsBase(true);
@@ -119,7 +119,7 @@ void KCompositeJob_OnMetacast(KCompositeJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KCompositeJob_QBaseMetacall(KCompositeJob* self, int param1, int param2, void** param3) {
+int KCompositeJob_SuperMetacall(KCompositeJob* self, int param1, int param2, void** param3) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_Metacall_IsBase(true);
@@ -138,7 +138,7 @@ void KCompositeJob_OnMetacall(KCompositeJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KCompositeJob_QBaseAddSubjob(KCompositeJob* self, KJob* job) {
+bool KCompositeJob_SuperAddSubjob(KCompositeJob* self, KJob* job) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_AddSubjob_IsBase(true);
@@ -157,7 +157,7 @@ void KCompositeJob_OnAddSubjob(KCompositeJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KCompositeJob_QBaseRemoveSubjob(KCompositeJob* self, KJob* job) {
+bool KCompositeJob_SuperRemoveSubjob(KCompositeJob* self, KJob* job) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_RemoveSubjob_IsBase(true);
@@ -176,7 +176,7 @@ void KCompositeJob_OnRemoveSubjob(KCompositeJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCompositeJob_QBaseSlotResult(KCompositeJob* self, KJob* job) {
+void KCompositeJob_SuperSlotResult(KCompositeJob* self, KJob* job) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_SlotResult_IsBase(true);
@@ -195,7 +195,7 @@ void KCompositeJob_OnSlotResult(KCompositeJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCompositeJob_QBaseSlotInfoMessage(KCompositeJob* self, KJob* job, const libqt_string message) {
+void KCompositeJob_SuperSlotInfoMessage(KCompositeJob* self, KJob* job, const libqt_string message) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     QString message_QString = QString::fromUtf8(message.data, message.len);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
@@ -225,7 +225,7 @@ void KCompositeJob_Start(KCompositeJob* self) {
 }
 
 // Base class handler implementation
-void KCompositeJob_QBaseStart(KCompositeJob* self) {
+void KCompositeJob_SuperStart(KCompositeJob* self) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_Start_IsBase(true);
@@ -254,7 +254,7 @@ bool KCompositeJob_DoKill(KCompositeJob* self) {
 }
 
 // Base class handler implementation
-bool KCompositeJob_QBaseDoKill(KCompositeJob* self) {
+bool KCompositeJob_SuperDoKill(KCompositeJob* self) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_DoKill_IsBase(true);
@@ -283,7 +283,7 @@ bool KCompositeJob_DoSuspend(KCompositeJob* self) {
 }
 
 // Base class handler implementation
-bool KCompositeJob_QBaseDoSuspend(KCompositeJob* self) {
+bool KCompositeJob_SuperDoSuspend(KCompositeJob* self) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_DoSuspend_IsBase(true);
@@ -312,7 +312,7 @@ bool KCompositeJob_DoResume(KCompositeJob* self) {
 }
 
 // Base class handler implementation
-bool KCompositeJob_QBaseDoResume(KCompositeJob* self) {
+bool KCompositeJob_SuperDoResume(KCompositeJob* self) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_DoResume_IsBase(true);
@@ -357,7 +357,7 @@ libqt_string KCompositeJob_ErrorString(const KCompositeJob* self) {
 }
 
 // Base class handler implementation
-libqt_string KCompositeJob_QBaseErrorString(const KCompositeJob* self) {
+libqt_string KCompositeJob_SuperErrorString(const KCompositeJob* self) {
     auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_ErrorString_IsBase(true);
@@ -402,7 +402,7 @@ bool KCompositeJob_Event(KCompositeJob* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KCompositeJob_QBaseEvent(KCompositeJob* self, QEvent* event) {
+bool KCompositeJob_SuperEvent(KCompositeJob* self, QEvent* event) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_Event_IsBase(true);
@@ -431,7 +431,7 @@ bool KCompositeJob_EventFilter(KCompositeJob* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool KCompositeJob_QBaseEventFilter(KCompositeJob* self, QObject* watched, QEvent* event) {
+bool KCompositeJob_SuperEventFilter(KCompositeJob* self, QObject* watched, QEvent* event) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_EventFilter_IsBase(true);
@@ -460,7 +460,7 @@ void KCompositeJob_TimerEvent(KCompositeJob* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KCompositeJob_QBaseTimerEvent(KCompositeJob* self, QTimerEvent* event) {
+void KCompositeJob_SuperTimerEvent(KCompositeJob* self, QTimerEvent* event) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_TimerEvent_IsBase(true);
@@ -489,7 +489,7 @@ void KCompositeJob_ChildEvent(KCompositeJob* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KCompositeJob_QBaseChildEvent(KCompositeJob* self, QChildEvent* event) {
+void KCompositeJob_SuperChildEvent(KCompositeJob* self, QChildEvent* event) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_ChildEvent_IsBase(true);
@@ -518,7 +518,7 @@ void KCompositeJob_CustomEvent(KCompositeJob* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KCompositeJob_QBaseCustomEvent(KCompositeJob* self, QEvent* event) {
+void KCompositeJob_SuperCustomEvent(KCompositeJob* self, QEvent* event) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_CustomEvent_IsBase(true);
@@ -547,7 +547,7 @@ void KCompositeJob_ConnectNotify(KCompositeJob* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void KCompositeJob_QBaseConnectNotify(KCompositeJob* self, const QMetaMethod* signal) {
+void KCompositeJob_SuperConnectNotify(KCompositeJob* self, const QMetaMethod* signal) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_ConnectNotify_IsBase(true);
@@ -576,7 +576,7 @@ void KCompositeJob_DisconnectNotify(KCompositeJob* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void KCompositeJob_QBaseDisconnectNotify(KCompositeJob* self, const QMetaMethod* signal) {
+void KCompositeJob_SuperDisconnectNotify(KCompositeJob* self, const QMetaMethod* signal) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_DisconnectNotify_IsBase(true);
@@ -605,7 +605,7 @@ bool KCompositeJob_HasSubjobs(const KCompositeJob* self) {
 }
 
 // Base class handler implementation
-bool KCompositeJob_QBaseHasSubjobs(const KCompositeJob* self) {
+bool KCompositeJob_SuperHasSubjobs(const KCompositeJob* self) {
     auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_HasSubjobs_IsBase(true);
@@ -652,7 +652,7 @@ libqt_list /* of KJob* */ KCompositeJob_Subjobs(const KCompositeJob* self) {
 }
 
 // Base class handler implementation
-libqt_list /* of KJob* */ KCompositeJob_QBaseSubjobs(const KCompositeJob* self) {
+libqt_list /* of KJob* */ KCompositeJob_SuperSubjobs(const KCompositeJob* self) {
     auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_Subjobs_IsBase(true);
@@ -699,7 +699,7 @@ void KCompositeJob_ClearSubjobs(KCompositeJob* self) {
 }
 
 // Base class handler implementation
-void KCompositeJob_QBaseClearSubjobs(KCompositeJob* self) {
+void KCompositeJob_SuperClearSubjobs(KCompositeJob* self) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_ClearSubjobs_IsBase(true);
@@ -728,7 +728,7 @@ void KCompositeJob_SetCapabilities(KCompositeJob* self, int capabilities) {
 }
 
 // Base class handler implementation
-void KCompositeJob_QBaseSetCapabilities(KCompositeJob* self, int capabilities) {
+void KCompositeJob_SuperSetCapabilities(KCompositeJob* self, int capabilities) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_SetCapabilities_IsBase(true);
@@ -757,7 +757,7 @@ bool KCompositeJob_IsFinished(const KCompositeJob* self) {
 }
 
 // Base class handler implementation
-bool KCompositeJob_QBaseIsFinished(const KCompositeJob* self) {
+bool KCompositeJob_SuperIsFinished(const KCompositeJob* self) {
     auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_IsFinished_IsBase(true);
@@ -786,7 +786,7 @@ void KCompositeJob_SetError(KCompositeJob* self, int errorCode) {
 }
 
 // Base class handler implementation
-void KCompositeJob_QBaseSetError(KCompositeJob* self, int errorCode) {
+void KCompositeJob_SuperSetError(KCompositeJob* self, int errorCode) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_SetError_IsBase(true);
@@ -816,7 +816,7 @@ void KCompositeJob_SetErrorText(KCompositeJob* self, const libqt_string errorTex
 }
 
 // Base class handler implementation
-void KCompositeJob_QBaseSetErrorText(KCompositeJob* self, const libqt_string errorText) {
+void KCompositeJob_SuperSetErrorText(KCompositeJob* self, const libqt_string errorText) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
@@ -846,7 +846,7 @@ void KCompositeJob_SetProcessedAmount(KCompositeJob* self, int unit, unsigned lo
 }
 
 // Base class handler implementation
-void KCompositeJob_QBaseSetProcessedAmount(KCompositeJob* self, int unit, unsigned long long amount) {
+void KCompositeJob_SuperSetProcessedAmount(KCompositeJob* self, int unit, unsigned long long amount) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_SetProcessedAmount_IsBase(true);
@@ -875,7 +875,7 @@ void KCompositeJob_SetTotalAmount(KCompositeJob* self, int unit, unsigned long l
 }
 
 // Base class handler implementation
-void KCompositeJob_QBaseSetTotalAmount(KCompositeJob* self, int unit, unsigned long long amount) {
+void KCompositeJob_SuperSetTotalAmount(KCompositeJob* self, int unit, unsigned long long amount) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_SetTotalAmount_IsBase(true);
@@ -904,7 +904,7 @@ void KCompositeJob_SetProgressUnit(KCompositeJob* self, int unit) {
 }
 
 // Base class handler implementation
-void KCompositeJob_QBaseSetProgressUnit(KCompositeJob* self, int unit) {
+void KCompositeJob_SuperSetProgressUnit(KCompositeJob* self, int unit) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_SetProgressUnit_IsBase(true);
@@ -933,7 +933,7 @@ void KCompositeJob_SetPercent(KCompositeJob* self, unsigned long percentage) {
 }
 
 // Base class handler implementation
-void KCompositeJob_QBaseSetPercent(KCompositeJob* self, unsigned long percentage) {
+void KCompositeJob_SuperSetPercent(KCompositeJob* self, unsigned long percentage) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_SetPercent_IsBase(true);
@@ -962,7 +962,7 @@ void KCompositeJob_EmitResult(KCompositeJob* self) {
 }
 
 // Base class handler implementation
-void KCompositeJob_QBaseEmitResult(KCompositeJob* self) {
+void KCompositeJob_SuperEmitResult(KCompositeJob* self) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_EmitResult_IsBase(true);
@@ -991,7 +991,7 @@ void KCompositeJob_EmitPercent(KCompositeJob* self, unsigned long long processed
 }
 
 // Base class handler implementation
-void KCompositeJob_QBaseEmitPercent(KCompositeJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
+void KCompositeJob_SuperEmitPercent(KCompositeJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_EmitPercent_IsBase(true);
@@ -1020,7 +1020,7 @@ void KCompositeJob_EmitSpeed(KCompositeJob* self, unsigned long speed) {
 }
 
 // Base class handler implementation
-void KCompositeJob_QBaseEmitSpeed(KCompositeJob* self, unsigned long speed) {
+void KCompositeJob_SuperEmitSpeed(KCompositeJob* self, unsigned long speed) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_EmitSpeed_IsBase(true);
@@ -1049,7 +1049,7 @@ void KCompositeJob_StartElapsedTimer(KCompositeJob* self) {
 }
 
 // Base class handler implementation
-void KCompositeJob_QBaseStartElapsedTimer(KCompositeJob* self) {
+void KCompositeJob_SuperStartElapsedTimer(KCompositeJob* self) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_StartElapsedTimer_IsBase(true);
@@ -1078,7 +1078,7 @@ QObject* KCompositeJob_Sender(const KCompositeJob* self) {
 }
 
 // Base class handler implementation
-QObject* KCompositeJob_QBaseSender(const KCompositeJob* self) {
+QObject* KCompositeJob_SuperSender(const KCompositeJob* self) {
     auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_Sender_IsBase(true);
@@ -1107,7 +1107,7 @@ int KCompositeJob_SenderSignalIndex(const KCompositeJob* self) {
 }
 
 // Base class handler implementation
-int KCompositeJob_QBaseSenderSignalIndex(const KCompositeJob* self) {
+int KCompositeJob_SuperSenderSignalIndex(const KCompositeJob* self) {
     auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_SenderSignalIndex_IsBase(true);
@@ -1136,7 +1136,7 @@ int KCompositeJob_Receivers(const KCompositeJob* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KCompositeJob_QBaseReceivers(const KCompositeJob* self, const char* signal) {
+int KCompositeJob_SuperReceivers(const KCompositeJob* self, const char* signal) {
     auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_Receivers_IsBase(true);
@@ -1165,7 +1165,7 @@ bool KCompositeJob_IsSignalConnected(const KCompositeJob* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool KCompositeJob_QBaseIsSignalConnected(const KCompositeJob* self, const QMetaMethod* signal) {
+bool KCompositeJob_SuperIsSignalConnected(const KCompositeJob* self, const QMetaMethod* signal) {
     auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_IsSignalConnected_IsBase(true);

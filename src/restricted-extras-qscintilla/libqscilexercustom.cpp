@@ -95,7 +95,7 @@ void QsciLexerCustom_StartStyling2(QsciLexerCustom* self, int pos, int styleBits
 }
 
 // Base class handler implementation
-QMetaObject* QsciLexerCustom_QBaseMetaObject(const QsciLexerCustom* self) {
+QMetaObject* QsciLexerCustom_SuperMetaObject(const QsciLexerCustom* self) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_MetaObject_IsBase(true);
@@ -114,7 +114,7 @@ void QsciLexerCustom_OnMetaObject(const QsciLexerCustom* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QsciLexerCustom_QBaseMetacast(QsciLexerCustom* self, const char* param1) {
+void* QsciLexerCustom_SuperMetacast(QsciLexerCustom* self, const char* param1) {
     auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_Metacast_IsBase(true);
@@ -133,7 +133,7 @@ void QsciLexerCustom_OnMetacast(QsciLexerCustom* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QsciLexerCustom_QBaseMetacall(QsciLexerCustom* self, int param1, int param2, void** param3) {
+int QsciLexerCustom_SuperMetacall(QsciLexerCustom* self, int param1, int param2, void** param3) {
     auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_Metacall_IsBase(true);
@@ -152,7 +152,7 @@ void QsciLexerCustom_OnMetacall(QsciLexerCustom* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciLexerCustom_QBaseStyleText(QsciLexerCustom* self, int start, int end) {
+void QsciLexerCustom_SuperStyleText(QsciLexerCustom* self, int start, int end) {
     auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_StyleText_IsBase(true);
@@ -171,7 +171,7 @@ void QsciLexerCustom_OnStyleText(QsciLexerCustom* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciLexerCustom_QBaseSetEditor(QsciLexerCustom* self, QsciScintilla* editor) {
+void QsciLexerCustom_SuperSetEditor(QsciLexerCustom* self, QsciScintilla* editor) {
     auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_SetEditor_IsBase(true);
@@ -190,7 +190,7 @@ void QsciLexerCustom_OnSetEditor(QsciLexerCustom* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QsciLexerCustom_QBaseStyleBitsNeeded(const QsciLexerCustom* self) {
+int QsciLexerCustom_SuperStyleBitsNeeded(const QsciLexerCustom* self) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_StyleBitsNeeded_IsBase(true);
@@ -219,7 +219,7 @@ const char* QsciLexerCustom_Language(const QsciLexerCustom* self) {
 }
 
 // Base class handler implementation
-const char* QsciLexerCustom_QBaseLanguage(const QsciLexerCustom* self) {
+const char* QsciLexerCustom_SuperLanguage(const QsciLexerCustom* self) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_Language_IsBase(true);
@@ -248,7 +248,7 @@ const char* QsciLexerCustom_Lexer(const QsciLexerCustom* self) {
 }
 
 // Base class handler implementation
-const char* QsciLexerCustom_QBaseLexer(const QsciLexerCustom* self) {
+const char* QsciLexerCustom_SuperLexer(const QsciLexerCustom* self) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_Lexer_IsBase(true);
@@ -277,7 +277,7 @@ int QsciLexerCustom_LexerId(const QsciLexerCustom* self) {
 }
 
 // Base class handler implementation
-int QsciLexerCustom_QBaseLexerId(const QsciLexerCustom* self) {
+int QsciLexerCustom_SuperLexerId(const QsciLexerCustom* self) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_LexerId_IsBase(true);
@@ -306,7 +306,7 @@ const char* QsciLexerCustom_AutoCompletionFillups(const QsciLexerCustom* self) {
 }
 
 // Base class handler implementation
-const char* QsciLexerCustom_QBaseAutoCompletionFillups(const QsciLexerCustom* self) {
+const char* QsciLexerCustom_SuperAutoCompletionFillups(const QsciLexerCustom* self) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_AutoCompletionFillups_IsBase(true);
@@ -369,7 +369,7 @@ libqt_list /* of libqt_string */ QsciLexerCustom_AutoCompletionWordSeparators(co
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QsciLexerCustom_QBaseAutoCompletionWordSeparators(const QsciLexerCustom* self) {
+libqt_list /* of libqt_string */ QsciLexerCustom_SuperAutoCompletionWordSeparators(const QsciLexerCustom* self) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_AutoCompletionWordSeparators_IsBase(true);
@@ -432,7 +432,7 @@ const char* QsciLexerCustom_BlockEnd(const QsciLexerCustom* self, int* style) {
 }
 
 // Base class handler implementation
-const char* QsciLexerCustom_QBaseBlockEnd(const QsciLexerCustom* self, int* style) {
+const char* QsciLexerCustom_SuperBlockEnd(const QsciLexerCustom* self, int* style) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_BlockEnd_IsBase(true);
@@ -461,7 +461,7 @@ int QsciLexerCustom_BlockLookback(const QsciLexerCustom* self) {
 }
 
 // Base class handler implementation
-int QsciLexerCustom_QBaseBlockLookback(const QsciLexerCustom* self) {
+int QsciLexerCustom_SuperBlockLookback(const QsciLexerCustom* self) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_BlockLookback_IsBase(true);
@@ -490,7 +490,7 @@ const char* QsciLexerCustom_BlockStart(const QsciLexerCustom* self, int* style) 
 }
 
 // Base class handler implementation
-const char* QsciLexerCustom_QBaseBlockStart(const QsciLexerCustom* self, int* style) {
+const char* QsciLexerCustom_SuperBlockStart(const QsciLexerCustom* self, int* style) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_BlockStart_IsBase(true);
@@ -519,7 +519,7 @@ const char* QsciLexerCustom_BlockStartKeyword(const QsciLexerCustom* self, int* 
 }
 
 // Base class handler implementation
-const char* QsciLexerCustom_QBaseBlockStartKeyword(const QsciLexerCustom* self, int* style) {
+const char* QsciLexerCustom_SuperBlockStartKeyword(const QsciLexerCustom* self, int* style) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_BlockStartKeyword_IsBase(true);
@@ -548,7 +548,7 @@ int QsciLexerCustom_BraceStyle(const QsciLexerCustom* self) {
 }
 
 // Base class handler implementation
-int QsciLexerCustom_QBaseBraceStyle(const QsciLexerCustom* self) {
+int QsciLexerCustom_SuperBraceStyle(const QsciLexerCustom* self) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_BraceStyle_IsBase(true);
@@ -577,7 +577,7 @@ bool QsciLexerCustom_CaseSensitive(const QsciLexerCustom* self) {
 }
 
 // Base class handler implementation
-bool QsciLexerCustom_QBaseCaseSensitive(const QsciLexerCustom* self) {
+bool QsciLexerCustom_SuperCaseSensitive(const QsciLexerCustom* self) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_CaseSensitive_IsBase(true);
@@ -606,7 +606,7 @@ QColor* QsciLexerCustom_Color(const QsciLexerCustom* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerCustom_QBaseColor(const QsciLexerCustom* self, int style) {
+QColor* QsciLexerCustom_SuperColor(const QsciLexerCustom* self, int style) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_Color_IsBase(true);
@@ -635,7 +635,7 @@ bool QsciLexerCustom_EolFill(const QsciLexerCustom* self, int style) {
 }
 
 // Base class handler implementation
-bool QsciLexerCustom_QBaseEolFill(const QsciLexerCustom* self, int style) {
+bool QsciLexerCustom_SuperEolFill(const QsciLexerCustom* self, int style) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_EolFill_IsBase(true);
@@ -664,7 +664,7 @@ QFont* QsciLexerCustom_Font(const QsciLexerCustom* self, int style) {
 }
 
 // Base class handler implementation
-QFont* QsciLexerCustom_QBaseFont(const QsciLexerCustom* self, int style) {
+QFont* QsciLexerCustom_SuperFont(const QsciLexerCustom* self, int style) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_Font_IsBase(true);
@@ -693,7 +693,7 @@ int QsciLexerCustom_IndentationGuideView(const QsciLexerCustom* self) {
 }
 
 // Base class handler implementation
-int QsciLexerCustom_QBaseIndentationGuideView(const QsciLexerCustom* self) {
+int QsciLexerCustom_SuperIndentationGuideView(const QsciLexerCustom* self) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_IndentationGuideView_IsBase(true);
@@ -722,7 +722,7 @@ const char* QsciLexerCustom_Keywords(const QsciLexerCustom* self, int set) {
 }
 
 // Base class handler implementation
-const char* QsciLexerCustom_QBaseKeywords(const QsciLexerCustom* self, int set) {
+const char* QsciLexerCustom_SuperKeywords(const QsciLexerCustom* self, int set) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_Keywords_IsBase(true);
@@ -751,7 +751,7 @@ int QsciLexerCustom_DefaultStyle(const QsciLexerCustom* self) {
 }
 
 // Base class handler implementation
-int QsciLexerCustom_QBaseDefaultStyle(const QsciLexerCustom* self) {
+int QsciLexerCustom_SuperDefaultStyle(const QsciLexerCustom* self) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_DefaultStyle_IsBase(true);
@@ -796,7 +796,7 @@ libqt_string QsciLexerCustom_Description(const QsciLexerCustom* self, int style)
 }
 
 // Base class handler implementation
-libqt_string QsciLexerCustom_QBaseDescription(const QsciLexerCustom* self, int style) {
+libqt_string QsciLexerCustom_SuperDescription(const QsciLexerCustom* self, int style) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_Description_IsBase(true);
@@ -841,7 +841,7 @@ QColor* QsciLexerCustom_Paper(const QsciLexerCustom* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerCustom_QBasePaper(const QsciLexerCustom* self, int style) {
+QColor* QsciLexerCustom_SuperPaper(const QsciLexerCustom* self, int style) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_Paper_IsBase(true);
@@ -870,7 +870,7 @@ QColor* QsciLexerCustom_DefaultColor2(const QsciLexerCustom* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerCustom_QBaseDefaultColor2(const QsciLexerCustom* self, int style) {
+QColor* QsciLexerCustom_SuperDefaultColor2(const QsciLexerCustom* self, int style) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_DefaultColor2_IsBase(true);
@@ -899,7 +899,7 @@ bool QsciLexerCustom_DefaultEolFill(const QsciLexerCustom* self, int style) {
 }
 
 // Base class handler implementation
-bool QsciLexerCustom_QBaseDefaultEolFill(const QsciLexerCustom* self, int style) {
+bool QsciLexerCustom_SuperDefaultEolFill(const QsciLexerCustom* self, int style) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_DefaultEolFill_IsBase(true);
@@ -928,7 +928,7 @@ QFont* QsciLexerCustom_DefaultFont2(const QsciLexerCustom* self, int style) {
 }
 
 // Base class handler implementation
-QFont* QsciLexerCustom_QBaseDefaultFont2(const QsciLexerCustom* self, int style) {
+QFont* QsciLexerCustom_SuperDefaultFont2(const QsciLexerCustom* self, int style) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_DefaultFont2_IsBase(true);
@@ -957,7 +957,7 @@ QColor* QsciLexerCustom_DefaultPaper2(const QsciLexerCustom* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerCustom_QBaseDefaultPaper2(const QsciLexerCustom* self, int style) {
+QColor* QsciLexerCustom_SuperDefaultPaper2(const QsciLexerCustom* self, int style) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_DefaultPaper2_IsBase(true);
@@ -986,7 +986,7 @@ void QsciLexerCustom_RefreshProperties(QsciLexerCustom* self) {
 }
 
 // Base class handler implementation
-void QsciLexerCustom_QBaseRefreshProperties(QsciLexerCustom* self) {
+void QsciLexerCustom_SuperRefreshProperties(QsciLexerCustom* self) {
     auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_RefreshProperties_IsBase(true);
@@ -1015,7 +1015,7 @@ const char* QsciLexerCustom_WordCharacters(const QsciLexerCustom* self) {
 }
 
 // Base class handler implementation
-const char* QsciLexerCustom_QBaseWordCharacters(const QsciLexerCustom* self) {
+const char* QsciLexerCustom_SuperWordCharacters(const QsciLexerCustom* self) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_WordCharacters_IsBase(true);
@@ -1044,7 +1044,7 @@ void QsciLexerCustom_SetAutoIndentStyle(QsciLexerCustom* self, int autoindentsty
 }
 
 // Base class handler implementation
-void QsciLexerCustom_QBaseSetAutoIndentStyle(QsciLexerCustom* self, int autoindentstyle) {
+void QsciLexerCustom_SuperSetAutoIndentStyle(QsciLexerCustom* self, int autoindentstyle) {
     auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_SetAutoIndentStyle_IsBase(true);
@@ -1073,7 +1073,7 @@ void QsciLexerCustom_SetColor(QsciLexerCustom* self, const QColor* c, int style)
 }
 
 // Base class handler implementation
-void QsciLexerCustom_QBaseSetColor(QsciLexerCustom* self, const QColor* c, int style) {
+void QsciLexerCustom_SuperSetColor(QsciLexerCustom* self, const QColor* c, int style) {
     auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_SetColor_IsBase(true);
@@ -1102,7 +1102,7 @@ void QsciLexerCustom_SetEolFill(QsciLexerCustom* self, bool eoffill, int style) 
 }
 
 // Base class handler implementation
-void QsciLexerCustom_QBaseSetEolFill(QsciLexerCustom* self, bool eoffill, int style) {
+void QsciLexerCustom_SuperSetEolFill(QsciLexerCustom* self, bool eoffill, int style) {
     auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_SetEolFill_IsBase(true);
@@ -1131,7 +1131,7 @@ void QsciLexerCustom_SetFont(QsciLexerCustom* self, const QFont* f, int style) {
 }
 
 // Base class handler implementation
-void QsciLexerCustom_QBaseSetFont(QsciLexerCustom* self, const QFont* f, int style) {
+void QsciLexerCustom_SuperSetFont(QsciLexerCustom* self, const QFont* f, int style) {
     auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_SetFont_IsBase(true);
@@ -1160,7 +1160,7 @@ void QsciLexerCustom_SetPaper(QsciLexerCustom* self, const QColor* c, int style)
 }
 
 // Base class handler implementation
-void QsciLexerCustom_QBaseSetPaper(QsciLexerCustom* self, const QColor* c, int style) {
+void QsciLexerCustom_SuperSetPaper(QsciLexerCustom* self, const QColor* c, int style) {
     auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_SetPaper_IsBase(true);
@@ -1190,7 +1190,7 @@ bool QsciLexerCustom_ReadProperties(QsciLexerCustom* self, QSettings* qs, const 
 }
 
 // Base class handler implementation
-bool QsciLexerCustom_QBaseReadProperties(QsciLexerCustom* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerCustom_SuperReadProperties(QsciLexerCustom* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
@@ -1221,7 +1221,7 @@ bool QsciLexerCustom_WriteProperties(const QsciLexerCustom* self, QSettings* qs,
 }
 
 // Base class handler implementation
-bool QsciLexerCustom_QBaseWriteProperties(const QsciLexerCustom* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerCustom_SuperWriteProperties(const QsciLexerCustom* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
@@ -1251,7 +1251,7 @@ bool QsciLexerCustom_Event(QsciLexerCustom* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QsciLexerCustom_QBaseEvent(QsciLexerCustom* self, QEvent* event) {
+bool QsciLexerCustom_SuperEvent(QsciLexerCustom* self, QEvent* event) {
     auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_Event_IsBase(true);
@@ -1280,7 +1280,7 @@ bool QsciLexerCustom_EventFilter(QsciLexerCustom* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool QsciLexerCustom_QBaseEventFilter(QsciLexerCustom* self, QObject* watched, QEvent* event) {
+bool QsciLexerCustom_SuperEventFilter(QsciLexerCustom* self, QObject* watched, QEvent* event) {
     auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_EventFilter_IsBase(true);
@@ -1309,7 +1309,7 @@ void QsciLexerCustom_TimerEvent(QsciLexerCustom* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerCustom_QBaseTimerEvent(QsciLexerCustom* self, QTimerEvent* event) {
+void QsciLexerCustom_SuperTimerEvent(QsciLexerCustom* self, QTimerEvent* event) {
     auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_TimerEvent_IsBase(true);
@@ -1338,7 +1338,7 @@ void QsciLexerCustom_ChildEvent(QsciLexerCustom* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerCustom_QBaseChildEvent(QsciLexerCustom* self, QChildEvent* event) {
+void QsciLexerCustom_SuperChildEvent(QsciLexerCustom* self, QChildEvent* event) {
     auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_ChildEvent_IsBase(true);
@@ -1367,7 +1367,7 @@ void QsciLexerCustom_CustomEvent(QsciLexerCustom* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QsciLexerCustom_QBaseCustomEvent(QsciLexerCustom* self, QEvent* event) {
+void QsciLexerCustom_SuperCustomEvent(QsciLexerCustom* self, QEvent* event) {
     auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_CustomEvent_IsBase(true);
@@ -1396,7 +1396,7 @@ void QsciLexerCustom_ConnectNotify(QsciLexerCustom* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void QsciLexerCustom_QBaseConnectNotify(QsciLexerCustom* self, const QMetaMethod* signal) {
+void QsciLexerCustom_SuperConnectNotify(QsciLexerCustom* self, const QMetaMethod* signal) {
     auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_ConnectNotify_IsBase(true);
@@ -1425,7 +1425,7 @@ void QsciLexerCustom_DisconnectNotify(QsciLexerCustom* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void QsciLexerCustom_QBaseDisconnectNotify(QsciLexerCustom* self, const QMetaMethod* signal) {
+void QsciLexerCustom_SuperDisconnectNotify(QsciLexerCustom* self, const QMetaMethod* signal) {
     auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_DisconnectNotify_IsBase(true);
@@ -1465,7 +1465,7 @@ libqt_string QsciLexerCustom_TextAsBytes(const QsciLexerCustom* self, const libq
 }
 
 // Base class handler implementation
-libqt_string QsciLexerCustom_QBaseTextAsBytes(const QsciLexerCustom* self, const libqt_string text) {
+libqt_string QsciLexerCustom_SuperTextAsBytes(const QsciLexerCustom* self, const libqt_string text) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
@@ -1521,7 +1521,7 @@ libqt_string QsciLexerCustom_BytesAsText(const QsciLexerCustom* self, const char
 }
 
 // Base class handler implementation
-libqt_string QsciLexerCustom_QBaseBytesAsText(const QsciLexerCustom* self, const char* bytes, int size) {
+libqt_string QsciLexerCustom_SuperBytesAsText(const QsciLexerCustom* self, const char* bytes, int size) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_BytesAsText_IsBase(true);
@@ -1566,7 +1566,7 @@ QObject* QsciLexerCustom_Sender(const QsciLexerCustom* self) {
 }
 
 // Base class handler implementation
-QObject* QsciLexerCustom_QBaseSender(const QsciLexerCustom* self) {
+QObject* QsciLexerCustom_SuperSender(const QsciLexerCustom* self) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_Sender_IsBase(true);
@@ -1595,7 +1595,7 @@ int QsciLexerCustom_SenderSignalIndex(const QsciLexerCustom* self) {
 }
 
 // Base class handler implementation
-int QsciLexerCustom_QBaseSenderSignalIndex(const QsciLexerCustom* self) {
+int QsciLexerCustom_SuperSenderSignalIndex(const QsciLexerCustom* self) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_SenderSignalIndex_IsBase(true);
@@ -1624,7 +1624,7 @@ int QsciLexerCustom_Receivers(const QsciLexerCustom* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QsciLexerCustom_QBaseReceivers(const QsciLexerCustom* self, const char* signal) {
+int QsciLexerCustom_SuperReceivers(const QsciLexerCustom* self, const char* signal) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_Receivers_IsBase(true);
@@ -1653,7 +1653,7 @@ bool QsciLexerCustom_IsSignalConnected(const QsciLexerCustom* self, const QMetaM
 }
 
 // Base class handler implementation
-bool QsciLexerCustom_QBaseIsSignalConnected(const QsciLexerCustom* self, const QMetaMethod* signal) {
+bool QsciLexerCustom_SuperIsSignalConnected(const QsciLexerCustom* self, const QMetaMethod* signal) {
     auto* vqscilexercustom = const_cast<VirtualQsciLexerCustom*>(dynamic_cast<const VirtualQsciLexerCustom*>(self));
     if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
         vqscilexercustom->setQsciLexerCustom_IsSignalConnected_IsBase(true);

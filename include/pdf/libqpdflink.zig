@@ -182,6 +182,10 @@ pub const qpdflink = struct {
         qtc.QPdfLink_CopyToClipboard1(@ptrCast(self), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdflink.html#dtor.QPdfLink)
     ///
     /// Delete this object from C++ memory.
@@ -190,7 +194,7 @@ pub const qpdflink = struct {
     ///
     /// ` self: QtC.QPdfLink `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPdfLink_Delete(@ptrCast(self));
     }
 };

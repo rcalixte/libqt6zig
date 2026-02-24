@@ -327,25 +327,25 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
 
     // Friend functions
     friend bool KToggleToolBarAction_Event(KToggleToolBarAction* self, QEvent* param1);
-    friend bool KToggleToolBarAction_QBaseEvent(KToggleToolBarAction* self, QEvent* param1);
+    friend bool KToggleToolBarAction_SuperEvent(KToggleToolBarAction* self, QEvent* param1);
     friend void KToggleToolBarAction_TimerEvent(KToggleToolBarAction* self, QTimerEvent* event);
-    friend void KToggleToolBarAction_QBaseTimerEvent(KToggleToolBarAction* self, QTimerEvent* event);
+    friend void KToggleToolBarAction_SuperTimerEvent(KToggleToolBarAction* self, QTimerEvent* event);
     friend void KToggleToolBarAction_ChildEvent(KToggleToolBarAction* self, QChildEvent* event);
-    friend void KToggleToolBarAction_QBaseChildEvent(KToggleToolBarAction* self, QChildEvent* event);
+    friend void KToggleToolBarAction_SuperChildEvent(KToggleToolBarAction* self, QChildEvent* event);
     friend void KToggleToolBarAction_CustomEvent(KToggleToolBarAction* self, QEvent* event);
-    friend void KToggleToolBarAction_QBaseCustomEvent(KToggleToolBarAction* self, QEvent* event);
+    friend void KToggleToolBarAction_SuperCustomEvent(KToggleToolBarAction* self, QEvent* event);
     friend void KToggleToolBarAction_ConnectNotify(KToggleToolBarAction* self, const QMetaMethod* signal);
-    friend void KToggleToolBarAction_QBaseConnectNotify(KToggleToolBarAction* self, const QMetaMethod* signal);
+    friend void KToggleToolBarAction_SuperConnectNotify(KToggleToolBarAction* self, const QMetaMethod* signal);
     friend void KToggleToolBarAction_DisconnectNotify(KToggleToolBarAction* self, const QMetaMethod* signal);
-    friend void KToggleToolBarAction_QBaseDisconnectNotify(KToggleToolBarAction* self, const QMetaMethod* signal);
+    friend void KToggleToolBarAction_SuperDisconnectNotify(KToggleToolBarAction* self, const QMetaMethod* signal);
     friend QObject* KToggleToolBarAction_Sender(const KToggleToolBarAction* self);
-    friend QObject* KToggleToolBarAction_QBaseSender(const KToggleToolBarAction* self);
+    friend QObject* KToggleToolBarAction_SuperSender(const KToggleToolBarAction* self);
     friend int KToggleToolBarAction_SenderSignalIndex(const KToggleToolBarAction* self);
-    friend int KToggleToolBarAction_QBaseSenderSignalIndex(const KToggleToolBarAction* self);
+    friend int KToggleToolBarAction_SuperSenderSignalIndex(const KToggleToolBarAction* self);
     friend int KToggleToolBarAction_Receivers(const KToggleToolBarAction* self, const char* signal);
-    friend int KToggleToolBarAction_QBaseReceivers(const KToggleToolBarAction* self, const char* signal);
+    friend int KToggleToolBarAction_SuperReceivers(const KToggleToolBarAction* self, const char* signal);
     friend bool KToggleToolBarAction_IsSignalConnected(const KToggleToolBarAction* self, const QMetaMethod* signal);
-    friend bool KToggleToolBarAction_QBaseIsSignalConnected(const KToggleToolBarAction* self, const QMetaMethod* signal);
+    friend bool KToggleToolBarAction_SuperIsSignalConnected(const KToggleToolBarAction* self, const QMetaMethod* signal);
 };
 
 #endif

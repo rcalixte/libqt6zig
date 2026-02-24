@@ -241,13 +241,17 @@ pub const attica__downloaditem = struct {
         return qtc.Attica__DownloadItem_Type(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Attica__DownloadItem `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Attica__DownloadItem_Delete(@ptrCast(self));
     }
 };

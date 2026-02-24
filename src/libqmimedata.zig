@@ -36,6 +36,10 @@ pub const qmimedata = struct {
         qtc.QMimeData_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -44,8 +48,8 @@ pub const qmimedata = struct {
     ///
     /// ` self: QtC.QMimeData `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QMimeData_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QMimeData_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -71,6 +75,10 @@ pub const qmimedata = struct {
         qtc.QMimeData_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -79,9 +87,9 @@ pub const qmimedata = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QMimeData_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QMimeData_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -110,6 +118,10 @@ pub const qmimedata = struct {
         qtc.QMimeData_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -122,8 +134,8 @@ pub const qmimedata = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QMimeData_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QMimeData_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -424,6 +436,10 @@ pub const qmimedata = struct {
         qtc.QMimeData_OnHasFormat(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHasFormat` instead
+    ///
+    pub const QBaseHasFormat = SuperHasFormat;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#hasFormat)
     ///
     /// Base class method implementation
@@ -434,12 +450,12 @@ pub const qmimedata = struct {
     ///
     /// ` mimetype: []const u8 `
     ///
-    pub fn QBaseHasFormat(self: ?*anyopaque, mimetype: []const u8) bool {
+    pub fn SuperHasFormat(self: ?*anyopaque, mimetype: []const u8) bool {
         const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
         };
-        return qtc.QMimeData_QBaseHasFormat(@ptrCast(self), mimetype_str);
+        return qtc.QMimeData_SuperHasFormat(@ptrCast(self), mimetype_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#formats)
@@ -485,6 +501,10 @@ pub const qmimedata = struct {
         qtc.QMimeData_OnFormats(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFormats` instead
+    ///
+    pub const QBaseFormats = SuperFormats;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#formats)
     ///
     /// Base class method implementation
@@ -495,8 +515,8 @@ pub const qmimedata = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseFormats(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QMimeData_QBaseFormats(@ptrCast(self));
+    pub fn SuperFormats(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QMimeData_SuperFormats(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -556,6 +576,10 @@ pub const qmimedata = struct {
         qtc.QMimeData_OnRetrieveData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRetrieveData` instead
+    ///
+    pub const QBaseRetrieveData = SuperRetrieveData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#retrieveData)
     ///
     /// Base class method implementation
@@ -568,12 +592,12 @@ pub const qmimedata = struct {
     ///
     /// ` preferredType: QtC.QMetaType `
     ///
-    pub fn QBaseRetrieveData(self: ?*anyopaque, mimetype: []const u8, preferredType: QtC.QMetaType) QtC.QVariant {
+    pub fn SuperRetrieveData(self: ?*anyopaque, mimetype: []const u8, preferredType: QtC.QMetaType) QtC.QVariant {
         const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
         };
-        return qtc.QMimeData_QBaseRetrieveData(@ptrCast(self), mimetype_str, @ptrCast(preferredType));
+        return qtc.QMimeData_SuperRetrieveData(@ptrCast(self), mimetype_str, @ptrCast(preferredType));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1372,6 +1396,10 @@ pub const qmimedata = struct {
         return qtc.QMimeData_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1384,8 +1412,8 @@ pub const qmimedata = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QMimeData_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QMimeData_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1422,6 +1450,10 @@ pub const qmimedata = struct {
         return qtc.QMimeData_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1436,8 +1468,8 @@ pub const qmimedata = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QMimeData_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QMimeData_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1472,6 +1504,10 @@ pub const qmimedata = struct {
         qtc.QMimeData_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1484,8 +1520,8 @@ pub const qmimedata = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QMimeData_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QMimeData_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1520,6 +1556,10 @@ pub const qmimedata = struct {
         qtc.QMimeData_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1532,8 +1572,8 @@ pub const qmimedata = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QMimeData_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QMimeData_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1568,6 +1608,10 @@ pub const qmimedata = struct {
         qtc.QMimeData_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1580,8 +1624,8 @@ pub const qmimedata = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QMimeData_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QMimeData_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1616,6 +1660,10 @@ pub const qmimedata = struct {
         qtc.QMimeData_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1628,8 +1676,8 @@ pub const qmimedata = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QMimeData_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QMimeData_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1664,6 +1712,10 @@ pub const qmimedata = struct {
         qtc.QMimeData_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1676,8 +1728,8 @@ pub const qmimedata = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QMimeData_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QMimeData_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1710,6 +1762,10 @@ pub const qmimedata = struct {
         return qtc.QMimeData_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1720,8 +1776,8 @@ pub const qmimedata = struct {
     ///
     /// ` self: QtC.QMimeData `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QMimeData_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QMimeData_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1754,6 +1810,10 @@ pub const qmimedata = struct {
         return qtc.QMimeData_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1764,8 +1824,8 @@ pub const qmimedata = struct {
     ///
     /// ` self: QtC.QMimeData `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QMimeData_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QMimeData_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1801,6 +1861,10 @@ pub const qmimedata = struct {
         return qtc.QMimeData_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1813,9 +1877,9 @@ pub const qmimedata = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QMimeData_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QMimeData_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1850,6 +1914,10 @@ pub const qmimedata = struct {
         return qtc.QMimeData_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -1862,8 +1930,8 @@ pub const qmimedata = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QMimeData_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QMimeData_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1897,6 +1965,9 @@ pub const qmimedata = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#dtor.QMimeData)
     ///
@@ -1906,7 +1977,7 @@ pub const qmimedata = struct {
     ///
     /// ` self: QtC.QMimeData `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMimeData_Delete(@ptrCast(self));
     }
 };

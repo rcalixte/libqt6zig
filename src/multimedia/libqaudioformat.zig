@@ -300,6 +300,10 @@ pub const qaudioformat = struct {
         return qtc.QAudioFormat_DefaultChannelConfigForChannelCount(@bitCast(channelCount));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioformat.html#dtor.QAudioFormat)
     ///
     /// Delete this object from C++ memory.
@@ -308,7 +312,7 @@ pub const qaudioformat = struct {
     ///
     /// ` self: QtC.QAudioFormat `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAudioFormat_Delete(@ptrCast(self));
     }
 };

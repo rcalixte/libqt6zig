@@ -76,7 +76,7 @@ void KTerminalLauncherJob_Start(KTerminalLauncherJob* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KTerminalLauncherJob_QBaseMetaObject(const KTerminalLauncherJob* self) {
+QMetaObject* KTerminalLauncherJob_SuperMetaObject(const KTerminalLauncherJob* self) {
     auto* vkterminallauncherjob = const_cast<VirtualKTerminalLauncherJob*>(dynamic_cast<const VirtualKTerminalLauncherJob*>(self));
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_MetaObject_IsBase(true);
@@ -95,7 +95,7 @@ void KTerminalLauncherJob_OnMetaObject(const KTerminalLauncherJob* self, intptr_
 }
 
 // Base class handler implementation
-void* KTerminalLauncherJob_QBaseMetacast(KTerminalLauncherJob* self, const char* param1) {
+void* KTerminalLauncherJob_SuperMetacast(KTerminalLauncherJob* self, const char* param1) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_Metacast_IsBase(true);
@@ -114,7 +114,7 @@ void KTerminalLauncherJob_OnMetacast(KTerminalLauncherJob* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int KTerminalLauncherJob_QBaseMetacall(KTerminalLauncherJob* self, int param1, int param2, void** param3) {
+int KTerminalLauncherJob_SuperMetacall(KTerminalLauncherJob* self, int param1, int param2, void** param3) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_Metacall_IsBase(true);
@@ -133,7 +133,7 @@ void KTerminalLauncherJob_OnMetacall(KTerminalLauncherJob* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void KTerminalLauncherJob_QBaseStart(KTerminalLauncherJob* self) {
+void KTerminalLauncherJob_SuperStart(KTerminalLauncherJob* self) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_Start_IsBase(true);
@@ -162,7 +162,7 @@ bool KTerminalLauncherJob_DoKill(KTerminalLauncherJob* self) {
 }
 
 // Base class handler implementation
-bool KTerminalLauncherJob_QBaseDoKill(KTerminalLauncherJob* self) {
+bool KTerminalLauncherJob_SuperDoKill(KTerminalLauncherJob* self) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_DoKill_IsBase(true);
@@ -191,7 +191,7 @@ bool KTerminalLauncherJob_DoSuspend(KTerminalLauncherJob* self) {
 }
 
 // Base class handler implementation
-bool KTerminalLauncherJob_QBaseDoSuspend(KTerminalLauncherJob* self) {
+bool KTerminalLauncherJob_SuperDoSuspend(KTerminalLauncherJob* self) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_DoSuspend_IsBase(true);
@@ -220,7 +220,7 @@ bool KTerminalLauncherJob_DoResume(KTerminalLauncherJob* self) {
 }
 
 // Base class handler implementation
-bool KTerminalLauncherJob_QBaseDoResume(KTerminalLauncherJob* self) {
+bool KTerminalLauncherJob_SuperDoResume(KTerminalLauncherJob* self) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_DoResume_IsBase(true);
@@ -265,7 +265,7 @@ libqt_string KTerminalLauncherJob_ErrorString(const KTerminalLauncherJob* self) 
 }
 
 // Base class handler implementation
-libqt_string KTerminalLauncherJob_QBaseErrorString(const KTerminalLauncherJob* self) {
+libqt_string KTerminalLauncherJob_SuperErrorString(const KTerminalLauncherJob* self) {
     auto* vkterminallauncherjob = const_cast<VirtualKTerminalLauncherJob*>(dynamic_cast<const VirtualKTerminalLauncherJob*>(self));
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_ErrorString_IsBase(true);
@@ -310,7 +310,7 @@ bool KTerminalLauncherJob_Event(KTerminalLauncherJob* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KTerminalLauncherJob_QBaseEvent(KTerminalLauncherJob* self, QEvent* event) {
+bool KTerminalLauncherJob_SuperEvent(KTerminalLauncherJob* self, QEvent* event) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_Event_IsBase(true);
@@ -339,7 +339,7 @@ bool KTerminalLauncherJob_EventFilter(KTerminalLauncherJob* self, QObject* watch
 }
 
 // Base class handler implementation
-bool KTerminalLauncherJob_QBaseEventFilter(KTerminalLauncherJob* self, QObject* watched, QEvent* event) {
+bool KTerminalLauncherJob_SuperEventFilter(KTerminalLauncherJob* self, QObject* watched, QEvent* event) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_EventFilter_IsBase(true);
@@ -368,7 +368,7 @@ void KTerminalLauncherJob_TimerEvent(KTerminalLauncherJob* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void KTerminalLauncherJob_QBaseTimerEvent(KTerminalLauncherJob* self, QTimerEvent* event) {
+void KTerminalLauncherJob_SuperTimerEvent(KTerminalLauncherJob* self, QTimerEvent* event) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_TimerEvent_IsBase(true);
@@ -397,7 +397,7 @@ void KTerminalLauncherJob_ChildEvent(KTerminalLauncherJob* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void KTerminalLauncherJob_QBaseChildEvent(KTerminalLauncherJob* self, QChildEvent* event) {
+void KTerminalLauncherJob_SuperChildEvent(KTerminalLauncherJob* self, QChildEvent* event) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_ChildEvent_IsBase(true);
@@ -426,7 +426,7 @@ void KTerminalLauncherJob_CustomEvent(KTerminalLauncherJob* self, QEvent* event)
 }
 
 // Base class handler implementation
-void KTerminalLauncherJob_QBaseCustomEvent(KTerminalLauncherJob* self, QEvent* event) {
+void KTerminalLauncherJob_SuperCustomEvent(KTerminalLauncherJob* self, QEvent* event) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_CustomEvent_IsBase(true);
@@ -455,7 +455,7 @@ void KTerminalLauncherJob_ConnectNotify(KTerminalLauncherJob* self, const QMetaM
 }
 
 // Base class handler implementation
-void KTerminalLauncherJob_QBaseConnectNotify(KTerminalLauncherJob* self, const QMetaMethod* signal) {
+void KTerminalLauncherJob_SuperConnectNotify(KTerminalLauncherJob* self, const QMetaMethod* signal) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_ConnectNotify_IsBase(true);
@@ -484,7 +484,7 @@ void KTerminalLauncherJob_DisconnectNotify(KTerminalLauncherJob* self, const QMe
 }
 
 // Base class handler implementation
-void KTerminalLauncherJob_QBaseDisconnectNotify(KTerminalLauncherJob* self, const QMetaMethod* signal) {
+void KTerminalLauncherJob_SuperDisconnectNotify(KTerminalLauncherJob* self, const QMetaMethod* signal) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_DisconnectNotify_IsBase(true);
@@ -513,7 +513,7 @@ void KTerminalLauncherJob_SetCapabilities(KTerminalLauncherJob* self, int capabi
 }
 
 // Base class handler implementation
-void KTerminalLauncherJob_QBaseSetCapabilities(KTerminalLauncherJob* self, int capabilities) {
+void KTerminalLauncherJob_SuperSetCapabilities(KTerminalLauncherJob* self, int capabilities) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_SetCapabilities_IsBase(true);
@@ -542,7 +542,7 @@ bool KTerminalLauncherJob_IsFinished(const KTerminalLauncherJob* self) {
 }
 
 // Base class handler implementation
-bool KTerminalLauncherJob_QBaseIsFinished(const KTerminalLauncherJob* self) {
+bool KTerminalLauncherJob_SuperIsFinished(const KTerminalLauncherJob* self) {
     auto* vkterminallauncherjob = const_cast<VirtualKTerminalLauncherJob*>(dynamic_cast<const VirtualKTerminalLauncherJob*>(self));
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_IsFinished_IsBase(true);
@@ -571,7 +571,7 @@ void KTerminalLauncherJob_SetError(KTerminalLauncherJob* self, int errorCode) {
 }
 
 // Base class handler implementation
-void KTerminalLauncherJob_QBaseSetError(KTerminalLauncherJob* self, int errorCode) {
+void KTerminalLauncherJob_SuperSetError(KTerminalLauncherJob* self, int errorCode) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_SetError_IsBase(true);
@@ -601,7 +601,7 @@ void KTerminalLauncherJob_SetErrorText(KTerminalLauncherJob* self, const libqt_s
 }
 
 // Base class handler implementation
-void KTerminalLauncherJob_QBaseSetErrorText(KTerminalLauncherJob* self, const libqt_string errorText) {
+void KTerminalLauncherJob_SuperSetErrorText(KTerminalLauncherJob* self, const libqt_string errorText) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
@@ -631,7 +631,7 @@ void KTerminalLauncherJob_SetProcessedAmount(KTerminalLauncherJob* self, int uni
 }
 
 // Base class handler implementation
-void KTerminalLauncherJob_QBaseSetProcessedAmount(KTerminalLauncherJob* self, int unit, unsigned long long amount) {
+void KTerminalLauncherJob_SuperSetProcessedAmount(KTerminalLauncherJob* self, int unit, unsigned long long amount) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_SetProcessedAmount_IsBase(true);
@@ -660,7 +660,7 @@ void KTerminalLauncherJob_SetTotalAmount(KTerminalLauncherJob* self, int unit, u
 }
 
 // Base class handler implementation
-void KTerminalLauncherJob_QBaseSetTotalAmount(KTerminalLauncherJob* self, int unit, unsigned long long amount) {
+void KTerminalLauncherJob_SuperSetTotalAmount(KTerminalLauncherJob* self, int unit, unsigned long long amount) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_SetTotalAmount_IsBase(true);
@@ -689,7 +689,7 @@ void KTerminalLauncherJob_SetProgressUnit(KTerminalLauncherJob* self, int unit) 
 }
 
 // Base class handler implementation
-void KTerminalLauncherJob_QBaseSetProgressUnit(KTerminalLauncherJob* self, int unit) {
+void KTerminalLauncherJob_SuperSetProgressUnit(KTerminalLauncherJob* self, int unit) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_SetProgressUnit_IsBase(true);
@@ -718,7 +718,7 @@ void KTerminalLauncherJob_SetPercent(KTerminalLauncherJob* self, unsigned long p
 }
 
 // Base class handler implementation
-void KTerminalLauncherJob_QBaseSetPercent(KTerminalLauncherJob* self, unsigned long percentage) {
+void KTerminalLauncherJob_SuperSetPercent(KTerminalLauncherJob* self, unsigned long percentage) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_SetPercent_IsBase(true);
@@ -747,7 +747,7 @@ void KTerminalLauncherJob_EmitResult(KTerminalLauncherJob* self) {
 }
 
 // Base class handler implementation
-void KTerminalLauncherJob_QBaseEmitResult(KTerminalLauncherJob* self) {
+void KTerminalLauncherJob_SuperEmitResult(KTerminalLauncherJob* self) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_EmitResult_IsBase(true);
@@ -776,7 +776,7 @@ void KTerminalLauncherJob_EmitPercent(KTerminalLauncherJob* self, unsigned long 
 }
 
 // Base class handler implementation
-void KTerminalLauncherJob_QBaseEmitPercent(KTerminalLauncherJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
+void KTerminalLauncherJob_SuperEmitPercent(KTerminalLauncherJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_EmitPercent_IsBase(true);
@@ -805,7 +805,7 @@ void KTerminalLauncherJob_EmitSpeed(KTerminalLauncherJob* self, unsigned long sp
 }
 
 // Base class handler implementation
-void KTerminalLauncherJob_QBaseEmitSpeed(KTerminalLauncherJob* self, unsigned long speed) {
+void KTerminalLauncherJob_SuperEmitSpeed(KTerminalLauncherJob* self, unsigned long speed) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_EmitSpeed_IsBase(true);
@@ -834,7 +834,7 @@ void KTerminalLauncherJob_StartElapsedTimer(KTerminalLauncherJob* self) {
 }
 
 // Base class handler implementation
-void KTerminalLauncherJob_QBaseStartElapsedTimer(KTerminalLauncherJob* self) {
+void KTerminalLauncherJob_SuperStartElapsedTimer(KTerminalLauncherJob* self) {
     auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_StartElapsedTimer_IsBase(true);
@@ -863,7 +863,7 @@ QObject* KTerminalLauncherJob_Sender(const KTerminalLauncherJob* self) {
 }
 
 // Base class handler implementation
-QObject* KTerminalLauncherJob_QBaseSender(const KTerminalLauncherJob* self) {
+QObject* KTerminalLauncherJob_SuperSender(const KTerminalLauncherJob* self) {
     auto* vkterminallauncherjob = const_cast<VirtualKTerminalLauncherJob*>(dynamic_cast<const VirtualKTerminalLauncherJob*>(self));
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_Sender_IsBase(true);
@@ -892,7 +892,7 @@ int KTerminalLauncherJob_SenderSignalIndex(const KTerminalLauncherJob* self) {
 }
 
 // Base class handler implementation
-int KTerminalLauncherJob_QBaseSenderSignalIndex(const KTerminalLauncherJob* self) {
+int KTerminalLauncherJob_SuperSenderSignalIndex(const KTerminalLauncherJob* self) {
     auto* vkterminallauncherjob = const_cast<VirtualKTerminalLauncherJob*>(dynamic_cast<const VirtualKTerminalLauncherJob*>(self));
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_SenderSignalIndex_IsBase(true);
@@ -921,7 +921,7 @@ int KTerminalLauncherJob_Receivers(const KTerminalLauncherJob* self, const char*
 }
 
 // Base class handler implementation
-int KTerminalLauncherJob_QBaseReceivers(const KTerminalLauncherJob* self, const char* signal) {
+int KTerminalLauncherJob_SuperReceivers(const KTerminalLauncherJob* self, const char* signal) {
     auto* vkterminallauncherjob = const_cast<VirtualKTerminalLauncherJob*>(dynamic_cast<const VirtualKTerminalLauncherJob*>(self));
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_Receivers_IsBase(true);
@@ -950,7 +950,7 @@ bool KTerminalLauncherJob_IsSignalConnected(const KTerminalLauncherJob* self, co
 }
 
 // Base class handler implementation
-bool KTerminalLauncherJob_QBaseIsSignalConnected(const KTerminalLauncherJob* self, const QMetaMethod* signal) {
+bool KTerminalLauncherJob_SuperIsSignalConnected(const KTerminalLauncherJob* self, const QMetaMethod* signal) {
     auto* vkterminallauncherjob = const_cast<VirtualKTerminalLauncherJob*>(dynamic_cast<const VirtualKTerminalLauncherJob*>(self));
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_IsSignalConnected_IsBase(true);

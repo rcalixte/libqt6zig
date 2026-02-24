@@ -146,6 +146,10 @@ pub const qmediametadata = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#dtor.QMediaMetaData)
     ///
     /// Delete this object from C++ memory.
@@ -154,7 +158,7 @@ pub const qmediametadata = struct {
     ///
     /// ` self: QtC.QMediaMetaData `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMediaMetaData_Delete(@ptrCast(self));
     }
 };

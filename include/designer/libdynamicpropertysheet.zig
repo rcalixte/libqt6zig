@@ -33,6 +33,10 @@ pub const qdesignerdynamicpropertysheetextension = struct {
         qtc.QDesignerDynamicPropertySheetExtension_OnDynamicPropertiesAllowed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDynamicPropertiesAllowed` instead
+    ///
+    pub const QBaseDynamicPropertiesAllowed = SuperDynamicPropertiesAllowed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdynamicpropertysheetextension.html#dynamicPropertiesAllowed)
     ///
     /// Base class method implementation
@@ -41,8 +45,8 @@ pub const qdesignerdynamicpropertysheetextension = struct {
     ///
     /// ` self: QtC.QDesignerDynamicPropertySheetExtension `
     ///
-    pub fn QBaseDynamicPropertiesAllowed(self: ?*anyopaque) bool {
-        return qtc.QDesignerDynamicPropertySheetExtension_QBaseDynamicPropertiesAllowed(@ptrCast(self));
+    pub fn SuperDynamicPropertiesAllowed(self: ?*anyopaque) bool {
+        return qtc.QDesignerDynamicPropertySheetExtension_SuperDynamicPropertiesAllowed(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdynamicpropertysheetextension.html#addDynamicProperty)
@@ -77,6 +81,10 @@ pub const qdesignerdynamicpropertysheetextension = struct {
         qtc.QDesignerDynamicPropertySheetExtension_OnAddDynamicProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAddDynamicProperty` instead
+    ///
+    pub const QBaseAddDynamicProperty = SuperAddDynamicProperty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdynamicpropertysheetextension.html#addDynamicProperty)
     ///
     /// Base class method implementation
@@ -89,12 +97,12 @@ pub const qdesignerdynamicpropertysheetextension = struct {
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn QBaseAddDynamicProperty(self: ?*anyopaque, propertyName: []const u8, value: ?*anyopaque) i32 {
+    pub fn SuperAddDynamicProperty(self: ?*anyopaque, propertyName: []const u8, value: ?*anyopaque) i32 {
         const propertyName_str = qtc.libqt_string{
             .len = propertyName.len,
             .data = propertyName.ptr,
         };
-        return qtc.QDesignerDynamicPropertySheetExtension_QBaseAddDynamicProperty(@ptrCast(self), propertyName_str, @ptrCast(value));
+        return qtc.QDesignerDynamicPropertySheetExtension_SuperAddDynamicProperty(@ptrCast(self), propertyName_str, @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdynamicpropertysheetextension.html#removeDynamicProperty)
@@ -123,6 +131,10 @@ pub const qdesignerdynamicpropertysheetextension = struct {
         qtc.QDesignerDynamicPropertySheetExtension_OnRemoveDynamicProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRemoveDynamicProperty` instead
+    ///
+    pub const QBaseRemoveDynamicProperty = SuperRemoveDynamicProperty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdynamicpropertysheetextension.html#removeDynamicProperty)
     ///
     /// Base class method implementation
@@ -133,8 +145,8 @@ pub const qdesignerdynamicpropertysheetextension = struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn QBaseRemoveDynamicProperty(self: ?*anyopaque, index: i32) bool {
-        return qtc.QDesignerDynamicPropertySheetExtension_QBaseRemoveDynamicProperty(@ptrCast(self), @bitCast(index));
+    pub fn SuperRemoveDynamicProperty(self: ?*anyopaque, index: i32) bool {
+        return qtc.QDesignerDynamicPropertySheetExtension_SuperRemoveDynamicProperty(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdynamicpropertysheetextension.html#isDynamicProperty)
@@ -163,6 +175,10 @@ pub const qdesignerdynamicpropertysheetextension = struct {
         qtc.QDesignerDynamicPropertySheetExtension_OnIsDynamicProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsDynamicProperty` instead
+    ///
+    pub const QBaseIsDynamicProperty = SuperIsDynamicProperty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdynamicpropertysheetextension.html#isDynamicProperty)
     ///
     /// Base class method implementation
@@ -173,8 +189,8 @@ pub const qdesignerdynamicpropertysheetextension = struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn QBaseIsDynamicProperty(self: ?*anyopaque, index: i32) bool {
-        return qtc.QDesignerDynamicPropertySheetExtension_QBaseIsDynamicProperty(@ptrCast(self), @bitCast(index));
+    pub fn SuperIsDynamicProperty(self: ?*anyopaque, index: i32) bool {
+        return qtc.QDesignerDynamicPropertySheetExtension_SuperIsDynamicProperty(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdynamicpropertysheetextension.html#canAddDynamicProperty)
@@ -207,6 +223,10 @@ pub const qdesignerdynamicpropertysheetextension = struct {
         qtc.QDesignerDynamicPropertySheetExtension_OnCanAddDynamicProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCanAddDynamicProperty` instead
+    ///
+    pub const QBaseCanAddDynamicProperty = SuperCanAddDynamicProperty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdynamicpropertysheetextension.html#canAddDynamicProperty)
     ///
     /// Base class method implementation
@@ -217,13 +237,16 @@ pub const qdesignerdynamicpropertysheetextension = struct {
     ///
     /// ` propertyName: []const u8 `
     ///
-    pub fn QBaseCanAddDynamicProperty(self: ?*anyopaque, propertyName: []const u8) bool {
+    pub fn SuperCanAddDynamicProperty(self: ?*anyopaque, propertyName: []const u8) bool {
         const propertyName_str = qtc.libqt_string{
             .len = propertyName.len,
             .data = propertyName.ptr,
         };
-        return qtc.QDesignerDynamicPropertySheetExtension_QBaseCanAddDynamicProperty(@ptrCast(self), propertyName_str);
+        return qtc.QDesignerDynamicPropertySheetExtension_SuperCanAddDynamicProperty(@ptrCast(self), propertyName_str);
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdynamicpropertysheetextension.html#dtor.QDesignerDynamicPropertySheetExtension)
     ///
@@ -233,7 +256,7 @@ pub const qdesignerdynamicpropertysheetextension = struct {
     ///
     /// ` self: QtC.QDesignerDynamicPropertySheetExtension `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDesignerDynamicPropertySheetExtension_Delete(@ptrCast(self));
     }
 };

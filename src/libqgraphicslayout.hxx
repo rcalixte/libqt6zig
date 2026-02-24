@@ -286,13 +286,13 @@ class VirtualQGraphicsLayout : public QGraphicsLayout {
 
     // Friend functions
     friend QSizeF* QGraphicsLayout_SizeHint(const QGraphicsLayout* self, int which, const QSizeF* constraint);
-    friend QSizeF* QGraphicsLayout_QBaseSizeHint(const QGraphicsLayout* self, int which, const QSizeF* constraint);
+    friend QSizeF* QGraphicsLayout_SuperSizeHint(const QGraphicsLayout* self, int which, const QSizeF* constraint);
     friend void QGraphicsLayout_AddChildLayoutItem(QGraphicsLayout* self, QGraphicsLayoutItem* layoutItem);
-    friend void QGraphicsLayout_QBaseAddChildLayoutItem(QGraphicsLayout* self, QGraphicsLayoutItem* layoutItem);
+    friend void QGraphicsLayout_SuperAddChildLayoutItem(QGraphicsLayout* self, QGraphicsLayoutItem* layoutItem);
     friend void QGraphicsLayout_SetGraphicsItem(QGraphicsLayout* self, QGraphicsItem* item);
-    friend void QGraphicsLayout_QBaseSetGraphicsItem(QGraphicsLayout* self, QGraphicsItem* item);
+    friend void QGraphicsLayout_SuperSetGraphicsItem(QGraphicsLayout* self, QGraphicsItem* item);
     friend void QGraphicsLayout_SetOwnedByLayout(QGraphicsLayout* self, bool ownedByLayout);
-    friend void QGraphicsLayout_QBaseSetOwnedByLayout(QGraphicsLayout* self, bool ownedByLayout);
+    friend void QGraphicsLayout_SuperSetOwnedByLayout(QGraphicsLayout* self, bool ownedByLayout);
 };
 
 #endif

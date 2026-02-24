@@ -229,6 +229,10 @@ pub const kencodingprober = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#dtor.KEncodingProber)
     ///
     /// Delete this object from C++ memory.
@@ -237,7 +241,7 @@ pub const kencodingprober = struct {
     ///
     /// ` self: QtC.KEncodingProber `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KEncodingProber_Delete(@ptrCast(self));
     }
 };

@@ -347,23 +347,23 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
 
     // Friend functions
     friend void QDateTimeAxis_TimerEvent(QDateTimeAxis* self, QTimerEvent* event);
-    friend void QDateTimeAxis_QBaseTimerEvent(QDateTimeAxis* self, QTimerEvent* event);
+    friend void QDateTimeAxis_SuperTimerEvent(QDateTimeAxis* self, QTimerEvent* event);
     friend void QDateTimeAxis_ChildEvent(QDateTimeAxis* self, QChildEvent* event);
-    friend void QDateTimeAxis_QBaseChildEvent(QDateTimeAxis* self, QChildEvent* event);
+    friend void QDateTimeAxis_SuperChildEvent(QDateTimeAxis* self, QChildEvent* event);
     friend void QDateTimeAxis_CustomEvent(QDateTimeAxis* self, QEvent* event);
-    friend void QDateTimeAxis_QBaseCustomEvent(QDateTimeAxis* self, QEvent* event);
+    friend void QDateTimeAxis_SuperCustomEvent(QDateTimeAxis* self, QEvent* event);
     friend void QDateTimeAxis_ConnectNotify(QDateTimeAxis* self, const QMetaMethod* signal);
-    friend void QDateTimeAxis_QBaseConnectNotify(QDateTimeAxis* self, const QMetaMethod* signal);
+    friend void QDateTimeAxis_SuperConnectNotify(QDateTimeAxis* self, const QMetaMethod* signal);
     friend void QDateTimeAxis_DisconnectNotify(QDateTimeAxis* self, const QMetaMethod* signal);
-    friend void QDateTimeAxis_QBaseDisconnectNotify(QDateTimeAxis* self, const QMetaMethod* signal);
+    friend void QDateTimeAxis_SuperDisconnectNotify(QDateTimeAxis* self, const QMetaMethod* signal);
     friend QObject* QDateTimeAxis_Sender(const QDateTimeAxis* self);
-    friend QObject* QDateTimeAxis_QBaseSender(const QDateTimeAxis* self);
+    friend QObject* QDateTimeAxis_SuperSender(const QDateTimeAxis* self);
     friend int QDateTimeAxis_SenderSignalIndex(const QDateTimeAxis* self);
-    friend int QDateTimeAxis_QBaseSenderSignalIndex(const QDateTimeAxis* self);
+    friend int QDateTimeAxis_SuperSenderSignalIndex(const QDateTimeAxis* self);
     friend int QDateTimeAxis_Receivers(const QDateTimeAxis* self, const char* signal);
-    friend int QDateTimeAxis_QBaseReceivers(const QDateTimeAxis* self, const char* signal);
+    friend int QDateTimeAxis_SuperReceivers(const QDateTimeAxis* self, const char* signal);
     friend bool QDateTimeAxis_IsSignalConnected(const QDateTimeAxis* self, const QMetaMethod* signal);
-    friend bool QDateTimeAxis_QBaseIsSignalConnected(const QDateTimeAxis* self, const QMetaMethod* signal);
+    friend bool QDateTimeAxis_SuperIsSignalConnected(const QDateTimeAxis* self, const QMetaMethod* signal);
 };
 
 #endif

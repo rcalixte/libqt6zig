@@ -361,25 +361,25 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
 
     // Friend functions
     friend void QGraphicsTransform_TimerEvent(QGraphicsTransform* self, QTimerEvent* event);
-    friend void QGraphicsTransform_QBaseTimerEvent(QGraphicsTransform* self, QTimerEvent* event);
+    friend void QGraphicsTransform_SuperTimerEvent(QGraphicsTransform* self, QTimerEvent* event);
     friend void QGraphicsTransform_ChildEvent(QGraphicsTransform* self, QChildEvent* event);
-    friend void QGraphicsTransform_QBaseChildEvent(QGraphicsTransform* self, QChildEvent* event);
+    friend void QGraphicsTransform_SuperChildEvent(QGraphicsTransform* self, QChildEvent* event);
     friend void QGraphicsTransform_CustomEvent(QGraphicsTransform* self, QEvent* event);
-    friend void QGraphicsTransform_QBaseCustomEvent(QGraphicsTransform* self, QEvent* event);
+    friend void QGraphicsTransform_SuperCustomEvent(QGraphicsTransform* self, QEvent* event);
     friend void QGraphicsTransform_ConnectNotify(QGraphicsTransform* self, const QMetaMethod* signal);
-    friend void QGraphicsTransform_QBaseConnectNotify(QGraphicsTransform* self, const QMetaMethod* signal);
+    friend void QGraphicsTransform_SuperConnectNotify(QGraphicsTransform* self, const QMetaMethod* signal);
     friend void QGraphicsTransform_DisconnectNotify(QGraphicsTransform* self, const QMetaMethod* signal);
-    friend void QGraphicsTransform_QBaseDisconnectNotify(QGraphicsTransform* self, const QMetaMethod* signal);
+    friend void QGraphicsTransform_SuperDisconnectNotify(QGraphicsTransform* self, const QMetaMethod* signal);
     friend void QGraphicsTransform_Update(QGraphicsTransform* self);
-    friend void QGraphicsTransform_QBaseUpdate(QGraphicsTransform* self);
+    friend void QGraphicsTransform_SuperUpdate(QGraphicsTransform* self);
     friend QObject* QGraphicsTransform_Sender(const QGraphicsTransform* self);
-    friend QObject* QGraphicsTransform_QBaseSender(const QGraphicsTransform* self);
+    friend QObject* QGraphicsTransform_SuperSender(const QGraphicsTransform* self);
     friend int QGraphicsTransform_SenderSignalIndex(const QGraphicsTransform* self);
-    friend int QGraphicsTransform_QBaseSenderSignalIndex(const QGraphicsTransform* self);
+    friend int QGraphicsTransform_SuperSenderSignalIndex(const QGraphicsTransform* self);
     friend int QGraphicsTransform_Receivers(const QGraphicsTransform* self, const char* signal);
-    friend int QGraphicsTransform_QBaseReceivers(const QGraphicsTransform* self, const char* signal);
+    friend int QGraphicsTransform_SuperReceivers(const QGraphicsTransform* self, const char* signal);
     friend bool QGraphicsTransform_IsSignalConnected(const QGraphicsTransform* self, const QMetaMethod* signal);
-    friend bool QGraphicsTransform_QBaseIsSignalConnected(const QGraphicsTransform* self, const QMetaMethod* signal);
+    friend bool QGraphicsTransform_SuperIsSignalConnected(const QGraphicsTransform* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QGraphicsScale so that we can call protected methods
@@ -739,25 +739,25 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
 
     // Friend functions
     friend void QGraphicsScale_TimerEvent(QGraphicsScale* self, QTimerEvent* event);
-    friend void QGraphicsScale_QBaseTimerEvent(QGraphicsScale* self, QTimerEvent* event);
+    friend void QGraphicsScale_SuperTimerEvent(QGraphicsScale* self, QTimerEvent* event);
     friend void QGraphicsScale_ChildEvent(QGraphicsScale* self, QChildEvent* event);
-    friend void QGraphicsScale_QBaseChildEvent(QGraphicsScale* self, QChildEvent* event);
+    friend void QGraphicsScale_SuperChildEvent(QGraphicsScale* self, QChildEvent* event);
     friend void QGraphicsScale_CustomEvent(QGraphicsScale* self, QEvent* event);
-    friend void QGraphicsScale_QBaseCustomEvent(QGraphicsScale* self, QEvent* event);
+    friend void QGraphicsScale_SuperCustomEvent(QGraphicsScale* self, QEvent* event);
     friend void QGraphicsScale_ConnectNotify(QGraphicsScale* self, const QMetaMethod* signal);
-    friend void QGraphicsScale_QBaseConnectNotify(QGraphicsScale* self, const QMetaMethod* signal);
+    friend void QGraphicsScale_SuperConnectNotify(QGraphicsScale* self, const QMetaMethod* signal);
     friend void QGraphicsScale_DisconnectNotify(QGraphicsScale* self, const QMetaMethod* signal);
-    friend void QGraphicsScale_QBaseDisconnectNotify(QGraphicsScale* self, const QMetaMethod* signal);
+    friend void QGraphicsScale_SuperDisconnectNotify(QGraphicsScale* self, const QMetaMethod* signal);
     friend void QGraphicsScale_Update(QGraphicsScale* self);
-    friend void QGraphicsScale_QBaseUpdate(QGraphicsScale* self);
+    friend void QGraphicsScale_SuperUpdate(QGraphicsScale* self);
     friend QObject* QGraphicsScale_Sender(const QGraphicsScale* self);
-    friend QObject* QGraphicsScale_QBaseSender(const QGraphicsScale* self);
+    friend QObject* QGraphicsScale_SuperSender(const QGraphicsScale* self);
     friend int QGraphicsScale_SenderSignalIndex(const QGraphicsScale* self);
-    friend int QGraphicsScale_QBaseSenderSignalIndex(const QGraphicsScale* self);
+    friend int QGraphicsScale_SuperSenderSignalIndex(const QGraphicsScale* self);
     friend int QGraphicsScale_Receivers(const QGraphicsScale* self, const char* signal);
-    friend int QGraphicsScale_QBaseReceivers(const QGraphicsScale* self, const char* signal);
+    friend int QGraphicsScale_SuperReceivers(const QGraphicsScale* self, const char* signal);
     friend bool QGraphicsScale_IsSignalConnected(const QGraphicsScale* self, const QMetaMethod* signal);
-    friend bool QGraphicsScale_QBaseIsSignalConnected(const QGraphicsScale* self, const QMetaMethod* signal);
+    friend bool QGraphicsScale_SuperIsSignalConnected(const QGraphicsScale* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QGraphicsRotation so that we can call protected methods
@@ -1117,25 +1117,25 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
 
     // Friend functions
     friend void QGraphicsRotation_TimerEvent(QGraphicsRotation* self, QTimerEvent* event);
-    friend void QGraphicsRotation_QBaseTimerEvent(QGraphicsRotation* self, QTimerEvent* event);
+    friend void QGraphicsRotation_SuperTimerEvent(QGraphicsRotation* self, QTimerEvent* event);
     friend void QGraphicsRotation_ChildEvent(QGraphicsRotation* self, QChildEvent* event);
-    friend void QGraphicsRotation_QBaseChildEvent(QGraphicsRotation* self, QChildEvent* event);
+    friend void QGraphicsRotation_SuperChildEvent(QGraphicsRotation* self, QChildEvent* event);
     friend void QGraphicsRotation_CustomEvent(QGraphicsRotation* self, QEvent* event);
-    friend void QGraphicsRotation_QBaseCustomEvent(QGraphicsRotation* self, QEvent* event);
+    friend void QGraphicsRotation_SuperCustomEvent(QGraphicsRotation* self, QEvent* event);
     friend void QGraphicsRotation_ConnectNotify(QGraphicsRotation* self, const QMetaMethod* signal);
-    friend void QGraphicsRotation_QBaseConnectNotify(QGraphicsRotation* self, const QMetaMethod* signal);
+    friend void QGraphicsRotation_SuperConnectNotify(QGraphicsRotation* self, const QMetaMethod* signal);
     friend void QGraphicsRotation_DisconnectNotify(QGraphicsRotation* self, const QMetaMethod* signal);
-    friend void QGraphicsRotation_QBaseDisconnectNotify(QGraphicsRotation* self, const QMetaMethod* signal);
+    friend void QGraphicsRotation_SuperDisconnectNotify(QGraphicsRotation* self, const QMetaMethod* signal);
     friend void QGraphicsRotation_Update(QGraphicsRotation* self);
-    friend void QGraphicsRotation_QBaseUpdate(QGraphicsRotation* self);
+    friend void QGraphicsRotation_SuperUpdate(QGraphicsRotation* self);
     friend QObject* QGraphicsRotation_Sender(const QGraphicsRotation* self);
-    friend QObject* QGraphicsRotation_QBaseSender(const QGraphicsRotation* self);
+    friend QObject* QGraphicsRotation_SuperSender(const QGraphicsRotation* self);
     friend int QGraphicsRotation_SenderSignalIndex(const QGraphicsRotation* self);
-    friend int QGraphicsRotation_QBaseSenderSignalIndex(const QGraphicsRotation* self);
+    friend int QGraphicsRotation_SuperSenderSignalIndex(const QGraphicsRotation* self);
     friend int QGraphicsRotation_Receivers(const QGraphicsRotation* self, const char* signal);
-    friend int QGraphicsRotation_QBaseReceivers(const QGraphicsRotation* self, const char* signal);
+    friend int QGraphicsRotation_SuperReceivers(const QGraphicsRotation* self, const char* signal);
     friend bool QGraphicsRotation_IsSignalConnected(const QGraphicsRotation* self, const QMetaMethod* signal);
-    friend bool QGraphicsRotation_QBaseIsSignalConnected(const QGraphicsRotation* self, const QMetaMethod* signal);
+    friend bool QGraphicsRotation_SuperIsSignalConnected(const QGraphicsRotation* self, const QMetaMethod* signal);
 };
 
 #endif

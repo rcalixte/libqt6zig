@@ -52,6 +52,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -60,8 +64,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` self: QtC.QAbstractSpinBox `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QAbstractSpinBox_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QAbstractSpinBox_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -87,6 +91,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -95,9 +103,9 @@ pub const qabstractspinbox = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QAbstractSpinBox_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QAbstractSpinBox_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -126,6 +134,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -138,8 +150,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAbstractSpinBox_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QAbstractSpinBox_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -451,6 +463,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#sizeHint)
     ///
     /// Base class method implementation
@@ -459,8 +475,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` self: QtC.QAbstractSpinBox `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractSpinBox_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QAbstractSpinBox_SuperSizeHint(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#minimumSizeHint)
@@ -487,6 +503,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    ///
+    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#minimumSizeHint)
     ///
     /// Base class method implementation
@@ -495,8 +515,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` self: QtC.QAbstractSpinBox `
     ///
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractSpinBox_QBaseMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QAbstractSpinBox_SuperMinimumSizeHint(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#interpretText)
@@ -535,6 +555,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#event)
     ///
     /// Base class method implementation
@@ -545,8 +569,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QAbstractSpinBox_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QAbstractSpinBox_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#inputMethodQuery)
@@ -575,6 +599,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#inputMethodQuery)
     ///
     /// Base class method implementation
@@ -585,8 +613,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QAbstractSpinBox_QBaseInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
+        return qtc.QAbstractSpinBox_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#validate)
@@ -625,6 +653,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnValidate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperValidate` instead
+    ///
+    pub const QBaseValidate = SuperValidate;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#validate)
     ///
     /// Base class method implementation
@@ -641,12 +673,12 @@ pub const qabstractspinbox = struct {
     ///
     /// ` qvalidator_enums.State `
     ///
-    pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: *i32) i32 {
+    pub fn SuperValidate(self: ?*anyopaque, input: []const u8, pos: *i32) i32 {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
-        return qtc.QAbstractSpinBox_QBaseValidate(@ptrCast(self), input_str, @ptrCast(pos));
+        return qtc.QAbstractSpinBox_SuperValidate(@ptrCast(self), input_str, @ptrCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#fixup)
@@ -679,6 +711,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnFixup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFixup` instead
+    ///
+    pub const QBaseFixup = SuperFixup;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#fixup)
     ///
     /// Base class method implementation
@@ -689,12 +725,12 @@ pub const qabstractspinbox = struct {
     ///
     /// ` input: []const u8 `
     ///
-    pub fn QBaseFixup(self: ?*anyopaque, input: []const u8) void {
+    pub fn SuperFixup(self: ?*anyopaque, input: []const u8) void {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
-        qtc.QAbstractSpinBox_QBaseFixup(@ptrCast(self), input_str);
+        qtc.QAbstractSpinBox_SuperFixup(@ptrCast(self), input_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#stepBy)
@@ -723,6 +759,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnStepBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperStepBy` instead
+    ///
+    pub const QBaseStepBy = SuperStepBy;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#stepBy)
     ///
     /// Base class method implementation
@@ -733,8 +773,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` steps: i32 `
     ///
-    pub fn QBaseStepBy(self: ?*anyopaque, steps: i32) void {
-        qtc.QAbstractSpinBox_QBaseStepBy(@ptrCast(self), @bitCast(steps));
+    pub fn SuperStepBy(self: ?*anyopaque, steps: i32) void {
+        qtc.QAbstractSpinBox_SuperStepBy(@ptrCast(self), @bitCast(steps));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#stepUp)
@@ -791,6 +831,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnClear(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClear` instead
+    ///
+    pub const QBaseClear = SuperClear;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#clear)
     ///
     /// Base class method implementation
@@ -799,8 +843,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` self: QtC.QAbstractSpinBox `
     ///
-    pub fn QBaseClear(self: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseClear(@ptrCast(self));
+    pub fn SuperClear(self: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperClear(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#resizeEvent)
@@ -829,6 +873,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#resizeEvent)
     ///
     /// Base class method implementation
@@ -839,8 +887,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#keyPressEvent)
@@ -869,6 +917,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#keyPressEvent)
     ///
     /// Base class method implementation
@@ -879,8 +931,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperKeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#keyReleaseEvent)
@@ -909,6 +961,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#keyReleaseEvent)
     ///
     /// Base class method implementation
@@ -919,8 +975,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#wheelEvent)
@@ -949,6 +1005,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#wheelEvent)
     ///
     /// Base class method implementation
@@ -959,8 +1019,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#focusInEvent)
@@ -989,6 +1049,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#focusInEvent)
     ///
     /// Base class method implementation
@@ -999,8 +1063,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#focusOutEvent)
@@ -1029,6 +1093,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#focusOutEvent)
     ///
     /// Base class method implementation
@@ -1039,8 +1107,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#contextMenuEvent)
@@ -1069,6 +1137,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#contextMenuEvent)
     ///
     /// Base class method implementation
@@ -1079,8 +1151,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#changeEvent)
@@ -1109,6 +1181,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    ///
+    pub const QBaseChangeEvent = SuperChangeEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#changeEvent)
     ///
     /// Base class method implementation
@@ -1119,8 +1195,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseChangeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseChangeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChangeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperChangeEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#closeEvent)
@@ -1149,6 +1225,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#closeEvent)
     ///
     /// Base class method implementation
@@ -1159,8 +1239,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#hideEvent)
@@ -1189,6 +1269,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#hideEvent)
     ///
     /// Base class method implementation
@@ -1199,8 +1283,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#mousePressEvent)
@@ -1229,6 +1313,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#mousePressEvent)
     ///
     /// Base class method implementation
@@ -1239,8 +1327,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#mouseReleaseEvent)
@@ -1269,6 +1357,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
@@ -1279,8 +1371,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#mouseMoveEvent)
@@ -1309,6 +1401,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#mouseMoveEvent)
     ///
     /// Base class method implementation
@@ -1319,8 +1415,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#timerEvent)
@@ -1349,6 +1445,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#timerEvent)
     ///
     /// Base class method implementation
@@ -1359,8 +1459,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#paintEvent)
@@ -1389,6 +1489,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    ///
+    pub const QBasePaintEvent = SuperPaintEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#paintEvent)
     ///
     /// Base class method implementation
@@ -1399,8 +1503,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QPaintEvent `
     ///
-    pub fn QBasePaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBasePaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperPaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperPaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#showEvent)
@@ -1429,6 +1533,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#showEvent)
     ///
     /// Base class method implementation
@@ -1439,8 +1547,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#initStyleOption)
@@ -1469,6 +1577,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnInitStyleOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    ///
+    pub const QBaseInitStyleOption = SuperInitStyleOption;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#initStyleOption)
     ///
     /// Base class method implementation
@@ -1479,8 +1591,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` option: QtC.QStyleOptionSpinBox `
     ///
-    pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#lineEdit)
@@ -1507,6 +1619,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnLineEdit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperLineEdit` instead
+    ///
+    pub const QBaseLineEdit = SuperLineEdit;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#lineEdit)
     ///
     /// Base class method implementation
@@ -1515,8 +1631,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` self: QtC.QAbstractSpinBox `
     ///
-    pub fn QBaseLineEdit(self: ?*anyopaque) QtC.QLineEdit {
-        return qtc.QAbstractSpinBox_QBaseLineEdit(@ptrCast(self));
+    pub fn SuperLineEdit(self: ?*anyopaque) QtC.QLineEdit {
+        return qtc.QAbstractSpinBox_SuperLineEdit(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setLineEdit)
@@ -1545,6 +1661,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnSetLineEdit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetLineEdit` instead
+    ///
+    pub const QBaseSetLineEdit = SuperSetLineEdit;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setLineEdit)
     ///
     /// Base class method implementation
@@ -1555,8 +1675,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` edit: QtC.QLineEdit `
     ///
-    pub fn QBaseSetLineEdit(self: ?*anyopaque, edit: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseSetLineEdit(@ptrCast(self), @ptrCast(edit));
+    pub fn SuperSetLineEdit(self: ?*anyopaque, edit: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperSetLineEdit(@ptrCast(self), @ptrCast(edit));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#stepEnabled)
@@ -1587,6 +1707,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_OnStepEnabled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperStepEnabled` instead
+    ///
+    pub const QBaseStepEnabled = SuperStepEnabled;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#stepEnabled)
     ///
     /// Base class method implementation
@@ -1599,8 +1723,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` flag of qabstractspinbox_enums.StepEnabledFlag `
     ///
-    pub fn QBaseStepEnabled(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSpinBox_QBaseStepEnabled(@ptrCast(self));
+    pub fn SuperStepEnabled(self: ?*anyopaque) i32 {
+        return qtc.QAbstractSpinBox_SuperStepEnabled(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#editingFinished)
@@ -6404,6 +6528,10 @@ pub const qabstractspinbox = struct {
         return qtc.QAbstractSpinBox_DevType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
@@ -6414,8 +6542,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` self: QtC.QAbstractSpinBox `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSpinBox_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.QAbstractSpinBox_SuperDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -6450,6 +6578,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_SetVisible(@ptrCast(self), visible);
     }
 
+    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    ///
+    pub const QBaseSetVisible = SuperSetVisible;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
@@ -6462,8 +6594,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QAbstractSpinBox_QBaseSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
+        qtc.QAbstractSpinBox_SuperSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
@@ -6498,6 +6630,10 @@ pub const qabstractspinbox = struct {
         return qtc.QAbstractSpinBox_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
@@ -6510,8 +6646,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QAbstractSpinBox_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QAbstractSpinBox_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6544,6 +6680,10 @@ pub const qabstractspinbox = struct {
         return qtc.QAbstractSpinBox_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
@@ -6554,8 +6694,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` self: QtC.QAbstractSpinBox `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QAbstractSpinBox_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.QAbstractSpinBox_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -6588,6 +6728,10 @@ pub const qabstractspinbox = struct {
         return qtc.QAbstractSpinBox_PaintEngine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
@@ -6598,8 +6742,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` self: QtC.QAbstractSpinBox `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QAbstractSpinBox_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.QAbstractSpinBox_SuperPaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -6634,6 +6778,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6646,8 +6794,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6682,6 +6830,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    ///
+    pub const QBaseEnterEvent = SuperEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
@@ -6694,8 +6846,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QEnterEvent `
     ///
-    pub fn QBaseEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6730,6 +6882,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    ///
+    pub const QBaseLeaveEvent = SuperLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
@@ -6742,8 +6898,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6778,6 +6934,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
@@ -6790,8 +6950,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6826,6 +6986,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    ///
+    pub const QBaseTabletEvent = SuperTabletEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
@@ -6838,8 +7002,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QTabletEvent `
     ///
-    pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6874,6 +7038,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_ActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    ///
+    pub const QBaseActionEvent = SuperActionEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
@@ -6886,8 +7054,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QActionEvent `
     ///
-    pub fn QBaseActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6922,6 +7090,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_DragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
@@ -6934,8 +7106,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QDragEnterEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6970,6 +7142,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_DragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
@@ -6982,8 +7158,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QDragMoveEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7018,6 +7194,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
@@ -7030,8 +7210,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QDragLeaveEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7066,6 +7246,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_DropEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
@@ -7078,8 +7262,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7122,6 +7306,10 @@ pub const qabstractspinbox = struct {
         return qtc.QAbstractSpinBox_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    ///
+    pub const QBaseNativeEvent = SuperNativeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
@@ -7138,12 +7326,12 @@ pub const qabstractspinbox = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QAbstractSpinBox_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QAbstractSpinBox_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -7178,6 +7366,10 @@ pub const qabstractspinbox = struct {
         return qtc.QAbstractSpinBox_Metric(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
@@ -7190,8 +7382,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QAbstractSpinBox_QBaseMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QAbstractSpinBox_SuperMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7226,6 +7418,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
@@ -7238,8 +7434,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
@@ -7274,6 +7470,10 @@ pub const qabstractspinbox = struct {
         return qtc.QAbstractSpinBox_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
@@ -7286,8 +7486,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QAbstractSpinBox_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.QAbstractSpinBox_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
@@ -7320,6 +7520,10 @@ pub const qabstractspinbox = struct {
         return qtc.QAbstractSpinBox_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
@@ -7330,8 +7534,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` self: QtC.QAbstractSpinBox `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QAbstractSpinBox_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.QAbstractSpinBox_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7366,6 +7570,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
@@ -7378,8 +7586,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` param1: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7414,6 +7622,10 @@ pub const qabstractspinbox = struct {
         return qtc.QAbstractSpinBox_FocusNextPrevChild(@ptrCast(self), next);
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    ///
+    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
@@ -7426,8 +7638,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` next: bool `
     ///
-    pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QAbstractSpinBox_QBaseFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
+        return qtc.QAbstractSpinBox_SuperFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QWidget
@@ -7464,6 +7676,10 @@ pub const qabstractspinbox = struct {
         return qtc.QAbstractSpinBox_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -7478,8 +7694,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QAbstractSpinBox_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QAbstractSpinBox_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7514,6 +7730,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -7526,8 +7746,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7562,6 +7782,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -7574,8 +7798,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7610,6 +7834,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7622,8 +7850,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -7658,6 +7886,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -7670,8 +7902,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -7704,6 +7936,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7714,8 +7950,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` self: QtC.QAbstractSpinBox `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7748,6 +7984,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_Create(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreate` instead
+    ///
+    pub const QBaseCreate = SuperCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -7758,8 +7998,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` self: QtC.QAbstractSpinBox `
     ///
-    pub fn QBaseCreate(self: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseCreate(@ptrCast(self));
+    pub fn SuperCreate(self: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7792,6 +8032,10 @@ pub const qabstractspinbox = struct {
         qtc.QAbstractSpinBox_Destroy(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroy` instead
+    ///
+    pub const QBaseDestroy = SuperDestroy;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
@@ -7802,8 +8046,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` self: QtC.QAbstractSpinBox `
     ///
-    pub fn QBaseDestroy(self: ?*anyopaque) void {
-        qtc.QAbstractSpinBox_QBaseDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: ?*anyopaque) void {
+        qtc.QAbstractSpinBox_SuperDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7836,6 +8080,10 @@ pub const qabstractspinbox = struct {
         return qtc.QAbstractSpinBox_FocusNextChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    ///
+    pub const QBaseFocusNextChild = SuperFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -7846,8 +8094,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` self: QtC.QAbstractSpinBox `
     ///
-    pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QAbstractSpinBox_QBaseFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
+        return qtc.QAbstractSpinBox_SuperFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7880,6 +8128,10 @@ pub const qabstractspinbox = struct {
         return qtc.QAbstractSpinBox_FocusPreviousChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    ///
+    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
@@ -7890,8 +8142,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` self: QtC.QAbstractSpinBox `
     ///
-    pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QAbstractSpinBox_QBaseFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
+        return qtc.QAbstractSpinBox_SuperFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7924,6 +8176,10 @@ pub const qabstractspinbox = struct {
         return qtc.QAbstractSpinBox_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -7934,8 +8190,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` self: QtC.QAbstractSpinBox `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QAbstractSpinBox_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QAbstractSpinBox_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -7968,6 +8224,10 @@ pub const qabstractspinbox = struct {
         return qtc.QAbstractSpinBox_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -7978,8 +8238,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` self: QtC.QAbstractSpinBox `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSpinBox_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QAbstractSpinBox_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -8015,6 +8275,10 @@ pub const qabstractspinbox = struct {
         return qtc.QAbstractSpinBox_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -8027,9 +8291,9 @@ pub const qabstractspinbox = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QAbstractSpinBox_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QAbstractSpinBox_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -8064,6 +8328,10 @@ pub const qabstractspinbox = struct {
         return qtc.QAbstractSpinBox_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -8076,8 +8344,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QAbstractSpinBox_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QAbstractSpinBox_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -8114,6 +8382,10 @@ pub const qabstractspinbox = struct {
         return qtc.QAbstractSpinBox_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -8128,8 +8400,8 @@ pub const qabstractspinbox = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QAbstractSpinBox_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.QAbstractSpinBox_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -8163,6 +8435,9 @@ pub const qabstractspinbox = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#dtor.QAbstractSpinBox)
     ///
@@ -8172,7 +8447,7 @@ pub const qabstractspinbox = struct {
     ///
     /// ` self: QtC.QAbstractSpinBox `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAbstractSpinBox_Delete(@ptrCast(self));
     }
 };

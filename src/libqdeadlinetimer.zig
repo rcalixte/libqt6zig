@@ -419,6 +419,10 @@ pub const qdeadlinetimer = struct {
         return qtc.QDeadlineTimer_Current1(@bitCast(timerType));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#dtor.QDeadlineTimer)
     ///
     /// Delete this object from C++ memory.
@@ -427,7 +431,7 @@ pub const qdeadlinetimer = struct {
     ///
     /// ` self: QtC.QDeadlineTimer `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDeadlineTimer_Delete(@ptrCast(self));
     }
 };

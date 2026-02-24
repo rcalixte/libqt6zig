@@ -62,6 +62,10 @@ pub const qsurface = struct {
         return qtc.QSurface_Size(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#dtor.QSurface)
     ///
     /// Delete this object from C++ memory.
@@ -70,7 +74,7 @@ pub const qsurface = struct {
     ///
     /// ` self: QtC.QSurface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSurface_Delete(@ptrCast(self));
     }
 };

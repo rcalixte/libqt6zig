@@ -131,7 +131,7 @@ void QSignalMapper_Map2(QSignalMapper* self, QObject* sender) {
 }
 
 // Base class handler implementation
-QMetaObject* QSignalMapper_QBaseMetaObject(const QSignalMapper* self) {
+QMetaObject* QSignalMapper_SuperMetaObject(const QSignalMapper* self) {
     auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
     if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
         vqsignalmapper->setQSignalMapper_MetaObject_IsBase(true);
@@ -150,7 +150,7 @@ void QSignalMapper_OnMetaObject(const QSignalMapper* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QSignalMapper_QBaseMetacast(QSignalMapper* self, const char* param1) {
+void* QSignalMapper_SuperMetacast(QSignalMapper* self, const char* param1) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
     if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
         vqsignalmapper->setQSignalMapper_Metacast_IsBase(true);
@@ -169,7 +169,7 @@ void QSignalMapper_OnMetacast(QSignalMapper* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSignalMapper_QBaseMetacall(QSignalMapper* self, int param1, int param2, void** param3) {
+int QSignalMapper_SuperMetacall(QSignalMapper* self, int param1, int param2, void** param3) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
     if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
         vqsignalmapper->setQSignalMapper_Metacall_IsBase(true);
@@ -198,7 +198,7 @@ bool QSignalMapper_Event(QSignalMapper* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSignalMapper_QBaseEvent(QSignalMapper* self, QEvent* event) {
+bool QSignalMapper_SuperEvent(QSignalMapper* self, QEvent* event) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
     if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
         vqsignalmapper->setQSignalMapper_Event_IsBase(true);
@@ -227,7 +227,7 @@ bool QSignalMapper_EventFilter(QSignalMapper* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QSignalMapper_QBaseEventFilter(QSignalMapper* self, QObject* watched, QEvent* event) {
+bool QSignalMapper_SuperEventFilter(QSignalMapper* self, QObject* watched, QEvent* event) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
     if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
         vqsignalmapper->setQSignalMapper_EventFilter_IsBase(true);
@@ -256,7 +256,7 @@ void QSignalMapper_TimerEvent(QSignalMapper* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QSignalMapper_QBaseTimerEvent(QSignalMapper* self, QTimerEvent* event) {
+void QSignalMapper_SuperTimerEvent(QSignalMapper* self, QTimerEvent* event) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
     if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
         vqsignalmapper->setQSignalMapper_TimerEvent_IsBase(true);
@@ -285,7 +285,7 @@ void QSignalMapper_ChildEvent(QSignalMapper* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QSignalMapper_QBaseChildEvent(QSignalMapper* self, QChildEvent* event) {
+void QSignalMapper_SuperChildEvent(QSignalMapper* self, QChildEvent* event) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
     if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
         vqsignalmapper->setQSignalMapper_ChildEvent_IsBase(true);
@@ -314,7 +314,7 @@ void QSignalMapper_CustomEvent(QSignalMapper* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSignalMapper_QBaseCustomEvent(QSignalMapper* self, QEvent* event) {
+void QSignalMapper_SuperCustomEvent(QSignalMapper* self, QEvent* event) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
     if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
         vqsignalmapper->setQSignalMapper_CustomEvent_IsBase(true);
@@ -343,7 +343,7 @@ void QSignalMapper_ConnectNotify(QSignalMapper* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QSignalMapper_QBaseConnectNotify(QSignalMapper* self, const QMetaMethod* signal) {
+void QSignalMapper_SuperConnectNotify(QSignalMapper* self, const QMetaMethod* signal) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
     if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
         vqsignalmapper->setQSignalMapper_ConnectNotify_IsBase(true);
@@ -372,7 +372,7 @@ void QSignalMapper_DisconnectNotify(QSignalMapper* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QSignalMapper_QBaseDisconnectNotify(QSignalMapper* self, const QMetaMethod* signal) {
+void QSignalMapper_SuperDisconnectNotify(QSignalMapper* self, const QMetaMethod* signal) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
     if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
         vqsignalmapper->setQSignalMapper_DisconnectNotify_IsBase(true);
@@ -401,7 +401,7 @@ QObject* QSignalMapper_Sender(const QSignalMapper* self) {
 }
 
 // Base class handler implementation
-QObject* QSignalMapper_QBaseSender(const QSignalMapper* self) {
+QObject* QSignalMapper_SuperSender(const QSignalMapper* self) {
     auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
     if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
         vqsignalmapper->setQSignalMapper_Sender_IsBase(true);
@@ -430,7 +430,7 @@ int QSignalMapper_SenderSignalIndex(const QSignalMapper* self) {
 }
 
 // Base class handler implementation
-int QSignalMapper_QBaseSenderSignalIndex(const QSignalMapper* self) {
+int QSignalMapper_SuperSenderSignalIndex(const QSignalMapper* self) {
     auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
     if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
         vqsignalmapper->setQSignalMapper_SenderSignalIndex_IsBase(true);
@@ -459,7 +459,7 @@ int QSignalMapper_Receivers(const QSignalMapper* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QSignalMapper_QBaseReceivers(const QSignalMapper* self, const char* signal) {
+int QSignalMapper_SuperReceivers(const QSignalMapper* self, const char* signal) {
     auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
     if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
         vqsignalmapper->setQSignalMapper_Receivers_IsBase(true);
@@ -488,7 +488,7 @@ bool QSignalMapper_IsSignalConnected(const QSignalMapper* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QSignalMapper_QBaseIsSignalConnected(const QSignalMapper* self, const QMetaMethod* signal) {
+bool QSignalMapper_SuperIsSignalConnected(const QSignalMapper* self, const QMetaMethod* signal) {
     auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
     if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
         vqsignalmapper->setQSignalMapper_IsSignalConnected_IsBase(true);

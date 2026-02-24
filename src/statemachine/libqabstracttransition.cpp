@@ -144,7 +144,7 @@ bool QAbstractTransition_Event(QAbstractTransition* self, QEvent* e) {
 }
 
 // Base class handler implementation
-QMetaObject* QAbstractTransition_QBaseMetaObject(const QAbstractTransition* self) {
+QMetaObject* QAbstractTransition_SuperMetaObject(const QAbstractTransition* self) {
     auto* vqabstracttransition = const_cast<VirtualQAbstractTransition*>(dynamic_cast<const VirtualQAbstractTransition*>(self));
     if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
         vqabstracttransition->setQAbstractTransition_MetaObject_IsBase(true);
@@ -163,7 +163,7 @@ void QAbstractTransition_OnMetaObject(const QAbstractTransition* self, intptr_t 
 }
 
 // Base class handler implementation
-void* QAbstractTransition_QBaseMetacast(QAbstractTransition* self, const char* param1) {
+void* QAbstractTransition_SuperMetacast(QAbstractTransition* self, const char* param1) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
     if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
         vqabstracttransition->setQAbstractTransition_Metacast_IsBase(true);
@@ -182,7 +182,7 @@ void QAbstractTransition_OnMetacast(QAbstractTransition* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAbstractTransition_QBaseMetacall(QAbstractTransition* self, int param1, int param2, void** param3) {
+int QAbstractTransition_SuperMetacall(QAbstractTransition* self, int param1, int param2, void** param3) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
     if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
         vqabstracttransition->setQAbstractTransition_Metacall_IsBase(true);
@@ -201,7 +201,7 @@ void QAbstractTransition_OnMetacall(QAbstractTransition* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QAbstractTransition_QBaseEventTest(QAbstractTransition* self, QEvent* event) {
+bool QAbstractTransition_SuperEventTest(QAbstractTransition* self, QEvent* event) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
     if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
         vqabstracttransition->setQAbstractTransition_EventTest_IsBase(true);
@@ -220,7 +220,7 @@ void QAbstractTransition_OnEventTest(QAbstractTransition* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractTransition_QBaseOnTransition(QAbstractTransition* self, QEvent* event) {
+void QAbstractTransition_SuperOnTransition(QAbstractTransition* self, QEvent* event) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
     if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
         vqabstracttransition->setQAbstractTransition_OnTransition_IsBase(true);
@@ -239,7 +239,7 @@ void QAbstractTransition_OnOnTransition(QAbstractTransition* self, intptr_t slot
 }
 
 // Base class handler implementation
-bool QAbstractTransition_QBaseEvent(QAbstractTransition* self, QEvent* e) {
+bool QAbstractTransition_SuperEvent(QAbstractTransition* self, QEvent* e) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
     if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
         vqabstracttransition->setQAbstractTransition_Event_IsBase(true);
@@ -268,7 +268,7 @@ bool QAbstractTransition_EventFilter(QAbstractTransition* self, QObject* watched
 }
 
 // Base class handler implementation
-bool QAbstractTransition_QBaseEventFilter(QAbstractTransition* self, QObject* watched, QEvent* event) {
+bool QAbstractTransition_SuperEventFilter(QAbstractTransition* self, QObject* watched, QEvent* event) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
     if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
         vqabstracttransition->setQAbstractTransition_EventFilter_IsBase(true);
@@ -297,7 +297,7 @@ void QAbstractTransition_TimerEvent(QAbstractTransition* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void QAbstractTransition_QBaseTimerEvent(QAbstractTransition* self, QTimerEvent* event) {
+void QAbstractTransition_SuperTimerEvent(QAbstractTransition* self, QTimerEvent* event) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
     if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
         vqabstracttransition->setQAbstractTransition_TimerEvent_IsBase(true);
@@ -326,7 +326,7 @@ void QAbstractTransition_ChildEvent(QAbstractTransition* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void QAbstractTransition_QBaseChildEvent(QAbstractTransition* self, QChildEvent* event) {
+void QAbstractTransition_SuperChildEvent(QAbstractTransition* self, QChildEvent* event) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
     if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
         vqabstracttransition->setQAbstractTransition_ChildEvent_IsBase(true);
@@ -355,7 +355,7 @@ void QAbstractTransition_CustomEvent(QAbstractTransition* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractTransition_QBaseCustomEvent(QAbstractTransition* self, QEvent* event) {
+void QAbstractTransition_SuperCustomEvent(QAbstractTransition* self, QEvent* event) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
     if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
         vqabstracttransition->setQAbstractTransition_CustomEvent_IsBase(true);
@@ -384,7 +384,7 @@ void QAbstractTransition_ConnectNotify(QAbstractTransition* self, const QMetaMet
 }
 
 // Base class handler implementation
-void QAbstractTransition_QBaseConnectNotify(QAbstractTransition* self, const QMetaMethod* signal) {
+void QAbstractTransition_SuperConnectNotify(QAbstractTransition* self, const QMetaMethod* signal) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
     if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
         vqabstracttransition->setQAbstractTransition_ConnectNotify_IsBase(true);
@@ -413,7 +413,7 @@ void QAbstractTransition_DisconnectNotify(QAbstractTransition* self, const QMeta
 }
 
 // Base class handler implementation
-void QAbstractTransition_QBaseDisconnectNotify(QAbstractTransition* self, const QMetaMethod* signal) {
+void QAbstractTransition_SuperDisconnectNotify(QAbstractTransition* self, const QMetaMethod* signal) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
     if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
         vqabstracttransition->setQAbstractTransition_DisconnectNotify_IsBase(true);
@@ -442,7 +442,7 @@ QObject* QAbstractTransition_Sender(const QAbstractTransition* self) {
 }
 
 // Base class handler implementation
-QObject* QAbstractTransition_QBaseSender(const QAbstractTransition* self) {
+QObject* QAbstractTransition_SuperSender(const QAbstractTransition* self) {
     auto* vqabstracttransition = const_cast<VirtualQAbstractTransition*>(dynamic_cast<const VirtualQAbstractTransition*>(self));
     if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
         vqabstracttransition->setQAbstractTransition_Sender_IsBase(true);
@@ -471,7 +471,7 @@ int QAbstractTransition_SenderSignalIndex(const QAbstractTransition* self) {
 }
 
 // Base class handler implementation
-int QAbstractTransition_QBaseSenderSignalIndex(const QAbstractTransition* self) {
+int QAbstractTransition_SuperSenderSignalIndex(const QAbstractTransition* self) {
     auto* vqabstracttransition = const_cast<VirtualQAbstractTransition*>(dynamic_cast<const VirtualQAbstractTransition*>(self));
     if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
         vqabstracttransition->setQAbstractTransition_SenderSignalIndex_IsBase(true);
@@ -500,7 +500,7 @@ int QAbstractTransition_Receivers(const QAbstractTransition* self, const char* s
 }
 
 // Base class handler implementation
-int QAbstractTransition_QBaseReceivers(const QAbstractTransition* self, const char* signal) {
+int QAbstractTransition_SuperReceivers(const QAbstractTransition* self, const char* signal) {
     auto* vqabstracttransition = const_cast<VirtualQAbstractTransition*>(dynamic_cast<const VirtualQAbstractTransition*>(self));
     if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
         vqabstracttransition->setQAbstractTransition_Receivers_IsBase(true);
@@ -529,7 +529,7 @@ bool QAbstractTransition_IsSignalConnected(const QAbstractTransition* self, cons
 }
 
 // Base class handler implementation
-bool QAbstractTransition_QBaseIsSignalConnected(const QAbstractTransition* self, const QMetaMethod* signal) {
+bool QAbstractTransition_SuperIsSignalConnected(const QAbstractTransition* self, const QMetaMethod* signal) {
     auto* vqabstracttransition = const_cast<VirtualQAbstractTransition*>(dynamic_cast<const VirtualQAbstractTransition*>(self));
     if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
         vqabstracttransition->setQAbstractTransition_IsSignalConnected_IsBase(true);

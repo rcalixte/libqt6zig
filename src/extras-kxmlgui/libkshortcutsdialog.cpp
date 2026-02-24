@@ -180,7 +180,7 @@ void KShortcutsDialog_ShowDialog3(KActionCollection* collection, int allowLetter
 }
 
 // Base class handler implementation
-QMetaObject* KShortcutsDialog_QBaseMetaObject(const KShortcutsDialog* self) {
+QMetaObject* KShortcutsDialog_SuperMetaObject(const KShortcutsDialog* self) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_MetaObject_IsBase(true);
@@ -199,7 +199,7 @@ void KShortcutsDialog_OnMetaObject(const KShortcutsDialog* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* KShortcutsDialog_QBaseMetacast(KShortcutsDialog* self, const char* param1) {
+void* KShortcutsDialog_SuperMetacast(KShortcutsDialog* self, const char* param1) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_Metacast_IsBase(true);
@@ -218,7 +218,7 @@ void KShortcutsDialog_OnMetacast(KShortcutsDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KShortcutsDialog_QBaseMetacall(KShortcutsDialog* self, int param1, int param2, void** param3) {
+int KShortcutsDialog_SuperMetacall(KShortcutsDialog* self, int param1, int param2, void** param3) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_Metacall_IsBase(true);
@@ -237,7 +237,7 @@ void KShortcutsDialog_OnMetacall(KShortcutsDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* KShortcutsDialog_QBaseSizeHint(const KShortcutsDialog* self) {
+QSize* KShortcutsDialog_SuperSizeHint(const KShortcutsDialog* self) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_SizeHint_IsBase(true);
@@ -256,7 +256,7 @@ void KShortcutsDialog_OnSizeHint(const KShortcutsDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseAccept(KShortcutsDialog* self) {
+void KShortcutsDialog_SuperAccept(KShortcutsDialog* self) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_Accept_IsBase(true);
@@ -285,7 +285,7 @@ void KShortcutsDialog_SetVisible(KShortcutsDialog* self, bool visible) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseSetVisible(KShortcutsDialog* self, bool visible) {
+void KShortcutsDialog_SuperSetVisible(KShortcutsDialog* self, bool visible) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_SetVisible_IsBase(true);
@@ -314,7 +314,7 @@ QSize* KShortcutsDialog_MinimumSizeHint(const KShortcutsDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KShortcutsDialog_QBaseMinimumSizeHint(const KShortcutsDialog* self) {
+QSize* KShortcutsDialog_SuperMinimumSizeHint(const KShortcutsDialog* self) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_MinimumSizeHint_IsBase(true);
@@ -343,7 +343,7 @@ void KShortcutsDialog_Open(KShortcutsDialog* self) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseOpen(KShortcutsDialog* self) {
+void KShortcutsDialog_SuperOpen(KShortcutsDialog* self) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_Open_IsBase(true);
@@ -372,7 +372,7 @@ int KShortcutsDialog_Exec(KShortcutsDialog* self) {
 }
 
 // Base class handler implementation
-int KShortcutsDialog_QBaseExec(KShortcutsDialog* self) {
+int KShortcutsDialog_SuperExec(KShortcutsDialog* self) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_Exec_IsBase(true);
@@ -401,7 +401,7 @@ void KShortcutsDialog_Done(KShortcutsDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseDone(KShortcutsDialog* self, int param1) {
+void KShortcutsDialog_SuperDone(KShortcutsDialog* self, int param1) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_Done_IsBase(true);
@@ -430,7 +430,7 @@ void KShortcutsDialog_Reject(KShortcutsDialog* self) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseReject(KShortcutsDialog* self) {
+void KShortcutsDialog_SuperReject(KShortcutsDialog* self) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_Reject_IsBase(true);
@@ -459,7 +459,7 @@ void KShortcutsDialog_KeyPressEvent(KShortcutsDialog* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseKeyPressEvent(KShortcutsDialog* self, QKeyEvent* param1) {
+void KShortcutsDialog_SuperKeyPressEvent(KShortcutsDialog* self, QKeyEvent* param1) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_KeyPressEvent_IsBase(true);
@@ -488,7 +488,7 @@ void KShortcutsDialog_CloseEvent(KShortcutsDialog* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseCloseEvent(KShortcutsDialog* self, QCloseEvent* param1) {
+void KShortcutsDialog_SuperCloseEvent(KShortcutsDialog* self, QCloseEvent* param1) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_CloseEvent_IsBase(true);
@@ -517,7 +517,7 @@ void KShortcutsDialog_ShowEvent(KShortcutsDialog* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseShowEvent(KShortcutsDialog* self, QShowEvent* param1) {
+void KShortcutsDialog_SuperShowEvent(KShortcutsDialog* self, QShowEvent* param1) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_ShowEvent_IsBase(true);
@@ -546,7 +546,7 @@ void KShortcutsDialog_ResizeEvent(KShortcutsDialog* self, QResizeEvent* param1) 
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseResizeEvent(KShortcutsDialog* self, QResizeEvent* param1) {
+void KShortcutsDialog_SuperResizeEvent(KShortcutsDialog* self, QResizeEvent* param1) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_ResizeEvent_IsBase(true);
@@ -575,7 +575,7 @@ void KShortcutsDialog_ContextMenuEvent(KShortcutsDialog* self, QContextMenuEvent
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseContextMenuEvent(KShortcutsDialog* self, QContextMenuEvent* param1) {
+void KShortcutsDialog_SuperContextMenuEvent(KShortcutsDialog* self, QContextMenuEvent* param1) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_ContextMenuEvent_IsBase(true);
@@ -604,7 +604,7 @@ bool KShortcutsDialog_EventFilter(KShortcutsDialog* self, QObject* param1, QEven
 }
 
 // Base class handler implementation
-bool KShortcutsDialog_QBaseEventFilter(KShortcutsDialog* self, QObject* param1, QEvent* param2) {
+bool KShortcutsDialog_SuperEventFilter(KShortcutsDialog* self, QObject* param1, QEvent* param2) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_EventFilter_IsBase(true);
@@ -633,7 +633,7 @@ int KShortcutsDialog_DevType(const KShortcutsDialog* self) {
 }
 
 // Base class handler implementation
-int KShortcutsDialog_QBaseDevType(const KShortcutsDialog* self) {
+int KShortcutsDialog_SuperDevType(const KShortcutsDialog* self) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_DevType_IsBase(true);
@@ -662,7 +662,7 @@ int KShortcutsDialog_HeightForWidth(const KShortcutsDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KShortcutsDialog_QBaseHeightForWidth(const KShortcutsDialog* self, int param1) {
+int KShortcutsDialog_SuperHeightForWidth(const KShortcutsDialog* self, int param1) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_HeightForWidth_IsBase(true);
@@ -691,7 +691,7 @@ bool KShortcutsDialog_HasHeightForWidth(const KShortcutsDialog* self) {
 }
 
 // Base class handler implementation
-bool KShortcutsDialog_QBaseHasHeightForWidth(const KShortcutsDialog* self) {
+bool KShortcutsDialog_SuperHasHeightForWidth(const KShortcutsDialog* self) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_HasHeightForWidth_IsBase(true);
@@ -720,7 +720,7 @@ QPaintEngine* KShortcutsDialog_PaintEngine(const KShortcutsDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KShortcutsDialog_QBasePaintEngine(const KShortcutsDialog* self) {
+QPaintEngine* KShortcutsDialog_SuperPaintEngine(const KShortcutsDialog* self) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_PaintEngine_IsBase(true);
@@ -749,7 +749,7 @@ bool KShortcutsDialog_Event(KShortcutsDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KShortcutsDialog_QBaseEvent(KShortcutsDialog* self, QEvent* event) {
+bool KShortcutsDialog_SuperEvent(KShortcutsDialog* self, QEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_Event_IsBase(true);
@@ -778,7 +778,7 @@ void KShortcutsDialog_MousePressEvent(KShortcutsDialog* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseMousePressEvent(KShortcutsDialog* self, QMouseEvent* event) {
+void KShortcutsDialog_SuperMousePressEvent(KShortcutsDialog* self, QMouseEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_MousePressEvent_IsBase(true);
@@ -807,7 +807,7 @@ void KShortcutsDialog_MouseReleaseEvent(KShortcutsDialog* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseMouseReleaseEvent(KShortcutsDialog* self, QMouseEvent* event) {
+void KShortcutsDialog_SuperMouseReleaseEvent(KShortcutsDialog* self, QMouseEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_MouseReleaseEvent_IsBase(true);
@@ -836,7 +836,7 @@ void KShortcutsDialog_MouseDoubleClickEvent(KShortcutsDialog* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseMouseDoubleClickEvent(KShortcutsDialog* self, QMouseEvent* event) {
+void KShortcutsDialog_SuperMouseDoubleClickEvent(KShortcutsDialog* self, QMouseEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_MouseDoubleClickEvent_IsBase(true);
@@ -865,7 +865,7 @@ void KShortcutsDialog_MouseMoveEvent(KShortcutsDialog* self, QMouseEvent* event)
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseMouseMoveEvent(KShortcutsDialog* self, QMouseEvent* event) {
+void KShortcutsDialog_SuperMouseMoveEvent(KShortcutsDialog* self, QMouseEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_MouseMoveEvent_IsBase(true);
@@ -894,7 +894,7 @@ void KShortcutsDialog_WheelEvent(KShortcutsDialog* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseWheelEvent(KShortcutsDialog* self, QWheelEvent* event) {
+void KShortcutsDialog_SuperWheelEvent(KShortcutsDialog* self, QWheelEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_WheelEvent_IsBase(true);
@@ -923,7 +923,7 @@ void KShortcutsDialog_KeyReleaseEvent(KShortcutsDialog* self, QKeyEvent* event) 
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseKeyReleaseEvent(KShortcutsDialog* self, QKeyEvent* event) {
+void KShortcutsDialog_SuperKeyReleaseEvent(KShortcutsDialog* self, QKeyEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_KeyReleaseEvent_IsBase(true);
@@ -952,7 +952,7 @@ void KShortcutsDialog_FocusInEvent(KShortcutsDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseFocusInEvent(KShortcutsDialog* self, QFocusEvent* event) {
+void KShortcutsDialog_SuperFocusInEvent(KShortcutsDialog* self, QFocusEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_FocusInEvent_IsBase(true);
@@ -981,7 +981,7 @@ void KShortcutsDialog_FocusOutEvent(KShortcutsDialog* self, QFocusEvent* event) 
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseFocusOutEvent(KShortcutsDialog* self, QFocusEvent* event) {
+void KShortcutsDialog_SuperFocusOutEvent(KShortcutsDialog* self, QFocusEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_FocusOutEvent_IsBase(true);
@@ -1010,7 +1010,7 @@ void KShortcutsDialog_EnterEvent(KShortcutsDialog* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseEnterEvent(KShortcutsDialog* self, QEnterEvent* event) {
+void KShortcutsDialog_SuperEnterEvent(KShortcutsDialog* self, QEnterEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_EnterEvent_IsBase(true);
@@ -1039,7 +1039,7 @@ void KShortcutsDialog_LeaveEvent(KShortcutsDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseLeaveEvent(KShortcutsDialog* self, QEvent* event) {
+void KShortcutsDialog_SuperLeaveEvent(KShortcutsDialog* self, QEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_LeaveEvent_IsBase(true);
@@ -1068,7 +1068,7 @@ void KShortcutsDialog_PaintEvent(KShortcutsDialog* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBasePaintEvent(KShortcutsDialog* self, QPaintEvent* event) {
+void KShortcutsDialog_SuperPaintEvent(KShortcutsDialog* self, QPaintEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_PaintEvent_IsBase(true);
@@ -1097,7 +1097,7 @@ void KShortcutsDialog_MoveEvent(KShortcutsDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseMoveEvent(KShortcutsDialog* self, QMoveEvent* event) {
+void KShortcutsDialog_SuperMoveEvent(KShortcutsDialog* self, QMoveEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_MoveEvent_IsBase(true);
@@ -1126,7 +1126,7 @@ void KShortcutsDialog_TabletEvent(KShortcutsDialog* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseTabletEvent(KShortcutsDialog* self, QTabletEvent* event) {
+void KShortcutsDialog_SuperTabletEvent(KShortcutsDialog* self, QTabletEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_TabletEvent_IsBase(true);
@@ -1155,7 +1155,7 @@ void KShortcutsDialog_ActionEvent(KShortcutsDialog* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseActionEvent(KShortcutsDialog* self, QActionEvent* event) {
+void KShortcutsDialog_SuperActionEvent(KShortcutsDialog* self, QActionEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_ActionEvent_IsBase(true);
@@ -1184,7 +1184,7 @@ void KShortcutsDialog_DragEnterEvent(KShortcutsDialog* self, QDragEnterEvent* ev
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseDragEnterEvent(KShortcutsDialog* self, QDragEnterEvent* event) {
+void KShortcutsDialog_SuperDragEnterEvent(KShortcutsDialog* self, QDragEnterEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_DragEnterEvent_IsBase(true);
@@ -1213,7 +1213,7 @@ void KShortcutsDialog_DragMoveEvent(KShortcutsDialog* self, QDragMoveEvent* even
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseDragMoveEvent(KShortcutsDialog* self, QDragMoveEvent* event) {
+void KShortcutsDialog_SuperDragMoveEvent(KShortcutsDialog* self, QDragMoveEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_DragMoveEvent_IsBase(true);
@@ -1242,7 +1242,7 @@ void KShortcutsDialog_DragLeaveEvent(KShortcutsDialog* self, QDragLeaveEvent* ev
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseDragLeaveEvent(KShortcutsDialog* self, QDragLeaveEvent* event) {
+void KShortcutsDialog_SuperDragLeaveEvent(KShortcutsDialog* self, QDragLeaveEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_DragLeaveEvent_IsBase(true);
@@ -1271,7 +1271,7 @@ void KShortcutsDialog_DropEvent(KShortcutsDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseDropEvent(KShortcutsDialog* self, QDropEvent* event) {
+void KShortcutsDialog_SuperDropEvent(KShortcutsDialog* self, QDropEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_DropEvent_IsBase(true);
@@ -1300,7 +1300,7 @@ void KShortcutsDialog_HideEvent(KShortcutsDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseHideEvent(KShortcutsDialog* self, QHideEvent* event) {
+void KShortcutsDialog_SuperHideEvent(KShortcutsDialog* self, QHideEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_HideEvent_IsBase(true);
@@ -1330,7 +1330,7 @@ bool KShortcutsDialog_NativeEvent(KShortcutsDialog* self, const libqt_string eve
 }
 
 // Base class handler implementation
-bool KShortcutsDialog_QBaseNativeEvent(KShortcutsDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KShortcutsDialog_SuperNativeEvent(KShortcutsDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
@@ -1360,7 +1360,7 @@ void KShortcutsDialog_ChangeEvent(KShortcutsDialog* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseChangeEvent(KShortcutsDialog* self, QEvent* param1) {
+void KShortcutsDialog_SuperChangeEvent(KShortcutsDialog* self, QEvent* param1) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_ChangeEvent_IsBase(true);
@@ -1389,7 +1389,7 @@ int KShortcutsDialog_Metric(const KShortcutsDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KShortcutsDialog_QBaseMetric(const KShortcutsDialog* self, int param1) {
+int KShortcutsDialog_SuperMetric(const KShortcutsDialog* self, int param1) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_Metric_IsBase(true);
@@ -1418,7 +1418,7 @@ void KShortcutsDialog_InitPainter(const KShortcutsDialog* self, QPainter* painte
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseInitPainter(const KShortcutsDialog* self, QPainter* painter) {
+void KShortcutsDialog_SuperInitPainter(const KShortcutsDialog* self, QPainter* painter) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_InitPainter_IsBase(true);
@@ -1447,7 +1447,7 @@ QPaintDevice* KShortcutsDialog_Redirected(const KShortcutsDialog* self, QPoint* 
 }
 
 // Base class handler implementation
-QPaintDevice* KShortcutsDialog_QBaseRedirected(const KShortcutsDialog* self, QPoint* offset) {
+QPaintDevice* KShortcutsDialog_SuperRedirected(const KShortcutsDialog* self, QPoint* offset) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_Redirected_IsBase(true);
@@ -1476,7 +1476,7 @@ QPainter* KShortcutsDialog_SharedPainter(const KShortcutsDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* KShortcutsDialog_QBaseSharedPainter(const KShortcutsDialog* self) {
+QPainter* KShortcutsDialog_SuperSharedPainter(const KShortcutsDialog* self) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_SharedPainter_IsBase(true);
@@ -1505,7 +1505,7 @@ void KShortcutsDialog_InputMethodEvent(KShortcutsDialog* self, QInputMethodEvent
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseInputMethodEvent(KShortcutsDialog* self, QInputMethodEvent* param1) {
+void KShortcutsDialog_SuperInputMethodEvent(KShortcutsDialog* self, QInputMethodEvent* param1) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_InputMethodEvent_IsBase(true);
@@ -1534,7 +1534,7 @@ QVariant* KShortcutsDialog_InputMethodQuery(const KShortcutsDialog* self, int pa
 }
 
 // Base class handler implementation
-QVariant* KShortcutsDialog_QBaseInputMethodQuery(const KShortcutsDialog* self, int param1) {
+QVariant* KShortcutsDialog_SuperInputMethodQuery(const KShortcutsDialog* self, int param1) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_InputMethodQuery_IsBase(true);
@@ -1563,7 +1563,7 @@ bool KShortcutsDialog_FocusNextPrevChild(KShortcutsDialog* self, bool next) {
 }
 
 // Base class handler implementation
-bool KShortcutsDialog_QBaseFocusNextPrevChild(KShortcutsDialog* self, bool next) {
+bool KShortcutsDialog_SuperFocusNextPrevChild(KShortcutsDialog* self, bool next) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_FocusNextPrevChild_IsBase(true);
@@ -1592,7 +1592,7 @@ void KShortcutsDialog_TimerEvent(KShortcutsDialog* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseTimerEvent(KShortcutsDialog* self, QTimerEvent* event) {
+void KShortcutsDialog_SuperTimerEvent(KShortcutsDialog* self, QTimerEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_TimerEvent_IsBase(true);
@@ -1621,7 +1621,7 @@ void KShortcutsDialog_ChildEvent(KShortcutsDialog* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseChildEvent(KShortcutsDialog* self, QChildEvent* event) {
+void KShortcutsDialog_SuperChildEvent(KShortcutsDialog* self, QChildEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_ChildEvent_IsBase(true);
@@ -1650,7 +1650,7 @@ void KShortcutsDialog_CustomEvent(KShortcutsDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseCustomEvent(KShortcutsDialog* self, QEvent* event) {
+void KShortcutsDialog_SuperCustomEvent(KShortcutsDialog* self, QEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_CustomEvent_IsBase(true);
@@ -1679,7 +1679,7 @@ void KShortcutsDialog_ConnectNotify(KShortcutsDialog* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseConnectNotify(KShortcutsDialog* self, const QMetaMethod* signal) {
+void KShortcutsDialog_SuperConnectNotify(KShortcutsDialog* self, const QMetaMethod* signal) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_ConnectNotify_IsBase(true);
@@ -1708,7 +1708,7 @@ void KShortcutsDialog_DisconnectNotify(KShortcutsDialog* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseDisconnectNotify(KShortcutsDialog* self, const QMetaMethod* signal) {
+void KShortcutsDialog_SuperDisconnectNotify(KShortcutsDialog* self, const QMetaMethod* signal) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_DisconnectNotify_IsBase(true);
@@ -1737,7 +1737,7 @@ void KShortcutsDialog_AdjustPosition(KShortcutsDialog* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseAdjustPosition(KShortcutsDialog* self, QWidget* param1) {
+void KShortcutsDialog_SuperAdjustPosition(KShortcutsDialog* self, QWidget* param1) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_AdjustPosition_IsBase(true);
@@ -1766,7 +1766,7 @@ void KShortcutsDialog_UpdateMicroFocus(KShortcutsDialog* self) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseUpdateMicroFocus(KShortcutsDialog* self) {
+void KShortcutsDialog_SuperUpdateMicroFocus(KShortcutsDialog* self) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_UpdateMicroFocus_IsBase(true);
@@ -1795,7 +1795,7 @@ void KShortcutsDialog_Create(KShortcutsDialog* self) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseCreate(KShortcutsDialog* self) {
+void KShortcutsDialog_SuperCreate(KShortcutsDialog* self) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_Create_IsBase(true);
@@ -1824,7 +1824,7 @@ void KShortcutsDialog_Destroy(KShortcutsDialog* self) {
 }
 
 // Base class handler implementation
-void KShortcutsDialog_QBaseDestroy(KShortcutsDialog* self) {
+void KShortcutsDialog_SuperDestroy(KShortcutsDialog* self) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_Destroy_IsBase(true);
@@ -1853,7 +1853,7 @@ bool KShortcutsDialog_FocusNextChild(KShortcutsDialog* self) {
 }
 
 // Base class handler implementation
-bool KShortcutsDialog_QBaseFocusNextChild(KShortcutsDialog* self) {
+bool KShortcutsDialog_SuperFocusNextChild(KShortcutsDialog* self) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_FocusNextChild_IsBase(true);
@@ -1882,7 +1882,7 @@ bool KShortcutsDialog_FocusPreviousChild(KShortcutsDialog* self) {
 }
 
 // Base class handler implementation
-bool KShortcutsDialog_QBaseFocusPreviousChild(KShortcutsDialog* self) {
+bool KShortcutsDialog_SuperFocusPreviousChild(KShortcutsDialog* self) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_FocusPreviousChild_IsBase(true);
@@ -1911,7 +1911,7 @@ QObject* KShortcutsDialog_Sender(const KShortcutsDialog* self) {
 }
 
 // Base class handler implementation
-QObject* KShortcutsDialog_QBaseSender(const KShortcutsDialog* self) {
+QObject* KShortcutsDialog_SuperSender(const KShortcutsDialog* self) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_Sender_IsBase(true);
@@ -1940,7 +1940,7 @@ int KShortcutsDialog_SenderSignalIndex(const KShortcutsDialog* self) {
 }
 
 // Base class handler implementation
-int KShortcutsDialog_QBaseSenderSignalIndex(const KShortcutsDialog* self) {
+int KShortcutsDialog_SuperSenderSignalIndex(const KShortcutsDialog* self) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_SenderSignalIndex_IsBase(true);
@@ -1969,7 +1969,7 @@ int KShortcutsDialog_Receivers(const KShortcutsDialog* self, const char* signal)
 }
 
 // Base class handler implementation
-int KShortcutsDialog_QBaseReceivers(const KShortcutsDialog* self, const char* signal) {
+int KShortcutsDialog_SuperReceivers(const KShortcutsDialog* self, const char* signal) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_Receivers_IsBase(true);
@@ -1998,7 +1998,7 @@ bool KShortcutsDialog_IsSignalConnected(const KShortcutsDialog* self, const QMet
 }
 
 // Base class handler implementation
-bool KShortcutsDialog_QBaseIsSignalConnected(const KShortcutsDialog* self, const QMetaMethod* signal) {
+bool KShortcutsDialog_SuperIsSignalConnected(const KShortcutsDialog* self, const QMetaMethod* signal) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_IsSignalConnected_IsBase(true);
@@ -2027,7 +2027,7 @@ double KShortcutsDialog_GetDecodedMetricF(const KShortcutsDialog* self, int metr
 }
 
 // Base class handler implementation
-double KShortcutsDialog_QBaseGetDecodedMetricF(const KShortcutsDialog* self, int metricA, int metricB) {
+double KShortcutsDialog_SuperGetDecodedMetricF(const KShortcutsDialog* self, int metricA, int metricB) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
     if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
         vkshortcutsdialog->setKShortcutsDialog_GetDecodedMetricF_IsBase(true);

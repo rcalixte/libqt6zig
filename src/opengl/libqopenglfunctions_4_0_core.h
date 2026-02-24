@@ -347,16 +347,16 @@ void QOpenGLFunctions_4_0_Core_GlBlendEquationSeparatei(QOpenGLFunctions_4_0_Cor
 void QOpenGLFunctions_4_0_Core_GlBlendEquationi(QOpenGLFunctions_4_0_Core* self, uint32_t buf, uint32_t mode);
 void QOpenGLFunctions_4_0_Core_GlMinSampleShading(QOpenGLFunctions_4_0_Core* self, float value);
 void QOpenGLFunctions_4_0_Core_OnInitializeOpenGLFunctions(QOpenGLFunctions_4_0_Core* self, intptr_t slot);
-bool QOpenGLFunctions_4_0_Core_QBaseInitializeOpenGLFunctions(QOpenGLFunctions_4_0_Core* self);
+bool QOpenGLFunctions_4_0_Core_SuperInitializeOpenGLFunctions(QOpenGLFunctions_4_0_Core* self);
 bool QOpenGLFunctions_4_0_Core_IsInitialized(const QOpenGLFunctions_4_0_Core* self);
 void QOpenGLFunctions_4_0_Core_OnIsInitialized(const QOpenGLFunctions_4_0_Core* self, intptr_t slot);
-bool QOpenGLFunctions_4_0_Core_QBaseIsInitialized(const QOpenGLFunctions_4_0_Core* self);
+bool QOpenGLFunctions_4_0_Core_SuperIsInitialized(const QOpenGLFunctions_4_0_Core* self);
 void QOpenGLFunctions_4_0_Core_SetOwningContext(QOpenGLFunctions_4_0_Core* self, const QOpenGLContext* context);
 void QOpenGLFunctions_4_0_Core_OnSetOwningContext(QOpenGLFunctions_4_0_Core* self, intptr_t slot);
-void QOpenGLFunctions_4_0_Core_QBaseSetOwningContext(QOpenGLFunctions_4_0_Core* self, const QOpenGLContext* context);
+void QOpenGLFunctions_4_0_Core_SuperSetOwningContext(QOpenGLFunctions_4_0_Core* self, const QOpenGLContext* context);
 QOpenGLContext* QOpenGLFunctions_4_0_Core_OwningContext(const QOpenGLFunctions_4_0_Core* self);
 void QOpenGLFunctions_4_0_Core_OnOwningContext(const QOpenGLFunctions_4_0_Core* self, intptr_t slot);
-QOpenGLContext* QOpenGLFunctions_4_0_Core_QBaseOwningContext(const QOpenGLFunctions_4_0_Core* self);
+QOpenGLContext* QOpenGLFunctions_4_0_Core_SuperOwningContext(const QOpenGLFunctions_4_0_Core* self);
 void QOpenGLFunctions_4_0_Core_Delete(QOpenGLFunctions_4_0_Core* self);
 
 #ifdef __cplusplus

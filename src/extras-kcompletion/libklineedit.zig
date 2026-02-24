@@ -86,6 +86,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -94,8 +98,8 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KLineEdit_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KLineEdit_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -121,6 +125,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -129,9 +137,9 @@ pub const klineedit = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KLineEdit_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KLineEdit_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -160,6 +168,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -172,8 +184,8 @@ pub const klineedit = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KLineEdit_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KLineEdit_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -231,6 +243,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnSetCompletionMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCompletionMode` instead
+    ///
+    pub const QBaseSetCompletionMode = SuperSetCompletionMode;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletionMode)
     ///
     /// Base class method implementation
@@ -241,8 +257,8 @@ pub const klineedit = struct {
     ///
     /// ` mode: kcompletion_enums.CompletionMode `
     ///
-    pub fn QBaseSetCompletionMode(self: ?*anyopaque, mode: i32) void {
-        qtc.KLineEdit_QBaseSetCompletionMode(@ptrCast(self), @bitCast(mode));
+    pub fn SuperSetCompletionMode(self: ?*anyopaque, mode: i32) void {
+        qtc.KLineEdit_SuperSetCompletionMode(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletionModeDisabled)
@@ -315,6 +331,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnCompletionBox(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCompletionBox` instead
+    ///
+    pub const QBaseCompletionBox = SuperCompletionBox;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#completionBox)
     ///
     /// Base class method implementation
@@ -325,8 +345,8 @@ pub const klineedit = struct {
     ///
     /// ` create: bool `
     ///
-    pub fn QBaseCompletionBox(self: ?*anyopaque, create: bool) QtC.KCompletionBox {
-        return qtc.KLineEdit_QBaseCompletionBox(@ptrCast(self), create);
+    pub fn SuperCompletionBox(self: ?*anyopaque, create: bool) QtC.KCompletionBox {
+        return qtc.KLineEdit_SuperCompletionBox(@ptrCast(self), create);
     }
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletionObject)
@@ -357,6 +377,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnSetCompletionObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCompletionObject` instead
+    ///
+    pub const QBaseSetCompletionObject = SuperSetCompletionObject;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletionObject)
     ///
     /// Base class method implementation
@@ -369,8 +393,8 @@ pub const klineedit = struct {
     ///
     /// ` handle: bool `
     ///
-    pub fn QBaseSetCompletionObject(self: ?*anyopaque, param1: ?*anyopaque, handle: bool) void {
-        qtc.KLineEdit_QBaseSetCompletionObject(@ptrCast(self), @ptrCast(param1), handle);
+    pub fn SuperSetCompletionObject(self: ?*anyopaque, param1: ?*anyopaque, handle: bool) void {
+        qtc.KLineEdit_SuperSetCompletionObject(@ptrCast(self), @ptrCast(param1), handle);
     }
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#copy)
@@ -397,6 +421,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnCopy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCopy` instead
+    ///
+    pub const QBaseCopy = SuperCopy;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#copy)
     ///
     /// Base class method implementation
@@ -405,8 +433,8 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    pub fn QBaseCopy(self: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseCopy(@ptrCast(self));
+    pub fn SuperCopy(self: ?*anyopaque) void {
+        qtc.KLineEdit_SuperCopy(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setSqueezedTextEnabled)
@@ -733,6 +761,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnSetReadOnly(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetReadOnly` instead
+    ///
+    pub const QBaseSetReadOnly = SuperSetReadOnly;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setReadOnly)
     ///
     /// Base class method implementation
@@ -743,8 +775,8 @@ pub const klineedit = struct {
     ///
     /// ` readOnly: bool `
     ///
-    pub fn QBaseSetReadOnly(self: ?*anyopaque, readOnly: bool) void {
-        qtc.KLineEdit_QBaseSetReadOnly(@ptrCast(self), readOnly);
+    pub fn SuperSetReadOnly(self: ?*anyopaque, readOnly: bool) void {
+        qtc.KLineEdit_SuperSetReadOnly(@ptrCast(self), readOnly);
     }
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#rotateText)
@@ -789,6 +821,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnSetCompletedText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCompletedText` instead
+    ///
+    pub const QBaseSetCompletedText = SuperSetCompletedText;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletedText)
     ///
     /// Base class method implementation
@@ -799,12 +835,12 @@ pub const klineedit = struct {
     ///
     /// ` completedText: []const u8 `
     ///
-    pub fn QBaseSetCompletedText(self: ?*anyopaque, completedText: []const u8) void {
+    pub fn SuperSetCompletedText(self: ?*anyopaque, completedText: []const u8) void {
         const completedText_str = qtc.libqt_string{
             .len = completedText.len,
             .data = completedText.ptr,
         };
-        qtc.KLineEdit_QBaseSetCompletedText(@ptrCast(self), completedText_str);
+        qtc.KLineEdit_SuperSetCompletedText(@ptrCast(self), completedText_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletedItems)
@@ -849,6 +885,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnSetCompletedItems(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCompletedItems` instead
+    ///
+    pub const QBaseSetCompletedItems = SuperSetCompletedItems;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletedItems)
     ///
     /// Base class method implementation
@@ -863,7 +903,7 @@ pub const klineedit = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetCompletedItems(self: ?*anyopaque, items: []const []const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
+    pub fn SuperSetCompletedItems(self: ?*anyopaque, items: []const []const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
         const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("klineedit.SetCompletedItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
@@ -876,7 +916,7 @@ pub const klineedit = struct {
             .len = items.len,
             .data = items_arr.ptr,
         };
-        qtc.KLineEdit_QBaseSetCompletedItems(@ptrCast(self), items_list, autoSuggest);
+        qtc.KLineEdit_SuperSetCompletedItems(@ptrCast(self), items_list, autoSuggest);
     }
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setSqueezedText)
@@ -925,6 +965,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnSetText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetText` instead
+    ///
+    pub const QBaseSetText = SuperSetText;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setText)
     ///
     /// Base class method implementation
@@ -935,12 +979,12 @@ pub const klineedit = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn QBaseSetText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SuperSetText(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.KLineEdit_QBaseSetText(@ptrCast(self), text_str);
+        qtc.KLineEdit_SuperSetText(@ptrCast(self), text_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#makeCompletion)
@@ -973,6 +1017,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnMakeCompletion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMakeCompletion` instead
+    ///
+    pub const QBaseMakeCompletion = SuperMakeCompletion;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#makeCompletion)
     ///
     /// Base class method implementation
@@ -983,12 +1031,12 @@ pub const klineedit = struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn QBaseMakeCompletion(self: ?*anyopaque, param1: []const u8) void {
+    pub fn SuperMakeCompletion(self: ?*anyopaque, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        qtc.KLineEdit_QBaseMakeCompletion(@ptrCast(self), param1_str);
+        qtc.KLineEdit_SuperMakeCompletion(@ptrCast(self), param1_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#userCancelled)
@@ -1021,6 +1069,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnUserCancelled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUserCancelled` instead
+    ///
+    pub const QBaseUserCancelled = SuperUserCancelled;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#userCancelled)
     ///
     /// Base class method implementation
@@ -1031,12 +1083,12 @@ pub const klineedit = struct {
     ///
     /// ` cancelText: []const u8 `
     ///
-    pub fn QBaseUserCancelled(self: ?*anyopaque, cancelText: []const u8) void {
+    pub fn SuperUserCancelled(self: ?*anyopaque, cancelText: []const u8) void {
         const cancelText_str = qtc.libqt_string{
             .len = cancelText.len,
             .data = cancelText.ptr,
         };
-        qtc.KLineEdit_QBaseUserCancelled(@ptrCast(self), cancelText_str);
+        qtc.KLineEdit_SuperUserCancelled(@ptrCast(self), cancelText_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#event)
@@ -1065,6 +1117,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#event)
     ///
     /// Base class method implementation
@@ -1075,8 +1131,8 @@ pub const klineedit = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.KLineEdit_QBaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
+        return qtc.KLineEdit_SuperEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#resizeEvent)
@@ -1105,6 +1161,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#resizeEvent)
     ///
     /// Base class method implementation
@@ -1115,8 +1175,8 @@ pub const klineedit = struct {
     ///
     /// ` param1: QtC.QResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseResizeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KLineEdit_SuperResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#keyPressEvent)
@@ -1145,6 +1205,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#keyPressEvent)
     ///
     /// Base class method implementation
@@ -1155,8 +1219,8 @@ pub const klineedit = struct {
     ///
     /// ` param1: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KLineEdit_SuperKeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#mousePressEvent)
@@ -1185,6 +1249,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#mousePressEvent)
     ///
     /// Base class method implementation
@@ -1195,8 +1263,8 @@ pub const klineedit = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseMousePressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KLineEdit_SuperMousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#mouseReleaseEvent)
@@ -1225,6 +1293,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
@@ -1235,8 +1307,8 @@ pub const klineedit = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KLineEdit_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#mouseDoubleClickEvent)
@@ -1265,6 +1337,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#mouseDoubleClickEvent)
     ///
     /// Base class method implementation
@@ -1275,8 +1351,8 @@ pub const klineedit = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KLineEdit_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#contextMenuEvent)
@@ -1305,6 +1381,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#contextMenuEvent)
     ///
     /// Base class method implementation
@@ -1315,8 +1395,8 @@ pub const klineedit = struct {
     ///
     /// ` param1: QtC.QContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KLineEdit_SuperContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#createStandardContextMenu)
@@ -1343,6 +1423,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnCreateStandardContextMenu(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateStandardContextMenu` instead
+    ///
+    pub const QBaseCreateStandardContextMenu = SuperCreateStandardContextMenu;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#createStandardContextMenu)
     ///
     /// Base class method implementation
@@ -1351,8 +1435,8 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    pub fn QBaseCreateStandardContextMenu(self: ?*anyopaque) QtC.QMenu {
-        return qtc.KLineEdit_QBaseCreateStandardContextMenu(@ptrCast(self));
+    pub fn SuperCreateStandardContextMenu(self: ?*anyopaque) QtC.QMenu {
+        return qtc.KLineEdit_SuperCreateStandardContextMenu(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletedText)
@@ -1387,6 +1471,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnSetCompletedText2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCompletedText2` instead
+    ///
+    pub const QBaseSetCompletedText2 = SuperSetCompletedText2;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletedText)
     ///
     /// Base class method implementation
@@ -1399,12 +1487,12 @@ pub const klineedit = struct {
     ///
     /// ` param2: bool `
     ///
-    pub fn QBaseSetCompletedText2(self: ?*anyopaque, param1: []const u8, param2: bool) void {
+    pub fn SuperSetCompletedText2(self: ?*anyopaque, param1: []const u8, param2: bool) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        qtc.KLineEdit_QBaseSetCompletedText2(@ptrCast(self), param1_str, param2);
+        qtc.KLineEdit_SuperSetCompletedText2(@ptrCast(self), param1_str, param2);
     }
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setUserSelection)
@@ -1433,6 +1521,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnSetUserSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetUserSelection` instead
+    ///
+    pub const QBaseSetUserSelection = SuperSetUserSelection;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setUserSelection)
     ///
     /// Base class method implementation
@@ -1443,8 +1535,8 @@ pub const klineedit = struct {
     ///
     /// ` userSelection: bool `
     ///
-    pub fn QBaseSetUserSelection(self: ?*anyopaque, userSelection: bool) void {
-        qtc.KLineEdit_QBaseSetUserSelection(@ptrCast(self), userSelection);
+    pub fn SuperSetUserSelection(self: ?*anyopaque, userSelection: bool) void {
+        qtc.KLineEdit_SuperSetUserSelection(@ptrCast(self), userSelection);
     }
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#autoSuggest)
@@ -1471,6 +1563,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnAutoSuggest(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAutoSuggest` instead
+    ///
+    pub const QBaseAutoSuggest = SuperAutoSuggest;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#autoSuggest)
     ///
     /// Base class method implementation
@@ -1479,8 +1575,8 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    pub fn QBaseAutoSuggest(self: ?*anyopaque) bool {
-        return qtc.KLineEdit_QBaseAutoSuggest(@ptrCast(self));
+    pub fn SuperAutoSuggest(self: ?*anyopaque) bool {
+        return qtc.KLineEdit_SuperAutoSuggest(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#paintEvent)
@@ -1509,6 +1605,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    ///
+    pub const QBasePaintEvent = SuperPaintEvent;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#paintEvent)
     ///
     /// Base class method implementation
@@ -1519,8 +1619,8 @@ pub const klineedit = struct {
     ///
     /// ` ev: QtC.QPaintEvent `
     ///
-    pub fn QBasePaintEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.KLineEdit_QBasePaintEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperPaintEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
+        qtc.KLineEdit_SuperPaintEvent(@ptrCast(self), @ptrCast(ev));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -7553,6 +7653,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_SizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#sizeHint)
@@ -7563,8 +7667,8 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KLineEdit_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.KLineEdit_SuperSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QLineEdit
@@ -7597,6 +7701,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_MinimumSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    ///
+    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#minimumSizeHint)
@@ -7607,8 +7715,8 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KLineEdit_QBaseMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.KLineEdit_SuperMinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QLineEdit
@@ -7643,6 +7751,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_MouseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#mouseMoveEvent)
@@ -7655,8 +7767,8 @@ pub const klineedit = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KLineEdit_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLineEdit
@@ -7691,6 +7803,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_KeyReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#keyReleaseEvent)
@@ -7703,8 +7819,8 @@ pub const klineedit = struct {
     ///
     /// ` param1: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KLineEdit_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLineEdit
@@ -7739,6 +7855,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_FocusInEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#focusInEvent)
@@ -7751,8 +7871,8 @@ pub const klineedit = struct {
     ///
     /// ` param1: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseFocusInEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KLineEdit_SuperFocusInEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLineEdit
@@ -7787,6 +7907,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_FocusOutEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#focusOutEvent)
@@ -7799,8 +7923,8 @@ pub const klineedit = struct {
     ///
     /// ` param1: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KLineEdit_SuperFocusOutEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLineEdit
@@ -7835,6 +7959,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_DragEnterEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#dragEnterEvent)
@@ -7847,8 +7975,8 @@ pub const klineedit = struct {
     ///
     /// ` param1: QtC.QDragEnterEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KLineEdit_SuperDragEnterEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLineEdit
@@ -7883,6 +8011,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_DragMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#dragMoveEvent)
@@ -7895,8 +8027,8 @@ pub const klineedit = struct {
     ///
     /// ` e: QtC.QDragMoveEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KLineEdit_SuperDragMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QLineEdit
@@ -7931,6 +8063,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_DragLeaveEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#dragLeaveEvent)
@@ -7943,8 +8079,8 @@ pub const klineedit = struct {
     ///
     /// ` e: QtC.QDragLeaveEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.KLineEdit_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QLineEdit
@@ -7979,6 +8115,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_DropEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#dropEvent)
@@ -7991,8 +8131,8 @@ pub const klineedit = struct {
     ///
     /// ` param1: QtC.QDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseDropEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDropEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KLineEdit_SuperDropEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLineEdit
@@ -8027,6 +8167,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_ChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    ///
+    pub const QBaseChangeEvent = SuperChangeEvent;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#changeEvent)
@@ -8039,8 +8183,8 @@ pub const klineedit = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KLineEdit_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLineEdit
@@ -8075,6 +8219,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#inputMethodEvent)
@@ -8087,8 +8235,8 @@ pub const klineedit = struct {
     ///
     /// ` param1: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KLineEdit_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLineEdit
@@ -8123,6 +8271,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_InitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
+    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    ///
+    pub const QBaseInitStyleOption = SuperInitStyleOption;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#initStyleOption)
@@ -8135,8 +8287,8 @@ pub const klineedit = struct {
     ///
     /// ` option: QtC.QStyleOptionFrame `
     ///
-    pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
+        qtc.KLineEdit_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// Inherited from QLineEdit
@@ -8171,6 +8323,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_InputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#inputMethodQuery)
@@ -8183,8 +8339,8 @@ pub const klineedit = struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.KLineEdit_QBaseInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
+        return qtc.KLineEdit_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QLineEdit
@@ -8219,6 +8375,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_TimerEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#timerEvent)
@@ -8231,8 +8391,8 @@ pub const klineedit = struct {
     ///
     /// ` param1: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseTimerEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperTimerEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KLineEdit_SuperTimerEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLineEdit
@@ -8265,6 +8425,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_DevType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
@@ -8275,8 +8439,8 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.KLineEdit_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.KLineEdit_SuperDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8311,6 +8475,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_SetVisible(@ptrCast(self), visible);
     }
 
+    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    ///
+    pub const QBaseSetVisible = SuperSetVisible;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
@@ -8323,8 +8491,8 @@ pub const klineedit = struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.KLineEdit_QBaseSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
+        qtc.KLineEdit_SuperSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
@@ -8359,6 +8527,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
@@ -8371,8 +8543,8 @@ pub const klineedit = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KLineEdit_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.KLineEdit_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -8405,6 +8577,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
@@ -8415,8 +8591,8 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.KLineEdit_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.KLineEdit_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8449,6 +8625,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_PaintEngine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
@@ -8459,8 +8639,8 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.KLineEdit_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.KLineEdit_SuperPaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8495,6 +8675,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_WheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#wheelEvent)
@@ -8507,8 +8691,8 @@ pub const klineedit = struct {
     ///
     /// ` event: QtC.QWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KLineEdit_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8543,6 +8727,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    ///
+    pub const QBaseEnterEvent = SuperEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
@@ -8555,8 +8743,8 @@ pub const klineedit = struct {
     ///
     /// ` event: QtC.QEnterEvent `
     ///
-    pub fn QBaseEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KLineEdit_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8591,6 +8779,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    ///
+    pub const QBaseLeaveEvent = SuperLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
@@ -8603,8 +8795,8 @@ pub const klineedit = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KLineEdit_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8639,6 +8831,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
@@ -8651,8 +8847,8 @@ pub const klineedit = struct {
     ///
     /// ` event: QtC.QMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KLineEdit_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8687,6 +8883,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
@@ -8699,8 +8899,8 @@ pub const klineedit = struct {
     ///
     /// ` event: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KLineEdit_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8735,6 +8935,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    ///
+    pub const QBaseTabletEvent = SuperTabletEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
@@ -8747,8 +8951,8 @@ pub const klineedit = struct {
     ///
     /// ` event: QtC.QTabletEvent `
     ///
-    pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KLineEdit_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8783,6 +8987,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_ActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    ///
+    pub const QBaseActionEvent = SuperActionEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
@@ -8795,8 +9003,8 @@ pub const klineedit = struct {
     ///
     /// ` event: QtC.QActionEvent `
     ///
-    pub fn QBaseActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KLineEdit_SuperActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8831,6 +9039,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
@@ -8843,8 +9055,8 @@ pub const klineedit = struct {
     ///
     /// ` event: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KLineEdit_SuperShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8879,6 +9091,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
@@ -8891,8 +9107,8 @@ pub const klineedit = struct {
     ///
     /// ` event: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KLineEdit_SuperHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8935,6 +9151,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    ///
+    pub const QBaseNativeEvent = SuperNativeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
@@ -8951,12 +9171,12 @@ pub const klineedit = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KLineEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KLineEdit_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -8991,6 +9211,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_Metric(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
@@ -9003,8 +9227,8 @@ pub const klineedit = struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KLineEdit_QBaseMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.KLineEdit_SuperMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -9039,6 +9263,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
@@ -9051,8 +9279,8 @@ pub const klineedit = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.KLineEdit_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
@@ -9087,6 +9315,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
@@ -9099,8 +9331,8 @@ pub const klineedit = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.KLineEdit_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.KLineEdit_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
@@ -9133,6 +9365,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
@@ -9143,8 +9379,8 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.KLineEdit_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.KLineEdit_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9179,6 +9415,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_FocusNextPrevChild(@ptrCast(self), next);
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    ///
+    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextPrevChild)
@@ -9191,8 +9431,8 @@ pub const klineedit = struct {
     ///
     /// ` next: bool `
     ///
-    pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.KLineEdit_QBaseFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
+        return qtc.KLineEdit_SuperFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QWidget
@@ -9229,6 +9469,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -9243,8 +9487,8 @@ pub const klineedit = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KLineEdit_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KLineEdit_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -9279,6 +9523,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -9291,8 +9539,8 @@ pub const klineedit = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KLineEdit_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -9327,6 +9575,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -9339,8 +9591,8 @@ pub const klineedit = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KLineEdit_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -9375,6 +9627,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -9387,8 +9643,8 @@ pub const klineedit = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KLineEdit_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -9423,6 +9679,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -9435,8 +9695,8 @@ pub const klineedit = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KLineEdit_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -9471,6 +9731,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_SetHandleSignals(@ptrCast(self), handle);
     }
 
+    /// ### DEPRECATED: Use `SuperSetHandleSignals` instead
+    ///
+    pub const QBaseSetHandleSignals = SuperSetHandleSignals;
+
     /// Inherited from KCompletionBase
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setHandleSignals)
@@ -9483,8 +9747,8 @@ pub const klineedit = struct {
     ///
     /// ` handle: bool `
     ///
-    pub fn QBaseSetHandleSignals(self: ?*anyopaque, handle: bool) void {
-        qtc.KLineEdit_QBaseSetHandleSignals(@ptrCast(self), handle);
+    pub fn SuperSetHandleSignals(self: ?*anyopaque, handle: bool) void {
+        qtc.KLineEdit_SuperSetHandleSignals(@ptrCast(self), handle);
     }
 
     /// Inherited from KCompletionBase
@@ -9521,6 +9785,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
+    /// ### DEPRECATED: Use `SuperVirtualHook` instead
+    ///
+    pub const QBaseVirtualHook = SuperVirtualHook;
+
     /// Inherited from KCompletionBase
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#virtual_hook)
@@ -9535,8 +9803,8 @@ pub const klineedit = struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
+    pub fn SuperVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
+        qtc.KLineEdit_SuperVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from KCompletionBase
@@ -9569,6 +9837,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_CursorRect(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCursorRect` instead
+    ///
+    pub const QBaseCursorRect = SuperCursorRect;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#cursorRect)
@@ -9579,8 +9851,8 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    pub fn QBaseCursorRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.KLineEdit_QBaseCursorRect(@ptrCast(self));
+    pub fn SuperCursorRect(self: ?*anyopaque) QtC.QRect {
+        return qtc.KLineEdit_SuperCursorRect(@ptrCast(self));
     }
 
     /// Inherited from QLineEdit
@@ -9613,6 +9885,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -9623,8 +9899,8 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.KLineEdit_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9657,6 +9933,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_Create(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreate` instead
+    ///
+    pub const QBaseCreate = SuperCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -9667,8 +9947,8 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    pub fn QBaseCreate(self: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseCreate(@ptrCast(self));
+    pub fn SuperCreate(self: ?*anyopaque) void {
+        qtc.KLineEdit_SuperCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9701,6 +9981,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_Destroy(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroy` instead
+    ///
+    pub const QBaseDestroy = SuperDestroy;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
@@ -9711,8 +9995,8 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    pub fn QBaseDestroy(self: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: ?*anyopaque) void {
+        qtc.KLineEdit_SuperDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9745,6 +10029,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_FocusNextChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    ///
+    pub const QBaseFocusNextChild = SuperFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -9755,8 +10043,8 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.KLineEdit_QBaseFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
+        return qtc.KLineEdit_SuperFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9789,6 +10077,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_FocusPreviousChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    ///
+    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
@@ -9799,8 +10091,8 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.KLineEdit_QBaseFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
+        return qtc.KLineEdit_SuperFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9833,6 +10125,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -9843,8 +10139,8 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KLineEdit_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KLineEdit_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -9877,6 +10173,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -9887,8 +10187,8 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KLineEdit_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KLineEdit_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -9924,6 +10224,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -9936,9 +10240,9 @@ pub const klineedit = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KLineEdit_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KLineEdit_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -9973,6 +10277,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -9985,8 +10293,8 @@ pub const klineedit = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KLineEdit_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KLineEdit_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -10023,6 +10331,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -10037,8 +10349,8 @@ pub const klineedit = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KLineEdit_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.KLineEdit_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -10098,6 +10410,10 @@ pub const klineedit = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperKeyBindingMap` instead
+    ///
+    pub const QBaseKeyBindingMap = SuperKeyBindingMap;
+
     /// Inherited from KCompletionBase
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#keyBindingMap)
@@ -10114,8 +10430,8 @@ pub const klineedit = struct {
     ///
     /// ` arraymap_i32_sliceqtcqkeysequence (key: kcompletionbase_enums.KeyBindingType) `
     ///
-    pub fn QBaseKeyBindingMap(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_sliceqtcqkeysequence {
-        const _map: qtc.libqt_map = qtc.KLineEdit_QBaseKeyBindingMap(@ptrCast(self));
+    pub fn SuperKeyBindingMap(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_sliceqtcqkeysequence {
+        const _map: qtc.libqt_map = qtc.KLineEdit_SuperKeyBindingMap(@ptrCast(self));
         var _ret: arraymap_i32_sliceqtcqkeysequence = .empty;
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
@@ -10198,6 +10514,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_SetKeyBindingMap(@ptrCast(self), keyBindingMap_map);
     }
 
+    /// ### DEPRECATED: Use `SuperSetKeyBindingMap` instead
+    ///
+    pub const QBaseSetKeyBindingMap = SuperSetKeyBindingMap;
+
     /// Inherited from KCompletionBase
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
@@ -10212,7 +10532,7 @@ pub const klineedit = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetKeyBindingMap(self: ?*anyopaque, keyBindingMap: arraymap_i32_sliceqtcqkeysequence, allocator: std.mem.Allocator) void {
+    pub fn SuperSetKeyBindingMap(self: ?*anyopaque, keyBindingMap: arraymap_i32_sliceqtcqkeysequence, allocator: std.mem.Allocator) void {
         const keyBindingMap_count = keyBindingMap.count();
         const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("klineedit.SetKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_keys);
@@ -10234,7 +10554,7 @@ pub const klineedit = struct {
             .keys = @ptrCast(keyBindingMap_keys.ptr),
             .values = @ptrCast(keyBindingMap_values.ptr),
         };
-        qtc.KLineEdit_QBaseSetKeyBindingMap(@ptrCast(self), keyBindingMap_map);
+        qtc.KLineEdit_SuperSetKeyBindingMap(@ptrCast(self), keyBindingMap_map);
     }
 
     /// Inherited from KCompletionBase
@@ -10269,6 +10589,10 @@ pub const klineedit = struct {
         qtc.KLineEdit_SetDelegate(@ptrCast(self), @ptrCast(delegate));
     }
 
+    /// ### DEPRECATED: Use `SuperSetDelegate` instead
+    ///
+    pub const QBaseSetDelegate = SuperSetDelegate;
+
     /// Inherited from KCompletionBase
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setDelegate)
@@ -10281,8 +10605,8 @@ pub const klineedit = struct {
     ///
     /// ` delegate: QtC.KCompletionBase `
     ///
-    pub fn QBaseSetDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
-        qtc.KLineEdit_QBaseSetDelegate(@ptrCast(self), @ptrCast(delegate));
+    pub fn SuperSetDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
+        qtc.KLineEdit_SuperSetDelegate(@ptrCast(self), @ptrCast(delegate));
     }
 
     /// Inherited from KCompletionBase
@@ -10315,6 +10639,10 @@ pub const klineedit = struct {
         return qtc.KLineEdit_Delegate(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDelegate` instead
+    ///
+    pub const QBaseDelegate = SuperDelegate;
+
     /// Inherited from KCompletionBase
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#delegate)
@@ -10325,8 +10653,8 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    pub fn QBaseDelegate(self: ?*anyopaque) QtC.KCompletionBase {
-        return qtc.KLineEdit_QBaseDelegate(@ptrCast(self));
+    pub fn SuperDelegate(self: ?*anyopaque) QtC.KCompletionBase {
+        return qtc.KLineEdit_SuperDelegate(@ptrCast(self));
     }
 
     /// Inherited from KCompletionBase
@@ -10360,6 +10688,9 @@ pub const klineedit = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#dtor.KLineEdit)
     ///
@@ -10369,7 +10700,7 @@ pub const klineedit = struct {
     ///
     /// ` self: QtC.KLineEdit `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KLineEdit_Delete(@ptrCast(self));
     }
 };

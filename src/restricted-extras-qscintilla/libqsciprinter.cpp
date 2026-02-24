@@ -76,7 +76,7 @@ void QsciPrinter_SetWrapMode(QsciPrinter* self, int wmode) {
 }
 
 // Base class handler implementation
-void QsciPrinter_QBaseFormatPage(QsciPrinter* self, QPainter* painter, bool drawing, QRect* area, int pagenr) {
+void QsciPrinter_SuperFormatPage(QsciPrinter* self, QPainter* painter, bool drawing, QRect* area, int pagenr) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
     if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
         vqsciprinter->setQsciPrinter_FormatPage_IsBase(true);
@@ -95,7 +95,7 @@ void QsciPrinter_OnFormatPage(QsciPrinter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciPrinter_QBaseSetMagnification(QsciPrinter* self, int magnification) {
+void QsciPrinter_SuperSetMagnification(QsciPrinter* self, int magnification) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
     if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
         vqsciprinter->setQsciPrinter_SetMagnification_IsBase(true);
@@ -114,7 +114,7 @@ void QsciPrinter_OnSetMagnification(QsciPrinter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QsciPrinter_QBasePrintRange(QsciPrinter* self, QsciScintillaBase* qsb, QPainter* painter, int from, int to) {
+int QsciPrinter_SuperPrintRange(QsciPrinter* self, QsciScintillaBase* qsb, QPainter* painter, int from, int to) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
     if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
         vqsciprinter->setQsciPrinter_PrintRange_IsBase(true);
@@ -133,7 +133,7 @@ void QsciPrinter_OnPrintRange(QsciPrinter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QsciPrinter_QBasePrintRange2(QsciPrinter* self, QsciScintillaBase* qsb, int from, int to) {
+int QsciPrinter_SuperPrintRange2(QsciPrinter* self, QsciScintillaBase* qsb, int from, int to) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
     if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
         vqsciprinter->setQsciPrinter_PrintRange2_IsBase(true);
@@ -152,7 +152,7 @@ void QsciPrinter_OnPrintRange2(QsciPrinter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciPrinter_QBaseSetWrapMode(QsciPrinter* self, int wmode) {
+void QsciPrinter_SuperSetWrapMode(QsciPrinter* self, int wmode) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
     if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
         vqsciprinter->setQsciPrinter_SetWrapMode_IsBase(true);
@@ -181,7 +181,7 @@ int QsciPrinter_DevType(const QsciPrinter* self) {
 }
 
 // Base class handler implementation
-int QsciPrinter_QBaseDevType(const QsciPrinter* self) {
+int QsciPrinter_SuperDevType(const QsciPrinter* self) {
     auto* vqsciprinter = const_cast<VirtualQsciPrinter*>(dynamic_cast<const VirtualQsciPrinter*>(self));
     if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
         vqsciprinter->setQsciPrinter_DevType_IsBase(true);
@@ -210,7 +210,7 @@ bool QsciPrinter_NewPage(QsciPrinter* self) {
 }
 
 // Base class handler implementation
-bool QsciPrinter_QBaseNewPage(QsciPrinter* self) {
+bool QsciPrinter_SuperNewPage(QsciPrinter* self) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
     if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
         vqsciprinter->setQsciPrinter_NewPage_IsBase(true);
@@ -239,7 +239,7 @@ QPaintEngine* QsciPrinter_PaintEngine(const QsciPrinter* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QsciPrinter_QBasePaintEngine(const QsciPrinter* self) {
+QPaintEngine* QsciPrinter_SuperPaintEngine(const QsciPrinter* self) {
     auto* vqsciprinter = const_cast<VirtualQsciPrinter*>(dynamic_cast<const VirtualQsciPrinter*>(self));
     if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
         vqsciprinter->setQsciPrinter_PaintEngine_IsBase(true);
@@ -268,7 +268,7 @@ int QsciPrinter_Metric(const QsciPrinter* self, int param1) {
 }
 
 // Base class handler implementation
-int QsciPrinter_QBaseMetric(const QsciPrinter* self, int param1) {
+int QsciPrinter_SuperMetric(const QsciPrinter* self, int param1) {
     auto* vqsciprinter = const_cast<VirtualQsciPrinter*>(dynamic_cast<const VirtualQsciPrinter*>(self));
     if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
         vqsciprinter->setQsciPrinter_Metric_IsBase(true);
@@ -297,7 +297,7 @@ bool QsciPrinter_SetPageLayout(QsciPrinter* self, const QPageLayout* pageLayout)
 }
 
 // Base class handler implementation
-bool QsciPrinter_QBaseSetPageLayout(QsciPrinter* self, const QPageLayout* pageLayout) {
+bool QsciPrinter_SuperSetPageLayout(QsciPrinter* self, const QPageLayout* pageLayout) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
     if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
         vqsciprinter->setQsciPrinter_SetPageLayout_IsBase(true);
@@ -326,7 +326,7 @@ bool QsciPrinter_SetPageSize(QsciPrinter* self, const QPageSize* pageSize) {
 }
 
 // Base class handler implementation
-bool QsciPrinter_QBaseSetPageSize(QsciPrinter* self, const QPageSize* pageSize) {
+bool QsciPrinter_SuperSetPageSize(QsciPrinter* self, const QPageSize* pageSize) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
     if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
         vqsciprinter->setQsciPrinter_SetPageSize_IsBase(true);
@@ -355,7 +355,7 @@ bool QsciPrinter_SetPageOrientation(QsciPrinter* self, int orientation) {
 }
 
 // Base class handler implementation
-bool QsciPrinter_QBaseSetPageOrientation(QsciPrinter* self, int orientation) {
+bool QsciPrinter_SuperSetPageOrientation(QsciPrinter* self, int orientation) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
     if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
         vqsciprinter->setQsciPrinter_SetPageOrientation_IsBase(true);
@@ -384,7 +384,7 @@ bool QsciPrinter_SetPageMargins(QsciPrinter* self, const QMarginsF* margins, int
 }
 
 // Base class handler implementation
-bool QsciPrinter_QBaseSetPageMargins(QsciPrinter* self, const QMarginsF* margins, int units) {
+bool QsciPrinter_SuperSetPageMargins(QsciPrinter* self, const QMarginsF* margins, int units) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
     if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
         vqsciprinter->setQsciPrinter_SetPageMargins_IsBase(true);
@@ -413,7 +413,7 @@ void QsciPrinter_SetPageRanges(QsciPrinter* self, const QPageRanges* ranges) {
 }
 
 // Base class handler implementation
-void QsciPrinter_QBaseSetPageRanges(QsciPrinter* self, const QPageRanges* ranges) {
+void QsciPrinter_SuperSetPageRanges(QsciPrinter* self, const QPageRanges* ranges) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
     if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
         vqsciprinter->setQsciPrinter_SetPageRanges_IsBase(true);
@@ -442,7 +442,7 @@ void QsciPrinter_InitPainter(const QsciPrinter* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QsciPrinter_QBaseInitPainter(const QsciPrinter* self, QPainter* painter) {
+void QsciPrinter_SuperInitPainter(const QsciPrinter* self, QPainter* painter) {
     auto* vqsciprinter = const_cast<VirtualQsciPrinter*>(dynamic_cast<const VirtualQsciPrinter*>(self));
     if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
         vqsciprinter->setQsciPrinter_InitPainter_IsBase(true);
@@ -471,7 +471,7 @@ QPaintDevice* QsciPrinter_Redirected(const QsciPrinter* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QsciPrinter_QBaseRedirected(const QsciPrinter* self, QPoint* offset) {
+QPaintDevice* QsciPrinter_SuperRedirected(const QsciPrinter* self, QPoint* offset) {
     auto* vqsciprinter = const_cast<VirtualQsciPrinter*>(dynamic_cast<const VirtualQsciPrinter*>(self));
     if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
         vqsciprinter->setQsciPrinter_Redirected_IsBase(true);
@@ -500,7 +500,7 @@ QPainter* QsciPrinter_SharedPainter(const QsciPrinter* self) {
 }
 
 // Base class handler implementation
-QPainter* QsciPrinter_QBaseSharedPainter(const QsciPrinter* self) {
+QPainter* QsciPrinter_SuperSharedPainter(const QsciPrinter* self) {
     auto* vqsciprinter = const_cast<VirtualQsciPrinter*>(dynamic_cast<const VirtualQsciPrinter*>(self));
     if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
         vqsciprinter->setQsciPrinter_SharedPainter_IsBase(true);
@@ -529,7 +529,7 @@ void QsciPrinter_SetEngines(QsciPrinter* self, QPrintEngine* printEngine, QPaint
 }
 
 // Base class handler implementation
-void QsciPrinter_QBaseSetEngines(QsciPrinter* self, QPrintEngine* printEngine, QPaintEngine* paintEngine) {
+void QsciPrinter_SuperSetEngines(QsciPrinter* self, QPrintEngine* printEngine, QPaintEngine* paintEngine) {
     auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
     if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
         vqsciprinter->setQsciPrinter_SetEngines_IsBase(true);
@@ -558,7 +558,7 @@ double QsciPrinter_GetDecodedMetricF(const QsciPrinter* self, int metricA, int m
 }
 
 // Base class handler implementation
-double QsciPrinter_QBaseGetDecodedMetricF(const QsciPrinter* self, int metricA, int metricB) {
+double QsciPrinter_SuperGetDecodedMetricF(const QsciPrinter* self, int metricA, int metricB) {
     auto* vqsciprinter = const_cast<VirtualQsciPrinter*>(dynamic_cast<const VirtualQsciPrinter*>(self));
     if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
         vqsciprinter->setQsciPrinter_GetDecodedMetricF_IsBase(true);

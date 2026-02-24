@@ -161,6 +161,10 @@ pub const kdesktopfileaction = struct {
         return qtc.KDesktopFileAction_IsSeparator(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kdesktopfileaction.html#dtor.KDesktopFileAction)
     ///
     /// Delete this object from C++ memory.
@@ -169,7 +173,7 @@ pub const kdesktopfileaction = struct {
     ///
     /// ` self: QtC.KDesktopFileAction `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KDesktopFileAction_Delete(@ptrCast(self));
     }
 };

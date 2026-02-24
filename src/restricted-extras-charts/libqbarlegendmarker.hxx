@@ -366,23 +366,23 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
 
     // Friend functions
     friend void QBarLegendMarker_TimerEvent(QBarLegendMarker* self, QTimerEvent* event);
-    friend void QBarLegendMarker_QBaseTimerEvent(QBarLegendMarker* self, QTimerEvent* event);
+    friend void QBarLegendMarker_SuperTimerEvent(QBarLegendMarker* self, QTimerEvent* event);
     friend void QBarLegendMarker_ChildEvent(QBarLegendMarker* self, QChildEvent* event);
-    friend void QBarLegendMarker_QBaseChildEvent(QBarLegendMarker* self, QChildEvent* event);
+    friend void QBarLegendMarker_SuperChildEvent(QBarLegendMarker* self, QChildEvent* event);
     friend void QBarLegendMarker_CustomEvent(QBarLegendMarker* self, QEvent* event);
-    friend void QBarLegendMarker_QBaseCustomEvent(QBarLegendMarker* self, QEvent* event);
+    friend void QBarLegendMarker_SuperCustomEvent(QBarLegendMarker* self, QEvent* event);
     friend void QBarLegendMarker_ConnectNotify(QBarLegendMarker* self, const QMetaMethod* signal);
-    friend void QBarLegendMarker_QBaseConnectNotify(QBarLegendMarker* self, const QMetaMethod* signal);
+    friend void QBarLegendMarker_SuperConnectNotify(QBarLegendMarker* self, const QMetaMethod* signal);
     friend void QBarLegendMarker_DisconnectNotify(QBarLegendMarker* self, const QMetaMethod* signal);
-    friend void QBarLegendMarker_QBaseDisconnectNotify(QBarLegendMarker* self, const QMetaMethod* signal);
+    friend void QBarLegendMarker_SuperDisconnectNotify(QBarLegendMarker* self, const QMetaMethod* signal);
     friend QObject* QBarLegendMarker_Sender(const QBarLegendMarker* self);
-    friend QObject* QBarLegendMarker_QBaseSender(const QBarLegendMarker* self);
+    friend QObject* QBarLegendMarker_SuperSender(const QBarLegendMarker* self);
     friend int QBarLegendMarker_SenderSignalIndex(const QBarLegendMarker* self);
-    friend int QBarLegendMarker_QBaseSenderSignalIndex(const QBarLegendMarker* self);
+    friend int QBarLegendMarker_SuperSenderSignalIndex(const QBarLegendMarker* self);
     friend int QBarLegendMarker_Receivers(const QBarLegendMarker* self, const char* signal);
-    friend int QBarLegendMarker_QBaseReceivers(const QBarLegendMarker* self, const char* signal);
+    friend int QBarLegendMarker_SuperReceivers(const QBarLegendMarker* self, const char* signal);
     friend bool QBarLegendMarker_IsSignalConnected(const QBarLegendMarker* self, const QMetaMethod* signal);
-    friend bool QBarLegendMarker_QBaseIsSignalConnected(const QBarLegendMarker* self, const QMetaMethod* signal);
+    friend bool QBarLegendMarker_SuperIsSignalConnected(const QBarLegendMarker* self, const QMetaMethod* signal);
 };
 
 #endif

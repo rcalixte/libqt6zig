@@ -399,7 +399,7 @@ libqt_list /* of QVariant* */ QDesignerWidgetDataBaseItemInterface_DefaultProper
 }
 
 // Base class handler implementation
-libqt_string QDesignerWidgetDataBaseItemInterface_QBaseName(const QDesignerWidgetDataBaseItemInterface* self) {
+libqt_string QDesignerWidgetDataBaseItemInterface_SuperName(const QDesignerWidgetDataBaseItemInterface* self) {
     auto* vqdesignerwidgetdatabaseiteminterface = const_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self));
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
         vqdesignerwidgetdatabaseiteminterface->setQDesignerWidgetDataBaseItemInterface_Name_IsBase(true);
@@ -434,7 +434,7 @@ void QDesignerWidgetDataBaseItemInterface_OnName(const QDesignerWidgetDataBaseIt
 }
 
 // Base class handler implementation
-void QDesignerWidgetDataBaseItemInterface_QBaseSetName(QDesignerWidgetDataBaseItemInterface* self, const libqt_string name) {
+void QDesignerWidgetDataBaseItemInterface_SuperSetName(QDesignerWidgetDataBaseItemInterface* self, const libqt_string name) {
     auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
@@ -454,7 +454,7 @@ void QDesignerWidgetDataBaseItemInterface_OnSetName(QDesignerWidgetDataBaseItemI
 }
 
 // Base class handler implementation
-libqt_string QDesignerWidgetDataBaseItemInterface_QBaseGroup(const QDesignerWidgetDataBaseItemInterface* self) {
+libqt_string QDesignerWidgetDataBaseItemInterface_SuperGroup(const QDesignerWidgetDataBaseItemInterface* self) {
     auto* vqdesignerwidgetdatabaseiteminterface = const_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self));
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
         vqdesignerwidgetdatabaseiteminterface->setQDesignerWidgetDataBaseItemInterface_Group_IsBase(true);
@@ -489,7 +489,7 @@ void QDesignerWidgetDataBaseItemInterface_OnGroup(const QDesignerWidgetDataBaseI
 }
 
 // Base class handler implementation
-void QDesignerWidgetDataBaseItemInterface_QBaseSetGroup(QDesignerWidgetDataBaseItemInterface* self, const libqt_string group) {
+void QDesignerWidgetDataBaseItemInterface_SuperSetGroup(QDesignerWidgetDataBaseItemInterface* self, const libqt_string group) {
     auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
     QString group_QString = QString::fromUtf8(group.data, group.len);
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
@@ -509,7 +509,7 @@ void QDesignerWidgetDataBaseItemInterface_OnSetGroup(QDesignerWidgetDataBaseItem
 }
 
 // Base class handler implementation
-libqt_string QDesignerWidgetDataBaseItemInterface_QBaseToolTip(const QDesignerWidgetDataBaseItemInterface* self) {
+libqt_string QDesignerWidgetDataBaseItemInterface_SuperToolTip(const QDesignerWidgetDataBaseItemInterface* self) {
     auto* vqdesignerwidgetdatabaseiteminterface = const_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self));
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
         vqdesignerwidgetdatabaseiteminterface->setQDesignerWidgetDataBaseItemInterface_ToolTip_IsBase(true);
@@ -544,7 +544,7 @@ void QDesignerWidgetDataBaseItemInterface_OnToolTip(const QDesignerWidgetDataBas
 }
 
 // Base class handler implementation
-void QDesignerWidgetDataBaseItemInterface_QBaseSetToolTip(QDesignerWidgetDataBaseItemInterface* self, const libqt_string toolTip) {
+void QDesignerWidgetDataBaseItemInterface_SuperSetToolTip(QDesignerWidgetDataBaseItemInterface* self, const libqt_string toolTip) {
     auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
     QString toolTip_QString = QString::fromUtf8(toolTip.data, toolTip.len);
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
@@ -564,7 +564,7 @@ void QDesignerWidgetDataBaseItemInterface_OnSetToolTip(QDesignerWidgetDataBaseIt
 }
 
 // Base class handler implementation
-libqt_string QDesignerWidgetDataBaseItemInterface_QBaseWhatsThis(const QDesignerWidgetDataBaseItemInterface* self) {
+libqt_string QDesignerWidgetDataBaseItemInterface_SuperWhatsThis(const QDesignerWidgetDataBaseItemInterface* self) {
     auto* vqdesignerwidgetdatabaseiteminterface = const_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self));
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
         vqdesignerwidgetdatabaseiteminterface->setQDesignerWidgetDataBaseItemInterface_WhatsThis_IsBase(true);
@@ -599,7 +599,7 @@ void QDesignerWidgetDataBaseItemInterface_OnWhatsThis(const QDesignerWidgetDataB
 }
 
 // Base class handler implementation
-void QDesignerWidgetDataBaseItemInterface_QBaseSetWhatsThis(QDesignerWidgetDataBaseItemInterface* self, const libqt_string whatsThis) {
+void QDesignerWidgetDataBaseItemInterface_SuperSetWhatsThis(QDesignerWidgetDataBaseItemInterface* self, const libqt_string whatsThis) {
     auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
     QString whatsThis_QString = QString::fromUtf8(whatsThis.data, whatsThis.len);
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
@@ -619,7 +619,7 @@ void QDesignerWidgetDataBaseItemInterface_OnSetWhatsThis(QDesignerWidgetDataBase
 }
 
 // Base class handler implementation
-libqt_string QDesignerWidgetDataBaseItemInterface_QBaseIncludeFile(const QDesignerWidgetDataBaseItemInterface* self) {
+libqt_string QDesignerWidgetDataBaseItemInterface_SuperIncludeFile(const QDesignerWidgetDataBaseItemInterface* self) {
     auto* vqdesignerwidgetdatabaseiteminterface = const_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self));
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
         vqdesignerwidgetdatabaseiteminterface->setQDesignerWidgetDataBaseItemInterface_IncludeFile_IsBase(true);
@@ -654,7 +654,7 @@ void QDesignerWidgetDataBaseItemInterface_OnIncludeFile(const QDesignerWidgetDat
 }
 
 // Base class handler implementation
-void QDesignerWidgetDataBaseItemInterface_QBaseSetIncludeFile(QDesignerWidgetDataBaseItemInterface* self, const libqt_string includeFile) {
+void QDesignerWidgetDataBaseItemInterface_SuperSetIncludeFile(QDesignerWidgetDataBaseItemInterface* self, const libqt_string includeFile) {
     auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
     QString includeFile_QString = QString::fromUtf8(includeFile.data, includeFile.len);
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
@@ -674,7 +674,7 @@ void QDesignerWidgetDataBaseItemInterface_OnSetIncludeFile(QDesignerWidgetDataBa
 }
 
 // Base class handler implementation
-QIcon* QDesignerWidgetDataBaseItemInterface_QBaseIcon(const QDesignerWidgetDataBaseItemInterface* self) {
+QIcon* QDesignerWidgetDataBaseItemInterface_SuperIcon(const QDesignerWidgetDataBaseItemInterface* self) {
     auto* vqdesignerwidgetdatabaseiteminterface = const_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self));
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
         vqdesignerwidgetdatabaseiteminterface->setQDesignerWidgetDataBaseItemInterface_Icon_IsBase(true);
@@ -693,7 +693,7 @@ void QDesignerWidgetDataBaseItemInterface_OnIcon(const QDesignerWidgetDataBaseIt
 }
 
 // Base class handler implementation
-void QDesignerWidgetDataBaseItemInterface_QBaseSetIcon(QDesignerWidgetDataBaseItemInterface* self, const QIcon* icon) {
+void QDesignerWidgetDataBaseItemInterface_SuperSetIcon(QDesignerWidgetDataBaseItemInterface* self, const QIcon* icon) {
     auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
         vqdesignerwidgetdatabaseiteminterface->setQDesignerWidgetDataBaseItemInterface_SetIcon_IsBase(true);
@@ -712,7 +712,7 @@ void QDesignerWidgetDataBaseItemInterface_OnSetIcon(QDesignerWidgetDataBaseItemI
 }
 
 // Base class handler implementation
-bool QDesignerWidgetDataBaseItemInterface_QBaseIsCompat(const QDesignerWidgetDataBaseItemInterface* self) {
+bool QDesignerWidgetDataBaseItemInterface_SuperIsCompat(const QDesignerWidgetDataBaseItemInterface* self) {
     auto* vqdesignerwidgetdatabaseiteminterface = const_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self));
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
         vqdesignerwidgetdatabaseiteminterface->setQDesignerWidgetDataBaseItemInterface_IsCompat_IsBase(true);
@@ -731,7 +731,7 @@ void QDesignerWidgetDataBaseItemInterface_OnIsCompat(const QDesignerWidgetDataBa
 }
 
 // Base class handler implementation
-void QDesignerWidgetDataBaseItemInterface_QBaseSetCompat(QDesignerWidgetDataBaseItemInterface* self, bool compat) {
+void QDesignerWidgetDataBaseItemInterface_SuperSetCompat(QDesignerWidgetDataBaseItemInterface* self, bool compat) {
     auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
         vqdesignerwidgetdatabaseiteminterface->setQDesignerWidgetDataBaseItemInterface_SetCompat_IsBase(true);
@@ -750,7 +750,7 @@ void QDesignerWidgetDataBaseItemInterface_OnSetCompat(QDesignerWidgetDataBaseIte
 }
 
 // Base class handler implementation
-bool QDesignerWidgetDataBaseItemInterface_QBaseIsContainer(const QDesignerWidgetDataBaseItemInterface* self) {
+bool QDesignerWidgetDataBaseItemInterface_SuperIsContainer(const QDesignerWidgetDataBaseItemInterface* self) {
     auto* vqdesignerwidgetdatabaseiteminterface = const_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self));
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
         vqdesignerwidgetdatabaseiteminterface->setQDesignerWidgetDataBaseItemInterface_IsContainer_IsBase(true);
@@ -769,7 +769,7 @@ void QDesignerWidgetDataBaseItemInterface_OnIsContainer(const QDesignerWidgetDat
 }
 
 // Base class handler implementation
-void QDesignerWidgetDataBaseItemInterface_QBaseSetContainer(QDesignerWidgetDataBaseItemInterface* self, bool container) {
+void QDesignerWidgetDataBaseItemInterface_SuperSetContainer(QDesignerWidgetDataBaseItemInterface* self, bool container) {
     auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
         vqdesignerwidgetdatabaseiteminterface->setQDesignerWidgetDataBaseItemInterface_SetContainer_IsBase(true);
@@ -788,7 +788,7 @@ void QDesignerWidgetDataBaseItemInterface_OnSetContainer(QDesignerWidgetDataBase
 }
 
 // Base class handler implementation
-bool QDesignerWidgetDataBaseItemInterface_QBaseIsCustom(const QDesignerWidgetDataBaseItemInterface* self) {
+bool QDesignerWidgetDataBaseItemInterface_SuperIsCustom(const QDesignerWidgetDataBaseItemInterface* self) {
     auto* vqdesignerwidgetdatabaseiteminterface = const_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self));
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
         vqdesignerwidgetdatabaseiteminterface->setQDesignerWidgetDataBaseItemInterface_IsCustom_IsBase(true);
@@ -807,7 +807,7 @@ void QDesignerWidgetDataBaseItemInterface_OnIsCustom(const QDesignerWidgetDataBa
 }
 
 // Base class handler implementation
-void QDesignerWidgetDataBaseItemInterface_QBaseSetCustom(QDesignerWidgetDataBaseItemInterface* self, bool custom) {
+void QDesignerWidgetDataBaseItemInterface_SuperSetCustom(QDesignerWidgetDataBaseItemInterface* self, bool custom) {
     auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
         vqdesignerwidgetdatabaseiteminterface->setQDesignerWidgetDataBaseItemInterface_SetCustom_IsBase(true);
@@ -826,7 +826,7 @@ void QDesignerWidgetDataBaseItemInterface_OnSetCustom(QDesignerWidgetDataBaseIte
 }
 
 // Base class handler implementation
-libqt_string QDesignerWidgetDataBaseItemInterface_QBasePluginPath(const QDesignerWidgetDataBaseItemInterface* self) {
+libqt_string QDesignerWidgetDataBaseItemInterface_SuperPluginPath(const QDesignerWidgetDataBaseItemInterface* self) {
     auto* vqdesignerwidgetdatabaseiteminterface = const_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self));
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
         vqdesignerwidgetdatabaseiteminterface->setQDesignerWidgetDataBaseItemInterface_PluginPath_IsBase(true);
@@ -861,7 +861,7 @@ void QDesignerWidgetDataBaseItemInterface_OnPluginPath(const QDesignerWidgetData
 }
 
 // Base class handler implementation
-void QDesignerWidgetDataBaseItemInterface_QBaseSetPluginPath(QDesignerWidgetDataBaseItemInterface* self, const libqt_string path) {
+void QDesignerWidgetDataBaseItemInterface_SuperSetPluginPath(QDesignerWidgetDataBaseItemInterface* self, const libqt_string path) {
     auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
     QString path_QString = QString::fromUtf8(path.data, path.len);
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
@@ -881,7 +881,7 @@ void QDesignerWidgetDataBaseItemInterface_OnSetPluginPath(QDesignerWidgetDataBas
 }
 
 // Base class handler implementation
-bool QDesignerWidgetDataBaseItemInterface_QBaseIsPromoted(const QDesignerWidgetDataBaseItemInterface* self) {
+bool QDesignerWidgetDataBaseItemInterface_SuperIsPromoted(const QDesignerWidgetDataBaseItemInterface* self) {
     auto* vqdesignerwidgetdatabaseiteminterface = const_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self));
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
         vqdesignerwidgetdatabaseiteminterface->setQDesignerWidgetDataBaseItemInterface_IsPromoted_IsBase(true);
@@ -900,7 +900,7 @@ void QDesignerWidgetDataBaseItemInterface_OnIsPromoted(const QDesignerWidgetData
 }
 
 // Base class handler implementation
-void QDesignerWidgetDataBaseItemInterface_QBaseSetPromoted(QDesignerWidgetDataBaseItemInterface* self, bool b) {
+void QDesignerWidgetDataBaseItemInterface_SuperSetPromoted(QDesignerWidgetDataBaseItemInterface* self, bool b) {
     auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
         vqdesignerwidgetdatabaseiteminterface->setQDesignerWidgetDataBaseItemInterface_SetPromoted_IsBase(true);
@@ -919,7 +919,7 @@ void QDesignerWidgetDataBaseItemInterface_OnSetPromoted(QDesignerWidgetDataBaseI
 }
 
 // Base class handler implementation
-libqt_string QDesignerWidgetDataBaseItemInterface_QBaseExtends(const QDesignerWidgetDataBaseItemInterface* self) {
+libqt_string QDesignerWidgetDataBaseItemInterface_SuperExtends(const QDesignerWidgetDataBaseItemInterface* self) {
     auto* vqdesignerwidgetdatabaseiteminterface = const_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self));
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
         vqdesignerwidgetdatabaseiteminterface->setQDesignerWidgetDataBaseItemInterface_Extends_IsBase(true);
@@ -954,7 +954,7 @@ void QDesignerWidgetDataBaseItemInterface_OnExtends(const QDesignerWidgetDataBas
 }
 
 // Base class handler implementation
-void QDesignerWidgetDataBaseItemInterface_QBaseSetExtends(QDesignerWidgetDataBaseItemInterface* self, const libqt_string s) {
+void QDesignerWidgetDataBaseItemInterface_SuperSetExtends(QDesignerWidgetDataBaseItemInterface* self, const libqt_string s) {
     auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
     QString s_QString = QString::fromUtf8(s.data, s.len);
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
@@ -974,7 +974,7 @@ void QDesignerWidgetDataBaseItemInterface_OnSetExtends(QDesignerWidgetDataBaseIt
 }
 
 // Base class handler implementation
-void QDesignerWidgetDataBaseItemInterface_QBaseSetDefaultPropertyValues(QDesignerWidgetDataBaseItemInterface* self, const libqt_list /* of QVariant* */ list) {
+void QDesignerWidgetDataBaseItemInterface_SuperSetDefaultPropertyValues(QDesignerWidgetDataBaseItemInterface* self, const libqt_list /* of QVariant* */ list) {
     auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
     QList<QVariant> list_QList;
     list_QList.reserve(list.len);
@@ -999,7 +999,7 @@ void QDesignerWidgetDataBaseItemInterface_OnSetDefaultPropertyValues(QDesignerWi
 }
 
 // Base class handler implementation
-libqt_list /* of QVariant* */ QDesignerWidgetDataBaseItemInterface_QBaseDefaultPropertyValues(const QDesignerWidgetDataBaseItemInterface* self) {
+libqt_list /* of QVariant* */ QDesignerWidgetDataBaseItemInterface_SuperDefaultPropertyValues(const QDesignerWidgetDataBaseItemInterface* self) {
     auto* vqdesignerwidgetdatabaseiteminterface = const_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self));
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
         vqdesignerwidgetdatabaseiteminterface->setQDesignerWidgetDataBaseItemInterface_DefaultPropertyValues_IsBase(true);
@@ -1175,7 +1175,7 @@ bool QDesignerWidgetDataBaseInterface_IsCustom2(const QDesignerWidgetDataBaseInt
 }
 
 // Base class handler implementation
-QMetaObject* QDesignerWidgetDataBaseInterface_QBaseMetaObject(const QDesignerWidgetDataBaseInterface* self) {
+QMetaObject* QDesignerWidgetDataBaseInterface_SuperMetaObject(const QDesignerWidgetDataBaseInterface* self) {
     auto* vqdesignerwidgetdatabaseinterface = const_cast<VirtualQDesignerWidgetDataBaseInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseInterface*>(self));
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
         vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_MetaObject_IsBase(true);
@@ -1194,7 +1194,7 @@ void QDesignerWidgetDataBaseInterface_OnMetaObject(const QDesignerWidgetDataBase
 }
 
 // Base class handler implementation
-void* QDesignerWidgetDataBaseInterface_QBaseMetacast(QDesignerWidgetDataBaseInterface* self, const char* param1) {
+void* QDesignerWidgetDataBaseInterface_SuperMetacast(QDesignerWidgetDataBaseInterface* self, const char* param1) {
     auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<VirtualQDesignerWidgetDataBaseInterface*>(self);
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
         vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_Metacast_IsBase(true);
@@ -1213,7 +1213,7 @@ void QDesignerWidgetDataBaseInterface_OnMetacast(QDesignerWidgetDataBaseInterfac
 }
 
 // Base class handler implementation
-int QDesignerWidgetDataBaseInterface_QBaseMetacall(QDesignerWidgetDataBaseInterface* self, int param1, int param2, void** param3) {
+int QDesignerWidgetDataBaseInterface_SuperMetacall(QDesignerWidgetDataBaseInterface* self, int param1, int param2, void** param3) {
     auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<VirtualQDesignerWidgetDataBaseInterface*>(self);
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
         vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_Metacall_IsBase(true);
@@ -1232,7 +1232,7 @@ void QDesignerWidgetDataBaseInterface_OnMetacall(QDesignerWidgetDataBaseInterfac
 }
 
 // Base class handler implementation
-int QDesignerWidgetDataBaseInterface_QBaseCount(const QDesignerWidgetDataBaseInterface* self) {
+int QDesignerWidgetDataBaseInterface_SuperCount(const QDesignerWidgetDataBaseInterface* self) {
     auto* vqdesignerwidgetdatabaseinterface = const_cast<VirtualQDesignerWidgetDataBaseInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseInterface*>(self));
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
         vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_Count_IsBase(true);
@@ -1251,7 +1251,7 @@ void QDesignerWidgetDataBaseInterface_OnCount(const QDesignerWidgetDataBaseInter
 }
 
 // Base class handler implementation
-QDesignerWidgetDataBaseItemInterface* QDesignerWidgetDataBaseInterface_QBaseItem(const QDesignerWidgetDataBaseInterface* self, int index) {
+QDesignerWidgetDataBaseItemInterface* QDesignerWidgetDataBaseInterface_SuperItem(const QDesignerWidgetDataBaseInterface* self, int index) {
     auto* vqdesignerwidgetdatabaseinterface = const_cast<VirtualQDesignerWidgetDataBaseInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseInterface*>(self));
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
         vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_Item_IsBase(true);
@@ -1270,7 +1270,7 @@ void QDesignerWidgetDataBaseInterface_OnItem(const QDesignerWidgetDataBaseInterf
 }
 
 // Base class handler implementation
-int QDesignerWidgetDataBaseInterface_QBaseIndexOf(const QDesignerWidgetDataBaseInterface* self, QDesignerWidgetDataBaseItemInterface* item) {
+int QDesignerWidgetDataBaseInterface_SuperIndexOf(const QDesignerWidgetDataBaseInterface* self, QDesignerWidgetDataBaseItemInterface* item) {
     auto* vqdesignerwidgetdatabaseinterface = const_cast<VirtualQDesignerWidgetDataBaseInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseInterface*>(self));
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
         vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_IndexOf_IsBase(true);
@@ -1289,7 +1289,7 @@ void QDesignerWidgetDataBaseInterface_OnIndexOf(const QDesignerWidgetDataBaseInt
 }
 
 // Base class handler implementation
-void QDesignerWidgetDataBaseInterface_QBaseInsert(QDesignerWidgetDataBaseInterface* self, int index, QDesignerWidgetDataBaseItemInterface* item) {
+void QDesignerWidgetDataBaseInterface_SuperInsert(QDesignerWidgetDataBaseInterface* self, int index, QDesignerWidgetDataBaseItemInterface* item) {
     auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<VirtualQDesignerWidgetDataBaseInterface*>(self);
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
         vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_Insert_IsBase(true);
@@ -1308,7 +1308,7 @@ void QDesignerWidgetDataBaseInterface_OnInsert(QDesignerWidgetDataBaseInterface*
 }
 
 // Base class handler implementation
-void QDesignerWidgetDataBaseInterface_QBaseAppend(QDesignerWidgetDataBaseInterface* self, QDesignerWidgetDataBaseItemInterface* item) {
+void QDesignerWidgetDataBaseInterface_SuperAppend(QDesignerWidgetDataBaseInterface* self, QDesignerWidgetDataBaseItemInterface* item) {
     auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<VirtualQDesignerWidgetDataBaseInterface*>(self);
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
         vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_Append_IsBase(true);
@@ -1327,7 +1327,7 @@ void QDesignerWidgetDataBaseInterface_OnAppend(QDesignerWidgetDataBaseInterface*
 }
 
 // Base class handler implementation
-int QDesignerWidgetDataBaseInterface_QBaseIndexOfObject(const QDesignerWidgetDataBaseInterface* self, QObject* object, bool resolveName) {
+int QDesignerWidgetDataBaseInterface_SuperIndexOfObject(const QDesignerWidgetDataBaseInterface* self, QObject* object, bool resolveName) {
     auto* vqdesignerwidgetdatabaseinterface = const_cast<VirtualQDesignerWidgetDataBaseInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseInterface*>(self));
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
         vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_IndexOfObject_IsBase(true);
@@ -1346,7 +1346,7 @@ void QDesignerWidgetDataBaseInterface_OnIndexOfObject(const QDesignerWidgetDataB
 }
 
 // Base class handler implementation
-int QDesignerWidgetDataBaseInterface_QBaseIndexOfClassName(const QDesignerWidgetDataBaseInterface* self, const libqt_string className, bool resolveName) {
+int QDesignerWidgetDataBaseInterface_SuperIndexOfClassName(const QDesignerWidgetDataBaseInterface* self, const libqt_string className, bool resolveName) {
     auto* vqdesignerwidgetdatabaseinterface = const_cast<VirtualQDesignerWidgetDataBaseInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseInterface*>(self));
     QString className_QString = QString::fromUtf8(className.data, className.len);
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
@@ -1366,7 +1366,7 @@ void QDesignerWidgetDataBaseInterface_OnIndexOfClassName(const QDesignerWidgetDa
 }
 
 // Base class handler implementation
-QDesignerFormEditorInterface* QDesignerWidgetDataBaseInterface_QBaseCore(const QDesignerWidgetDataBaseInterface* self) {
+QDesignerFormEditorInterface* QDesignerWidgetDataBaseInterface_SuperCore(const QDesignerWidgetDataBaseInterface* self) {
     auto* vqdesignerwidgetdatabaseinterface = const_cast<VirtualQDesignerWidgetDataBaseInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseInterface*>(self));
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
         vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_Core_IsBase(true);
@@ -1395,7 +1395,7 @@ bool QDesignerWidgetDataBaseInterface_Event(QDesignerWidgetDataBaseInterface* se
 }
 
 // Base class handler implementation
-bool QDesignerWidgetDataBaseInterface_QBaseEvent(QDesignerWidgetDataBaseInterface* self, QEvent* event) {
+bool QDesignerWidgetDataBaseInterface_SuperEvent(QDesignerWidgetDataBaseInterface* self, QEvent* event) {
     auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<VirtualQDesignerWidgetDataBaseInterface*>(self);
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
         vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_Event_IsBase(true);
@@ -1424,7 +1424,7 @@ bool QDesignerWidgetDataBaseInterface_EventFilter(QDesignerWidgetDataBaseInterfa
 }
 
 // Base class handler implementation
-bool QDesignerWidgetDataBaseInterface_QBaseEventFilter(QDesignerWidgetDataBaseInterface* self, QObject* watched, QEvent* event) {
+bool QDesignerWidgetDataBaseInterface_SuperEventFilter(QDesignerWidgetDataBaseInterface* self, QObject* watched, QEvent* event) {
     auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<VirtualQDesignerWidgetDataBaseInterface*>(self);
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
         vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_EventFilter_IsBase(true);
@@ -1453,7 +1453,7 @@ void QDesignerWidgetDataBaseInterface_TimerEvent(QDesignerWidgetDataBaseInterfac
 }
 
 // Base class handler implementation
-void QDesignerWidgetDataBaseInterface_QBaseTimerEvent(QDesignerWidgetDataBaseInterface* self, QTimerEvent* event) {
+void QDesignerWidgetDataBaseInterface_SuperTimerEvent(QDesignerWidgetDataBaseInterface* self, QTimerEvent* event) {
     auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<VirtualQDesignerWidgetDataBaseInterface*>(self);
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
         vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_TimerEvent_IsBase(true);
@@ -1482,7 +1482,7 @@ void QDesignerWidgetDataBaseInterface_ChildEvent(QDesignerWidgetDataBaseInterfac
 }
 
 // Base class handler implementation
-void QDesignerWidgetDataBaseInterface_QBaseChildEvent(QDesignerWidgetDataBaseInterface* self, QChildEvent* event) {
+void QDesignerWidgetDataBaseInterface_SuperChildEvent(QDesignerWidgetDataBaseInterface* self, QChildEvent* event) {
     auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<VirtualQDesignerWidgetDataBaseInterface*>(self);
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
         vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_ChildEvent_IsBase(true);
@@ -1511,7 +1511,7 @@ void QDesignerWidgetDataBaseInterface_CustomEvent(QDesignerWidgetDataBaseInterfa
 }
 
 // Base class handler implementation
-void QDesignerWidgetDataBaseInterface_QBaseCustomEvent(QDesignerWidgetDataBaseInterface* self, QEvent* event) {
+void QDesignerWidgetDataBaseInterface_SuperCustomEvent(QDesignerWidgetDataBaseInterface* self, QEvent* event) {
     auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<VirtualQDesignerWidgetDataBaseInterface*>(self);
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
         vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_CustomEvent_IsBase(true);
@@ -1540,7 +1540,7 @@ void QDesignerWidgetDataBaseInterface_ConnectNotify(QDesignerWidgetDataBaseInter
 }
 
 // Base class handler implementation
-void QDesignerWidgetDataBaseInterface_QBaseConnectNotify(QDesignerWidgetDataBaseInterface* self, const QMetaMethod* signal) {
+void QDesignerWidgetDataBaseInterface_SuperConnectNotify(QDesignerWidgetDataBaseInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<VirtualQDesignerWidgetDataBaseInterface*>(self);
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
         vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_ConnectNotify_IsBase(true);
@@ -1569,7 +1569,7 @@ void QDesignerWidgetDataBaseInterface_DisconnectNotify(QDesignerWidgetDataBaseIn
 }
 
 // Base class handler implementation
-void QDesignerWidgetDataBaseInterface_QBaseDisconnectNotify(QDesignerWidgetDataBaseInterface* self, const QMetaMethod* signal) {
+void QDesignerWidgetDataBaseInterface_SuperDisconnectNotify(QDesignerWidgetDataBaseInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<VirtualQDesignerWidgetDataBaseInterface*>(self);
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
         vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_DisconnectNotify_IsBase(true);
@@ -1598,7 +1598,7 @@ QObject* QDesignerWidgetDataBaseInterface_Sender(const QDesignerWidgetDataBaseIn
 }
 
 // Base class handler implementation
-QObject* QDesignerWidgetDataBaseInterface_QBaseSender(const QDesignerWidgetDataBaseInterface* self) {
+QObject* QDesignerWidgetDataBaseInterface_SuperSender(const QDesignerWidgetDataBaseInterface* self) {
     auto* vqdesignerwidgetdatabaseinterface = const_cast<VirtualQDesignerWidgetDataBaseInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseInterface*>(self));
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
         vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_Sender_IsBase(true);
@@ -1627,7 +1627,7 @@ int QDesignerWidgetDataBaseInterface_SenderSignalIndex(const QDesignerWidgetData
 }
 
 // Base class handler implementation
-int QDesignerWidgetDataBaseInterface_QBaseSenderSignalIndex(const QDesignerWidgetDataBaseInterface* self) {
+int QDesignerWidgetDataBaseInterface_SuperSenderSignalIndex(const QDesignerWidgetDataBaseInterface* self) {
     auto* vqdesignerwidgetdatabaseinterface = const_cast<VirtualQDesignerWidgetDataBaseInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseInterface*>(self));
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
         vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_SenderSignalIndex_IsBase(true);
@@ -1656,7 +1656,7 @@ int QDesignerWidgetDataBaseInterface_Receivers(const QDesignerWidgetDataBaseInte
 }
 
 // Base class handler implementation
-int QDesignerWidgetDataBaseInterface_QBaseReceivers(const QDesignerWidgetDataBaseInterface* self, const char* signal) {
+int QDesignerWidgetDataBaseInterface_SuperReceivers(const QDesignerWidgetDataBaseInterface* self, const char* signal) {
     auto* vqdesignerwidgetdatabaseinterface = const_cast<VirtualQDesignerWidgetDataBaseInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseInterface*>(self));
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
         vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_Receivers_IsBase(true);
@@ -1685,7 +1685,7 @@ bool QDesignerWidgetDataBaseInterface_IsSignalConnected(const QDesignerWidgetDat
 }
 
 // Base class handler implementation
-bool QDesignerWidgetDataBaseInterface_QBaseIsSignalConnected(const QDesignerWidgetDataBaseInterface* self, const QMetaMethod* signal) {
+bool QDesignerWidgetDataBaseInterface_SuperIsSignalConnected(const QDesignerWidgetDataBaseInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerwidgetdatabaseinterface = const_cast<VirtualQDesignerWidgetDataBaseInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseInterface*>(self));
     if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
         vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_IsSignalConnected_IsBase(true);

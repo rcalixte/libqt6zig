@@ -574,23 +574,23 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
 
     // Friend functions
     friend void QDesignerFormWindowManagerInterface_TimerEvent(QDesignerFormWindowManagerInterface* self, QTimerEvent* event);
-    friend void QDesignerFormWindowManagerInterface_QBaseTimerEvent(QDesignerFormWindowManagerInterface* self, QTimerEvent* event);
+    friend void QDesignerFormWindowManagerInterface_SuperTimerEvent(QDesignerFormWindowManagerInterface* self, QTimerEvent* event);
     friend void QDesignerFormWindowManagerInterface_ChildEvent(QDesignerFormWindowManagerInterface* self, QChildEvent* event);
-    friend void QDesignerFormWindowManagerInterface_QBaseChildEvent(QDesignerFormWindowManagerInterface* self, QChildEvent* event);
+    friend void QDesignerFormWindowManagerInterface_SuperChildEvent(QDesignerFormWindowManagerInterface* self, QChildEvent* event);
     friend void QDesignerFormWindowManagerInterface_CustomEvent(QDesignerFormWindowManagerInterface* self, QEvent* event);
-    friend void QDesignerFormWindowManagerInterface_QBaseCustomEvent(QDesignerFormWindowManagerInterface* self, QEvent* event);
+    friend void QDesignerFormWindowManagerInterface_SuperCustomEvent(QDesignerFormWindowManagerInterface* self, QEvent* event);
     friend void QDesignerFormWindowManagerInterface_ConnectNotify(QDesignerFormWindowManagerInterface* self, const QMetaMethod* signal);
-    friend void QDesignerFormWindowManagerInterface_QBaseConnectNotify(QDesignerFormWindowManagerInterface* self, const QMetaMethod* signal);
+    friend void QDesignerFormWindowManagerInterface_SuperConnectNotify(QDesignerFormWindowManagerInterface* self, const QMetaMethod* signal);
     friend void QDesignerFormWindowManagerInterface_DisconnectNotify(QDesignerFormWindowManagerInterface* self, const QMetaMethod* signal);
-    friend void QDesignerFormWindowManagerInterface_QBaseDisconnectNotify(QDesignerFormWindowManagerInterface* self, const QMetaMethod* signal);
+    friend void QDesignerFormWindowManagerInterface_SuperDisconnectNotify(QDesignerFormWindowManagerInterface* self, const QMetaMethod* signal);
     friend QObject* QDesignerFormWindowManagerInterface_Sender(const QDesignerFormWindowManagerInterface* self);
-    friend QObject* QDesignerFormWindowManagerInterface_QBaseSender(const QDesignerFormWindowManagerInterface* self);
+    friend QObject* QDesignerFormWindowManagerInterface_SuperSender(const QDesignerFormWindowManagerInterface* self);
     friend int QDesignerFormWindowManagerInterface_SenderSignalIndex(const QDesignerFormWindowManagerInterface* self);
-    friend int QDesignerFormWindowManagerInterface_QBaseSenderSignalIndex(const QDesignerFormWindowManagerInterface* self);
+    friend int QDesignerFormWindowManagerInterface_SuperSenderSignalIndex(const QDesignerFormWindowManagerInterface* self);
     friend int QDesignerFormWindowManagerInterface_Receivers(const QDesignerFormWindowManagerInterface* self, const char* signal);
-    friend int QDesignerFormWindowManagerInterface_QBaseReceivers(const QDesignerFormWindowManagerInterface* self, const char* signal);
+    friend int QDesignerFormWindowManagerInterface_SuperReceivers(const QDesignerFormWindowManagerInterface* self, const char* signal);
     friend bool QDesignerFormWindowManagerInterface_IsSignalConnected(const QDesignerFormWindowManagerInterface* self, const QMetaMethod* signal);
-    friend bool QDesignerFormWindowManagerInterface_QBaseIsSignalConnected(const QDesignerFormWindowManagerInterface* self, const QMetaMethod* signal);
+    friend bool QDesignerFormWindowManagerInterface_SuperIsSignalConnected(const QDesignerFormWindowManagerInterface* self, const QMetaMethod* signal);
 };
 
 #endif

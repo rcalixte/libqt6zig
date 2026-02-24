@@ -522,6 +522,10 @@ pub const qpagelayout = struct {
         return qtc.QPageLayout_SetBottomMargin2(@ptrCast(self), @bitCast(bottomMargin), @bitCast(outOfBoundsPolicy));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#dtor.QPageLayout)
     ///
     /// Delete this object from C++ memory.
@@ -530,7 +534,7 @@ pub const qpagelayout = struct {
     ///
     /// ` self: QtC.QPageLayout `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPageLayout_Delete(@ptrCast(self));
     }
 };

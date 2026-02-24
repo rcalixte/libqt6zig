@@ -328,23 +328,23 @@ class VirtualQObject final : public QObject {
 
     // Friend functions
     friend void QObject_TimerEvent(QObject* self, QTimerEvent* event);
-    friend void QObject_QBaseTimerEvent(QObject* self, QTimerEvent* event);
+    friend void QObject_SuperTimerEvent(QObject* self, QTimerEvent* event);
     friend void QObject_ChildEvent(QObject* self, QChildEvent* event);
-    friend void QObject_QBaseChildEvent(QObject* self, QChildEvent* event);
+    friend void QObject_SuperChildEvent(QObject* self, QChildEvent* event);
     friend void QObject_CustomEvent(QObject* self, QEvent* event);
-    friend void QObject_QBaseCustomEvent(QObject* self, QEvent* event);
+    friend void QObject_SuperCustomEvent(QObject* self, QEvent* event);
     friend void QObject_ConnectNotify(QObject* self, const QMetaMethod* signal);
-    friend void QObject_QBaseConnectNotify(QObject* self, const QMetaMethod* signal);
+    friend void QObject_SuperConnectNotify(QObject* self, const QMetaMethod* signal);
     friend void QObject_DisconnectNotify(QObject* self, const QMetaMethod* signal);
-    friend void QObject_QBaseDisconnectNotify(QObject* self, const QMetaMethod* signal);
+    friend void QObject_SuperDisconnectNotify(QObject* self, const QMetaMethod* signal);
     friend QObject* QObject_Sender(const QObject* self);
-    friend QObject* QObject_QBaseSender(const QObject* self);
+    friend QObject* QObject_SuperSender(const QObject* self);
     friend int QObject_SenderSignalIndex(const QObject* self);
-    friend int QObject_QBaseSenderSignalIndex(const QObject* self);
+    friend int QObject_SuperSenderSignalIndex(const QObject* self);
     friend int QObject_Receivers(const QObject* self, const char* signal);
-    friend int QObject_QBaseReceivers(const QObject* self, const char* signal);
+    friend int QObject_SuperReceivers(const QObject* self, const char* signal);
     friend bool QObject_IsSignalConnected(const QObject* self, const QMetaMethod* signal);
-    friend bool QObject_QBaseIsSignalConnected(const QObject* self, const QMetaMethod* signal);
+    friend bool QObject_SuperIsSignalConnected(const QObject* self, const QMetaMethod* signal);
 };
 
 #endif

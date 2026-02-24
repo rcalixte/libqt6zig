@@ -149,7 +149,7 @@ void KIO__RenameDialog_SuggestNewNamePressed(KIO__RenameDialog* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KIO__RenameDialog_QBaseMetaObject(const KIO__RenameDialog* self) {
+QMetaObject* KIO__RenameDialog_SuperMetaObject(const KIO__RenameDialog* self) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_MetaObject_IsBase(true);
@@ -168,7 +168,7 @@ void KIO__RenameDialog_OnMetaObject(const KIO__RenameDialog* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* KIO__RenameDialog_QBaseMetacast(KIO__RenameDialog* self, const char* param1) {
+void* KIO__RenameDialog_SuperMetacast(KIO__RenameDialog* self, const char* param1) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_Metacast_IsBase(true);
@@ -187,7 +187,7 @@ void KIO__RenameDialog_OnMetacast(KIO__RenameDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KIO__RenameDialog_QBaseMetacall(KIO__RenameDialog* self, int param1, int param2, void** param3) {
+int KIO__RenameDialog_SuperMetacall(KIO__RenameDialog* self, int param1, int param2, void** param3) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_Metacall_IsBase(true);
@@ -216,7 +216,7 @@ void KIO__RenameDialog_SetVisible(KIO__RenameDialog* self, bool visible) {
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseSetVisible(KIO__RenameDialog* self, bool visible) {
+void KIO__RenameDialog_SuperSetVisible(KIO__RenameDialog* self, bool visible) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_SetVisible_IsBase(true);
@@ -245,7 +245,7 @@ QSize* KIO__RenameDialog_SizeHint(const KIO__RenameDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KIO__RenameDialog_QBaseSizeHint(const KIO__RenameDialog* self) {
+QSize* KIO__RenameDialog_SuperSizeHint(const KIO__RenameDialog* self) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_SizeHint_IsBase(true);
@@ -274,7 +274,7 @@ QSize* KIO__RenameDialog_MinimumSizeHint(const KIO__RenameDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KIO__RenameDialog_QBaseMinimumSizeHint(const KIO__RenameDialog* self) {
+QSize* KIO__RenameDialog_SuperMinimumSizeHint(const KIO__RenameDialog* self) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_MinimumSizeHint_IsBase(true);
@@ -303,7 +303,7 @@ void KIO__RenameDialog_Open(KIO__RenameDialog* self) {
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseOpen(KIO__RenameDialog* self) {
+void KIO__RenameDialog_SuperOpen(KIO__RenameDialog* self) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_Open_IsBase(true);
@@ -332,7 +332,7 @@ int KIO__RenameDialog_Exec(KIO__RenameDialog* self) {
 }
 
 // Base class handler implementation
-int KIO__RenameDialog_QBaseExec(KIO__RenameDialog* self) {
+int KIO__RenameDialog_SuperExec(KIO__RenameDialog* self) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_Exec_IsBase(true);
@@ -361,7 +361,7 @@ void KIO__RenameDialog_Done(KIO__RenameDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseDone(KIO__RenameDialog* self, int param1) {
+void KIO__RenameDialog_SuperDone(KIO__RenameDialog* self, int param1) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_Done_IsBase(true);
@@ -390,7 +390,7 @@ void KIO__RenameDialog_Accept(KIO__RenameDialog* self) {
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseAccept(KIO__RenameDialog* self) {
+void KIO__RenameDialog_SuperAccept(KIO__RenameDialog* self) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_Accept_IsBase(true);
@@ -419,7 +419,7 @@ void KIO__RenameDialog_Reject(KIO__RenameDialog* self) {
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseReject(KIO__RenameDialog* self) {
+void KIO__RenameDialog_SuperReject(KIO__RenameDialog* self) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_Reject_IsBase(true);
@@ -448,7 +448,7 @@ void KIO__RenameDialog_KeyPressEvent(KIO__RenameDialog* self, QKeyEvent* param1)
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseKeyPressEvent(KIO__RenameDialog* self, QKeyEvent* param1) {
+void KIO__RenameDialog_SuperKeyPressEvent(KIO__RenameDialog* self, QKeyEvent* param1) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_KeyPressEvent_IsBase(true);
@@ -477,7 +477,7 @@ void KIO__RenameDialog_CloseEvent(KIO__RenameDialog* self, QCloseEvent* param1) 
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseCloseEvent(KIO__RenameDialog* self, QCloseEvent* param1) {
+void KIO__RenameDialog_SuperCloseEvent(KIO__RenameDialog* self, QCloseEvent* param1) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_CloseEvent_IsBase(true);
@@ -506,7 +506,7 @@ void KIO__RenameDialog_ShowEvent(KIO__RenameDialog* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseShowEvent(KIO__RenameDialog* self, QShowEvent* param1) {
+void KIO__RenameDialog_SuperShowEvent(KIO__RenameDialog* self, QShowEvent* param1) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_ShowEvent_IsBase(true);
@@ -535,7 +535,7 @@ void KIO__RenameDialog_ResizeEvent(KIO__RenameDialog* self, QResizeEvent* param1
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseResizeEvent(KIO__RenameDialog* self, QResizeEvent* param1) {
+void KIO__RenameDialog_SuperResizeEvent(KIO__RenameDialog* self, QResizeEvent* param1) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_ResizeEvent_IsBase(true);
@@ -564,7 +564,7 @@ void KIO__RenameDialog_ContextMenuEvent(KIO__RenameDialog* self, QContextMenuEve
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseContextMenuEvent(KIO__RenameDialog* self, QContextMenuEvent* param1) {
+void KIO__RenameDialog_SuperContextMenuEvent(KIO__RenameDialog* self, QContextMenuEvent* param1) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_ContextMenuEvent_IsBase(true);
@@ -593,7 +593,7 @@ bool KIO__RenameDialog_EventFilter(KIO__RenameDialog* self, QObject* param1, QEv
 }
 
 // Base class handler implementation
-bool KIO__RenameDialog_QBaseEventFilter(KIO__RenameDialog* self, QObject* param1, QEvent* param2) {
+bool KIO__RenameDialog_SuperEventFilter(KIO__RenameDialog* self, QObject* param1, QEvent* param2) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_EventFilter_IsBase(true);
@@ -622,7 +622,7 @@ int KIO__RenameDialog_DevType(const KIO__RenameDialog* self) {
 }
 
 // Base class handler implementation
-int KIO__RenameDialog_QBaseDevType(const KIO__RenameDialog* self) {
+int KIO__RenameDialog_SuperDevType(const KIO__RenameDialog* self) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_DevType_IsBase(true);
@@ -651,7 +651,7 @@ int KIO__RenameDialog_HeightForWidth(const KIO__RenameDialog* self, int param1) 
 }
 
 // Base class handler implementation
-int KIO__RenameDialog_QBaseHeightForWidth(const KIO__RenameDialog* self, int param1) {
+int KIO__RenameDialog_SuperHeightForWidth(const KIO__RenameDialog* self, int param1) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_HeightForWidth_IsBase(true);
@@ -680,7 +680,7 @@ bool KIO__RenameDialog_HasHeightForWidth(const KIO__RenameDialog* self) {
 }
 
 // Base class handler implementation
-bool KIO__RenameDialog_QBaseHasHeightForWidth(const KIO__RenameDialog* self) {
+bool KIO__RenameDialog_SuperHasHeightForWidth(const KIO__RenameDialog* self) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_HasHeightForWidth_IsBase(true);
@@ -709,7 +709,7 @@ QPaintEngine* KIO__RenameDialog_PaintEngine(const KIO__RenameDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KIO__RenameDialog_QBasePaintEngine(const KIO__RenameDialog* self) {
+QPaintEngine* KIO__RenameDialog_SuperPaintEngine(const KIO__RenameDialog* self) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_PaintEngine_IsBase(true);
@@ -738,7 +738,7 @@ bool KIO__RenameDialog_Event(KIO__RenameDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KIO__RenameDialog_QBaseEvent(KIO__RenameDialog* self, QEvent* event) {
+bool KIO__RenameDialog_SuperEvent(KIO__RenameDialog* self, QEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_Event_IsBase(true);
@@ -767,7 +767,7 @@ void KIO__RenameDialog_MousePressEvent(KIO__RenameDialog* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseMousePressEvent(KIO__RenameDialog* self, QMouseEvent* event) {
+void KIO__RenameDialog_SuperMousePressEvent(KIO__RenameDialog* self, QMouseEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_MousePressEvent_IsBase(true);
@@ -796,7 +796,7 @@ void KIO__RenameDialog_MouseReleaseEvent(KIO__RenameDialog* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseMouseReleaseEvent(KIO__RenameDialog* self, QMouseEvent* event) {
+void KIO__RenameDialog_SuperMouseReleaseEvent(KIO__RenameDialog* self, QMouseEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_MouseReleaseEvent_IsBase(true);
@@ -825,7 +825,7 @@ void KIO__RenameDialog_MouseDoubleClickEvent(KIO__RenameDialog* self, QMouseEven
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseMouseDoubleClickEvent(KIO__RenameDialog* self, QMouseEvent* event) {
+void KIO__RenameDialog_SuperMouseDoubleClickEvent(KIO__RenameDialog* self, QMouseEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_MouseDoubleClickEvent_IsBase(true);
@@ -854,7 +854,7 @@ void KIO__RenameDialog_MouseMoveEvent(KIO__RenameDialog* self, QMouseEvent* even
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseMouseMoveEvent(KIO__RenameDialog* self, QMouseEvent* event) {
+void KIO__RenameDialog_SuperMouseMoveEvent(KIO__RenameDialog* self, QMouseEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_MouseMoveEvent_IsBase(true);
@@ -883,7 +883,7 @@ void KIO__RenameDialog_WheelEvent(KIO__RenameDialog* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseWheelEvent(KIO__RenameDialog* self, QWheelEvent* event) {
+void KIO__RenameDialog_SuperWheelEvent(KIO__RenameDialog* self, QWheelEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_WheelEvent_IsBase(true);
@@ -912,7 +912,7 @@ void KIO__RenameDialog_KeyReleaseEvent(KIO__RenameDialog* self, QKeyEvent* event
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseKeyReleaseEvent(KIO__RenameDialog* self, QKeyEvent* event) {
+void KIO__RenameDialog_SuperKeyReleaseEvent(KIO__RenameDialog* self, QKeyEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_KeyReleaseEvent_IsBase(true);
@@ -941,7 +941,7 @@ void KIO__RenameDialog_FocusInEvent(KIO__RenameDialog* self, QFocusEvent* event)
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseFocusInEvent(KIO__RenameDialog* self, QFocusEvent* event) {
+void KIO__RenameDialog_SuperFocusInEvent(KIO__RenameDialog* self, QFocusEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_FocusInEvent_IsBase(true);
@@ -970,7 +970,7 @@ void KIO__RenameDialog_FocusOutEvent(KIO__RenameDialog* self, QFocusEvent* event
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseFocusOutEvent(KIO__RenameDialog* self, QFocusEvent* event) {
+void KIO__RenameDialog_SuperFocusOutEvent(KIO__RenameDialog* self, QFocusEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_FocusOutEvent_IsBase(true);
@@ -999,7 +999,7 @@ void KIO__RenameDialog_EnterEvent(KIO__RenameDialog* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseEnterEvent(KIO__RenameDialog* self, QEnterEvent* event) {
+void KIO__RenameDialog_SuperEnterEvent(KIO__RenameDialog* self, QEnterEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_EnterEvent_IsBase(true);
@@ -1028,7 +1028,7 @@ void KIO__RenameDialog_LeaveEvent(KIO__RenameDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseLeaveEvent(KIO__RenameDialog* self, QEvent* event) {
+void KIO__RenameDialog_SuperLeaveEvent(KIO__RenameDialog* self, QEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_LeaveEvent_IsBase(true);
@@ -1057,7 +1057,7 @@ void KIO__RenameDialog_PaintEvent(KIO__RenameDialog* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBasePaintEvent(KIO__RenameDialog* self, QPaintEvent* event) {
+void KIO__RenameDialog_SuperPaintEvent(KIO__RenameDialog* self, QPaintEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_PaintEvent_IsBase(true);
@@ -1086,7 +1086,7 @@ void KIO__RenameDialog_MoveEvent(KIO__RenameDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseMoveEvent(KIO__RenameDialog* self, QMoveEvent* event) {
+void KIO__RenameDialog_SuperMoveEvent(KIO__RenameDialog* self, QMoveEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_MoveEvent_IsBase(true);
@@ -1115,7 +1115,7 @@ void KIO__RenameDialog_TabletEvent(KIO__RenameDialog* self, QTabletEvent* event)
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseTabletEvent(KIO__RenameDialog* self, QTabletEvent* event) {
+void KIO__RenameDialog_SuperTabletEvent(KIO__RenameDialog* self, QTabletEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_TabletEvent_IsBase(true);
@@ -1144,7 +1144,7 @@ void KIO__RenameDialog_ActionEvent(KIO__RenameDialog* self, QActionEvent* event)
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseActionEvent(KIO__RenameDialog* self, QActionEvent* event) {
+void KIO__RenameDialog_SuperActionEvent(KIO__RenameDialog* self, QActionEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_ActionEvent_IsBase(true);
@@ -1173,7 +1173,7 @@ void KIO__RenameDialog_DragEnterEvent(KIO__RenameDialog* self, QDragEnterEvent* 
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseDragEnterEvent(KIO__RenameDialog* self, QDragEnterEvent* event) {
+void KIO__RenameDialog_SuperDragEnterEvent(KIO__RenameDialog* self, QDragEnterEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_DragEnterEvent_IsBase(true);
@@ -1202,7 +1202,7 @@ void KIO__RenameDialog_DragMoveEvent(KIO__RenameDialog* self, QDragMoveEvent* ev
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseDragMoveEvent(KIO__RenameDialog* self, QDragMoveEvent* event) {
+void KIO__RenameDialog_SuperDragMoveEvent(KIO__RenameDialog* self, QDragMoveEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_DragMoveEvent_IsBase(true);
@@ -1231,7 +1231,7 @@ void KIO__RenameDialog_DragLeaveEvent(KIO__RenameDialog* self, QDragLeaveEvent* 
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseDragLeaveEvent(KIO__RenameDialog* self, QDragLeaveEvent* event) {
+void KIO__RenameDialog_SuperDragLeaveEvent(KIO__RenameDialog* self, QDragLeaveEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_DragLeaveEvent_IsBase(true);
@@ -1260,7 +1260,7 @@ void KIO__RenameDialog_DropEvent(KIO__RenameDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseDropEvent(KIO__RenameDialog* self, QDropEvent* event) {
+void KIO__RenameDialog_SuperDropEvent(KIO__RenameDialog* self, QDropEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_DropEvent_IsBase(true);
@@ -1289,7 +1289,7 @@ void KIO__RenameDialog_HideEvent(KIO__RenameDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseHideEvent(KIO__RenameDialog* self, QHideEvent* event) {
+void KIO__RenameDialog_SuperHideEvent(KIO__RenameDialog* self, QHideEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_HideEvent_IsBase(true);
@@ -1319,7 +1319,7 @@ bool KIO__RenameDialog_NativeEvent(KIO__RenameDialog* self, const libqt_string e
 }
 
 // Base class handler implementation
-bool KIO__RenameDialog_QBaseNativeEvent(KIO__RenameDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KIO__RenameDialog_SuperNativeEvent(KIO__RenameDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
@@ -1349,7 +1349,7 @@ void KIO__RenameDialog_ChangeEvent(KIO__RenameDialog* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseChangeEvent(KIO__RenameDialog* self, QEvent* param1) {
+void KIO__RenameDialog_SuperChangeEvent(KIO__RenameDialog* self, QEvent* param1) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_ChangeEvent_IsBase(true);
@@ -1378,7 +1378,7 @@ int KIO__RenameDialog_Metric(const KIO__RenameDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KIO__RenameDialog_QBaseMetric(const KIO__RenameDialog* self, int param1) {
+int KIO__RenameDialog_SuperMetric(const KIO__RenameDialog* self, int param1) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_Metric_IsBase(true);
@@ -1407,7 +1407,7 @@ void KIO__RenameDialog_InitPainter(const KIO__RenameDialog* self, QPainter* pain
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseInitPainter(const KIO__RenameDialog* self, QPainter* painter) {
+void KIO__RenameDialog_SuperInitPainter(const KIO__RenameDialog* self, QPainter* painter) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_InitPainter_IsBase(true);
@@ -1436,7 +1436,7 @@ QPaintDevice* KIO__RenameDialog_Redirected(const KIO__RenameDialog* self, QPoint
 }
 
 // Base class handler implementation
-QPaintDevice* KIO__RenameDialog_QBaseRedirected(const KIO__RenameDialog* self, QPoint* offset) {
+QPaintDevice* KIO__RenameDialog_SuperRedirected(const KIO__RenameDialog* self, QPoint* offset) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_Redirected_IsBase(true);
@@ -1465,7 +1465,7 @@ QPainter* KIO__RenameDialog_SharedPainter(const KIO__RenameDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* KIO__RenameDialog_QBaseSharedPainter(const KIO__RenameDialog* self) {
+QPainter* KIO__RenameDialog_SuperSharedPainter(const KIO__RenameDialog* self) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_SharedPainter_IsBase(true);
@@ -1494,7 +1494,7 @@ void KIO__RenameDialog_InputMethodEvent(KIO__RenameDialog* self, QInputMethodEve
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseInputMethodEvent(KIO__RenameDialog* self, QInputMethodEvent* param1) {
+void KIO__RenameDialog_SuperInputMethodEvent(KIO__RenameDialog* self, QInputMethodEvent* param1) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_InputMethodEvent_IsBase(true);
@@ -1523,7 +1523,7 @@ QVariant* KIO__RenameDialog_InputMethodQuery(const KIO__RenameDialog* self, int 
 }
 
 // Base class handler implementation
-QVariant* KIO__RenameDialog_QBaseInputMethodQuery(const KIO__RenameDialog* self, int param1) {
+QVariant* KIO__RenameDialog_SuperInputMethodQuery(const KIO__RenameDialog* self, int param1) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_InputMethodQuery_IsBase(true);
@@ -1552,7 +1552,7 @@ bool KIO__RenameDialog_FocusNextPrevChild(KIO__RenameDialog* self, bool next) {
 }
 
 // Base class handler implementation
-bool KIO__RenameDialog_QBaseFocusNextPrevChild(KIO__RenameDialog* self, bool next) {
+bool KIO__RenameDialog_SuperFocusNextPrevChild(KIO__RenameDialog* self, bool next) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_FocusNextPrevChild_IsBase(true);
@@ -1581,7 +1581,7 @@ void KIO__RenameDialog_TimerEvent(KIO__RenameDialog* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseTimerEvent(KIO__RenameDialog* self, QTimerEvent* event) {
+void KIO__RenameDialog_SuperTimerEvent(KIO__RenameDialog* self, QTimerEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_TimerEvent_IsBase(true);
@@ -1610,7 +1610,7 @@ void KIO__RenameDialog_ChildEvent(KIO__RenameDialog* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseChildEvent(KIO__RenameDialog* self, QChildEvent* event) {
+void KIO__RenameDialog_SuperChildEvent(KIO__RenameDialog* self, QChildEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_ChildEvent_IsBase(true);
@@ -1639,7 +1639,7 @@ void KIO__RenameDialog_CustomEvent(KIO__RenameDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseCustomEvent(KIO__RenameDialog* self, QEvent* event) {
+void KIO__RenameDialog_SuperCustomEvent(KIO__RenameDialog* self, QEvent* event) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_CustomEvent_IsBase(true);
@@ -1668,7 +1668,7 @@ void KIO__RenameDialog_ConnectNotify(KIO__RenameDialog* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseConnectNotify(KIO__RenameDialog* self, const QMetaMethod* signal) {
+void KIO__RenameDialog_SuperConnectNotify(KIO__RenameDialog* self, const QMetaMethod* signal) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_ConnectNotify_IsBase(true);
@@ -1697,7 +1697,7 @@ void KIO__RenameDialog_DisconnectNotify(KIO__RenameDialog* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseDisconnectNotify(KIO__RenameDialog* self, const QMetaMethod* signal) {
+void KIO__RenameDialog_SuperDisconnectNotify(KIO__RenameDialog* self, const QMetaMethod* signal) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_DisconnectNotify_IsBase(true);
@@ -1727,7 +1727,7 @@ void KIO__RenameDialog_EnableRenameButton(KIO__RenameDialog* self, const libqt_s
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseEnableRenameButton(KIO__RenameDialog* self, const libqt_string param1) {
+void KIO__RenameDialog_SuperEnableRenameButton(KIO__RenameDialog* self, const libqt_string param1) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
@@ -1757,7 +1757,7 @@ void KIO__RenameDialog_AdjustPosition(KIO__RenameDialog* self, QWidget* param1) 
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseAdjustPosition(KIO__RenameDialog* self, QWidget* param1) {
+void KIO__RenameDialog_SuperAdjustPosition(KIO__RenameDialog* self, QWidget* param1) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_AdjustPosition_IsBase(true);
@@ -1786,7 +1786,7 @@ void KIO__RenameDialog_UpdateMicroFocus(KIO__RenameDialog* self) {
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseUpdateMicroFocus(KIO__RenameDialog* self) {
+void KIO__RenameDialog_SuperUpdateMicroFocus(KIO__RenameDialog* self) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_UpdateMicroFocus_IsBase(true);
@@ -1815,7 +1815,7 @@ void KIO__RenameDialog_Create(KIO__RenameDialog* self) {
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseCreate(KIO__RenameDialog* self) {
+void KIO__RenameDialog_SuperCreate(KIO__RenameDialog* self) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_Create_IsBase(true);
@@ -1844,7 +1844,7 @@ void KIO__RenameDialog_Destroy(KIO__RenameDialog* self) {
 }
 
 // Base class handler implementation
-void KIO__RenameDialog_QBaseDestroy(KIO__RenameDialog* self) {
+void KIO__RenameDialog_SuperDestroy(KIO__RenameDialog* self) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_Destroy_IsBase(true);
@@ -1873,7 +1873,7 @@ bool KIO__RenameDialog_FocusNextChild(KIO__RenameDialog* self) {
 }
 
 // Base class handler implementation
-bool KIO__RenameDialog_QBaseFocusNextChild(KIO__RenameDialog* self) {
+bool KIO__RenameDialog_SuperFocusNextChild(KIO__RenameDialog* self) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_FocusNextChild_IsBase(true);
@@ -1902,7 +1902,7 @@ bool KIO__RenameDialog_FocusPreviousChild(KIO__RenameDialog* self) {
 }
 
 // Base class handler implementation
-bool KIO__RenameDialog_QBaseFocusPreviousChild(KIO__RenameDialog* self) {
+bool KIO__RenameDialog_SuperFocusPreviousChild(KIO__RenameDialog* self) {
     auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_FocusPreviousChild_IsBase(true);
@@ -1931,7 +1931,7 @@ QObject* KIO__RenameDialog_Sender(const KIO__RenameDialog* self) {
 }
 
 // Base class handler implementation
-QObject* KIO__RenameDialog_QBaseSender(const KIO__RenameDialog* self) {
+QObject* KIO__RenameDialog_SuperSender(const KIO__RenameDialog* self) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_Sender_IsBase(true);
@@ -1960,7 +1960,7 @@ int KIO__RenameDialog_SenderSignalIndex(const KIO__RenameDialog* self) {
 }
 
 // Base class handler implementation
-int KIO__RenameDialog_QBaseSenderSignalIndex(const KIO__RenameDialog* self) {
+int KIO__RenameDialog_SuperSenderSignalIndex(const KIO__RenameDialog* self) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_SenderSignalIndex_IsBase(true);
@@ -1989,7 +1989,7 @@ int KIO__RenameDialog_Receivers(const KIO__RenameDialog* self, const char* signa
 }
 
 // Base class handler implementation
-int KIO__RenameDialog_QBaseReceivers(const KIO__RenameDialog* self, const char* signal) {
+int KIO__RenameDialog_SuperReceivers(const KIO__RenameDialog* self, const char* signal) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_Receivers_IsBase(true);
@@ -2018,7 +2018,7 @@ bool KIO__RenameDialog_IsSignalConnected(const KIO__RenameDialog* self, const QM
 }
 
 // Base class handler implementation
-bool KIO__RenameDialog_QBaseIsSignalConnected(const KIO__RenameDialog* self, const QMetaMethod* signal) {
+bool KIO__RenameDialog_SuperIsSignalConnected(const KIO__RenameDialog* self, const QMetaMethod* signal) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_IsSignalConnected_IsBase(true);
@@ -2047,7 +2047,7 @@ double KIO__RenameDialog_GetDecodedMetricF(const KIO__RenameDialog* self, int me
 }
 
 // Base class handler implementation
-double KIO__RenameDialog_QBaseGetDecodedMetricF(const KIO__RenameDialog* self, int metricA, int metricB) {
+double KIO__RenameDialog_SuperGetDecodedMetricF(const KIO__RenameDialog* self, int metricA, int metricB) {
     auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
     if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
         vkiorenamedialog->setKIO__RenameDialog_GetDecodedMetricF_IsBase(true);

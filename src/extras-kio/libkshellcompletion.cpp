@@ -96,7 +96,7 @@ void KShellCompletion_PostProcessMatches2(const KShellCompletion* self, KComplet
 }
 
 // Base class handler implementation
-QMetaObject* KShellCompletion_QBaseMetaObject(const KShellCompletion* self) {
+QMetaObject* KShellCompletion_SuperMetaObject(const KShellCompletion* self) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_MetaObject_IsBase(true);
@@ -115,7 +115,7 @@ void KShellCompletion_OnMetaObject(const KShellCompletion* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* KShellCompletion_QBaseMetacast(KShellCompletion* self, const char* param1) {
+void* KShellCompletion_SuperMetacast(KShellCompletion* self, const char* param1) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_Metacast_IsBase(true);
@@ -134,7 +134,7 @@ void KShellCompletion_OnMetacast(KShellCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KShellCompletion_QBaseMetacall(KShellCompletion* self, int param1, int param2, void** param3) {
+int KShellCompletion_SuperMetacall(KShellCompletion* self, int param1, int param2, void** param3) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_Metacall_IsBase(true);
@@ -153,7 +153,7 @@ void KShellCompletion_OnMetacall(KShellCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string KShellCompletion_QBaseMakeCompletion(KShellCompletion* self, const libqt_string text) {
+libqt_string KShellCompletion_SuperMakeCompletion(KShellCompletion* self, const libqt_string text) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
@@ -189,7 +189,7 @@ void KShellCompletion_OnMakeCompletion(KShellCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KShellCompletion_QBasePostProcessMatches(const KShellCompletion* self, libqt_list /* of libqt_string */ matches) {
+void KShellCompletion_SuperPostProcessMatches(const KShellCompletion* self, libqt_list /* of libqt_string */ matches) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
     QList<QString> matches_QList;
     matches_QList.reserve(matches.len);
@@ -215,7 +215,7 @@ void KShellCompletion_OnPostProcessMatches(const KShellCompletion* self, intptr_
 }
 
 // Base class handler implementation
-void KShellCompletion_QBasePostProcessMatches2(const KShellCompletion* self, KCompletionMatches* matches) {
+void KShellCompletion_SuperPostProcessMatches2(const KShellCompletion* self, KCompletionMatches* matches) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_PostProcessMatches2_IsBase(true);
@@ -244,7 +244,7 @@ void KShellCompletion_SetDir(KShellCompletion* self, const QUrl* dir) {
 }
 
 // Base class handler implementation
-void KShellCompletion_QBaseSetDir(KShellCompletion* self, const QUrl* dir) {
+void KShellCompletion_SuperSetDir(KShellCompletion* self, const QUrl* dir) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_SetDir_IsBase(true);
@@ -273,7 +273,7 @@ QUrl* KShellCompletion_Dir(const KShellCompletion* self) {
 }
 
 // Base class handler implementation
-QUrl* KShellCompletion_QBaseDir(const KShellCompletion* self) {
+QUrl* KShellCompletion_SuperDir(const KShellCompletion* self) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_Dir_IsBase(true);
@@ -302,7 +302,7 @@ bool KShellCompletion_IsRunning(const KShellCompletion* self) {
 }
 
 // Base class handler implementation
-bool KShellCompletion_QBaseIsRunning(const KShellCompletion* self) {
+bool KShellCompletion_SuperIsRunning(const KShellCompletion* self) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_IsRunning_IsBase(true);
@@ -331,7 +331,7 @@ void KShellCompletion_Stop(KShellCompletion* self) {
 }
 
 // Base class handler implementation
-void KShellCompletion_QBaseStop(KShellCompletion* self) {
+void KShellCompletion_SuperStop(KShellCompletion* self) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_Stop_IsBase(true);
@@ -360,7 +360,7 @@ int KShellCompletion_Mode(const KShellCompletion* self) {
 }
 
 // Base class handler implementation
-int KShellCompletion_QBaseMode(const KShellCompletion* self) {
+int KShellCompletion_SuperMode(const KShellCompletion* self) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_Mode_IsBase(true);
@@ -389,7 +389,7 @@ void KShellCompletion_SetMode(KShellCompletion* self, int mode) {
 }
 
 // Base class handler implementation
-void KShellCompletion_QBaseSetMode(KShellCompletion* self, int mode) {
+void KShellCompletion_SuperSetMode(KShellCompletion* self, int mode) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_SetMode_IsBase(true);
@@ -418,7 +418,7 @@ bool KShellCompletion_ReplaceEnv(const KShellCompletion* self) {
 }
 
 // Base class handler implementation
-bool KShellCompletion_QBaseReplaceEnv(const KShellCompletion* self) {
+bool KShellCompletion_SuperReplaceEnv(const KShellCompletion* self) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_ReplaceEnv_IsBase(true);
@@ -447,7 +447,7 @@ void KShellCompletion_SetReplaceEnv(KShellCompletion* self, bool replace) {
 }
 
 // Base class handler implementation
-void KShellCompletion_QBaseSetReplaceEnv(KShellCompletion* self, bool replace) {
+void KShellCompletion_SuperSetReplaceEnv(KShellCompletion* self, bool replace) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_SetReplaceEnv_IsBase(true);
@@ -476,7 +476,7 @@ bool KShellCompletion_ReplaceHome(const KShellCompletion* self) {
 }
 
 // Base class handler implementation
-bool KShellCompletion_QBaseReplaceHome(const KShellCompletion* self) {
+bool KShellCompletion_SuperReplaceHome(const KShellCompletion* self) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_ReplaceHome_IsBase(true);
@@ -505,7 +505,7 @@ void KShellCompletion_SetReplaceHome(KShellCompletion* self, bool replace) {
 }
 
 // Base class handler implementation
-void KShellCompletion_QBaseSetReplaceHome(KShellCompletion* self, bool replace) {
+void KShellCompletion_SuperSetReplaceHome(KShellCompletion* self, bool replace) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_SetReplaceHome_IsBase(true);
@@ -550,7 +550,7 @@ libqt_string KShellCompletion_LastMatch(const KShellCompletion* self) {
 }
 
 // Base class handler implementation
-libqt_string KShellCompletion_QBaseLastMatch(const KShellCompletion* self) {
+libqt_string KShellCompletion_SuperLastMatch(const KShellCompletion* self) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_LastMatch_IsBase(true);
@@ -595,7 +595,7 @@ void KShellCompletion_SetCompletionMode(KShellCompletion* self, int mode) {
 }
 
 // Base class handler implementation
-void KShellCompletion_QBaseSetCompletionMode(KShellCompletion* self, int mode) {
+void KShellCompletion_SuperSetCompletionMode(KShellCompletion* self, int mode) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_SetCompletionMode_IsBase(true);
@@ -624,7 +624,7 @@ void KShellCompletion_SetOrder(KShellCompletion* self, int order) {
 }
 
 // Base class handler implementation
-void KShellCompletion_QBaseSetOrder(KShellCompletion* self, int order) {
+void KShellCompletion_SuperSetOrder(KShellCompletion* self, int order) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_SetOrder_IsBase(true);
@@ -653,7 +653,7 @@ void KShellCompletion_SetIgnoreCase(KShellCompletion* self, bool ignoreCase) {
 }
 
 // Base class handler implementation
-void KShellCompletion_QBaseSetIgnoreCase(KShellCompletion* self, bool ignoreCase) {
+void KShellCompletion_SuperSetIgnoreCase(KShellCompletion* self, bool ignoreCase) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_SetIgnoreCase_IsBase(true);
@@ -682,7 +682,7 @@ void KShellCompletion_SetSoundsEnabled(KShellCompletion* self, bool enable) {
 }
 
 // Base class handler implementation
-void KShellCompletion_QBaseSetSoundsEnabled(KShellCompletion* self, bool enable) {
+void KShellCompletion_SuperSetSoundsEnabled(KShellCompletion* self, bool enable) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_SetSoundsEnabled_IsBase(true);
@@ -718,7 +718,7 @@ void KShellCompletion_SetItems(KShellCompletion* self, const libqt_list /* of li
 }
 
 // Base class handler implementation
-void KShellCompletion_QBaseSetItems(KShellCompletion* self, const libqt_list /* of libqt_string */ itemList) {
+void KShellCompletion_SuperSetItems(KShellCompletion* self, const libqt_list /* of libqt_string */ itemList) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     QList<QString> itemList_QList;
     itemList_QList.reserve(itemList.len);
@@ -754,7 +754,7 @@ void KShellCompletion_Clear(KShellCompletion* self) {
 }
 
 // Base class handler implementation
-void KShellCompletion_QBaseClear(KShellCompletion* self) {
+void KShellCompletion_SuperClear(KShellCompletion* self) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_Clear_IsBase(true);
@@ -783,7 +783,7 @@ bool KShellCompletion_Event(KShellCompletion* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KShellCompletion_QBaseEvent(KShellCompletion* self, QEvent* event) {
+bool KShellCompletion_SuperEvent(KShellCompletion* self, QEvent* event) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_Event_IsBase(true);
@@ -812,7 +812,7 @@ bool KShellCompletion_EventFilter(KShellCompletion* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool KShellCompletion_QBaseEventFilter(KShellCompletion* self, QObject* watched, QEvent* event) {
+bool KShellCompletion_SuperEventFilter(KShellCompletion* self, QObject* watched, QEvent* event) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_EventFilter_IsBase(true);
@@ -841,7 +841,7 @@ void KShellCompletion_TimerEvent(KShellCompletion* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KShellCompletion_QBaseTimerEvent(KShellCompletion* self, QTimerEvent* event) {
+void KShellCompletion_SuperTimerEvent(KShellCompletion* self, QTimerEvent* event) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_TimerEvent_IsBase(true);
@@ -870,7 +870,7 @@ void KShellCompletion_ChildEvent(KShellCompletion* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KShellCompletion_QBaseChildEvent(KShellCompletion* self, QChildEvent* event) {
+void KShellCompletion_SuperChildEvent(KShellCompletion* self, QChildEvent* event) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_ChildEvent_IsBase(true);
@@ -899,7 +899,7 @@ void KShellCompletion_CustomEvent(KShellCompletion* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KShellCompletion_QBaseCustomEvent(KShellCompletion* self, QEvent* event) {
+void KShellCompletion_SuperCustomEvent(KShellCompletion* self, QEvent* event) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_CustomEvent_IsBase(true);
@@ -928,7 +928,7 @@ void KShellCompletion_ConnectNotify(KShellCompletion* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void KShellCompletion_QBaseConnectNotify(KShellCompletion* self, const QMetaMethod* signal) {
+void KShellCompletion_SuperConnectNotify(KShellCompletion* self, const QMetaMethod* signal) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_ConnectNotify_IsBase(true);
@@ -957,7 +957,7 @@ void KShellCompletion_DisconnectNotify(KShellCompletion* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void KShellCompletion_QBaseDisconnectNotify(KShellCompletion* self, const QMetaMethod* signal) {
+void KShellCompletion_SuperDisconnectNotify(KShellCompletion* self, const QMetaMethod* signal) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_DisconnectNotify_IsBase(true);
@@ -986,7 +986,7 @@ void KShellCompletion_SetShouldAutoSuggest(KShellCompletion* self, bool shouldAu
 }
 
 // Base class handler implementation
-void KShellCompletion_QBaseSetShouldAutoSuggest(KShellCompletion* self, bool shouldAutosuggest) {
+void KShellCompletion_SuperSetShouldAutoSuggest(KShellCompletion* self, bool shouldAutosuggest) {
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_SetShouldAutoSuggest_IsBase(true);
@@ -1015,7 +1015,7 @@ QObject* KShellCompletion_Sender(const KShellCompletion* self) {
 }
 
 // Base class handler implementation
-QObject* KShellCompletion_QBaseSender(const KShellCompletion* self) {
+QObject* KShellCompletion_SuperSender(const KShellCompletion* self) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_Sender_IsBase(true);
@@ -1044,7 +1044,7 @@ int KShellCompletion_SenderSignalIndex(const KShellCompletion* self) {
 }
 
 // Base class handler implementation
-int KShellCompletion_QBaseSenderSignalIndex(const KShellCompletion* self) {
+int KShellCompletion_SuperSenderSignalIndex(const KShellCompletion* self) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_SenderSignalIndex_IsBase(true);
@@ -1073,7 +1073,7 @@ int KShellCompletion_Receivers(const KShellCompletion* self, const char* signal)
 }
 
 // Base class handler implementation
-int KShellCompletion_QBaseReceivers(const KShellCompletion* self, const char* signal) {
+int KShellCompletion_SuperReceivers(const KShellCompletion* self, const char* signal) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_Receivers_IsBase(true);
@@ -1102,7 +1102,7 @@ bool KShellCompletion_IsSignalConnected(const KShellCompletion* self, const QMet
 }
 
 // Base class handler implementation
-bool KShellCompletion_QBaseIsSignalConnected(const KShellCompletion* self, const QMetaMethod* signal) {
+bool KShellCompletion_SuperIsSignalConnected(const KShellCompletion* self, const QMetaMethod* signal) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_IsSignalConnected_IsBase(true);

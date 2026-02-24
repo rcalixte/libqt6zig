@@ -204,7 +204,7 @@ void QAbstractAnimation_Start1(QAbstractAnimation* self, int policy) {
 }
 
 // Base class handler implementation
-QMetaObject* QAbstractAnimation_QBaseMetaObject(const QAbstractAnimation* self) {
+QMetaObject* QAbstractAnimation_SuperMetaObject(const QAbstractAnimation* self) {
     auto* vqabstractanimation = const_cast<VirtualQAbstractAnimation*>(dynamic_cast<const VirtualQAbstractAnimation*>(self));
     if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
         vqabstractanimation->setQAbstractAnimation_MetaObject_IsBase(true);
@@ -223,7 +223,7 @@ void QAbstractAnimation_OnMetaObject(const QAbstractAnimation* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* QAbstractAnimation_QBaseMetacast(QAbstractAnimation* self, const char* param1) {
+void* QAbstractAnimation_SuperMetacast(QAbstractAnimation* self, const char* param1) {
     auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
     if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
         vqabstractanimation->setQAbstractAnimation_Metacast_IsBase(true);
@@ -242,7 +242,7 @@ void QAbstractAnimation_OnMetacast(QAbstractAnimation* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAbstractAnimation_QBaseMetacall(QAbstractAnimation* self, int param1, int param2, void** param3) {
+int QAbstractAnimation_SuperMetacall(QAbstractAnimation* self, int param1, int param2, void** param3) {
     auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
     if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
         vqabstractanimation->setQAbstractAnimation_Metacall_IsBase(true);
@@ -261,7 +261,7 @@ void QAbstractAnimation_OnMetacall(QAbstractAnimation* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAbstractAnimation_QBaseDuration(const QAbstractAnimation* self) {
+int QAbstractAnimation_SuperDuration(const QAbstractAnimation* self) {
     auto* vqabstractanimation = const_cast<VirtualQAbstractAnimation*>(dynamic_cast<const VirtualQAbstractAnimation*>(self));
     if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
         vqabstractanimation->setQAbstractAnimation_Duration_IsBase(true);
@@ -280,7 +280,7 @@ void QAbstractAnimation_OnDuration(const QAbstractAnimation* self, intptr_t slot
 }
 
 // Base class handler implementation
-bool QAbstractAnimation_QBaseEvent(QAbstractAnimation* self, QEvent* event) {
+bool QAbstractAnimation_SuperEvent(QAbstractAnimation* self, QEvent* event) {
     auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
     if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
         vqabstractanimation->setQAbstractAnimation_Event_IsBase(true);
@@ -299,7 +299,7 @@ void QAbstractAnimation_OnEvent(QAbstractAnimation* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractAnimation_QBaseUpdateCurrentTime(QAbstractAnimation* self, int currentTime) {
+void QAbstractAnimation_SuperUpdateCurrentTime(QAbstractAnimation* self, int currentTime) {
     auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
     if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
         vqabstractanimation->setQAbstractAnimation_UpdateCurrentTime_IsBase(true);
@@ -318,7 +318,7 @@ void QAbstractAnimation_OnUpdateCurrentTime(QAbstractAnimation* self, intptr_t s
 }
 
 // Base class handler implementation
-void QAbstractAnimation_QBaseUpdateState(QAbstractAnimation* self, int newState, int oldState) {
+void QAbstractAnimation_SuperUpdateState(QAbstractAnimation* self, int newState, int oldState) {
     auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
     if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
         vqabstractanimation->setQAbstractAnimation_UpdateState_IsBase(true);
@@ -337,7 +337,7 @@ void QAbstractAnimation_OnUpdateState(QAbstractAnimation* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractAnimation_QBaseUpdateDirection(QAbstractAnimation* self, int direction) {
+void QAbstractAnimation_SuperUpdateDirection(QAbstractAnimation* self, int direction) {
     auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
     if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
         vqabstractanimation->setQAbstractAnimation_UpdateDirection_IsBase(true);
@@ -366,7 +366,7 @@ bool QAbstractAnimation_EventFilter(QAbstractAnimation* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool QAbstractAnimation_QBaseEventFilter(QAbstractAnimation* self, QObject* watched, QEvent* event) {
+bool QAbstractAnimation_SuperEventFilter(QAbstractAnimation* self, QObject* watched, QEvent* event) {
     auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
     if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
         vqabstractanimation->setQAbstractAnimation_EventFilter_IsBase(true);
@@ -395,7 +395,7 @@ void QAbstractAnimation_TimerEvent(QAbstractAnimation* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void QAbstractAnimation_QBaseTimerEvent(QAbstractAnimation* self, QTimerEvent* event) {
+void QAbstractAnimation_SuperTimerEvent(QAbstractAnimation* self, QTimerEvent* event) {
     auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
     if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
         vqabstractanimation->setQAbstractAnimation_TimerEvent_IsBase(true);
@@ -424,7 +424,7 @@ void QAbstractAnimation_ChildEvent(QAbstractAnimation* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void QAbstractAnimation_QBaseChildEvent(QAbstractAnimation* self, QChildEvent* event) {
+void QAbstractAnimation_SuperChildEvent(QAbstractAnimation* self, QChildEvent* event) {
     auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
     if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
         vqabstractanimation->setQAbstractAnimation_ChildEvent_IsBase(true);
@@ -453,7 +453,7 @@ void QAbstractAnimation_CustomEvent(QAbstractAnimation* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractAnimation_QBaseCustomEvent(QAbstractAnimation* self, QEvent* event) {
+void QAbstractAnimation_SuperCustomEvent(QAbstractAnimation* self, QEvent* event) {
     auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
     if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
         vqabstractanimation->setQAbstractAnimation_CustomEvent_IsBase(true);
@@ -482,7 +482,7 @@ void QAbstractAnimation_ConnectNotify(QAbstractAnimation* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void QAbstractAnimation_QBaseConnectNotify(QAbstractAnimation* self, const QMetaMethod* signal) {
+void QAbstractAnimation_SuperConnectNotify(QAbstractAnimation* self, const QMetaMethod* signal) {
     auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
     if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
         vqabstractanimation->setQAbstractAnimation_ConnectNotify_IsBase(true);
@@ -511,7 +511,7 @@ void QAbstractAnimation_DisconnectNotify(QAbstractAnimation* self, const QMetaMe
 }
 
 // Base class handler implementation
-void QAbstractAnimation_QBaseDisconnectNotify(QAbstractAnimation* self, const QMetaMethod* signal) {
+void QAbstractAnimation_SuperDisconnectNotify(QAbstractAnimation* self, const QMetaMethod* signal) {
     auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
     if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
         vqabstractanimation->setQAbstractAnimation_DisconnectNotify_IsBase(true);
@@ -540,7 +540,7 @@ QObject* QAbstractAnimation_Sender(const QAbstractAnimation* self) {
 }
 
 // Base class handler implementation
-QObject* QAbstractAnimation_QBaseSender(const QAbstractAnimation* self) {
+QObject* QAbstractAnimation_SuperSender(const QAbstractAnimation* self) {
     auto* vqabstractanimation = const_cast<VirtualQAbstractAnimation*>(dynamic_cast<const VirtualQAbstractAnimation*>(self));
     if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
         vqabstractanimation->setQAbstractAnimation_Sender_IsBase(true);
@@ -569,7 +569,7 @@ int QAbstractAnimation_SenderSignalIndex(const QAbstractAnimation* self) {
 }
 
 // Base class handler implementation
-int QAbstractAnimation_QBaseSenderSignalIndex(const QAbstractAnimation* self) {
+int QAbstractAnimation_SuperSenderSignalIndex(const QAbstractAnimation* self) {
     auto* vqabstractanimation = const_cast<VirtualQAbstractAnimation*>(dynamic_cast<const VirtualQAbstractAnimation*>(self));
     if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
         vqabstractanimation->setQAbstractAnimation_SenderSignalIndex_IsBase(true);
@@ -598,7 +598,7 @@ int QAbstractAnimation_Receivers(const QAbstractAnimation* self, const char* sig
 }
 
 // Base class handler implementation
-int QAbstractAnimation_QBaseReceivers(const QAbstractAnimation* self, const char* signal) {
+int QAbstractAnimation_SuperReceivers(const QAbstractAnimation* self, const char* signal) {
     auto* vqabstractanimation = const_cast<VirtualQAbstractAnimation*>(dynamic_cast<const VirtualQAbstractAnimation*>(self));
     if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
         vqabstractanimation->setQAbstractAnimation_Receivers_IsBase(true);
@@ -627,7 +627,7 @@ bool QAbstractAnimation_IsSignalConnected(const QAbstractAnimation* self, const 
 }
 
 // Base class handler implementation
-bool QAbstractAnimation_QBaseIsSignalConnected(const QAbstractAnimation* self, const QMetaMethod* signal) {
+bool QAbstractAnimation_SuperIsSignalConnected(const QAbstractAnimation* self, const QMetaMethod* signal) {
     auto* vqabstractanimation = const_cast<VirtualQAbstractAnimation*>(dynamic_cast<const VirtualQAbstractAnimation*>(self));
     if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
         vqabstractanimation->setQAbstractAnimation_IsSignalConnected_IsBase(true);
@@ -751,7 +751,7 @@ void QAnimationDriver_Stop(QAnimationDriver* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QAnimationDriver_QBaseMetaObject(const QAnimationDriver* self) {
+QMetaObject* QAnimationDriver_SuperMetaObject(const QAnimationDriver* self) {
     auto* vqanimationdriver = const_cast<VirtualQAnimationDriver*>(dynamic_cast<const VirtualQAnimationDriver*>(self));
     if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
         vqanimationdriver->setQAnimationDriver_MetaObject_IsBase(true);
@@ -770,7 +770,7 @@ void QAnimationDriver_OnMetaObject(const QAnimationDriver* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* QAnimationDriver_QBaseMetacast(QAnimationDriver* self, const char* param1) {
+void* QAnimationDriver_SuperMetacast(QAnimationDriver* self, const char* param1) {
     auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
     if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
         vqanimationdriver->setQAnimationDriver_Metacast_IsBase(true);
@@ -789,7 +789,7 @@ void QAnimationDriver_OnMetacast(QAnimationDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAnimationDriver_QBaseMetacall(QAnimationDriver* self, int param1, int param2, void** param3) {
+int QAnimationDriver_SuperMetacall(QAnimationDriver* self, int param1, int param2, void** param3) {
     auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
     if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
         vqanimationdriver->setQAnimationDriver_Metacall_IsBase(true);
@@ -808,7 +808,7 @@ void QAnimationDriver_OnMetacall(QAnimationDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAnimationDriver_QBaseAdvance(QAnimationDriver* self) {
+void QAnimationDriver_SuperAdvance(QAnimationDriver* self) {
     auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
     if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
         vqanimationdriver->setQAnimationDriver_Advance_IsBase(true);
@@ -827,7 +827,7 @@ void QAnimationDriver_OnAdvance(QAnimationDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QAnimationDriver_QBaseElapsed(const QAnimationDriver* self) {
+long long QAnimationDriver_SuperElapsed(const QAnimationDriver* self) {
     auto* vqanimationdriver = const_cast<VirtualQAnimationDriver*>(dynamic_cast<const VirtualQAnimationDriver*>(self));
     if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
         vqanimationdriver->setQAnimationDriver_Elapsed_IsBase(true);
@@ -846,7 +846,7 @@ void QAnimationDriver_OnElapsed(const QAnimationDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAnimationDriver_QBaseStart(QAnimationDriver* self) {
+void QAnimationDriver_SuperStart(QAnimationDriver* self) {
     auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
     if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
         vqanimationdriver->setQAnimationDriver_Start_IsBase(true);
@@ -865,7 +865,7 @@ void QAnimationDriver_OnStart(QAnimationDriver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAnimationDriver_QBaseStop(QAnimationDriver* self) {
+void QAnimationDriver_SuperStop(QAnimationDriver* self) {
     auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
     if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
         vqanimationdriver->setQAnimationDriver_Stop_IsBase(true);
@@ -894,7 +894,7 @@ bool QAnimationDriver_Event(QAnimationDriver* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QAnimationDriver_QBaseEvent(QAnimationDriver* self, QEvent* event) {
+bool QAnimationDriver_SuperEvent(QAnimationDriver* self, QEvent* event) {
     auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
     if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
         vqanimationdriver->setQAnimationDriver_Event_IsBase(true);
@@ -923,7 +923,7 @@ bool QAnimationDriver_EventFilter(QAnimationDriver* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool QAnimationDriver_QBaseEventFilter(QAnimationDriver* self, QObject* watched, QEvent* event) {
+bool QAnimationDriver_SuperEventFilter(QAnimationDriver* self, QObject* watched, QEvent* event) {
     auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
     if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
         vqanimationdriver->setQAnimationDriver_EventFilter_IsBase(true);
@@ -952,7 +952,7 @@ void QAnimationDriver_TimerEvent(QAnimationDriver* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QAnimationDriver_QBaseTimerEvent(QAnimationDriver* self, QTimerEvent* event) {
+void QAnimationDriver_SuperTimerEvent(QAnimationDriver* self, QTimerEvent* event) {
     auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
     if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
         vqanimationdriver->setQAnimationDriver_TimerEvent_IsBase(true);
@@ -981,7 +981,7 @@ void QAnimationDriver_ChildEvent(QAnimationDriver* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QAnimationDriver_QBaseChildEvent(QAnimationDriver* self, QChildEvent* event) {
+void QAnimationDriver_SuperChildEvent(QAnimationDriver* self, QChildEvent* event) {
     auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
     if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
         vqanimationdriver->setQAnimationDriver_ChildEvent_IsBase(true);
@@ -1010,7 +1010,7 @@ void QAnimationDriver_CustomEvent(QAnimationDriver* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAnimationDriver_QBaseCustomEvent(QAnimationDriver* self, QEvent* event) {
+void QAnimationDriver_SuperCustomEvent(QAnimationDriver* self, QEvent* event) {
     auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
     if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
         vqanimationdriver->setQAnimationDriver_CustomEvent_IsBase(true);
@@ -1039,7 +1039,7 @@ void QAnimationDriver_ConnectNotify(QAnimationDriver* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void QAnimationDriver_QBaseConnectNotify(QAnimationDriver* self, const QMetaMethod* signal) {
+void QAnimationDriver_SuperConnectNotify(QAnimationDriver* self, const QMetaMethod* signal) {
     auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
     if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
         vqanimationdriver->setQAnimationDriver_ConnectNotify_IsBase(true);
@@ -1068,7 +1068,7 @@ void QAnimationDriver_DisconnectNotify(QAnimationDriver* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void QAnimationDriver_QBaseDisconnectNotify(QAnimationDriver* self, const QMetaMethod* signal) {
+void QAnimationDriver_SuperDisconnectNotify(QAnimationDriver* self, const QMetaMethod* signal) {
     auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
     if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
         vqanimationdriver->setQAnimationDriver_DisconnectNotify_IsBase(true);
@@ -1097,7 +1097,7 @@ void QAnimationDriver_AdvanceAnimation(QAnimationDriver* self) {
 }
 
 // Base class handler implementation
-void QAnimationDriver_QBaseAdvanceAnimation(QAnimationDriver* self) {
+void QAnimationDriver_SuperAdvanceAnimation(QAnimationDriver* self) {
     auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
     if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
         vqanimationdriver->setQAnimationDriver_AdvanceAnimation_IsBase(true);
@@ -1126,7 +1126,7 @@ QObject* QAnimationDriver_Sender(const QAnimationDriver* self) {
 }
 
 // Base class handler implementation
-QObject* QAnimationDriver_QBaseSender(const QAnimationDriver* self) {
+QObject* QAnimationDriver_SuperSender(const QAnimationDriver* self) {
     auto* vqanimationdriver = const_cast<VirtualQAnimationDriver*>(dynamic_cast<const VirtualQAnimationDriver*>(self));
     if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
         vqanimationdriver->setQAnimationDriver_Sender_IsBase(true);
@@ -1155,7 +1155,7 @@ int QAnimationDriver_SenderSignalIndex(const QAnimationDriver* self) {
 }
 
 // Base class handler implementation
-int QAnimationDriver_QBaseSenderSignalIndex(const QAnimationDriver* self) {
+int QAnimationDriver_SuperSenderSignalIndex(const QAnimationDriver* self) {
     auto* vqanimationdriver = const_cast<VirtualQAnimationDriver*>(dynamic_cast<const VirtualQAnimationDriver*>(self));
     if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
         vqanimationdriver->setQAnimationDriver_SenderSignalIndex_IsBase(true);
@@ -1184,7 +1184,7 @@ int QAnimationDriver_Receivers(const QAnimationDriver* self, const char* signal)
 }
 
 // Base class handler implementation
-int QAnimationDriver_QBaseReceivers(const QAnimationDriver* self, const char* signal) {
+int QAnimationDriver_SuperReceivers(const QAnimationDriver* self, const char* signal) {
     auto* vqanimationdriver = const_cast<VirtualQAnimationDriver*>(dynamic_cast<const VirtualQAnimationDriver*>(self));
     if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
         vqanimationdriver->setQAnimationDriver_Receivers_IsBase(true);
@@ -1213,7 +1213,7 @@ bool QAnimationDriver_IsSignalConnected(const QAnimationDriver* self, const QMet
 }
 
 // Base class handler implementation
-bool QAnimationDriver_QBaseIsSignalConnected(const QAnimationDriver* self, const QMetaMethod* signal) {
+bool QAnimationDriver_SuperIsSignalConnected(const QAnimationDriver* self, const QMetaMethod* signal) {
     auto* vqanimationdriver = const_cast<VirtualQAnimationDriver*>(dynamic_cast<const VirtualQAnimationDriver*>(self));
     if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
         vqanimationdriver->setQAnimationDriver_IsSignalConnected_IsBase(true);

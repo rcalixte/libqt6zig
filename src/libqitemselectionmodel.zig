@@ -246,6 +246,10 @@ pub const qitemselectionrange = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionrange.html#dtor.QItemSelectionRange)
     ///
     /// Delete this object from C++ memory.
@@ -254,7 +258,7 @@ pub const qitemselectionrange = struct {
     ///
     /// ` self: QtC.QItemSelectionRange `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QItemSelectionRange_Delete(@ptrCast(self));
     }
 };
@@ -313,6 +317,10 @@ pub const qitemselectionmodel = struct {
         qtc.QItemSelectionModel_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -321,8 +329,8 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` self: QtC.QItemSelectionModel `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QItemSelectionModel_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QItemSelectionModel_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -348,6 +356,10 @@ pub const qitemselectionmodel = struct {
         qtc.QItemSelectionModel_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -356,9 +368,9 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QItemSelectionModel_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QItemSelectionModel_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -387,6 +399,10 @@ pub const qitemselectionmodel = struct {
         qtc.QItemSelectionModel_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -399,8 +415,8 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QItemSelectionModel_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QItemSelectionModel_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -621,6 +637,10 @@ pub const qitemselectionmodel = struct {
         qtc.QItemSelectionModel_OnSetCurrentIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCurrentIndex` instead
+    ///
+    pub const QBaseSetCurrentIndex = SuperSetCurrentIndex;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#setCurrentIndex)
     ///
     /// Base class method implementation
@@ -633,8 +653,8 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn QBaseSetCurrentIndex(self: ?*anyopaque, index: ?*anyopaque, command: i32) void {
-        qtc.QItemSelectionModel_QBaseSetCurrentIndex(@ptrCast(self), @ptrCast(index), @bitCast(command));
+    pub fn SuperSetCurrentIndex(self: ?*anyopaque, index: ?*anyopaque, command: i32) void {
+        qtc.QItemSelectionModel_SuperSetCurrentIndex(@ptrCast(self), @ptrCast(index), @bitCast(command));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#select)
@@ -665,6 +685,10 @@ pub const qitemselectionmodel = struct {
         qtc.QItemSelectionModel_OnSelect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSelect` instead
+    ///
+    pub const QBaseSelect = SuperSelect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#select)
     ///
     /// Base class method implementation
@@ -677,8 +701,8 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn QBaseSelect(self: ?*anyopaque, index: ?*anyopaque, command: i32) void {
-        qtc.QItemSelectionModel_QBaseSelect(@ptrCast(self), @ptrCast(index), @bitCast(command));
+    pub fn SuperSelect(self: ?*anyopaque, index: ?*anyopaque, command: i32) void {
+        qtc.QItemSelectionModel_SuperSelect(@ptrCast(self), @ptrCast(index), @bitCast(command));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#select)
@@ -709,6 +733,10 @@ pub const qitemselectionmodel = struct {
         qtc.QItemSelectionModel_OnSelect2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSelect2` instead
+    ///
+    pub const QBaseSelect2 = SuperSelect2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#select)
     ///
     /// Base class method implementation
@@ -721,8 +749,8 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn QBaseSelect2(self: ?*anyopaque, selection: ?*anyopaque, command: i32) void {
-        qtc.QItemSelectionModel_QBaseSelect2(@ptrCast(self), @ptrCast(selection), @bitCast(command));
+    pub fn SuperSelect2(self: ?*anyopaque, selection: ?*anyopaque, command: i32) void {
+        qtc.QItemSelectionModel_SuperSelect2(@ptrCast(self), @ptrCast(selection), @bitCast(command));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clear)
@@ -749,6 +777,10 @@ pub const qitemselectionmodel = struct {
         qtc.QItemSelectionModel_OnClear(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClear` instead
+    ///
+    pub const QBaseClear = SuperClear;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clear)
     ///
     /// Base class method implementation
@@ -757,8 +789,8 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` self: QtC.QItemSelectionModel `
     ///
-    pub fn QBaseClear(self: ?*anyopaque) void {
-        qtc.QItemSelectionModel_QBaseClear(@ptrCast(self));
+    pub fn SuperClear(self: ?*anyopaque) void {
+        qtc.QItemSelectionModel_SuperClear(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#reset)
@@ -785,6 +817,10 @@ pub const qitemselectionmodel = struct {
         qtc.QItemSelectionModel_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperReset` instead
+    ///
+    pub const QBaseReset = SuperReset;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#reset)
     ///
     /// Base class method implementation
@@ -793,8 +829,8 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` self: QtC.QItemSelectionModel `
     ///
-    pub fn QBaseReset(self: ?*anyopaque) void {
-        qtc.QItemSelectionModel_QBaseReset(@ptrCast(self));
+    pub fn SuperReset(self: ?*anyopaque) void {
+        qtc.QItemSelectionModel_SuperReset(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clearSelection)
@@ -831,6 +867,10 @@ pub const qitemselectionmodel = struct {
         qtc.QItemSelectionModel_OnClearCurrentIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClearCurrentIndex` instead
+    ///
+    pub const QBaseClearCurrentIndex = SuperClearCurrentIndex;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clearCurrentIndex)
     ///
     /// Base class method implementation
@@ -839,8 +879,8 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` self: QtC.QItemSelectionModel `
     ///
-    pub fn QBaseClearCurrentIndex(self: ?*anyopaque) void {
-        qtc.QItemSelectionModel_QBaseClearCurrentIndex(@ptrCast(self));
+    pub fn SuperClearCurrentIndex(self: ?*anyopaque) void {
+        qtc.QItemSelectionModel_SuperClearCurrentIndex(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#selectionChanged)
@@ -999,6 +1039,10 @@ pub const qitemselectionmodel = struct {
         qtc.QItemSelectionModel_OnEmitSelectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEmitSelectionChanged` instead
+    ///
+    pub const QBaseEmitSelectionChanged = SuperEmitSelectionChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#emitSelectionChanged)
     ///
     /// Base class method implementation
@@ -1011,8 +1055,8 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` oldSelection: QtC.QItemSelection `
     ///
-    pub fn QBaseEmitSelectionChanged(self: ?*anyopaque, newSelection: ?*anyopaque, oldSelection: ?*anyopaque) void {
-        qtc.QItemSelectionModel_QBaseEmitSelectionChanged(@ptrCast(self), @ptrCast(newSelection), @ptrCast(oldSelection));
+    pub fn SuperEmitSelectionChanged(self: ?*anyopaque, newSelection: ?*anyopaque, oldSelection: ?*anyopaque) void {
+        qtc.QItemSelectionModel_SuperEmitSelectionChanged(@ptrCast(self), @ptrCast(newSelection), @ptrCast(oldSelection));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1905,6 +1949,10 @@ pub const qitemselectionmodel = struct {
         return qtc.QItemSelectionModel_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1917,8 +1965,8 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QItemSelectionModel_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QItemSelectionModel_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1955,6 +2003,10 @@ pub const qitemselectionmodel = struct {
         return qtc.QItemSelectionModel_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1969,8 +2021,8 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QItemSelectionModel_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QItemSelectionModel_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2005,6 +2057,10 @@ pub const qitemselectionmodel = struct {
         qtc.QItemSelectionModel_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -2017,8 +2073,8 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QItemSelectionModel_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QItemSelectionModel_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2053,6 +2109,10 @@ pub const qitemselectionmodel = struct {
         qtc.QItemSelectionModel_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -2065,8 +2125,8 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QItemSelectionModel_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QItemSelectionModel_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2101,6 +2161,10 @@ pub const qitemselectionmodel = struct {
         qtc.QItemSelectionModel_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -2113,8 +2177,8 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QItemSelectionModel_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QItemSelectionModel_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2149,6 +2213,10 @@ pub const qitemselectionmodel = struct {
         qtc.QItemSelectionModel_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2161,8 +2229,8 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QItemSelectionModel_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QItemSelectionModel_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2197,6 +2265,10 @@ pub const qitemselectionmodel = struct {
         qtc.QItemSelectionModel_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2209,8 +2281,8 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QItemSelectionModel_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QItemSelectionModel_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2243,6 +2315,10 @@ pub const qitemselectionmodel = struct {
         return qtc.QItemSelectionModel_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2253,8 +2329,8 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` self: QtC.QItemSelectionModel `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QItemSelectionModel_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QItemSelectionModel_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2287,6 +2363,10 @@ pub const qitemselectionmodel = struct {
         return qtc.QItemSelectionModel_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2297,8 +2377,8 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` self: QtC.QItemSelectionModel `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QItemSelectionModel_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QItemSelectionModel_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2334,6 +2414,10 @@ pub const qitemselectionmodel = struct {
         return qtc.QItemSelectionModel_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2346,9 +2430,9 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QItemSelectionModel_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QItemSelectionModel_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2383,6 +2467,10 @@ pub const qitemselectionmodel = struct {
         return qtc.QItemSelectionModel_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2395,8 +2483,8 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QItemSelectionModel_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QItemSelectionModel_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2430,6 +2518,9 @@ pub const qitemselectionmodel = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#dtor.QItemSelectionModel)
     ///
@@ -2439,7 +2530,7 @@ pub const qitemselectionmodel = struct {
     ///
     /// ` self: QtC.QItemSelectionModel `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QItemSelectionModel_Delete(@ptrCast(self));
     }
 };
@@ -2547,6 +2638,10 @@ pub const qitemselection = struct {
         qtc.QItemSelection_Split(@ptrCast(range), @ptrCast(other), @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselection.html#dtor.QItemSelection)
     ///
     /// Delete this object from C++ memory.
@@ -2555,7 +2650,7 @@ pub const qitemselection = struct {
     ///
     /// ` self: QtC.QItemSelection `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QItemSelection_Delete(@ptrCast(self));
     }
 };

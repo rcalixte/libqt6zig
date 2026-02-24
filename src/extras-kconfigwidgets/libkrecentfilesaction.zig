@@ -80,6 +80,10 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -88,8 +92,8 @@ pub const krecentfilesaction = struct {
     ///
     /// ` self: QtC.KRecentFilesAction `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KRecentFilesAction_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KRecentFilesAction_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -115,6 +119,10 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -123,9 +131,9 @@ pub const krecentfilesaction = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KRecentFilesAction_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KRecentFilesAction_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -154,6 +162,10 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -166,8 +178,8 @@ pub const krecentfilesaction = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KRecentFilesAction_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KRecentFilesAction_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -233,6 +245,10 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_OnRemoveAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRemoveAction` instead
+    ///
+    pub const QBaseRemoveAction = SuperRemoveAction;
+
     /// ### [Upstream resources](https://api.kde.org/krecentfilesaction.html#removeAction)
     ///
     /// Base class method implementation
@@ -243,8 +259,8 @@ pub const krecentfilesaction = struct {
     ///
     /// ` action: QtC.QAction `
     ///
-    pub fn QBaseRemoveAction(self: ?*anyopaque, action: ?*anyopaque) QtC.QAction {
-        return qtc.KRecentFilesAction_QBaseRemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn SuperRemoveAction(self: ?*anyopaque, action: ?*anyopaque) QtC.QAction {
+        return qtc.KRecentFilesAction_SuperRemoveAction(@ptrCast(self), @ptrCast(action));
     }
 
     /// ### [Upstream resources](https://api.kde.org/krecentfilesaction.html#maxItems)
@@ -382,6 +398,10 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_OnClear(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClear` instead
+    ///
+    pub const QBaseClear = SuperClear;
+
     /// ### [Upstream resources](https://api.kde.org/krecentfilesaction.html#clear)
     ///
     /// Base class method implementation
@@ -390,8 +410,8 @@ pub const krecentfilesaction = struct {
     ///
     /// ` self: QtC.KRecentFilesAction `
     ///
-    pub fn QBaseClear(self: ?*anyopaque) void {
-        qtc.KRecentFilesAction_QBaseClear(@ptrCast(self));
+    pub fn SuperClear(self: ?*anyopaque) void {
+        qtc.KRecentFilesAction_SuperClear(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/krecentfilesaction.html#urlSelected)
@@ -2886,6 +2906,10 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
     }
 
+    /// ### DEPRECATED: Use `SuperInsertAction` instead
+    ///
+    pub const QBaseInsertAction = SuperInsertAction;
+
     /// Inherited from KSelectAction
     ///
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#insertAction)
@@ -2900,8 +2924,8 @@ pub const krecentfilesaction = struct {
     ///
     /// ` action: QtC.QAction `
     ///
-    pub fn QBaseInsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.KRecentFilesAction_QBaseInsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn SuperInsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
+        qtc.KRecentFilesAction_SuperInsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
     }
 
     /// Inherited from KSelectAction
@@ -2936,6 +2960,10 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_SlotActionTriggered(@ptrCast(self), @ptrCast(action));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotActionTriggered` instead
+    ///
+    pub const QBaseSlotActionTriggered = SuperSlotActionTriggered;
+
     /// Inherited from KSelectAction
     ///
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#slotActionTriggered)
@@ -2948,8 +2976,8 @@ pub const krecentfilesaction = struct {
     ///
     /// ` action: QtC.QAction `
     ///
-    pub fn QBaseSlotActionTriggered(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.KRecentFilesAction_QBaseSlotActionTriggered(@ptrCast(self), @ptrCast(action));
+    pub fn SuperSlotActionTriggered(self: ?*anyopaque, action: ?*anyopaque) void {
+        qtc.KRecentFilesAction_SuperSlotActionTriggered(@ptrCast(self), @ptrCast(action));
     }
 
     /// Inherited from KSelectAction
@@ -2984,6 +3012,10 @@ pub const krecentfilesaction = struct {
         return qtc.KRecentFilesAction_CreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateWidget` instead
+    ///
+    pub const QBaseCreateWidget = SuperCreateWidget;
+
     /// Inherited from KSelectAction
     ///
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#createWidget)
@@ -2996,8 +3028,8 @@ pub const krecentfilesaction = struct {
     ///
     /// ` parent: QtC.QWidget `
     ///
-    pub fn QBaseCreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.KRecentFilesAction_QBaseCreateWidget(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperCreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
+        return qtc.KRecentFilesAction_SuperCreateWidget(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from KSelectAction
@@ -3032,6 +3064,10 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_DeleteWidget(@ptrCast(self), @ptrCast(widget));
     }
 
+    /// ### DEPRECATED: Use `SuperDeleteWidget` instead
+    ///
+    pub const QBaseDeleteWidget = SuperDeleteWidget;
+
     /// Inherited from KSelectAction
     ///
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#deleteWidget)
@@ -3044,8 +3080,8 @@ pub const krecentfilesaction = struct {
     ///
     /// ` widget: QtC.QWidget `
     ///
-    pub fn QBaseDeleteWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.KRecentFilesAction_QBaseDeleteWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn SuperDeleteWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
+        qtc.KRecentFilesAction_SuperDeleteWidget(@ptrCast(self), @ptrCast(widget));
     }
 
     /// Inherited from KSelectAction
@@ -3080,6 +3116,10 @@ pub const krecentfilesaction = struct {
         return qtc.KRecentFilesAction_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from KSelectAction
     ///
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#event)
@@ -3092,8 +3132,8 @@ pub const krecentfilesaction = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KRecentFilesAction_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KRecentFilesAction_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from KSelectAction
@@ -3130,6 +3170,10 @@ pub const krecentfilesaction = struct {
         return qtc.KRecentFilesAction_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from KSelectAction
     ///
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#eventFilter)
@@ -3144,8 +3188,8 @@ pub const krecentfilesaction = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KRecentFilesAction_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KRecentFilesAction_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from KSelectAction
@@ -3180,6 +3224,10 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -3192,8 +3240,8 @@ pub const krecentfilesaction = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRecentFilesAction_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRecentFilesAction_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3228,6 +3276,10 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -3240,8 +3292,8 @@ pub const krecentfilesaction = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRecentFilesAction_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRecentFilesAction_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3276,6 +3328,10 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -3288,8 +3344,8 @@ pub const krecentfilesaction = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRecentFilesAction_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KRecentFilesAction_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3324,6 +3380,10 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3336,8 +3396,8 @@ pub const krecentfilesaction = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KRecentFilesAction_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KRecentFilesAction_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3372,6 +3432,10 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -3384,8 +3448,8 @@ pub const krecentfilesaction = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KRecentFilesAction_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KRecentFilesAction_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3420,6 +3484,10 @@ pub const krecentfilesaction = struct {
         qtc.KRecentFilesAction_SlotToggled(@ptrCast(self), param1);
     }
 
+    /// ### DEPRECATED: Use `SuperSlotToggled` instead
+    ///
+    pub const QBaseSlotToggled = SuperSlotToggled;
+
     /// Inherited from KSelectAction
     ///
     /// ### [Upstream resources](https://api.kde.org/kselectaction.html#slotToggled)
@@ -3432,8 +3500,8 @@ pub const krecentfilesaction = struct {
     ///
     /// ` param1: bool `
     ///
-    pub fn QBaseSlotToggled(self: ?*anyopaque, param1: bool) void {
-        qtc.KRecentFilesAction_QBaseSlotToggled(@ptrCast(self), param1);
+    pub fn SuperSlotToggled(self: ?*anyopaque, param1: bool) void {
+        qtc.KRecentFilesAction_SuperSlotToggled(@ptrCast(self), param1);
     }
 
     /// Inherited from KSelectAction
@@ -3473,6 +3541,10 @@ pub const krecentfilesaction = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperCreatedWidgets` instead
+    ///
+    pub const QBaseCreatedWidgets = SuperCreatedWidgets;
+
     /// Inherited from QWidgetAction
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
@@ -3485,8 +3557,8 @@ pub const krecentfilesaction = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseCreatedWidgets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWidget {
-        const _arr: qtc.libqt_list = qtc.KRecentFilesAction_QBaseCreatedWidgets(@ptrCast(self));
+    pub fn SuperCreatedWidgets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWidget {
+        const _arr: qtc.libqt_list = qtc.KRecentFilesAction_SuperCreatedWidgets(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("krecentfilesaction.CreatedWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
@@ -3530,6 +3602,10 @@ pub const krecentfilesaction = struct {
         return qtc.KRecentFilesAction_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -3540,8 +3616,8 @@ pub const krecentfilesaction = struct {
     ///
     /// ` self: QtC.KRecentFilesAction `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KRecentFilesAction_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KRecentFilesAction_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3574,6 +3650,10 @@ pub const krecentfilesaction = struct {
         return qtc.KRecentFilesAction_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -3584,8 +3664,8 @@ pub const krecentfilesaction = struct {
     ///
     /// ` self: QtC.KRecentFilesAction `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KRecentFilesAction_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KRecentFilesAction_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3621,6 +3701,10 @@ pub const krecentfilesaction = struct {
         return qtc.KRecentFilesAction_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -3633,9 +3717,9 @@ pub const krecentfilesaction = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KRecentFilesAction_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KRecentFilesAction_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3670,6 +3754,10 @@ pub const krecentfilesaction = struct {
         return qtc.KRecentFilesAction_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -3682,8 +3770,8 @@ pub const krecentfilesaction = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KRecentFilesAction_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KRecentFilesAction_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3717,6 +3805,9 @@ pub const krecentfilesaction = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/krecentfilesaction.html#dtor.KRecentFilesAction)
     ///
@@ -3726,7 +3817,7 @@ pub const krecentfilesaction = struct {
     ///
     /// ` self: QtC.KRecentFilesAction `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KRecentFilesAction_Delete(@ptrCast(self));
     }
 };

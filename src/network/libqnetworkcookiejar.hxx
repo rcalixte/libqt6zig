@@ -543,29 +543,29 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
 
     // Friend functions
     friend bool QNetworkCookieJar_ValidateCookie(const QNetworkCookieJar* self, const QNetworkCookie* cookie, const QUrl* url);
-    friend bool QNetworkCookieJar_QBaseValidateCookie(const QNetworkCookieJar* self, const QNetworkCookie* cookie, const QUrl* url);
+    friend bool QNetworkCookieJar_SuperValidateCookie(const QNetworkCookieJar* self, const QNetworkCookie* cookie, const QUrl* url);
     friend void QNetworkCookieJar_TimerEvent(QNetworkCookieJar* self, QTimerEvent* event);
-    friend void QNetworkCookieJar_QBaseTimerEvent(QNetworkCookieJar* self, QTimerEvent* event);
+    friend void QNetworkCookieJar_SuperTimerEvent(QNetworkCookieJar* self, QTimerEvent* event);
     friend void QNetworkCookieJar_ChildEvent(QNetworkCookieJar* self, QChildEvent* event);
-    friend void QNetworkCookieJar_QBaseChildEvent(QNetworkCookieJar* self, QChildEvent* event);
+    friend void QNetworkCookieJar_SuperChildEvent(QNetworkCookieJar* self, QChildEvent* event);
     friend void QNetworkCookieJar_CustomEvent(QNetworkCookieJar* self, QEvent* event);
-    friend void QNetworkCookieJar_QBaseCustomEvent(QNetworkCookieJar* self, QEvent* event);
+    friend void QNetworkCookieJar_SuperCustomEvent(QNetworkCookieJar* self, QEvent* event);
     friend void QNetworkCookieJar_ConnectNotify(QNetworkCookieJar* self, const QMetaMethod* signal);
-    friend void QNetworkCookieJar_QBaseConnectNotify(QNetworkCookieJar* self, const QMetaMethod* signal);
+    friend void QNetworkCookieJar_SuperConnectNotify(QNetworkCookieJar* self, const QMetaMethod* signal);
     friend void QNetworkCookieJar_DisconnectNotify(QNetworkCookieJar* self, const QMetaMethod* signal);
-    friend void QNetworkCookieJar_QBaseDisconnectNotify(QNetworkCookieJar* self, const QMetaMethod* signal);
+    friend void QNetworkCookieJar_SuperDisconnectNotify(QNetworkCookieJar* self, const QMetaMethod* signal);
     friend libqt_list /* of QNetworkCookie* */ QNetworkCookieJar_AllCookies(const QNetworkCookieJar* self);
-    friend libqt_list /* of QNetworkCookie* */ QNetworkCookieJar_QBaseAllCookies(const QNetworkCookieJar* self);
+    friend libqt_list /* of QNetworkCookie* */ QNetworkCookieJar_SuperAllCookies(const QNetworkCookieJar* self);
     friend void QNetworkCookieJar_SetAllCookies(QNetworkCookieJar* self, const libqt_list /* of QNetworkCookie* */ cookieList);
-    friend void QNetworkCookieJar_QBaseSetAllCookies(QNetworkCookieJar* self, const libqt_list /* of QNetworkCookie* */ cookieList);
+    friend void QNetworkCookieJar_SuperSetAllCookies(QNetworkCookieJar* self, const libqt_list /* of QNetworkCookie* */ cookieList);
     friend QObject* QNetworkCookieJar_Sender(const QNetworkCookieJar* self);
-    friend QObject* QNetworkCookieJar_QBaseSender(const QNetworkCookieJar* self);
+    friend QObject* QNetworkCookieJar_SuperSender(const QNetworkCookieJar* self);
     friend int QNetworkCookieJar_SenderSignalIndex(const QNetworkCookieJar* self);
-    friend int QNetworkCookieJar_QBaseSenderSignalIndex(const QNetworkCookieJar* self);
+    friend int QNetworkCookieJar_SuperSenderSignalIndex(const QNetworkCookieJar* self);
     friend int QNetworkCookieJar_Receivers(const QNetworkCookieJar* self, const char* signal);
-    friend int QNetworkCookieJar_QBaseReceivers(const QNetworkCookieJar* self, const char* signal);
+    friend int QNetworkCookieJar_SuperReceivers(const QNetworkCookieJar* self, const char* signal);
     friend bool QNetworkCookieJar_IsSignalConnected(const QNetworkCookieJar* self, const QMetaMethod* signal);
-    friend bool QNetworkCookieJar_QBaseIsSignalConnected(const QNetworkCookieJar* self, const QMetaMethod* signal);
+    friend bool QNetworkCookieJar_SuperIsSignalConnected(const QNetworkCookieJar* self, const QMetaMethod* signal);
 };
 
 #endif

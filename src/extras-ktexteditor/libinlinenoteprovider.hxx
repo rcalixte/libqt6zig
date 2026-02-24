@@ -491,23 +491,23 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
 
     // Friend functions
     friend void KTextEditor__InlineNoteProvider_TimerEvent(KTextEditor::InlineNoteProvider* self, QTimerEvent* event);
-    friend void KTextEditor__InlineNoteProvider_QBaseTimerEvent(KTextEditor::InlineNoteProvider* self, QTimerEvent* event);
+    friend void KTextEditor__InlineNoteProvider_SuperTimerEvent(KTextEditor::InlineNoteProvider* self, QTimerEvent* event);
     friend void KTextEditor__InlineNoteProvider_ChildEvent(KTextEditor::InlineNoteProvider* self, QChildEvent* event);
-    friend void KTextEditor__InlineNoteProvider_QBaseChildEvent(KTextEditor::InlineNoteProvider* self, QChildEvent* event);
+    friend void KTextEditor__InlineNoteProvider_SuperChildEvent(KTextEditor::InlineNoteProvider* self, QChildEvent* event);
     friend void KTextEditor__InlineNoteProvider_CustomEvent(KTextEditor::InlineNoteProvider* self, QEvent* event);
-    friend void KTextEditor__InlineNoteProvider_QBaseCustomEvent(KTextEditor::InlineNoteProvider* self, QEvent* event);
+    friend void KTextEditor__InlineNoteProvider_SuperCustomEvent(KTextEditor::InlineNoteProvider* self, QEvent* event);
     friend void KTextEditor__InlineNoteProvider_ConnectNotify(KTextEditor::InlineNoteProvider* self, const QMetaMethod* signal);
-    friend void KTextEditor__InlineNoteProvider_QBaseConnectNotify(KTextEditor::InlineNoteProvider* self, const QMetaMethod* signal);
+    friend void KTextEditor__InlineNoteProvider_SuperConnectNotify(KTextEditor::InlineNoteProvider* self, const QMetaMethod* signal);
     friend void KTextEditor__InlineNoteProvider_DisconnectNotify(KTextEditor::InlineNoteProvider* self, const QMetaMethod* signal);
-    friend void KTextEditor__InlineNoteProvider_QBaseDisconnectNotify(KTextEditor::InlineNoteProvider* self, const QMetaMethod* signal);
+    friend void KTextEditor__InlineNoteProvider_SuperDisconnectNotify(KTextEditor::InlineNoteProvider* self, const QMetaMethod* signal);
     friend QObject* KTextEditor__InlineNoteProvider_Sender(const KTextEditor::InlineNoteProvider* self);
-    friend QObject* KTextEditor__InlineNoteProvider_QBaseSender(const KTextEditor::InlineNoteProvider* self);
+    friend QObject* KTextEditor__InlineNoteProvider_SuperSender(const KTextEditor::InlineNoteProvider* self);
     friend int KTextEditor__InlineNoteProvider_SenderSignalIndex(const KTextEditor::InlineNoteProvider* self);
-    friend int KTextEditor__InlineNoteProvider_QBaseSenderSignalIndex(const KTextEditor::InlineNoteProvider* self);
+    friend int KTextEditor__InlineNoteProvider_SuperSenderSignalIndex(const KTextEditor::InlineNoteProvider* self);
     friend int KTextEditor__InlineNoteProvider_Receivers(const KTextEditor::InlineNoteProvider* self, const char* signal);
-    friend int KTextEditor__InlineNoteProvider_QBaseReceivers(const KTextEditor::InlineNoteProvider* self, const char* signal);
+    friend int KTextEditor__InlineNoteProvider_SuperReceivers(const KTextEditor::InlineNoteProvider* self, const char* signal);
     friend bool KTextEditor__InlineNoteProvider_IsSignalConnected(const KTextEditor::InlineNoteProvider* self, const QMetaMethod* signal);
-    friend bool KTextEditor__InlineNoteProvider_QBaseIsSignalConnected(const KTextEditor::InlineNoteProvider* self, const QMetaMethod* signal);
+    friend bool KTextEditor__InlineNoteProvider_SuperIsSignalConnected(const KTextEditor::InlineNoteProvider* self, const QMetaMethod* signal);
 };
 
 #endif

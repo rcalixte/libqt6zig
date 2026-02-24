@@ -100,7 +100,7 @@ void KFilePreviewGenerator_CancelPreviews(KFilePreviewGenerator* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KFilePreviewGenerator_QBaseMetaObject(const KFilePreviewGenerator* self) {
+QMetaObject* KFilePreviewGenerator_SuperMetaObject(const KFilePreviewGenerator* self) {
     auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self));
     if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
         vkfilepreviewgenerator->setKFilePreviewGenerator_MetaObject_IsBase(true);
@@ -119,7 +119,7 @@ void KFilePreviewGenerator_OnMetaObject(const KFilePreviewGenerator* self, intpt
 }
 
 // Base class handler implementation
-void* KFilePreviewGenerator_QBaseMetacast(KFilePreviewGenerator* self, const char* param1) {
+void* KFilePreviewGenerator_SuperMetacast(KFilePreviewGenerator* self, const char* param1) {
     auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
     if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
         vkfilepreviewgenerator->setKFilePreviewGenerator_Metacast_IsBase(true);
@@ -138,7 +138,7 @@ void KFilePreviewGenerator_OnMetacast(KFilePreviewGenerator* self, intptr_t slot
 }
 
 // Base class handler implementation
-int KFilePreviewGenerator_QBaseMetacall(KFilePreviewGenerator* self, int param1, int param2, void** param3) {
+int KFilePreviewGenerator_SuperMetacall(KFilePreviewGenerator* self, int param1, int param2, void** param3) {
     auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
     if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
         vkfilepreviewgenerator->setKFilePreviewGenerator_Metacall_IsBase(true);
@@ -167,7 +167,7 @@ bool KFilePreviewGenerator_Event(KFilePreviewGenerator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KFilePreviewGenerator_QBaseEvent(KFilePreviewGenerator* self, QEvent* event) {
+bool KFilePreviewGenerator_SuperEvent(KFilePreviewGenerator* self, QEvent* event) {
     auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
     if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
         vkfilepreviewgenerator->setKFilePreviewGenerator_Event_IsBase(true);
@@ -196,7 +196,7 @@ bool KFilePreviewGenerator_EventFilter(KFilePreviewGenerator* self, QObject* wat
 }
 
 // Base class handler implementation
-bool KFilePreviewGenerator_QBaseEventFilter(KFilePreviewGenerator* self, QObject* watched, QEvent* event) {
+bool KFilePreviewGenerator_SuperEventFilter(KFilePreviewGenerator* self, QObject* watched, QEvent* event) {
     auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
     if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
         vkfilepreviewgenerator->setKFilePreviewGenerator_EventFilter_IsBase(true);
@@ -225,7 +225,7 @@ void KFilePreviewGenerator_TimerEvent(KFilePreviewGenerator* self, QTimerEvent* 
 }
 
 // Base class handler implementation
-void KFilePreviewGenerator_QBaseTimerEvent(KFilePreviewGenerator* self, QTimerEvent* event) {
+void KFilePreviewGenerator_SuperTimerEvent(KFilePreviewGenerator* self, QTimerEvent* event) {
     auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
     if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
         vkfilepreviewgenerator->setKFilePreviewGenerator_TimerEvent_IsBase(true);
@@ -254,7 +254,7 @@ void KFilePreviewGenerator_ChildEvent(KFilePreviewGenerator* self, QChildEvent* 
 }
 
 // Base class handler implementation
-void KFilePreviewGenerator_QBaseChildEvent(KFilePreviewGenerator* self, QChildEvent* event) {
+void KFilePreviewGenerator_SuperChildEvent(KFilePreviewGenerator* self, QChildEvent* event) {
     auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
     if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
         vkfilepreviewgenerator->setKFilePreviewGenerator_ChildEvent_IsBase(true);
@@ -283,7 +283,7 @@ void KFilePreviewGenerator_CustomEvent(KFilePreviewGenerator* self, QEvent* even
 }
 
 // Base class handler implementation
-void KFilePreviewGenerator_QBaseCustomEvent(KFilePreviewGenerator* self, QEvent* event) {
+void KFilePreviewGenerator_SuperCustomEvent(KFilePreviewGenerator* self, QEvent* event) {
     auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
     if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
         vkfilepreviewgenerator->setKFilePreviewGenerator_CustomEvent_IsBase(true);
@@ -312,7 +312,7 @@ void KFilePreviewGenerator_ConnectNotify(KFilePreviewGenerator* self, const QMet
 }
 
 // Base class handler implementation
-void KFilePreviewGenerator_QBaseConnectNotify(KFilePreviewGenerator* self, const QMetaMethod* signal) {
+void KFilePreviewGenerator_SuperConnectNotify(KFilePreviewGenerator* self, const QMetaMethod* signal) {
     auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
     if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
         vkfilepreviewgenerator->setKFilePreviewGenerator_ConnectNotify_IsBase(true);
@@ -341,7 +341,7 @@ void KFilePreviewGenerator_DisconnectNotify(KFilePreviewGenerator* self, const Q
 }
 
 // Base class handler implementation
-void KFilePreviewGenerator_QBaseDisconnectNotify(KFilePreviewGenerator* self, const QMetaMethod* signal) {
+void KFilePreviewGenerator_SuperDisconnectNotify(KFilePreviewGenerator* self, const QMetaMethod* signal) {
     auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
     if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
         vkfilepreviewgenerator->setKFilePreviewGenerator_DisconnectNotify_IsBase(true);
@@ -370,7 +370,7 @@ QObject* KFilePreviewGenerator_Sender(const KFilePreviewGenerator* self) {
 }
 
 // Base class handler implementation
-QObject* KFilePreviewGenerator_QBaseSender(const KFilePreviewGenerator* self) {
+QObject* KFilePreviewGenerator_SuperSender(const KFilePreviewGenerator* self) {
     auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self));
     if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
         vkfilepreviewgenerator->setKFilePreviewGenerator_Sender_IsBase(true);
@@ -399,7 +399,7 @@ int KFilePreviewGenerator_SenderSignalIndex(const KFilePreviewGenerator* self) {
 }
 
 // Base class handler implementation
-int KFilePreviewGenerator_QBaseSenderSignalIndex(const KFilePreviewGenerator* self) {
+int KFilePreviewGenerator_SuperSenderSignalIndex(const KFilePreviewGenerator* self) {
     auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self));
     if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
         vkfilepreviewgenerator->setKFilePreviewGenerator_SenderSignalIndex_IsBase(true);
@@ -428,7 +428,7 @@ int KFilePreviewGenerator_Receivers(const KFilePreviewGenerator* self, const cha
 }
 
 // Base class handler implementation
-int KFilePreviewGenerator_QBaseReceivers(const KFilePreviewGenerator* self, const char* signal) {
+int KFilePreviewGenerator_SuperReceivers(const KFilePreviewGenerator* self, const char* signal) {
     auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self));
     if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
         vkfilepreviewgenerator->setKFilePreviewGenerator_Receivers_IsBase(true);
@@ -457,7 +457,7 @@ bool KFilePreviewGenerator_IsSignalConnected(const KFilePreviewGenerator* self, 
 }
 
 // Base class handler implementation
-bool KFilePreviewGenerator_QBaseIsSignalConnected(const KFilePreviewGenerator* self, const QMetaMethod* signal) {
+bool KFilePreviewGenerator_SuperIsSignalConnected(const KFilePreviewGenerator* self, const QMetaMethod* signal) {
     auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self));
     if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
         vkfilepreviewgenerator->setKFilePreviewGenerator_IsSignalConnected_IsBase(true);

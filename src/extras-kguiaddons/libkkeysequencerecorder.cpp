@@ -201,7 +201,7 @@ void KKeySequenceRecorder_Connect_PatternsChanged(KKeySequenceRecorder* self, in
 }
 
 // Base class handler implementation
-QMetaObject* KKeySequenceRecorder_QBaseMetaObject(const KKeySequenceRecorder* self) {
+QMetaObject* KKeySequenceRecorder_SuperMetaObject(const KKeySequenceRecorder* self) {
     auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
     if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
         vkkeysequencerecorder->setKKeySequenceRecorder_MetaObject_IsBase(true);
@@ -220,7 +220,7 @@ void KKeySequenceRecorder_OnMetaObject(const KKeySequenceRecorder* self, intptr_
 }
 
 // Base class handler implementation
-void* KKeySequenceRecorder_QBaseMetacast(KKeySequenceRecorder* self, const char* param1) {
+void* KKeySequenceRecorder_SuperMetacast(KKeySequenceRecorder* self, const char* param1) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
     if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
         vkkeysequencerecorder->setKKeySequenceRecorder_Metacast_IsBase(true);
@@ -239,7 +239,7 @@ void KKeySequenceRecorder_OnMetacast(KKeySequenceRecorder* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int KKeySequenceRecorder_QBaseMetacall(KKeySequenceRecorder* self, int param1, int param2, void** param3) {
+int KKeySequenceRecorder_SuperMetacall(KKeySequenceRecorder* self, int param1, int param2, void** param3) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
     if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
         vkkeysequencerecorder->setKKeySequenceRecorder_Metacall_IsBase(true);
@@ -268,7 +268,7 @@ bool KKeySequenceRecorder_Event(KKeySequenceRecorder* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KKeySequenceRecorder_QBaseEvent(KKeySequenceRecorder* self, QEvent* event) {
+bool KKeySequenceRecorder_SuperEvent(KKeySequenceRecorder* self, QEvent* event) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
     if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
         vkkeysequencerecorder->setKKeySequenceRecorder_Event_IsBase(true);
@@ -297,7 +297,7 @@ bool KKeySequenceRecorder_EventFilter(KKeySequenceRecorder* self, QObject* watch
 }
 
 // Base class handler implementation
-bool KKeySequenceRecorder_QBaseEventFilter(KKeySequenceRecorder* self, QObject* watched, QEvent* event) {
+bool KKeySequenceRecorder_SuperEventFilter(KKeySequenceRecorder* self, QObject* watched, QEvent* event) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
     if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
         vkkeysequencerecorder->setKKeySequenceRecorder_EventFilter_IsBase(true);
@@ -326,7 +326,7 @@ void KKeySequenceRecorder_TimerEvent(KKeySequenceRecorder* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void KKeySequenceRecorder_QBaseTimerEvent(KKeySequenceRecorder* self, QTimerEvent* event) {
+void KKeySequenceRecorder_SuperTimerEvent(KKeySequenceRecorder* self, QTimerEvent* event) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
     if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
         vkkeysequencerecorder->setKKeySequenceRecorder_TimerEvent_IsBase(true);
@@ -355,7 +355,7 @@ void KKeySequenceRecorder_ChildEvent(KKeySequenceRecorder* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void KKeySequenceRecorder_QBaseChildEvent(KKeySequenceRecorder* self, QChildEvent* event) {
+void KKeySequenceRecorder_SuperChildEvent(KKeySequenceRecorder* self, QChildEvent* event) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
     if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
         vkkeysequencerecorder->setKKeySequenceRecorder_ChildEvent_IsBase(true);
@@ -384,7 +384,7 @@ void KKeySequenceRecorder_CustomEvent(KKeySequenceRecorder* self, QEvent* event)
 }
 
 // Base class handler implementation
-void KKeySequenceRecorder_QBaseCustomEvent(KKeySequenceRecorder* self, QEvent* event) {
+void KKeySequenceRecorder_SuperCustomEvent(KKeySequenceRecorder* self, QEvent* event) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
     if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
         vkkeysequencerecorder->setKKeySequenceRecorder_CustomEvent_IsBase(true);
@@ -413,7 +413,7 @@ void KKeySequenceRecorder_ConnectNotify(KKeySequenceRecorder* self, const QMetaM
 }
 
 // Base class handler implementation
-void KKeySequenceRecorder_QBaseConnectNotify(KKeySequenceRecorder* self, const QMetaMethod* signal) {
+void KKeySequenceRecorder_SuperConnectNotify(KKeySequenceRecorder* self, const QMetaMethod* signal) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
     if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
         vkkeysequencerecorder->setKKeySequenceRecorder_ConnectNotify_IsBase(true);
@@ -442,7 +442,7 @@ void KKeySequenceRecorder_DisconnectNotify(KKeySequenceRecorder* self, const QMe
 }
 
 // Base class handler implementation
-void KKeySequenceRecorder_QBaseDisconnectNotify(KKeySequenceRecorder* self, const QMetaMethod* signal) {
+void KKeySequenceRecorder_SuperDisconnectNotify(KKeySequenceRecorder* self, const QMetaMethod* signal) {
     auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
     if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
         vkkeysequencerecorder->setKKeySequenceRecorder_DisconnectNotify_IsBase(true);
@@ -471,7 +471,7 @@ QObject* KKeySequenceRecorder_Sender(const KKeySequenceRecorder* self) {
 }
 
 // Base class handler implementation
-QObject* KKeySequenceRecorder_QBaseSender(const KKeySequenceRecorder* self) {
+QObject* KKeySequenceRecorder_SuperSender(const KKeySequenceRecorder* self) {
     auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
     if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
         vkkeysequencerecorder->setKKeySequenceRecorder_Sender_IsBase(true);
@@ -500,7 +500,7 @@ int KKeySequenceRecorder_SenderSignalIndex(const KKeySequenceRecorder* self) {
 }
 
 // Base class handler implementation
-int KKeySequenceRecorder_QBaseSenderSignalIndex(const KKeySequenceRecorder* self) {
+int KKeySequenceRecorder_SuperSenderSignalIndex(const KKeySequenceRecorder* self) {
     auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
     if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
         vkkeysequencerecorder->setKKeySequenceRecorder_SenderSignalIndex_IsBase(true);
@@ -529,7 +529,7 @@ int KKeySequenceRecorder_Receivers(const KKeySequenceRecorder* self, const char*
 }
 
 // Base class handler implementation
-int KKeySequenceRecorder_QBaseReceivers(const KKeySequenceRecorder* self, const char* signal) {
+int KKeySequenceRecorder_SuperReceivers(const KKeySequenceRecorder* self, const char* signal) {
     auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
     if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
         vkkeysequencerecorder->setKKeySequenceRecorder_Receivers_IsBase(true);
@@ -558,7 +558,7 @@ bool KKeySequenceRecorder_IsSignalConnected(const KKeySequenceRecorder* self, co
 }
 
 // Base class handler implementation
-bool KKeySequenceRecorder_QBaseIsSignalConnected(const KKeySequenceRecorder* self, const QMetaMethod* signal) {
+bool KKeySequenceRecorder_SuperIsSignalConnected(const KKeySequenceRecorder* self, const QMetaMethod* signal) {
     auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
     if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
         vkkeysequencerecorder->setKKeySequenceRecorder_IsSignalConnected_IsBase(true);

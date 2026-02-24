@@ -565,33 +565,33 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
 
     // Friend functions
     friend void Konsole__Emulation_SetMode(Konsole::Emulation* self, int mode);
-    friend void Konsole__Emulation_QBaseSetMode(Konsole::Emulation* self, int mode);
+    friend void Konsole__Emulation_SuperSetMode(Konsole::Emulation* self, int mode);
     friend void Konsole__Emulation_ResetMode(Konsole::Emulation* self, int mode);
-    friend void Konsole__Emulation_QBaseResetMode(Konsole::Emulation* self, int mode);
+    friend void Konsole__Emulation_SuperResetMode(Konsole::Emulation* self, int mode);
     friend void Konsole__Emulation_TimerEvent(Konsole::Emulation* self, QTimerEvent* event);
-    friend void Konsole__Emulation_QBaseTimerEvent(Konsole::Emulation* self, QTimerEvent* event);
+    friend void Konsole__Emulation_SuperTimerEvent(Konsole::Emulation* self, QTimerEvent* event);
     friend void Konsole__Emulation_ChildEvent(Konsole::Emulation* self, QChildEvent* event);
-    friend void Konsole__Emulation_QBaseChildEvent(Konsole::Emulation* self, QChildEvent* event);
+    friend void Konsole__Emulation_SuperChildEvent(Konsole::Emulation* self, QChildEvent* event);
     friend void Konsole__Emulation_CustomEvent(Konsole::Emulation* self, QEvent* event);
-    friend void Konsole__Emulation_QBaseCustomEvent(Konsole::Emulation* self, QEvent* event);
+    friend void Konsole__Emulation_SuperCustomEvent(Konsole::Emulation* self, QEvent* event);
     friend void Konsole__Emulation_ConnectNotify(Konsole::Emulation* self, const QMetaMethod* signal);
-    friend void Konsole__Emulation_QBaseConnectNotify(Konsole::Emulation* self, const QMetaMethod* signal);
+    friend void Konsole__Emulation_SuperConnectNotify(Konsole::Emulation* self, const QMetaMethod* signal);
     friend void Konsole__Emulation_DisconnectNotify(Konsole::Emulation* self, const QMetaMethod* signal);
-    friend void Konsole__Emulation_QBaseDisconnectNotify(Konsole::Emulation* self, const QMetaMethod* signal);
+    friend void Konsole__Emulation_SuperDisconnectNotify(Konsole::Emulation* self, const QMetaMethod* signal);
     friend void Konsole__Emulation_SetScreen(Konsole::Emulation* self, int index);
-    friend void Konsole__Emulation_QBaseSetScreen(Konsole::Emulation* self, int index);
+    friend void Konsole__Emulation_SuperSetScreen(Konsole::Emulation* self, int index);
     friend void Konsole__Emulation_SetCodec(Konsole::Emulation* self, int codec);
-    friend void Konsole__Emulation_QBaseSetCodec(Konsole::Emulation* self, int codec);
+    friend void Konsole__Emulation_SuperSetCodec(Konsole::Emulation* self, int codec);
     friend void Konsole__Emulation_BufferedUpdate(Konsole::Emulation* self);
-    friend void Konsole__Emulation_QBaseBufferedUpdate(Konsole::Emulation* self);
+    friend void Konsole__Emulation_SuperBufferedUpdate(Konsole::Emulation* self);
     friend QObject* Konsole__Emulation_Sender(const Konsole::Emulation* self);
-    friend QObject* Konsole__Emulation_QBaseSender(const Konsole::Emulation* self);
+    friend QObject* Konsole__Emulation_SuperSender(const Konsole::Emulation* self);
     friend int Konsole__Emulation_SenderSignalIndex(const Konsole::Emulation* self);
-    friend int Konsole__Emulation_QBaseSenderSignalIndex(const Konsole::Emulation* self);
+    friend int Konsole__Emulation_SuperSenderSignalIndex(const Konsole::Emulation* self);
     friend int Konsole__Emulation_Receivers(const Konsole::Emulation* self, const char* signal);
-    friend int Konsole__Emulation_QBaseReceivers(const Konsole::Emulation* self, const char* signal);
+    friend int Konsole__Emulation_SuperReceivers(const Konsole::Emulation* self, const char* signal);
     friend bool Konsole__Emulation_IsSignalConnected(const Konsole::Emulation* self, const QMetaMethod* signal);
-    friend bool Konsole__Emulation_QBaseIsSignalConnected(const Konsole::Emulation* self, const QMetaMethod* signal);
+    friend bool Konsole__Emulation_SuperIsSignalConnected(const Konsole::Emulation* self, const QMetaMethod* signal);
 };
 
 #endif

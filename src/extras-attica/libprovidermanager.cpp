@@ -185,7 +185,7 @@ void Attica__ProviderManager_Connect_FailedToLoad(Attica__ProviderManager* self,
 }
 
 // Base class handler implementation
-QMetaObject* Attica__ProviderManager_QBaseMetaObject(const Attica__ProviderManager* self) {
+QMetaObject* Attica__ProviderManager_SuperMetaObject(const Attica__ProviderManager* self) {
     auto* vatticaprovidermanager = const_cast<VirtualAtticaProviderManager*>(dynamic_cast<const VirtualAtticaProviderManager*>(self));
     if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
         vatticaprovidermanager->setAttica__ProviderManager_MetaObject_IsBase(true);
@@ -204,7 +204,7 @@ void Attica__ProviderManager_OnMetaObject(const Attica__ProviderManager* self, i
 }
 
 // Base class handler implementation
-void* Attica__ProviderManager_QBaseMetacast(Attica__ProviderManager* self, const char* param1) {
+void* Attica__ProviderManager_SuperMetacast(Attica__ProviderManager* self, const char* param1) {
     auto* vatticaprovidermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
     if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
         vatticaprovidermanager->setAttica__ProviderManager_Metacast_IsBase(true);
@@ -223,7 +223,7 @@ void Attica__ProviderManager_OnMetacast(Attica__ProviderManager* self, intptr_t 
 }
 
 // Base class handler implementation
-int Attica__ProviderManager_QBaseMetacall(Attica__ProviderManager* self, int param1, int param2, void** param3) {
+int Attica__ProviderManager_SuperMetacall(Attica__ProviderManager* self, int param1, int param2, void** param3) {
     auto* vatticaprovidermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
     if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
         vatticaprovidermanager->setAttica__ProviderManager_Metacall_IsBase(true);
@@ -252,7 +252,7 @@ bool Attica__ProviderManager_Event(Attica__ProviderManager* self, QEvent* event)
 }
 
 // Base class handler implementation
-bool Attica__ProviderManager_QBaseEvent(Attica__ProviderManager* self, QEvent* event) {
+bool Attica__ProviderManager_SuperEvent(Attica__ProviderManager* self, QEvent* event) {
     auto* vatticaprovidermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
     if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
         vatticaprovidermanager->setAttica__ProviderManager_Event_IsBase(true);
@@ -281,7 +281,7 @@ bool Attica__ProviderManager_EventFilter(Attica__ProviderManager* self, QObject*
 }
 
 // Base class handler implementation
-bool Attica__ProviderManager_QBaseEventFilter(Attica__ProviderManager* self, QObject* watched, QEvent* event) {
+bool Attica__ProviderManager_SuperEventFilter(Attica__ProviderManager* self, QObject* watched, QEvent* event) {
     auto* vatticaprovidermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
     if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
         vatticaprovidermanager->setAttica__ProviderManager_EventFilter_IsBase(true);
@@ -310,7 +310,7 @@ void Attica__ProviderManager_TimerEvent(Attica__ProviderManager* self, QTimerEve
 }
 
 // Base class handler implementation
-void Attica__ProviderManager_QBaseTimerEvent(Attica__ProviderManager* self, QTimerEvent* event) {
+void Attica__ProviderManager_SuperTimerEvent(Attica__ProviderManager* self, QTimerEvent* event) {
     auto* vatticaprovidermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
     if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
         vatticaprovidermanager->setAttica__ProviderManager_TimerEvent_IsBase(true);
@@ -339,7 +339,7 @@ void Attica__ProviderManager_ChildEvent(Attica__ProviderManager* self, QChildEve
 }
 
 // Base class handler implementation
-void Attica__ProviderManager_QBaseChildEvent(Attica__ProviderManager* self, QChildEvent* event) {
+void Attica__ProviderManager_SuperChildEvent(Attica__ProviderManager* self, QChildEvent* event) {
     auto* vatticaprovidermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
     if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
         vatticaprovidermanager->setAttica__ProviderManager_ChildEvent_IsBase(true);
@@ -368,7 +368,7 @@ void Attica__ProviderManager_CustomEvent(Attica__ProviderManager* self, QEvent* 
 }
 
 // Base class handler implementation
-void Attica__ProviderManager_QBaseCustomEvent(Attica__ProviderManager* self, QEvent* event) {
+void Attica__ProviderManager_SuperCustomEvent(Attica__ProviderManager* self, QEvent* event) {
     auto* vatticaprovidermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
     if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
         vatticaprovidermanager->setAttica__ProviderManager_CustomEvent_IsBase(true);
@@ -397,7 +397,7 @@ void Attica__ProviderManager_ConnectNotify(Attica__ProviderManager* self, const 
 }
 
 // Base class handler implementation
-void Attica__ProviderManager_QBaseConnectNotify(Attica__ProviderManager* self, const QMetaMethod* signal) {
+void Attica__ProviderManager_SuperConnectNotify(Attica__ProviderManager* self, const QMetaMethod* signal) {
     auto* vatticaprovidermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
     if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
         vatticaprovidermanager->setAttica__ProviderManager_ConnectNotify_IsBase(true);
@@ -426,7 +426,7 @@ void Attica__ProviderManager_DisconnectNotify(Attica__ProviderManager* self, con
 }
 
 // Base class handler implementation
-void Attica__ProviderManager_QBaseDisconnectNotify(Attica__ProviderManager* self, const QMetaMethod* signal) {
+void Attica__ProviderManager_SuperDisconnectNotify(Attica__ProviderManager* self, const QMetaMethod* signal) {
     auto* vatticaprovidermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
     if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
         vatticaprovidermanager->setAttica__ProviderManager_DisconnectNotify_IsBase(true);
@@ -455,7 +455,7 @@ QObject* Attica__ProviderManager_Sender(const Attica__ProviderManager* self) {
 }
 
 // Base class handler implementation
-QObject* Attica__ProviderManager_QBaseSender(const Attica__ProviderManager* self) {
+QObject* Attica__ProviderManager_SuperSender(const Attica__ProviderManager* self) {
     auto* vatticaprovidermanager = const_cast<VirtualAtticaProviderManager*>(dynamic_cast<const VirtualAtticaProviderManager*>(self));
     if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
         vatticaprovidermanager->setAttica__ProviderManager_Sender_IsBase(true);
@@ -484,7 +484,7 @@ int Attica__ProviderManager_SenderSignalIndex(const Attica__ProviderManager* sel
 }
 
 // Base class handler implementation
-int Attica__ProviderManager_QBaseSenderSignalIndex(const Attica__ProviderManager* self) {
+int Attica__ProviderManager_SuperSenderSignalIndex(const Attica__ProviderManager* self) {
     auto* vatticaprovidermanager = const_cast<VirtualAtticaProviderManager*>(dynamic_cast<const VirtualAtticaProviderManager*>(self));
     if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
         vatticaprovidermanager->setAttica__ProviderManager_SenderSignalIndex_IsBase(true);
@@ -513,7 +513,7 @@ int Attica__ProviderManager_Receivers(const Attica__ProviderManager* self, const
 }
 
 // Base class handler implementation
-int Attica__ProviderManager_QBaseReceivers(const Attica__ProviderManager* self, const char* signal) {
+int Attica__ProviderManager_SuperReceivers(const Attica__ProviderManager* self, const char* signal) {
     auto* vatticaprovidermanager = const_cast<VirtualAtticaProviderManager*>(dynamic_cast<const VirtualAtticaProviderManager*>(self));
     if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
         vatticaprovidermanager->setAttica__ProviderManager_Receivers_IsBase(true);
@@ -542,7 +542,7 @@ bool Attica__ProviderManager_IsSignalConnected(const Attica__ProviderManager* se
 }
 
 // Base class handler implementation
-bool Attica__ProviderManager_QBaseIsSignalConnected(const Attica__ProviderManager* self, const QMetaMethod* signal) {
+bool Attica__ProviderManager_SuperIsSignalConnected(const Attica__ProviderManager* self, const QMetaMethod* signal) {
     auto* vatticaprovidermanager = const_cast<VirtualAtticaProviderManager*>(dynamic_cast<const VirtualAtticaProviderManager*>(self));
     if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
         vatticaprovidermanager->setAttica__ProviderManager_IsSignalConnected_IsBase(true);

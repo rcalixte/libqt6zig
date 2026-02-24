@@ -99,6 +99,10 @@ pub const qscicommand = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// Delete this object from C++ memory.
@@ -107,7 +111,7 @@ pub const qscicommand = struct {
     ///
     /// ` self: QtC.QsciCommand `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QsciCommand_Delete(@ptrCast(self));
     }
 };

@@ -58,6 +58,10 @@ pub const qdesignerdnditeminterface = struct {
         return qtc.QDesignerDnDItemInterface_Source(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerdnditeminterface.html#dtor.QDesignerDnDItemInterface)
     ///
     /// Delete this object from C++ memory.
@@ -66,7 +70,7 @@ pub const qdesignerdnditeminterface = struct {
     ///
     /// ` self: QtC.QDesignerDnDItemInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDesignerDnDItemInterface_Delete(@ptrCast(self));
     }
 };

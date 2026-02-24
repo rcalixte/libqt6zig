@@ -210,7 +210,7 @@ QColor* QColorDialog_GetColor4(const QColor* initial, QWidget* parent, const lib
 }
 
 // Base class handler implementation
-QMetaObject* QColorDialog_QBaseMetaObject(const QColorDialog* self) {
+QMetaObject* QColorDialog_SuperMetaObject(const QColorDialog* self) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_MetaObject_IsBase(true);
@@ -229,7 +229,7 @@ void QColorDialog_OnMetaObject(const QColorDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QColorDialog_QBaseMetacast(QColorDialog* self, const char* param1) {
+void* QColorDialog_SuperMetacast(QColorDialog* self, const char* param1) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_Metacast_IsBase(true);
@@ -248,7 +248,7 @@ void QColorDialog_OnMetacast(QColorDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QColorDialog_QBaseMetacall(QColorDialog* self, int param1, int param2, void** param3) {
+int QColorDialog_SuperMetacall(QColorDialog* self, int param1, int param2, void** param3) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_Metacall_IsBase(true);
@@ -267,7 +267,7 @@ void QColorDialog_OnMetacall(QColorDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseSetVisible(QColorDialog* self, bool visible) {
+void QColorDialog_SuperSetVisible(QColorDialog* self, bool visible) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_SetVisible_IsBase(true);
@@ -286,7 +286,7 @@ void QColorDialog_OnSetVisible(QColorDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseChangeEvent(QColorDialog* self, QEvent* event) {
+void QColorDialog_SuperChangeEvent(QColorDialog* self, QEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_ChangeEvent_IsBase(true);
@@ -305,7 +305,7 @@ void QColorDialog_OnChangeEvent(QColorDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseDone(QColorDialog* self, int result) {
+void QColorDialog_SuperDone(QColorDialog* self, int result) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_Done_IsBase(true);
@@ -334,7 +334,7 @@ QSize* QColorDialog_SizeHint(const QColorDialog* self) {
 }
 
 // Base class handler implementation
-QSize* QColorDialog_QBaseSizeHint(const QColorDialog* self) {
+QSize* QColorDialog_SuperSizeHint(const QColorDialog* self) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_SizeHint_IsBase(true);
@@ -363,7 +363,7 @@ QSize* QColorDialog_MinimumSizeHint(const QColorDialog* self) {
 }
 
 // Base class handler implementation
-QSize* QColorDialog_QBaseMinimumSizeHint(const QColorDialog* self) {
+QSize* QColorDialog_SuperMinimumSizeHint(const QColorDialog* self) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_MinimumSizeHint_IsBase(true);
@@ -392,7 +392,7 @@ void QColorDialog_Open(QColorDialog* self) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseOpen(QColorDialog* self) {
+void QColorDialog_SuperOpen(QColorDialog* self) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_Open_IsBase(true);
@@ -421,7 +421,7 @@ int QColorDialog_Exec(QColorDialog* self) {
 }
 
 // Base class handler implementation
-int QColorDialog_QBaseExec(QColorDialog* self) {
+int QColorDialog_SuperExec(QColorDialog* self) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_Exec_IsBase(true);
@@ -450,7 +450,7 @@ void QColorDialog_Accept(QColorDialog* self) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseAccept(QColorDialog* self) {
+void QColorDialog_SuperAccept(QColorDialog* self) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_Accept_IsBase(true);
@@ -479,7 +479,7 @@ void QColorDialog_Reject(QColorDialog* self) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseReject(QColorDialog* self) {
+void QColorDialog_SuperReject(QColorDialog* self) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_Reject_IsBase(true);
@@ -508,7 +508,7 @@ void QColorDialog_KeyPressEvent(QColorDialog* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseKeyPressEvent(QColorDialog* self, QKeyEvent* param1) {
+void QColorDialog_SuperKeyPressEvent(QColorDialog* self, QKeyEvent* param1) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_KeyPressEvent_IsBase(true);
@@ -537,7 +537,7 @@ void QColorDialog_CloseEvent(QColorDialog* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseCloseEvent(QColorDialog* self, QCloseEvent* param1) {
+void QColorDialog_SuperCloseEvent(QColorDialog* self, QCloseEvent* param1) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_CloseEvent_IsBase(true);
@@ -566,7 +566,7 @@ void QColorDialog_ShowEvent(QColorDialog* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseShowEvent(QColorDialog* self, QShowEvent* param1) {
+void QColorDialog_SuperShowEvent(QColorDialog* self, QShowEvent* param1) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_ShowEvent_IsBase(true);
@@ -595,7 +595,7 @@ void QColorDialog_ResizeEvent(QColorDialog* self, QResizeEvent* param1) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseResizeEvent(QColorDialog* self, QResizeEvent* param1) {
+void QColorDialog_SuperResizeEvent(QColorDialog* self, QResizeEvent* param1) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_ResizeEvent_IsBase(true);
@@ -624,7 +624,7 @@ void QColorDialog_ContextMenuEvent(QColorDialog* self, QContextMenuEvent* param1
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseContextMenuEvent(QColorDialog* self, QContextMenuEvent* param1) {
+void QColorDialog_SuperContextMenuEvent(QColorDialog* self, QContextMenuEvent* param1) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_ContextMenuEvent_IsBase(true);
@@ -653,7 +653,7 @@ bool QColorDialog_EventFilter(QColorDialog* self, QObject* param1, QEvent* param
 }
 
 // Base class handler implementation
-bool QColorDialog_QBaseEventFilter(QColorDialog* self, QObject* param1, QEvent* param2) {
+bool QColorDialog_SuperEventFilter(QColorDialog* self, QObject* param1, QEvent* param2) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_EventFilter_IsBase(true);
@@ -682,7 +682,7 @@ int QColorDialog_DevType(const QColorDialog* self) {
 }
 
 // Base class handler implementation
-int QColorDialog_QBaseDevType(const QColorDialog* self) {
+int QColorDialog_SuperDevType(const QColorDialog* self) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_DevType_IsBase(true);
@@ -711,7 +711,7 @@ int QColorDialog_HeightForWidth(const QColorDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int QColorDialog_QBaseHeightForWidth(const QColorDialog* self, int param1) {
+int QColorDialog_SuperHeightForWidth(const QColorDialog* self, int param1) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_HeightForWidth_IsBase(true);
@@ -740,7 +740,7 @@ bool QColorDialog_HasHeightForWidth(const QColorDialog* self) {
 }
 
 // Base class handler implementation
-bool QColorDialog_QBaseHasHeightForWidth(const QColorDialog* self) {
+bool QColorDialog_SuperHasHeightForWidth(const QColorDialog* self) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_HasHeightForWidth_IsBase(true);
@@ -769,7 +769,7 @@ QPaintEngine* QColorDialog_PaintEngine(const QColorDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QColorDialog_QBasePaintEngine(const QColorDialog* self) {
+QPaintEngine* QColorDialog_SuperPaintEngine(const QColorDialog* self) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_PaintEngine_IsBase(true);
@@ -798,7 +798,7 @@ bool QColorDialog_Event(QColorDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QColorDialog_QBaseEvent(QColorDialog* self, QEvent* event) {
+bool QColorDialog_SuperEvent(QColorDialog* self, QEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_Event_IsBase(true);
@@ -827,7 +827,7 @@ void QColorDialog_MousePressEvent(QColorDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseMousePressEvent(QColorDialog* self, QMouseEvent* event) {
+void QColorDialog_SuperMousePressEvent(QColorDialog* self, QMouseEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_MousePressEvent_IsBase(true);
@@ -856,7 +856,7 @@ void QColorDialog_MouseReleaseEvent(QColorDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseMouseReleaseEvent(QColorDialog* self, QMouseEvent* event) {
+void QColorDialog_SuperMouseReleaseEvent(QColorDialog* self, QMouseEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_MouseReleaseEvent_IsBase(true);
@@ -885,7 +885,7 @@ void QColorDialog_MouseDoubleClickEvent(QColorDialog* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseMouseDoubleClickEvent(QColorDialog* self, QMouseEvent* event) {
+void QColorDialog_SuperMouseDoubleClickEvent(QColorDialog* self, QMouseEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_MouseDoubleClickEvent_IsBase(true);
@@ -914,7 +914,7 @@ void QColorDialog_MouseMoveEvent(QColorDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseMouseMoveEvent(QColorDialog* self, QMouseEvent* event) {
+void QColorDialog_SuperMouseMoveEvent(QColorDialog* self, QMouseEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_MouseMoveEvent_IsBase(true);
@@ -943,7 +943,7 @@ void QColorDialog_WheelEvent(QColorDialog* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseWheelEvent(QColorDialog* self, QWheelEvent* event) {
+void QColorDialog_SuperWheelEvent(QColorDialog* self, QWheelEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_WheelEvent_IsBase(true);
@@ -972,7 +972,7 @@ void QColorDialog_KeyReleaseEvent(QColorDialog* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseKeyReleaseEvent(QColorDialog* self, QKeyEvent* event) {
+void QColorDialog_SuperKeyReleaseEvent(QColorDialog* self, QKeyEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_KeyReleaseEvent_IsBase(true);
@@ -1001,7 +1001,7 @@ void QColorDialog_FocusInEvent(QColorDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseFocusInEvent(QColorDialog* self, QFocusEvent* event) {
+void QColorDialog_SuperFocusInEvent(QColorDialog* self, QFocusEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_FocusInEvent_IsBase(true);
@@ -1030,7 +1030,7 @@ void QColorDialog_FocusOutEvent(QColorDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseFocusOutEvent(QColorDialog* self, QFocusEvent* event) {
+void QColorDialog_SuperFocusOutEvent(QColorDialog* self, QFocusEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_FocusOutEvent_IsBase(true);
@@ -1059,7 +1059,7 @@ void QColorDialog_EnterEvent(QColorDialog* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseEnterEvent(QColorDialog* self, QEnterEvent* event) {
+void QColorDialog_SuperEnterEvent(QColorDialog* self, QEnterEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_EnterEvent_IsBase(true);
@@ -1088,7 +1088,7 @@ void QColorDialog_LeaveEvent(QColorDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseLeaveEvent(QColorDialog* self, QEvent* event) {
+void QColorDialog_SuperLeaveEvent(QColorDialog* self, QEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_LeaveEvent_IsBase(true);
@@ -1117,7 +1117,7 @@ void QColorDialog_PaintEvent(QColorDialog* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBasePaintEvent(QColorDialog* self, QPaintEvent* event) {
+void QColorDialog_SuperPaintEvent(QColorDialog* self, QPaintEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_PaintEvent_IsBase(true);
@@ -1146,7 +1146,7 @@ void QColorDialog_MoveEvent(QColorDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseMoveEvent(QColorDialog* self, QMoveEvent* event) {
+void QColorDialog_SuperMoveEvent(QColorDialog* self, QMoveEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_MoveEvent_IsBase(true);
@@ -1175,7 +1175,7 @@ void QColorDialog_TabletEvent(QColorDialog* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseTabletEvent(QColorDialog* self, QTabletEvent* event) {
+void QColorDialog_SuperTabletEvent(QColorDialog* self, QTabletEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_TabletEvent_IsBase(true);
@@ -1204,7 +1204,7 @@ void QColorDialog_ActionEvent(QColorDialog* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseActionEvent(QColorDialog* self, QActionEvent* event) {
+void QColorDialog_SuperActionEvent(QColorDialog* self, QActionEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_ActionEvent_IsBase(true);
@@ -1233,7 +1233,7 @@ void QColorDialog_DragEnterEvent(QColorDialog* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseDragEnterEvent(QColorDialog* self, QDragEnterEvent* event) {
+void QColorDialog_SuperDragEnterEvent(QColorDialog* self, QDragEnterEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_DragEnterEvent_IsBase(true);
@@ -1262,7 +1262,7 @@ void QColorDialog_DragMoveEvent(QColorDialog* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseDragMoveEvent(QColorDialog* self, QDragMoveEvent* event) {
+void QColorDialog_SuperDragMoveEvent(QColorDialog* self, QDragMoveEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_DragMoveEvent_IsBase(true);
@@ -1291,7 +1291,7 @@ void QColorDialog_DragLeaveEvent(QColorDialog* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseDragLeaveEvent(QColorDialog* self, QDragLeaveEvent* event) {
+void QColorDialog_SuperDragLeaveEvent(QColorDialog* self, QDragLeaveEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_DragLeaveEvent_IsBase(true);
@@ -1320,7 +1320,7 @@ void QColorDialog_DropEvent(QColorDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseDropEvent(QColorDialog* self, QDropEvent* event) {
+void QColorDialog_SuperDropEvent(QColorDialog* self, QDropEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_DropEvent_IsBase(true);
@@ -1349,7 +1349,7 @@ void QColorDialog_HideEvent(QColorDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseHideEvent(QColorDialog* self, QHideEvent* event) {
+void QColorDialog_SuperHideEvent(QColorDialog* self, QHideEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_HideEvent_IsBase(true);
@@ -1379,7 +1379,7 @@ bool QColorDialog_NativeEvent(QColorDialog* self, const libqt_string eventType, 
 }
 
 // Base class handler implementation
-bool QColorDialog_QBaseNativeEvent(QColorDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QColorDialog_SuperNativeEvent(QColorDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
@@ -1409,7 +1409,7 @@ int QColorDialog_Metric(const QColorDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int QColorDialog_QBaseMetric(const QColorDialog* self, int param1) {
+int QColorDialog_SuperMetric(const QColorDialog* self, int param1) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_Metric_IsBase(true);
@@ -1438,7 +1438,7 @@ void QColorDialog_InitPainter(const QColorDialog* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseInitPainter(const QColorDialog* self, QPainter* painter) {
+void QColorDialog_SuperInitPainter(const QColorDialog* self, QPainter* painter) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_InitPainter_IsBase(true);
@@ -1467,7 +1467,7 @@ QPaintDevice* QColorDialog_Redirected(const QColorDialog* self, QPoint* offset) 
 }
 
 // Base class handler implementation
-QPaintDevice* QColorDialog_QBaseRedirected(const QColorDialog* self, QPoint* offset) {
+QPaintDevice* QColorDialog_SuperRedirected(const QColorDialog* self, QPoint* offset) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_Redirected_IsBase(true);
@@ -1496,7 +1496,7 @@ QPainter* QColorDialog_SharedPainter(const QColorDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* QColorDialog_QBaseSharedPainter(const QColorDialog* self) {
+QPainter* QColorDialog_SuperSharedPainter(const QColorDialog* self) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_SharedPainter_IsBase(true);
@@ -1525,7 +1525,7 @@ void QColorDialog_InputMethodEvent(QColorDialog* self, QInputMethodEvent* param1
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseInputMethodEvent(QColorDialog* self, QInputMethodEvent* param1) {
+void QColorDialog_SuperInputMethodEvent(QColorDialog* self, QInputMethodEvent* param1) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_InputMethodEvent_IsBase(true);
@@ -1554,7 +1554,7 @@ QVariant* QColorDialog_InputMethodQuery(const QColorDialog* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QColorDialog_QBaseInputMethodQuery(const QColorDialog* self, int param1) {
+QVariant* QColorDialog_SuperInputMethodQuery(const QColorDialog* self, int param1) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_InputMethodQuery_IsBase(true);
@@ -1583,7 +1583,7 @@ bool QColorDialog_FocusNextPrevChild(QColorDialog* self, bool next) {
 }
 
 // Base class handler implementation
-bool QColorDialog_QBaseFocusNextPrevChild(QColorDialog* self, bool next) {
+bool QColorDialog_SuperFocusNextPrevChild(QColorDialog* self, bool next) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_FocusNextPrevChild_IsBase(true);
@@ -1612,7 +1612,7 @@ void QColorDialog_TimerEvent(QColorDialog* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseTimerEvent(QColorDialog* self, QTimerEvent* event) {
+void QColorDialog_SuperTimerEvent(QColorDialog* self, QTimerEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_TimerEvent_IsBase(true);
@@ -1641,7 +1641,7 @@ void QColorDialog_ChildEvent(QColorDialog* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseChildEvent(QColorDialog* self, QChildEvent* event) {
+void QColorDialog_SuperChildEvent(QColorDialog* self, QChildEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_ChildEvent_IsBase(true);
@@ -1670,7 +1670,7 @@ void QColorDialog_CustomEvent(QColorDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseCustomEvent(QColorDialog* self, QEvent* event) {
+void QColorDialog_SuperCustomEvent(QColorDialog* self, QEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_CustomEvent_IsBase(true);
@@ -1699,7 +1699,7 @@ void QColorDialog_ConnectNotify(QColorDialog* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseConnectNotify(QColorDialog* self, const QMetaMethod* signal) {
+void QColorDialog_SuperConnectNotify(QColorDialog* self, const QMetaMethod* signal) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_ConnectNotify_IsBase(true);
@@ -1728,7 +1728,7 @@ void QColorDialog_DisconnectNotify(QColorDialog* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseDisconnectNotify(QColorDialog* self, const QMetaMethod* signal) {
+void QColorDialog_SuperDisconnectNotify(QColorDialog* self, const QMetaMethod* signal) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_DisconnectNotify_IsBase(true);
@@ -1757,7 +1757,7 @@ void QColorDialog_AdjustPosition(QColorDialog* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseAdjustPosition(QColorDialog* self, QWidget* param1) {
+void QColorDialog_SuperAdjustPosition(QColorDialog* self, QWidget* param1) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_AdjustPosition_IsBase(true);
@@ -1786,7 +1786,7 @@ void QColorDialog_UpdateMicroFocus(QColorDialog* self) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseUpdateMicroFocus(QColorDialog* self) {
+void QColorDialog_SuperUpdateMicroFocus(QColorDialog* self) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_UpdateMicroFocus_IsBase(true);
@@ -1815,7 +1815,7 @@ void QColorDialog_Create(QColorDialog* self) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseCreate(QColorDialog* self) {
+void QColorDialog_SuperCreate(QColorDialog* self) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_Create_IsBase(true);
@@ -1844,7 +1844,7 @@ void QColorDialog_Destroy(QColorDialog* self) {
 }
 
 // Base class handler implementation
-void QColorDialog_QBaseDestroy(QColorDialog* self) {
+void QColorDialog_SuperDestroy(QColorDialog* self) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_Destroy_IsBase(true);
@@ -1873,7 +1873,7 @@ bool QColorDialog_FocusNextChild(QColorDialog* self) {
 }
 
 // Base class handler implementation
-bool QColorDialog_QBaseFocusNextChild(QColorDialog* self) {
+bool QColorDialog_SuperFocusNextChild(QColorDialog* self) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_FocusNextChild_IsBase(true);
@@ -1902,7 +1902,7 @@ bool QColorDialog_FocusPreviousChild(QColorDialog* self) {
 }
 
 // Base class handler implementation
-bool QColorDialog_QBaseFocusPreviousChild(QColorDialog* self) {
+bool QColorDialog_SuperFocusPreviousChild(QColorDialog* self) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_FocusPreviousChild_IsBase(true);
@@ -1931,7 +1931,7 @@ QObject* QColorDialog_Sender(const QColorDialog* self) {
 }
 
 // Base class handler implementation
-QObject* QColorDialog_QBaseSender(const QColorDialog* self) {
+QObject* QColorDialog_SuperSender(const QColorDialog* self) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_Sender_IsBase(true);
@@ -1960,7 +1960,7 @@ int QColorDialog_SenderSignalIndex(const QColorDialog* self) {
 }
 
 // Base class handler implementation
-int QColorDialog_QBaseSenderSignalIndex(const QColorDialog* self) {
+int QColorDialog_SuperSenderSignalIndex(const QColorDialog* self) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_SenderSignalIndex_IsBase(true);
@@ -1989,7 +1989,7 @@ int QColorDialog_Receivers(const QColorDialog* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QColorDialog_QBaseReceivers(const QColorDialog* self, const char* signal) {
+int QColorDialog_SuperReceivers(const QColorDialog* self, const char* signal) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_Receivers_IsBase(true);
@@ -2018,7 +2018,7 @@ bool QColorDialog_IsSignalConnected(const QColorDialog* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QColorDialog_QBaseIsSignalConnected(const QColorDialog* self, const QMetaMethod* signal) {
+bool QColorDialog_SuperIsSignalConnected(const QColorDialog* self, const QMetaMethod* signal) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_IsSignalConnected_IsBase(true);
@@ -2047,7 +2047,7 @@ double QColorDialog_GetDecodedMetricF(const QColorDialog* self, int metricA, int
 }
 
 // Base class handler implementation
-double QColorDialog_QBaseGetDecodedMetricF(const QColorDialog* self, int metricA, int metricB) {
+double QColorDialog_SuperGetDecodedMetricF(const QColorDialog* self, int metricA, int metricB) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->setQColorDialog_GetDecodedMetricF_IsBase(true);

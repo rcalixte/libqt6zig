@@ -35,17 +35,17 @@ void KTextEditor__MovingRangeFeedback_MouseExitedRange(KTextEditor__MovingRangeF
 void KTextEditor__MovingRangeFeedback_CaretEnteredRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view);
 void KTextEditor__MovingRangeFeedback_CaretExitedRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view);
 void KTextEditor__MovingRangeFeedback_OnRangeEmpty(KTextEditor__MovingRangeFeedback* self, intptr_t slot);
-void KTextEditor__MovingRangeFeedback_QBaseRangeEmpty(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range);
+void KTextEditor__MovingRangeFeedback_SuperRangeEmpty(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range);
 void KTextEditor__MovingRangeFeedback_OnRangeInvalid(KTextEditor__MovingRangeFeedback* self, intptr_t slot);
-void KTextEditor__MovingRangeFeedback_QBaseRangeInvalid(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range);
+void KTextEditor__MovingRangeFeedback_SuperRangeInvalid(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range);
 void KTextEditor__MovingRangeFeedback_OnMouseEnteredRange(KTextEditor__MovingRangeFeedback* self, intptr_t slot);
-void KTextEditor__MovingRangeFeedback_QBaseMouseEnteredRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view);
+void KTextEditor__MovingRangeFeedback_SuperMouseEnteredRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view);
 void KTextEditor__MovingRangeFeedback_OnMouseExitedRange(KTextEditor__MovingRangeFeedback* self, intptr_t slot);
-void KTextEditor__MovingRangeFeedback_QBaseMouseExitedRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view);
+void KTextEditor__MovingRangeFeedback_SuperMouseExitedRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view);
 void KTextEditor__MovingRangeFeedback_OnCaretEnteredRange(KTextEditor__MovingRangeFeedback* self, intptr_t slot);
-void KTextEditor__MovingRangeFeedback_QBaseCaretEnteredRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view);
+void KTextEditor__MovingRangeFeedback_SuperCaretEnteredRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view);
 void KTextEditor__MovingRangeFeedback_OnCaretExitedRange(KTextEditor__MovingRangeFeedback* self, intptr_t slot);
-void KTextEditor__MovingRangeFeedback_QBaseCaretExitedRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view);
+void KTextEditor__MovingRangeFeedback_SuperCaretExitedRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view);
 void KTextEditor__MovingRangeFeedback_Delete(KTextEditor__MovingRangeFeedback* self);
 
 #ifdef __cplusplus

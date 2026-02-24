@@ -189,6 +189,10 @@ pub const kfile = struct {
         return qtc.KFile_IsDetailTreeView(@ptrCast(view));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kfile.html#dtor.KFile)
     ///
     /// Delete this object from C++ memory.
@@ -197,7 +201,7 @@ pub const kfile = struct {
     ///
     /// ` self: QtC.KFile `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KFile_Delete(@ptrCast(self));
     }
 };

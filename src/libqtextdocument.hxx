@@ -395,27 +395,27 @@ class VirtualQTextDocument final : public QTextDocument {
 
     // Friend functions
     friend QTextObject* QTextDocument_CreateObject(QTextDocument* self, const QTextFormat* f);
-    friend QTextObject* QTextDocument_QBaseCreateObject(QTextDocument* self, const QTextFormat* f);
+    friend QTextObject* QTextDocument_SuperCreateObject(QTextDocument* self, const QTextFormat* f);
     friend QVariant* QTextDocument_LoadResource(QTextDocument* self, int typeVal, const QUrl* name);
-    friend QVariant* QTextDocument_QBaseLoadResource(QTextDocument* self, int typeVal, const QUrl* name);
+    friend QVariant* QTextDocument_SuperLoadResource(QTextDocument* self, int typeVal, const QUrl* name);
     friend void QTextDocument_TimerEvent(QTextDocument* self, QTimerEvent* event);
-    friend void QTextDocument_QBaseTimerEvent(QTextDocument* self, QTimerEvent* event);
+    friend void QTextDocument_SuperTimerEvent(QTextDocument* self, QTimerEvent* event);
     friend void QTextDocument_ChildEvent(QTextDocument* self, QChildEvent* event);
-    friend void QTextDocument_QBaseChildEvent(QTextDocument* self, QChildEvent* event);
+    friend void QTextDocument_SuperChildEvent(QTextDocument* self, QChildEvent* event);
     friend void QTextDocument_CustomEvent(QTextDocument* self, QEvent* event);
-    friend void QTextDocument_QBaseCustomEvent(QTextDocument* self, QEvent* event);
+    friend void QTextDocument_SuperCustomEvent(QTextDocument* self, QEvent* event);
     friend void QTextDocument_ConnectNotify(QTextDocument* self, const QMetaMethod* signal);
-    friend void QTextDocument_QBaseConnectNotify(QTextDocument* self, const QMetaMethod* signal);
+    friend void QTextDocument_SuperConnectNotify(QTextDocument* self, const QMetaMethod* signal);
     friend void QTextDocument_DisconnectNotify(QTextDocument* self, const QMetaMethod* signal);
-    friend void QTextDocument_QBaseDisconnectNotify(QTextDocument* self, const QMetaMethod* signal);
+    friend void QTextDocument_SuperDisconnectNotify(QTextDocument* self, const QMetaMethod* signal);
     friend QObject* QTextDocument_Sender(const QTextDocument* self);
-    friend QObject* QTextDocument_QBaseSender(const QTextDocument* self);
+    friend QObject* QTextDocument_SuperSender(const QTextDocument* self);
     friend int QTextDocument_SenderSignalIndex(const QTextDocument* self);
-    friend int QTextDocument_QBaseSenderSignalIndex(const QTextDocument* self);
+    friend int QTextDocument_SuperSenderSignalIndex(const QTextDocument* self);
     friend int QTextDocument_Receivers(const QTextDocument* self, const char* signal);
-    friend int QTextDocument_QBaseReceivers(const QTextDocument* self, const char* signal);
+    friend int QTextDocument_SuperReceivers(const QTextDocument* self, const char* signal);
     friend bool QTextDocument_IsSignalConnected(const QTextDocument* self, const QMetaMethod* signal);
-    friend bool QTextDocument_QBaseIsSignalConnected(const QTextDocument* self, const QMetaMethod* signal);
+    friend bool QTextDocument_SuperIsSignalConnected(const QTextDocument* self, const QMetaMethod* signal);
 };
 
 #endif

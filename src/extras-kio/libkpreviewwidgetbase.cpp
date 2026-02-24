@@ -112,7 +112,7 @@ void KPreviewWidgetBase_ClearPreview(KPreviewWidgetBase* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KPreviewWidgetBase_QBaseMetaObject(const KPreviewWidgetBase* self) {
+QMetaObject* KPreviewWidgetBase_SuperMetaObject(const KPreviewWidgetBase* self) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_MetaObject_IsBase(true);
@@ -131,7 +131,7 @@ void KPreviewWidgetBase_OnMetaObject(const KPreviewWidgetBase* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* KPreviewWidgetBase_QBaseMetacast(KPreviewWidgetBase* self, const char* param1) {
+void* KPreviewWidgetBase_SuperMetacast(KPreviewWidgetBase* self, const char* param1) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_Metacast_IsBase(true);
@@ -150,7 +150,7 @@ void KPreviewWidgetBase_OnMetacast(KPreviewWidgetBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KPreviewWidgetBase_QBaseMetacall(KPreviewWidgetBase* self, int param1, int param2, void** param3) {
+int KPreviewWidgetBase_SuperMetacall(KPreviewWidgetBase* self, int param1, int param2, void** param3) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_Metacall_IsBase(true);
@@ -169,7 +169,7 @@ void KPreviewWidgetBase_OnMetacall(KPreviewWidgetBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseShowPreview(KPreviewWidgetBase* self, const QUrl* url) {
+void KPreviewWidgetBase_SuperShowPreview(KPreviewWidgetBase* self, const QUrl* url) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_ShowPreview_IsBase(true);
@@ -188,7 +188,7 @@ void KPreviewWidgetBase_OnShowPreview(KPreviewWidgetBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseClearPreview(KPreviewWidgetBase* self) {
+void KPreviewWidgetBase_SuperClearPreview(KPreviewWidgetBase* self) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_ClearPreview_IsBase(true);
@@ -217,7 +217,7 @@ int KPreviewWidgetBase_DevType(const KPreviewWidgetBase* self) {
 }
 
 // Base class handler implementation
-int KPreviewWidgetBase_QBaseDevType(const KPreviewWidgetBase* self) {
+int KPreviewWidgetBase_SuperDevType(const KPreviewWidgetBase* self) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_DevType_IsBase(true);
@@ -246,7 +246,7 @@ void KPreviewWidgetBase_SetVisible(KPreviewWidgetBase* self, bool visible) {
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseSetVisible(KPreviewWidgetBase* self, bool visible) {
+void KPreviewWidgetBase_SuperSetVisible(KPreviewWidgetBase* self, bool visible) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_SetVisible_IsBase(true);
@@ -275,7 +275,7 @@ QSize* KPreviewWidgetBase_SizeHint(const KPreviewWidgetBase* self) {
 }
 
 // Base class handler implementation
-QSize* KPreviewWidgetBase_QBaseSizeHint(const KPreviewWidgetBase* self) {
+QSize* KPreviewWidgetBase_SuperSizeHint(const KPreviewWidgetBase* self) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_SizeHint_IsBase(true);
@@ -304,7 +304,7 @@ QSize* KPreviewWidgetBase_MinimumSizeHint(const KPreviewWidgetBase* self) {
 }
 
 // Base class handler implementation
-QSize* KPreviewWidgetBase_QBaseMinimumSizeHint(const KPreviewWidgetBase* self) {
+QSize* KPreviewWidgetBase_SuperMinimumSizeHint(const KPreviewWidgetBase* self) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_MinimumSizeHint_IsBase(true);
@@ -333,7 +333,7 @@ int KPreviewWidgetBase_HeightForWidth(const KPreviewWidgetBase* self, int param1
 }
 
 // Base class handler implementation
-int KPreviewWidgetBase_QBaseHeightForWidth(const KPreviewWidgetBase* self, int param1) {
+int KPreviewWidgetBase_SuperHeightForWidth(const KPreviewWidgetBase* self, int param1) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_HeightForWidth_IsBase(true);
@@ -362,7 +362,7 @@ bool KPreviewWidgetBase_HasHeightForWidth(const KPreviewWidgetBase* self) {
 }
 
 // Base class handler implementation
-bool KPreviewWidgetBase_QBaseHasHeightForWidth(const KPreviewWidgetBase* self) {
+bool KPreviewWidgetBase_SuperHasHeightForWidth(const KPreviewWidgetBase* self) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_HasHeightForWidth_IsBase(true);
@@ -391,7 +391,7 @@ QPaintEngine* KPreviewWidgetBase_PaintEngine(const KPreviewWidgetBase* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KPreviewWidgetBase_QBasePaintEngine(const KPreviewWidgetBase* self) {
+QPaintEngine* KPreviewWidgetBase_SuperPaintEngine(const KPreviewWidgetBase* self) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_PaintEngine_IsBase(true);
@@ -420,7 +420,7 @@ bool KPreviewWidgetBase_Event(KPreviewWidgetBase* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KPreviewWidgetBase_QBaseEvent(KPreviewWidgetBase* self, QEvent* event) {
+bool KPreviewWidgetBase_SuperEvent(KPreviewWidgetBase* self, QEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_Event_IsBase(true);
@@ -449,7 +449,7 @@ void KPreviewWidgetBase_MousePressEvent(KPreviewWidgetBase* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseMousePressEvent(KPreviewWidgetBase* self, QMouseEvent* event) {
+void KPreviewWidgetBase_SuperMousePressEvent(KPreviewWidgetBase* self, QMouseEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_MousePressEvent_IsBase(true);
@@ -478,7 +478,7 @@ void KPreviewWidgetBase_MouseReleaseEvent(KPreviewWidgetBase* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseMouseReleaseEvent(KPreviewWidgetBase* self, QMouseEvent* event) {
+void KPreviewWidgetBase_SuperMouseReleaseEvent(KPreviewWidgetBase* self, QMouseEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_MouseReleaseEvent_IsBase(true);
@@ -507,7 +507,7 @@ void KPreviewWidgetBase_MouseDoubleClickEvent(KPreviewWidgetBase* self, QMouseEv
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseMouseDoubleClickEvent(KPreviewWidgetBase* self, QMouseEvent* event) {
+void KPreviewWidgetBase_SuperMouseDoubleClickEvent(KPreviewWidgetBase* self, QMouseEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_MouseDoubleClickEvent_IsBase(true);
@@ -536,7 +536,7 @@ void KPreviewWidgetBase_MouseMoveEvent(KPreviewWidgetBase* self, QMouseEvent* ev
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseMouseMoveEvent(KPreviewWidgetBase* self, QMouseEvent* event) {
+void KPreviewWidgetBase_SuperMouseMoveEvent(KPreviewWidgetBase* self, QMouseEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_MouseMoveEvent_IsBase(true);
@@ -565,7 +565,7 @@ void KPreviewWidgetBase_WheelEvent(KPreviewWidgetBase* self, QWheelEvent* event)
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseWheelEvent(KPreviewWidgetBase* self, QWheelEvent* event) {
+void KPreviewWidgetBase_SuperWheelEvent(KPreviewWidgetBase* self, QWheelEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_WheelEvent_IsBase(true);
@@ -594,7 +594,7 @@ void KPreviewWidgetBase_KeyPressEvent(KPreviewWidgetBase* self, QKeyEvent* event
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseKeyPressEvent(KPreviewWidgetBase* self, QKeyEvent* event) {
+void KPreviewWidgetBase_SuperKeyPressEvent(KPreviewWidgetBase* self, QKeyEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_KeyPressEvent_IsBase(true);
@@ -623,7 +623,7 @@ void KPreviewWidgetBase_KeyReleaseEvent(KPreviewWidgetBase* self, QKeyEvent* eve
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseKeyReleaseEvent(KPreviewWidgetBase* self, QKeyEvent* event) {
+void KPreviewWidgetBase_SuperKeyReleaseEvent(KPreviewWidgetBase* self, QKeyEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_KeyReleaseEvent_IsBase(true);
@@ -652,7 +652,7 @@ void KPreviewWidgetBase_FocusInEvent(KPreviewWidgetBase* self, QFocusEvent* even
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseFocusInEvent(KPreviewWidgetBase* self, QFocusEvent* event) {
+void KPreviewWidgetBase_SuperFocusInEvent(KPreviewWidgetBase* self, QFocusEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_FocusInEvent_IsBase(true);
@@ -681,7 +681,7 @@ void KPreviewWidgetBase_FocusOutEvent(KPreviewWidgetBase* self, QFocusEvent* eve
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseFocusOutEvent(KPreviewWidgetBase* self, QFocusEvent* event) {
+void KPreviewWidgetBase_SuperFocusOutEvent(KPreviewWidgetBase* self, QFocusEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_FocusOutEvent_IsBase(true);
@@ -710,7 +710,7 @@ void KPreviewWidgetBase_EnterEvent(KPreviewWidgetBase* self, QEnterEvent* event)
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseEnterEvent(KPreviewWidgetBase* self, QEnterEvent* event) {
+void KPreviewWidgetBase_SuperEnterEvent(KPreviewWidgetBase* self, QEnterEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_EnterEvent_IsBase(true);
@@ -739,7 +739,7 @@ void KPreviewWidgetBase_LeaveEvent(KPreviewWidgetBase* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseLeaveEvent(KPreviewWidgetBase* self, QEvent* event) {
+void KPreviewWidgetBase_SuperLeaveEvent(KPreviewWidgetBase* self, QEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_LeaveEvent_IsBase(true);
@@ -768,7 +768,7 @@ void KPreviewWidgetBase_PaintEvent(KPreviewWidgetBase* self, QPaintEvent* event)
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBasePaintEvent(KPreviewWidgetBase* self, QPaintEvent* event) {
+void KPreviewWidgetBase_SuperPaintEvent(KPreviewWidgetBase* self, QPaintEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_PaintEvent_IsBase(true);
@@ -797,7 +797,7 @@ void KPreviewWidgetBase_MoveEvent(KPreviewWidgetBase* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseMoveEvent(KPreviewWidgetBase* self, QMoveEvent* event) {
+void KPreviewWidgetBase_SuperMoveEvent(KPreviewWidgetBase* self, QMoveEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_MoveEvent_IsBase(true);
@@ -826,7 +826,7 @@ void KPreviewWidgetBase_ResizeEvent(KPreviewWidgetBase* self, QResizeEvent* even
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseResizeEvent(KPreviewWidgetBase* self, QResizeEvent* event) {
+void KPreviewWidgetBase_SuperResizeEvent(KPreviewWidgetBase* self, QResizeEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_ResizeEvent_IsBase(true);
@@ -855,7 +855,7 @@ void KPreviewWidgetBase_CloseEvent(KPreviewWidgetBase* self, QCloseEvent* event)
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseCloseEvent(KPreviewWidgetBase* self, QCloseEvent* event) {
+void KPreviewWidgetBase_SuperCloseEvent(KPreviewWidgetBase* self, QCloseEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_CloseEvent_IsBase(true);
@@ -884,7 +884,7 @@ void KPreviewWidgetBase_ContextMenuEvent(KPreviewWidgetBase* self, QContextMenuE
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseContextMenuEvent(KPreviewWidgetBase* self, QContextMenuEvent* event) {
+void KPreviewWidgetBase_SuperContextMenuEvent(KPreviewWidgetBase* self, QContextMenuEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_ContextMenuEvent_IsBase(true);
@@ -913,7 +913,7 @@ void KPreviewWidgetBase_TabletEvent(KPreviewWidgetBase* self, QTabletEvent* even
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseTabletEvent(KPreviewWidgetBase* self, QTabletEvent* event) {
+void KPreviewWidgetBase_SuperTabletEvent(KPreviewWidgetBase* self, QTabletEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_TabletEvent_IsBase(true);
@@ -942,7 +942,7 @@ void KPreviewWidgetBase_ActionEvent(KPreviewWidgetBase* self, QActionEvent* even
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseActionEvent(KPreviewWidgetBase* self, QActionEvent* event) {
+void KPreviewWidgetBase_SuperActionEvent(KPreviewWidgetBase* self, QActionEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_ActionEvent_IsBase(true);
@@ -971,7 +971,7 @@ void KPreviewWidgetBase_DragEnterEvent(KPreviewWidgetBase* self, QDragEnterEvent
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseDragEnterEvent(KPreviewWidgetBase* self, QDragEnterEvent* event) {
+void KPreviewWidgetBase_SuperDragEnterEvent(KPreviewWidgetBase* self, QDragEnterEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_DragEnterEvent_IsBase(true);
@@ -1000,7 +1000,7 @@ void KPreviewWidgetBase_DragMoveEvent(KPreviewWidgetBase* self, QDragMoveEvent* 
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseDragMoveEvent(KPreviewWidgetBase* self, QDragMoveEvent* event) {
+void KPreviewWidgetBase_SuperDragMoveEvent(KPreviewWidgetBase* self, QDragMoveEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_DragMoveEvent_IsBase(true);
@@ -1029,7 +1029,7 @@ void KPreviewWidgetBase_DragLeaveEvent(KPreviewWidgetBase* self, QDragLeaveEvent
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseDragLeaveEvent(KPreviewWidgetBase* self, QDragLeaveEvent* event) {
+void KPreviewWidgetBase_SuperDragLeaveEvent(KPreviewWidgetBase* self, QDragLeaveEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_DragLeaveEvent_IsBase(true);
@@ -1058,7 +1058,7 @@ void KPreviewWidgetBase_DropEvent(KPreviewWidgetBase* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseDropEvent(KPreviewWidgetBase* self, QDropEvent* event) {
+void KPreviewWidgetBase_SuperDropEvent(KPreviewWidgetBase* self, QDropEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_DropEvent_IsBase(true);
@@ -1087,7 +1087,7 @@ void KPreviewWidgetBase_ShowEvent(KPreviewWidgetBase* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseShowEvent(KPreviewWidgetBase* self, QShowEvent* event) {
+void KPreviewWidgetBase_SuperShowEvent(KPreviewWidgetBase* self, QShowEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_ShowEvent_IsBase(true);
@@ -1116,7 +1116,7 @@ void KPreviewWidgetBase_HideEvent(KPreviewWidgetBase* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseHideEvent(KPreviewWidgetBase* self, QHideEvent* event) {
+void KPreviewWidgetBase_SuperHideEvent(KPreviewWidgetBase* self, QHideEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_HideEvent_IsBase(true);
@@ -1146,7 +1146,7 @@ bool KPreviewWidgetBase_NativeEvent(KPreviewWidgetBase* self, const libqt_string
 }
 
 // Base class handler implementation
-bool KPreviewWidgetBase_QBaseNativeEvent(KPreviewWidgetBase* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KPreviewWidgetBase_SuperNativeEvent(KPreviewWidgetBase* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
@@ -1176,7 +1176,7 @@ void KPreviewWidgetBase_ChangeEvent(KPreviewWidgetBase* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseChangeEvent(KPreviewWidgetBase* self, QEvent* param1) {
+void KPreviewWidgetBase_SuperChangeEvent(KPreviewWidgetBase* self, QEvent* param1) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_ChangeEvent_IsBase(true);
@@ -1205,7 +1205,7 @@ int KPreviewWidgetBase_Metric(const KPreviewWidgetBase* self, int param1) {
 }
 
 // Base class handler implementation
-int KPreviewWidgetBase_QBaseMetric(const KPreviewWidgetBase* self, int param1) {
+int KPreviewWidgetBase_SuperMetric(const KPreviewWidgetBase* self, int param1) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_Metric_IsBase(true);
@@ -1234,7 +1234,7 @@ void KPreviewWidgetBase_InitPainter(const KPreviewWidgetBase* self, QPainter* pa
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseInitPainter(const KPreviewWidgetBase* self, QPainter* painter) {
+void KPreviewWidgetBase_SuperInitPainter(const KPreviewWidgetBase* self, QPainter* painter) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_InitPainter_IsBase(true);
@@ -1263,7 +1263,7 @@ QPaintDevice* KPreviewWidgetBase_Redirected(const KPreviewWidgetBase* self, QPoi
 }
 
 // Base class handler implementation
-QPaintDevice* KPreviewWidgetBase_QBaseRedirected(const KPreviewWidgetBase* self, QPoint* offset) {
+QPaintDevice* KPreviewWidgetBase_SuperRedirected(const KPreviewWidgetBase* self, QPoint* offset) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_Redirected_IsBase(true);
@@ -1292,7 +1292,7 @@ QPainter* KPreviewWidgetBase_SharedPainter(const KPreviewWidgetBase* self) {
 }
 
 // Base class handler implementation
-QPainter* KPreviewWidgetBase_QBaseSharedPainter(const KPreviewWidgetBase* self) {
+QPainter* KPreviewWidgetBase_SuperSharedPainter(const KPreviewWidgetBase* self) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_SharedPainter_IsBase(true);
@@ -1321,7 +1321,7 @@ void KPreviewWidgetBase_InputMethodEvent(KPreviewWidgetBase* self, QInputMethodE
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseInputMethodEvent(KPreviewWidgetBase* self, QInputMethodEvent* param1) {
+void KPreviewWidgetBase_SuperInputMethodEvent(KPreviewWidgetBase* self, QInputMethodEvent* param1) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_InputMethodEvent_IsBase(true);
@@ -1350,7 +1350,7 @@ QVariant* KPreviewWidgetBase_InputMethodQuery(const KPreviewWidgetBase* self, in
 }
 
 // Base class handler implementation
-QVariant* KPreviewWidgetBase_QBaseInputMethodQuery(const KPreviewWidgetBase* self, int param1) {
+QVariant* KPreviewWidgetBase_SuperInputMethodQuery(const KPreviewWidgetBase* self, int param1) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_InputMethodQuery_IsBase(true);
@@ -1379,7 +1379,7 @@ bool KPreviewWidgetBase_FocusNextPrevChild(KPreviewWidgetBase* self, bool next) 
 }
 
 // Base class handler implementation
-bool KPreviewWidgetBase_QBaseFocusNextPrevChild(KPreviewWidgetBase* self, bool next) {
+bool KPreviewWidgetBase_SuperFocusNextPrevChild(KPreviewWidgetBase* self, bool next) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_FocusNextPrevChild_IsBase(true);
@@ -1408,7 +1408,7 @@ bool KPreviewWidgetBase_EventFilter(KPreviewWidgetBase* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool KPreviewWidgetBase_QBaseEventFilter(KPreviewWidgetBase* self, QObject* watched, QEvent* event) {
+bool KPreviewWidgetBase_SuperEventFilter(KPreviewWidgetBase* self, QObject* watched, QEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_EventFilter_IsBase(true);
@@ -1437,7 +1437,7 @@ void KPreviewWidgetBase_TimerEvent(KPreviewWidgetBase* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseTimerEvent(KPreviewWidgetBase* self, QTimerEvent* event) {
+void KPreviewWidgetBase_SuperTimerEvent(KPreviewWidgetBase* self, QTimerEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_TimerEvent_IsBase(true);
@@ -1466,7 +1466,7 @@ void KPreviewWidgetBase_ChildEvent(KPreviewWidgetBase* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseChildEvent(KPreviewWidgetBase* self, QChildEvent* event) {
+void KPreviewWidgetBase_SuperChildEvent(KPreviewWidgetBase* self, QChildEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_ChildEvent_IsBase(true);
@@ -1495,7 +1495,7 @@ void KPreviewWidgetBase_CustomEvent(KPreviewWidgetBase* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseCustomEvent(KPreviewWidgetBase* self, QEvent* event) {
+void KPreviewWidgetBase_SuperCustomEvent(KPreviewWidgetBase* self, QEvent* event) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_CustomEvent_IsBase(true);
@@ -1524,7 +1524,7 @@ void KPreviewWidgetBase_ConnectNotify(KPreviewWidgetBase* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseConnectNotify(KPreviewWidgetBase* self, const QMetaMethod* signal) {
+void KPreviewWidgetBase_SuperConnectNotify(KPreviewWidgetBase* self, const QMetaMethod* signal) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_ConnectNotify_IsBase(true);
@@ -1553,7 +1553,7 @@ void KPreviewWidgetBase_DisconnectNotify(KPreviewWidgetBase* self, const QMetaMe
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseDisconnectNotify(KPreviewWidgetBase* self, const QMetaMethod* signal) {
+void KPreviewWidgetBase_SuperDisconnectNotify(KPreviewWidgetBase* self, const QMetaMethod* signal) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_DisconnectNotify_IsBase(true);
@@ -1589,7 +1589,7 @@ void KPreviewWidgetBase_SetSupportedMimeTypes(KPreviewWidgetBase* self, const li
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseSetSupportedMimeTypes(KPreviewWidgetBase* self, const libqt_list /* of libqt_string */ mimeTypes) {
+void KPreviewWidgetBase_SuperSetSupportedMimeTypes(KPreviewWidgetBase* self, const libqt_list /* of libqt_string */ mimeTypes) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     QList<QString> mimeTypes_QList;
     mimeTypes_QList.reserve(mimeTypes.len);
@@ -1625,7 +1625,7 @@ void KPreviewWidgetBase_UpdateMicroFocus(KPreviewWidgetBase* self) {
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseUpdateMicroFocus(KPreviewWidgetBase* self) {
+void KPreviewWidgetBase_SuperUpdateMicroFocus(KPreviewWidgetBase* self) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_UpdateMicroFocus_IsBase(true);
@@ -1654,7 +1654,7 @@ void KPreviewWidgetBase_Create(KPreviewWidgetBase* self) {
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseCreate(KPreviewWidgetBase* self) {
+void KPreviewWidgetBase_SuperCreate(KPreviewWidgetBase* self) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_Create_IsBase(true);
@@ -1683,7 +1683,7 @@ void KPreviewWidgetBase_Destroy(KPreviewWidgetBase* self) {
 }
 
 // Base class handler implementation
-void KPreviewWidgetBase_QBaseDestroy(KPreviewWidgetBase* self) {
+void KPreviewWidgetBase_SuperDestroy(KPreviewWidgetBase* self) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_Destroy_IsBase(true);
@@ -1712,7 +1712,7 @@ bool KPreviewWidgetBase_FocusNextChild(KPreviewWidgetBase* self) {
 }
 
 // Base class handler implementation
-bool KPreviewWidgetBase_QBaseFocusNextChild(KPreviewWidgetBase* self) {
+bool KPreviewWidgetBase_SuperFocusNextChild(KPreviewWidgetBase* self) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_FocusNextChild_IsBase(true);
@@ -1741,7 +1741,7 @@ bool KPreviewWidgetBase_FocusPreviousChild(KPreviewWidgetBase* self) {
 }
 
 // Base class handler implementation
-bool KPreviewWidgetBase_QBaseFocusPreviousChild(KPreviewWidgetBase* self) {
+bool KPreviewWidgetBase_SuperFocusPreviousChild(KPreviewWidgetBase* self) {
     auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_FocusPreviousChild_IsBase(true);
@@ -1770,7 +1770,7 @@ QObject* KPreviewWidgetBase_Sender(const KPreviewWidgetBase* self) {
 }
 
 // Base class handler implementation
-QObject* KPreviewWidgetBase_QBaseSender(const KPreviewWidgetBase* self) {
+QObject* KPreviewWidgetBase_SuperSender(const KPreviewWidgetBase* self) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_Sender_IsBase(true);
@@ -1799,7 +1799,7 @@ int KPreviewWidgetBase_SenderSignalIndex(const KPreviewWidgetBase* self) {
 }
 
 // Base class handler implementation
-int KPreviewWidgetBase_QBaseSenderSignalIndex(const KPreviewWidgetBase* self) {
+int KPreviewWidgetBase_SuperSenderSignalIndex(const KPreviewWidgetBase* self) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_SenderSignalIndex_IsBase(true);
@@ -1828,7 +1828,7 @@ int KPreviewWidgetBase_Receivers(const KPreviewWidgetBase* self, const char* sig
 }
 
 // Base class handler implementation
-int KPreviewWidgetBase_QBaseReceivers(const KPreviewWidgetBase* self, const char* signal) {
+int KPreviewWidgetBase_SuperReceivers(const KPreviewWidgetBase* self, const char* signal) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_Receivers_IsBase(true);
@@ -1857,7 +1857,7 @@ bool KPreviewWidgetBase_IsSignalConnected(const KPreviewWidgetBase* self, const 
 }
 
 // Base class handler implementation
-bool KPreviewWidgetBase_QBaseIsSignalConnected(const KPreviewWidgetBase* self, const QMetaMethod* signal) {
+bool KPreviewWidgetBase_SuperIsSignalConnected(const KPreviewWidgetBase* self, const QMetaMethod* signal) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_IsSignalConnected_IsBase(true);
@@ -1886,7 +1886,7 @@ double KPreviewWidgetBase_GetDecodedMetricF(const KPreviewWidgetBase* self, int 
 }
 
 // Base class handler implementation
-double KPreviewWidgetBase_QBaseGetDecodedMetricF(const KPreviewWidgetBase* self, int metricA, int metricB) {
+double KPreviewWidgetBase_SuperGetDecodedMetricF(const KPreviewWidgetBase* self, int metricA, int metricB) {
     auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
     if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
         vkpreviewwidgetbase->setKPreviewWidgetBase_GetDecodedMetricF_IsBase(true);

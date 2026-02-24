@@ -174,7 +174,7 @@ void QScatterSeries_Connect_MarkerSizeChanged(QScatterSeries* self, intptr_t slo
 }
 
 // Base class handler implementation
-QMetaObject* QScatterSeries_QBaseMetaObject(const QScatterSeries* self) {
+QMetaObject* QScatterSeries_SuperMetaObject(const QScatterSeries* self) {
     auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
         vqscatterseries->setQScatterSeries_MetaObject_IsBase(true);
@@ -193,7 +193,7 @@ void QScatterSeries_OnMetaObject(const QScatterSeries* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QScatterSeries_QBaseMetacast(QScatterSeries* self, const char* param1) {
+void* QScatterSeries_SuperMetacast(QScatterSeries* self, const char* param1) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
         vqscatterseries->setQScatterSeries_Metacast_IsBase(true);
@@ -212,7 +212,7 @@ void QScatterSeries_OnMetacast(QScatterSeries* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QScatterSeries_QBaseMetacall(QScatterSeries* self, int param1, int param2, void** param3) {
+int QScatterSeries_SuperMetacall(QScatterSeries* self, int param1, int param2, void** param3) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
         vqscatterseries->setQScatterSeries_Metacall_IsBase(true);
@@ -231,7 +231,7 @@ void QScatterSeries_OnMetacall(QScatterSeries* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QScatterSeries_QBaseType(const QScatterSeries* self) {
+int QScatterSeries_SuperType(const QScatterSeries* self) {
     auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
         vqscatterseries->setQScatterSeries_Type_IsBase(true);
@@ -250,7 +250,7 @@ void QScatterSeries_OnType(const QScatterSeries* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QScatterSeries_QBaseSetPen(QScatterSeries* self, const QPen* pen) {
+void QScatterSeries_SuperSetPen(QScatterSeries* self, const QPen* pen) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
         vqscatterseries->setQScatterSeries_SetPen_IsBase(true);
@@ -269,7 +269,7 @@ void QScatterSeries_OnSetPen(QScatterSeries* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QScatterSeries_QBaseSetBrush(QScatterSeries* self, const QBrush* brush) {
+void QScatterSeries_SuperSetBrush(QScatterSeries* self, const QBrush* brush) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
         vqscatterseries->setQScatterSeries_SetBrush_IsBase(true);
@@ -288,7 +288,7 @@ void QScatterSeries_OnSetBrush(QScatterSeries* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QScatterSeries_QBaseSetColor(QScatterSeries* self, const QColor* color) {
+void QScatterSeries_SuperSetColor(QScatterSeries* self, const QColor* color) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
         vqscatterseries->setQScatterSeries_SetColor_IsBase(true);
@@ -307,7 +307,7 @@ void QScatterSeries_OnSetColor(QScatterSeries* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QColor* QScatterSeries_QBaseColor(const QScatterSeries* self) {
+QColor* QScatterSeries_SuperColor(const QScatterSeries* self) {
     auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
         vqscatterseries->setQScatterSeries_Color_IsBase(true);
@@ -336,7 +336,7 @@ bool QScatterSeries_Event(QScatterSeries* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QScatterSeries_QBaseEvent(QScatterSeries* self, QEvent* event) {
+bool QScatterSeries_SuperEvent(QScatterSeries* self, QEvent* event) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
         vqscatterseries->setQScatterSeries_Event_IsBase(true);
@@ -365,7 +365,7 @@ bool QScatterSeries_EventFilter(QScatterSeries* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QScatterSeries_QBaseEventFilter(QScatterSeries* self, QObject* watched, QEvent* event) {
+bool QScatterSeries_SuperEventFilter(QScatterSeries* self, QObject* watched, QEvent* event) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
         vqscatterseries->setQScatterSeries_EventFilter_IsBase(true);
@@ -394,7 +394,7 @@ void QScatterSeries_TimerEvent(QScatterSeries* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QScatterSeries_QBaseTimerEvent(QScatterSeries* self, QTimerEvent* event) {
+void QScatterSeries_SuperTimerEvent(QScatterSeries* self, QTimerEvent* event) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
         vqscatterseries->setQScatterSeries_TimerEvent_IsBase(true);
@@ -423,7 +423,7 @@ void QScatterSeries_ChildEvent(QScatterSeries* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QScatterSeries_QBaseChildEvent(QScatterSeries* self, QChildEvent* event) {
+void QScatterSeries_SuperChildEvent(QScatterSeries* self, QChildEvent* event) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
         vqscatterseries->setQScatterSeries_ChildEvent_IsBase(true);
@@ -452,7 +452,7 @@ void QScatterSeries_CustomEvent(QScatterSeries* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QScatterSeries_QBaseCustomEvent(QScatterSeries* self, QEvent* event) {
+void QScatterSeries_SuperCustomEvent(QScatterSeries* self, QEvent* event) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
         vqscatterseries->setQScatterSeries_CustomEvent_IsBase(true);
@@ -481,7 +481,7 @@ void QScatterSeries_ConnectNotify(QScatterSeries* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QScatterSeries_QBaseConnectNotify(QScatterSeries* self, const QMetaMethod* signal) {
+void QScatterSeries_SuperConnectNotify(QScatterSeries* self, const QMetaMethod* signal) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
         vqscatterseries->setQScatterSeries_ConnectNotify_IsBase(true);
@@ -510,7 +510,7 @@ void QScatterSeries_DisconnectNotify(QScatterSeries* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QScatterSeries_QBaseDisconnectNotify(QScatterSeries* self, const QMetaMethod* signal) {
+void QScatterSeries_SuperDisconnectNotify(QScatterSeries* self, const QMetaMethod* signal) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
         vqscatterseries->setQScatterSeries_DisconnectNotify_IsBase(true);
@@ -539,7 +539,7 @@ QObject* QScatterSeries_Sender(const QScatterSeries* self) {
 }
 
 // Base class handler implementation
-QObject* QScatterSeries_QBaseSender(const QScatterSeries* self) {
+QObject* QScatterSeries_SuperSender(const QScatterSeries* self) {
     auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
         vqscatterseries->setQScatterSeries_Sender_IsBase(true);
@@ -568,7 +568,7 @@ int QScatterSeries_SenderSignalIndex(const QScatterSeries* self) {
 }
 
 // Base class handler implementation
-int QScatterSeries_QBaseSenderSignalIndex(const QScatterSeries* self) {
+int QScatterSeries_SuperSenderSignalIndex(const QScatterSeries* self) {
     auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
         vqscatterseries->setQScatterSeries_SenderSignalIndex_IsBase(true);
@@ -597,7 +597,7 @@ int QScatterSeries_Receivers(const QScatterSeries* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QScatterSeries_QBaseReceivers(const QScatterSeries* self, const char* signal) {
+int QScatterSeries_SuperReceivers(const QScatterSeries* self, const char* signal) {
     auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
         vqscatterseries->setQScatterSeries_Receivers_IsBase(true);
@@ -626,7 +626,7 @@ bool QScatterSeries_IsSignalConnected(const QScatterSeries* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QScatterSeries_QBaseIsSignalConnected(const QScatterSeries* self, const QMetaMethod* signal) {
+bool QScatterSeries_SuperIsSignalConnected(const QScatterSeries* self, const QMetaMethod* signal) {
     auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
     if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
         vqscatterseries->setQScatterSeries_IsSignalConnected_IsBase(true);

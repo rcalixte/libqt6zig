@@ -670,33 +670,33 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
 
     // Friend functions
     friend int QNmeaSatelliteInfoSource_ParseSatellitesInUseFromNmea(QNmeaSatelliteInfoSource* self, const char* data, int size, libqt_list /* of int */ pnrsInUse);
-    friend int QNmeaSatelliteInfoSource_QBaseParseSatellitesInUseFromNmea(QNmeaSatelliteInfoSource* self, const char* data, int size, libqt_list /* of int */ pnrsInUse);
+    friend int QNmeaSatelliteInfoSource_SuperParseSatellitesInUseFromNmea(QNmeaSatelliteInfoSource* self, const char* data, int size, libqt_list /* of int */ pnrsInUse);
     friend int QNmeaSatelliteInfoSource_ParseSatelliteInfoFromNmea(QNmeaSatelliteInfoSource* self, const char* data, int size, libqt_list /* of QGeoSatelliteInfo* */ infos, int* system);
-    friend int QNmeaSatelliteInfoSource_QBaseParseSatelliteInfoFromNmea(QNmeaSatelliteInfoSource* self, const char* data, int size, libqt_list /* of QGeoSatelliteInfo* */ infos, int* system);
+    friend int QNmeaSatelliteInfoSource_SuperParseSatelliteInfoFromNmea(QNmeaSatelliteInfoSource* self, const char* data, int size, libqt_list /* of QGeoSatelliteInfo* */ infos, int* system);
     friend void QNmeaSatelliteInfoSource_TimerEvent(QNmeaSatelliteInfoSource* self, QTimerEvent* event);
-    friend void QNmeaSatelliteInfoSource_QBaseTimerEvent(QNmeaSatelliteInfoSource* self, QTimerEvent* event);
+    friend void QNmeaSatelliteInfoSource_SuperTimerEvent(QNmeaSatelliteInfoSource* self, QTimerEvent* event);
     friend void QNmeaSatelliteInfoSource_ChildEvent(QNmeaSatelliteInfoSource* self, QChildEvent* event);
-    friend void QNmeaSatelliteInfoSource_QBaseChildEvent(QNmeaSatelliteInfoSource* self, QChildEvent* event);
+    friend void QNmeaSatelliteInfoSource_SuperChildEvent(QNmeaSatelliteInfoSource* self, QChildEvent* event);
     friend void QNmeaSatelliteInfoSource_CustomEvent(QNmeaSatelliteInfoSource* self, QEvent* event);
-    friend void QNmeaSatelliteInfoSource_QBaseCustomEvent(QNmeaSatelliteInfoSource* self, QEvent* event);
+    friend void QNmeaSatelliteInfoSource_SuperCustomEvent(QNmeaSatelliteInfoSource* self, QEvent* event);
     friend void QNmeaSatelliteInfoSource_ConnectNotify(QNmeaSatelliteInfoSource* self, const QMetaMethod* signal);
-    friend void QNmeaSatelliteInfoSource_QBaseConnectNotify(QNmeaSatelliteInfoSource* self, const QMetaMethod* signal);
+    friend void QNmeaSatelliteInfoSource_SuperConnectNotify(QNmeaSatelliteInfoSource* self, const QMetaMethod* signal);
     friend void QNmeaSatelliteInfoSource_DisconnectNotify(QNmeaSatelliteInfoSource* self, const QMetaMethod* signal);
-    friend void QNmeaSatelliteInfoSource_QBaseDisconnectNotify(QNmeaSatelliteInfoSource* self, const QMetaMethod* signal);
+    friend void QNmeaSatelliteInfoSource_SuperDisconnectNotify(QNmeaSatelliteInfoSource* self, const QMetaMethod* signal);
     friend int QNmeaSatelliteInfoSource_ParseSatellitesInUseFromNmea2(QNmeaSatelliteInfoSource* self, libqt_string data, libqt_list /* of int */ pnrsInUse);
-    friend int QNmeaSatelliteInfoSource_QBaseParseSatellitesInUseFromNmea2(QNmeaSatelliteInfoSource* self, libqt_string data, libqt_list /* of int */ pnrsInUse);
+    friend int QNmeaSatelliteInfoSource_SuperParseSatellitesInUseFromNmea2(QNmeaSatelliteInfoSource* self, libqt_string data, libqt_list /* of int */ pnrsInUse);
     friend int QNmeaSatelliteInfoSource_ParseSatelliteInfoFromNmea2(QNmeaSatelliteInfoSource* self, libqt_string data, libqt_list /* of QGeoSatelliteInfo* */ infos, int* system);
-    friend int QNmeaSatelliteInfoSource_QBaseParseSatelliteInfoFromNmea2(QNmeaSatelliteInfoSource* self, libqt_string data, libqt_list /* of QGeoSatelliteInfo* */ infos, int* system);
+    friend int QNmeaSatelliteInfoSource_SuperParseSatelliteInfoFromNmea2(QNmeaSatelliteInfoSource* self, libqt_string data, libqt_list /* of QGeoSatelliteInfo* */ infos, int* system);
     friend void QNmeaSatelliteInfoSource_SetError(QNmeaSatelliteInfoSource* self, int satelliteError);
-    friend void QNmeaSatelliteInfoSource_QBaseSetError(QNmeaSatelliteInfoSource* self, int satelliteError);
+    friend void QNmeaSatelliteInfoSource_SuperSetError(QNmeaSatelliteInfoSource* self, int satelliteError);
     friend QObject* QNmeaSatelliteInfoSource_Sender(const QNmeaSatelliteInfoSource* self);
-    friend QObject* QNmeaSatelliteInfoSource_QBaseSender(const QNmeaSatelliteInfoSource* self);
+    friend QObject* QNmeaSatelliteInfoSource_SuperSender(const QNmeaSatelliteInfoSource* self);
     friend int QNmeaSatelliteInfoSource_SenderSignalIndex(const QNmeaSatelliteInfoSource* self);
-    friend int QNmeaSatelliteInfoSource_QBaseSenderSignalIndex(const QNmeaSatelliteInfoSource* self);
+    friend int QNmeaSatelliteInfoSource_SuperSenderSignalIndex(const QNmeaSatelliteInfoSource* self);
     friend int QNmeaSatelliteInfoSource_Receivers(const QNmeaSatelliteInfoSource* self, const char* signal);
-    friend int QNmeaSatelliteInfoSource_QBaseReceivers(const QNmeaSatelliteInfoSource* self, const char* signal);
+    friend int QNmeaSatelliteInfoSource_SuperReceivers(const QNmeaSatelliteInfoSource* self, const char* signal);
     friend bool QNmeaSatelliteInfoSource_IsSignalConnected(const QNmeaSatelliteInfoSource* self, const QMetaMethod* signal);
-    friend bool QNmeaSatelliteInfoSource_QBaseIsSignalConnected(const QNmeaSatelliteInfoSource* self, const QMetaMethod* signal);
+    friend bool QNmeaSatelliteInfoSource_SuperIsSignalConnected(const QNmeaSatelliteInfoSource* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -250,6 +250,10 @@ pub const qversionnumber = struct {
         return qtc.QVersionNumber_FromString2(stringVal.ptr, @ptrCast(suffixIndex));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#dtor.QVersionNumber)
     ///
     /// Delete this object from C++ memory.
@@ -258,7 +262,7 @@ pub const qversionnumber = struct {
     ///
     /// ` self: QtC.QVersionNumber `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QVersionNumber_Delete(@ptrCast(self));
     }
 };

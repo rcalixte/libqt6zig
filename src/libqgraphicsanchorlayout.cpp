@@ -154,7 +154,7 @@ void QGraphicsAnchorLayout_AddAnchors3(QGraphicsAnchorLayout* self, QGraphicsLay
 }
 
 // Base class handler implementation
-void QGraphicsAnchorLayout_QBaseRemoveAt(QGraphicsAnchorLayout* self, int index) {
+void QGraphicsAnchorLayout_SuperRemoveAt(QGraphicsAnchorLayout* self, int index) {
     auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
         vqgraphicsanchorlayout->setQGraphicsAnchorLayout_RemoveAt_IsBase(true);
@@ -173,7 +173,7 @@ void QGraphicsAnchorLayout_OnRemoveAt(QGraphicsAnchorLayout* self, intptr_t slot
 }
 
 // Base class handler implementation
-void QGraphicsAnchorLayout_QBaseSetGeometry(QGraphicsAnchorLayout* self, const QRectF* rect) {
+void QGraphicsAnchorLayout_SuperSetGeometry(QGraphicsAnchorLayout* self, const QRectF* rect) {
     auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
         vqgraphicsanchorlayout->setQGraphicsAnchorLayout_SetGeometry_IsBase(true);
@@ -192,7 +192,7 @@ void QGraphicsAnchorLayout_OnSetGeometry(QGraphicsAnchorLayout* self, intptr_t s
 }
 
 // Base class handler implementation
-int QGraphicsAnchorLayout_QBaseCount(const QGraphicsAnchorLayout* self) {
+int QGraphicsAnchorLayout_SuperCount(const QGraphicsAnchorLayout* self) {
     auto* vqgraphicsanchorlayout = const_cast<VirtualQGraphicsAnchorLayout*>(dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self));
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
         vqgraphicsanchorlayout->setQGraphicsAnchorLayout_Count_IsBase(true);
@@ -211,7 +211,7 @@ void QGraphicsAnchorLayout_OnCount(const QGraphicsAnchorLayout* self, intptr_t s
 }
 
 // Base class handler implementation
-QGraphicsLayoutItem* QGraphicsAnchorLayout_QBaseItemAt(const QGraphicsAnchorLayout* self, int index) {
+QGraphicsLayoutItem* QGraphicsAnchorLayout_SuperItemAt(const QGraphicsAnchorLayout* self, int index) {
     auto* vqgraphicsanchorlayout = const_cast<VirtualQGraphicsAnchorLayout*>(dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self));
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
         vqgraphicsanchorlayout->setQGraphicsAnchorLayout_ItemAt_IsBase(true);
@@ -230,7 +230,7 @@ void QGraphicsAnchorLayout_OnItemAt(const QGraphicsAnchorLayout* self, intptr_t 
 }
 
 // Base class handler implementation
-void QGraphicsAnchorLayout_QBaseInvalidate(QGraphicsAnchorLayout* self) {
+void QGraphicsAnchorLayout_SuperInvalidate(QGraphicsAnchorLayout* self) {
     auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
         vqgraphicsanchorlayout->setQGraphicsAnchorLayout_Invalidate_IsBase(true);
@@ -249,7 +249,7 @@ void QGraphicsAnchorLayout_OnInvalidate(QGraphicsAnchorLayout* self, intptr_t sl
 }
 
 // Base class handler implementation
-QSizeF* QGraphicsAnchorLayout_QBaseSizeHint(const QGraphicsAnchorLayout* self, int which, const QSizeF* constraint) {
+QSizeF* QGraphicsAnchorLayout_SuperSizeHint(const QGraphicsAnchorLayout* self, int which, const QSizeF* constraint) {
     auto* vqgraphicsanchorlayout = const_cast<VirtualQGraphicsAnchorLayout*>(dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self));
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
         vqgraphicsanchorlayout->setQGraphicsAnchorLayout_SizeHint_IsBase(true);
@@ -277,7 +277,7 @@ void QGraphicsAnchorLayout_GetContentsMargins(const QGraphicsAnchorLayout* self,
 }
 
 // Base class handler implementation
-void QGraphicsAnchorLayout_QBaseGetContentsMargins(const QGraphicsAnchorLayout* self, double* left, double* top, double* right, double* bottom) {
+void QGraphicsAnchorLayout_SuperGetContentsMargins(const QGraphicsAnchorLayout* self, double* left, double* top, double* right, double* bottom) {
     auto* vqgraphicsanchorlayout = const_cast<VirtualQGraphicsAnchorLayout*>(dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self));
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
         vqgraphicsanchorlayout->setQGraphicsAnchorLayout_GetContentsMargins_IsBase(true);
@@ -306,7 +306,7 @@ void QGraphicsAnchorLayout_UpdateGeometry(QGraphicsAnchorLayout* self) {
 }
 
 // Base class handler implementation
-void QGraphicsAnchorLayout_QBaseUpdateGeometry(QGraphicsAnchorLayout* self) {
+void QGraphicsAnchorLayout_SuperUpdateGeometry(QGraphicsAnchorLayout* self) {
     auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
         vqgraphicsanchorlayout->setQGraphicsAnchorLayout_UpdateGeometry_IsBase(true);
@@ -335,7 +335,7 @@ void QGraphicsAnchorLayout_WidgetEvent(QGraphicsAnchorLayout* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void QGraphicsAnchorLayout_QBaseWidgetEvent(QGraphicsAnchorLayout* self, QEvent* e) {
+void QGraphicsAnchorLayout_SuperWidgetEvent(QGraphicsAnchorLayout* self, QEvent* e) {
     auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
         vqgraphicsanchorlayout->setQGraphicsAnchorLayout_WidgetEvent_IsBase(true);
@@ -364,7 +364,7 @@ bool QGraphicsAnchorLayout_IsEmpty(const QGraphicsAnchorLayout* self) {
 }
 
 // Base class handler implementation
-bool QGraphicsAnchorLayout_QBaseIsEmpty(const QGraphicsAnchorLayout* self) {
+bool QGraphicsAnchorLayout_SuperIsEmpty(const QGraphicsAnchorLayout* self) {
     auto* vqgraphicsanchorlayout = const_cast<VirtualQGraphicsAnchorLayout*>(dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self));
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
         vqgraphicsanchorlayout->setQGraphicsAnchorLayout_IsEmpty_IsBase(true);
@@ -393,7 +393,7 @@ void QGraphicsAnchorLayout_AddChildLayoutItem(QGraphicsAnchorLayout* self, QGrap
 }
 
 // Base class handler implementation
-void QGraphicsAnchorLayout_QBaseAddChildLayoutItem(QGraphicsAnchorLayout* self, QGraphicsLayoutItem* layoutItem) {
+void QGraphicsAnchorLayout_SuperAddChildLayoutItem(QGraphicsAnchorLayout* self, QGraphicsLayoutItem* layoutItem) {
     auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
         vqgraphicsanchorlayout->setQGraphicsAnchorLayout_AddChildLayoutItem_IsBase(true);
@@ -422,7 +422,7 @@ void QGraphicsAnchorLayout_SetGraphicsItem(QGraphicsAnchorLayout* self, QGraphic
 }
 
 // Base class handler implementation
-void QGraphicsAnchorLayout_QBaseSetGraphicsItem(QGraphicsAnchorLayout* self, QGraphicsItem* item) {
+void QGraphicsAnchorLayout_SuperSetGraphicsItem(QGraphicsAnchorLayout* self, QGraphicsItem* item) {
     auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
         vqgraphicsanchorlayout->setQGraphicsAnchorLayout_SetGraphicsItem_IsBase(true);
@@ -451,7 +451,7 @@ void QGraphicsAnchorLayout_SetOwnedByLayout(QGraphicsAnchorLayout* self, bool ow
 }
 
 // Base class handler implementation
-void QGraphicsAnchorLayout_QBaseSetOwnedByLayout(QGraphicsAnchorLayout* self, bool ownedByLayout) {
+void QGraphicsAnchorLayout_SuperSetOwnedByLayout(QGraphicsAnchorLayout* self, bool ownedByLayout) {
     auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
     if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
         vqgraphicsanchorlayout->setQGraphicsAnchorLayout_SetOwnedByLayout_IsBase(true);

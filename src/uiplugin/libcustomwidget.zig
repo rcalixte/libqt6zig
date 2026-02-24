@@ -182,6 +182,10 @@ pub const qdesignercustomwidgetinterface = struct {
         qtc.QDesignerCustomWidgetInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercustomwidgetinterface.html#dtor.QDesignerCustomWidgetInterface)
     ///
     /// Delete this object from C++ memory.
@@ -190,7 +194,7 @@ pub const qdesignercustomwidgetinterface = struct {
     ///
     /// ` self: QtC.QDesignerCustomWidgetInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDesignerCustomWidgetInterface_Delete(@ptrCast(self));
     }
 };
@@ -226,6 +230,10 @@ pub const qdesignercustomwidgetcollectioninterface = struct {
         qtc.QDesignerCustomWidgetCollectionInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercustomwidgetcollectioninterface.html#dtor.QDesignerCustomWidgetCollectionInterface)
     ///
     /// Delete this object from C++ memory.
@@ -234,7 +242,7 @@ pub const qdesignercustomwidgetcollectioninterface = struct {
     ///
     /// ` self: QtC.QDesignerCustomWidgetCollectionInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDesignerCustomWidgetCollectionInterface_Delete(@ptrCast(self));
     }
 };

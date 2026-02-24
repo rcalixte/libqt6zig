@@ -199,6 +199,10 @@ pub const accounts__service = struct {
         return qtc.Accounts__Service_DomDocument(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
     ///
     /// Delete this object from C++ memory.
@@ -207,7 +211,7 @@ pub const accounts__service = struct {
     ///
     /// ` self: QtC.Accounts__Service `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Accounts__Service_Delete(@ptrCast(self));
     }
 };

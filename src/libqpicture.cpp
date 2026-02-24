@@ -118,7 +118,7 @@ int QPicture_Metric(const QPicture* self, int m) {
 }
 
 // Base class handler implementation
-int QPicture_QBaseDevType(const QPicture* self) {
+int QPicture_SuperDevType(const QPicture* self) {
     auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
     if (vqpicture && vqpicture->isVirtualQPicture) {
         vqpicture->setQPicture_DevType_IsBase(true);
@@ -137,7 +137,7 @@ void QPicture_OnDevType(const QPicture* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPicture_QBaseSetData(QPicture* self, const char* data, unsigned int size) {
+void QPicture_SuperSetData(QPicture* self, const char* data, unsigned int size) {
     auto* vqpicture = dynamic_cast<VirtualQPicture*>(self);
     if (vqpicture && vqpicture->isVirtualQPicture) {
         vqpicture->setQPicture_SetData_IsBase(true);
@@ -156,7 +156,7 @@ void QPicture_OnSetData(QPicture* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPaintEngine* QPicture_QBasePaintEngine(const QPicture* self) {
+QPaintEngine* QPicture_SuperPaintEngine(const QPicture* self) {
     auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
     if (vqpicture && vqpicture->isVirtualQPicture) {
         vqpicture->setQPicture_PaintEngine_IsBase(true);
@@ -175,7 +175,7 @@ void QPicture_OnPaintEngine(const QPicture* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPicture_QBaseMetric(const QPicture* self, int m) {
+int QPicture_SuperMetric(const QPicture* self, int m) {
     auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
     if (vqpicture && vqpicture->isVirtualQPicture) {
         vqpicture->setQPicture_Metric_IsBase(true);
@@ -204,7 +204,7 @@ void QPicture_InitPainter(const QPicture* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QPicture_QBaseInitPainter(const QPicture* self, QPainter* painter) {
+void QPicture_SuperInitPainter(const QPicture* self, QPainter* painter) {
     auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
     if (vqpicture && vqpicture->isVirtualQPicture) {
         vqpicture->setQPicture_InitPainter_IsBase(true);
@@ -233,7 +233,7 @@ QPaintDevice* QPicture_Redirected(const QPicture* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QPicture_QBaseRedirected(const QPicture* self, QPoint* offset) {
+QPaintDevice* QPicture_SuperRedirected(const QPicture* self, QPoint* offset) {
     auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
     if (vqpicture && vqpicture->isVirtualQPicture) {
         vqpicture->setQPicture_Redirected_IsBase(true);
@@ -262,7 +262,7 @@ QPainter* QPicture_SharedPainter(const QPicture* self) {
 }
 
 // Base class handler implementation
-QPainter* QPicture_QBaseSharedPainter(const QPicture* self) {
+QPainter* QPicture_SuperSharedPainter(const QPicture* self) {
     auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
     if (vqpicture && vqpicture->isVirtualQPicture) {
         vqpicture->setQPicture_SharedPainter_IsBase(true);
@@ -291,7 +291,7 @@ double QPicture_GetDecodedMetricF(const QPicture* self, int metricA, int metricB
 }
 
 // Base class handler implementation
-double QPicture_QBaseGetDecodedMetricF(const QPicture* self, int metricA, int metricB) {
+double QPicture_SuperGetDecodedMetricF(const QPicture* self, int metricA, int metricB) {
     auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
     if (vqpicture && vqpicture->isVirtualQPicture) {
         vqpicture->setQPicture_GetDecodedMetricF_IsBase(true);

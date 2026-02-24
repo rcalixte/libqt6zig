@@ -113,6 +113,10 @@ pub const qdbusunixfiledescriptor = struct {
         return qtc.QDBusUnixFileDescriptor_IsSupported();
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusunixfiledescriptor.html#dtor.QDBusUnixFileDescriptor)
     ///
     /// Delete this object from C++ memory.
@@ -121,7 +125,7 @@ pub const qdbusunixfiledescriptor = struct {
     ///
     /// ` self: QtC.QDBusUnixFileDescriptor `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDBusUnixFileDescriptor_Delete(@ptrCast(self));
     }
 };

@@ -174,6 +174,10 @@ pub const qaccessible = struct {
         return @bitCast(_pair);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#dtor.QAccessible)
     ///
     /// Delete this object from C++ memory.
@@ -182,7 +186,7 @@ pub const qaccessible = struct {
     ///
     /// ` self: QtC.QAccessible `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessible_Delete(@ptrCast(self));
     }
 };
@@ -1053,13 +1057,17 @@ pub const qaccessible__state = struct {
         qtc.QAccessible__State_SetSearchEdit(@ptrCast(self), @bitCast(searchEdit));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QAccessible__State `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessible__State_Delete(@ptrCast(self));
     }
 };
@@ -1090,13 +1098,17 @@ pub const qaccessible__activationobserver = struct {
         qtc.QAccessible__ActivationObserver_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QAccessible__ActivationObserver `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAccessible__ActivationObserver_Delete(@ptrCast(self));
     }
 };

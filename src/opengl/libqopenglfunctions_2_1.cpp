@@ -2334,7 +2334,7 @@ void QOpenGLFunctions_2_1_GlVertexAttrib1d(QOpenGLFunctions_2_1* self, uint32_t 
 }
 
 // Base class handler implementation
-bool QOpenGLFunctions_2_1_QBaseInitializeOpenGLFunctions(QOpenGLFunctions_2_1* self) {
+bool QOpenGLFunctions_2_1_SuperInitializeOpenGLFunctions(QOpenGLFunctions_2_1* self) {
     auto* vqopenglfunctions_2_1 = dynamic_cast<VirtualQOpenGLFunctions_2_1*>(self);
     if (vqopenglfunctions_2_1 && vqopenglfunctions_2_1->isVirtualQOpenGLFunctions_2_1) {
         vqopenglfunctions_2_1->setQOpenGLFunctions_2_1_InitializeOpenGLFunctions_IsBase(true);
@@ -2363,7 +2363,7 @@ bool QOpenGLFunctions_2_1_IsInitialized(const QOpenGLFunctions_2_1* self) {
 }
 
 // Base class handler implementation
-bool QOpenGLFunctions_2_1_QBaseIsInitialized(const QOpenGLFunctions_2_1* self) {
+bool QOpenGLFunctions_2_1_SuperIsInitialized(const QOpenGLFunctions_2_1* self) {
     auto* vqopenglfunctions_2_1 = const_cast<VirtualQOpenGLFunctions_2_1*>(dynamic_cast<const VirtualQOpenGLFunctions_2_1*>(self));
     if (vqopenglfunctions_2_1 && vqopenglfunctions_2_1->isVirtualQOpenGLFunctions_2_1) {
         vqopenglfunctions_2_1->setQOpenGLFunctions_2_1_IsInitialized_IsBase(true);
@@ -2392,7 +2392,7 @@ void QOpenGLFunctions_2_1_SetOwningContext(QOpenGLFunctions_2_1* self, const QOp
 }
 
 // Base class handler implementation
-void QOpenGLFunctions_2_1_QBaseSetOwningContext(QOpenGLFunctions_2_1* self, const QOpenGLContext* context) {
+void QOpenGLFunctions_2_1_SuperSetOwningContext(QOpenGLFunctions_2_1* self, const QOpenGLContext* context) {
     auto* vqopenglfunctions_2_1 = dynamic_cast<VirtualQOpenGLFunctions_2_1*>(self);
     if (vqopenglfunctions_2_1 && vqopenglfunctions_2_1->isVirtualQOpenGLFunctions_2_1) {
         vqopenglfunctions_2_1->setQOpenGLFunctions_2_1_SetOwningContext_IsBase(true);
@@ -2421,7 +2421,7 @@ QOpenGLContext* QOpenGLFunctions_2_1_OwningContext(const QOpenGLFunctions_2_1* s
 }
 
 // Base class handler implementation
-QOpenGLContext* QOpenGLFunctions_2_1_QBaseOwningContext(const QOpenGLFunctions_2_1* self) {
+QOpenGLContext* QOpenGLFunctions_2_1_SuperOwningContext(const QOpenGLFunctions_2_1* self) {
     auto* vqopenglfunctions_2_1 = const_cast<VirtualQOpenGLFunctions_2_1*>(dynamic_cast<const VirtualQOpenGLFunctions_2_1*>(self));
     if (vqopenglfunctions_2_1 && vqopenglfunctions_2_1->isVirtualQOpenGLFunctions_2_1) {
         vqopenglfunctions_2_1->setQOpenGLFunctions_2_1_OwningContext_IsBase(true);

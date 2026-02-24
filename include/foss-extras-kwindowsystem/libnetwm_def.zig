@@ -127,6 +127,10 @@ pub const netpoint = struct {
         qtc.NETPoint_SetY(@ptrCast(self), @bitCast(y));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/netpoint.html#dtor.NETPoint)
     ///
     /// Delete this object from C++ memory.
@@ -135,7 +139,7 @@ pub const netpoint = struct {
     ///
     /// ` self: QtC.NETPoint `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.NETPoint_Delete(@ptrCast(self));
     }
 };
@@ -266,6 +270,10 @@ pub const netsize = struct {
         qtc.NETSize_SetHeight(@ptrCast(self), @bitCast(height));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/netsize.html#dtor.NETSize)
     ///
     /// Delete this object from C++ memory.
@@ -274,7 +282,7 @@ pub const netsize = struct {
     ///
     /// ` self: QtC.NETSize `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.NETSize_Delete(@ptrCast(self));
     }
 };
@@ -395,6 +403,10 @@ pub const netrect = struct {
         qtc.NETRect_SetSize(@ptrCast(self), @ptrCast(size));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/netrect.html#dtor.NETRect)
     ///
     /// Delete this object from C++ memory.
@@ -403,7 +415,7 @@ pub const netrect = struct {
     ///
     /// ` self: QtC.NETRect `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.NETRect_Delete(@ptrCast(self));
     }
 };
@@ -504,6 +516,10 @@ pub const neticon = struct {
         qtc.NETIcon_SetData(@ptrCast(self), @ptrCast(data));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/neticon.html#dtor.NETIcon)
     ///
     /// Delete this object from C++ memory.
@@ -512,7 +528,7 @@ pub const neticon = struct {
     ///
     /// ` self: QtC.NETIcon `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.NETIcon_Delete(@ptrCast(self));
     }
 };
@@ -833,6 +849,10 @@ pub const netextendedstrut = struct {
         qtc.NETExtendedStrut_SetBottomEnd(@ptrCast(self), @bitCast(bottom_end));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/netextendedstrut.html#dtor.NETExtendedStrut)
     ///
     /// Delete this object from C++ memory.
@@ -841,7 +861,7 @@ pub const netextendedstrut = struct {
     ///
     /// ` self: QtC.NETExtendedStrut `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.NETExtendedStrut_Delete(@ptrCast(self));
     }
 };
@@ -986,6 +1006,10 @@ pub const netstrut = struct {
         qtc.NETStrut_SetBottom(@ptrCast(self), @bitCast(bottom));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/netstrut.html#dtor.NETStrut)
     ///
     /// Delete this object from C++ memory.
@@ -994,7 +1018,7 @@ pub const netstrut = struct {
     ///
     /// ` self: QtC.NETStrut `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.NETStrut_Delete(@ptrCast(self));
     }
 };
@@ -1149,6 +1173,10 @@ pub const netfullscreenmonitors = struct {
         return qtc.NETFullscreenMonitors_IsSet(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/netfullscreenmonitors.html#dtor.NETFullscreenMonitors)
     ///
     /// Delete this object from C++ memory.
@@ -1157,7 +1185,7 @@ pub const netfullscreenmonitors = struct {
     ///
     /// ` self: QtC.NETFullscreenMonitors `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.NETFullscreenMonitors_Delete(@ptrCast(self));
     }
 };
@@ -1232,6 +1260,10 @@ pub const net = struct {
         return qtc.NET_TimestampDiff(@bitCast(time1), @bitCast(time2));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/net.html#dtor.NET)
     ///
     /// Delete this object from C++ memory.
@@ -1240,7 +1272,7 @@ pub const net = struct {
     ///
     /// ` self: QtC.NET `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.NET_Delete(@ptrCast(self));
     }
 };

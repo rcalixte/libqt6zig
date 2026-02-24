@@ -172,6 +172,10 @@ pub const kremoteencoding = struct {
         qtc.KRemoteEncoding_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperVirtualHook` instead
+    ///
+    pub const QBaseVirtualHook = SuperVirtualHook;
+
     /// ### [Upstream resources](https://api.kde.org/kremoteencoding.html#virtual_hook)
     ///
     /// Base class method implementation
@@ -184,8 +188,8 @@ pub const kremoteencoding = struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KRemoteEncoding_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
+    pub fn SuperVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
+        qtc.KRemoteEncoding_SuperVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kremoteencoding.html#directory)
@@ -208,6 +212,10 @@ pub const kremoteencoding = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kremoteencoding.html#dtor.KRemoteEncoding)
     ///
     /// Delete this object from C++ memory.
@@ -216,7 +224,7 @@ pub const kremoteencoding = struct {
     ///
     /// ` self: QtC.KRemoteEncoding `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KRemoteEncoding_Delete(@ptrCast(self));
     }
 };

@@ -1060,6 +1060,10 @@ pub const qstringview = struct {
         return qtc.QStringView_ToDouble1(@ptrCast(self), @ptrCast(ok));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#dtor.QStringView)
     ///
     /// Delete this object from C++ memory.
@@ -1068,7 +1072,7 @@ pub const qstringview = struct {
     ///
     /// ` self: QtC.QStringView `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStringView_Delete(@ptrCast(self));
     }
 };

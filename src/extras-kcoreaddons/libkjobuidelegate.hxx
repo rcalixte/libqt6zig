@@ -415,29 +415,29 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
 
     // Friend functions
     friend bool KJobUiDelegate_SetJob(KJobUiDelegate* self, KJob* job);
-    friend bool KJobUiDelegate_QBaseSetJob(KJobUiDelegate* self, KJob* job);
+    friend bool KJobUiDelegate_SuperSetJob(KJobUiDelegate* self, KJob* job);
     friend void KJobUiDelegate_SlotWarning(KJobUiDelegate* self, KJob* job, const libqt_string message);
-    friend void KJobUiDelegate_QBaseSlotWarning(KJobUiDelegate* self, KJob* job, const libqt_string message);
+    friend void KJobUiDelegate_SuperSlotWarning(KJobUiDelegate* self, KJob* job, const libqt_string message);
     friend void KJobUiDelegate_TimerEvent(KJobUiDelegate* self, QTimerEvent* event);
-    friend void KJobUiDelegate_QBaseTimerEvent(KJobUiDelegate* self, QTimerEvent* event);
+    friend void KJobUiDelegate_SuperTimerEvent(KJobUiDelegate* self, QTimerEvent* event);
     friend void KJobUiDelegate_ChildEvent(KJobUiDelegate* self, QChildEvent* event);
-    friend void KJobUiDelegate_QBaseChildEvent(KJobUiDelegate* self, QChildEvent* event);
+    friend void KJobUiDelegate_SuperChildEvent(KJobUiDelegate* self, QChildEvent* event);
     friend void KJobUiDelegate_CustomEvent(KJobUiDelegate* self, QEvent* event);
-    friend void KJobUiDelegate_QBaseCustomEvent(KJobUiDelegate* self, QEvent* event);
+    friend void KJobUiDelegate_SuperCustomEvent(KJobUiDelegate* self, QEvent* event);
     friend void KJobUiDelegate_ConnectNotify(KJobUiDelegate* self, const QMetaMethod* signal);
-    friend void KJobUiDelegate_QBaseConnectNotify(KJobUiDelegate* self, const QMetaMethod* signal);
+    friend void KJobUiDelegate_SuperConnectNotify(KJobUiDelegate* self, const QMetaMethod* signal);
     friend void KJobUiDelegate_DisconnectNotify(KJobUiDelegate* self, const QMetaMethod* signal);
-    friend void KJobUiDelegate_QBaseDisconnectNotify(KJobUiDelegate* self, const QMetaMethod* signal);
+    friend void KJobUiDelegate_SuperDisconnectNotify(KJobUiDelegate* self, const QMetaMethod* signal);
     friend KJob* KJobUiDelegate_Job(const KJobUiDelegate* self);
-    friend KJob* KJobUiDelegate_QBaseJob(const KJobUiDelegate* self);
+    friend KJob* KJobUiDelegate_SuperJob(const KJobUiDelegate* self);
     friend QObject* KJobUiDelegate_Sender(const KJobUiDelegate* self);
-    friend QObject* KJobUiDelegate_QBaseSender(const KJobUiDelegate* self);
+    friend QObject* KJobUiDelegate_SuperSender(const KJobUiDelegate* self);
     friend int KJobUiDelegate_SenderSignalIndex(const KJobUiDelegate* self);
-    friend int KJobUiDelegate_QBaseSenderSignalIndex(const KJobUiDelegate* self);
+    friend int KJobUiDelegate_SuperSenderSignalIndex(const KJobUiDelegate* self);
     friend int KJobUiDelegate_Receivers(const KJobUiDelegate* self, const char* signal);
-    friend int KJobUiDelegate_QBaseReceivers(const KJobUiDelegate* self, const char* signal);
+    friend int KJobUiDelegate_SuperReceivers(const KJobUiDelegate* self, const char* signal);
     friend bool KJobUiDelegate_IsSignalConnected(const KJobUiDelegate* self, const QMetaMethod* signal);
-    friend bool KJobUiDelegate_QBaseIsSignalConnected(const KJobUiDelegate* self, const QMetaMethod* signal);
+    friend bool KJobUiDelegate_SuperIsSignalConnected(const KJobUiDelegate* self, const QMetaMethod* signal);
 };
 
 #endif

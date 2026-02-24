@@ -104,7 +104,7 @@ void QEventLoop_Exit1(QEventLoop* self, int returnCode) {
 }
 
 // Base class handler implementation
-QMetaObject* QEventLoop_QBaseMetaObject(const QEventLoop* self) {
+QMetaObject* QEventLoop_SuperMetaObject(const QEventLoop* self) {
     auto* vqeventloop = const_cast<VirtualQEventLoop*>(dynamic_cast<const VirtualQEventLoop*>(self));
     if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
         vqeventloop->setQEventLoop_MetaObject_IsBase(true);
@@ -123,7 +123,7 @@ void QEventLoop_OnMetaObject(const QEventLoop* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QEventLoop_QBaseMetacast(QEventLoop* self, const char* param1) {
+void* QEventLoop_SuperMetacast(QEventLoop* self, const char* param1) {
     auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
     if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
         vqeventloop->setQEventLoop_Metacast_IsBase(true);
@@ -142,7 +142,7 @@ void QEventLoop_OnMetacast(QEventLoop* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QEventLoop_QBaseMetacall(QEventLoop* self, int param1, int param2, void** param3) {
+int QEventLoop_SuperMetacall(QEventLoop* self, int param1, int param2, void** param3) {
     auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
     if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
         vqeventloop->setQEventLoop_Metacall_IsBase(true);
@@ -161,7 +161,7 @@ void QEventLoop_OnMetacall(QEventLoop* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QEventLoop_QBaseEvent(QEventLoop* self, QEvent* event) {
+bool QEventLoop_SuperEvent(QEventLoop* self, QEvent* event) {
     auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
     if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
         vqeventloop->setQEventLoop_Event_IsBase(true);
@@ -190,7 +190,7 @@ bool QEventLoop_EventFilter(QEventLoop* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QEventLoop_QBaseEventFilter(QEventLoop* self, QObject* watched, QEvent* event) {
+bool QEventLoop_SuperEventFilter(QEventLoop* self, QObject* watched, QEvent* event) {
     auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
     if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
         vqeventloop->setQEventLoop_EventFilter_IsBase(true);
@@ -219,7 +219,7 @@ void QEventLoop_TimerEvent(QEventLoop* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QEventLoop_QBaseTimerEvent(QEventLoop* self, QTimerEvent* event) {
+void QEventLoop_SuperTimerEvent(QEventLoop* self, QTimerEvent* event) {
     auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
     if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
         vqeventloop->setQEventLoop_TimerEvent_IsBase(true);
@@ -248,7 +248,7 @@ void QEventLoop_ChildEvent(QEventLoop* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QEventLoop_QBaseChildEvent(QEventLoop* self, QChildEvent* event) {
+void QEventLoop_SuperChildEvent(QEventLoop* self, QChildEvent* event) {
     auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
     if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
         vqeventloop->setQEventLoop_ChildEvent_IsBase(true);
@@ -277,7 +277,7 @@ void QEventLoop_CustomEvent(QEventLoop* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QEventLoop_QBaseCustomEvent(QEventLoop* self, QEvent* event) {
+void QEventLoop_SuperCustomEvent(QEventLoop* self, QEvent* event) {
     auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
     if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
         vqeventloop->setQEventLoop_CustomEvent_IsBase(true);
@@ -306,7 +306,7 @@ void QEventLoop_ConnectNotify(QEventLoop* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QEventLoop_QBaseConnectNotify(QEventLoop* self, const QMetaMethod* signal) {
+void QEventLoop_SuperConnectNotify(QEventLoop* self, const QMetaMethod* signal) {
     auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
     if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
         vqeventloop->setQEventLoop_ConnectNotify_IsBase(true);
@@ -335,7 +335,7 @@ void QEventLoop_DisconnectNotify(QEventLoop* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QEventLoop_QBaseDisconnectNotify(QEventLoop* self, const QMetaMethod* signal) {
+void QEventLoop_SuperDisconnectNotify(QEventLoop* self, const QMetaMethod* signal) {
     auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
     if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
         vqeventloop->setQEventLoop_DisconnectNotify_IsBase(true);
@@ -364,7 +364,7 @@ QObject* QEventLoop_Sender(const QEventLoop* self) {
 }
 
 // Base class handler implementation
-QObject* QEventLoop_QBaseSender(const QEventLoop* self) {
+QObject* QEventLoop_SuperSender(const QEventLoop* self) {
     auto* vqeventloop = const_cast<VirtualQEventLoop*>(dynamic_cast<const VirtualQEventLoop*>(self));
     if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
         vqeventloop->setQEventLoop_Sender_IsBase(true);
@@ -393,7 +393,7 @@ int QEventLoop_SenderSignalIndex(const QEventLoop* self) {
 }
 
 // Base class handler implementation
-int QEventLoop_QBaseSenderSignalIndex(const QEventLoop* self) {
+int QEventLoop_SuperSenderSignalIndex(const QEventLoop* self) {
     auto* vqeventloop = const_cast<VirtualQEventLoop*>(dynamic_cast<const VirtualQEventLoop*>(self));
     if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
         vqeventloop->setQEventLoop_SenderSignalIndex_IsBase(true);
@@ -422,7 +422,7 @@ int QEventLoop_Receivers(const QEventLoop* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QEventLoop_QBaseReceivers(const QEventLoop* self, const char* signal) {
+int QEventLoop_SuperReceivers(const QEventLoop* self, const char* signal) {
     auto* vqeventloop = const_cast<VirtualQEventLoop*>(dynamic_cast<const VirtualQEventLoop*>(self));
     if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
         vqeventloop->setQEventLoop_Receivers_IsBase(true);
@@ -451,7 +451,7 @@ bool QEventLoop_IsSignalConnected(const QEventLoop* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QEventLoop_QBaseIsSignalConnected(const QEventLoop* self, const QMetaMethod* signal) {
+bool QEventLoop_SuperIsSignalConnected(const QEventLoop* self, const QMetaMethod* signal) {
     auto* vqeventloop = const_cast<VirtualQEventLoop*>(dynamic_cast<const VirtualQEventLoop*>(self));
     if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
         vqeventloop->setQEventLoop_IsSignalConnected_IsBase(true);

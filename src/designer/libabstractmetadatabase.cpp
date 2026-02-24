@@ -116,7 +116,7 @@ void QDesignerMetaDataBaseItemInterface_SetEnabled(QDesignerMetaDataBaseItemInte
 }
 
 // Base class handler implementation
-libqt_string QDesignerMetaDataBaseItemInterface_QBaseName(const QDesignerMetaDataBaseItemInterface* self) {
+libqt_string QDesignerMetaDataBaseItemInterface_SuperName(const QDesignerMetaDataBaseItemInterface* self) {
     auto* vqdesignermetadatabaseiteminterface = const_cast<VirtualQDesignerMetaDataBaseItemInterface*>(dynamic_cast<const VirtualQDesignerMetaDataBaseItemInterface*>(self));
     if (vqdesignermetadatabaseiteminterface && vqdesignermetadatabaseiteminterface->isVirtualQDesignerMetaDataBaseItemInterface) {
         vqdesignermetadatabaseiteminterface->setQDesignerMetaDataBaseItemInterface_Name_IsBase(true);
@@ -151,7 +151,7 @@ void QDesignerMetaDataBaseItemInterface_OnName(const QDesignerMetaDataBaseItemIn
 }
 
 // Base class handler implementation
-void QDesignerMetaDataBaseItemInterface_QBaseSetName(QDesignerMetaDataBaseItemInterface* self, const libqt_string name) {
+void QDesignerMetaDataBaseItemInterface_SuperSetName(QDesignerMetaDataBaseItemInterface* self, const libqt_string name) {
     auto* vqdesignermetadatabaseiteminterface = dynamic_cast<VirtualQDesignerMetaDataBaseItemInterface*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqdesignermetadatabaseiteminterface && vqdesignermetadatabaseiteminterface->isVirtualQDesignerMetaDataBaseItemInterface) {
@@ -171,7 +171,7 @@ void QDesignerMetaDataBaseItemInterface_OnSetName(QDesignerMetaDataBaseItemInter
 }
 
 // Base class handler implementation
-libqt_list /* of QWidget* */ QDesignerMetaDataBaseItemInterface_QBaseTabOrder(const QDesignerMetaDataBaseItemInterface* self) {
+libqt_list /* of QWidget* */ QDesignerMetaDataBaseItemInterface_SuperTabOrder(const QDesignerMetaDataBaseItemInterface* self) {
     auto* vqdesignermetadatabaseiteminterface = const_cast<VirtualQDesignerMetaDataBaseItemInterface*>(dynamic_cast<const VirtualQDesignerMetaDataBaseItemInterface*>(self));
     if (vqdesignermetadatabaseiteminterface && vqdesignermetadatabaseiteminterface->isVirtualQDesignerMetaDataBaseItemInterface) {
         vqdesignermetadatabaseiteminterface->setQDesignerMetaDataBaseItemInterface_TabOrder_IsBase(true);
@@ -208,7 +208,7 @@ void QDesignerMetaDataBaseItemInterface_OnTabOrder(const QDesignerMetaDataBaseIt
 }
 
 // Base class handler implementation
-void QDesignerMetaDataBaseItemInterface_QBaseSetTabOrder(QDesignerMetaDataBaseItemInterface* self, const libqt_list /* of QWidget* */ tabOrder) {
+void QDesignerMetaDataBaseItemInterface_SuperSetTabOrder(QDesignerMetaDataBaseItemInterface* self, const libqt_list /* of QWidget* */ tabOrder) {
     auto* vqdesignermetadatabaseiteminterface = dynamic_cast<VirtualQDesignerMetaDataBaseItemInterface*>(self);
     QList<QWidget*> tabOrder_QList;
     tabOrder_QList.reserve(tabOrder.len);
@@ -233,7 +233,7 @@ void QDesignerMetaDataBaseItemInterface_OnSetTabOrder(QDesignerMetaDataBaseItemI
 }
 
 // Base class handler implementation
-bool QDesignerMetaDataBaseItemInterface_QBaseEnabled(const QDesignerMetaDataBaseItemInterface* self) {
+bool QDesignerMetaDataBaseItemInterface_SuperEnabled(const QDesignerMetaDataBaseItemInterface* self) {
     auto* vqdesignermetadatabaseiteminterface = const_cast<VirtualQDesignerMetaDataBaseItemInterface*>(dynamic_cast<const VirtualQDesignerMetaDataBaseItemInterface*>(self));
     if (vqdesignermetadatabaseiteminterface && vqdesignermetadatabaseiteminterface->isVirtualQDesignerMetaDataBaseItemInterface) {
         vqdesignermetadatabaseiteminterface->setQDesignerMetaDataBaseItemInterface_Enabled_IsBase(true);
@@ -252,7 +252,7 @@ void QDesignerMetaDataBaseItemInterface_OnEnabled(const QDesignerMetaDataBaseIte
 }
 
 // Base class handler implementation
-void QDesignerMetaDataBaseItemInterface_QBaseSetEnabled(QDesignerMetaDataBaseItemInterface* self, bool b) {
+void QDesignerMetaDataBaseItemInterface_SuperSetEnabled(QDesignerMetaDataBaseItemInterface* self, bool b) {
     auto* vqdesignermetadatabaseiteminterface = dynamic_cast<VirtualQDesignerMetaDataBaseItemInterface*>(self);
     if (vqdesignermetadatabaseiteminterface && vqdesignermetadatabaseiteminterface->isVirtualQDesignerMetaDataBaseItemInterface) {
         vqdesignermetadatabaseiteminterface->setQDesignerMetaDataBaseItemInterface_SetEnabled_IsBase(true);
@@ -384,7 +384,7 @@ void QDesignerMetaDataBaseInterface_Connect_Changed(QDesignerMetaDataBaseInterfa
 }
 
 // Base class handler implementation
-QMetaObject* QDesignerMetaDataBaseInterface_QBaseMetaObject(const QDesignerMetaDataBaseInterface* self) {
+QMetaObject* QDesignerMetaDataBaseInterface_SuperMetaObject(const QDesignerMetaDataBaseInterface* self) {
     auto* vqdesignermetadatabaseinterface = const_cast<VirtualQDesignerMetaDataBaseInterface*>(dynamic_cast<const VirtualQDesignerMetaDataBaseInterface*>(self));
     if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
         vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_MetaObject_IsBase(true);
@@ -403,7 +403,7 @@ void QDesignerMetaDataBaseInterface_OnMetaObject(const QDesignerMetaDataBaseInte
 }
 
 // Base class handler implementation
-void* QDesignerMetaDataBaseInterface_QBaseMetacast(QDesignerMetaDataBaseInterface* self, const char* param1) {
+void* QDesignerMetaDataBaseInterface_SuperMetacast(QDesignerMetaDataBaseInterface* self, const char* param1) {
     auto* vqdesignermetadatabaseinterface = dynamic_cast<VirtualQDesignerMetaDataBaseInterface*>(self);
     if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
         vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_Metacast_IsBase(true);
@@ -422,7 +422,7 @@ void QDesignerMetaDataBaseInterface_OnMetacast(QDesignerMetaDataBaseInterface* s
 }
 
 // Base class handler implementation
-int QDesignerMetaDataBaseInterface_QBaseMetacall(QDesignerMetaDataBaseInterface* self, int param1, int param2, void** param3) {
+int QDesignerMetaDataBaseInterface_SuperMetacall(QDesignerMetaDataBaseInterface* self, int param1, int param2, void** param3) {
     auto* vqdesignermetadatabaseinterface = dynamic_cast<VirtualQDesignerMetaDataBaseInterface*>(self);
     if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
         vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_Metacall_IsBase(true);
@@ -441,7 +441,7 @@ void QDesignerMetaDataBaseInterface_OnMetacall(QDesignerMetaDataBaseInterface* s
 }
 
 // Base class handler implementation
-QDesignerMetaDataBaseItemInterface* QDesignerMetaDataBaseInterface_QBaseItem(const QDesignerMetaDataBaseInterface* self, QObject* object) {
+QDesignerMetaDataBaseItemInterface* QDesignerMetaDataBaseInterface_SuperItem(const QDesignerMetaDataBaseInterface* self, QObject* object) {
     auto* vqdesignermetadatabaseinterface = const_cast<VirtualQDesignerMetaDataBaseInterface*>(dynamic_cast<const VirtualQDesignerMetaDataBaseInterface*>(self));
     if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
         vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_Item_IsBase(true);
@@ -460,7 +460,7 @@ void QDesignerMetaDataBaseInterface_OnItem(const QDesignerMetaDataBaseInterface*
 }
 
 // Base class handler implementation
-void QDesignerMetaDataBaseInterface_QBaseAdd(QDesignerMetaDataBaseInterface* self, QObject* object) {
+void QDesignerMetaDataBaseInterface_SuperAdd(QDesignerMetaDataBaseInterface* self, QObject* object) {
     auto* vqdesignermetadatabaseinterface = dynamic_cast<VirtualQDesignerMetaDataBaseInterface*>(self);
     if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
         vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_Add_IsBase(true);
@@ -479,7 +479,7 @@ void QDesignerMetaDataBaseInterface_OnAdd(QDesignerMetaDataBaseInterface* self, 
 }
 
 // Base class handler implementation
-void QDesignerMetaDataBaseInterface_QBaseRemove(QDesignerMetaDataBaseInterface* self, QObject* object) {
+void QDesignerMetaDataBaseInterface_SuperRemove(QDesignerMetaDataBaseInterface* self, QObject* object) {
     auto* vqdesignermetadatabaseinterface = dynamic_cast<VirtualQDesignerMetaDataBaseInterface*>(self);
     if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
         vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_Remove_IsBase(true);
@@ -498,7 +498,7 @@ void QDesignerMetaDataBaseInterface_OnRemove(QDesignerMetaDataBaseInterface* sel
 }
 
 // Base class handler implementation
-libqt_list /* of QObject* */ QDesignerMetaDataBaseInterface_QBaseObjects(const QDesignerMetaDataBaseInterface* self) {
+libqt_list /* of QObject* */ QDesignerMetaDataBaseInterface_SuperObjects(const QDesignerMetaDataBaseInterface* self) {
     auto* vqdesignermetadatabaseinterface = const_cast<VirtualQDesignerMetaDataBaseInterface*>(dynamic_cast<const VirtualQDesignerMetaDataBaseInterface*>(self));
     if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
         vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_Objects_IsBase(true);
@@ -535,7 +535,7 @@ void QDesignerMetaDataBaseInterface_OnObjects(const QDesignerMetaDataBaseInterfa
 }
 
 // Base class handler implementation
-QDesignerFormEditorInterface* QDesignerMetaDataBaseInterface_QBaseCore(const QDesignerMetaDataBaseInterface* self) {
+QDesignerFormEditorInterface* QDesignerMetaDataBaseInterface_SuperCore(const QDesignerMetaDataBaseInterface* self) {
     auto* vqdesignermetadatabaseinterface = const_cast<VirtualQDesignerMetaDataBaseInterface*>(dynamic_cast<const VirtualQDesignerMetaDataBaseInterface*>(self));
     if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
         vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_Core_IsBase(true);
@@ -564,7 +564,7 @@ bool QDesignerMetaDataBaseInterface_Event(QDesignerMetaDataBaseInterface* self, 
 }
 
 // Base class handler implementation
-bool QDesignerMetaDataBaseInterface_QBaseEvent(QDesignerMetaDataBaseInterface* self, QEvent* event) {
+bool QDesignerMetaDataBaseInterface_SuperEvent(QDesignerMetaDataBaseInterface* self, QEvent* event) {
     auto* vqdesignermetadatabaseinterface = dynamic_cast<VirtualQDesignerMetaDataBaseInterface*>(self);
     if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
         vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_Event_IsBase(true);
@@ -593,7 +593,7 @@ bool QDesignerMetaDataBaseInterface_EventFilter(QDesignerMetaDataBaseInterface* 
 }
 
 // Base class handler implementation
-bool QDesignerMetaDataBaseInterface_QBaseEventFilter(QDesignerMetaDataBaseInterface* self, QObject* watched, QEvent* event) {
+bool QDesignerMetaDataBaseInterface_SuperEventFilter(QDesignerMetaDataBaseInterface* self, QObject* watched, QEvent* event) {
     auto* vqdesignermetadatabaseinterface = dynamic_cast<VirtualQDesignerMetaDataBaseInterface*>(self);
     if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
         vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_EventFilter_IsBase(true);
@@ -622,7 +622,7 @@ void QDesignerMetaDataBaseInterface_TimerEvent(QDesignerMetaDataBaseInterface* s
 }
 
 // Base class handler implementation
-void QDesignerMetaDataBaseInterface_QBaseTimerEvent(QDesignerMetaDataBaseInterface* self, QTimerEvent* event) {
+void QDesignerMetaDataBaseInterface_SuperTimerEvent(QDesignerMetaDataBaseInterface* self, QTimerEvent* event) {
     auto* vqdesignermetadatabaseinterface = dynamic_cast<VirtualQDesignerMetaDataBaseInterface*>(self);
     if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
         vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_TimerEvent_IsBase(true);
@@ -651,7 +651,7 @@ void QDesignerMetaDataBaseInterface_ChildEvent(QDesignerMetaDataBaseInterface* s
 }
 
 // Base class handler implementation
-void QDesignerMetaDataBaseInterface_QBaseChildEvent(QDesignerMetaDataBaseInterface* self, QChildEvent* event) {
+void QDesignerMetaDataBaseInterface_SuperChildEvent(QDesignerMetaDataBaseInterface* self, QChildEvent* event) {
     auto* vqdesignermetadatabaseinterface = dynamic_cast<VirtualQDesignerMetaDataBaseInterface*>(self);
     if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
         vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_ChildEvent_IsBase(true);
@@ -680,7 +680,7 @@ void QDesignerMetaDataBaseInterface_CustomEvent(QDesignerMetaDataBaseInterface* 
 }
 
 // Base class handler implementation
-void QDesignerMetaDataBaseInterface_QBaseCustomEvent(QDesignerMetaDataBaseInterface* self, QEvent* event) {
+void QDesignerMetaDataBaseInterface_SuperCustomEvent(QDesignerMetaDataBaseInterface* self, QEvent* event) {
     auto* vqdesignermetadatabaseinterface = dynamic_cast<VirtualQDesignerMetaDataBaseInterface*>(self);
     if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
         vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_CustomEvent_IsBase(true);
@@ -709,7 +709,7 @@ void QDesignerMetaDataBaseInterface_ConnectNotify(QDesignerMetaDataBaseInterface
 }
 
 // Base class handler implementation
-void QDesignerMetaDataBaseInterface_QBaseConnectNotify(QDesignerMetaDataBaseInterface* self, const QMetaMethod* signal) {
+void QDesignerMetaDataBaseInterface_SuperConnectNotify(QDesignerMetaDataBaseInterface* self, const QMetaMethod* signal) {
     auto* vqdesignermetadatabaseinterface = dynamic_cast<VirtualQDesignerMetaDataBaseInterface*>(self);
     if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
         vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_ConnectNotify_IsBase(true);
@@ -738,7 +738,7 @@ void QDesignerMetaDataBaseInterface_DisconnectNotify(QDesignerMetaDataBaseInterf
 }
 
 // Base class handler implementation
-void QDesignerMetaDataBaseInterface_QBaseDisconnectNotify(QDesignerMetaDataBaseInterface* self, const QMetaMethod* signal) {
+void QDesignerMetaDataBaseInterface_SuperDisconnectNotify(QDesignerMetaDataBaseInterface* self, const QMetaMethod* signal) {
     auto* vqdesignermetadatabaseinterface = dynamic_cast<VirtualQDesignerMetaDataBaseInterface*>(self);
     if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
         vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_DisconnectNotify_IsBase(true);
@@ -767,7 +767,7 @@ QObject* QDesignerMetaDataBaseInterface_Sender(const QDesignerMetaDataBaseInterf
 }
 
 // Base class handler implementation
-QObject* QDesignerMetaDataBaseInterface_QBaseSender(const QDesignerMetaDataBaseInterface* self) {
+QObject* QDesignerMetaDataBaseInterface_SuperSender(const QDesignerMetaDataBaseInterface* self) {
     auto* vqdesignermetadatabaseinterface = const_cast<VirtualQDesignerMetaDataBaseInterface*>(dynamic_cast<const VirtualQDesignerMetaDataBaseInterface*>(self));
     if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
         vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_Sender_IsBase(true);
@@ -796,7 +796,7 @@ int QDesignerMetaDataBaseInterface_SenderSignalIndex(const QDesignerMetaDataBase
 }
 
 // Base class handler implementation
-int QDesignerMetaDataBaseInterface_QBaseSenderSignalIndex(const QDesignerMetaDataBaseInterface* self) {
+int QDesignerMetaDataBaseInterface_SuperSenderSignalIndex(const QDesignerMetaDataBaseInterface* self) {
     auto* vqdesignermetadatabaseinterface = const_cast<VirtualQDesignerMetaDataBaseInterface*>(dynamic_cast<const VirtualQDesignerMetaDataBaseInterface*>(self));
     if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
         vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_SenderSignalIndex_IsBase(true);
@@ -825,7 +825,7 @@ int QDesignerMetaDataBaseInterface_Receivers(const QDesignerMetaDataBaseInterfac
 }
 
 // Base class handler implementation
-int QDesignerMetaDataBaseInterface_QBaseReceivers(const QDesignerMetaDataBaseInterface* self, const char* signal) {
+int QDesignerMetaDataBaseInterface_SuperReceivers(const QDesignerMetaDataBaseInterface* self, const char* signal) {
     auto* vqdesignermetadatabaseinterface = const_cast<VirtualQDesignerMetaDataBaseInterface*>(dynamic_cast<const VirtualQDesignerMetaDataBaseInterface*>(self));
     if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
         vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_Receivers_IsBase(true);
@@ -854,7 +854,7 @@ bool QDesignerMetaDataBaseInterface_IsSignalConnected(const QDesignerMetaDataBas
 }
 
 // Base class handler implementation
-bool QDesignerMetaDataBaseInterface_QBaseIsSignalConnected(const QDesignerMetaDataBaseInterface* self, const QMetaMethod* signal) {
+bool QDesignerMetaDataBaseInterface_SuperIsSignalConnected(const QDesignerMetaDataBaseInterface* self, const QMetaMethod* signal) {
     auto* vqdesignermetadatabaseinterface = const_cast<VirtualQDesignerMetaDataBaseInterface*>(dynamic_cast<const VirtualQDesignerMetaDataBaseInterface*>(self));
     if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
         vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_IsSignalConnected_IsBase(true);

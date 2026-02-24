@@ -779,29 +779,29 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
 
     // Friend functions
     friend void KUrlCompletion_PostProcessMatches(const KUrlCompletion* self, libqt_list /* of libqt_string */ matches);
-    friend void KUrlCompletion_QBasePostProcessMatches(const KUrlCompletion* self, libqt_list /* of libqt_string */ matches);
+    friend void KUrlCompletion_SuperPostProcessMatches(const KUrlCompletion* self, libqt_list /* of libqt_string */ matches);
     friend void KUrlCompletion_PostProcessMatches2(const KUrlCompletion* self, KCompletionMatches* matches);
-    friend void KUrlCompletion_QBasePostProcessMatches2(const KUrlCompletion* self, KCompletionMatches* matches);
+    friend void KUrlCompletion_SuperPostProcessMatches2(const KUrlCompletion* self, KCompletionMatches* matches);
     friend void KUrlCompletion_TimerEvent(KUrlCompletion* self, QTimerEvent* event);
-    friend void KUrlCompletion_QBaseTimerEvent(KUrlCompletion* self, QTimerEvent* event);
+    friend void KUrlCompletion_SuperTimerEvent(KUrlCompletion* self, QTimerEvent* event);
     friend void KUrlCompletion_ChildEvent(KUrlCompletion* self, QChildEvent* event);
-    friend void KUrlCompletion_QBaseChildEvent(KUrlCompletion* self, QChildEvent* event);
+    friend void KUrlCompletion_SuperChildEvent(KUrlCompletion* self, QChildEvent* event);
     friend void KUrlCompletion_CustomEvent(KUrlCompletion* self, QEvent* event);
-    friend void KUrlCompletion_QBaseCustomEvent(KUrlCompletion* self, QEvent* event);
+    friend void KUrlCompletion_SuperCustomEvent(KUrlCompletion* self, QEvent* event);
     friend void KUrlCompletion_ConnectNotify(KUrlCompletion* self, const QMetaMethod* signal);
-    friend void KUrlCompletion_QBaseConnectNotify(KUrlCompletion* self, const QMetaMethod* signal);
+    friend void KUrlCompletion_SuperConnectNotify(KUrlCompletion* self, const QMetaMethod* signal);
     friend void KUrlCompletion_DisconnectNotify(KUrlCompletion* self, const QMetaMethod* signal);
-    friend void KUrlCompletion_QBaseDisconnectNotify(KUrlCompletion* self, const QMetaMethod* signal);
+    friend void KUrlCompletion_SuperDisconnectNotify(KUrlCompletion* self, const QMetaMethod* signal);
     friend void KUrlCompletion_SetShouldAutoSuggest(KUrlCompletion* self, bool shouldAutosuggest);
-    friend void KUrlCompletion_QBaseSetShouldAutoSuggest(KUrlCompletion* self, bool shouldAutosuggest);
+    friend void KUrlCompletion_SuperSetShouldAutoSuggest(KUrlCompletion* self, bool shouldAutosuggest);
     friend QObject* KUrlCompletion_Sender(const KUrlCompletion* self);
-    friend QObject* KUrlCompletion_QBaseSender(const KUrlCompletion* self);
+    friend QObject* KUrlCompletion_SuperSender(const KUrlCompletion* self);
     friend int KUrlCompletion_SenderSignalIndex(const KUrlCompletion* self);
-    friend int KUrlCompletion_QBaseSenderSignalIndex(const KUrlCompletion* self);
+    friend int KUrlCompletion_SuperSenderSignalIndex(const KUrlCompletion* self);
     friend int KUrlCompletion_Receivers(const KUrlCompletion* self, const char* signal);
-    friend int KUrlCompletion_QBaseReceivers(const KUrlCompletion* self, const char* signal);
+    friend int KUrlCompletion_SuperReceivers(const KUrlCompletion* self, const char* signal);
     friend bool KUrlCompletion_IsSignalConnected(const KUrlCompletion* self, const QMetaMethod* signal);
-    friend bool KUrlCompletion_QBaseIsSignalConnected(const KUrlCompletion* self, const QMetaMethod* signal);
+    friend bool KUrlCompletion_SuperIsSignalConnected(const KUrlCompletion* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -390,7 +390,7 @@ void QWebEngineProfile_Connect_ClearHttpCacheCompleted(QWebEngineProfile* self, 
 }
 
 // Base class handler implementation
-QMetaObject* QWebEngineProfile_QBaseMetaObject(const QWebEngineProfile* self) {
+QMetaObject* QWebEngineProfile_SuperMetaObject(const QWebEngineProfile* self) {
     auto* vqwebengineprofile = const_cast<VirtualQWebEngineProfile*>(dynamic_cast<const VirtualQWebEngineProfile*>(self));
     if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
         vqwebengineprofile->setQWebEngineProfile_MetaObject_IsBase(true);
@@ -409,7 +409,7 @@ void QWebEngineProfile_OnMetaObject(const QWebEngineProfile* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* QWebEngineProfile_QBaseMetacast(QWebEngineProfile* self, const char* param1) {
+void* QWebEngineProfile_SuperMetacast(QWebEngineProfile* self, const char* param1) {
     auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
     if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
         vqwebengineprofile->setQWebEngineProfile_Metacast_IsBase(true);
@@ -428,7 +428,7 @@ void QWebEngineProfile_OnMetacast(QWebEngineProfile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QWebEngineProfile_QBaseMetacall(QWebEngineProfile* self, int param1, int param2, void** param3) {
+int QWebEngineProfile_SuperMetacall(QWebEngineProfile* self, int param1, int param2, void** param3) {
     auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
     if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
         vqwebengineprofile->setQWebEngineProfile_Metacall_IsBase(true);
@@ -457,7 +457,7 @@ bool QWebEngineProfile_Event(QWebEngineProfile* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QWebEngineProfile_QBaseEvent(QWebEngineProfile* self, QEvent* event) {
+bool QWebEngineProfile_SuperEvent(QWebEngineProfile* self, QEvent* event) {
     auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
     if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
         vqwebengineprofile->setQWebEngineProfile_Event_IsBase(true);
@@ -486,7 +486,7 @@ bool QWebEngineProfile_EventFilter(QWebEngineProfile* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool QWebEngineProfile_QBaseEventFilter(QWebEngineProfile* self, QObject* watched, QEvent* event) {
+bool QWebEngineProfile_SuperEventFilter(QWebEngineProfile* self, QObject* watched, QEvent* event) {
     auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
     if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
         vqwebengineprofile->setQWebEngineProfile_EventFilter_IsBase(true);
@@ -515,7 +515,7 @@ void QWebEngineProfile_TimerEvent(QWebEngineProfile* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEngineProfile_QBaseTimerEvent(QWebEngineProfile* self, QTimerEvent* event) {
+void QWebEngineProfile_SuperTimerEvent(QWebEngineProfile* self, QTimerEvent* event) {
     auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
     if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
         vqwebengineprofile->setQWebEngineProfile_TimerEvent_IsBase(true);
@@ -544,7 +544,7 @@ void QWebEngineProfile_ChildEvent(QWebEngineProfile* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEngineProfile_QBaseChildEvent(QWebEngineProfile* self, QChildEvent* event) {
+void QWebEngineProfile_SuperChildEvent(QWebEngineProfile* self, QChildEvent* event) {
     auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
     if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
         vqwebengineprofile->setQWebEngineProfile_ChildEvent_IsBase(true);
@@ -573,7 +573,7 @@ void QWebEngineProfile_CustomEvent(QWebEngineProfile* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QWebEngineProfile_QBaseCustomEvent(QWebEngineProfile* self, QEvent* event) {
+void QWebEngineProfile_SuperCustomEvent(QWebEngineProfile* self, QEvent* event) {
     auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
     if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
         vqwebengineprofile->setQWebEngineProfile_CustomEvent_IsBase(true);
@@ -602,7 +602,7 @@ void QWebEngineProfile_ConnectNotify(QWebEngineProfile* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void QWebEngineProfile_QBaseConnectNotify(QWebEngineProfile* self, const QMetaMethod* signal) {
+void QWebEngineProfile_SuperConnectNotify(QWebEngineProfile* self, const QMetaMethod* signal) {
     auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
     if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
         vqwebengineprofile->setQWebEngineProfile_ConnectNotify_IsBase(true);
@@ -631,7 +631,7 @@ void QWebEngineProfile_DisconnectNotify(QWebEngineProfile* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void QWebEngineProfile_QBaseDisconnectNotify(QWebEngineProfile* self, const QMetaMethod* signal) {
+void QWebEngineProfile_SuperDisconnectNotify(QWebEngineProfile* self, const QMetaMethod* signal) {
     auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
     if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
         vqwebengineprofile->setQWebEngineProfile_DisconnectNotify_IsBase(true);
@@ -660,7 +660,7 @@ QObject* QWebEngineProfile_Sender(const QWebEngineProfile* self) {
 }
 
 // Base class handler implementation
-QObject* QWebEngineProfile_QBaseSender(const QWebEngineProfile* self) {
+QObject* QWebEngineProfile_SuperSender(const QWebEngineProfile* self) {
     auto* vqwebengineprofile = const_cast<VirtualQWebEngineProfile*>(dynamic_cast<const VirtualQWebEngineProfile*>(self));
     if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
         vqwebengineprofile->setQWebEngineProfile_Sender_IsBase(true);
@@ -689,7 +689,7 @@ int QWebEngineProfile_SenderSignalIndex(const QWebEngineProfile* self) {
 }
 
 // Base class handler implementation
-int QWebEngineProfile_QBaseSenderSignalIndex(const QWebEngineProfile* self) {
+int QWebEngineProfile_SuperSenderSignalIndex(const QWebEngineProfile* self) {
     auto* vqwebengineprofile = const_cast<VirtualQWebEngineProfile*>(dynamic_cast<const VirtualQWebEngineProfile*>(self));
     if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
         vqwebengineprofile->setQWebEngineProfile_SenderSignalIndex_IsBase(true);
@@ -718,7 +718,7 @@ int QWebEngineProfile_Receivers(const QWebEngineProfile* self, const char* signa
 }
 
 // Base class handler implementation
-int QWebEngineProfile_QBaseReceivers(const QWebEngineProfile* self, const char* signal) {
+int QWebEngineProfile_SuperReceivers(const QWebEngineProfile* self, const char* signal) {
     auto* vqwebengineprofile = const_cast<VirtualQWebEngineProfile*>(dynamic_cast<const VirtualQWebEngineProfile*>(self));
     if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
         vqwebengineprofile->setQWebEngineProfile_Receivers_IsBase(true);
@@ -747,7 +747,7 @@ bool QWebEngineProfile_IsSignalConnected(const QWebEngineProfile* self, const QM
 }
 
 // Base class handler implementation
-bool QWebEngineProfile_QBaseIsSignalConnected(const QWebEngineProfile* self, const QMetaMethod* signal) {
+bool QWebEngineProfile_SuperIsSignalConnected(const QWebEngineProfile* self, const QMetaMethod* signal) {
     auto* vqwebengineprofile = const_cast<VirtualQWebEngineProfile*>(dynamic_cast<const VirtualQWebEngineProfile*>(self));
     if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
         vqwebengineprofile->setQWebEngineProfile_IsSignalConnected_IsBase(true);

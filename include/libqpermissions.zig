@@ -45,6 +45,10 @@ pub const qpermission = struct {
         return qtc.QPermission_Type(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpermission.html#dtor.QPermission)
     ///
     /// Delete this object from C++ memory.
@@ -53,7 +57,7 @@ pub const qpermission = struct {
     ///
     /// ` self: QtC.QPermission `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPermission_Delete(@ptrCast(self));
     }
 };
@@ -152,6 +156,10 @@ pub const qlocationpermission = struct {
         qtc.QLocationPermission_Swap(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocationpermission.html#dtor.QLocationPermission)
     ///
     /// Delete this object from C++ memory.
@@ -160,7 +168,7 @@ pub const qlocationpermission = struct {
     ///
     /// ` self: QtC.QLocationPermission `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QLocationPermission_Delete(@ptrCast(self));
     }
 };
@@ -233,6 +241,10 @@ pub const qcalendarpermission = struct {
         qtc.QCalendarPermission_Swap(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarpermission.html#dtor.QCalendarPermission)
     ///
     /// Delete this object from C++ memory.
@@ -241,7 +253,7 @@ pub const qcalendarpermission = struct {
     ///
     /// ` self: QtC.QCalendarPermission `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCalendarPermission_Delete(@ptrCast(self));
     }
 };
@@ -314,6 +326,10 @@ pub const qcontactspermission = struct {
         qtc.QContactsPermission_Swap(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcontactspermission.html#dtor.QContactsPermission)
     ///
     /// Delete this object from C++ memory.
@@ -322,7 +338,7 @@ pub const qcontactspermission = struct {
     ///
     /// ` self: QtC.QContactsPermission `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QContactsPermission_Delete(@ptrCast(self));
     }
 };
@@ -395,6 +411,10 @@ pub const qbluetoothpermission = struct {
         qtc.QBluetoothPermission_Swap(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothpermission.html#dtor.QBluetoothPermission)
     ///
     /// Delete this object from C++ memory.
@@ -403,7 +423,7 @@ pub const qbluetoothpermission = struct {
     ///
     /// ` self: QtC.QBluetoothPermission `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QBluetoothPermission_Delete(@ptrCast(self));
     }
 };
@@ -450,6 +470,10 @@ pub const qcamerapermission = struct {
         qtc.QCameraPermission_Swap(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamerapermission.html#dtor.QCameraPermission)
     ///
     /// Delete this object from C++ memory.
@@ -458,7 +482,7 @@ pub const qcamerapermission = struct {
     ///
     /// ` self: QtC.QCameraPermission `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCameraPermission_Delete(@ptrCast(self));
     }
 };
@@ -505,6 +529,10 @@ pub const qmicrophonepermission = struct {
         qtc.QMicrophonePermission_Swap(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmicrophonepermission.html#dtor.QMicrophonePermission)
     ///
     /// Delete this object from C++ memory.
@@ -513,7 +541,7 @@ pub const qmicrophonepermission = struct {
     ///
     /// ` self: QtC.QMicrophonePermission `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMicrophonePermission_Delete(@ptrCast(self));
     }
 };

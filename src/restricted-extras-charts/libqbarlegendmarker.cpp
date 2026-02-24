@@ -74,7 +74,7 @@ QBarSet* QBarLegendMarker_Barset(QBarLegendMarker* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QBarLegendMarker_QBaseMetaObject(const QBarLegendMarker* self) {
+QMetaObject* QBarLegendMarker_SuperMetaObject(const QBarLegendMarker* self) {
     auto* vqbarlegendmarker = const_cast<VirtualQBarLegendMarker*>(dynamic_cast<const VirtualQBarLegendMarker*>(self));
     if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
         vqbarlegendmarker->setQBarLegendMarker_MetaObject_IsBase(true);
@@ -93,7 +93,7 @@ void QBarLegendMarker_OnMetaObject(const QBarLegendMarker* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* QBarLegendMarker_QBaseMetacast(QBarLegendMarker* self, const char* param1) {
+void* QBarLegendMarker_SuperMetacast(QBarLegendMarker* self, const char* param1) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
     if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
         vqbarlegendmarker->setQBarLegendMarker_Metacast_IsBase(true);
@@ -112,7 +112,7 @@ void QBarLegendMarker_OnMetacast(QBarLegendMarker* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QBarLegendMarker_QBaseMetacall(QBarLegendMarker* self, int param1, int param2, void** param3) {
+int QBarLegendMarker_SuperMetacall(QBarLegendMarker* self, int param1, int param2, void** param3) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
     if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
         vqbarlegendmarker->setQBarLegendMarker_Metacall_IsBase(true);
@@ -131,7 +131,7 @@ void QBarLegendMarker_OnMetacall(QBarLegendMarker* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QBarLegendMarker_QBaseType(QBarLegendMarker* self) {
+int QBarLegendMarker_SuperType(QBarLegendMarker* self) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
     if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
         vqbarlegendmarker->setQBarLegendMarker_Type_IsBase(true);
@@ -150,7 +150,7 @@ void QBarLegendMarker_OnType(QBarLegendMarker* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QAbstractBarSeries* QBarLegendMarker_QBaseSeries(QBarLegendMarker* self) {
+QAbstractBarSeries* QBarLegendMarker_SuperSeries(QBarLegendMarker* self) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
     if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
         vqbarlegendmarker->setQBarLegendMarker_Series_IsBase(true);
@@ -179,7 +179,7 @@ bool QBarLegendMarker_Event(QBarLegendMarker* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QBarLegendMarker_QBaseEvent(QBarLegendMarker* self, QEvent* event) {
+bool QBarLegendMarker_SuperEvent(QBarLegendMarker* self, QEvent* event) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
     if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
         vqbarlegendmarker->setQBarLegendMarker_Event_IsBase(true);
@@ -208,7 +208,7 @@ bool QBarLegendMarker_EventFilter(QBarLegendMarker* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool QBarLegendMarker_QBaseEventFilter(QBarLegendMarker* self, QObject* watched, QEvent* event) {
+bool QBarLegendMarker_SuperEventFilter(QBarLegendMarker* self, QObject* watched, QEvent* event) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
     if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
         vqbarlegendmarker->setQBarLegendMarker_EventFilter_IsBase(true);
@@ -237,7 +237,7 @@ void QBarLegendMarker_TimerEvent(QBarLegendMarker* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QBarLegendMarker_QBaseTimerEvent(QBarLegendMarker* self, QTimerEvent* event) {
+void QBarLegendMarker_SuperTimerEvent(QBarLegendMarker* self, QTimerEvent* event) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
     if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
         vqbarlegendmarker->setQBarLegendMarker_TimerEvent_IsBase(true);
@@ -266,7 +266,7 @@ void QBarLegendMarker_ChildEvent(QBarLegendMarker* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QBarLegendMarker_QBaseChildEvent(QBarLegendMarker* self, QChildEvent* event) {
+void QBarLegendMarker_SuperChildEvent(QBarLegendMarker* self, QChildEvent* event) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
     if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
         vqbarlegendmarker->setQBarLegendMarker_ChildEvent_IsBase(true);
@@ -295,7 +295,7 @@ void QBarLegendMarker_CustomEvent(QBarLegendMarker* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QBarLegendMarker_QBaseCustomEvent(QBarLegendMarker* self, QEvent* event) {
+void QBarLegendMarker_SuperCustomEvent(QBarLegendMarker* self, QEvent* event) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
     if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
         vqbarlegendmarker->setQBarLegendMarker_CustomEvent_IsBase(true);
@@ -324,7 +324,7 @@ void QBarLegendMarker_ConnectNotify(QBarLegendMarker* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void QBarLegendMarker_QBaseConnectNotify(QBarLegendMarker* self, const QMetaMethod* signal) {
+void QBarLegendMarker_SuperConnectNotify(QBarLegendMarker* self, const QMetaMethod* signal) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
     if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
         vqbarlegendmarker->setQBarLegendMarker_ConnectNotify_IsBase(true);
@@ -353,7 +353,7 @@ void QBarLegendMarker_DisconnectNotify(QBarLegendMarker* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void QBarLegendMarker_QBaseDisconnectNotify(QBarLegendMarker* self, const QMetaMethod* signal) {
+void QBarLegendMarker_SuperDisconnectNotify(QBarLegendMarker* self, const QMetaMethod* signal) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
     if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
         vqbarlegendmarker->setQBarLegendMarker_DisconnectNotify_IsBase(true);
@@ -382,7 +382,7 @@ QObject* QBarLegendMarker_Sender(const QBarLegendMarker* self) {
 }
 
 // Base class handler implementation
-QObject* QBarLegendMarker_QBaseSender(const QBarLegendMarker* self) {
+QObject* QBarLegendMarker_SuperSender(const QBarLegendMarker* self) {
     auto* vqbarlegendmarker = const_cast<VirtualQBarLegendMarker*>(dynamic_cast<const VirtualQBarLegendMarker*>(self));
     if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
         vqbarlegendmarker->setQBarLegendMarker_Sender_IsBase(true);
@@ -411,7 +411,7 @@ int QBarLegendMarker_SenderSignalIndex(const QBarLegendMarker* self) {
 }
 
 // Base class handler implementation
-int QBarLegendMarker_QBaseSenderSignalIndex(const QBarLegendMarker* self) {
+int QBarLegendMarker_SuperSenderSignalIndex(const QBarLegendMarker* self) {
     auto* vqbarlegendmarker = const_cast<VirtualQBarLegendMarker*>(dynamic_cast<const VirtualQBarLegendMarker*>(self));
     if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
         vqbarlegendmarker->setQBarLegendMarker_SenderSignalIndex_IsBase(true);
@@ -440,7 +440,7 @@ int QBarLegendMarker_Receivers(const QBarLegendMarker* self, const char* signal)
 }
 
 // Base class handler implementation
-int QBarLegendMarker_QBaseReceivers(const QBarLegendMarker* self, const char* signal) {
+int QBarLegendMarker_SuperReceivers(const QBarLegendMarker* self, const char* signal) {
     auto* vqbarlegendmarker = const_cast<VirtualQBarLegendMarker*>(dynamic_cast<const VirtualQBarLegendMarker*>(self));
     if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
         vqbarlegendmarker->setQBarLegendMarker_Receivers_IsBase(true);
@@ -469,7 +469,7 @@ bool QBarLegendMarker_IsSignalConnected(const QBarLegendMarker* self, const QMet
 }
 
 // Base class handler implementation
-bool QBarLegendMarker_QBaseIsSignalConnected(const QBarLegendMarker* self, const QMetaMethod* signal) {
+bool QBarLegendMarker_SuperIsSignalConnected(const QBarLegendMarker* self, const QMetaMethod* signal) {
     auto* vqbarlegendmarker = const_cast<VirtualQBarLegendMarker*>(dynamic_cast<const VirtualQBarLegendMarker*>(self));
     if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
         vqbarlegendmarker->setQBarLegendMarker_IsSignalConnected_IsBase(true);

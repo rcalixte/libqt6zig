@@ -333,7 +333,7 @@ void QMdiSubWindow_SetOption2(QMdiSubWindow* self, int option, bool on) {
 }
 
 // Base class handler implementation
-QMetaObject* QMdiSubWindow_QBaseMetaObject(const QMdiSubWindow* self) {
+QMetaObject* QMdiSubWindow_SuperMetaObject(const QMdiSubWindow* self) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_MetaObject_IsBase(true);
@@ -352,7 +352,7 @@ void QMdiSubWindow_OnMetaObject(const QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QMdiSubWindow_QBaseMetacast(QMdiSubWindow* self, const char* param1) {
+void* QMdiSubWindow_SuperMetacast(QMdiSubWindow* self, const char* param1) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_Metacast_IsBase(true);
@@ -371,7 +371,7 @@ void QMdiSubWindow_OnMetacast(QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QMdiSubWindow_QBaseMetacall(QMdiSubWindow* self, int param1, int param2, void** param3) {
+int QMdiSubWindow_SuperMetacall(QMdiSubWindow* self, int param1, int param2, void** param3) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_Metacall_IsBase(true);
@@ -390,7 +390,7 @@ void QMdiSubWindow_OnMetacall(QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QMdiSubWindow_QBaseSizeHint(const QMdiSubWindow* self) {
+QSize* QMdiSubWindow_SuperSizeHint(const QMdiSubWindow* self) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_SizeHint_IsBase(true);
@@ -409,7 +409,7 @@ void QMdiSubWindow_OnSizeHint(const QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QMdiSubWindow_QBaseMinimumSizeHint(const QMdiSubWindow* self) {
+QSize* QMdiSubWindow_SuperMinimumSizeHint(const QMdiSubWindow* self) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_MinimumSizeHint_IsBase(true);
@@ -428,7 +428,7 @@ void QMdiSubWindow_OnMinimumSizeHint(const QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QMdiSubWindow_QBaseEventFilter(QMdiSubWindow* self, QObject* object, QEvent* event) {
+bool QMdiSubWindow_SuperEventFilter(QMdiSubWindow* self, QObject* object, QEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_EventFilter_IsBase(true);
@@ -447,7 +447,7 @@ void QMdiSubWindow_OnEventFilter(QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QMdiSubWindow_QBaseEvent(QMdiSubWindow* self, QEvent* event) {
+bool QMdiSubWindow_SuperEvent(QMdiSubWindow* self, QEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_Event_IsBase(true);
@@ -466,7 +466,7 @@ void QMdiSubWindow_OnEvent(QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseShowEvent(QMdiSubWindow* self, QShowEvent* showEvent) {
+void QMdiSubWindow_SuperShowEvent(QMdiSubWindow* self, QShowEvent* showEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_ShowEvent_IsBase(true);
@@ -485,7 +485,7 @@ void QMdiSubWindow_OnShowEvent(QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseHideEvent(QMdiSubWindow* self, QHideEvent* hideEvent) {
+void QMdiSubWindow_SuperHideEvent(QMdiSubWindow* self, QHideEvent* hideEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_HideEvent_IsBase(true);
@@ -504,7 +504,7 @@ void QMdiSubWindow_OnHideEvent(QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseChangeEvent(QMdiSubWindow* self, QEvent* changeEvent) {
+void QMdiSubWindow_SuperChangeEvent(QMdiSubWindow* self, QEvent* changeEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_ChangeEvent_IsBase(true);
@@ -523,7 +523,7 @@ void QMdiSubWindow_OnChangeEvent(QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseCloseEvent(QMdiSubWindow* self, QCloseEvent* closeEvent) {
+void QMdiSubWindow_SuperCloseEvent(QMdiSubWindow* self, QCloseEvent* closeEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_CloseEvent_IsBase(true);
@@ -542,7 +542,7 @@ void QMdiSubWindow_OnCloseEvent(QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseLeaveEvent(QMdiSubWindow* self, QEvent* leaveEvent) {
+void QMdiSubWindow_SuperLeaveEvent(QMdiSubWindow* self, QEvent* leaveEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_LeaveEvent_IsBase(true);
@@ -561,7 +561,7 @@ void QMdiSubWindow_OnLeaveEvent(QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseResizeEvent(QMdiSubWindow* self, QResizeEvent* resizeEvent) {
+void QMdiSubWindow_SuperResizeEvent(QMdiSubWindow* self, QResizeEvent* resizeEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_ResizeEvent_IsBase(true);
@@ -580,7 +580,7 @@ void QMdiSubWindow_OnResizeEvent(QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseTimerEvent(QMdiSubWindow* self, QTimerEvent* timerEvent) {
+void QMdiSubWindow_SuperTimerEvent(QMdiSubWindow* self, QTimerEvent* timerEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_TimerEvent_IsBase(true);
@@ -599,7 +599,7 @@ void QMdiSubWindow_OnTimerEvent(QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseMoveEvent(QMdiSubWindow* self, QMoveEvent* moveEvent) {
+void QMdiSubWindow_SuperMoveEvent(QMdiSubWindow* self, QMoveEvent* moveEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_MoveEvent_IsBase(true);
@@ -618,7 +618,7 @@ void QMdiSubWindow_OnMoveEvent(QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBasePaintEvent(QMdiSubWindow* self, QPaintEvent* paintEvent) {
+void QMdiSubWindow_SuperPaintEvent(QMdiSubWindow* self, QPaintEvent* paintEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_PaintEvent_IsBase(true);
@@ -637,7 +637,7 @@ void QMdiSubWindow_OnPaintEvent(QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseMousePressEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent) {
+void QMdiSubWindow_SuperMousePressEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_MousePressEvent_IsBase(true);
@@ -656,7 +656,7 @@ void QMdiSubWindow_OnMousePressEvent(QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseMouseDoubleClickEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent) {
+void QMdiSubWindow_SuperMouseDoubleClickEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_MouseDoubleClickEvent_IsBase(true);
@@ -675,7 +675,7 @@ void QMdiSubWindow_OnMouseDoubleClickEvent(QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseMouseReleaseEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent) {
+void QMdiSubWindow_SuperMouseReleaseEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_MouseReleaseEvent_IsBase(true);
@@ -694,7 +694,7 @@ void QMdiSubWindow_OnMouseReleaseEvent(QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseMouseMoveEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent) {
+void QMdiSubWindow_SuperMouseMoveEvent(QMdiSubWindow* self, QMouseEvent* mouseEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_MouseMoveEvent_IsBase(true);
@@ -713,7 +713,7 @@ void QMdiSubWindow_OnMouseMoveEvent(QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseKeyPressEvent(QMdiSubWindow* self, QKeyEvent* keyEvent) {
+void QMdiSubWindow_SuperKeyPressEvent(QMdiSubWindow* self, QKeyEvent* keyEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_KeyPressEvent_IsBase(true);
@@ -732,7 +732,7 @@ void QMdiSubWindow_OnKeyPressEvent(QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseContextMenuEvent(QMdiSubWindow* self, QContextMenuEvent* contextMenuEvent) {
+void QMdiSubWindow_SuperContextMenuEvent(QMdiSubWindow* self, QContextMenuEvent* contextMenuEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_ContextMenuEvent_IsBase(true);
@@ -751,7 +751,7 @@ void QMdiSubWindow_OnContextMenuEvent(QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseFocusInEvent(QMdiSubWindow* self, QFocusEvent* focusInEvent) {
+void QMdiSubWindow_SuperFocusInEvent(QMdiSubWindow* self, QFocusEvent* focusInEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_FocusInEvent_IsBase(true);
@@ -770,7 +770,7 @@ void QMdiSubWindow_OnFocusInEvent(QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseFocusOutEvent(QMdiSubWindow* self, QFocusEvent* focusOutEvent) {
+void QMdiSubWindow_SuperFocusOutEvent(QMdiSubWindow* self, QFocusEvent* focusOutEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_FocusOutEvent_IsBase(true);
@@ -789,7 +789,7 @@ void QMdiSubWindow_OnFocusOutEvent(QMdiSubWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseChildEvent(QMdiSubWindow* self, QChildEvent* childEvent) {
+void QMdiSubWindow_SuperChildEvent(QMdiSubWindow* self, QChildEvent* childEvent) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_ChildEvent_IsBase(true);
@@ -818,7 +818,7 @@ int QMdiSubWindow_DevType(const QMdiSubWindow* self) {
 }
 
 // Base class handler implementation
-int QMdiSubWindow_QBaseDevType(const QMdiSubWindow* self) {
+int QMdiSubWindow_SuperDevType(const QMdiSubWindow* self) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_DevType_IsBase(true);
@@ -847,7 +847,7 @@ void QMdiSubWindow_SetVisible(QMdiSubWindow* self, bool visible) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseSetVisible(QMdiSubWindow* self, bool visible) {
+void QMdiSubWindow_SuperSetVisible(QMdiSubWindow* self, bool visible) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_SetVisible_IsBase(true);
@@ -876,7 +876,7 @@ int QMdiSubWindow_HeightForWidth(const QMdiSubWindow* self, int param1) {
 }
 
 // Base class handler implementation
-int QMdiSubWindow_QBaseHeightForWidth(const QMdiSubWindow* self, int param1) {
+int QMdiSubWindow_SuperHeightForWidth(const QMdiSubWindow* self, int param1) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_HeightForWidth_IsBase(true);
@@ -905,7 +905,7 @@ bool QMdiSubWindow_HasHeightForWidth(const QMdiSubWindow* self) {
 }
 
 // Base class handler implementation
-bool QMdiSubWindow_QBaseHasHeightForWidth(const QMdiSubWindow* self) {
+bool QMdiSubWindow_SuperHasHeightForWidth(const QMdiSubWindow* self) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_HasHeightForWidth_IsBase(true);
@@ -934,7 +934,7 @@ QPaintEngine* QMdiSubWindow_PaintEngine(const QMdiSubWindow* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QMdiSubWindow_QBasePaintEngine(const QMdiSubWindow* self) {
+QPaintEngine* QMdiSubWindow_SuperPaintEngine(const QMdiSubWindow* self) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_PaintEngine_IsBase(true);
@@ -963,7 +963,7 @@ void QMdiSubWindow_WheelEvent(QMdiSubWindow* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseWheelEvent(QMdiSubWindow* self, QWheelEvent* event) {
+void QMdiSubWindow_SuperWheelEvent(QMdiSubWindow* self, QWheelEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_WheelEvent_IsBase(true);
@@ -992,7 +992,7 @@ void QMdiSubWindow_KeyReleaseEvent(QMdiSubWindow* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseKeyReleaseEvent(QMdiSubWindow* self, QKeyEvent* event) {
+void QMdiSubWindow_SuperKeyReleaseEvent(QMdiSubWindow* self, QKeyEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_KeyReleaseEvent_IsBase(true);
@@ -1021,7 +1021,7 @@ void QMdiSubWindow_EnterEvent(QMdiSubWindow* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseEnterEvent(QMdiSubWindow* self, QEnterEvent* event) {
+void QMdiSubWindow_SuperEnterEvent(QMdiSubWindow* self, QEnterEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_EnterEvent_IsBase(true);
@@ -1050,7 +1050,7 @@ void QMdiSubWindow_TabletEvent(QMdiSubWindow* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseTabletEvent(QMdiSubWindow* self, QTabletEvent* event) {
+void QMdiSubWindow_SuperTabletEvent(QMdiSubWindow* self, QTabletEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_TabletEvent_IsBase(true);
@@ -1079,7 +1079,7 @@ void QMdiSubWindow_ActionEvent(QMdiSubWindow* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseActionEvent(QMdiSubWindow* self, QActionEvent* event) {
+void QMdiSubWindow_SuperActionEvent(QMdiSubWindow* self, QActionEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_ActionEvent_IsBase(true);
@@ -1108,7 +1108,7 @@ void QMdiSubWindow_DragEnterEvent(QMdiSubWindow* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseDragEnterEvent(QMdiSubWindow* self, QDragEnterEvent* event) {
+void QMdiSubWindow_SuperDragEnterEvent(QMdiSubWindow* self, QDragEnterEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_DragEnterEvent_IsBase(true);
@@ -1137,7 +1137,7 @@ void QMdiSubWindow_DragMoveEvent(QMdiSubWindow* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseDragMoveEvent(QMdiSubWindow* self, QDragMoveEvent* event) {
+void QMdiSubWindow_SuperDragMoveEvent(QMdiSubWindow* self, QDragMoveEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_DragMoveEvent_IsBase(true);
@@ -1166,7 +1166,7 @@ void QMdiSubWindow_DragLeaveEvent(QMdiSubWindow* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseDragLeaveEvent(QMdiSubWindow* self, QDragLeaveEvent* event) {
+void QMdiSubWindow_SuperDragLeaveEvent(QMdiSubWindow* self, QDragLeaveEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_DragLeaveEvent_IsBase(true);
@@ -1195,7 +1195,7 @@ void QMdiSubWindow_DropEvent(QMdiSubWindow* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseDropEvent(QMdiSubWindow* self, QDropEvent* event) {
+void QMdiSubWindow_SuperDropEvent(QMdiSubWindow* self, QDropEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_DropEvent_IsBase(true);
@@ -1225,7 +1225,7 @@ bool QMdiSubWindow_NativeEvent(QMdiSubWindow* self, const libqt_string eventType
 }
 
 // Base class handler implementation
-bool QMdiSubWindow_QBaseNativeEvent(QMdiSubWindow* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QMdiSubWindow_SuperNativeEvent(QMdiSubWindow* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
@@ -1255,7 +1255,7 @@ int QMdiSubWindow_Metric(const QMdiSubWindow* self, int param1) {
 }
 
 // Base class handler implementation
-int QMdiSubWindow_QBaseMetric(const QMdiSubWindow* self, int param1) {
+int QMdiSubWindow_SuperMetric(const QMdiSubWindow* self, int param1) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_Metric_IsBase(true);
@@ -1284,7 +1284,7 @@ void QMdiSubWindow_InitPainter(const QMdiSubWindow* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseInitPainter(const QMdiSubWindow* self, QPainter* painter) {
+void QMdiSubWindow_SuperInitPainter(const QMdiSubWindow* self, QPainter* painter) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_InitPainter_IsBase(true);
@@ -1313,7 +1313,7 @@ QPaintDevice* QMdiSubWindow_Redirected(const QMdiSubWindow* self, QPoint* offset
 }
 
 // Base class handler implementation
-QPaintDevice* QMdiSubWindow_QBaseRedirected(const QMdiSubWindow* self, QPoint* offset) {
+QPaintDevice* QMdiSubWindow_SuperRedirected(const QMdiSubWindow* self, QPoint* offset) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_Redirected_IsBase(true);
@@ -1342,7 +1342,7 @@ QPainter* QMdiSubWindow_SharedPainter(const QMdiSubWindow* self) {
 }
 
 // Base class handler implementation
-QPainter* QMdiSubWindow_QBaseSharedPainter(const QMdiSubWindow* self) {
+QPainter* QMdiSubWindow_SuperSharedPainter(const QMdiSubWindow* self) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_SharedPainter_IsBase(true);
@@ -1371,7 +1371,7 @@ void QMdiSubWindow_InputMethodEvent(QMdiSubWindow* self, QInputMethodEvent* para
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseInputMethodEvent(QMdiSubWindow* self, QInputMethodEvent* param1) {
+void QMdiSubWindow_SuperInputMethodEvent(QMdiSubWindow* self, QInputMethodEvent* param1) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_InputMethodEvent_IsBase(true);
@@ -1400,7 +1400,7 @@ QVariant* QMdiSubWindow_InputMethodQuery(const QMdiSubWindow* self, int param1) 
 }
 
 // Base class handler implementation
-QVariant* QMdiSubWindow_QBaseInputMethodQuery(const QMdiSubWindow* self, int param1) {
+QVariant* QMdiSubWindow_SuperInputMethodQuery(const QMdiSubWindow* self, int param1) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_InputMethodQuery_IsBase(true);
@@ -1429,7 +1429,7 @@ bool QMdiSubWindow_FocusNextPrevChild(QMdiSubWindow* self, bool next) {
 }
 
 // Base class handler implementation
-bool QMdiSubWindow_QBaseFocusNextPrevChild(QMdiSubWindow* self, bool next) {
+bool QMdiSubWindow_SuperFocusNextPrevChild(QMdiSubWindow* self, bool next) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_FocusNextPrevChild_IsBase(true);
@@ -1458,7 +1458,7 @@ void QMdiSubWindow_CustomEvent(QMdiSubWindow* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseCustomEvent(QMdiSubWindow* self, QEvent* event) {
+void QMdiSubWindow_SuperCustomEvent(QMdiSubWindow* self, QEvent* event) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_CustomEvent_IsBase(true);
@@ -1487,7 +1487,7 @@ void QMdiSubWindow_ConnectNotify(QMdiSubWindow* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseConnectNotify(QMdiSubWindow* self, const QMetaMethod* signal) {
+void QMdiSubWindow_SuperConnectNotify(QMdiSubWindow* self, const QMetaMethod* signal) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_ConnectNotify_IsBase(true);
@@ -1516,7 +1516,7 @@ void QMdiSubWindow_DisconnectNotify(QMdiSubWindow* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseDisconnectNotify(QMdiSubWindow* self, const QMetaMethod* signal) {
+void QMdiSubWindow_SuperDisconnectNotify(QMdiSubWindow* self, const QMetaMethod* signal) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_DisconnectNotify_IsBase(true);
@@ -1545,7 +1545,7 @@ void QMdiSubWindow_UpdateMicroFocus(QMdiSubWindow* self) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseUpdateMicroFocus(QMdiSubWindow* self) {
+void QMdiSubWindow_SuperUpdateMicroFocus(QMdiSubWindow* self) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_UpdateMicroFocus_IsBase(true);
@@ -1574,7 +1574,7 @@ void QMdiSubWindow_Create(QMdiSubWindow* self) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseCreate(QMdiSubWindow* self) {
+void QMdiSubWindow_SuperCreate(QMdiSubWindow* self) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_Create_IsBase(true);
@@ -1603,7 +1603,7 @@ void QMdiSubWindow_Destroy(QMdiSubWindow* self) {
 }
 
 // Base class handler implementation
-void QMdiSubWindow_QBaseDestroy(QMdiSubWindow* self) {
+void QMdiSubWindow_SuperDestroy(QMdiSubWindow* self) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_Destroy_IsBase(true);
@@ -1632,7 +1632,7 @@ bool QMdiSubWindow_FocusNextChild(QMdiSubWindow* self) {
 }
 
 // Base class handler implementation
-bool QMdiSubWindow_QBaseFocusNextChild(QMdiSubWindow* self) {
+bool QMdiSubWindow_SuperFocusNextChild(QMdiSubWindow* self) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_FocusNextChild_IsBase(true);
@@ -1661,7 +1661,7 @@ bool QMdiSubWindow_FocusPreviousChild(QMdiSubWindow* self) {
 }
 
 // Base class handler implementation
-bool QMdiSubWindow_QBaseFocusPreviousChild(QMdiSubWindow* self) {
+bool QMdiSubWindow_SuperFocusPreviousChild(QMdiSubWindow* self) {
     auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_FocusPreviousChild_IsBase(true);
@@ -1690,7 +1690,7 @@ QObject* QMdiSubWindow_Sender(const QMdiSubWindow* self) {
 }
 
 // Base class handler implementation
-QObject* QMdiSubWindow_QBaseSender(const QMdiSubWindow* self) {
+QObject* QMdiSubWindow_SuperSender(const QMdiSubWindow* self) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_Sender_IsBase(true);
@@ -1719,7 +1719,7 @@ int QMdiSubWindow_SenderSignalIndex(const QMdiSubWindow* self) {
 }
 
 // Base class handler implementation
-int QMdiSubWindow_QBaseSenderSignalIndex(const QMdiSubWindow* self) {
+int QMdiSubWindow_SuperSenderSignalIndex(const QMdiSubWindow* self) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_SenderSignalIndex_IsBase(true);
@@ -1748,7 +1748,7 @@ int QMdiSubWindow_Receivers(const QMdiSubWindow* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QMdiSubWindow_QBaseReceivers(const QMdiSubWindow* self, const char* signal) {
+int QMdiSubWindow_SuperReceivers(const QMdiSubWindow* self, const char* signal) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_Receivers_IsBase(true);
@@ -1777,7 +1777,7 @@ bool QMdiSubWindow_IsSignalConnected(const QMdiSubWindow* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QMdiSubWindow_QBaseIsSignalConnected(const QMdiSubWindow* self, const QMetaMethod* signal) {
+bool QMdiSubWindow_SuperIsSignalConnected(const QMdiSubWindow* self, const QMetaMethod* signal) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_IsSignalConnected_IsBase(true);
@@ -1806,7 +1806,7 @@ double QMdiSubWindow_GetDecodedMetricF(const QMdiSubWindow* self, int metricA, i
 }
 
 // Base class handler implementation
-double QMdiSubWindow_QBaseGetDecodedMetricF(const QMdiSubWindow* self, int metricA, int metricB) {
+double QMdiSubWindow_SuperGetDecodedMetricF(const QMdiSubWindow* self, int metricA, int metricB) {
     auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
     if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
         vqmdisubwindow->setQMdiSubWindow_GetDecodedMetricF_IsBase(true);

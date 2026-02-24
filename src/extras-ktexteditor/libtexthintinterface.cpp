@@ -38,7 +38,7 @@ libqt_string KTextEditor__TextHintProvider_TextHint(KTextEditor__TextHintProvide
 }
 
 // Base class handler implementation
-libqt_string KTextEditor__TextHintProvider_QBaseTextHint(KTextEditor__TextHintProvider* self, KTextEditor__View* view, const KTextEditor__Cursor* position) {
+libqt_string KTextEditor__TextHintProvider_SuperTextHint(KTextEditor__TextHintProvider* self, KTextEditor__View* view, const KTextEditor__Cursor* position) {
     auto* vktexteditortexthintprovider = dynamic_cast<VirtualKTextEditorTextHintProvider*>(self);
     if (vktexteditortexthintprovider && vktexteditortexthintprovider->isVirtualKTextEditorTextHintProvider) {
         vktexteditortexthintprovider->setKTextEditor__TextHintProvider_TextHint_IsBase(true);

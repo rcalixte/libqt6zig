@@ -186,6 +186,10 @@ pub const qbytearraymatcher = struct {
         return qtc.QByteArrayMatcher_IndexIn22(@ptrCast(self), data_str, @bitCast(from));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbytearraymatcher.html#dtor.QByteArrayMatcher)
     ///
     /// Delete this object from C++ memory.
@@ -194,7 +198,7 @@ pub const qbytearraymatcher = struct {
     ///
     /// ` self: QtC.QByteArrayMatcher `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QByteArrayMatcher_Delete(@ptrCast(self));
     }
 };

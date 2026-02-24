@@ -36,9 +36,9 @@ int QEvent_RegisterEventType();
 QEvent* QEvent_Clone(const QEvent* self);
 int QEvent_RegisterEventType1(int hint);
 void QEvent_OnSetAccepted(QEvent* self, intptr_t slot);
-void QEvent_QBaseSetAccepted(QEvent* self, bool accepted);
+void QEvent_SuperSetAccepted(QEvent* self, bool accepted);
 void QEvent_OnClone(const QEvent* self, intptr_t slot);
-QEvent* QEvent_QBaseClone(const QEvent* self);
+QEvent* QEvent_SuperClone(const QEvent* self);
 void QEvent_Delete(QEvent* self);
 
 QTimerEvent* QTimerEvent_new(int timerId);
@@ -47,10 +47,10 @@ QTimerEvent* QTimerEvent_Clone(const QTimerEvent* self);
 int QTimerEvent_TimerId(const QTimerEvent* self);
 int QTimerEvent_Id(const QTimerEvent* self);
 void QTimerEvent_OnClone(const QTimerEvent* self, intptr_t slot);
-QTimerEvent* QTimerEvent_QBaseClone(const QTimerEvent* self);
+QTimerEvent* QTimerEvent_SuperClone(const QTimerEvent* self);
 void QTimerEvent_SetAccepted(QTimerEvent* self, bool accepted);
 void QTimerEvent_OnSetAccepted(QTimerEvent* self, intptr_t slot);
-void QTimerEvent_QBaseSetAccepted(QTimerEvent* self, bool accepted);
+void QTimerEvent_SuperSetAccepted(QTimerEvent* self, bool accepted);
 void QTimerEvent_Delete(QTimerEvent* self);
 
 QChildEvent* QChildEvent_new(int typeVal, QObject* child);
@@ -60,20 +60,20 @@ bool QChildEvent_Added(const QChildEvent* self);
 bool QChildEvent_Polished(const QChildEvent* self);
 bool QChildEvent_Removed(const QChildEvent* self);
 void QChildEvent_OnClone(const QChildEvent* self, intptr_t slot);
-QChildEvent* QChildEvent_QBaseClone(const QChildEvent* self);
+QChildEvent* QChildEvent_SuperClone(const QChildEvent* self);
 void QChildEvent_SetAccepted(QChildEvent* self, bool accepted);
 void QChildEvent_OnSetAccepted(QChildEvent* self, intptr_t slot);
-void QChildEvent_QBaseSetAccepted(QChildEvent* self, bool accepted);
+void QChildEvent_SuperSetAccepted(QChildEvent* self, bool accepted);
 void QChildEvent_Delete(QChildEvent* self);
 
 QDynamicPropertyChangeEvent* QDynamicPropertyChangeEvent_new(const libqt_string name);
 QDynamicPropertyChangeEvent* QDynamicPropertyChangeEvent_Clone(const QDynamicPropertyChangeEvent* self);
 libqt_string QDynamicPropertyChangeEvent_PropertyName(const QDynamicPropertyChangeEvent* self);
 void QDynamicPropertyChangeEvent_OnClone(const QDynamicPropertyChangeEvent* self, intptr_t slot);
-QDynamicPropertyChangeEvent* QDynamicPropertyChangeEvent_QBaseClone(const QDynamicPropertyChangeEvent* self);
+QDynamicPropertyChangeEvent* QDynamicPropertyChangeEvent_SuperClone(const QDynamicPropertyChangeEvent* self);
 void QDynamicPropertyChangeEvent_SetAccepted(QDynamicPropertyChangeEvent* self, bool accepted);
 void QDynamicPropertyChangeEvent_OnSetAccepted(QDynamicPropertyChangeEvent* self, intptr_t slot);
-void QDynamicPropertyChangeEvent_QBaseSetAccepted(QDynamicPropertyChangeEvent* self, bool accepted);
+void QDynamicPropertyChangeEvent_SuperSetAccepted(QDynamicPropertyChangeEvent* self, bool accepted);
 void QDynamicPropertyChangeEvent_Delete(QDynamicPropertyChangeEvent* self);
 
 #ifdef __cplusplus

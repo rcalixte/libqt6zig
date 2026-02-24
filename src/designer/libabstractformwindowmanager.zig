@@ -47,6 +47,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -55,8 +59,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` self: QtC.QDesignerFormWindowManagerInterface `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QDesignerFormWindowManagerInterface_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QDesignerFormWindowManagerInterface_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -82,6 +86,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -90,9 +98,9 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QDesignerFormWindowManagerInterface_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QDesignerFormWindowManagerInterface_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -121,6 +129,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -133,8 +145,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDesignerFormWindowManagerInterface_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QDesignerFormWindowManagerInterface_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -180,6 +192,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_OnAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAction` instead
+    ///
+    pub const QBaseAction = SuperAction;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#action)
     ///
     /// Base class method implementation
@@ -190,8 +206,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` action: abstractformwindowmanager_enums.Action `
     ///
-    pub fn QBaseAction(self: ?*anyopaque, action: i32) QtC.QAction {
-        return qtc.QDesignerFormWindowManagerInterface_QBaseAction(@ptrCast(self), @bitCast(action));
+    pub fn SuperAction(self: ?*anyopaque, action: i32) QtC.QAction {
+        return qtc.QDesignerFormWindowManagerInterface_SuperAction(@ptrCast(self), @bitCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#actionGroup)
@@ -220,6 +236,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_OnActionGroup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperActionGroup` instead
+    ///
+    pub const QBaseActionGroup = SuperActionGroup;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#actionGroup)
     ///
     /// Base class method implementation
@@ -230,8 +250,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` actionGroup: abstractformwindowmanager_enums.ActionGroup `
     ///
-    pub fn QBaseActionGroup(self: ?*anyopaque, actionGroup: i32) QtC.QActionGroup {
-        return qtc.QDesignerFormWindowManagerInterface_QBaseActionGroup(@ptrCast(self), @bitCast(actionGroup));
+    pub fn SuperActionGroup(self: ?*anyopaque, actionGroup: i32) QtC.QActionGroup {
+        return qtc.QDesignerFormWindowManagerInterface_SuperActionGroup(@ptrCast(self), @bitCast(actionGroup));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#actionCut)
@@ -438,6 +458,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_OnActiveFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperActiveFormWindow` instead
+    ///
+    pub const QBaseActiveFormWindow = SuperActiveFormWindow;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#activeFormWindow)
     ///
     /// Base class method implementation
@@ -446,8 +470,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` self: QtC.QDesignerFormWindowManagerInterface `
     ///
-    pub fn QBaseActiveFormWindow(self: ?*anyopaque) QtC.QDesignerFormWindowInterface {
-        return qtc.QDesignerFormWindowManagerInterface_QBaseActiveFormWindow(@ptrCast(self));
+    pub fn SuperActiveFormWindow(self: ?*anyopaque) QtC.QDesignerFormWindowInterface {
+        return qtc.QDesignerFormWindowManagerInterface_SuperActiveFormWindow(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#formWindowCount)
@@ -474,6 +498,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_OnFormWindowCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFormWindowCount` instead
+    ///
+    pub const QBaseFormWindowCount = SuperFormWindowCount;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#formWindowCount)
     ///
     /// Base class method implementation
@@ -482,8 +510,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` self: QtC.QDesignerFormWindowManagerInterface `
     ///
-    pub fn QBaseFormWindowCount(self: ?*anyopaque) i32 {
-        return qtc.QDesignerFormWindowManagerInterface_QBaseFormWindowCount(@ptrCast(self));
+    pub fn SuperFormWindowCount(self: ?*anyopaque) i32 {
+        return qtc.QDesignerFormWindowManagerInterface_SuperFormWindowCount(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#formWindow)
@@ -512,6 +540,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_OnFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFormWindow` instead
+    ///
+    pub const QBaseFormWindow = SuperFormWindow;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#formWindow)
     ///
     /// Base class method implementation
@@ -522,8 +554,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn QBaseFormWindow(self: ?*anyopaque, index: i32) QtC.QDesignerFormWindowInterface {
-        return qtc.QDesignerFormWindowManagerInterface_QBaseFormWindow(@ptrCast(self), @bitCast(index));
+    pub fn SuperFormWindow(self: ?*anyopaque, index: i32) QtC.QDesignerFormWindowInterface {
+        return qtc.QDesignerFormWindowManagerInterface_SuperFormWindow(@ptrCast(self), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#createFormWindow)
@@ -554,6 +586,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_OnCreateFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateFormWindow` instead
+    ///
+    pub const QBaseCreateFormWindow = SuperCreateFormWindow;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#createFormWindow)
     ///
     /// Base class method implementation
@@ -566,8 +602,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn QBaseCreateFormWindow(self: ?*anyopaque, parentWidget: ?*anyopaque, flags: i32) QtC.QDesignerFormWindowInterface {
-        return qtc.QDesignerFormWindowManagerInterface_QBaseCreateFormWindow(@ptrCast(self), @ptrCast(parentWidget), @bitCast(flags));
+    pub fn SuperCreateFormWindow(self: ?*anyopaque, parentWidget: ?*anyopaque, flags: i32) QtC.QDesignerFormWindowInterface {
+        return qtc.QDesignerFormWindowManagerInterface_SuperCreateFormWindow(@ptrCast(self), @ptrCast(parentWidget), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#core)
@@ -594,6 +630,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_OnCore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCore` instead
+    ///
+    pub const QBaseCore = SuperCore;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#core)
     ///
     /// Base class method implementation
@@ -602,8 +642,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` self: QtC.QDesignerFormWindowManagerInterface `
     ///
-    pub fn QBaseCore(self: ?*anyopaque) QtC.QDesignerFormEditorInterface {
-        return qtc.QDesignerFormWindowManagerInterface_QBaseCore(@ptrCast(self));
+    pub fn SuperCore(self: ?*anyopaque) QtC.QDesignerFormEditorInterface {
+        return qtc.QDesignerFormWindowManagerInterface_SuperCore(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#dragItems)
@@ -636,6 +676,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_OnDragItems(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDragItems` instead
+    ///
+    pub const QBaseDragItems = SuperDragItems;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#dragItems)
     ///
     /// Base class method implementation
@@ -646,12 +690,12 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` item_list: []QtC.QDesignerDnDItemInterface `
     ///
-    pub fn QBaseDragItems(self: ?*anyopaque, item_list: []?*anyopaque) void {
+    pub fn SuperDragItems(self: ?*anyopaque, item_list: []?*anyopaque) void {
         const item_list_list = qtc.libqt_list{
             .len = item_list.len,
             .data = @ptrCast(item_list.ptr),
         };
-        qtc.QDesignerFormWindowManagerInterface_QBaseDragItems(@ptrCast(self), item_list_list);
+        qtc.QDesignerFormWindowManagerInterface_SuperDragItems(@ptrCast(self), item_list_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#createPreviewPixmap)
@@ -678,6 +722,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_OnCreatePreviewPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreatePreviewPixmap` instead
+    ///
+    pub const QBaseCreatePreviewPixmap = SuperCreatePreviewPixmap;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#createPreviewPixmap)
     ///
     /// Base class method implementation
@@ -686,8 +734,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` self: QtC.QDesignerFormWindowManagerInterface `
     ///
-    pub fn QBaseCreatePreviewPixmap(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QDesignerFormWindowManagerInterface_QBaseCreatePreviewPixmap(@ptrCast(self));
+    pub fn SuperCreatePreviewPixmap(self: ?*anyopaque) QtC.QPixmap {
+        return qtc.QDesignerFormWindowManagerInterface_SuperCreatePreviewPixmap(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#formWindowAdded)
@@ -812,6 +860,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_OnAddFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAddFormWindow` instead
+    ///
+    pub const QBaseAddFormWindow = SuperAddFormWindow;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#addFormWindow)
     ///
     /// Base class method implementation
@@ -822,8 +874,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` formWindow: QtC.QDesignerFormWindowInterface `
     ///
-    pub fn QBaseAddFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
-        qtc.QDesignerFormWindowManagerInterface_QBaseAddFormWindow(@ptrCast(self), @ptrCast(formWindow));
+    pub fn SuperAddFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
+        qtc.QDesignerFormWindowManagerInterface_SuperAddFormWindow(@ptrCast(self), @ptrCast(formWindow));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#removeFormWindow)
@@ -852,6 +904,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_OnRemoveFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRemoveFormWindow` instead
+    ///
+    pub const QBaseRemoveFormWindow = SuperRemoveFormWindow;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#removeFormWindow)
     ///
     /// Base class method implementation
@@ -862,8 +918,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` formWindow: QtC.QDesignerFormWindowInterface `
     ///
-    pub fn QBaseRemoveFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
-        qtc.QDesignerFormWindowManagerInterface_QBaseRemoveFormWindow(@ptrCast(self), @ptrCast(formWindow));
+    pub fn SuperRemoveFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
+        qtc.QDesignerFormWindowManagerInterface_SuperRemoveFormWindow(@ptrCast(self), @ptrCast(formWindow));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#setActiveFormWindow)
@@ -892,6 +948,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_OnSetActiveFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetActiveFormWindow` instead
+    ///
+    pub const QBaseSetActiveFormWindow = SuperSetActiveFormWindow;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#setActiveFormWindow)
     ///
     /// Base class method implementation
@@ -902,8 +962,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` formWindow: QtC.QDesignerFormWindowInterface `
     ///
-    pub fn QBaseSetActiveFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
-        qtc.QDesignerFormWindowManagerInterface_QBaseSetActiveFormWindow(@ptrCast(self), @ptrCast(formWindow));
+    pub fn SuperSetActiveFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
+        qtc.QDesignerFormWindowManagerInterface_SuperSetActiveFormWindow(@ptrCast(self), @ptrCast(formWindow));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#showPreview)
@@ -930,6 +990,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_OnShowPreview(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperShowPreview` instead
+    ///
+    pub const QBaseShowPreview = SuperShowPreview;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#showPreview)
     ///
     /// Base class method implementation
@@ -938,8 +1002,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` self: QtC.QDesignerFormWindowManagerInterface `
     ///
-    pub fn QBaseShowPreview(self: ?*anyopaque) void {
-        qtc.QDesignerFormWindowManagerInterface_QBaseShowPreview(@ptrCast(self));
+    pub fn SuperShowPreview(self: ?*anyopaque) void {
+        qtc.QDesignerFormWindowManagerInterface_SuperShowPreview(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#closeAllPreviews)
@@ -966,6 +1030,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_OnCloseAllPreviews(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseAllPreviews` instead
+    ///
+    pub const QBaseCloseAllPreviews = SuperCloseAllPreviews;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#closeAllPreviews)
     ///
     /// Base class method implementation
@@ -974,8 +1042,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` self: QtC.QDesignerFormWindowManagerInterface `
     ///
-    pub fn QBaseCloseAllPreviews(self: ?*anyopaque) void {
-        qtc.QDesignerFormWindowManagerInterface_QBaseCloseAllPreviews(@ptrCast(self));
+    pub fn SuperCloseAllPreviews(self: ?*anyopaque) void {
+        qtc.QDesignerFormWindowManagerInterface_SuperCloseAllPreviews(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#showPluginDialog)
@@ -1002,6 +1070,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_OnShowPluginDialog(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperShowPluginDialog` instead
+    ///
+    pub const QBaseShowPluginDialog = SuperShowPluginDialog;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#showPluginDialog)
     ///
     /// Base class method implementation
@@ -1010,8 +1082,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` self: QtC.QDesignerFormWindowManagerInterface `
     ///
-    pub fn QBaseShowPluginDialog(self: ?*anyopaque) void {
-        qtc.QDesignerFormWindowManagerInterface_QBaseShowPluginDialog(@ptrCast(self));
+    pub fn SuperShowPluginDialog(self: ?*anyopaque) void {
+        qtc.QDesignerFormWindowManagerInterface_SuperShowPluginDialog(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1810,6 +1882,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         return qtc.QDesignerFormWindowManagerInterface_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1822,8 +1898,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDesignerFormWindowManagerInterface_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QDesignerFormWindowManagerInterface_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1860,6 +1936,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         return qtc.QDesignerFormWindowManagerInterface_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1874,8 +1954,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDesignerFormWindowManagerInterface_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QDesignerFormWindowManagerInterface_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1910,6 +1990,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1922,8 +2006,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerFormWindowManagerInterface_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QDesignerFormWindowManagerInterface_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1958,6 +2042,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1970,8 +2058,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerFormWindowManagerInterface_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QDesignerFormWindowManagerInterface_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2006,6 +2094,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -2018,8 +2110,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerFormWindowManagerInterface_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QDesignerFormWindowManagerInterface_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2054,6 +2146,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2066,8 +2162,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDesignerFormWindowManagerInterface_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QDesignerFormWindowManagerInterface_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2102,6 +2198,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         qtc.QDesignerFormWindowManagerInterface_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2114,8 +2214,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDesignerFormWindowManagerInterface_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QDesignerFormWindowManagerInterface_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2148,6 +2248,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         return qtc.QDesignerFormWindowManagerInterface_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2158,8 +2262,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` self: QtC.QDesignerFormWindowManagerInterface `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QDesignerFormWindowManagerInterface_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QDesignerFormWindowManagerInterface_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2192,6 +2296,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         return qtc.QDesignerFormWindowManagerInterface_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2202,8 +2310,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` self: QtC.QDesignerFormWindowManagerInterface `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QDesignerFormWindowManagerInterface_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QDesignerFormWindowManagerInterface_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2239,6 +2347,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         return qtc.QDesignerFormWindowManagerInterface_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2251,9 +2363,9 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QDesignerFormWindowManagerInterface_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QDesignerFormWindowManagerInterface_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2288,6 +2400,10 @@ pub const qdesignerformwindowmanagerinterface = struct {
         return qtc.QDesignerFormWindowManagerInterface_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2300,8 +2416,8 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QDesignerFormWindowManagerInterface_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QDesignerFormWindowManagerInterface_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2335,6 +2451,9 @@ pub const qdesignerformwindowmanagerinterface = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowmanagerinterface.html#dtor.QDesignerFormWindowManagerInterface)
     ///
@@ -2344,7 +2463,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` self: QtC.QDesignerFormWindowManagerInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDesignerFormWindowManagerInterface_Delete(@ptrCast(self));
     }
 };

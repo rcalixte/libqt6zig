@@ -232,7 +232,7 @@ bool QDialogButtonBox_Event(QDialogButtonBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-QMetaObject* QDialogButtonBox_QBaseMetaObject(const QDialogButtonBox* self) {
+QMetaObject* QDialogButtonBox_SuperMetaObject(const QDialogButtonBox* self) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_MetaObject_IsBase(true);
@@ -251,7 +251,7 @@ void QDialogButtonBox_OnMetaObject(const QDialogButtonBox* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* QDialogButtonBox_QBaseMetacast(QDialogButtonBox* self, const char* param1) {
+void* QDialogButtonBox_SuperMetacast(QDialogButtonBox* self, const char* param1) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_Metacast_IsBase(true);
@@ -270,7 +270,7 @@ void QDialogButtonBox_OnMetacast(QDialogButtonBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QDialogButtonBox_QBaseMetacall(QDialogButtonBox* self, int param1, int param2, void** param3) {
+int QDialogButtonBox_SuperMetacall(QDialogButtonBox* self, int param1, int param2, void** param3) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_Metacall_IsBase(true);
@@ -289,7 +289,7 @@ void QDialogButtonBox_OnMetacall(QDialogButtonBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseChangeEvent(QDialogButtonBox* self, QEvent* event) {
+void QDialogButtonBox_SuperChangeEvent(QDialogButtonBox* self, QEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_ChangeEvent_IsBase(true);
@@ -308,7 +308,7 @@ void QDialogButtonBox_OnChangeEvent(QDialogButtonBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QDialogButtonBox_QBaseEvent(QDialogButtonBox* self, QEvent* event) {
+bool QDialogButtonBox_SuperEvent(QDialogButtonBox* self, QEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_Event_IsBase(true);
@@ -337,7 +337,7 @@ int QDialogButtonBox_DevType(const QDialogButtonBox* self) {
 }
 
 // Base class handler implementation
-int QDialogButtonBox_QBaseDevType(const QDialogButtonBox* self) {
+int QDialogButtonBox_SuperDevType(const QDialogButtonBox* self) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_DevType_IsBase(true);
@@ -366,7 +366,7 @@ void QDialogButtonBox_SetVisible(QDialogButtonBox* self, bool visible) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseSetVisible(QDialogButtonBox* self, bool visible) {
+void QDialogButtonBox_SuperSetVisible(QDialogButtonBox* self, bool visible) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_SetVisible_IsBase(true);
@@ -395,7 +395,7 @@ QSize* QDialogButtonBox_SizeHint(const QDialogButtonBox* self) {
 }
 
 // Base class handler implementation
-QSize* QDialogButtonBox_QBaseSizeHint(const QDialogButtonBox* self) {
+QSize* QDialogButtonBox_SuperSizeHint(const QDialogButtonBox* self) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_SizeHint_IsBase(true);
@@ -424,7 +424,7 @@ QSize* QDialogButtonBox_MinimumSizeHint(const QDialogButtonBox* self) {
 }
 
 // Base class handler implementation
-QSize* QDialogButtonBox_QBaseMinimumSizeHint(const QDialogButtonBox* self) {
+QSize* QDialogButtonBox_SuperMinimumSizeHint(const QDialogButtonBox* self) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_MinimumSizeHint_IsBase(true);
@@ -453,7 +453,7 @@ int QDialogButtonBox_HeightForWidth(const QDialogButtonBox* self, int param1) {
 }
 
 // Base class handler implementation
-int QDialogButtonBox_QBaseHeightForWidth(const QDialogButtonBox* self, int param1) {
+int QDialogButtonBox_SuperHeightForWidth(const QDialogButtonBox* self, int param1) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_HeightForWidth_IsBase(true);
@@ -482,7 +482,7 @@ bool QDialogButtonBox_HasHeightForWidth(const QDialogButtonBox* self) {
 }
 
 // Base class handler implementation
-bool QDialogButtonBox_QBaseHasHeightForWidth(const QDialogButtonBox* self) {
+bool QDialogButtonBox_SuperHasHeightForWidth(const QDialogButtonBox* self) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_HasHeightForWidth_IsBase(true);
@@ -511,7 +511,7 @@ QPaintEngine* QDialogButtonBox_PaintEngine(const QDialogButtonBox* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QDialogButtonBox_QBasePaintEngine(const QDialogButtonBox* self) {
+QPaintEngine* QDialogButtonBox_SuperPaintEngine(const QDialogButtonBox* self) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_PaintEngine_IsBase(true);
@@ -540,7 +540,7 @@ void QDialogButtonBox_MousePressEvent(QDialogButtonBox* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseMousePressEvent(QDialogButtonBox* self, QMouseEvent* event) {
+void QDialogButtonBox_SuperMousePressEvent(QDialogButtonBox* self, QMouseEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_MousePressEvent_IsBase(true);
@@ -569,7 +569,7 @@ void QDialogButtonBox_MouseReleaseEvent(QDialogButtonBox* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseMouseReleaseEvent(QDialogButtonBox* self, QMouseEvent* event) {
+void QDialogButtonBox_SuperMouseReleaseEvent(QDialogButtonBox* self, QMouseEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_MouseReleaseEvent_IsBase(true);
@@ -598,7 +598,7 @@ void QDialogButtonBox_MouseDoubleClickEvent(QDialogButtonBox* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseMouseDoubleClickEvent(QDialogButtonBox* self, QMouseEvent* event) {
+void QDialogButtonBox_SuperMouseDoubleClickEvent(QDialogButtonBox* self, QMouseEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_MouseDoubleClickEvent_IsBase(true);
@@ -627,7 +627,7 @@ void QDialogButtonBox_MouseMoveEvent(QDialogButtonBox* self, QMouseEvent* event)
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseMouseMoveEvent(QDialogButtonBox* self, QMouseEvent* event) {
+void QDialogButtonBox_SuperMouseMoveEvent(QDialogButtonBox* self, QMouseEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_MouseMoveEvent_IsBase(true);
@@ -656,7 +656,7 @@ void QDialogButtonBox_WheelEvent(QDialogButtonBox* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseWheelEvent(QDialogButtonBox* self, QWheelEvent* event) {
+void QDialogButtonBox_SuperWheelEvent(QDialogButtonBox* self, QWheelEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_WheelEvent_IsBase(true);
@@ -685,7 +685,7 @@ void QDialogButtonBox_KeyPressEvent(QDialogButtonBox* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseKeyPressEvent(QDialogButtonBox* self, QKeyEvent* event) {
+void QDialogButtonBox_SuperKeyPressEvent(QDialogButtonBox* self, QKeyEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_KeyPressEvent_IsBase(true);
@@ -714,7 +714,7 @@ void QDialogButtonBox_KeyReleaseEvent(QDialogButtonBox* self, QKeyEvent* event) 
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseKeyReleaseEvent(QDialogButtonBox* self, QKeyEvent* event) {
+void QDialogButtonBox_SuperKeyReleaseEvent(QDialogButtonBox* self, QKeyEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_KeyReleaseEvent_IsBase(true);
@@ -743,7 +743,7 @@ void QDialogButtonBox_FocusInEvent(QDialogButtonBox* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseFocusInEvent(QDialogButtonBox* self, QFocusEvent* event) {
+void QDialogButtonBox_SuperFocusInEvent(QDialogButtonBox* self, QFocusEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_FocusInEvent_IsBase(true);
@@ -772,7 +772,7 @@ void QDialogButtonBox_FocusOutEvent(QDialogButtonBox* self, QFocusEvent* event) 
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseFocusOutEvent(QDialogButtonBox* self, QFocusEvent* event) {
+void QDialogButtonBox_SuperFocusOutEvent(QDialogButtonBox* self, QFocusEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_FocusOutEvent_IsBase(true);
@@ -801,7 +801,7 @@ void QDialogButtonBox_EnterEvent(QDialogButtonBox* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseEnterEvent(QDialogButtonBox* self, QEnterEvent* event) {
+void QDialogButtonBox_SuperEnterEvent(QDialogButtonBox* self, QEnterEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_EnterEvent_IsBase(true);
@@ -830,7 +830,7 @@ void QDialogButtonBox_LeaveEvent(QDialogButtonBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseLeaveEvent(QDialogButtonBox* self, QEvent* event) {
+void QDialogButtonBox_SuperLeaveEvent(QDialogButtonBox* self, QEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_LeaveEvent_IsBase(true);
@@ -859,7 +859,7 @@ void QDialogButtonBox_PaintEvent(QDialogButtonBox* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBasePaintEvent(QDialogButtonBox* self, QPaintEvent* event) {
+void QDialogButtonBox_SuperPaintEvent(QDialogButtonBox* self, QPaintEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_PaintEvent_IsBase(true);
@@ -888,7 +888,7 @@ void QDialogButtonBox_MoveEvent(QDialogButtonBox* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseMoveEvent(QDialogButtonBox* self, QMoveEvent* event) {
+void QDialogButtonBox_SuperMoveEvent(QDialogButtonBox* self, QMoveEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_MoveEvent_IsBase(true);
@@ -917,7 +917,7 @@ void QDialogButtonBox_ResizeEvent(QDialogButtonBox* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseResizeEvent(QDialogButtonBox* self, QResizeEvent* event) {
+void QDialogButtonBox_SuperResizeEvent(QDialogButtonBox* self, QResizeEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_ResizeEvent_IsBase(true);
@@ -946,7 +946,7 @@ void QDialogButtonBox_CloseEvent(QDialogButtonBox* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseCloseEvent(QDialogButtonBox* self, QCloseEvent* event) {
+void QDialogButtonBox_SuperCloseEvent(QDialogButtonBox* self, QCloseEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_CloseEvent_IsBase(true);
@@ -975,7 +975,7 @@ void QDialogButtonBox_ContextMenuEvent(QDialogButtonBox* self, QContextMenuEvent
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseContextMenuEvent(QDialogButtonBox* self, QContextMenuEvent* event) {
+void QDialogButtonBox_SuperContextMenuEvent(QDialogButtonBox* self, QContextMenuEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_ContextMenuEvent_IsBase(true);
@@ -1004,7 +1004,7 @@ void QDialogButtonBox_TabletEvent(QDialogButtonBox* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseTabletEvent(QDialogButtonBox* self, QTabletEvent* event) {
+void QDialogButtonBox_SuperTabletEvent(QDialogButtonBox* self, QTabletEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_TabletEvent_IsBase(true);
@@ -1033,7 +1033,7 @@ void QDialogButtonBox_ActionEvent(QDialogButtonBox* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseActionEvent(QDialogButtonBox* self, QActionEvent* event) {
+void QDialogButtonBox_SuperActionEvent(QDialogButtonBox* self, QActionEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_ActionEvent_IsBase(true);
@@ -1062,7 +1062,7 @@ void QDialogButtonBox_DragEnterEvent(QDialogButtonBox* self, QDragEnterEvent* ev
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseDragEnterEvent(QDialogButtonBox* self, QDragEnterEvent* event) {
+void QDialogButtonBox_SuperDragEnterEvent(QDialogButtonBox* self, QDragEnterEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_DragEnterEvent_IsBase(true);
@@ -1091,7 +1091,7 @@ void QDialogButtonBox_DragMoveEvent(QDialogButtonBox* self, QDragMoveEvent* even
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseDragMoveEvent(QDialogButtonBox* self, QDragMoveEvent* event) {
+void QDialogButtonBox_SuperDragMoveEvent(QDialogButtonBox* self, QDragMoveEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_DragMoveEvent_IsBase(true);
@@ -1120,7 +1120,7 @@ void QDialogButtonBox_DragLeaveEvent(QDialogButtonBox* self, QDragLeaveEvent* ev
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseDragLeaveEvent(QDialogButtonBox* self, QDragLeaveEvent* event) {
+void QDialogButtonBox_SuperDragLeaveEvent(QDialogButtonBox* self, QDragLeaveEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_DragLeaveEvent_IsBase(true);
@@ -1149,7 +1149,7 @@ void QDialogButtonBox_DropEvent(QDialogButtonBox* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseDropEvent(QDialogButtonBox* self, QDropEvent* event) {
+void QDialogButtonBox_SuperDropEvent(QDialogButtonBox* self, QDropEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_DropEvent_IsBase(true);
@@ -1178,7 +1178,7 @@ void QDialogButtonBox_ShowEvent(QDialogButtonBox* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseShowEvent(QDialogButtonBox* self, QShowEvent* event) {
+void QDialogButtonBox_SuperShowEvent(QDialogButtonBox* self, QShowEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_ShowEvent_IsBase(true);
@@ -1207,7 +1207,7 @@ void QDialogButtonBox_HideEvent(QDialogButtonBox* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseHideEvent(QDialogButtonBox* self, QHideEvent* event) {
+void QDialogButtonBox_SuperHideEvent(QDialogButtonBox* self, QHideEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_HideEvent_IsBase(true);
@@ -1237,7 +1237,7 @@ bool QDialogButtonBox_NativeEvent(QDialogButtonBox* self, const libqt_string eve
 }
 
 // Base class handler implementation
-bool QDialogButtonBox_QBaseNativeEvent(QDialogButtonBox* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QDialogButtonBox_SuperNativeEvent(QDialogButtonBox* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
@@ -1267,7 +1267,7 @@ int QDialogButtonBox_Metric(const QDialogButtonBox* self, int param1) {
 }
 
 // Base class handler implementation
-int QDialogButtonBox_QBaseMetric(const QDialogButtonBox* self, int param1) {
+int QDialogButtonBox_SuperMetric(const QDialogButtonBox* self, int param1) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_Metric_IsBase(true);
@@ -1296,7 +1296,7 @@ void QDialogButtonBox_InitPainter(const QDialogButtonBox* self, QPainter* painte
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseInitPainter(const QDialogButtonBox* self, QPainter* painter) {
+void QDialogButtonBox_SuperInitPainter(const QDialogButtonBox* self, QPainter* painter) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_InitPainter_IsBase(true);
@@ -1325,7 +1325,7 @@ QPaintDevice* QDialogButtonBox_Redirected(const QDialogButtonBox* self, QPoint* 
 }
 
 // Base class handler implementation
-QPaintDevice* QDialogButtonBox_QBaseRedirected(const QDialogButtonBox* self, QPoint* offset) {
+QPaintDevice* QDialogButtonBox_SuperRedirected(const QDialogButtonBox* self, QPoint* offset) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_Redirected_IsBase(true);
@@ -1354,7 +1354,7 @@ QPainter* QDialogButtonBox_SharedPainter(const QDialogButtonBox* self) {
 }
 
 // Base class handler implementation
-QPainter* QDialogButtonBox_QBaseSharedPainter(const QDialogButtonBox* self) {
+QPainter* QDialogButtonBox_SuperSharedPainter(const QDialogButtonBox* self) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_SharedPainter_IsBase(true);
@@ -1383,7 +1383,7 @@ void QDialogButtonBox_InputMethodEvent(QDialogButtonBox* self, QInputMethodEvent
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseInputMethodEvent(QDialogButtonBox* self, QInputMethodEvent* param1) {
+void QDialogButtonBox_SuperInputMethodEvent(QDialogButtonBox* self, QInputMethodEvent* param1) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_InputMethodEvent_IsBase(true);
@@ -1412,7 +1412,7 @@ QVariant* QDialogButtonBox_InputMethodQuery(const QDialogButtonBox* self, int pa
 }
 
 // Base class handler implementation
-QVariant* QDialogButtonBox_QBaseInputMethodQuery(const QDialogButtonBox* self, int param1) {
+QVariant* QDialogButtonBox_SuperInputMethodQuery(const QDialogButtonBox* self, int param1) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_InputMethodQuery_IsBase(true);
@@ -1441,7 +1441,7 @@ bool QDialogButtonBox_FocusNextPrevChild(QDialogButtonBox* self, bool next) {
 }
 
 // Base class handler implementation
-bool QDialogButtonBox_QBaseFocusNextPrevChild(QDialogButtonBox* self, bool next) {
+bool QDialogButtonBox_SuperFocusNextPrevChild(QDialogButtonBox* self, bool next) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_FocusNextPrevChild_IsBase(true);
@@ -1470,7 +1470,7 @@ bool QDialogButtonBox_EventFilter(QDialogButtonBox* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool QDialogButtonBox_QBaseEventFilter(QDialogButtonBox* self, QObject* watched, QEvent* event) {
+bool QDialogButtonBox_SuperEventFilter(QDialogButtonBox* self, QObject* watched, QEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_EventFilter_IsBase(true);
@@ -1499,7 +1499,7 @@ void QDialogButtonBox_TimerEvent(QDialogButtonBox* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseTimerEvent(QDialogButtonBox* self, QTimerEvent* event) {
+void QDialogButtonBox_SuperTimerEvent(QDialogButtonBox* self, QTimerEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_TimerEvent_IsBase(true);
@@ -1528,7 +1528,7 @@ void QDialogButtonBox_ChildEvent(QDialogButtonBox* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseChildEvent(QDialogButtonBox* self, QChildEvent* event) {
+void QDialogButtonBox_SuperChildEvent(QDialogButtonBox* self, QChildEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_ChildEvent_IsBase(true);
@@ -1557,7 +1557,7 @@ void QDialogButtonBox_CustomEvent(QDialogButtonBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseCustomEvent(QDialogButtonBox* self, QEvent* event) {
+void QDialogButtonBox_SuperCustomEvent(QDialogButtonBox* self, QEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_CustomEvent_IsBase(true);
@@ -1586,7 +1586,7 @@ void QDialogButtonBox_ConnectNotify(QDialogButtonBox* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseConnectNotify(QDialogButtonBox* self, const QMetaMethod* signal) {
+void QDialogButtonBox_SuperConnectNotify(QDialogButtonBox* self, const QMetaMethod* signal) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_ConnectNotify_IsBase(true);
@@ -1615,7 +1615,7 @@ void QDialogButtonBox_DisconnectNotify(QDialogButtonBox* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseDisconnectNotify(QDialogButtonBox* self, const QMetaMethod* signal) {
+void QDialogButtonBox_SuperDisconnectNotify(QDialogButtonBox* self, const QMetaMethod* signal) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_DisconnectNotify_IsBase(true);
@@ -1644,7 +1644,7 @@ void QDialogButtonBox_UpdateMicroFocus(QDialogButtonBox* self) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseUpdateMicroFocus(QDialogButtonBox* self) {
+void QDialogButtonBox_SuperUpdateMicroFocus(QDialogButtonBox* self) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_UpdateMicroFocus_IsBase(true);
@@ -1673,7 +1673,7 @@ void QDialogButtonBox_Create(QDialogButtonBox* self) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseCreate(QDialogButtonBox* self) {
+void QDialogButtonBox_SuperCreate(QDialogButtonBox* self) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_Create_IsBase(true);
@@ -1702,7 +1702,7 @@ void QDialogButtonBox_Destroy(QDialogButtonBox* self) {
 }
 
 // Base class handler implementation
-void QDialogButtonBox_QBaseDestroy(QDialogButtonBox* self) {
+void QDialogButtonBox_SuperDestroy(QDialogButtonBox* self) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_Destroy_IsBase(true);
@@ -1731,7 +1731,7 @@ bool QDialogButtonBox_FocusNextChild(QDialogButtonBox* self) {
 }
 
 // Base class handler implementation
-bool QDialogButtonBox_QBaseFocusNextChild(QDialogButtonBox* self) {
+bool QDialogButtonBox_SuperFocusNextChild(QDialogButtonBox* self) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_FocusNextChild_IsBase(true);
@@ -1760,7 +1760,7 @@ bool QDialogButtonBox_FocusPreviousChild(QDialogButtonBox* self) {
 }
 
 // Base class handler implementation
-bool QDialogButtonBox_QBaseFocusPreviousChild(QDialogButtonBox* self) {
+bool QDialogButtonBox_SuperFocusPreviousChild(QDialogButtonBox* self) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_FocusPreviousChild_IsBase(true);
@@ -1789,7 +1789,7 @@ QObject* QDialogButtonBox_Sender(const QDialogButtonBox* self) {
 }
 
 // Base class handler implementation
-QObject* QDialogButtonBox_QBaseSender(const QDialogButtonBox* self) {
+QObject* QDialogButtonBox_SuperSender(const QDialogButtonBox* self) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_Sender_IsBase(true);
@@ -1818,7 +1818,7 @@ int QDialogButtonBox_SenderSignalIndex(const QDialogButtonBox* self) {
 }
 
 // Base class handler implementation
-int QDialogButtonBox_QBaseSenderSignalIndex(const QDialogButtonBox* self) {
+int QDialogButtonBox_SuperSenderSignalIndex(const QDialogButtonBox* self) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_SenderSignalIndex_IsBase(true);
@@ -1847,7 +1847,7 @@ int QDialogButtonBox_Receivers(const QDialogButtonBox* self, const char* signal)
 }
 
 // Base class handler implementation
-int QDialogButtonBox_QBaseReceivers(const QDialogButtonBox* self, const char* signal) {
+int QDialogButtonBox_SuperReceivers(const QDialogButtonBox* self, const char* signal) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_Receivers_IsBase(true);
@@ -1876,7 +1876,7 @@ bool QDialogButtonBox_IsSignalConnected(const QDialogButtonBox* self, const QMet
 }
 
 // Base class handler implementation
-bool QDialogButtonBox_QBaseIsSignalConnected(const QDialogButtonBox* self, const QMetaMethod* signal) {
+bool QDialogButtonBox_SuperIsSignalConnected(const QDialogButtonBox* self, const QMetaMethod* signal) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_IsSignalConnected_IsBase(true);
@@ -1905,7 +1905,7 @@ double QDialogButtonBox_GetDecodedMetricF(const QDialogButtonBox* self, int metr
 }
 
 // Base class handler implementation
-double QDialogButtonBox_QBaseGetDecodedMetricF(const QDialogButtonBox* self, int metricA, int metricB) {
+double QDialogButtonBox_SuperGetDecodedMetricF(const QDialogButtonBox* self, int metricA, int metricB) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
     if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
         vqdialogbuttonbox->setQDialogButtonBox_GetDecodedMetricF_IsBase(true);

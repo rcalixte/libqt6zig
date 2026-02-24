@@ -440,29 +440,29 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
 
     // Friend functions
     friend libqt_string Sonnet__BackgroundChecker_FetchMoreText(Sonnet::BackgroundChecker* self);
-    friend libqt_string Sonnet__BackgroundChecker_QBaseFetchMoreText(Sonnet::BackgroundChecker* self);
+    friend libqt_string Sonnet__BackgroundChecker_SuperFetchMoreText(Sonnet::BackgroundChecker* self);
     friend void Sonnet__BackgroundChecker_FinishedCurrentFeed(Sonnet::BackgroundChecker* self);
-    friend void Sonnet__BackgroundChecker_QBaseFinishedCurrentFeed(Sonnet::BackgroundChecker* self);
+    friend void Sonnet__BackgroundChecker_SuperFinishedCurrentFeed(Sonnet::BackgroundChecker* self);
     friend void Sonnet__BackgroundChecker_TimerEvent(Sonnet::BackgroundChecker* self, QTimerEvent* event);
-    friend void Sonnet__BackgroundChecker_QBaseTimerEvent(Sonnet::BackgroundChecker* self, QTimerEvent* event);
+    friend void Sonnet__BackgroundChecker_SuperTimerEvent(Sonnet::BackgroundChecker* self, QTimerEvent* event);
     friend void Sonnet__BackgroundChecker_ChildEvent(Sonnet::BackgroundChecker* self, QChildEvent* event);
-    friend void Sonnet__BackgroundChecker_QBaseChildEvent(Sonnet::BackgroundChecker* self, QChildEvent* event);
+    friend void Sonnet__BackgroundChecker_SuperChildEvent(Sonnet::BackgroundChecker* self, QChildEvent* event);
     friend void Sonnet__BackgroundChecker_CustomEvent(Sonnet::BackgroundChecker* self, QEvent* event);
-    friend void Sonnet__BackgroundChecker_QBaseCustomEvent(Sonnet::BackgroundChecker* self, QEvent* event);
+    friend void Sonnet__BackgroundChecker_SuperCustomEvent(Sonnet::BackgroundChecker* self, QEvent* event);
     friend void Sonnet__BackgroundChecker_ConnectNotify(Sonnet::BackgroundChecker* self, const QMetaMethod* signal);
-    friend void Sonnet__BackgroundChecker_QBaseConnectNotify(Sonnet::BackgroundChecker* self, const QMetaMethod* signal);
+    friend void Sonnet__BackgroundChecker_SuperConnectNotify(Sonnet::BackgroundChecker* self, const QMetaMethod* signal);
     friend void Sonnet__BackgroundChecker_DisconnectNotify(Sonnet::BackgroundChecker* self, const QMetaMethod* signal);
-    friend void Sonnet__BackgroundChecker_QBaseDisconnectNotify(Sonnet::BackgroundChecker* self, const QMetaMethod* signal);
+    friend void Sonnet__BackgroundChecker_SuperDisconnectNotify(Sonnet::BackgroundChecker* self, const QMetaMethod* signal);
     friend void Sonnet__BackgroundChecker_SlotEngineDone(Sonnet::BackgroundChecker* self);
-    friend void Sonnet__BackgroundChecker_QBaseSlotEngineDone(Sonnet::BackgroundChecker* self);
+    friend void Sonnet__BackgroundChecker_SuperSlotEngineDone(Sonnet::BackgroundChecker* self);
     friend QObject* Sonnet__BackgroundChecker_Sender(const Sonnet::BackgroundChecker* self);
-    friend QObject* Sonnet__BackgroundChecker_QBaseSender(const Sonnet::BackgroundChecker* self);
+    friend QObject* Sonnet__BackgroundChecker_SuperSender(const Sonnet::BackgroundChecker* self);
     friend int Sonnet__BackgroundChecker_SenderSignalIndex(const Sonnet::BackgroundChecker* self);
-    friend int Sonnet__BackgroundChecker_QBaseSenderSignalIndex(const Sonnet::BackgroundChecker* self);
+    friend int Sonnet__BackgroundChecker_SuperSenderSignalIndex(const Sonnet::BackgroundChecker* self);
     friend int Sonnet__BackgroundChecker_Receivers(const Sonnet::BackgroundChecker* self, const char* signal);
-    friend int Sonnet__BackgroundChecker_QBaseReceivers(const Sonnet::BackgroundChecker* self, const char* signal);
+    friend int Sonnet__BackgroundChecker_SuperReceivers(const Sonnet::BackgroundChecker* self, const char* signal);
     friend bool Sonnet__BackgroundChecker_IsSignalConnected(const Sonnet::BackgroundChecker* self, const QMetaMethod* signal);
-    friend bool Sonnet__BackgroundChecker_QBaseIsSignalConnected(const Sonnet::BackgroundChecker* self, const QMetaMethod* signal);
+    friend bool Sonnet__BackgroundChecker_SuperIsSignalConnected(const Sonnet::BackgroundChecker* self, const QMetaMethod* signal);
 };
 
 #endif

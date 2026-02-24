@@ -206,7 +206,7 @@ libqt_list /* of libqt_string */ KMimeTypeChooser_Patterns(const KMimeTypeChoose
 }
 
 // Base class handler implementation
-QMetaObject* KMimeTypeChooser_QBaseMetaObject(const KMimeTypeChooser* self) {
+QMetaObject* KMimeTypeChooser_SuperMetaObject(const KMimeTypeChooser* self) {
     auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_MetaObject_IsBase(true);
@@ -225,7 +225,7 @@ void KMimeTypeChooser_OnMetaObject(const KMimeTypeChooser* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* KMimeTypeChooser_QBaseMetacast(KMimeTypeChooser* self, const char* param1) {
+void* KMimeTypeChooser_SuperMetacast(KMimeTypeChooser* self, const char* param1) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_Metacast_IsBase(true);
@@ -244,7 +244,7 @@ void KMimeTypeChooser_OnMetacast(KMimeTypeChooser* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KMimeTypeChooser_QBaseMetacall(KMimeTypeChooser* self, int param1, int param2, void** param3) {
+int KMimeTypeChooser_SuperMetacall(KMimeTypeChooser* self, int param1, int param2, void** param3) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_Metacall_IsBase(true);
@@ -273,7 +273,7 @@ int KMimeTypeChooser_DevType(const KMimeTypeChooser* self) {
 }
 
 // Base class handler implementation
-int KMimeTypeChooser_QBaseDevType(const KMimeTypeChooser* self) {
+int KMimeTypeChooser_SuperDevType(const KMimeTypeChooser* self) {
     auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_DevType_IsBase(true);
@@ -302,7 +302,7 @@ void KMimeTypeChooser_SetVisible(KMimeTypeChooser* self, bool visible) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseSetVisible(KMimeTypeChooser* self, bool visible) {
+void KMimeTypeChooser_SuperSetVisible(KMimeTypeChooser* self, bool visible) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_SetVisible_IsBase(true);
@@ -331,7 +331,7 @@ QSize* KMimeTypeChooser_SizeHint(const KMimeTypeChooser* self) {
 }
 
 // Base class handler implementation
-QSize* KMimeTypeChooser_QBaseSizeHint(const KMimeTypeChooser* self) {
+QSize* KMimeTypeChooser_SuperSizeHint(const KMimeTypeChooser* self) {
     auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_SizeHint_IsBase(true);
@@ -360,7 +360,7 @@ QSize* KMimeTypeChooser_MinimumSizeHint(const KMimeTypeChooser* self) {
 }
 
 // Base class handler implementation
-QSize* KMimeTypeChooser_QBaseMinimumSizeHint(const KMimeTypeChooser* self) {
+QSize* KMimeTypeChooser_SuperMinimumSizeHint(const KMimeTypeChooser* self) {
     auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_MinimumSizeHint_IsBase(true);
@@ -389,7 +389,7 @@ int KMimeTypeChooser_HeightForWidth(const KMimeTypeChooser* self, int param1) {
 }
 
 // Base class handler implementation
-int KMimeTypeChooser_QBaseHeightForWidth(const KMimeTypeChooser* self, int param1) {
+int KMimeTypeChooser_SuperHeightForWidth(const KMimeTypeChooser* self, int param1) {
     auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_HeightForWidth_IsBase(true);
@@ -418,7 +418,7 @@ bool KMimeTypeChooser_HasHeightForWidth(const KMimeTypeChooser* self) {
 }
 
 // Base class handler implementation
-bool KMimeTypeChooser_QBaseHasHeightForWidth(const KMimeTypeChooser* self) {
+bool KMimeTypeChooser_SuperHasHeightForWidth(const KMimeTypeChooser* self) {
     auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_HasHeightForWidth_IsBase(true);
@@ -447,7 +447,7 @@ QPaintEngine* KMimeTypeChooser_PaintEngine(const KMimeTypeChooser* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KMimeTypeChooser_QBasePaintEngine(const KMimeTypeChooser* self) {
+QPaintEngine* KMimeTypeChooser_SuperPaintEngine(const KMimeTypeChooser* self) {
     auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_PaintEngine_IsBase(true);
@@ -476,7 +476,7 @@ bool KMimeTypeChooser_Event(KMimeTypeChooser* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KMimeTypeChooser_QBaseEvent(KMimeTypeChooser* self, QEvent* event) {
+bool KMimeTypeChooser_SuperEvent(KMimeTypeChooser* self, QEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_Event_IsBase(true);
@@ -505,7 +505,7 @@ void KMimeTypeChooser_MousePressEvent(KMimeTypeChooser* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseMousePressEvent(KMimeTypeChooser* self, QMouseEvent* event) {
+void KMimeTypeChooser_SuperMousePressEvent(KMimeTypeChooser* self, QMouseEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_MousePressEvent_IsBase(true);
@@ -534,7 +534,7 @@ void KMimeTypeChooser_MouseReleaseEvent(KMimeTypeChooser* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseMouseReleaseEvent(KMimeTypeChooser* self, QMouseEvent* event) {
+void KMimeTypeChooser_SuperMouseReleaseEvent(KMimeTypeChooser* self, QMouseEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_MouseReleaseEvent_IsBase(true);
@@ -563,7 +563,7 @@ void KMimeTypeChooser_MouseDoubleClickEvent(KMimeTypeChooser* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseMouseDoubleClickEvent(KMimeTypeChooser* self, QMouseEvent* event) {
+void KMimeTypeChooser_SuperMouseDoubleClickEvent(KMimeTypeChooser* self, QMouseEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_MouseDoubleClickEvent_IsBase(true);
@@ -592,7 +592,7 @@ void KMimeTypeChooser_MouseMoveEvent(KMimeTypeChooser* self, QMouseEvent* event)
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseMouseMoveEvent(KMimeTypeChooser* self, QMouseEvent* event) {
+void KMimeTypeChooser_SuperMouseMoveEvent(KMimeTypeChooser* self, QMouseEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_MouseMoveEvent_IsBase(true);
@@ -621,7 +621,7 @@ void KMimeTypeChooser_WheelEvent(KMimeTypeChooser* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseWheelEvent(KMimeTypeChooser* self, QWheelEvent* event) {
+void KMimeTypeChooser_SuperWheelEvent(KMimeTypeChooser* self, QWheelEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_WheelEvent_IsBase(true);
@@ -650,7 +650,7 @@ void KMimeTypeChooser_KeyPressEvent(KMimeTypeChooser* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseKeyPressEvent(KMimeTypeChooser* self, QKeyEvent* event) {
+void KMimeTypeChooser_SuperKeyPressEvent(KMimeTypeChooser* self, QKeyEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_KeyPressEvent_IsBase(true);
@@ -679,7 +679,7 @@ void KMimeTypeChooser_KeyReleaseEvent(KMimeTypeChooser* self, QKeyEvent* event) 
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseKeyReleaseEvent(KMimeTypeChooser* self, QKeyEvent* event) {
+void KMimeTypeChooser_SuperKeyReleaseEvent(KMimeTypeChooser* self, QKeyEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_KeyReleaseEvent_IsBase(true);
@@ -708,7 +708,7 @@ void KMimeTypeChooser_FocusInEvent(KMimeTypeChooser* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseFocusInEvent(KMimeTypeChooser* self, QFocusEvent* event) {
+void KMimeTypeChooser_SuperFocusInEvent(KMimeTypeChooser* self, QFocusEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_FocusInEvent_IsBase(true);
@@ -737,7 +737,7 @@ void KMimeTypeChooser_FocusOutEvent(KMimeTypeChooser* self, QFocusEvent* event) 
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseFocusOutEvent(KMimeTypeChooser* self, QFocusEvent* event) {
+void KMimeTypeChooser_SuperFocusOutEvent(KMimeTypeChooser* self, QFocusEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_FocusOutEvent_IsBase(true);
@@ -766,7 +766,7 @@ void KMimeTypeChooser_EnterEvent(KMimeTypeChooser* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseEnterEvent(KMimeTypeChooser* self, QEnterEvent* event) {
+void KMimeTypeChooser_SuperEnterEvent(KMimeTypeChooser* self, QEnterEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_EnterEvent_IsBase(true);
@@ -795,7 +795,7 @@ void KMimeTypeChooser_LeaveEvent(KMimeTypeChooser* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseLeaveEvent(KMimeTypeChooser* self, QEvent* event) {
+void KMimeTypeChooser_SuperLeaveEvent(KMimeTypeChooser* self, QEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_LeaveEvent_IsBase(true);
@@ -824,7 +824,7 @@ void KMimeTypeChooser_PaintEvent(KMimeTypeChooser* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBasePaintEvent(KMimeTypeChooser* self, QPaintEvent* event) {
+void KMimeTypeChooser_SuperPaintEvent(KMimeTypeChooser* self, QPaintEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_PaintEvent_IsBase(true);
@@ -853,7 +853,7 @@ void KMimeTypeChooser_MoveEvent(KMimeTypeChooser* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseMoveEvent(KMimeTypeChooser* self, QMoveEvent* event) {
+void KMimeTypeChooser_SuperMoveEvent(KMimeTypeChooser* self, QMoveEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_MoveEvent_IsBase(true);
@@ -882,7 +882,7 @@ void KMimeTypeChooser_ResizeEvent(KMimeTypeChooser* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseResizeEvent(KMimeTypeChooser* self, QResizeEvent* event) {
+void KMimeTypeChooser_SuperResizeEvent(KMimeTypeChooser* self, QResizeEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_ResizeEvent_IsBase(true);
@@ -911,7 +911,7 @@ void KMimeTypeChooser_CloseEvent(KMimeTypeChooser* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseCloseEvent(KMimeTypeChooser* self, QCloseEvent* event) {
+void KMimeTypeChooser_SuperCloseEvent(KMimeTypeChooser* self, QCloseEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_CloseEvent_IsBase(true);
@@ -940,7 +940,7 @@ void KMimeTypeChooser_ContextMenuEvent(KMimeTypeChooser* self, QContextMenuEvent
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseContextMenuEvent(KMimeTypeChooser* self, QContextMenuEvent* event) {
+void KMimeTypeChooser_SuperContextMenuEvent(KMimeTypeChooser* self, QContextMenuEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_ContextMenuEvent_IsBase(true);
@@ -969,7 +969,7 @@ void KMimeTypeChooser_TabletEvent(KMimeTypeChooser* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseTabletEvent(KMimeTypeChooser* self, QTabletEvent* event) {
+void KMimeTypeChooser_SuperTabletEvent(KMimeTypeChooser* self, QTabletEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_TabletEvent_IsBase(true);
@@ -998,7 +998,7 @@ void KMimeTypeChooser_ActionEvent(KMimeTypeChooser* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseActionEvent(KMimeTypeChooser* self, QActionEvent* event) {
+void KMimeTypeChooser_SuperActionEvent(KMimeTypeChooser* self, QActionEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_ActionEvent_IsBase(true);
@@ -1027,7 +1027,7 @@ void KMimeTypeChooser_DragEnterEvent(KMimeTypeChooser* self, QDragEnterEvent* ev
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseDragEnterEvent(KMimeTypeChooser* self, QDragEnterEvent* event) {
+void KMimeTypeChooser_SuperDragEnterEvent(KMimeTypeChooser* self, QDragEnterEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_DragEnterEvent_IsBase(true);
@@ -1056,7 +1056,7 @@ void KMimeTypeChooser_DragMoveEvent(KMimeTypeChooser* self, QDragMoveEvent* even
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseDragMoveEvent(KMimeTypeChooser* self, QDragMoveEvent* event) {
+void KMimeTypeChooser_SuperDragMoveEvent(KMimeTypeChooser* self, QDragMoveEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_DragMoveEvent_IsBase(true);
@@ -1085,7 +1085,7 @@ void KMimeTypeChooser_DragLeaveEvent(KMimeTypeChooser* self, QDragLeaveEvent* ev
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseDragLeaveEvent(KMimeTypeChooser* self, QDragLeaveEvent* event) {
+void KMimeTypeChooser_SuperDragLeaveEvent(KMimeTypeChooser* self, QDragLeaveEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_DragLeaveEvent_IsBase(true);
@@ -1114,7 +1114,7 @@ void KMimeTypeChooser_DropEvent(KMimeTypeChooser* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseDropEvent(KMimeTypeChooser* self, QDropEvent* event) {
+void KMimeTypeChooser_SuperDropEvent(KMimeTypeChooser* self, QDropEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_DropEvent_IsBase(true);
@@ -1143,7 +1143,7 @@ void KMimeTypeChooser_ShowEvent(KMimeTypeChooser* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseShowEvent(KMimeTypeChooser* self, QShowEvent* event) {
+void KMimeTypeChooser_SuperShowEvent(KMimeTypeChooser* self, QShowEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_ShowEvent_IsBase(true);
@@ -1172,7 +1172,7 @@ void KMimeTypeChooser_HideEvent(KMimeTypeChooser* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseHideEvent(KMimeTypeChooser* self, QHideEvent* event) {
+void KMimeTypeChooser_SuperHideEvent(KMimeTypeChooser* self, QHideEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_HideEvent_IsBase(true);
@@ -1202,7 +1202,7 @@ bool KMimeTypeChooser_NativeEvent(KMimeTypeChooser* self, const libqt_string eve
 }
 
 // Base class handler implementation
-bool KMimeTypeChooser_QBaseNativeEvent(KMimeTypeChooser* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KMimeTypeChooser_SuperNativeEvent(KMimeTypeChooser* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
@@ -1232,7 +1232,7 @@ void KMimeTypeChooser_ChangeEvent(KMimeTypeChooser* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseChangeEvent(KMimeTypeChooser* self, QEvent* param1) {
+void KMimeTypeChooser_SuperChangeEvent(KMimeTypeChooser* self, QEvent* param1) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_ChangeEvent_IsBase(true);
@@ -1261,7 +1261,7 @@ int KMimeTypeChooser_Metric(const KMimeTypeChooser* self, int param1) {
 }
 
 // Base class handler implementation
-int KMimeTypeChooser_QBaseMetric(const KMimeTypeChooser* self, int param1) {
+int KMimeTypeChooser_SuperMetric(const KMimeTypeChooser* self, int param1) {
     auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_Metric_IsBase(true);
@@ -1290,7 +1290,7 @@ void KMimeTypeChooser_InitPainter(const KMimeTypeChooser* self, QPainter* painte
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseInitPainter(const KMimeTypeChooser* self, QPainter* painter) {
+void KMimeTypeChooser_SuperInitPainter(const KMimeTypeChooser* self, QPainter* painter) {
     auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_InitPainter_IsBase(true);
@@ -1319,7 +1319,7 @@ QPaintDevice* KMimeTypeChooser_Redirected(const KMimeTypeChooser* self, QPoint* 
 }
 
 // Base class handler implementation
-QPaintDevice* KMimeTypeChooser_QBaseRedirected(const KMimeTypeChooser* self, QPoint* offset) {
+QPaintDevice* KMimeTypeChooser_SuperRedirected(const KMimeTypeChooser* self, QPoint* offset) {
     auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_Redirected_IsBase(true);
@@ -1348,7 +1348,7 @@ QPainter* KMimeTypeChooser_SharedPainter(const KMimeTypeChooser* self) {
 }
 
 // Base class handler implementation
-QPainter* KMimeTypeChooser_QBaseSharedPainter(const KMimeTypeChooser* self) {
+QPainter* KMimeTypeChooser_SuperSharedPainter(const KMimeTypeChooser* self) {
     auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_SharedPainter_IsBase(true);
@@ -1377,7 +1377,7 @@ void KMimeTypeChooser_InputMethodEvent(KMimeTypeChooser* self, QInputMethodEvent
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseInputMethodEvent(KMimeTypeChooser* self, QInputMethodEvent* param1) {
+void KMimeTypeChooser_SuperInputMethodEvent(KMimeTypeChooser* self, QInputMethodEvent* param1) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_InputMethodEvent_IsBase(true);
@@ -1406,7 +1406,7 @@ QVariant* KMimeTypeChooser_InputMethodQuery(const KMimeTypeChooser* self, int pa
 }
 
 // Base class handler implementation
-QVariant* KMimeTypeChooser_QBaseInputMethodQuery(const KMimeTypeChooser* self, int param1) {
+QVariant* KMimeTypeChooser_SuperInputMethodQuery(const KMimeTypeChooser* self, int param1) {
     auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_InputMethodQuery_IsBase(true);
@@ -1435,7 +1435,7 @@ bool KMimeTypeChooser_FocusNextPrevChild(KMimeTypeChooser* self, bool next) {
 }
 
 // Base class handler implementation
-bool KMimeTypeChooser_QBaseFocusNextPrevChild(KMimeTypeChooser* self, bool next) {
+bool KMimeTypeChooser_SuperFocusNextPrevChild(KMimeTypeChooser* self, bool next) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_FocusNextPrevChild_IsBase(true);
@@ -1464,7 +1464,7 @@ bool KMimeTypeChooser_EventFilter(KMimeTypeChooser* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool KMimeTypeChooser_QBaseEventFilter(KMimeTypeChooser* self, QObject* watched, QEvent* event) {
+bool KMimeTypeChooser_SuperEventFilter(KMimeTypeChooser* self, QObject* watched, QEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_EventFilter_IsBase(true);
@@ -1493,7 +1493,7 @@ void KMimeTypeChooser_TimerEvent(KMimeTypeChooser* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseTimerEvent(KMimeTypeChooser* self, QTimerEvent* event) {
+void KMimeTypeChooser_SuperTimerEvent(KMimeTypeChooser* self, QTimerEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_TimerEvent_IsBase(true);
@@ -1522,7 +1522,7 @@ void KMimeTypeChooser_ChildEvent(KMimeTypeChooser* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseChildEvent(KMimeTypeChooser* self, QChildEvent* event) {
+void KMimeTypeChooser_SuperChildEvent(KMimeTypeChooser* self, QChildEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_ChildEvent_IsBase(true);
@@ -1551,7 +1551,7 @@ void KMimeTypeChooser_CustomEvent(KMimeTypeChooser* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseCustomEvent(KMimeTypeChooser* self, QEvent* event) {
+void KMimeTypeChooser_SuperCustomEvent(KMimeTypeChooser* self, QEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_CustomEvent_IsBase(true);
@@ -1580,7 +1580,7 @@ void KMimeTypeChooser_ConnectNotify(KMimeTypeChooser* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseConnectNotify(KMimeTypeChooser* self, const QMetaMethod* signal) {
+void KMimeTypeChooser_SuperConnectNotify(KMimeTypeChooser* self, const QMetaMethod* signal) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_ConnectNotify_IsBase(true);
@@ -1609,7 +1609,7 @@ void KMimeTypeChooser_DisconnectNotify(KMimeTypeChooser* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseDisconnectNotify(KMimeTypeChooser* self, const QMetaMethod* signal) {
+void KMimeTypeChooser_SuperDisconnectNotify(KMimeTypeChooser* self, const QMetaMethod* signal) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_DisconnectNotify_IsBase(true);
@@ -1638,7 +1638,7 @@ void KMimeTypeChooser_UpdateMicroFocus(KMimeTypeChooser* self) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseUpdateMicroFocus(KMimeTypeChooser* self) {
+void KMimeTypeChooser_SuperUpdateMicroFocus(KMimeTypeChooser* self) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_UpdateMicroFocus_IsBase(true);
@@ -1667,7 +1667,7 @@ void KMimeTypeChooser_Create(KMimeTypeChooser* self) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseCreate(KMimeTypeChooser* self) {
+void KMimeTypeChooser_SuperCreate(KMimeTypeChooser* self) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_Create_IsBase(true);
@@ -1696,7 +1696,7 @@ void KMimeTypeChooser_Destroy(KMimeTypeChooser* self) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooser_QBaseDestroy(KMimeTypeChooser* self) {
+void KMimeTypeChooser_SuperDestroy(KMimeTypeChooser* self) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_Destroy_IsBase(true);
@@ -1725,7 +1725,7 @@ bool KMimeTypeChooser_FocusNextChild(KMimeTypeChooser* self) {
 }
 
 // Base class handler implementation
-bool KMimeTypeChooser_QBaseFocusNextChild(KMimeTypeChooser* self) {
+bool KMimeTypeChooser_SuperFocusNextChild(KMimeTypeChooser* self) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_FocusNextChild_IsBase(true);
@@ -1754,7 +1754,7 @@ bool KMimeTypeChooser_FocusPreviousChild(KMimeTypeChooser* self) {
 }
 
 // Base class handler implementation
-bool KMimeTypeChooser_QBaseFocusPreviousChild(KMimeTypeChooser* self) {
+bool KMimeTypeChooser_SuperFocusPreviousChild(KMimeTypeChooser* self) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_FocusPreviousChild_IsBase(true);
@@ -1783,7 +1783,7 @@ QObject* KMimeTypeChooser_Sender(const KMimeTypeChooser* self) {
 }
 
 // Base class handler implementation
-QObject* KMimeTypeChooser_QBaseSender(const KMimeTypeChooser* self) {
+QObject* KMimeTypeChooser_SuperSender(const KMimeTypeChooser* self) {
     auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_Sender_IsBase(true);
@@ -1812,7 +1812,7 @@ int KMimeTypeChooser_SenderSignalIndex(const KMimeTypeChooser* self) {
 }
 
 // Base class handler implementation
-int KMimeTypeChooser_QBaseSenderSignalIndex(const KMimeTypeChooser* self) {
+int KMimeTypeChooser_SuperSenderSignalIndex(const KMimeTypeChooser* self) {
     auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_SenderSignalIndex_IsBase(true);
@@ -1841,7 +1841,7 @@ int KMimeTypeChooser_Receivers(const KMimeTypeChooser* self, const char* signal)
 }
 
 // Base class handler implementation
-int KMimeTypeChooser_QBaseReceivers(const KMimeTypeChooser* self, const char* signal) {
+int KMimeTypeChooser_SuperReceivers(const KMimeTypeChooser* self, const char* signal) {
     auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_Receivers_IsBase(true);
@@ -1870,7 +1870,7 @@ bool KMimeTypeChooser_IsSignalConnected(const KMimeTypeChooser* self, const QMet
 }
 
 // Base class handler implementation
-bool KMimeTypeChooser_QBaseIsSignalConnected(const KMimeTypeChooser* self, const QMetaMethod* signal) {
+bool KMimeTypeChooser_SuperIsSignalConnected(const KMimeTypeChooser* self, const QMetaMethod* signal) {
     auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_IsSignalConnected_IsBase(true);
@@ -1899,7 +1899,7 @@ double KMimeTypeChooser_GetDecodedMetricF(const KMimeTypeChooser* self, int metr
 }
 
 // Base class handler implementation
-double KMimeTypeChooser_QBaseGetDecodedMetricF(const KMimeTypeChooser* self, int metricA, int metricB) {
+double KMimeTypeChooser_SuperGetDecodedMetricF(const KMimeTypeChooser* self, int metricA, int metricB) {
     auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
     if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
         vkmimetypechooser->setKMimeTypeChooser_GetDecodedMetricF_IsBase(true);
@@ -2095,7 +2095,7 @@ QSize* KMimeTypeChooserDialog_SizeHint(const KMimeTypeChooserDialog* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KMimeTypeChooserDialog_QBaseMetaObject(const KMimeTypeChooserDialog* self) {
+QMetaObject* KMimeTypeChooserDialog_SuperMetaObject(const KMimeTypeChooserDialog* self) {
     auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_MetaObject_IsBase(true);
@@ -2114,7 +2114,7 @@ void KMimeTypeChooserDialog_OnMetaObject(const KMimeTypeChooserDialog* self, int
 }
 
 // Base class handler implementation
-void* KMimeTypeChooserDialog_QBaseMetacast(KMimeTypeChooserDialog* self, const char* param1) {
+void* KMimeTypeChooserDialog_SuperMetacast(KMimeTypeChooserDialog* self, const char* param1) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_Metacast_IsBase(true);
@@ -2133,7 +2133,7 @@ void KMimeTypeChooserDialog_OnMetacast(KMimeTypeChooserDialog* self, intptr_t sl
 }
 
 // Base class handler implementation
-int KMimeTypeChooserDialog_QBaseMetacall(KMimeTypeChooserDialog* self, int param1, int param2, void** param3) {
+int KMimeTypeChooserDialog_SuperMetacall(KMimeTypeChooserDialog* self, int param1, int param2, void** param3) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_Metacall_IsBase(true);
@@ -2152,7 +2152,7 @@ void KMimeTypeChooserDialog_OnMetacall(KMimeTypeChooserDialog* self, intptr_t sl
 }
 
 // Base class handler implementation
-QSize* KMimeTypeChooserDialog_QBaseSizeHint(const KMimeTypeChooserDialog* self) {
+QSize* KMimeTypeChooserDialog_SuperSizeHint(const KMimeTypeChooserDialog* self) {
     auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_SizeHint_IsBase(true);
@@ -2181,7 +2181,7 @@ void KMimeTypeChooserDialog_SetVisible(KMimeTypeChooserDialog* self, bool visibl
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseSetVisible(KMimeTypeChooserDialog* self, bool visible) {
+void KMimeTypeChooserDialog_SuperSetVisible(KMimeTypeChooserDialog* self, bool visible) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_SetVisible_IsBase(true);
@@ -2210,7 +2210,7 @@ QSize* KMimeTypeChooserDialog_MinimumSizeHint(const KMimeTypeChooserDialog* self
 }
 
 // Base class handler implementation
-QSize* KMimeTypeChooserDialog_QBaseMinimumSizeHint(const KMimeTypeChooserDialog* self) {
+QSize* KMimeTypeChooserDialog_SuperMinimumSizeHint(const KMimeTypeChooserDialog* self) {
     auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_MinimumSizeHint_IsBase(true);
@@ -2239,7 +2239,7 @@ void KMimeTypeChooserDialog_Open(KMimeTypeChooserDialog* self) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseOpen(KMimeTypeChooserDialog* self) {
+void KMimeTypeChooserDialog_SuperOpen(KMimeTypeChooserDialog* self) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_Open_IsBase(true);
@@ -2268,7 +2268,7 @@ int KMimeTypeChooserDialog_Exec(KMimeTypeChooserDialog* self) {
 }
 
 // Base class handler implementation
-int KMimeTypeChooserDialog_QBaseExec(KMimeTypeChooserDialog* self) {
+int KMimeTypeChooserDialog_SuperExec(KMimeTypeChooserDialog* self) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_Exec_IsBase(true);
@@ -2297,7 +2297,7 @@ void KMimeTypeChooserDialog_Done(KMimeTypeChooserDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseDone(KMimeTypeChooserDialog* self, int param1) {
+void KMimeTypeChooserDialog_SuperDone(KMimeTypeChooserDialog* self, int param1) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_Done_IsBase(true);
@@ -2326,7 +2326,7 @@ void KMimeTypeChooserDialog_Accept(KMimeTypeChooserDialog* self) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseAccept(KMimeTypeChooserDialog* self) {
+void KMimeTypeChooserDialog_SuperAccept(KMimeTypeChooserDialog* self) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_Accept_IsBase(true);
@@ -2355,7 +2355,7 @@ void KMimeTypeChooserDialog_Reject(KMimeTypeChooserDialog* self) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseReject(KMimeTypeChooserDialog* self) {
+void KMimeTypeChooserDialog_SuperReject(KMimeTypeChooserDialog* self) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_Reject_IsBase(true);
@@ -2384,7 +2384,7 @@ void KMimeTypeChooserDialog_KeyPressEvent(KMimeTypeChooserDialog* self, QKeyEven
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseKeyPressEvent(KMimeTypeChooserDialog* self, QKeyEvent* param1) {
+void KMimeTypeChooserDialog_SuperKeyPressEvent(KMimeTypeChooserDialog* self, QKeyEvent* param1) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_KeyPressEvent_IsBase(true);
@@ -2413,7 +2413,7 @@ void KMimeTypeChooserDialog_CloseEvent(KMimeTypeChooserDialog* self, QCloseEvent
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseCloseEvent(KMimeTypeChooserDialog* self, QCloseEvent* param1) {
+void KMimeTypeChooserDialog_SuperCloseEvent(KMimeTypeChooserDialog* self, QCloseEvent* param1) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_CloseEvent_IsBase(true);
@@ -2442,7 +2442,7 @@ void KMimeTypeChooserDialog_ShowEvent(KMimeTypeChooserDialog* self, QShowEvent* 
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseShowEvent(KMimeTypeChooserDialog* self, QShowEvent* param1) {
+void KMimeTypeChooserDialog_SuperShowEvent(KMimeTypeChooserDialog* self, QShowEvent* param1) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_ShowEvent_IsBase(true);
@@ -2471,7 +2471,7 @@ void KMimeTypeChooserDialog_ResizeEvent(KMimeTypeChooserDialog* self, QResizeEve
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseResizeEvent(KMimeTypeChooserDialog* self, QResizeEvent* param1) {
+void KMimeTypeChooserDialog_SuperResizeEvent(KMimeTypeChooserDialog* self, QResizeEvent* param1) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_ResizeEvent_IsBase(true);
@@ -2500,7 +2500,7 @@ void KMimeTypeChooserDialog_ContextMenuEvent(KMimeTypeChooserDialog* self, QCont
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseContextMenuEvent(KMimeTypeChooserDialog* self, QContextMenuEvent* param1) {
+void KMimeTypeChooserDialog_SuperContextMenuEvent(KMimeTypeChooserDialog* self, QContextMenuEvent* param1) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_ContextMenuEvent_IsBase(true);
@@ -2529,7 +2529,7 @@ bool KMimeTypeChooserDialog_EventFilter(KMimeTypeChooserDialog* self, QObject* p
 }
 
 // Base class handler implementation
-bool KMimeTypeChooserDialog_QBaseEventFilter(KMimeTypeChooserDialog* self, QObject* param1, QEvent* param2) {
+bool KMimeTypeChooserDialog_SuperEventFilter(KMimeTypeChooserDialog* self, QObject* param1, QEvent* param2) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_EventFilter_IsBase(true);
@@ -2558,7 +2558,7 @@ int KMimeTypeChooserDialog_DevType(const KMimeTypeChooserDialog* self) {
 }
 
 // Base class handler implementation
-int KMimeTypeChooserDialog_QBaseDevType(const KMimeTypeChooserDialog* self) {
+int KMimeTypeChooserDialog_SuperDevType(const KMimeTypeChooserDialog* self) {
     auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_DevType_IsBase(true);
@@ -2587,7 +2587,7 @@ int KMimeTypeChooserDialog_HeightForWidth(const KMimeTypeChooserDialog* self, in
 }
 
 // Base class handler implementation
-int KMimeTypeChooserDialog_QBaseHeightForWidth(const KMimeTypeChooserDialog* self, int param1) {
+int KMimeTypeChooserDialog_SuperHeightForWidth(const KMimeTypeChooserDialog* self, int param1) {
     auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_HeightForWidth_IsBase(true);
@@ -2616,7 +2616,7 @@ bool KMimeTypeChooserDialog_HasHeightForWidth(const KMimeTypeChooserDialog* self
 }
 
 // Base class handler implementation
-bool KMimeTypeChooserDialog_QBaseHasHeightForWidth(const KMimeTypeChooserDialog* self) {
+bool KMimeTypeChooserDialog_SuperHasHeightForWidth(const KMimeTypeChooserDialog* self) {
     auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_HasHeightForWidth_IsBase(true);
@@ -2645,7 +2645,7 @@ QPaintEngine* KMimeTypeChooserDialog_PaintEngine(const KMimeTypeChooserDialog* s
 }
 
 // Base class handler implementation
-QPaintEngine* KMimeTypeChooserDialog_QBasePaintEngine(const KMimeTypeChooserDialog* self) {
+QPaintEngine* KMimeTypeChooserDialog_SuperPaintEngine(const KMimeTypeChooserDialog* self) {
     auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_PaintEngine_IsBase(true);
@@ -2674,7 +2674,7 @@ bool KMimeTypeChooserDialog_Event(KMimeTypeChooserDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KMimeTypeChooserDialog_QBaseEvent(KMimeTypeChooserDialog* self, QEvent* event) {
+bool KMimeTypeChooserDialog_SuperEvent(KMimeTypeChooserDialog* self, QEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_Event_IsBase(true);
@@ -2703,7 +2703,7 @@ void KMimeTypeChooserDialog_MousePressEvent(KMimeTypeChooserDialog* self, QMouse
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseMousePressEvent(KMimeTypeChooserDialog* self, QMouseEvent* event) {
+void KMimeTypeChooserDialog_SuperMousePressEvent(KMimeTypeChooserDialog* self, QMouseEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_MousePressEvent_IsBase(true);
@@ -2732,7 +2732,7 @@ void KMimeTypeChooserDialog_MouseReleaseEvent(KMimeTypeChooserDialog* self, QMou
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseMouseReleaseEvent(KMimeTypeChooserDialog* self, QMouseEvent* event) {
+void KMimeTypeChooserDialog_SuperMouseReleaseEvent(KMimeTypeChooserDialog* self, QMouseEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_MouseReleaseEvent_IsBase(true);
@@ -2761,7 +2761,7 @@ void KMimeTypeChooserDialog_MouseDoubleClickEvent(KMimeTypeChooserDialog* self, 
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseMouseDoubleClickEvent(KMimeTypeChooserDialog* self, QMouseEvent* event) {
+void KMimeTypeChooserDialog_SuperMouseDoubleClickEvent(KMimeTypeChooserDialog* self, QMouseEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_MouseDoubleClickEvent_IsBase(true);
@@ -2790,7 +2790,7 @@ void KMimeTypeChooserDialog_MouseMoveEvent(KMimeTypeChooserDialog* self, QMouseE
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseMouseMoveEvent(KMimeTypeChooserDialog* self, QMouseEvent* event) {
+void KMimeTypeChooserDialog_SuperMouseMoveEvent(KMimeTypeChooserDialog* self, QMouseEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_MouseMoveEvent_IsBase(true);
@@ -2819,7 +2819,7 @@ void KMimeTypeChooserDialog_WheelEvent(KMimeTypeChooserDialog* self, QWheelEvent
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseWheelEvent(KMimeTypeChooserDialog* self, QWheelEvent* event) {
+void KMimeTypeChooserDialog_SuperWheelEvent(KMimeTypeChooserDialog* self, QWheelEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_WheelEvent_IsBase(true);
@@ -2848,7 +2848,7 @@ void KMimeTypeChooserDialog_KeyReleaseEvent(KMimeTypeChooserDialog* self, QKeyEv
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseKeyReleaseEvent(KMimeTypeChooserDialog* self, QKeyEvent* event) {
+void KMimeTypeChooserDialog_SuperKeyReleaseEvent(KMimeTypeChooserDialog* self, QKeyEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_KeyReleaseEvent_IsBase(true);
@@ -2877,7 +2877,7 @@ void KMimeTypeChooserDialog_FocusInEvent(KMimeTypeChooserDialog* self, QFocusEve
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseFocusInEvent(KMimeTypeChooserDialog* self, QFocusEvent* event) {
+void KMimeTypeChooserDialog_SuperFocusInEvent(KMimeTypeChooserDialog* self, QFocusEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_FocusInEvent_IsBase(true);
@@ -2906,7 +2906,7 @@ void KMimeTypeChooserDialog_FocusOutEvent(KMimeTypeChooserDialog* self, QFocusEv
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseFocusOutEvent(KMimeTypeChooserDialog* self, QFocusEvent* event) {
+void KMimeTypeChooserDialog_SuperFocusOutEvent(KMimeTypeChooserDialog* self, QFocusEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_FocusOutEvent_IsBase(true);
@@ -2935,7 +2935,7 @@ void KMimeTypeChooserDialog_EnterEvent(KMimeTypeChooserDialog* self, QEnterEvent
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseEnterEvent(KMimeTypeChooserDialog* self, QEnterEvent* event) {
+void KMimeTypeChooserDialog_SuperEnterEvent(KMimeTypeChooserDialog* self, QEnterEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_EnterEvent_IsBase(true);
@@ -2964,7 +2964,7 @@ void KMimeTypeChooserDialog_LeaveEvent(KMimeTypeChooserDialog* self, QEvent* eve
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseLeaveEvent(KMimeTypeChooserDialog* self, QEvent* event) {
+void KMimeTypeChooserDialog_SuperLeaveEvent(KMimeTypeChooserDialog* self, QEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_LeaveEvent_IsBase(true);
@@ -2993,7 +2993,7 @@ void KMimeTypeChooserDialog_PaintEvent(KMimeTypeChooserDialog* self, QPaintEvent
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBasePaintEvent(KMimeTypeChooserDialog* self, QPaintEvent* event) {
+void KMimeTypeChooserDialog_SuperPaintEvent(KMimeTypeChooserDialog* self, QPaintEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_PaintEvent_IsBase(true);
@@ -3022,7 +3022,7 @@ void KMimeTypeChooserDialog_MoveEvent(KMimeTypeChooserDialog* self, QMoveEvent* 
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseMoveEvent(KMimeTypeChooserDialog* self, QMoveEvent* event) {
+void KMimeTypeChooserDialog_SuperMoveEvent(KMimeTypeChooserDialog* self, QMoveEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_MoveEvent_IsBase(true);
@@ -3051,7 +3051,7 @@ void KMimeTypeChooserDialog_TabletEvent(KMimeTypeChooserDialog* self, QTabletEve
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseTabletEvent(KMimeTypeChooserDialog* self, QTabletEvent* event) {
+void KMimeTypeChooserDialog_SuperTabletEvent(KMimeTypeChooserDialog* self, QTabletEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_TabletEvent_IsBase(true);
@@ -3080,7 +3080,7 @@ void KMimeTypeChooserDialog_ActionEvent(KMimeTypeChooserDialog* self, QActionEve
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseActionEvent(KMimeTypeChooserDialog* self, QActionEvent* event) {
+void KMimeTypeChooserDialog_SuperActionEvent(KMimeTypeChooserDialog* self, QActionEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_ActionEvent_IsBase(true);
@@ -3109,7 +3109,7 @@ void KMimeTypeChooserDialog_DragEnterEvent(KMimeTypeChooserDialog* self, QDragEn
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseDragEnterEvent(KMimeTypeChooserDialog* self, QDragEnterEvent* event) {
+void KMimeTypeChooserDialog_SuperDragEnterEvent(KMimeTypeChooserDialog* self, QDragEnterEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_DragEnterEvent_IsBase(true);
@@ -3138,7 +3138,7 @@ void KMimeTypeChooserDialog_DragMoveEvent(KMimeTypeChooserDialog* self, QDragMov
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseDragMoveEvent(KMimeTypeChooserDialog* self, QDragMoveEvent* event) {
+void KMimeTypeChooserDialog_SuperDragMoveEvent(KMimeTypeChooserDialog* self, QDragMoveEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_DragMoveEvent_IsBase(true);
@@ -3167,7 +3167,7 @@ void KMimeTypeChooserDialog_DragLeaveEvent(KMimeTypeChooserDialog* self, QDragLe
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseDragLeaveEvent(KMimeTypeChooserDialog* self, QDragLeaveEvent* event) {
+void KMimeTypeChooserDialog_SuperDragLeaveEvent(KMimeTypeChooserDialog* self, QDragLeaveEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_DragLeaveEvent_IsBase(true);
@@ -3196,7 +3196,7 @@ void KMimeTypeChooserDialog_DropEvent(KMimeTypeChooserDialog* self, QDropEvent* 
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseDropEvent(KMimeTypeChooserDialog* self, QDropEvent* event) {
+void KMimeTypeChooserDialog_SuperDropEvent(KMimeTypeChooserDialog* self, QDropEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_DropEvent_IsBase(true);
@@ -3225,7 +3225,7 @@ void KMimeTypeChooserDialog_HideEvent(KMimeTypeChooserDialog* self, QHideEvent* 
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseHideEvent(KMimeTypeChooserDialog* self, QHideEvent* event) {
+void KMimeTypeChooserDialog_SuperHideEvent(KMimeTypeChooserDialog* self, QHideEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_HideEvent_IsBase(true);
@@ -3255,7 +3255,7 @@ bool KMimeTypeChooserDialog_NativeEvent(KMimeTypeChooserDialog* self, const libq
 }
 
 // Base class handler implementation
-bool KMimeTypeChooserDialog_QBaseNativeEvent(KMimeTypeChooserDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KMimeTypeChooserDialog_SuperNativeEvent(KMimeTypeChooserDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
@@ -3285,7 +3285,7 @@ void KMimeTypeChooserDialog_ChangeEvent(KMimeTypeChooserDialog* self, QEvent* pa
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseChangeEvent(KMimeTypeChooserDialog* self, QEvent* param1) {
+void KMimeTypeChooserDialog_SuperChangeEvent(KMimeTypeChooserDialog* self, QEvent* param1) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_ChangeEvent_IsBase(true);
@@ -3314,7 +3314,7 @@ int KMimeTypeChooserDialog_Metric(const KMimeTypeChooserDialog* self, int param1
 }
 
 // Base class handler implementation
-int KMimeTypeChooserDialog_QBaseMetric(const KMimeTypeChooserDialog* self, int param1) {
+int KMimeTypeChooserDialog_SuperMetric(const KMimeTypeChooserDialog* self, int param1) {
     auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_Metric_IsBase(true);
@@ -3343,7 +3343,7 @@ void KMimeTypeChooserDialog_InitPainter(const KMimeTypeChooserDialog* self, QPai
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseInitPainter(const KMimeTypeChooserDialog* self, QPainter* painter) {
+void KMimeTypeChooserDialog_SuperInitPainter(const KMimeTypeChooserDialog* self, QPainter* painter) {
     auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_InitPainter_IsBase(true);
@@ -3372,7 +3372,7 @@ QPaintDevice* KMimeTypeChooserDialog_Redirected(const KMimeTypeChooserDialog* se
 }
 
 // Base class handler implementation
-QPaintDevice* KMimeTypeChooserDialog_QBaseRedirected(const KMimeTypeChooserDialog* self, QPoint* offset) {
+QPaintDevice* KMimeTypeChooserDialog_SuperRedirected(const KMimeTypeChooserDialog* self, QPoint* offset) {
     auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_Redirected_IsBase(true);
@@ -3401,7 +3401,7 @@ QPainter* KMimeTypeChooserDialog_SharedPainter(const KMimeTypeChooserDialog* sel
 }
 
 // Base class handler implementation
-QPainter* KMimeTypeChooserDialog_QBaseSharedPainter(const KMimeTypeChooserDialog* self) {
+QPainter* KMimeTypeChooserDialog_SuperSharedPainter(const KMimeTypeChooserDialog* self) {
     auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_SharedPainter_IsBase(true);
@@ -3430,7 +3430,7 @@ void KMimeTypeChooserDialog_InputMethodEvent(KMimeTypeChooserDialog* self, QInpu
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseInputMethodEvent(KMimeTypeChooserDialog* self, QInputMethodEvent* param1) {
+void KMimeTypeChooserDialog_SuperInputMethodEvent(KMimeTypeChooserDialog* self, QInputMethodEvent* param1) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_InputMethodEvent_IsBase(true);
@@ -3459,7 +3459,7 @@ QVariant* KMimeTypeChooserDialog_InputMethodQuery(const KMimeTypeChooserDialog* 
 }
 
 // Base class handler implementation
-QVariant* KMimeTypeChooserDialog_QBaseInputMethodQuery(const KMimeTypeChooserDialog* self, int param1) {
+QVariant* KMimeTypeChooserDialog_SuperInputMethodQuery(const KMimeTypeChooserDialog* self, int param1) {
     auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_InputMethodQuery_IsBase(true);
@@ -3488,7 +3488,7 @@ bool KMimeTypeChooserDialog_FocusNextPrevChild(KMimeTypeChooserDialog* self, boo
 }
 
 // Base class handler implementation
-bool KMimeTypeChooserDialog_QBaseFocusNextPrevChild(KMimeTypeChooserDialog* self, bool next) {
+bool KMimeTypeChooserDialog_SuperFocusNextPrevChild(KMimeTypeChooserDialog* self, bool next) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_FocusNextPrevChild_IsBase(true);
@@ -3517,7 +3517,7 @@ void KMimeTypeChooserDialog_TimerEvent(KMimeTypeChooserDialog* self, QTimerEvent
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseTimerEvent(KMimeTypeChooserDialog* self, QTimerEvent* event) {
+void KMimeTypeChooserDialog_SuperTimerEvent(KMimeTypeChooserDialog* self, QTimerEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_TimerEvent_IsBase(true);
@@ -3546,7 +3546,7 @@ void KMimeTypeChooserDialog_ChildEvent(KMimeTypeChooserDialog* self, QChildEvent
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseChildEvent(KMimeTypeChooserDialog* self, QChildEvent* event) {
+void KMimeTypeChooserDialog_SuperChildEvent(KMimeTypeChooserDialog* self, QChildEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_ChildEvent_IsBase(true);
@@ -3575,7 +3575,7 @@ void KMimeTypeChooserDialog_CustomEvent(KMimeTypeChooserDialog* self, QEvent* ev
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseCustomEvent(KMimeTypeChooserDialog* self, QEvent* event) {
+void KMimeTypeChooserDialog_SuperCustomEvent(KMimeTypeChooserDialog* self, QEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_CustomEvent_IsBase(true);
@@ -3604,7 +3604,7 @@ void KMimeTypeChooserDialog_ConnectNotify(KMimeTypeChooserDialog* self, const QM
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseConnectNotify(KMimeTypeChooserDialog* self, const QMetaMethod* signal) {
+void KMimeTypeChooserDialog_SuperConnectNotify(KMimeTypeChooserDialog* self, const QMetaMethod* signal) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_ConnectNotify_IsBase(true);
@@ -3633,7 +3633,7 @@ void KMimeTypeChooserDialog_DisconnectNotify(KMimeTypeChooserDialog* self, const
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseDisconnectNotify(KMimeTypeChooserDialog* self, const QMetaMethod* signal) {
+void KMimeTypeChooserDialog_SuperDisconnectNotify(KMimeTypeChooserDialog* self, const QMetaMethod* signal) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_DisconnectNotify_IsBase(true);
@@ -3662,7 +3662,7 @@ void KMimeTypeChooserDialog_AdjustPosition(KMimeTypeChooserDialog* self, QWidget
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseAdjustPosition(KMimeTypeChooserDialog* self, QWidget* param1) {
+void KMimeTypeChooserDialog_SuperAdjustPosition(KMimeTypeChooserDialog* self, QWidget* param1) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_AdjustPosition_IsBase(true);
@@ -3691,7 +3691,7 @@ void KMimeTypeChooserDialog_UpdateMicroFocus(KMimeTypeChooserDialog* self) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseUpdateMicroFocus(KMimeTypeChooserDialog* self) {
+void KMimeTypeChooserDialog_SuperUpdateMicroFocus(KMimeTypeChooserDialog* self) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_UpdateMicroFocus_IsBase(true);
@@ -3720,7 +3720,7 @@ void KMimeTypeChooserDialog_Create(KMimeTypeChooserDialog* self) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseCreate(KMimeTypeChooserDialog* self) {
+void KMimeTypeChooserDialog_SuperCreate(KMimeTypeChooserDialog* self) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_Create_IsBase(true);
@@ -3749,7 +3749,7 @@ void KMimeTypeChooserDialog_Destroy(KMimeTypeChooserDialog* self) {
 }
 
 // Base class handler implementation
-void KMimeTypeChooserDialog_QBaseDestroy(KMimeTypeChooserDialog* self) {
+void KMimeTypeChooserDialog_SuperDestroy(KMimeTypeChooserDialog* self) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_Destroy_IsBase(true);
@@ -3778,7 +3778,7 @@ bool KMimeTypeChooserDialog_FocusNextChild(KMimeTypeChooserDialog* self) {
 }
 
 // Base class handler implementation
-bool KMimeTypeChooserDialog_QBaseFocusNextChild(KMimeTypeChooserDialog* self) {
+bool KMimeTypeChooserDialog_SuperFocusNextChild(KMimeTypeChooserDialog* self) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_FocusNextChild_IsBase(true);
@@ -3807,7 +3807,7 @@ bool KMimeTypeChooserDialog_FocusPreviousChild(KMimeTypeChooserDialog* self) {
 }
 
 // Base class handler implementation
-bool KMimeTypeChooserDialog_QBaseFocusPreviousChild(KMimeTypeChooserDialog* self) {
+bool KMimeTypeChooserDialog_SuperFocusPreviousChild(KMimeTypeChooserDialog* self) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_FocusPreviousChild_IsBase(true);
@@ -3836,7 +3836,7 @@ QObject* KMimeTypeChooserDialog_Sender(const KMimeTypeChooserDialog* self) {
 }
 
 // Base class handler implementation
-QObject* KMimeTypeChooserDialog_QBaseSender(const KMimeTypeChooserDialog* self) {
+QObject* KMimeTypeChooserDialog_SuperSender(const KMimeTypeChooserDialog* self) {
     auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_Sender_IsBase(true);
@@ -3865,7 +3865,7 @@ int KMimeTypeChooserDialog_SenderSignalIndex(const KMimeTypeChooserDialog* self)
 }
 
 // Base class handler implementation
-int KMimeTypeChooserDialog_QBaseSenderSignalIndex(const KMimeTypeChooserDialog* self) {
+int KMimeTypeChooserDialog_SuperSenderSignalIndex(const KMimeTypeChooserDialog* self) {
     auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_SenderSignalIndex_IsBase(true);
@@ -3894,7 +3894,7 @@ int KMimeTypeChooserDialog_Receivers(const KMimeTypeChooserDialog* self, const c
 }
 
 // Base class handler implementation
-int KMimeTypeChooserDialog_QBaseReceivers(const KMimeTypeChooserDialog* self, const char* signal) {
+int KMimeTypeChooserDialog_SuperReceivers(const KMimeTypeChooserDialog* self, const char* signal) {
     auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_Receivers_IsBase(true);
@@ -3923,7 +3923,7 @@ bool KMimeTypeChooserDialog_IsSignalConnected(const KMimeTypeChooserDialog* self
 }
 
 // Base class handler implementation
-bool KMimeTypeChooserDialog_QBaseIsSignalConnected(const KMimeTypeChooserDialog* self, const QMetaMethod* signal) {
+bool KMimeTypeChooserDialog_SuperIsSignalConnected(const KMimeTypeChooserDialog* self, const QMetaMethod* signal) {
     auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_IsSignalConnected_IsBase(true);
@@ -3952,7 +3952,7 @@ double KMimeTypeChooserDialog_GetDecodedMetricF(const KMimeTypeChooserDialog* se
 }
 
 // Base class handler implementation
-double KMimeTypeChooserDialog_QBaseGetDecodedMetricF(const KMimeTypeChooserDialog* self, int metricA, int metricB) {
+double KMimeTypeChooserDialog_SuperGetDecodedMetricF(const KMimeTypeChooserDialog* self, int metricA, int metricB) {
     auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
     if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
         vkmimetypechooserdialog->setKMimeTypeChooserDialog_GetDecodedMetricF_IsBase(true);

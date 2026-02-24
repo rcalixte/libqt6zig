@@ -328,23 +328,23 @@ class VirtualKActionCategory final : public KActionCategory {
 
     // Friend functions
     friend void KActionCategory_TimerEvent(KActionCategory* self, QTimerEvent* event);
-    friend void KActionCategory_QBaseTimerEvent(KActionCategory* self, QTimerEvent* event);
+    friend void KActionCategory_SuperTimerEvent(KActionCategory* self, QTimerEvent* event);
     friend void KActionCategory_ChildEvent(KActionCategory* self, QChildEvent* event);
-    friend void KActionCategory_QBaseChildEvent(KActionCategory* self, QChildEvent* event);
+    friend void KActionCategory_SuperChildEvent(KActionCategory* self, QChildEvent* event);
     friend void KActionCategory_CustomEvent(KActionCategory* self, QEvent* event);
-    friend void KActionCategory_QBaseCustomEvent(KActionCategory* self, QEvent* event);
+    friend void KActionCategory_SuperCustomEvent(KActionCategory* self, QEvent* event);
     friend void KActionCategory_ConnectNotify(KActionCategory* self, const QMetaMethod* signal);
-    friend void KActionCategory_QBaseConnectNotify(KActionCategory* self, const QMetaMethod* signal);
+    friend void KActionCategory_SuperConnectNotify(KActionCategory* self, const QMetaMethod* signal);
     friend void KActionCategory_DisconnectNotify(KActionCategory* self, const QMetaMethod* signal);
-    friend void KActionCategory_QBaseDisconnectNotify(KActionCategory* self, const QMetaMethod* signal);
+    friend void KActionCategory_SuperDisconnectNotify(KActionCategory* self, const QMetaMethod* signal);
     friend QObject* KActionCategory_Sender(const KActionCategory* self);
-    friend QObject* KActionCategory_QBaseSender(const KActionCategory* self);
+    friend QObject* KActionCategory_SuperSender(const KActionCategory* self);
     friend int KActionCategory_SenderSignalIndex(const KActionCategory* self);
-    friend int KActionCategory_QBaseSenderSignalIndex(const KActionCategory* self);
+    friend int KActionCategory_SuperSenderSignalIndex(const KActionCategory* self);
     friend int KActionCategory_Receivers(const KActionCategory* self, const char* signal);
-    friend int KActionCategory_QBaseReceivers(const KActionCategory* self, const char* signal);
+    friend int KActionCategory_SuperReceivers(const KActionCategory* self, const char* signal);
     friend bool KActionCategory_IsSignalConnected(const KActionCategory* self, const QMetaMethod* signal);
-    friend bool KActionCategory_QBaseIsSignalConnected(const KActionCategory* self, const QMetaMethod* signal);
+    friend bool KActionCategory_SuperIsSignalConnected(const KActionCategory* self, const QMetaMethod* signal);
 };
 
 #endif

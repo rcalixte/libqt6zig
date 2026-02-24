@@ -695,23 +695,23 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
 
     // Friend functions
     friend void QDesignerIntegrationInterface_TimerEvent(QDesignerIntegrationInterface* self, QTimerEvent* event);
-    friend void QDesignerIntegrationInterface_QBaseTimerEvent(QDesignerIntegrationInterface* self, QTimerEvent* event);
+    friend void QDesignerIntegrationInterface_SuperTimerEvent(QDesignerIntegrationInterface* self, QTimerEvent* event);
     friend void QDesignerIntegrationInterface_ChildEvent(QDesignerIntegrationInterface* self, QChildEvent* event);
-    friend void QDesignerIntegrationInterface_QBaseChildEvent(QDesignerIntegrationInterface* self, QChildEvent* event);
+    friend void QDesignerIntegrationInterface_SuperChildEvent(QDesignerIntegrationInterface* self, QChildEvent* event);
     friend void QDesignerIntegrationInterface_CustomEvent(QDesignerIntegrationInterface* self, QEvent* event);
-    friend void QDesignerIntegrationInterface_QBaseCustomEvent(QDesignerIntegrationInterface* self, QEvent* event);
+    friend void QDesignerIntegrationInterface_SuperCustomEvent(QDesignerIntegrationInterface* self, QEvent* event);
     friend void QDesignerIntegrationInterface_ConnectNotify(QDesignerIntegrationInterface* self, const QMetaMethod* signal);
-    friend void QDesignerIntegrationInterface_QBaseConnectNotify(QDesignerIntegrationInterface* self, const QMetaMethod* signal);
+    friend void QDesignerIntegrationInterface_SuperConnectNotify(QDesignerIntegrationInterface* self, const QMetaMethod* signal);
     friend void QDesignerIntegrationInterface_DisconnectNotify(QDesignerIntegrationInterface* self, const QMetaMethod* signal);
-    friend void QDesignerIntegrationInterface_QBaseDisconnectNotify(QDesignerIntegrationInterface* self, const QMetaMethod* signal);
+    friend void QDesignerIntegrationInterface_SuperDisconnectNotify(QDesignerIntegrationInterface* self, const QMetaMethod* signal);
     friend QObject* QDesignerIntegrationInterface_Sender(const QDesignerIntegrationInterface* self);
-    friend QObject* QDesignerIntegrationInterface_QBaseSender(const QDesignerIntegrationInterface* self);
+    friend QObject* QDesignerIntegrationInterface_SuperSender(const QDesignerIntegrationInterface* self);
     friend int QDesignerIntegrationInterface_SenderSignalIndex(const QDesignerIntegrationInterface* self);
-    friend int QDesignerIntegrationInterface_QBaseSenderSignalIndex(const QDesignerIntegrationInterface* self);
+    friend int QDesignerIntegrationInterface_SuperSenderSignalIndex(const QDesignerIntegrationInterface* self);
     friend int QDesignerIntegrationInterface_Receivers(const QDesignerIntegrationInterface* self, const char* signal);
-    friend int QDesignerIntegrationInterface_QBaseReceivers(const QDesignerIntegrationInterface* self, const char* signal);
+    friend int QDesignerIntegrationInterface_SuperReceivers(const QDesignerIntegrationInterface* self, const char* signal);
     friend bool QDesignerIntegrationInterface_IsSignalConnected(const QDesignerIntegrationInterface* self, const QMetaMethod* signal);
-    friend bool QDesignerIntegrationInterface_QBaseIsSignalConnected(const QDesignerIntegrationInterface* self, const QMetaMethod* signal);
+    friend bool QDesignerIntegrationInterface_SuperIsSignalConnected(const QDesignerIntegrationInterface* self, const QMetaMethod* signal);
 };
 
 // This class is a subclass of QDesignerIntegration so that we can call protected methods
@@ -1486,23 +1486,23 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
 
     // Friend functions
     friend void QDesignerIntegration_TimerEvent(QDesignerIntegration* self, QTimerEvent* event);
-    friend void QDesignerIntegration_QBaseTimerEvent(QDesignerIntegration* self, QTimerEvent* event);
+    friend void QDesignerIntegration_SuperTimerEvent(QDesignerIntegration* self, QTimerEvent* event);
     friend void QDesignerIntegration_ChildEvent(QDesignerIntegration* self, QChildEvent* event);
-    friend void QDesignerIntegration_QBaseChildEvent(QDesignerIntegration* self, QChildEvent* event);
+    friend void QDesignerIntegration_SuperChildEvent(QDesignerIntegration* self, QChildEvent* event);
     friend void QDesignerIntegration_CustomEvent(QDesignerIntegration* self, QEvent* event);
-    friend void QDesignerIntegration_QBaseCustomEvent(QDesignerIntegration* self, QEvent* event);
+    friend void QDesignerIntegration_SuperCustomEvent(QDesignerIntegration* self, QEvent* event);
     friend void QDesignerIntegration_ConnectNotify(QDesignerIntegration* self, const QMetaMethod* signal);
-    friend void QDesignerIntegration_QBaseConnectNotify(QDesignerIntegration* self, const QMetaMethod* signal);
+    friend void QDesignerIntegration_SuperConnectNotify(QDesignerIntegration* self, const QMetaMethod* signal);
     friend void QDesignerIntegration_DisconnectNotify(QDesignerIntegration* self, const QMetaMethod* signal);
-    friend void QDesignerIntegration_QBaseDisconnectNotify(QDesignerIntegration* self, const QMetaMethod* signal);
+    friend void QDesignerIntegration_SuperDisconnectNotify(QDesignerIntegration* self, const QMetaMethod* signal);
     friend QObject* QDesignerIntegration_Sender(const QDesignerIntegration* self);
-    friend QObject* QDesignerIntegration_QBaseSender(const QDesignerIntegration* self);
+    friend QObject* QDesignerIntegration_SuperSender(const QDesignerIntegration* self);
     friend int QDesignerIntegration_SenderSignalIndex(const QDesignerIntegration* self);
-    friend int QDesignerIntegration_QBaseSenderSignalIndex(const QDesignerIntegration* self);
+    friend int QDesignerIntegration_SuperSenderSignalIndex(const QDesignerIntegration* self);
     friend int QDesignerIntegration_Receivers(const QDesignerIntegration* self, const char* signal);
-    friend int QDesignerIntegration_QBaseReceivers(const QDesignerIntegration* self, const char* signal);
+    friend int QDesignerIntegration_SuperReceivers(const QDesignerIntegration* self, const char* signal);
     friend bool QDesignerIntegration_IsSignalConnected(const QDesignerIntegration* self, const QMetaMethod* signal);
-    friend bool QDesignerIntegration_QBaseIsSignalConnected(const QDesignerIntegration* self, const QMetaMethod* signal);
+    friend bool QDesignerIntegration_SuperIsSignalConnected(const QDesignerIntegration* self, const QMetaMethod* signal);
 };
 
 #endif

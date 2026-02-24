@@ -291,6 +291,10 @@ pub const qmediatimerange = struct {
         qtc.QMediaTimeRange_Clear(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediatimerange.html#dtor.QMediaTimeRange)
     ///
     /// Delete this object from C++ memory.
@@ -299,7 +303,7 @@ pub const qmediatimerange = struct {
     ///
     /// ` self: QtC.QMediaTimeRange `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMediaTimeRange_Delete(@ptrCast(self));
     }
 };
@@ -442,13 +446,17 @@ pub const qmediatimerange__interval = struct {
         return qtc.QMediaTimeRange__Interval_Translated(@ptrCast(self), @bitCast(offset));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QMediaTimeRange__Interval `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMediaTimeRange__Interval_Delete(@ptrCast(self));
     }
 };

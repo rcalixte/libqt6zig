@@ -85,7 +85,7 @@ void KSyntaxHighlighting__DefinitionDownloader_Connect_Done(KSyntaxHighlighting_
 }
 
 // Base class handler implementation
-QMetaObject* KSyntaxHighlighting__DefinitionDownloader_QBaseMetaObject(const KSyntaxHighlighting__DefinitionDownloader* self) {
+QMetaObject* KSyntaxHighlighting__DefinitionDownloader_SuperMetaObject(const KSyntaxHighlighting__DefinitionDownloader* self) {
     auto* vksyntaxhighlightingdefinitiondownloader = const_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(dynamic_cast<const VirtualKSyntaxHighlightingDefinitionDownloader*>(self));
     if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_MetaObject_IsBase(true);
@@ -104,7 +104,7 @@ void KSyntaxHighlighting__DefinitionDownloader_OnMetaObject(const KSyntaxHighlig
 }
 
 // Base class handler implementation
-void* KSyntaxHighlighting__DefinitionDownloader_QBaseMetacast(KSyntaxHighlighting__DefinitionDownloader* self, const char* param1) {
+void* KSyntaxHighlighting__DefinitionDownloader_SuperMetacast(KSyntaxHighlighting__DefinitionDownloader* self, const char* param1) {
     auto* vksyntaxhighlightingdefinitiondownloader = dynamic_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
     if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_Metacast_IsBase(true);
@@ -123,7 +123,7 @@ void KSyntaxHighlighting__DefinitionDownloader_OnMetacast(KSyntaxHighlighting__D
 }
 
 // Base class handler implementation
-int KSyntaxHighlighting__DefinitionDownloader_QBaseMetacall(KSyntaxHighlighting__DefinitionDownloader* self, int param1, int param2, void** param3) {
+int KSyntaxHighlighting__DefinitionDownloader_SuperMetacall(KSyntaxHighlighting__DefinitionDownloader* self, int param1, int param2, void** param3) {
     auto* vksyntaxhighlightingdefinitiondownloader = dynamic_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
     if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_Metacall_IsBase(true);
@@ -152,7 +152,7 @@ bool KSyntaxHighlighting__DefinitionDownloader_Event(KSyntaxHighlighting__Defini
 }
 
 // Base class handler implementation
-bool KSyntaxHighlighting__DefinitionDownloader_QBaseEvent(KSyntaxHighlighting__DefinitionDownloader* self, QEvent* event) {
+bool KSyntaxHighlighting__DefinitionDownloader_SuperEvent(KSyntaxHighlighting__DefinitionDownloader* self, QEvent* event) {
     auto* vksyntaxhighlightingdefinitiondownloader = dynamic_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
     if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_Event_IsBase(true);
@@ -181,7 +181,7 @@ bool KSyntaxHighlighting__DefinitionDownloader_EventFilter(KSyntaxHighlighting__
 }
 
 // Base class handler implementation
-bool KSyntaxHighlighting__DefinitionDownloader_QBaseEventFilter(KSyntaxHighlighting__DefinitionDownloader* self, QObject* watched, QEvent* event) {
+bool KSyntaxHighlighting__DefinitionDownloader_SuperEventFilter(KSyntaxHighlighting__DefinitionDownloader* self, QObject* watched, QEvent* event) {
     auto* vksyntaxhighlightingdefinitiondownloader = dynamic_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
     if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_EventFilter_IsBase(true);
@@ -210,7 +210,7 @@ void KSyntaxHighlighting__DefinitionDownloader_TimerEvent(KSyntaxHighlighting__D
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__DefinitionDownloader_QBaseTimerEvent(KSyntaxHighlighting__DefinitionDownloader* self, QTimerEvent* event) {
+void KSyntaxHighlighting__DefinitionDownloader_SuperTimerEvent(KSyntaxHighlighting__DefinitionDownloader* self, QTimerEvent* event) {
     auto* vksyntaxhighlightingdefinitiondownloader = dynamic_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
     if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_TimerEvent_IsBase(true);
@@ -239,7 +239,7 @@ void KSyntaxHighlighting__DefinitionDownloader_ChildEvent(KSyntaxHighlighting__D
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__DefinitionDownloader_QBaseChildEvent(KSyntaxHighlighting__DefinitionDownloader* self, QChildEvent* event) {
+void KSyntaxHighlighting__DefinitionDownloader_SuperChildEvent(KSyntaxHighlighting__DefinitionDownloader* self, QChildEvent* event) {
     auto* vksyntaxhighlightingdefinitiondownloader = dynamic_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
     if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_ChildEvent_IsBase(true);
@@ -268,7 +268,7 @@ void KSyntaxHighlighting__DefinitionDownloader_CustomEvent(KSyntaxHighlighting__
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__DefinitionDownloader_QBaseCustomEvent(KSyntaxHighlighting__DefinitionDownloader* self, QEvent* event) {
+void KSyntaxHighlighting__DefinitionDownloader_SuperCustomEvent(KSyntaxHighlighting__DefinitionDownloader* self, QEvent* event) {
     auto* vksyntaxhighlightingdefinitiondownloader = dynamic_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
     if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_CustomEvent_IsBase(true);
@@ -297,7 +297,7 @@ void KSyntaxHighlighting__DefinitionDownloader_ConnectNotify(KSyntaxHighlighting
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__DefinitionDownloader_QBaseConnectNotify(KSyntaxHighlighting__DefinitionDownloader* self, const QMetaMethod* signal) {
+void KSyntaxHighlighting__DefinitionDownloader_SuperConnectNotify(KSyntaxHighlighting__DefinitionDownloader* self, const QMetaMethod* signal) {
     auto* vksyntaxhighlightingdefinitiondownloader = dynamic_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
     if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_ConnectNotify_IsBase(true);
@@ -326,7 +326,7 @@ void KSyntaxHighlighting__DefinitionDownloader_DisconnectNotify(KSyntaxHighlight
 }
 
 // Base class handler implementation
-void KSyntaxHighlighting__DefinitionDownloader_QBaseDisconnectNotify(KSyntaxHighlighting__DefinitionDownloader* self, const QMetaMethod* signal) {
+void KSyntaxHighlighting__DefinitionDownloader_SuperDisconnectNotify(KSyntaxHighlighting__DefinitionDownloader* self, const QMetaMethod* signal) {
     auto* vksyntaxhighlightingdefinitiondownloader = dynamic_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
     if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_DisconnectNotify_IsBase(true);
@@ -355,7 +355,7 @@ QObject* KSyntaxHighlighting__DefinitionDownloader_Sender(const KSyntaxHighlight
 }
 
 // Base class handler implementation
-QObject* KSyntaxHighlighting__DefinitionDownloader_QBaseSender(const KSyntaxHighlighting__DefinitionDownloader* self) {
+QObject* KSyntaxHighlighting__DefinitionDownloader_SuperSender(const KSyntaxHighlighting__DefinitionDownloader* self) {
     auto* vksyntaxhighlightingdefinitiondownloader = const_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(dynamic_cast<const VirtualKSyntaxHighlightingDefinitionDownloader*>(self));
     if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_Sender_IsBase(true);
@@ -384,7 +384,7 @@ int KSyntaxHighlighting__DefinitionDownloader_SenderSignalIndex(const KSyntaxHig
 }
 
 // Base class handler implementation
-int KSyntaxHighlighting__DefinitionDownloader_QBaseSenderSignalIndex(const KSyntaxHighlighting__DefinitionDownloader* self) {
+int KSyntaxHighlighting__DefinitionDownloader_SuperSenderSignalIndex(const KSyntaxHighlighting__DefinitionDownloader* self) {
     auto* vksyntaxhighlightingdefinitiondownloader = const_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(dynamic_cast<const VirtualKSyntaxHighlightingDefinitionDownloader*>(self));
     if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_SenderSignalIndex_IsBase(true);
@@ -413,7 +413,7 @@ int KSyntaxHighlighting__DefinitionDownloader_Receivers(const KSyntaxHighlightin
 }
 
 // Base class handler implementation
-int KSyntaxHighlighting__DefinitionDownloader_QBaseReceivers(const KSyntaxHighlighting__DefinitionDownloader* self, const char* signal) {
+int KSyntaxHighlighting__DefinitionDownloader_SuperReceivers(const KSyntaxHighlighting__DefinitionDownloader* self, const char* signal) {
     auto* vksyntaxhighlightingdefinitiondownloader = const_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(dynamic_cast<const VirtualKSyntaxHighlightingDefinitionDownloader*>(self));
     if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_Receivers_IsBase(true);
@@ -442,7 +442,7 @@ bool KSyntaxHighlighting__DefinitionDownloader_IsSignalConnected(const KSyntaxHi
 }
 
 // Base class handler implementation
-bool KSyntaxHighlighting__DefinitionDownloader_QBaseIsSignalConnected(const KSyntaxHighlighting__DefinitionDownloader* self, const QMetaMethod* signal) {
+bool KSyntaxHighlighting__DefinitionDownloader_SuperIsSignalConnected(const KSyntaxHighlighting__DefinitionDownloader* self, const QMetaMethod* signal) {
     auto* vksyntaxhighlightingdefinitiondownloader = const_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(dynamic_cast<const VirtualKSyntaxHighlightingDefinitionDownloader*>(self));
     if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_IsSignalConnected_IsBase(true);

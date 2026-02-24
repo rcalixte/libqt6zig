@@ -181,6 +181,10 @@ pub const kemailsettings = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kemailsettings.html#dtor.KEMailSettings)
     ///
     /// Delete this object from C++ memory.
@@ -189,7 +193,7 @@ pub const kemailsettings = struct {
     ///
     /// ` self: QtC.KEMailSettings `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KEMailSettings_Delete(@ptrCast(self));
     }
 };

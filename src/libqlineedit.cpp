@@ -668,7 +668,7 @@ void QLineEdit_CursorBackward2(QLineEdit* self, bool mark, int steps) {
 }
 
 // Base class handler implementation
-QMetaObject* QLineEdit_QBaseMetaObject(const QLineEdit* self) {
+QMetaObject* QLineEdit_SuperMetaObject(const QLineEdit* self) {
     auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_MetaObject_IsBase(true);
@@ -687,7 +687,7 @@ void QLineEdit_OnMetaObject(const QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QLineEdit_QBaseMetacast(QLineEdit* self, const char* param1) {
+void* QLineEdit_SuperMetacast(QLineEdit* self, const char* param1) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_Metacast_IsBase(true);
@@ -706,7 +706,7 @@ void QLineEdit_OnMetacast(QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QLineEdit_QBaseMetacall(QLineEdit* self, int param1, int param2, void** param3) {
+int QLineEdit_SuperMetacall(QLineEdit* self, int param1, int param2, void** param3) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_Metacall_IsBase(true);
@@ -725,7 +725,7 @@ void QLineEdit_OnMetacall(QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QLineEdit_QBaseSizeHint(const QLineEdit* self) {
+QSize* QLineEdit_SuperSizeHint(const QLineEdit* self) {
     auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_SizeHint_IsBase(true);
@@ -744,7 +744,7 @@ void QLineEdit_OnSizeHint(const QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QLineEdit_QBaseMinimumSizeHint(const QLineEdit* self) {
+QSize* QLineEdit_SuperMinimumSizeHint(const QLineEdit* self) {
     auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_MinimumSizeHint_IsBase(true);
@@ -763,7 +763,7 @@ void QLineEdit_OnMinimumSizeHint(const QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseMousePressEvent(QLineEdit* self, QMouseEvent* param1) {
+void QLineEdit_SuperMousePressEvent(QLineEdit* self, QMouseEvent* param1) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_MousePressEvent_IsBase(true);
@@ -782,7 +782,7 @@ void QLineEdit_OnMousePressEvent(QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseMouseMoveEvent(QLineEdit* self, QMouseEvent* param1) {
+void QLineEdit_SuperMouseMoveEvent(QLineEdit* self, QMouseEvent* param1) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_MouseMoveEvent_IsBase(true);
@@ -801,7 +801,7 @@ void QLineEdit_OnMouseMoveEvent(QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseMouseReleaseEvent(QLineEdit* self, QMouseEvent* param1) {
+void QLineEdit_SuperMouseReleaseEvent(QLineEdit* self, QMouseEvent* param1) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_MouseReleaseEvent_IsBase(true);
@@ -820,7 +820,7 @@ void QLineEdit_OnMouseReleaseEvent(QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseMouseDoubleClickEvent(QLineEdit* self, QMouseEvent* param1) {
+void QLineEdit_SuperMouseDoubleClickEvent(QLineEdit* self, QMouseEvent* param1) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_MouseDoubleClickEvent_IsBase(true);
@@ -839,7 +839,7 @@ void QLineEdit_OnMouseDoubleClickEvent(QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseKeyPressEvent(QLineEdit* self, QKeyEvent* param1) {
+void QLineEdit_SuperKeyPressEvent(QLineEdit* self, QKeyEvent* param1) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_KeyPressEvent_IsBase(true);
@@ -858,7 +858,7 @@ void QLineEdit_OnKeyPressEvent(QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseKeyReleaseEvent(QLineEdit* self, QKeyEvent* param1) {
+void QLineEdit_SuperKeyReleaseEvent(QLineEdit* self, QKeyEvent* param1) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_KeyReleaseEvent_IsBase(true);
@@ -877,7 +877,7 @@ void QLineEdit_OnKeyReleaseEvent(QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseFocusInEvent(QLineEdit* self, QFocusEvent* param1) {
+void QLineEdit_SuperFocusInEvent(QLineEdit* self, QFocusEvent* param1) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_FocusInEvent_IsBase(true);
@@ -896,7 +896,7 @@ void QLineEdit_OnFocusInEvent(QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseFocusOutEvent(QLineEdit* self, QFocusEvent* param1) {
+void QLineEdit_SuperFocusOutEvent(QLineEdit* self, QFocusEvent* param1) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_FocusOutEvent_IsBase(true);
@@ -915,7 +915,7 @@ void QLineEdit_OnFocusOutEvent(QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBasePaintEvent(QLineEdit* self, QPaintEvent* param1) {
+void QLineEdit_SuperPaintEvent(QLineEdit* self, QPaintEvent* param1) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_PaintEvent_IsBase(true);
@@ -934,7 +934,7 @@ void QLineEdit_OnPaintEvent(QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseDragEnterEvent(QLineEdit* self, QDragEnterEvent* param1) {
+void QLineEdit_SuperDragEnterEvent(QLineEdit* self, QDragEnterEvent* param1) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_DragEnterEvent_IsBase(true);
@@ -953,7 +953,7 @@ void QLineEdit_OnDragEnterEvent(QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseDragMoveEvent(QLineEdit* self, QDragMoveEvent* e) {
+void QLineEdit_SuperDragMoveEvent(QLineEdit* self, QDragMoveEvent* e) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_DragMoveEvent_IsBase(true);
@@ -972,7 +972,7 @@ void QLineEdit_OnDragMoveEvent(QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseDragLeaveEvent(QLineEdit* self, QDragLeaveEvent* e) {
+void QLineEdit_SuperDragLeaveEvent(QLineEdit* self, QDragLeaveEvent* e) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_DragLeaveEvent_IsBase(true);
@@ -991,7 +991,7 @@ void QLineEdit_OnDragLeaveEvent(QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseDropEvent(QLineEdit* self, QDropEvent* param1) {
+void QLineEdit_SuperDropEvent(QLineEdit* self, QDropEvent* param1) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_DropEvent_IsBase(true);
@@ -1010,7 +1010,7 @@ void QLineEdit_OnDropEvent(QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseChangeEvent(QLineEdit* self, QEvent* param1) {
+void QLineEdit_SuperChangeEvent(QLineEdit* self, QEvent* param1) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_ChangeEvent_IsBase(true);
@@ -1029,7 +1029,7 @@ void QLineEdit_OnChangeEvent(QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseContextMenuEvent(QLineEdit* self, QContextMenuEvent* param1) {
+void QLineEdit_SuperContextMenuEvent(QLineEdit* self, QContextMenuEvent* param1) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_ContextMenuEvent_IsBase(true);
@@ -1048,7 +1048,7 @@ void QLineEdit_OnContextMenuEvent(QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseInputMethodEvent(QLineEdit* self, QInputMethodEvent* param1) {
+void QLineEdit_SuperInputMethodEvent(QLineEdit* self, QInputMethodEvent* param1) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_InputMethodEvent_IsBase(true);
@@ -1067,7 +1067,7 @@ void QLineEdit_OnInputMethodEvent(QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseInitStyleOption(const QLineEdit* self, QStyleOptionFrame* option) {
+void QLineEdit_SuperInitStyleOption(const QLineEdit* self, QStyleOptionFrame* option) {
     auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_InitStyleOption_IsBase(true);
@@ -1086,7 +1086,7 @@ void QLineEdit_OnInitStyleOption(const QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QLineEdit_QBaseInputMethodQuery(const QLineEdit* self, int param1) {
+QVariant* QLineEdit_SuperInputMethodQuery(const QLineEdit* self, int param1) {
     auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_InputMethodQuery_IsBase(true);
@@ -1105,7 +1105,7 @@ void QLineEdit_OnInputMethodQuery(const QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseTimerEvent(QLineEdit* self, QTimerEvent* param1) {
+void QLineEdit_SuperTimerEvent(QLineEdit* self, QTimerEvent* param1) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_TimerEvent_IsBase(true);
@@ -1124,7 +1124,7 @@ void QLineEdit_OnTimerEvent(QLineEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QLineEdit_QBaseEvent(QLineEdit* self, QEvent* param1) {
+bool QLineEdit_SuperEvent(QLineEdit* self, QEvent* param1) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_Event_IsBase(true);
@@ -1153,7 +1153,7 @@ int QLineEdit_DevType(const QLineEdit* self) {
 }
 
 // Base class handler implementation
-int QLineEdit_QBaseDevType(const QLineEdit* self) {
+int QLineEdit_SuperDevType(const QLineEdit* self) {
     auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_DevType_IsBase(true);
@@ -1182,7 +1182,7 @@ void QLineEdit_SetVisible(QLineEdit* self, bool visible) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseSetVisible(QLineEdit* self, bool visible) {
+void QLineEdit_SuperSetVisible(QLineEdit* self, bool visible) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_SetVisible_IsBase(true);
@@ -1211,7 +1211,7 @@ int QLineEdit_HeightForWidth(const QLineEdit* self, int param1) {
 }
 
 // Base class handler implementation
-int QLineEdit_QBaseHeightForWidth(const QLineEdit* self, int param1) {
+int QLineEdit_SuperHeightForWidth(const QLineEdit* self, int param1) {
     auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_HeightForWidth_IsBase(true);
@@ -1240,7 +1240,7 @@ bool QLineEdit_HasHeightForWidth(const QLineEdit* self) {
 }
 
 // Base class handler implementation
-bool QLineEdit_QBaseHasHeightForWidth(const QLineEdit* self) {
+bool QLineEdit_SuperHasHeightForWidth(const QLineEdit* self) {
     auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_HasHeightForWidth_IsBase(true);
@@ -1269,7 +1269,7 @@ QPaintEngine* QLineEdit_PaintEngine(const QLineEdit* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QLineEdit_QBasePaintEngine(const QLineEdit* self) {
+QPaintEngine* QLineEdit_SuperPaintEngine(const QLineEdit* self) {
     auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_PaintEngine_IsBase(true);
@@ -1298,7 +1298,7 @@ void QLineEdit_WheelEvent(QLineEdit* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseWheelEvent(QLineEdit* self, QWheelEvent* event) {
+void QLineEdit_SuperWheelEvent(QLineEdit* self, QWheelEvent* event) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_WheelEvent_IsBase(true);
@@ -1327,7 +1327,7 @@ void QLineEdit_EnterEvent(QLineEdit* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseEnterEvent(QLineEdit* self, QEnterEvent* event) {
+void QLineEdit_SuperEnterEvent(QLineEdit* self, QEnterEvent* event) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_EnterEvent_IsBase(true);
@@ -1356,7 +1356,7 @@ void QLineEdit_LeaveEvent(QLineEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseLeaveEvent(QLineEdit* self, QEvent* event) {
+void QLineEdit_SuperLeaveEvent(QLineEdit* self, QEvent* event) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_LeaveEvent_IsBase(true);
@@ -1385,7 +1385,7 @@ void QLineEdit_MoveEvent(QLineEdit* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseMoveEvent(QLineEdit* self, QMoveEvent* event) {
+void QLineEdit_SuperMoveEvent(QLineEdit* self, QMoveEvent* event) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_MoveEvent_IsBase(true);
@@ -1414,7 +1414,7 @@ void QLineEdit_ResizeEvent(QLineEdit* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseResizeEvent(QLineEdit* self, QResizeEvent* event) {
+void QLineEdit_SuperResizeEvent(QLineEdit* self, QResizeEvent* event) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_ResizeEvent_IsBase(true);
@@ -1443,7 +1443,7 @@ void QLineEdit_CloseEvent(QLineEdit* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseCloseEvent(QLineEdit* self, QCloseEvent* event) {
+void QLineEdit_SuperCloseEvent(QLineEdit* self, QCloseEvent* event) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_CloseEvent_IsBase(true);
@@ -1472,7 +1472,7 @@ void QLineEdit_TabletEvent(QLineEdit* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseTabletEvent(QLineEdit* self, QTabletEvent* event) {
+void QLineEdit_SuperTabletEvent(QLineEdit* self, QTabletEvent* event) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_TabletEvent_IsBase(true);
@@ -1501,7 +1501,7 @@ void QLineEdit_ActionEvent(QLineEdit* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseActionEvent(QLineEdit* self, QActionEvent* event) {
+void QLineEdit_SuperActionEvent(QLineEdit* self, QActionEvent* event) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_ActionEvent_IsBase(true);
@@ -1530,7 +1530,7 @@ void QLineEdit_ShowEvent(QLineEdit* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseShowEvent(QLineEdit* self, QShowEvent* event) {
+void QLineEdit_SuperShowEvent(QLineEdit* self, QShowEvent* event) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_ShowEvent_IsBase(true);
@@ -1559,7 +1559,7 @@ void QLineEdit_HideEvent(QLineEdit* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseHideEvent(QLineEdit* self, QHideEvent* event) {
+void QLineEdit_SuperHideEvent(QLineEdit* self, QHideEvent* event) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_HideEvent_IsBase(true);
@@ -1589,7 +1589,7 @@ bool QLineEdit_NativeEvent(QLineEdit* self, const libqt_string eventType, void* 
 }
 
 // Base class handler implementation
-bool QLineEdit_QBaseNativeEvent(QLineEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QLineEdit_SuperNativeEvent(QLineEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
@@ -1619,7 +1619,7 @@ int QLineEdit_Metric(const QLineEdit* self, int param1) {
 }
 
 // Base class handler implementation
-int QLineEdit_QBaseMetric(const QLineEdit* self, int param1) {
+int QLineEdit_SuperMetric(const QLineEdit* self, int param1) {
     auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_Metric_IsBase(true);
@@ -1648,7 +1648,7 @@ void QLineEdit_InitPainter(const QLineEdit* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseInitPainter(const QLineEdit* self, QPainter* painter) {
+void QLineEdit_SuperInitPainter(const QLineEdit* self, QPainter* painter) {
     auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_InitPainter_IsBase(true);
@@ -1677,7 +1677,7 @@ QPaintDevice* QLineEdit_Redirected(const QLineEdit* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QLineEdit_QBaseRedirected(const QLineEdit* self, QPoint* offset) {
+QPaintDevice* QLineEdit_SuperRedirected(const QLineEdit* self, QPoint* offset) {
     auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_Redirected_IsBase(true);
@@ -1706,7 +1706,7 @@ QPainter* QLineEdit_SharedPainter(const QLineEdit* self) {
 }
 
 // Base class handler implementation
-QPainter* QLineEdit_QBaseSharedPainter(const QLineEdit* self) {
+QPainter* QLineEdit_SuperSharedPainter(const QLineEdit* self) {
     auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_SharedPainter_IsBase(true);
@@ -1735,7 +1735,7 @@ bool QLineEdit_FocusNextPrevChild(QLineEdit* self, bool next) {
 }
 
 // Base class handler implementation
-bool QLineEdit_QBaseFocusNextPrevChild(QLineEdit* self, bool next) {
+bool QLineEdit_SuperFocusNextPrevChild(QLineEdit* self, bool next) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_FocusNextPrevChild_IsBase(true);
@@ -1764,7 +1764,7 @@ bool QLineEdit_EventFilter(QLineEdit* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QLineEdit_QBaseEventFilter(QLineEdit* self, QObject* watched, QEvent* event) {
+bool QLineEdit_SuperEventFilter(QLineEdit* self, QObject* watched, QEvent* event) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_EventFilter_IsBase(true);
@@ -1793,7 +1793,7 @@ void QLineEdit_ChildEvent(QLineEdit* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseChildEvent(QLineEdit* self, QChildEvent* event) {
+void QLineEdit_SuperChildEvent(QLineEdit* self, QChildEvent* event) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_ChildEvent_IsBase(true);
@@ -1822,7 +1822,7 @@ void QLineEdit_CustomEvent(QLineEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseCustomEvent(QLineEdit* self, QEvent* event) {
+void QLineEdit_SuperCustomEvent(QLineEdit* self, QEvent* event) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_CustomEvent_IsBase(true);
@@ -1851,7 +1851,7 @@ void QLineEdit_ConnectNotify(QLineEdit* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseConnectNotify(QLineEdit* self, const QMetaMethod* signal) {
+void QLineEdit_SuperConnectNotify(QLineEdit* self, const QMetaMethod* signal) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_ConnectNotify_IsBase(true);
@@ -1880,7 +1880,7 @@ void QLineEdit_DisconnectNotify(QLineEdit* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseDisconnectNotify(QLineEdit* self, const QMetaMethod* signal) {
+void QLineEdit_SuperDisconnectNotify(QLineEdit* self, const QMetaMethod* signal) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_DisconnectNotify_IsBase(true);
@@ -1908,7 +1908,7 @@ QRect* QLineEdit_CursorRect(const QLineEdit* self) {
 }
 
 // Base class handler implementation
-QRect* QLineEdit_QBaseCursorRect(const QLineEdit* self) {
+QRect* QLineEdit_SuperCursorRect(const QLineEdit* self) {
     auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_CursorRect_IsBase(true);
@@ -1936,7 +1936,7 @@ void QLineEdit_UpdateMicroFocus(QLineEdit* self) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseUpdateMicroFocus(QLineEdit* self) {
+void QLineEdit_SuperUpdateMicroFocus(QLineEdit* self) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_UpdateMicroFocus_IsBase(true);
@@ -1965,7 +1965,7 @@ void QLineEdit_Create(QLineEdit* self) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseCreate(QLineEdit* self) {
+void QLineEdit_SuperCreate(QLineEdit* self) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_Create_IsBase(true);
@@ -1994,7 +1994,7 @@ void QLineEdit_Destroy(QLineEdit* self) {
 }
 
 // Base class handler implementation
-void QLineEdit_QBaseDestroy(QLineEdit* self) {
+void QLineEdit_SuperDestroy(QLineEdit* self) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_Destroy_IsBase(true);
@@ -2023,7 +2023,7 @@ bool QLineEdit_FocusNextChild(QLineEdit* self) {
 }
 
 // Base class handler implementation
-bool QLineEdit_QBaseFocusNextChild(QLineEdit* self) {
+bool QLineEdit_SuperFocusNextChild(QLineEdit* self) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_FocusNextChild_IsBase(true);
@@ -2052,7 +2052,7 @@ bool QLineEdit_FocusPreviousChild(QLineEdit* self) {
 }
 
 // Base class handler implementation
-bool QLineEdit_QBaseFocusPreviousChild(QLineEdit* self) {
+bool QLineEdit_SuperFocusPreviousChild(QLineEdit* self) {
     auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_FocusPreviousChild_IsBase(true);
@@ -2081,7 +2081,7 @@ QObject* QLineEdit_Sender(const QLineEdit* self) {
 }
 
 // Base class handler implementation
-QObject* QLineEdit_QBaseSender(const QLineEdit* self) {
+QObject* QLineEdit_SuperSender(const QLineEdit* self) {
     auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_Sender_IsBase(true);
@@ -2110,7 +2110,7 @@ int QLineEdit_SenderSignalIndex(const QLineEdit* self) {
 }
 
 // Base class handler implementation
-int QLineEdit_QBaseSenderSignalIndex(const QLineEdit* self) {
+int QLineEdit_SuperSenderSignalIndex(const QLineEdit* self) {
     auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_SenderSignalIndex_IsBase(true);
@@ -2139,7 +2139,7 @@ int QLineEdit_Receivers(const QLineEdit* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QLineEdit_QBaseReceivers(const QLineEdit* self, const char* signal) {
+int QLineEdit_SuperReceivers(const QLineEdit* self, const char* signal) {
     auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_Receivers_IsBase(true);
@@ -2168,7 +2168,7 @@ bool QLineEdit_IsSignalConnected(const QLineEdit* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool QLineEdit_QBaseIsSignalConnected(const QLineEdit* self, const QMetaMethod* signal) {
+bool QLineEdit_SuperIsSignalConnected(const QLineEdit* self, const QMetaMethod* signal) {
     auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_IsSignalConnected_IsBase(true);
@@ -2197,7 +2197,7 @@ double QLineEdit_GetDecodedMetricF(const QLineEdit* self, int metricA, int metri
 }
 
 // Base class handler implementation
-double QLineEdit_QBaseGetDecodedMetricF(const QLineEdit* self, int metricA, int metricB) {
+double QLineEdit_SuperGetDecodedMetricF(const QLineEdit* self, int metricA, int metricB) {
     auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
     if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
         vqlineedit->setQLineEdit_GetDecodedMetricF_IsBase(true);

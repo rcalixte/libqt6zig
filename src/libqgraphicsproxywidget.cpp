@@ -330,7 +330,7 @@ void QGraphicsProxyWidget_ResizeEvent(QGraphicsProxyWidget* self, QGraphicsScene
 }
 
 // Base class handler implementation
-QMetaObject* QGraphicsProxyWidget_QBaseMetaObject(const QGraphicsProxyWidget* self) {
+QMetaObject* QGraphicsProxyWidget_SuperMetaObject(const QGraphicsProxyWidget* self) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_MetaObject_IsBase(true);
@@ -349,7 +349,7 @@ void QGraphicsProxyWidget_OnMetaObject(const QGraphicsProxyWidget* self, intptr_
 }
 
 // Base class handler implementation
-void* QGraphicsProxyWidget_QBaseMetacast(QGraphicsProxyWidget* self, const char* param1) {
+void* QGraphicsProxyWidget_SuperMetacast(QGraphicsProxyWidget* self, const char* param1) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Metacast_IsBase(true);
@@ -368,7 +368,7 @@ void QGraphicsProxyWidget_OnMetacast(QGraphicsProxyWidget* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int QGraphicsProxyWidget_QBaseMetacall(QGraphicsProxyWidget* self, int param1, int param2, void** param3) {
+int QGraphicsProxyWidget_SuperMetacall(QGraphicsProxyWidget* self, int param1, int param2, void** param3) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Metacall_IsBase(true);
@@ -387,7 +387,7 @@ void QGraphicsProxyWidget_OnMetacall(QGraphicsProxyWidget* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseSetGeometry(QGraphicsProxyWidget* self, const QRectF* rect) {
+void QGraphicsProxyWidget_SuperSetGeometry(QGraphicsProxyWidget* self, const QRectF* rect) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_SetGeometry_IsBase(true);
@@ -406,7 +406,7 @@ void QGraphicsProxyWidget_OnSetGeometry(QGraphicsProxyWidget* self, intptr_t slo
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBasePaint(QGraphicsProxyWidget* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void QGraphicsProxyWidget_SuperPaint(QGraphicsProxyWidget* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Paint_IsBase(true);
@@ -425,7 +425,7 @@ void QGraphicsProxyWidget_OnPaint(QGraphicsProxyWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QGraphicsProxyWidget_QBaseType(const QGraphicsProxyWidget* self) {
+int QGraphicsProxyWidget_SuperType(const QGraphicsProxyWidget* self) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Type_IsBase(true);
@@ -444,7 +444,7 @@ void QGraphicsProxyWidget_OnType(const QGraphicsProxyWidget* self, intptr_t slot
 }
 
 // Base class handler implementation
-QVariant* QGraphicsProxyWidget_QBaseItemChange(QGraphicsProxyWidget* self, int change, const QVariant* value) {
+QVariant* QGraphicsProxyWidget_SuperItemChange(QGraphicsProxyWidget* self, int change, const QVariant* value) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_ItemChange_IsBase(true);
@@ -462,7 +462,7 @@ void QGraphicsProxyWidget_OnItemChange(QGraphicsProxyWidget* self, intptr_t slot
 }
 
 // Base class handler implementation
-bool QGraphicsProxyWidget_QBaseEvent(QGraphicsProxyWidget* self, QEvent* event) {
+bool QGraphicsProxyWidget_SuperEvent(QGraphicsProxyWidget* self, QEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Event_IsBase(true);
@@ -481,7 +481,7 @@ void QGraphicsProxyWidget_OnEvent(QGraphicsProxyWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QGraphicsProxyWidget_QBaseEventFilter(QGraphicsProxyWidget* self, QObject* object, QEvent* event) {
+bool QGraphicsProxyWidget_SuperEventFilter(QGraphicsProxyWidget* self, QObject* object, QEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_EventFilter_IsBase(true);
@@ -500,7 +500,7 @@ void QGraphicsProxyWidget_OnEventFilter(QGraphicsProxyWidget* self, intptr_t slo
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseShowEvent(QGraphicsProxyWidget* self, QShowEvent* event) {
+void QGraphicsProxyWidget_SuperShowEvent(QGraphicsProxyWidget* self, QShowEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_ShowEvent_IsBase(true);
@@ -519,7 +519,7 @@ void QGraphicsProxyWidget_OnShowEvent(QGraphicsProxyWidget* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseHideEvent(QGraphicsProxyWidget* self, QHideEvent* event) {
+void QGraphicsProxyWidget_SuperHideEvent(QGraphicsProxyWidget* self, QHideEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_HideEvent_IsBase(true);
@@ -538,7 +538,7 @@ void QGraphicsProxyWidget_OnHideEvent(QGraphicsProxyWidget* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseContextMenuEvent(QGraphicsProxyWidget* self, QGraphicsSceneContextMenuEvent* event) {
+void QGraphicsProxyWidget_SuperContextMenuEvent(QGraphicsProxyWidget* self, QGraphicsSceneContextMenuEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_ContextMenuEvent_IsBase(true);
@@ -557,7 +557,7 @@ void QGraphicsProxyWidget_OnContextMenuEvent(QGraphicsProxyWidget* self, intptr_
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseDragEnterEvent(QGraphicsProxyWidget* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsProxyWidget_SuperDragEnterEvent(QGraphicsProxyWidget* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_DragEnterEvent_IsBase(true);
@@ -576,7 +576,7 @@ void QGraphicsProxyWidget_OnDragEnterEvent(QGraphicsProxyWidget* self, intptr_t 
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseDragLeaveEvent(QGraphicsProxyWidget* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsProxyWidget_SuperDragLeaveEvent(QGraphicsProxyWidget* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_DragLeaveEvent_IsBase(true);
@@ -595,7 +595,7 @@ void QGraphicsProxyWidget_OnDragLeaveEvent(QGraphicsProxyWidget* self, intptr_t 
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseDragMoveEvent(QGraphicsProxyWidget* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsProxyWidget_SuperDragMoveEvent(QGraphicsProxyWidget* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_DragMoveEvent_IsBase(true);
@@ -614,7 +614,7 @@ void QGraphicsProxyWidget_OnDragMoveEvent(QGraphicsProxyWidget* self, intptr_t s
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseDropEvent(QGraphicsProxyWidget* self, QGraphicsSceneDragDropEvent* event) {
+void QGraphicsProxyWidget_SuperDropEvent(QGraphicsProxyWidget* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_DropEvent_IsBase(true);
@@ -633,7 +633,7 @@ void QGraphicsProxyWidget_OnDropEvent(QGraphicsProxyWidget* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseHoverEnterEvent(QGraphicsProxyWidget* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsProxyWidget_SuperHoverEnterEvent(QGraphicsProxyWidget* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_HoverEnterEvent_IsBase(true);
@@ -652,7 +652,7 @@ void QGraphicsProxyWidget_OnHoverEnterEvent(QGraphicsProxyWidget* self, intptr_t
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseHoverLeaveEvent(QGraphicsProxyWidget* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsProxyWidget_SuperHoverLeaveEvent(QGraphicsProxyWidget* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_HoverLeaveEvent_IsBase(true);
@@ -671,7 +671,7 @@ void QGraphicsProxyWidget_OnHoverLeaveEvent(QGraphicsProxyWidget* self, intptr_t
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseHoverMoveEvent(QGraphicsProxyWidget* self, QGraphicsSceneHoverEvent* event) {
+void QGraphicsProxyWidget_SuperHoverMoveEvent(QGraphicsProxyWidget* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_HoverMoveEvent_IsBase(true);
@@ -690,7 +690,7 @@ void QGraphicsProxyWidget_OnHoverMoveEvent(QGraphicsProxyWidget* self, intptr_t 
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseGrabMouseEvent(QGraphicsProxyWidget* self, QEvent* event) {
+void QGraphicsProxyWidget_SuperGrabMouseEvent(QGraphicsProxyWidget* self, QEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_GrabMouseEvent_IsBase(true);
@@ -709,7 +709,7 @@ void QGraphicsProxyWidget_OnGrabMouseEvent(QGraphicsProxyWidget* self, intptr_t 
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseUngrabMouseEvent(QGraphicsProxyWidget* self, QEvent* event) {
+void QGraphicsProxyWidget_SuperUngrabMouseEvent(QGraphicsProxyWidget* self, QEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_UngrabMouseEvent_IsBase(true);
@@ -728,7 +728,7 @@ void QGraphicsProxyWidget_OnUngrabMouseEvent(QGraphicsProxyWidget* self, intptr_
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseMouseMoveEvent(QGraphicsProxyWidget* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsProxyWidget_SuperMouseMoveEvent(QGraphicsProxyWidget* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_MouseMoveEvent_IsBase(true);
@@ -747,7 +747,7 @@ void QGraphicsProxyWidget_OnMouseMoveEvent(QGraphicsProxyWidget* self, intptr_t 
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseMousePressEvent(QGraphicsProxyWidget* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsProxyWidget_SuperMousePressEvent(QGraphicsProxyWidget* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_MousePressEvent_IsBase(true);
@@ -766,7 +766,7 @@ void QGraphicsProxyWidget_OnMousePressEvent(QGraphicsProxyWidget* self, intptr_t
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseMouseReleaseEvent(QGraphicsProxyWidget* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsProxyWidget_SuperMouseReleaseEvent(QGraphicsProxyWidget* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_MouseReleaseEvent_IsBase(true);
@@ -785,7 +785,7 @@ void QGraphicsProxyWidget_OnMouseReleaseEvent(QGraphicsProxyWidget* self, intptr
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseMouseDoubleClickEvent(QGraphicsProxyWidget* self, QGraphicsSceneMouseEvent* event) {
+void QGraphicsProxyWidget_SuperMouseDoubleClickEvent(QGraphicsProxyWidget* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_MouseDoubleClickEvent_IsBase(true);
@@ -804,7 +804,7 @@ void QGraphicsProxyWidget_OnMouseDoubleClickEvent(QGraphicsProxyWidget* self, in
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseWheelEvent(QGraphicsProxyWidget* self, QGraphicsSceneWheelEvent* event) {
+void QGraphicsProxyWidget_SuperWheelEvent(QGraphicsProxyWidget* self, QGraphicsSceneWheelEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_WheelEvent_IsBase(true);
@@ -823,7 +823,7 @@ void QGraphicsProxyWidget_OnWheelEvent(QGraphicsProxyWidget* self, intptr_t slot
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseKeyPressEvent(QGraphicsProxyWidget* self, QKeyEvent* event) {
+void QGraphicsProxyWidget_SuperKeyPressEvent(QGraphicsProxyWidget* self, QKeyEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_KeyPressEvent_IsBase(true);
@@ -842,7 +842,7 @@ void QGraphicsProxyWidget_OnKeyPressEvent(QGraphicsProxyWidget* self, intptr_t s
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseKeyReleaseEvent(QGraphicsProxyWidget* self, QKeyEvent* event) {
+void QGraphicsProxyWidget_SuperKeyReleaseEvent(QGraphicsProxyWidget* self, QKeyEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_KeyReleaseEvent_IsBase(true);
@@ -861,7 +861,7 @@ void QGraphicsProxyWidget_OnKeyReleaseEvent(QGraphicsProxyWidget* self, intptr_t
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseFocusInEvent(QGraphicsProxyWidget* self, QFocusEvent* event) {
+void QGraphicsProxyWidget_SuperFocusInEvent(QGraphicsProxyWidget* self, QFocusEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_FocusInEvent_IsBase(true);
@@ -880,7 +880,7 @@ void QGraphicsProxyWidget_OnFocusInEvent(QGraphicsProxyWidget* self, intptr_t sl
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseFocusOutEvent(QGraphicsProxyWidget* self, QFocusEvent* event) {
+void QGraphicsProxyWidget_SuperFocusOutEvent(QGraphicsProxyWidget* self, QFocusEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_FocusOutEvent_IsBase(true);
@@ -899,7 +899,7 @@ void QGraphicsProxyWidget_OnFocusOutEvent(QGraphicsProxyWidget* self, intptr_t s
 }
 
 // Base class handler implementation
-bool QGraphicsProxyWidget_QBaseFocusNextPrevChild(QGraphicsProxyWidget* self, bool next) {
+bool QGraphicsProxyWidget_SuperFocusNextPrevChild(QGraphicsProxyWidget* self, bool next) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_FocusNextPrevChild_IsBase(true);
@@ -918,7 +918,7 @@ void QGraphicsProxyWidget_OnFocusNextPrevChild(QGraphicsProxyWidget* self, intpt
 }
 
 // Base class handler implementation
-QVariant* QGraphicsProxyWidget_QBaseInputMethodQuery(const QGraphicsProxyWidget* self, int query) {
+QVariant* QGraphicsProxyWidget_SuperInputMethodQuery(const QGraphicsProxyWidget* self, int query) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_InputMethodQuery_IsBase(true);
@@ -936,7 +936,7 @@ void QGraphicsProxyWidget_OnInputMethodQuery(const QGraphicsProxyWidget* self, i
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseInputMethodEvent(QGraphicsProxyWidget* self, QInputMethodEvent* event) {
+void QGraphicsProxyWidget_SuperInputMethodEvent(QGraphicsProxyWidget* self, QInputMethodEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_InputMethodEvent_IsBase(true);
@@ -955,7 +955,7 @@ void QGraphicsProxyWidget_OnInputMethodEvent(QGraphicsProxyWidget* self, intptr_
 }
 
 // Base class handler implementation
-QSizeF* QGraphicsProxyWidget_QBaseSizeHint(const QGraphicsProxyWidget* self, int which, const QSizeF* constraint) {
+QSizeF* QGraphicsProxyWidget_SuperSizeHint(const QGraphicsProxyWidget* self, int which, const QSizeF* constraint) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_SizeHint_IsBase(true);
@@ -973,7 +973,7 @@ void QGraphicsProxyWidget_OnSizeHint(const QGraphicsProxyWidget* self, intptr_t 
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseResizeEvent(QGraphicsProxyWidget* self, QGraphicsSceneResizeEvent* event) {
+void QGraphicsProxyWidget_SuperResizeEvent(QGraphicsProxyWidget* self, QGraphicsSceneResizeEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_ResizeEvent_IsBase(true);
@@ -1002,7 +1002,7 @@ void QGraphicsProxyWidget_GetContentsMargins(const QGraphicsProxyWidget* self, d
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseGetContentsMargins(const QGraphicsProxyWidget* self, double* left, double* top, double* right, double* bottom) {
+void QGraphicsProxyWidget_SuperGetContentsMargins(const QGraphicsProxyWidget* self, double* left, double* top, double* right, double* bottom) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_GetContentsMargins_IsBase(true);
@@ -1031,7 +1031,7 @@ void QGraphicsProxyWidget_PaintWindowFrame(QGraphicsProxyWidget* self, QPainter*
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBasePaintWindowFrame(QGraphicsProxyWidget* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
+void QGraphicsProxyWidget_SuperPaintWindowFrame(QGraphicsProxyWidget* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_PaintWindowFrame_IsBase(true);
@@ -1060,7 +1060,7 @@ QRectF* QGraphicsProxyWidget_BoundingRect(const QGraphicsProxyWidget* self) {
 }
 
 // Base class handler implementation
-QRectF* QGraphicsProxyWidget_QBaseBoundingRect(const QGraphicsProxyWidget* self) {
+QRectF* QGraphicsProxyWidget_SuperBoundingRect(const QGraphicsProxyWidget* self) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_BoundingRect_IsBase(true);
@@ -1089,7 +1089,7 @@ QPainterPath* QGraphicsProxyWidget_Shape(const QGraphicsProxyWidget* self) {
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsProxyWidget_QBaseShape(const QGraphicsProxyWidget* self) {
+QPainterPath* QGraphicsProxyWidget_SuperShape(const QGraphicsProxyWidget* self) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Shape_IsBase(true);
@@ -1118,7 +1118,7 @@ void QGraphicsProxyWidget_InitStyleOption(const QGraphicsProxyWidget* self, QSty
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseInitStyleOption(const QGraphicsProxyWidget* self, QStyleOption* option) {
+void QGraphicsProxyWidget_SuperInitStyleOption(const QGraphicsProxyWidget* self, QStyleOption* option) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_InitStyleOption_IsBase(true);
@@ -1147,7 +1147,7 @@ void QGraphicsProxyWidget_UpdateGeometry(QGraphicsProxyWidget* self) {
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseUpdateGeometry(QGraphicsProxyWidget* self) {
+void QGraphicsProxyWidget_SuperUpdateGeometry(QGraphicsProxyWidget* self) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_UpdateGeometry_IsBase(true);
@@ -1176,7 +1176,7 @@ QVariant* QGraphicsProxyWidget_PropertyChange(QGraphicsProxyWidget* self, const 
 }
 
 // Base class handler implementation
-QVariant* QGraphicsProxyWidget_QBasePropertyChange(QGraphicsProxyWidget* self, const libqt_string propertyName, const QVariant* value) {
+QVariant* QGraphicsProxyWidget_SuperPropertyChange(QGraphicsProxyWidget* self, const libqt_string propertyName, const QVariant* value) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     QString propertyName_QString = QString::fromUtf8(propertyName.data, propertyName.len);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
@@ -1205,7 +1205,7 @@ bool QGraphicsProxyWidget_SceneEvent(QGraphicsProxyWidget* self, QEvent* event) 
 }
 
 // Base class handler implementation
-bool QGraphicsProxyWidget_QBaseSceneEvent(QGraphicsProxyWidget* self, QEvent* event) {
+bool QGraphicsProxyWidget_SuperSceneEvent(QGraphicsProxyWidget* self, QEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_SceneEvent_IsBase(true);
@@ -1234,7 +1234,7 @@ bool QGraphicsProxyWidget_WindowFrameEvent(QGraphicsProxyWidget* self, QEvent* e
 }
 
 // Base class handler implementation
-bool QGraphicsProxyWidget_QBaseWindowFrameEvent(QGraphicsProxyWidget* self, QEvent* e) {
+bool QGraphicsProxyWidget_SuperWindowFrameEvent(QGraphicsProxyWidget* self, QEvent* e) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_WindowFrameEvent_IsBase(true);
@@ -1263,7 +1263,7 @@ int QGraphicsProxyWidget_WindowFrameSectionAt(const QGraphicsProxyWidget* self, 
 }
 
 // Base class handler implementation
-int QGraphicsProxyWidget_QBaseWindowFrameSectionAt(const QGraphicsProxyWidget* self, const QPointF* pos) {
+int QGraphicsProxyWidget_SuperWindowFrameSectionAt(const QGraphicsProxyWidget* self, const QPointF* pos) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_WindowFrameSectionAt_IsBase(true);
@@ -1292,7 +1292,7 @@ void QGraphicsProxyWidget_ChangeEvent(QGraphicsProxyWidget* self, QEvent* event)
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseChangeEvent(QGraphicsProxyWidget* self, QEvent* event) {
+void QGraphicsProxyWidget_SuperChangeEvent(QGraphicsProxyWidget* self, QEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_ChangeEvent_IsBase(true);
@@ -1321,7 +1321,7 @@ void QGraphicsProxyWidget_CloseEvent(QGraphicsProxyWidget* self, QCloseEvent* ev
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseCloseEvent(QGraphicsProxyWidget* self, QCloseEvent* event) {
+void QGraphicsProxyWidget_SuperCloseEvent(QGraphicsProxyWidget* self, QCloseEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_CloseEvent_IsBase(true);
@@ -1350,7 +1350,7 @@ void QGraphicsProxyWidget_MoveEvent(QGraphicsProxyWidget* self, QGraphicsSceneMo
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseMoveEvent(QGraphicsProxyWidget* self, QGraphicsSceneMoveEvent* event) {
+void QGraphicsProxyWidget_SuperMoveEvent(QGraphicsProxyWidget* self, QGraphicsSceneMoveEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_MoveEvent_IsBase(true);
@@ -1379,7 +1379,7 @@ void QGraphicsProxyWidget_PolishEvent(QGraphicsProxyWidget* self) {
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBasePolishEvent(QGraphicsProxyWidget* self) {
+void QGraphicsProxyWidget_SuperPolishEvent(QGraphicsProxyWidget* self) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_PolishEvent_IsBase(true);
@@ -1408,7 +1408,7 @@ void QGraphicsProxyWidget_GrabKeyboardEvent(QGraphicsProxyWidget* self, QEvent* 
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseGrabKeyboardEvent(QGraphicsProxyWidget* self, QEvent* event) {
+void QGraphicsProxyWidget_SuperGrabKeyboardEvent(QGraphicsProxyWidget* self, QEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_GrabKeyboardEvent_IsBase(true);
@@ -1437,7 +1437,7 @@ void QGraphicsProxyWidget_UngrabKeyboardEvent(QGraphicsProxyWidget* self, QEvent
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseUngrabKeyboardEvent(QGraphicsProxyWidget* self, QEvent* event) {
+void QGraphicsProxyWidget_SuperUngrabKeyboardEvent(QGraphicsProxyWidget* self, QEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_UngrabKeyboardEvent_IsBase(true);
@@ -1466,7 +1466,7 @@ void QGraphicsProxyWidget_TimerEvent(QGraphicsProxyWidget* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseTimerEvent(QGraphicsProxyWidget* self, QTimerEvent* event) {
+void QGraphicsProxyWidget_SuperTimerEvent(QGraphicsProxyWidget* self, QTimerEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_TimerEvent_IsBase(true);
@@ -1495,7 +1495,7 @@ void QGraphicsProxyWidget_ChildEvent(QGraphicsProxyWidget* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseChildEvent(QGraphicsProxyWidget* self, QChildEvent* event) {
+void QGraphicsProxyWidget_SuperChildEvent(QGraphicsProxyWidget* self, QChildEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_ChildEvent_IsBase(true);
@@ -1524,7 +1524,7 @@ void QGraphicsProxyWidget_CustomEvent(QGraphicsProxyWidget* self, QEvent* event)
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseCustomEvent(QGraphicsProxyWidget* self, QEvent* event) {
+void QGraphicsProxyWidget_SuperCustomEvent(QGraphicsProxyWidget* self, QEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_CustomEvent_IsBase(true);
@@ -1553,7 +1553,7 @@ void QGraphicsProxyWidget_ConnectNotify(QGraphicsProxyWidget* self, const QMetaM
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseConnectNotify(QGraphicsProxyWidget* self, const QMetaMethod* signal) {
+void QGraphicsProxyWidget_SuperConnectNotify(QGraphicsProxyWidget* self, const QMetaMethod* signal) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_ConnectNotify_IsBase(true);
@@ -1582,7 +1582,7 @@ void QGraphicsProxyWidget_DisconnectNotify(QGraphicsProxyWidget* self, const QMe
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseDisconnectNotify(QGraphicsProxyWidget* self, const QMetaMethod* signal) {
+void QGraphicsProxyWidget_SuperDisconnectNotify(QGraphicsProxyWidget* self, const QMetaMethod* signal) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_DisconnectNotify_IsBase(true);
@@ -1611,7 +1611,7 @@ void QGraphicsProxyWidget_Advance(QGraphicsProxyWidget* self, int phase) {
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseAdvance(QGraphicsProxyWidget* self, int phase) {
+void QGraphicsProxyWidget_SuperAdvance(QGraphicsProxyWidget* self, int phase) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Advance_IsBase(true);
@@ -1640,7 +1640,7 @@ bool QGraphicsProxyWidget_Contains(const QGraphicsProxyWidget* self, const QPoin
 }
 
 // Base class handler implementation
-bool QGraphicsProxyWidget_QBaseContains(const QGraphicsProxyWidget* self, const QPointF* point) {
+bool QGraphicsProxyWidget_SuperContains(const QGraphicsProxyWidget* self, const QPointF* point) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Contains_IsBase(true);
@@ -1669,7 +1669,7 @@ bool QGraphicsProxyWidget_CollidesWithItem(const QGraphicsProxyWidget* self, con
 }
 
 // Base class handler implementation
-bool QGraphicsProxyWidget_QBaseCollidesWithItem(const QGraphicsProxyWidget* self, const QGraphicsItem* other, int mode) {
+bool QGraphicsProxyWidget_SuperCollidesWithItem(const QGraphicsProxyWidget* self, const QGraphicsItem* other, int mode) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_CollidesWithItem_IsBase(true);
@@ -1698,7 +1698,7 @@ bool QGraphicsProxyWidget_CollidesWithPath(const QGraphicsProxyWidget* self, con
 }
 
 // Base class handler implementation
-bool QGraphicsProxyWidget_QBaseCollidesWithPath(const QGraphicsProxyWidget* self, const QPainterPath* path, int mode) {
+bool QGraphicsProxyWidget_SuperCollidesWithPath(const QGraphicsProxyWidget* self, const QPainterPath* path, int mode) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_CollidesWithPath_IsBase(true);
@@ -1727,7 +1727,7 @@ bool QGraphicsProxyWidget_IsObscuredBy(const QGraphicsProxyWidget* self, const Q
 }
 
 // Base class handler implementation
-bool QGraphicsProxyWidget_QBaseIsObscuredBy(const QGraphicsProxyWidget* self, const QGraphicsItem* item) {
+bool QGraphicsProxyWidget_SuperIsObscuredBy(const QGraphicsProxyWidget* self, const QGraphicsItem* item) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_IsObscuredBy_IsBase(true);
@@ -1756,7 +1756,7 @@ QPainterPath* QGraphicsProxyWidget_OpaqueArea(const QGraphicsProxyWidget* self) 
 }
 
 // Base class handler implementation
-QPainterPath* QGraphicsProxyWidget_QBaseOpaqueArea(const QGraphicsProxyWidget* self) {
+QPainterPath* QGraphicsProxyWidget_SuperOpaqueArea(const QGraphicsProxyWidget* self) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_OpaqueArea_IsBase(true);
@@ -1785,7 +1785,7 @@ bool QGraphicsProxyWidget_SceneEventFilter(QGraphicsProxyWidget* self, QGraphics
 }
 
 // Base class handler implementation
-bool QGraphicsProxyWidget_QBaseSceneEventFilter(QGraphicsProxyWidget* self, QGraphicsItem* watched, QEvent* event) {
+bool QGraphicsProxyWidget_SuperSceneEventFilter(QGraphicsProxyWidget* self, QGraphicsItem* watched, QEvent* event) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_SceneEventFilter_IsBase(true);
@@ -1814,7 +1814,7 @@ bool QGraphicsProxyWidget_SupportsExtension(const QGraphicsProxyWidget* self, in
 }
 
 // Base class handler implementation
-bool QGraphicsProxyWidget_QBaseSupportsExtension(const QGraphicsProxyWidget* self, int extension) {
+bool QGraphicsProxyWidget_SuperSupportsExtension(const QGraphicsProxyWidget* self, int extension) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_SupportsExtension_IsBase(true);
@@ -1843,7 +1843,7 @@ void QGraphicsProxyWidget_SetExtension(QGraphicsProxyWidget* self, int extension
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseSetExtension(QGraphicsProxyWidget* self, int extension, const QVariant* variant) {
+void QGraphicsProxyWidget_SuperSetExtension(QGraphicsProxyWidget* self, int extension, const QVariant* variant) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_SetExtension_IsBase(true);
@@ -1871,7 +1871,7 @@ QVariant* QGraphicsProxyWidget_Extension(const QGraphicsProxyWidget* self, const
 }
 
 // Base class handler implementation
-QVariant* QGraphicsProxyWidget_QBaseExtension(const QGraphicsProxyWidget* self, const QVariant* variant) {
+QVariant* QGraphicsProxyWidget_SuperExtension(const QGraphicsProxyWidget* self, const QVariant* variant) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Extension_IsBase(true);
@@ -1899,7 +1899,7 @@ bool QGraphicsProxyWidget_IsEmpty(const QGraphicsProxyWidget* self) {
 }
 
 // Base class handler implementation
-bool QGraphicsProxyWidget_QBaseIsEmpty(const QGraphicsProxyWidget* self) {
+bool QGraphicsProxyWidget_SuperIsEmpty(const QGraphicsProxyWidget* self) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_IsEmpty_IsBase(true);
@@ -1928,7 +1928,7 @@ QGraphicsProxyWidget* QGraphicsProxyWidget_NewProxyWidget(QGraphicsProxyWidget* 
 }
 
 // Base class handler implementation
-QGraphicsProxyWidget* QGraphicsProxyWidget_QBaseNewProxyWidget(QGraphicsProxyWidget* self, const QWidget* param1) {
+QGraphicsProxyWidget* QGraphicsProxyWidget_SuperNewProxyWidget(QGraphicsProxyWidget* self, const QWidget* param1) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_NewProxyWidget_IsBase(true);
@@ -1957,7 +1957,7 @@ void QGraphicsProxyWidget_UpdateMicroFocus(QGraphicsProxyWidget* self) {
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseUpdateMicroFocus(QGraphicsProxyWidget* self) {
+void QGraphicsProxyWidget_SuperUpdateMicroFocus(QGraphicsProxyWidget* self) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_UpdateMicroFocus_IsBase(true);
@@ -1986,7 +1986,7 @@ QObject* QGraphicsProxyWidget_Sender(const QGraphicsProxyWidget* self) {
 }
 
 // Base class handler implementation
-QObject* QGraphicsProxyWidget_QBaseSender(const QGraphicsProxyWidget* self) {
+QObject* QGraphicsProxyWidget_SuperSender(const QGraphicsProxyWidget* self) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Sender_IsBase(true);
@@ -2015,7 +2015,7 @@ int QGraphicsProxyWidget_SenderSignalIndex(const QGraphicsProxyWidget* self) {
 }
 
 // Base class handler implementation
-int QGraphicsProxyWidget_QBaseSenderSignalIndex(const QGraphicsProxyWidget* self) {
+int QGraphicsProxyWidget_SuperSenderSignalIndex(const QGraphicsProxyWidget* self) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_SenderSignalIndex_IsBase(true);
@@ -2044,7 +2044,7 @@ int QGraphicsProxyWidget_Receivers(const QGraphicsProxyWidget* self, const char*
 }
 
 // Base class handler implementation
-int QGraphicsProxyWidget_QBaseReceivers(const QGraphicsProxyWidget* self, const char* signal) {
+int QGraphicsProxyWidget_SuperReceivers(const QGraphicsProxyWidget* self, const char* signal) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Receivers_IsBase(true);
@@ -2073,7 +2073,7 @@ bool QGraphicsProxyWidget_IsSignalConnected(const QGraphicsProxyWidget* self, co
 }
 
 // Base class handler implementation
-bool QGraphicsProxyWidget_QBaseIsSignalConnected(const QGraphicsProxyWidget* self, const QMetaMethod* signal) {
+bool QGraphicsProxyWidget_SuperIsSignalConnected(const QGraphicsProxyWidget* self, const QMetaMethod* signal) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_IsSignalConnected_IsBase(true);
@@ -2102,7 +2102,7 @@ void QGraphicsProxyWidget_AddToIndex(QGraphicsProxyWidget* self) {
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseAddToIndex(QGraphicsProxyWidget* self) {
+void QGraphicsProxyWidget_SuperAddToIndex(QGraphicsProxyWidget* self) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_AddToIndex_IsBase(true);
@@ -2131,7 +2131,7 @@ void QGraphicsProxyWidget_RemoveFromIndex(QGraphicsProxyWidget* self) {
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseRemoveFromIndex(QGraphicsProxyWidget* self) {
+void QGraphicsProxyWidget_SuperRemoveFromIndex(QGraphicsProxyWidget* self) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_RemoveFromIndex_IsBase(true);
@@ -2160,7 +2160,7 @@ void QGraphicsProxyWidget_PrepareGeometryChange(QGraphicsProxyWidget* self) {
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBasePrepareGeometryChange(QGraphicsProxyWidget* self) {
+void QGraphicsProxyWidget_SuperPrepareGeometryChange(QGraphicsProxyWidget* self) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_PrepareGeometryChange_IsBase(true);
@@ -2189,7 +2189,7 @@ void QGraphicsProxyWidget_SetGraphicsItem(QGraphicsProxyWidget* self, QGraphicsI
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseSetGraphicsItem(QGraphicsProxyWidget* self, QGraphicsItem* item) {
+void QGraphicsProxyWidget_SuperSetGraphicsItem(QGraphicsProxyWidget* self, QGraphicsItem* item) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_SetGraphicsItem_IsBase(true);
@@ -2218,7 +2218,7 @@ void QGraphicsProxyWidget_SetOwnedByLayout(QGraphicsProxyWidget* self, bool owne
 }
 
 // Base class handler implementation
-void QGraphicsProxyWidget_QBaseSetOwnedByLayout(QGraphicsProxyWidget* self, bool ownedByLayout) {
+void QGraphicsProxyWidget_SuperSetOwnedByLayout(QGraphicsProxyWidget* self, bool ownedByLayout) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->setQGraphicsProxyWidget_SetOwnedByLayout_IsBase(true);

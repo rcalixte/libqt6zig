@@ -445,31 +445,31 @@ class VirtualKConfigLoader final : public KConfigLoader {
 
     // Friend functions
     friend bool KConfigLoader_UsrSave(KConfigLoader* self);
-    friend bool KConfigLoader_QBaseUsrSave(KConfigLoader* self);
+    friend bool KConfigLoader_SuperUsrSave(KConfigLoader* self);
     friend bool KConfigLoader_UsrUseDefaults(KConfigLoader* self, bool b);
-    friend bool KConfigLoader_QBaseUsrUseDefaults(KConfigLoader* self, bool b);
+    friend bool KConfigLoader_SuperUsrUseDefaults(KConfigLoader* self, bool b);
     friend void KConfigLoader_UsrSetDefaults(KConfigLoader* self);
-    friend void KConfigLoader_QBaseUsrSetDefaults(KConfigLoader* self);
+    friend void KConfigLoader_SuperUsrSetDefaults(KConfigLoader* self);
     friend void KConfigLoader_UsrRead(KConfigLoader* self);
-    friend void KConfigLoader_QBaseUsrRead(KConfigLoader* self);
+    friend void KConfigLoader_SuperUsrRead(KConfigLoader* self);
     friend void KConfigLoader_TimerEvent(KConfigLoader* self, QTimerEvent* event);
-    friend void KConfigLoader_QBaseTimerEvent(KConfigLoader* self, QTimerEvent* event);
+    friend void KConfigLoader_SuperTimerEvent(KConfigLoader* self, QTimerEvent* event);
     friend void KConfigLoader_ChildEvent(KConfigLoader* self, QChildEvent* event);
-    friend void KConfigLoader_QBaseChildEvent(KConfigLoader* self, QChildEvent* event);
+    friend void KConfigLoader_SuperChildEvent(KConfigLoader* self, QChildEvent* event);
     friend void KConfigLoader_CustomEvent(KConfigLoader* self, QEvent* event);
-    friend void KConfigLoader_QBaseCustomEvent(KConfigLoader* self, QEvent* event);
+    friend void KConfigLoader_SuperCustomEvent(KConfigLoader* self, QEvent* event);
     friend void KConfigLoader_ConnectNotify(KConfigLoader* self, const QMetaMethod* signal);
-    friend void KConfigLoader_QBaseConnectNotify(KConfigLoader* self, const QMetaMethod* signal);
+    friend void KConfigLoader_SuperConnectNotify(KConfigLoader* self, const QMetaMethod* signal);
     friend void KConfigLoader_DisconnectNotify(KConfigLoader* self, const QMetaMethod* signal);
-    friend void KConfigLoader_QBaseDisconnectNotify(KConfigLoader* self, const QMetaMethod* signal);
+    friend void KConfigLoader_SuperDisconnectNotify(KConfigLoader* self, const QMetaMethod* signal);
     friend QObject* KConfigLoader_Sender(const KConfigLoader* self);
-    friend QObject* KConfigLoader_QBaseSender(const KConfigLoader* self);
+    friend QObject* KConfigLoader_SuperSender(const KConfigLoader* self);
     friend int KConfigLoader_SenderSignalIndex(const KConfigLoader* self);
-    friend int KConfigLoader_QBaseSenderSignalIndex(const KConfigLoader* self);
+    friend int KConfigLoader_SuperSenderSignalIndex(const KConfigLoader* self);
     friend int KConfigLoader_Receivers(const KConfigLoader* self, const char* signal);
-    friend int KConfigLoader_QBaseReceivers(const KConfigLoader* self, const char* signal);
+    friend int KConfigLoader_SuperReceivers(const KConfigLoader* self, const char* signal);
     friend bool KConfigLoader_IsSignalConnected(const KConfigLoader* self, const QMetaMethod* signal);
-    friend bool KConfigLoader_QBaseIsSignalConnected(const KConfigLoader* self, const QMetaMethod* signal);
+    friend bool KConfigLoader_SuperIsSignalConnected(const KConfigLoader* self, const QMetaMethod* signal);
 };
 
 #endif

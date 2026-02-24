@@ -246,13 +246,17 @@ pub const attica__topic = struct {
         return qtc.Attica__Topic_IsValid(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Attica__Topic `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Attica__Topic_Delete(@ptrCast(self));
     }
 };

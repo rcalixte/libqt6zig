@@ -332,23 +332,23 @@ class VirtualQSharedMemory final : public QSharedMemory {
 
     // Friend functions
     friend void QSharedMemory_TimerEvent(QSharedMemory* self, QTimerEvent* event);
-    friend void QSharedMemory_QBaseTimerEvent(QSharedMemory* self, QTimerEvent* event);
+    friend void QSharedMemory_SuperTimerEvent(QSharedMemory* self, QTimerEvent* event);
     friend void QSharedMemory_ChildEvent(QSharedMemory* self, QChildEvent* event);
-    friend void QSharedMemory_QBaseChildEvent(QSharedMemory* self, QChildEvent* event);
+    friend void QSharedMemory_SuperChildEvent(QSharedMemory* self, QChildEvent* event);
     friend void QSharedMemory_CustomEvent(QSharedMemory* self, QEvent* event);
-    friend void QSharedMemory_QBaseCustomEvent(QSharedMemory* self, QEvent* event);
+    friend void QSharedMemory_SuperCustomEvent(QSharedMemory* self, QEvent* event);
     friend void QSharedMemory_ConnectNotify(QSharedMemory* self, const QMetaMethod* signal);
-    friend void QSharedMemory_QBaseConnectNotify(QSharedMemory* self, const QMetaMethod* signal);
+    friend void QSharedMemory_SuperConnectNotify(QSharedMemory* self, const QMetaMethod* signal);
     friend void QSharedMemory_DisconnectNotify(QSharedMemory* self, const QMetaMethod* signal);
-    friend void QSharedMemory_QBaseDisconnectNotify(QSharedMemory* self, const QMetaMethod* signal);
+    friend void QSharedMemory_SuperDisconnectNotify(QSharedMemory* self, const QMetaMethod* signal);
     friend QObject* QSharedMemory_Sender(const QSharedMemory* self);
-    friend QObject* QSharedMemory_QBaseSender(const QSharedMemory* self);
+    friend QObject* QSharedMemory_SuperSender(const QSharedMemory* self);
     friend int QSharedMemory_SenderSignalIndex(const QSharedMemory* self);
-    friend int QSharedMemory_QBaseSenderSignalIndex(const QSharedMemory* self);
+    friend int QSharedMemory_SuperSenderSignalIndex(const QSharedMemory* self);
     friend int QSharedMemory_Receivers(const QSharedMemory* self, const char* signal);
-    friend int QSharedMemory_QBaseReceivers(const QSharedMemory* self, const char* signal);
+    friend int QSharedMemory_SuperReceivers(const QSharedMemory* self, const char* signal);
     friend bool QSharedMemory_IsSignalConnected(const QSharedMemory* self, const QMetaMethod* signal);
-    friend bool QSharedMemory_QBaseIsSignalConnected(const QSharedMemory* self, const QMetaMethod* signal);
+    friend bool QSharedMemory_SuperIsSignalConnected(const QSharedMemory* self, const QMetaMethod* signal);
 };
 
 #endif

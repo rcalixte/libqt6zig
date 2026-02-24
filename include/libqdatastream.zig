@@ -616,6 +616,10 @@ pub const qdatastream = struct {
         return qtc.QDataStream_IsDeviceTransactionStarted(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#dtor.QDataStream)
     ///
     /// Delete this object from C++ memory.
@@ -624,7 +628,7 @@ pub const qdatastream = struct {
     ///
     /// ` self: QtC.QDataStream `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDataStream_Delete(@ptrCast(self));
     }
 };

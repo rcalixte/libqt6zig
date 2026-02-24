@@ -258,7 +258,7 @@ int KProcess_StartDetached22(const libqt_string exe, const libqt_list /* of libq
 }
 
 // Base class handler implementation
-QMetaObject* KProcess_QBaseMetaObject(const KProcess* self) {
+QMetaObject* KProcess_SuperMetaObject(const KProcess* self) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_MetaObject_IsBase(true);
@@ -277,7 +277,7 @@ void KProcess_OnMetaObject(const KProcess* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KProcess_QBaseMetacast(KProcess* self, const char* param1) {
+void* KProcess_SuperMetacast(KProcess* self, const char* param1) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_Metacast_IsBase(true);
@@ -296,7 +296,7 @@ void KProcess_OnMetacast(KProcess* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KProcess_QBaseMetacall(KProcess* self, int param1, int param2, void** param3) {
+int KProcess_SuperMetacall(KProcess* self, int param1, int param2, void** param3) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_Metacall_IsBase(true);
@@ -325,7 +325,7 @@ bool KProcess_Open(KProcess* self, int mode) {
 }
 
 // Base class handler implementation
-bool KProcess_QBaseOpen(KProcess* self, int mode) {
+bool KProcess_SuperOpen(KProcess* self, int mode) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_Open_IsBase(true);
@@ -354,7 +354,7 @@ bool KProcess_WaitForReadyRead(KProcess* self, int msecs) {
 }
 
 // Base class handler implementation
-bool KProcess_QBaseWaitForReadyRead(KProcess* self, int msecs) {
+bool KProcess_SuperWaitForReadyRead(KProcess* self, int msecs) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_WaitForReadyRead_IsBase(true);
@@ -383,7 +383,7 @@ bool KProcess_WaitForBytesWritten(KProcess* self, int msecs) {
 }
 
 // Base class handler implementation
-bool KProcess_QBaseWaitForBytesWritten(KProcess* self, int msecs) {
+bool KProcess_SuperWaitForBytesWritten(KProcess* self, int msecs) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_WaitForBytesWritten_IsBase(true);
@@ -412,7 +412,7 @@ long long KProcess_BytesToWrite(const KProcess* self) {
 }
 
 // Base class handler implementation
-long long KProcess_QBaseBytesToWrite(const KProcess* self) {
+long long KProcess_SuperBytesToWrite(const KProcess* self) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_BytesToWrite_IsBase(true);
@@ -441,7 +441,7 @@ bool KProcess_IsSequential(const KProcess* self) {
 }
 
 // Base class handler implementation
-bool KProcess_QBaseIsSequential(const KProcess* self) {
+bool KProcess_SuperIsSequential(const KProcess* self) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_IsSequential_IsBase(true);
@@ -470,7 +470,7 @@ void KProcess_Close(KProcess* self) {
 }
 
 // Base class handler implementation
-void KProcess_QBaseClose(KProcess* self) {
+void KProcess_SuperClose(KProcess* self) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_Close_IsBase(true);
@@ -499,7 +499,7 @@ long long KProcess_ReadData(KProcess* self, char* data, long long maxlen) {
 }
 
 // Base class handler implementation
-long long KProcess_QBaseReadData(KProcess* self, char* data, long long maxlen) {
+long long KProcess_SuperReadData(KProcess* self, char* data, long long maxlen) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_ReadData_IsBase(true);
@@ -528,7 +528,7 @@ long long KProcess_WriteData(KProcess* self, const char* data, long long lenVal)
 }
 
 // Base class handler implementation
-long long KProcess_QBaseWriteData(KProcess* self, const char* data, long long lenVal) {
+long long KProcess_SuperWriteData(KProcess* self, const char* data, long long lenVal) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_WriteData_IsBase(true);
@@ -557,7 +557,7 @@ long long KProcess_Pos(const KProcess* self) {
 }
 
 // Base class handler implementation
-long long KProcess_QBasePos(const KProcess* self) {
+long long KProcess_SuperPos(const KProcess* self) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_Pos_IsBase(true);
@@ -586,7 +586,7 @@ long long KProcess_Size(const KProcess* self) {
 }
 
 // Base class handler implementation
-long long KProcess_QBaseSize(const KProcess* self) {
+long long KProcess_SuperSize(const KProcess* self) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_Size_IsBase(true);
@@ -615,7 +615,7 @@ bool KProcess_Seek(KProcess* self, long long pos) {
 }
 
 // Base class handler implementation
-bool KProcess_QBaseSeek(KProcess* self, long long pos) {
+bool KProcess_SuperSeek(KProcess* self, long long pos) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_Seek_IsBase(true);
@@ -644,7 +644,7 @@ bool KProcess_AtEnd(const KProcess* self) {
 }
 
 // Base class handler implementation
-bool KProcess_QBaseAtEnd(const KProcess* self) {
+bool KProcess_SuperAtEnd(const KProcess* self) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_AtEnd_IsBase(true);
@@ -673,7 +673,7 @@ bool KProcess_Reset(KProcess* self) {
 }
 
 // Base class handler implementation
-bool KProcess_QBaseReset(KProcess* self) {
+bool KProcess_SuperReset(KProcess* self) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_Reset_IsBase(true);
@@ -702,7 +702,7 @@ long long KProcess_BytesAvailable(const KProcess* self) {
 }
 
 // Base class handler implementation
-long long KProcess_QBaseBytesAvailable(const KProcess* self) {
+long long KProcess_SuperBytesAvailable(const KProcess* self) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_BytesAvailable_IsBase(true);
@@ -731,7 +731,7 @@ bool KProcess_CanReadLine(const KProcess* self) {
 }
 
 // Base class handler implementation
-bool KProcess_QBaseCanReadLine(const KProcess* self) {
+bool KProcess_SuperCanReadLine(const KProcess* self) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_CanReadLine_IsBase(true);
@@ -760,7 +760,7 @@ long long KProcess_ReadLineData(KProcess* self, char* data, long long maxlen) {
 }
 
 // Base class handler implementation
-long long KProcess_QBaseReadLineData(KProcess* self, char* data, long long maxlen) {
+long long KProcess_SuperReadLineData(KProcess* self, char* data, long long maxlen) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_ReadLineData_IsBase(true);
@@ -789,7 +789,7 @@ long long KProcess_SkipData(KProcess* self, long long maxSize) {
 }
 
 // Base class handler implementation
-long long KProcess_QBaseSkipData(KProcess* self, long long maxSize) {
+long long KProcess_SuperSkipData(KProcess* self, long long maxSize) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_SkipData_IsBase(true);
@@ -818,7 +818,7 @@ bool KProcess_Event(KProcess* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KProcess_QBaseEvent(KProcess* self, QEvent* event) {
+bool KProcess_SuperEvent(KProcess* self, QEvent* event) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_Event_IsBase(true);
@@ -847,7 +847,7 @@ bool KProcess_EventFilter(KProcess* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KProcess_QBaseEventFilter(KProcess* self, QObject* watched, QEvent* event) {
+bool KProcess_SuperEventFilter(KProcess* self, QObject* watched, QEvent* event) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_EventFilter_IsBase(true);
@@ -876,7 +876,7 @@ void KProcess_TimerEvent(KProcess* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KProcess_QBaseTimerEvent(KProcess* self, QTimerEvent* event) {
+void KProcess_SuperTimerEvent(KProcess* self, QTimerEvent* event) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_TimerEvent_IsBase(true);
@@ -905,7 +905,7 @@ void KProcess_ChildEvent(KProcess* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KProcess_QBaseChildEvent(KProcess* self, QChildEvent* event) {
+void KProcess_SuperChildEvent(KProcess* self, QChildEvent* event) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_ChildEvent_IsBase(true);
@@ -934,7 +934,7 @@ void KProcess_CustomEvent(KProcess* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KProcess_QBaseCustomEvent(KProcess* self, QEvent* event) {
+void KProcess_SuperCustomEvent(KProcess* self, QEvent* event) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_CustomEvent_IsBase(true);
@@ -963,7 +963,7 @@ void KProcess_ConnectNotify(KProcess* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KProcess_QBaseConnectNotify(KProcess* self, const QMetaMethod* signal) {
+void KProcess_SuperConnectNotify(KProcess* self, const QMetaMethod* signal) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_ConnectNotify_IsBase(true);
@@ -992,7 +992,7 @@ void KProcess_DisconnectNotify(KProcess* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KProcess_QBaseDisconnectNotify(KProcess* self, const QMetaMethod* signal) {
+void KProcess_SuperDisconnectNotify(KProcess* self, const QMetaMethod* signal) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_DisconnectNotify_IsBase(true);
@@ -1021,7 +1021,7 @@ void KProcess_SetProcessState(KProcess* self, int state) {
 }
 
 // Base class handler implementation
-void KProcess_QBaseSetProcessState(KProcess* self, int state) {
+void KProcess_SuperSetProcessState(KProcess* self, int state) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_SetProcessState_IsBase(true);
@@ -1050,7 +1050,7 @@ void KProcess_SetOpenMode(KProcess* self, int openMode) {
 }
 
 // Base class handler implementation
-void KProcess_QBaseSetOpenMode(KProcess* self, int openMode) {
+void KProcess_SuperSetOpenMode(KProcess* self, int openMode) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_SetOpenMode_IsBase(true);
@@ -1080,7 +1080,7 @@ void KProcess_SetErrorString(KProcess* self, const libqt_string errorString) {
 }
 
 // Base class handler implementation
-void KProcess_QBaseSetErrorString(KProcess* self, const libqt_string errorString) {
+void KProcess_SuperSetErrorString(KProcess* self, const libqt_string errorString) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
     if (vkprocess && vkprocess->isVirtualKProcess) {
@@ -1110,7 +1110,7 @@ QObject* KProcess_Sender(const KProcess* self) {
 }
 
 // Base class handler implementation
-QObject* KProcess_QBaseSender(const KProcess* self) {
+QObject* KProcess_SuperSender(const KProcess* self) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_Sender_IsBase(true);
@@ -1139,7 +1139,7 @@ int KProcess_SenderSignalIndex(const KProcess* self) {
 }
 
 // Base class handler implementation
-int KProcess_QBaseSenderSignalIndex(const KProcess* self) {
+int KProcess_SuperSenderSignalIndex(const KProcess* self) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_SenderSignalIndex_IsBase(true);
@@ -1168,7 +1168,7 @@ int KProcess_Receivers(const KProcess* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KProcess_QBaseReceivers(const KProcess* self, const char* signal) {
+int KProcess_SuperReceivers(const KProcess* self, const char* signal) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_Receivers_IsBase(true);
@@ -1197,7 +1197,7 @@ bool KProcess_IsSignalConnected(const KProcess* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-bool KProcess_QBaseIsSignalConnected(const KProcess* self, const QMetaMethod* signal) {
+bool KProcess_SuperIsSignalConnected(const KProcess* self, const QMetaMethod* signal) {
     auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_IsSignalConnected_IsBase(true);

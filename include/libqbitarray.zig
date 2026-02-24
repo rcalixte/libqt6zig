@@ -399,6 +399,10 @@ pub const qbitarray = struct {
         return qtc.QBitArray_ToUInt322(@ptrCast(self), @bitCast(endianness), @ptrCast(ok));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#dtor.QBitArray)
     ///
     /// Delete this object from C++ memory.
@@ -407,7 +411,7 @@ pub const qbitarray = struct {
     ///
     /// ` self: QtC.QBitArray `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QBitArray_Delete(@ptrCast(self));
     }
 };
@@ -478,6 +482,10 @@ pub const qbitref = struct {
         qtc.QBitRef_OperatorAssign2(@ptrCast(self), val);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitref.html#dtor.QBitRef)
     ///
     /// Delete this object from C++ memory.
@@ -486,7 +494,7 @@ pub const qbitref = struct {
     ///
     /// ` self: QtC.QBitRef `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QBitRef_Delete(@ptrCast(self));
     }
 };

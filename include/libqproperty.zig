@@ -11,6 +11,10 @@ pub const qscopedpropertyupdategroup = struct {
         return qtc.QScopedPropertyUpdateGroup_new();
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscopedpropertyupdategroup.html#dtor.QScopedPropertyUpdateGroup)
     ///
     /// Delete this object from C++ memory.
@@ -19,7 +23,7 @@ pub const qscopedpropertyupdategroup = struct {
     ///
     /// ` self: QtC.QScopedPropertyUpdateGroup `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QScopedPropertyUpdateGroup_Delete(@ptrCast(self));
     }
 };
@@ -178,6 +182,10 @@ pub const qpropertybindingsourcelocation = struct {
         qtc.QPropertyBindingSourceLocation_SetColumn(@ptrCast(self), @bitCast(column));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#dtor.QPropertyBindingSourceLocation)
     ///
     /// Delete this object from C++ memory.
@@ -186,7 +194,7 @@ pub const qpropertybindingsourcelocation = struct {
     ///
     /// ` self: QtC.QPropertyBindingSourceLocation `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPropertyBindingSourceLocation_Delete(@ptrCast(self));
     }
 };
@@ -288,6 +296,10 @@ pub const qpropertybindingerror = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertybindingerror.html#dtor.QPropertyBindingError)
     ///
     /// Delete this object from C++ memory.
@@ -296,7 +308,7 @@ pub const qpropertybindingerror = struct {
     ///
     /// ` self: QtC.QPropertyBindingError `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPropertyBindingError_Delete(@ptrCast(self));
     }
 };
@@ -361,6 +373,10 @@ pub const quntypedpropertybinding = struct {
         return qtc.QUntypedPropertyBinding_ValueMetaType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedpropertybinding.html#dtor.QUntypedPropertyBinding)
     ///
     /// Delete this object from C++ memory.
@@ -369,7 +385,7 @@ pub const quntypedpropertybinding = struct {
     ///
     /// ` self: QtC.QUntypedPropertyBinding `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QUntypedPropertyBinding_Delete(@ptrCast(self));
     }
 };
@@ -392,6 +408,10 @@ pub const qpropertyobserverbase = struct {
         return qtc.QPropertyObserverBase_new2(@ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyobserverbase.html#dtor.QPropertyObserverBase)
     ///
     /// Delete this object from C++ memory.
@@ -400,7 +420,7 @@ pub const qpropertyobserverbase = struct {
     ///
     /// ` self: QtC.QPropertyObserverBase `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPropertyObserverBase_Delete(@ptrCast(self));
     }
 };
@@ -413,6 +433,10 @@ pub const qpropertyobserver = struct {
         return qtc.QPropertyObserver_new();
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyobserver.html#dtor.QPropertyObserver)
     ///
     /// Delete this object from C++ memory.
@@ -421,7 +445,7 @@ pub const qpropertyobserver = struct {
     ///
     /// ` self: QtC.QPropertyObserver `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPropertyObserver_Delete(@ptrCast(self));
     }
 };
@@ -434,6 +458,10 @@ pub const qpropertynotifier = struct {
         return qtc.QPropertyNotifier_new();
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertynotifier.html#dtor.QPropertyNotifier)
     ///
     /// Delete this object from C++ memory.
@@ -442,7 +470,7 @@ pub const qpropertynotifier = struct {
     ///
     /// ` self: QtC.QPropertyNotifier `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPropertyNotifier_Delete(@ptrCast(self));
     }
 };
@@ -625,6 +653,10 @@ pub const quntypedbindable = struct {
         return qtc.QUntypedBindable_MakeBinding1(@ptrCast(self), @ptrCast(location));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedbindable.html#dtor.QUntypedBindable)
     ///
     /// Delete this object from C++ memory.
@@ -633,7 +665,7 @@ pub const quntypedbindable = struct {
     ///
     /// ` self: QtC.QUntypedBindable `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QUntypedBindable_Delete(@ptrCast(self));
     }
 };

@@ -64,6 +64,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -72,8 +76,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KBookmarkContextMenu_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KBookmarkContextMenu_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -99,6 +103,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -107,9 +115,9 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KBookmarkContextMenu_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KBookmarkContextMenu_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -138,6 +146,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -150,8 +162,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KBookmarkContextMenu_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KBookmarkContextMenu_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -195,6 +207,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_OnAddActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAddActions` instead
+    ///
+    pub const QBaseAddActions = SuperAddActions;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmarkcontextmenu.html#addActions)
     ///
     /// Base class method implementation
@@ -203,8 +219,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseAddActions(self: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseAddActions(@ptrCast(self));
+    pub fn SuperAddActions(self: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperAddActions(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkcontextmenu.html#setBrowserMode)
@@ -313,6 +329,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_OnAddBookmark(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAddBookmark` instead
+    ///
+    pub const QBaseAddBookmark = SuperAddBookmark;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmarkcontextmenu.html#addBookmark)
     ///
     /// Base class method implementation
@@ -321,8 +341,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseAddBookmark(self: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseAddBookmark(@ptrCast(self));
+    pub fn SuperAddBookmark(self: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperAddBookmark(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkcontextmenu.html#addFolderActions)
@@ -349,6 +369,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_OnAddFolderActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAddFolderActions` instead
+    ///
+    pub const QBaseAddFolderActions = SuperAddFolderActions;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmarkcontextmenu.html#addFolderActions)
     ///
     /// Base class method implementation
@@ -357,8 +381,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseAddFolderActions(self: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseAddFolderActions(@ptrCast(self));
+    pub fn SuperAddFolderActions(self: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperAddFolderActions(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkcontextmenu.html#addProperties)
@@ -385,6 +409,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_OnAddProperties(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAddProperties` instead
+    ///
+    pub const QBaseAddProperties = SuperAddProperties;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmarkcontextmenu.html#addProperties)
     ///
     /// Base class method implementation
@@ -393,8 +421,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseAddProperties(self: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseAddProperties(@ptrCast(self));
+    pub fn SuperAddProperties(self: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperAddProperties(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkcontextmenu.html#addBookmarkActions)
@@ -421,6 +449,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_OnAddBookmarkActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAddBookmarkActions` instead
+    ///
+    pub const QBaseAddBookmarkActions = SuperAddBookmarkActions;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmarkcontextmenu.html#addBookmarkActions)
     ///
     /// Base class method implementation
@@ -429,8 +461,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseAddBookmarkActions(self: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseAddBookmarkActions(@ptrCast(self));
+    pub fn SuperAddBookmarkActions(self: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperAddBookmarkActions(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkcontextmenu.html#addOpenFolderInTabs)
@@ -457,6 +489,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_OnAddOpenFolderInTabs(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAddOpenFolderInTabs` instead
+    ///
+    pub const QBaseAddOpenFolderInTabs = SuperAddOpenFolderInTabs;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmarkcontextmenu.html#addOpenFolderInTabs)
     ///
     /// Base class method implementation
@@ -465,8 +501,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseAddOpenFolderInTabs(self: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseAddOpenFolderInTabs(@ptrCast(self));
+    pub fn SuperAddOpenFolderInTabs(self: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperAddOpenFolderInTabs(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkcontextmenu.html#manager)
@@ -493,6 +529,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_OnManager(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperManager` instead
+    ///
+    pub const QBaseManager = SuperManager;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmarkcontextmenu.html#manager)
     ///
     /// Base class method implementation
@@ -501,8 +541,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseManager(self: ?*anyopaque) QtC.KBookmarkManager {
-        return qtc.KBookmarkContextMenu_QBaseManager(@ptrCast(self));
+    pub fn SuperManager(self: ?*anyopaque) QtC.KBookmarkManager {
+        return qtc.KBookmarkContextMenu_SuperManager(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkcontextmenu.html#owner)
@@ -529,6 +569,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_OnOwner(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperOwner` instead
+    ///
+    pub const QBaseOwner = SuperOwner;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmarkcontextmenu.html#owner)
     ///
     /// Base class method implementation
@@ -537,8 +581,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseOwner(self: ?*anyopaque) QtC.KBookmarkOwner {
-        return qtc.KBookmarkContextMenu_QBaseOwner(@ptrCast(self));
+    pub fn SuperOwner(self: ?*anyopaque) QtC.KBookmarkOwner {
+        return qtc.KBookmarkContextMenu_SuperOwner(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkcontextmenu.html#bookmark)
@@ -565,6 +609,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_OnBookmark(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBookmark` instead
+    ///
+    pub const QBaseBookmark = SuperBookmark;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmarkcontextmenu.html#bookmark)
     ///
     /// Base class method implementation
@@ -573,8 +621,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseBookmark(self: ?*anyopaque) QtC.KBookmark {
-        return qtc.KBookmarkContextMenu_QBaseBookmark(@ptrCast(self));
+    pub fn SuperBookmark(self: ?*anyopaque) QtC.KBookmark {
+        return qtc.KBookmarkContextMenu_SuperBookmark(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -6084,6 +6132,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_SizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#sizeHint)
@@ -6094,8 +6146,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KBookmarkContextMenu_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.KBookmarkContextMenu_SuperSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QMenu
@@ -6130,6 +6182,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_ChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    ///
+    pub const QBaseChangeEvent = SuperChangeEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#changeEvent)
@@ -6142,8 +6198,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6178,6 +6234,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#keyPressEvent)
@@ -6190,8 +6250,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` param1: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperKeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6226,6 +6286,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_MouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#mouseReleaseEvent)
@@ -6238,8 +6302,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6274,6 +6338,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_MousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#mousePressEvent)
@@ -6286,8 +6354,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseMousePressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperMousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6322,6 +6390,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_MouseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#mouseMoveEvent)
@@ -6334,8 +6406,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6370,6 +6442,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_WheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#wheelEvent)
@@ -6382,8 +6458,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` param1: QtC.QWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseWheelEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperWheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6418,6 +6494,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_EnterEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    ///
+    pub const QBaseEnterEvent = SuperEnterEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#enterEvent)
@@ -6430,8 +6510,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` param1: QtC.QEnterEvent `
     ///
-    pub fn QBaseEnterEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseEnterEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperEnterEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperEnterEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6466,6 +6546,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_LeaveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    ///
+    pub const QBaseLeaveEvent = SuperLeaveEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#leaveEvent)
@@ -6478,8 +6562,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseLeaveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseLeaveEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperLeaveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperLeaveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6514,6 +6598,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_HideEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#hideEvent)
@@ -6526,8 +6614,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` param1: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseHideEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperHideEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperHideEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6562,6 +6650,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_PaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    ///
+    pub const QBasePaintEvent = SuperPaintEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#paintEvent)
@@ -6574,8 +6666,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` param1: QtC.QPaintEvent `
     ///
-    pub fn QBasePaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBasePaintEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperPaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperPaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6610,6 +6702,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_ActionEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    ///
+    pub const QBaseActionEvent = SuperActionEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#actionEvent)
@@ -6622,8 +6718,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` param1: QtC.QActionEvent `
     ///
-    pub fn QBaseActionEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseActionEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperActionEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperActionEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6658,6 +6754,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_TimerEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#timerEvent)
@@ -6670,8 +6770,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` param1: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseTimerEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperTimerEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperTimerEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6706,6 +6806,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_Event(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#event)
@@ -6718,8 +6822,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.KBookmarkContextMenu_QBaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
+        return qtc.KBookmarkContextMenu_SuperEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QMenu
@@ -6754,6 +6858,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_FocusNextPrevChild(@ptrCast(self), next);
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    ///
+    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#focusNextPrevChild)
@@ -6766,8 +6874,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` next: bool `
     ///
-    pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.KBookmarkContextMenu_QBaseFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
+        return qtc.KBookmarkContextMenu_SuperFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QMenu
@@ -6804,6 +6912,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_InitStyleOption(@ptrCast(self), @ptrCast(option), @ptrCast(action));
     }
 
+    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    ///
+    pub const QBaseInitStyleOption = SuperInitStyleOption;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#initStyleOption)
@@ -6818,8 +6930,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` action: QtC.QAction `
     ///
-    pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option), @ptrCast(action));
+    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque, action: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperInitStyleOption(@ptrCast(self), @ptrCast(option), @ptrCast(action));
     }
 
     /// Inherited from QMenu
@@ -6852,6 +6964,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_DevType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
@@ -6862,8 +6978,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.KBookmarkContextMenu_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.KBookmarkContextMenu_SuperDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -6898,6 +7014,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_SetVisible(@ptrCast(self), visible);
     }
 
+    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    ///
+    pub const QBaseSetVisible = SuperSetVisible;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
@@ -6910,8 +7030,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.KBookmarkContextMenu_QBaseSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
+        qtc.KBookmarkContextMenu_SuperSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
@@ -6944,6 +7064,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_MinimumSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    ///
+    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#minimumSizeHint)
@@ -6954,8 +7078,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KBookmarkContextMenu_QBaseMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.KBookmarkContextMenu_SuperMinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -6990,6 +7114,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
@@ -7002,8 +7130,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KBookmarkContextMenu_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.KBookmarkContextMenu_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7036,6 +7164,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
@@ -7046,8 +7178,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.KBookmarkContextMenu_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.KBookmarkContextMenu_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7080,6 +7212,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_PaintEngine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
@@ -7090,8 +7226,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.KBookmarkContextMenu_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.KBookmarkContextMenu_SuperPaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7126,6 +7262,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -7138,8 +7278,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7174,6 +7314,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -7186,8 +7330,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7222,6 +7366,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -7234,8 +7382,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7270,6 +7418,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -7282,8 +7434,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7318,6 +7470,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
@@ -7330,8 +7486,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` event: QtC.QMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7366,6 +7522,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#resizeEvent)
@@ -7378,8 +7538,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` event: QtC.QResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7414,6 +7574,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
@@ -7426,8 +7590,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` event: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7462,6 +7626,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_ContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#contextMenuEvent)
@@ -7474,8 +7642,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` event: QtC.QContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7510,6 +7678,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    ///
+    pub const QBaseTabletEvent = SuperTabletEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
@@ -7522,8 +7694,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` event: QtC.QTabletEvent `
     ///
-    pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7558,6 +7730,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_DragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragEnterEvent)
@@ -7570,8 +7746,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` event: QtC.QDragEnterEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7606,6 +7782,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_DragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragMoveEvent)
@@ -7618,8 +7798,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` event: QtC.QDragMoveEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7654,6 +7834,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dragLeaveEvent)
@@ -7666,8 +7850,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` event: QtC.QDragLeaveEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7702,6 +7886,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_DropEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#dropEvent)
@@ -7714,8 +7902,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` event: QtC.QDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7750,6 +7938,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
@@ -7762,8 +7954,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` event: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7806,6 +7998,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    ///
+    pub const QBaseNativeEvent = SuperNativeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
@@ -7822,12 +8018,12 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KBookmarkContextMenu_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KBookmarkContextMenu_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -7862,6 +8058,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_Metric(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
@@ -7874,8 +8074,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KBookmarkContextMenu_QBaseMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.KBookmarkContextMenu_SuperMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7910,6 +8110,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
@@ -7922,8 +8126,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
@@ -7958,6 +8162,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
@@ -7970,8 +8178,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.KBookmarkContextMenu_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.KBookmarkContextMenu_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
@@ -8004,6 +8212,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
@@ -8014,8 +8226,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.KBookmarkContextMenu_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.KBookmarkContextMenu_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8050,6 +8262,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
@@ -8062,8 +8278,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` param1: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -8098,6 +8314,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_InputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
@@ -8110,8 +8330,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.KBookmarkContextMenu_QBaseInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
+        return qtc.KBookmarkContextMenu_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -8148,6 +8368,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -8162,8 +8386,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KBookmarkContextMenu_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KBookmarkContextMenu_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -8198,6 +8422,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -8210,8 +8438,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -8246,6 +8474,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -8258,8 +8490,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -8294,6 +8526,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8306,8 +8542,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -8342,6 +8578,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -8354,8 +8594,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -8388,6 +8628,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_ColumnCount(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperColumnCount` instead
+    ///
+    pub const QBaseColumnCount = SuperColumnCount;
+
     /// Inherited from QMenu
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#columnCount)
@@ -8398,8 +8642,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseColumnCount(self: ?*anyopaque) i32 {
-        return qtc.KBookmarkContextMenu_QBaseColumnCount(@ptrCast(self));
+    pub fn SuperColumnCount(self: ?*anyopaque) i32 {
+        return qtc.KBookmarkContextMenu_SuperColumnCount(@ptrCast(self));
     }
 
     /// Inherited from QMenu
@@ -8432,6 +8676,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8442,8 +8690,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8476,6 +8724,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_Create(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreate` instead
+    ///
+    pub const QBaseCreate = SuperCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8486,8 +8738,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseCreate(self: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseCreate(@ptrCast(self));
+    pub fn SuperCreate(self: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8520,6 +8772,10 @@ pub const kbookmarkcontextmenu = struct {
         qtc.KBookmarkContextMenu_Destroy(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroy` instead
+    ///
+    pub const QBaseDestroy = SuperDestroy;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
@@ -8530,8 +8786,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseDestroy(self: ?*anyopaque) void {
-        qtc.KBookmarkContextMenu_QBaseDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: ?*anyopaque) void {
+        qtc.KBookmarkContextMenu_SuperDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8564,6 +8820,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_FocusNextChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    ///
+    pub const QBaseFocusNextChild = SuperFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8574,8 +8834,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.KBookmarkContextMenu_QBaseFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
+        return qtc.KBookmarkContextMenu_SuperFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8608,6 +8868,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_FocusPreviousChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    ///
+    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
@@ -8618,8 +8882,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.KBookmarkContextMenu_QBaseFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
+        return qtc.KBookmarkContextMenu_SuperFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8652,6 +8916,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -8662,8 +8930,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KBookmarkContextMenu_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KBookmarkContextMenu_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -8696,6 +8964,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -8706,8 +8978,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KBookmarkContextMenu_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KBookmarkContextMenu_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -8743,6 +9015,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -8755,9 +9031,9 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KBookmarkContextMenu_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KBookmarkContextMenu_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -8792,6 +9068,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -8804,8 +9084,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KBookmarkContextMenu_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KBookmarkContextMenu_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -8842,6 +9122,10 @@ pub const kbookmarkcontextmenu = struct {
         return qtc.KBookmarkContextMenu_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -8856,8 +9140,8 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KBookmarkContextMenu_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.KBookmarkContextMenu_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -8891,6 +9175,9 @@ pub const kbookmarkcontextmenu = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkcontextmenu.html#dtor.KBookmarkContextMenu)
     ///
@@ -8900,7 +9187,7 @@ pub const kbookmarkcontextmenu = struct {
     ///
     /// ` self: QtC.KBookmarkContextMenu `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KBookmarkContextMenu_Delete(@ptrCast(self));
     }
 };

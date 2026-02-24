@@ -109,7 +109,7 @@ void KPixmapSequenceWidget_SetInterval(KPixmapSequenceWidget* self, int msecs) {
 }
 
 // Base class handler implementation
-QMetaObject* KPixmapSequenceWidget_QBaseMetaObject(const KPixmapSequenceWidget* self) {
+QMetaObject* KPixmapSequenceWidget_SuperMetaObject(const KPixmapSequenceWidget* self) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_MetaObject_IsBase(true);
@@ -128,7 +128,7 @@ void KPixmapSequenceWidget_OnMetaObject(const KPixmapSequenceWidget* self, intpt
 }
 
 // Base class handler implementation
-void* KPixmapSequenceWidget_QBaseMetacast(KPixmapSequenceWidget* self, const char* param1) {
+void* KPixmapSequenceWidget_SuperMetacast(KPixmapSequenceWidget* self, const char* param1) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_Metacast_IsBase(true);
@@ -147,7 +147,7 @@ void KPixmapSequenceWidget_OnMetacast(KPixmapSequenceWidget* self, intptr_t slot
 }
 
 // Base class handler implementation
-int KPixmapSequenceWidget_QBaseMetacall(KPixmapSequenceWidget* self, int param1, int param2, void** param3) {
+int KPixmapSequenceWidget_SuperMetacall(KPixmapSequenceWidget* self, int param1, int param2, void** param3) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_Metacall_IsBase(true);
@@ -166,7 +166,7 @@ void KPixmapSequenceWidget_OnMetacall(KPixmapSequenceWidget* self, intptr_t slot
 }
 
 // Base class handler implementation
-QSize* KPixmapSequenceWidget_QBaseSizeHint(const KPixmapSequenceWidget* self) {
+QSize* KPixmapSequenceWidget_SuperSizeHint(const KPixmapSequenceWidget* self) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_SizeHint_IsBase(true);
@@ -195,7 +195,7 @@ int KPixmapSequenceWidget_DevType(const KPixmapSequenceWidget* self) {
 }
 
 // Base class handler implementation
-int KPixmapSequenceWidget_QBaseDevType(const KPixmapSequenceWidget* self) {
+int KPixmapSequenceWidget_SuperDevType(const KPixmapSequenceWidget* self) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_DevType_IsBase(true);
@@ -224,7 +224,7 @@ void KPixmapSequenceWidget_SetVisible(KPixmapSequenceWidget* self, bool visible)
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseSetVisible(KPixmapSequenceWidget* self, bool visible) {
+void KPixmapSequenceWidget_SuperSetVisible(KPixmapSequenceWidget* self, bool visible) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_SetVisible_IsBase(true);
@@ -253,7 +253,7 @@ QSize* KPixmapSequenceWidget_MinimumSizeHint(const KPixmapSequenceWidget* self) 
 }
 
 // Base class handler implementation
-QSize* KPixmapSequenceWidget_QBaseMinimumSizeHint(const KPixmapSequenceWidget* self) {
+QSize* KPixmapSequenceWidget_SuperMinimumSizeHint(const KPixmapSequenceWidget* self) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_MinimumSizeHint_IsBase(true);
@@ -282,7 +282,7 @@ int KPixmapSequenceWidget_HeightForWidth(const KPixmapSequenceWidget* self, int 
 }
 
 // Base class handler implementation
-int KPixmapSequenceWidget_QBaseHeightForWidth(const KPixmapSequenceWidget* self, int param1) {
+int KPixmapSequenceWidget_SuperHeightForWidth(const KPixmapSequenceWidget* self, int param1) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_HeightForWidth_IsBase(true);
@@ -311,7 +311,7 @@ bool KPixmapSequenceWidget_HasHeightForWidth(const KPixmapSequenceWidget* self) 
 }
 
 // Base class handler implementation
-bool KPixmapSequenceWidget_QBaseHasHeightForWidth(const KPixmapSequenceWidget* self) {
+bool KPixmapSequenceWidget_SuperHasHeightForWidth(const KPixmapSequenceWidget* self) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_HasHeightForWidth_IsBase(true);
@@ -340,7 +340,7 @@ QPaintEngine* KPixmapSequenceWidget_PaintEngine(const KPixmapSequenceWidget* sel
 }
 
 // Base class handler implementation
-QPaintEngine* KPixmapSequenceWidget_QBasePaintEngine(const KPixmapSequenceWidget* self) {
+QPaintEngine* KPixmapSequenceWidget_SuperPaintEngine(const KPixmapSequenceWidget* self) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_PaintEngine_IsBase(true);
@@ -369,7 +369,7 @@ bool KPixmapSequenceWidget_Event(KPixmapSequenceWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KPixmapSequenceWidget_QBaseEvent(KPixmapSequenceWidget* self, QEvent* event) {
+bool KPixmapSequenceWidget_SuperEvent(KPixmapSequenceWidget* self, QEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_Event_IsBase(true);
@@ -398,7 +398,7 @@ void KPixmapSequenceWidget_MousePressEvent(KPixmapSequenceWidget* self, QMouseEv
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseMousePressEvent(KPixmapSequenceWidget* self, QMouseEvent* event) {
+void KPixmapSequenceWidget_SuperMousePressEvent(KPixmapSequenceWidget* self, QMouseEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_MousePressEvent_IsBase(true);
@@ -427,7 +427,7 @@ void KPixmapSequenceWidget_MouseReleaseEvent(KPixmapSequenceWidget* self, QMouse
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseMouseReleaseEvent(KPixmapSequenceWidget* self, QMouseEvent* event) {
+void KPixmapSequenceWidget_SuperMouseReleaseEvent(KPixmapSequenceWidget* self, QMouseEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_MouseReleaseEvent_IsBase(true);
@@ -456,7 +456,7 @@ void KPixmapSequenceWidget_MouseDoubleClickEvent(KPixmapSequenceWidget* self, QM
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseMouseDoubleClickEvent(KPixmapSequenceWidget* self, QMouseEvent* event) {
+void KPixmapSequenceWidget_SuperMouseDoubleClickEvent(KPixmapSequenceWidget* self, QMouseEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_MouseDoubleClickEvent_IsBase(true);
@@ -485,7 +485,7 @@ void KPixmapSequenceWidget_MouseMoveEvent(KPixmapSequenceWidget* self, QMouseEve
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseMouseMoveEvent(KPixmapSequenceWidget* self, QMouseEvent* event) {
+void KPixmapSequenceWidget_SuperMouseMoveEvent(KPixmapSequenceWidget* self, QMouseEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_MouseMoveEvent_IsBase(true);
@@ -514,7 +514,7 @@ void KPixmapSequenceWidget_WheelEvent(KPixmapSequenceWidget* self, QWheelEvent* 
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseWheelEvent(KPixmapSequenceWidget* self, QWheelEvent* event) {
+void KPixmapSequenceWidget_SuperWheelEvent(KPixmapSequenceWidget* self, QWheelEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_WheelEvent_IsBase(true);
@@ -543,7 +543,7 @@ void KPixmapSequenceWidget_KeyPressEvent(KPixmapSequenceWidget* self, QKeyEvent*
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseKeyPressEvent(KPixmapSequenceWidget* self, QKeyEvent* event) {
+void KPixmapSequenceWidget_SuperKeyPressEvent(KPixmapSequenceWidget* self, QKeyEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_KeyPressEvent_IsBase(true);
@@ -572,7 +572,7 @@ void KPixmapSequenceWidget_KeyReleaseEvent(KPixmapSequenceWidget* self, QKeyEven
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseKeyReleaseEvent(KPixmapSequenceWidget* self, QKeyEvent* event) {
+void KPixmapSequenceWidget_SuperKeyReleaseEvent(KPixmapSequenceWidget* self, QKeyEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_KeyReleaseEvent_IsBase(true);
@@ -601,7 +601,7 @@ void KPixmapSequenceWidget_FocusInEvent(KPixmapSequenceWidget* self, QFocusEvent
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseFocusInEvent(KPixmapSequenceWidget* self, QFocusEvent* event) {
+void KPixmapSequenceWidget_SuperFocusInEvent(KPixmapSequenceWidget* self, QFocusEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_FocusInEvent_IsBase(true);
@@ -630,7 +630,7 @@ void KPixmapSequenceWidget_FocusOutEvent(KPixmapSequenceWidget* self, QFocusEven
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseFocusOutEvent(KPixmapSequenceWidget* self, QFocusEvent* event) {
+void KPixmapSequenceWidget_SuperFocusOutEvent(KPixmapSequenceWidget* self, QFocusEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_FocusOutEvent_IsBase(true);
@@ -659,7 +659,7 @@ void KPixmapSequenceWidget_EnterEvent(KPixmapSequenceWidget* self, QEnterEvent* 
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseEnterEvent(KPixmapSequenceWidget* self, QEnterEvent* event) {
+void KPixmapSequenceWidget_SuperEnterEvent(KPixmapSequenceWidget* self, QEnterEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_EnterEvent_IsBase(true);
@@ -688,7 +688,7 @@ void KPixmapSequenceWidget_LeaveEvent(KPixmapSequenceWidget* self, QEvent* event
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseLeaveEvent(KPixmapSequenceWidget* self, QEvent* event) {
+void KPixmapSequenceWidget_SuperLeaveEvent(KPixmapSequenceWidget* self, QEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_LeaveEvent_IsBase(true);
@@ -717,7 +717,7 @@ void KPixmapSequenceWidget_PaintEvent(KPixmapSequenceWidget* self, QPaintEvent* 
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBasePaintEvent(KPixmapSequenceWidget* self, QPaintEvent* event) {
+void KPixmapSequenceWidget_SuperPaintEvent(KPixmapSequenceWidget* self, QPaintEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_PaintEvent_IsBase(true);
@@ -746,7 +746,7 @@ void KPixmapSequenceWidget_MoveEvent(KPixmapSequenceWidget* self, QMoveEvent* ev
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseMoveEvent(KPixmapSequenceWidget* self, QMoveEvent* event) {
+void KPixmapSequenceWidget_SuperMoveEvent(KPixmapSequenceWidget* self, QMoveEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_MoveEvent_IsBase(true);
@@ -775,7 +775,7 @@ void KPixmapSequenceWidget_ResizeEvent(KPixmapSequenceWidget* self, QResizeEvent
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseResizeEvent(KPixmapSequenceWidget* self, QResizeEvent* event) {
+void KPixmapSequenceWidget_SuperResizeEvent(KPixmapSequenceWidget* self, QResizeEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_ResizeEvent_IsBase(true);
@@ -804,7 +804,7 @@ void KPixmapSequenceWidget_CloseEvent(KPixmapSequenceWidget* self, QCloseEvent* 
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseCloseEvent(KPixmapSequenceWidget* self, QCloseEvent* event) {
+void KPixmapSequenceWidget_SuperCloseEvent(KPixmapSequenceWidget* self, QCloseEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_CloseEvent_IsBase(true);
@@ -833,7 +833,7 @@ void KPixmapSequenceWidget_ContextMenuEvent(KPixmapSequenceWidget* self, QContex
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseContextMenuEvent(KPixmapSequenceWidget* self, QContextMenuEvent* event) {
+void KPixmapSequenceWidget_SuperContextMenuEvent(KPixmapSequenceWidget* self, QContextMenuEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_ContextMenuEvent_IsBase(true);
@@ -862,7 +862,7 @@ void KPixmapSequenceWidget_TabletEvent(KPixmapSequenceWidget* self, QTabletEvent
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseTabletEvent(KPixmapSequenceWidget* self, QTabletEvent* event) {
+void KPixmapSequenceWidget_SuperTabletEvent(KPixmapSequenceWidget* self, QTabletEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_TabletEvent_IsBase(true);
@@ -891,7 +891,7 @@ void KPixmapSequenceWidget_ActionEvent(KPixmapSequenceWidget* self, QActionEvent
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseActionEvent(KPixmapSequenceWidget* self, QActionEvent* event) {
+void KPixmapSequenceWidget_SuperActionEvent(KPixmapSequenceWidget* self, QActionEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_ActionEvent_IsBase(true);
@@ -920,7 +920,7 @@ void KPixmapSequenceWidget_DragEnterEvent(KPixmapSequenceWidget* self, QDragEnte
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseDragEnterEvent(KPixmapSequenceWidget* self, QDragEnterEvent* event) {
+void KPixmapSequenceWidget_SuperDragEnterEvent(KPixmapSequenceWidget* self, QDragEnterEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_DragEnterEvent_IsBase(true);
@@ -949,7 +949,7 @@ void KPixmapSequenceWidget_DragMoveEvent(KPixmapSequenceWidget* self, QDragMoveE
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseDragMoveEvent(KPixmapSequenceWidget* self, QDragMoveEvent* event) {
+void KPixmapSequenceWidget_SuperDragMoveEvent(KPixmapSequenceWidget* self, QDragMoveEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_DragMoveEvent_IsBase(true);
@@ -978,7 +978,7 @@ void KPixmapSequenceWidget_DragLeaveEvent(KPixmapSequenceWidget* self, QDragLeav
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseDragLeaveEvent(KPixmapSequenceWidget* self, QDragLeaveEvent* event) {
+void KPixmapSequenceWidget_SuperDragLeaveEvent(KPixmapSequenceWidget* self, QDragLeaveEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_DragLeaveEvent_IsBase(true);
@@ -1007,7 +1007,7 @@ void KPixmapSequenceWidget_DropEvent(KPixmapSequenceWidget* self, QDropEvent* ev
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseDropEvent(KPixmapSequenceWidget* self, QDropEvent* event) {
+void KPixmapSequenceWidget_SuperDropEvent(KPixmapSequenceWidget* self, QDropEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_DropEvent_IsBase(true);
@@ -1036,7 +1036,7 @@ void KPixmapSequenceWidget_ShowEvent(KPixmapSequenceWidget* self, QShowEvent* ev
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseShowEvent(KPixmapSequenceWidget* self, QShowEvent* event) {
+void KPixmapSequenceWidget_SuperShowEvent(KPixmapSequenceWidget* self, QShowEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_ShowEvent_IsBase(true);
@@ -1065,7 +1065,7 @@ void KPixmapSequenceWidget_HideEvent(KPixmapSequenceWidget* self, QHideEvent* ev
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseHideEvent(KPixmapSequenceWidget* self, QHideEvent* event) {
+void KPixmapSequenceWidget_SuperHideEvent(KPixmapSequenceWidget* self, QHideEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_HideEvent_IsBase(true);
@@ -1095,7 +1095,7 @@ bool KPixmapSequenceWidget_NativeEvent(KPixmapSequenceWidget* self, const libqt_
 }
 
 // Base class handler implementation
-bool KPixmapSequenceWidget_QBaseNativeEvent(KPixmapSequenceWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KPixmapSequenceWidget_SuperNativeEvent(KPixmapSequenceWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
@@ -1125,7 +1125,7 @@ void KPixmapSequenceWidget_ChangeEvent(KPixmapSequenceWidget* self, QEvent* para
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseChangeEvent(KPixmapSequenceWidget* self, QEvent* param1) {
+void KPixmapSequenceWidget_SuperChangeEvent(KPixmapSequenceWidget* self, QEvent* param1) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_ChangeEvent_IsBase(true);
@@ -1154,7 +1154,7 @@ int KPixmapSequenceWidget_Metric(const KPixmapSequenceWidget* self, int param1) 
 }
 
 // Base class handler implementation
-int KPixmapSequenceWidget_QBaseMetric(const KPixmapSequenceWidget* self, int param1) {
+int KPixmapSequenceWidget_SuperMetric(const KPixmapSequenceWidget* self, int param1) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_Metric_IsBase(true);
@@ -1183,7 +1183,7 @@ void KPixmapSequenceWidget_InitPainter(const KPixmapSequenceWidget* self, QPaint
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseInitPainter(const KPixmapSequenceWidget* self, QPainter* painter) {
+void KPixmapSequenceWidget_SuperInitPainter(const KPixmapSequenceWidget* self, QPainter* painter) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_InitPainter_IsBase(true);
@@ -1212,7 +1212,7 @@ QPaintDevice* KPixmapSequenceWidget_Redirected(const KPixmapSequenceWidget* self
 }
 
 // Base class handler implementation
-QPaintDevice* KPixmapSequenceWidget_QBaseRedirected(const KPixmapSequenceWidget* self, QPoint* offset) {
+QPaintDevice* KPixmapSequenceWidget_SuperRedirected(const KPixmapSequenceWidget* self, QPoint* offset) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_Redirected_IsBase(true);
@@ -1241,7 +1241,7 @@ QPainter* KPixmapSequenceWidget_SharedPainter(const KPixmapSequenceWidget* self)
 }
 
 // Base class handler implementation
-QPainter* KPixmapSequenceWidget_QBaseSharedPainter(const KPixmapSequenceWidget* self) {
+QPainter* KPixmapSequenceWidget_SuperSharedPainter(const KPixmapSequenceWidget* self) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_SharedPainter_IsBase(true);
@@ -1270,7 +1270,7 @@ void KPixmapSequenceWidget_InputMethodEvent(KPixmapSequenceWidget* self, QInputM
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseInputMethodEvent(KPixmapSequenceWidget* self, QInputMethodEvent* param1) {
+void KPixmapSequenceWidget_SuperInputMethodEvent(KPixmapSequenceWidget* self, QInputMethodEvent* param1) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_InputMethodEvent_IsBase(true);
@@ -1299,7 +1299,7 @@ QVariant* KPixmapSequenceWidget_InputMethodQuery(const KPixmapSequenceWidget* se
 }
 
 // Base class handler implementation
-QVariant* KPixmapSequenceWidget_QBaseInputMethodQuery(const KPixmapSequenceWidget* self, int param1) {
+QVariant* KPixmapSequenceWidget_SuperInputMethodQuery(const KPixmapSequenceWidget* self, int param1) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_InputMethodQuery_IsBase(true);
@@ -1328,7 +1328,7 @@ bool KPixmapSequenceWidget_FocusNextPrevChild(KPixmapSequenceWidget* self, bool 
 }
 
 // Base class handler implementation
-bool KPixmapSequenceWidget_QBaseFocusNextPrevChild(KPixmapSequenceWidget* self, bool next) {
+bool KPixmapSequenceWidget_SuperFocusNextPrevChild(KPixmapSequenceWidget* self, bool next) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_FocusNextPrevChild_IsBase(true);
@@ -1357,7 +1357,7 @@ bool KPixmapSequenceWidget_EventFilter(KPixmapSequenceWidget* self, QObject* wat
 }
 
 // Base class handler implementation
-bool KPixmapSequenceWidget_QBaseEventFilter(KPixmapSequenceWidget* self, QObject* watched, QEvent* event) {
+bool KPixmapSequenceWidget_SuperEventFilter(KPixmapSequenceWidget* self, QObject* watched, QEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_EventFilter_IsBase(true);
@@ -1386,7 +1386,7 @@ void KPixmapSequenceWidget_TimerEvent(KPixmapSequenceWidget* self, QTimerEvent* 
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseTimerEvent(KPixmapSequenceWidget* self, QTimerEvent* event) {
+void KPixmapSequenceWidget_SuperTimerEvent(KPixmapSequenceWidget* self, QTimerEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_TimerEvent_IsBase(true);
@@ -1415,7 +1415,7 @@ void KPixmapSequenceWidget_ChildEvent(KPixmapSequenceWidget* self, QChildEvent* 
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseChildEvent(KPixmapSequenceWidget* self, QChildEvent* event) {
+void KPixmapSequenceWidget_SuperChildEvent(KPixmapSequenceWidget* self, QChildEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_ChildEvent_IsBase(true);
@@ -1444,7 +1444,7 @@ void KPixmapSequenceWidget_CustomEvent(KPixmapSequenceWidget* self, QEvent* even
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseCustomEvent(KPixmapSequenceWidget* self, QEvent* event) {
+void KPixmapSequenceWidget_SuperCustomEvent(KPixmapSequenceWidget* self, QEvent* event) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_CustomEvent_IsBase(true);
@@ -1473,7 +1473,7 @@ void KPixmapSequenceWidget_ConnectNotify(KPixmapSequenceWidget* self, const QMet
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseConnectNotify(KPixmapSequenceWidget* self, const QMetaMethod* signal) {
+void KPixmapSequenceWidget_SuperConnectNotify(KPixmapSequenceWidget* self, const QMetaMethod* signal) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_ConnectNotify_IsBase(true);
@@ -1502,7 +1502,7 @@ void KPixmapSequenceWidget_DisconnectNotify(KPixmapSequenceWidget* self, const Q
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseDisconnectNotify(KPixmapSequenceWidget* self, const QMetaMethod* signal) {
+void KPixmapSequenceWidget_SuperDisconnectNotify(KPixmapSequenceWidget* self, const QMetaMethod* signal) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_DisconnectNotify_IsBase(true);
@@ -1531,7 +1531,7 @@ void KPixmapSequenceWidget_UpdateMicroFocus(KPixmapSequenceWidget* self) {
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseUpdateMicroFocus(KPixmapSequenceWidget* self) {
+void KPixmapSequenceWidget_SuperUpdateMicroFocus(KPixmapSequenceWidget* self) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_UpdateMicroFocus_IsBase(true);
@@ -1560,7 +1560,7 @@ void KPixmapSequenceWidget_Create(KPixmapSequenceWidget* self) {
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseCreate(KPixmapSequenceWidget* self) {
+void KPixmapSequenceWidget_SuperCreate(KPixmapSequenceWidget* self) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_Create_IsBase(true);
@@ -1589,7 +1589,7 @@ void KPixmapSequenceWidget_Destroy(KPixmapSequenceWidget* self) {
 }
 
 // Base class handler implementation
-void KPixmapSequenceWidget_QBaseDestroy(KPixmapSequenceWidget* self) {
+void KPixmapSequenceWidget_SuperDestroy(KPixmapSequenceWidget* self) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_Destroy_IsBase(true);
@@ -1618,7 +1618,7 @@ bool KPixmapSequenceWidget_FocusNextChild(KPixmapSequenceWidget* self) {
 }
 
 // Base class handler implementation
-bool KPixmapSequenceWidget_QBaseFocusNextChild(KPixmapSequenceWidget* self) {
+bool KPixmapSequenceWidget_SuperFocusNextChild(KPixmapSequenceWidget* self) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_FocusNextChild_IsBase(true);
@@ -1647,7 +1647,7 @@ bool KPixmapSequenceWidget_FocusPreviousChild(KPixmapSequenceWidget* self) {
 }
 
 // Base class handler implementation
-bool KPixmapSequenceWidget_QBaseFocusPreviousChild(KPixmapSequenceWidget* self) {
+bool KPixmapSequenceWidget_SuperFocusPreviousChild(KPixmapSequenceWidget* self) {
     auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_FocusPreviousChild_IsBase(true);
@@ -1676,7 +1676,7 @@ QObject* KPixmapSequenceWidget_Sender(const KPixmapSequenceWidget* self) {
 }
 
 // Base class handler implementation
-QObject* KPixmapSequenceWidget_QBaseSender(const KPixmapSequenceWidget* self) {
+QObject* KPixmapSequenceWidget_SuperSender(const KPixmapSequenceWidget* self) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_Sender_IsBase(true);
@@ -1705,7 +1705,7 @@ int KPixmapSequenceWidget_SenderSignalIndex(const KPixmapSequenceWidget* self) {
 }
 
 // Base class handler implementation
-int KPixmapSequenceWidget_QBaseSenderSignalIndex(const KPixmapSequenceWidget* self) {
+int KPixmapSequenceWidget_SuperSenderSignalIndex(const KPixmapSequenceWidget* self) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_SenderSignalIndex_IsBase(true);
@@ -1734,7 +1734,7 @@ int KPixmapSequenceWidget_Receivers(const KPixmapSequenceWidget* self, const cha
 }
 
 // Base class handler implementation
-int KPixmapSequenceWidget_QBaseReceivers(const KPixmapSequenceWidget* self, const char* signal) {
+int KPixmapSequenceWidget_SuperReceivers(const KPixmapSequenceWidget* self, const char* signal) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_Receivers_IsBase(true);
@@ -1763,7 +1763,7 @@ bool KPixmapSequenceWidget_IsSignalConnected(const KPixmapSequenceWidget* self, 
 }
 
 // Base class handler implementation
-bool KPixmapSequenceWidget_QBaseIsSignalConnected(const KPixmapSequenceWidget* self, const QMetaMethod* signal) {
+bool KPixmapSequenceWidget_SuperIsSignalConnected(const KPixmapSequenceWidget* self, const QMetaMethod* signal) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_IsSignalConnected_IsBase(true);
@@ -1792,7 +1792,7 @@ double KPixmapSequenceWidget_GetDecodedMetricF(const KPixmapSequenceWidget* self
 }
 
 // Base class handler implementation
-double KPixmapSequenceWidget_QBaseGetDecodedMetricF(const KPixmapSequenceWidget* self, int metricA, int metricB) {
+double KPixmapSequenceWidget_SuperGetDecodedMetricF(const KPixmapSequenceWidget* self, int metricA, int metricB) {
     auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
     if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
         vkpixmapsequencewidget->setKPixmapSequenceWidget_GetDecodedMetricF_IsBase(true);

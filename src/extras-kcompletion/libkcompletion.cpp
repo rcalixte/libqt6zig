@@ -417,7 +417,7 @@ void KCompletion_PostProcessMatches2(const KCompletion* self, KCompletionMatches
 }
 
 // Base class handler implementation
-QMetaObject* KCompletion_QBaseMetaObject(const KCompletion* self) {
+QMetaObject* KCompletion_SuperMetaObject(const KCompletion* self) {
     auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_MetaObject_IsBase(true);
@@ -436,7 +436,7 @@ void KCompletion_OnMetaObject(const KCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KCompletion_QBaseMetacast(KCompletion* self, const char* param1) {
+void* KCompletion_SuperMetacast(KCompletion* self, const char* param1) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_Metacast_IsBase(true);
@@ -455,7 +455,7 @@ void KCompletion_OnMetacast(KCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KCompletion_QBaseMetacall(KCompletion* self, int param1, int param2, void** param3) {
+int KCompletion_SuperMetacall(KCompletion* self, int param1, int param2, void** param3) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_Metacall_IsBase(true);
@@ -474,7 +474,7 @@ void KCompletion_OnMetacall(KCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string KCompletion_QBaseLastMatch(const KCompletion* self) {
+libqt_string KCompletion_SuperLastMatch(const KCompletion* self) {
     auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_LastMatch_IsBase(true);
@@ -509,7 +509,7 @@ void KCompletion_OnLastMatch(const KCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCompletion_QBaseSetCompletionMode(KCompletion* self, int mode) {
+void KCompletion_SuperSetCompletionMode(KCompletion* self, int mode) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_SetCompletionMode_IsBase(true);
@@ -528,7 +528,7 @@ void KCompletion_OnSetCompletionMode(KCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCompletion_QBaseSetOrder(KCompletion* self, int order) {
+void KCompletion_SuperSetOrder(KCompletion* self, int order) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_SetOrder_IsBase(true);
@@ -547,7 +547,7 @@ void KCompletion_OnSetOrder(KCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCompletion_QBaseSetIgnoreCase(KCompletion* self, bool ignoreCase) {
+void KCompletion_SuperSetIgnoreCase(KCompletion* self, bool ignoreCase) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_SetIgnoreCase_IsBase(true);
@@ -566,7 +566,7 @@ void KCompletion_OnSetIgnoreCase(KCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCompletion_QBaseSetSoundsEnabled(KCompletion* self, bool enable) {
+void KCompletion_SuperSetSoundsEnabled(KCompletion* self, bool enable) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_SetSoundsEnabled_IsBase(true);
@@ -585,7 +585,7 @@ void KCompletion_OnSetSoundsEnabled(KCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string KCompletion_QBaseMakeCompletion(KCompletion* self, const libqt_string stringVal) {
+libqt_string KCompletion_SuperMakeCompletion(KCompletion* self, const libqt_string stringVal) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
     QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
@@ -621,7 +621,7 @@ void KCompletion_OnMakeCompletion(KCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCompletion_QBaseSetItems(KCompletion* self, const libqt_list /* of libqt_string */ itemList) {
+void KCompletion_SuperSetItems(KCompletion* self, const libqt_list /* of libqt_string */ itemList) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
     QList<QString> itemList_QList;
     itemList_QList.reserve(itemList.len);
@@ -647,7 +647,7 @@ void KCompletion_OnSetItems(KCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCompletion_QBaseClear(KCompletion* self) {
+void KCompletion_SuperClear(KCompletion* self) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_Clear_IsBase(true);
@@ -666,7 +666,7 @@ void KCompletion_OnClear(KCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCompletion_QBasePostProcessMatches(const KCompletion* self, libqt_list /* of libqt_string */ matchList) {
+void KCompletion_SuperPostProcessMatches(const KCompletion* self, libqt_list /* of libqt_string */ matchList) {
     auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
     QList<QString> matchList_QList;
     matchList_QList.reserve(matchList.len);
@@ -692,7 +692,7 @@ void KCompletion_OnPostProcessMatches(const KCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCompletion_QBasePostProcessMatches2(const KCompletion* self, KCompletionMatches* matches) {
+void KCompletion_SuperPostProcessMatches2(const KCompletion* self, KCompletionMatches* matches) {
     auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_PostProcessMatches2_IsBase(true);
@@ -721,7 +721,7 @@ bool KCompletion_Event(KCompletion* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KCompletion_QBaseEvent(KCompletion* self, QEvent* event) {
+bool KCompletion_SuperEvent(KCompletion* self, QEvent* event) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_Event_IsBase(true);
@@ -750,7 +750,7 @@ bool KCompletion_EventFilter(KCompletion* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool KCompletion_QBaseEventFilter(KCompletion* self, QObject* watched, QEvent* event) {
+bool KCompletion_SuperEventFilter(KCompletion* self, QObject* watched, QEvent* event) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_EventFilter_IsBase(true);
@@ -779,7 +779,7 @@ void KCompletion_TimerEvent(KCompletion* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KCompletion_QBaseTimerEvent(KCompletion* self, QTimerEvent* event) {
+void KCompletion_SuperTimerEvent(KCompletion* self, QTimerEvent* event) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_TimerEvent_IsBase(true);
@@ -808,7 +808,7 @@ void KCompletion_ChildEvent(KCompletion* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KCompletion_QBaseChildEvent(KCompletion* self, QChildEvent* event) {
+void KCompletion_SuperChildEvent(KCompletion* self, QChildEvent* event) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_ChildEvent_IsBase(true);
@@ -837,7 +837,7 @@ void KCompletion_CustomEvent(KCompletion* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KCompletion_QBaseCustomEvent(KCompletion* self, QEvent* event) {
+void KCompletion_SuperCustomEvent(KCompletion* self, QEvent* event) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_CustomEvent_IsBase(true);
@@ -866,7 +866,7 @@ void KCompletion_ConnectNotify(KCompletion* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KCompletion_QBaseConnectNotify(KCompletion* self, const QMetaMethod* signal) {
+void KCompletion_SuperConnectNotify(KCompletion* self, const QMetaMethod* signal) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_ConnectNotify_IsBase(true);
@@ -895,7 +895,7 @@ void KCompletion_DisconnectNotify(KCompletion* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void KCompletion_QBaseDisconnectNotify(KCompletion* self, const QMetaMethod* signal) {
+void KCompletion_SuperDisconnectNotify(KCompletion* self, const QMetaMethod* signal) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_DisconnectNotify_IsBase(true);
@@ -924,7 +924,7 @@ void KCompletion_SetShouldAutoSuggest(KCompletion* self, bool shouldAutosuggest)
 }
 
 // Base class handler implementation
-void KCompletion_QBaseSetShouldAutoSuggest(KCompletion* self, bool shouldAutosuggest) {
+void KCompletion_SuperSetShouldAutoSuggest(KCompletion* self, bool shouldAutosuggest) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_SetShouldAutoSuggest_IsBase(true);
@@ -953,7 +953,7 @@ QObject* KCompletion_Sender(const KCompletion* self) {
 }
 
 // Base class handler implementation
-QObject* KCompletion_QBaseSender(const KCompletion* self) {
+QObject* KCompletion_SuperSender(const KCompletion* self) {
     auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_Sender_IsBase(true);
@@ -982,7 +982,7 @@ int KCompletion_SenderSignalIndex(const KCompletion* self) {
 }
 
 // Base class handler implementation
-int KCompletion_QBaseSenderSignalIndex(const KCompletion* self) {
+int KCompletion_SuperSenderSignalIndex(const KCompletion* self) {
     auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_SenderSignalIndex_IsBase(true);
@@ -1011,7 +1011,7 @@ int KCompletion_Receivers(const KCompletion* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KCompletion_QBaseReceivers(const KCompletion* self, const char* signal) {
+int KCompletion_SuperReceivers(const KCompletion* self, const char* signal) {
     auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_Receivers_IsBase(true);
@@ -1040,7 +1040,7 @@ bool KCompletion_IsSignalConnected(const KCompletion* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool KCompletion_QBaseIsSignalConnected(const KCompletion* self, const QMetaMethod* signal) {
+bool KCompletion_SuperIsSignalConnected(const KCompletion* self, const QMetaMethod* signal) {
     auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_IsSignalConnected_IsBase(true);

@@ -70,6 +70,10 @@ pub const kautosavefile = struct {
         qtc.KAutoSaveFile_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -78,8 +82,8 @@ pub const kautosavefile = struct {
     ///
     /// ` self: QtC.KAutoSaveFile `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KAutoSaveFile_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KAutoSaveFile_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -105,6 +109,10 @@ pub const kautosavefile = struct {
         qtc.KAutoSaveFile_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -113,9 +121,9 @@ pub const kautosavefile = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KAutoSaveFile_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KAutoSaveFile_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -144,6 +152,10 @@ pub const kautosavefile = struct {
         qtc.KAutoSaveFile_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -156,8 +168,8 @@ pub const kautosavefile = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KAutoSaveFile_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KAutoSaveFile_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -223,6 +235,10 @@ pub const kautosavefile = struct {
         qtc.KAutoSaveFile_OnReleaseLock(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperReleaseLock` instead
+    ///
+    pub const QBaseReleaseLock = SuperReleaseLock;
+
     /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#releaseLock)
     ///
     /// Base class method implementation
@@ -231,8 +247,8 @@ pub const kautosavefile = struct {
     ///
     /// ` self: QtC.KAutoSaveFile `
     ///
-    pub fn QBaseReleaseLock(self: ?*anyopaque) void {
-        qtc.KAutoSaveFile_QBaseReleaseLock(@ptrCast(self));
+    pub fn SuperReleaseLock(self: ?*anyopaque) void {
+        qtc.KAutoSaveFile_SuperReleaseLock(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#open)
@@ -261,6 +277,10 @@ pub const kautosavefile = struct {
         qtc.KAutoSaveFile_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperOpen` instead
+    ///
+    pub const QBaseOpen = SuperOpen;
+
     /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#open)
     ///
     /// Base class method implementation
@@ -271,8 +291,8 @@ pub const kautosavefile = struct {
     ///
     /// ` openmode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn QBaseOpen(self: ?*anyopaque, openmode: i32) bool {
-        return qtc.KAutoSaveFile_QBaseOpen(@ptrCast(self), @bitCast(openmode));
+    pub fn SuperOpen(self: ?*anyopaque, openmode: i32) bool {
+        return qtc.KAutoSaveFile_SuperOpen(@ptrCast(self), @bitCast(openmode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#staleFiles)
@@ -2350,6 +2370,10 @@ pub const kautosavefile = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperFileName` instead
+    ///
+    pub const QBaseFileName = SuperFileName;
+
     /// Inherited from QFile
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#fileName)
@@ -2362,8 +2386,8 @@ pub const kautosavefile = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseFileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAutoSaveFile_QBaseFileName(@ptrCast(self));
+    pub fn SuperFileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAutoSaveFile_SuperFileName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kautosavefile.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2402,6 +2426,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_Size(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSize` instead
+    ///
+    pub const QBaseSize = SuperSize;
+
     /// Inherited from QFile
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#size)
@@ -2412,8 +2440,8 @@ pub const kautosavefile = struct {
     ///
     /// ` self: QtC.KAutoSaveFile `
     ///
-    pub fn QBaseSize(self: ?*anyopaque) i64 {
-        return qtc.KAutoSaveFile_QBaseSize(@ptrCast(self));
+    pub fn SuperSize(self: ?*anyopaque) i64 {
+        return qtc.KAutoSaveFile_SuperSize(@ptrCast(self));
     }
 
     /// Inherited from QFile
@@ -2448,6 +2476,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_Resize(@ptrCast(self), @bitCast(sz));
     }
 
+    /// ### DEPRECATED: Use `SuperResize` instead
+    ///
+    pub const QBaseResize = SuperResize;
+
     /// Inherited from QFile
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#resize)
@@ -2460,8 +2492,8 @@ pub const kautosavefile = struct {
     ///
     /// ` sz: i64 `
     ///
-    pub fn QBaseResize(self: ?*anyopaque, sz: i64) bool {
-        return qtc.KAutoSaveFile_QBaseResize(@ptrCast(self), @bitCast(sz));
+    pub fn SuperResize(self: ?*anyopaque, sz: i64) bool {
+        return qtc.KAutoSaveFile_SuperResize(@ptrCast(self), @bitCast(sz));
     }
 
     /// Inherited from QFile
@@ -2498,6 +2530,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_Permissions(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPermissions` instead
+    ///
+    pub const QBasePermissions = SuperPermissions;
+
     /// Inherited from QFile
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#permissions)
@@ -2512,8 +2548,8 @@ pub const kautosavefile = struct {
     ///
     /// ` flag of qfiledevice_enums.Permission `
     ///
-    pub fn QBasePermissions(self: ?*anyopaque) i32 {
-        return qtc.KAutoSaveFile_QBasePermissions(@ptrCast(self));
+    pub fn SuperPermissions(self: ?*anyopaque) i32 {
+        return qtc.KAutoSaveFile_SuperPermissions(@ptrCast(self));
     }
 
     /// Inherited from QFile
@@ -2548,6 +2584,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_SetPermissions(@ptrCast(self), @bitCast(permissionSpec));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPermissions` instead
+    ///
+    pub const QBaseSetPermissions = SuperSetPermissions;
+
     /// Inherited from QFile
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#setPermissions)
@@ -2560,8 +2600,8 @@ pub const kautosavefile = struct {
     ///
     /// ` permissionSpec: flag of qfiledevice_enums.Permission `
     ///
-    pub fn QBaseSetPermissions(self: ?*anyopaque, permissionSpec: i32) bool {
-        return qtc.KAutoSaveFile_QBaseSetPermissions(@ptrCast(self), @bitCast(permissionSpec));
+    pub fn SuperSetPermissions(self: ?*anyopaque, permissionSpec: i32) bool {
+        return qtc.KAutoSaveFile_SuperSetPermissions(@ptrCast(self), @bitCast(permissionSpec));
     }
 
     /// Inherited from QFile
@@ -2594,6 +2634,10 @@ pub const kautosavefile = struct {
         qtc.KAutoSaveFile_Close(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperClose` instead
+    ///
+    pub const QBaseClose = SuperClose;
+
     /// Inherited from QFileDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#close)
@@ -2604,8 +2648,8 @@ pub const kautosavefile = struct {
     ///
     /// ` self: QtC.KAutoSaveFile `
     ///
-    pub fn QBaseClose(self: ?*anyopaque) void {
-        qtc.KAutoSaveFile_QBaseClose(@ptrCast(self));
+    pub fn SuperClose(self: ?*anyopaque) void {
+        qtc.KAutoSaveFile_SuperClose(@ptrCast(self));
     }
 
     /// Inherited from QFileDevice
@@ -2638,6 +2682,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_IsSequential(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSequential` instead
+    ///
+    pub const QBaseIsSequential = SuperIsSequential;
+
     /// Inherited from QFileDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
@@ -2648,8 +2696,8 @@ pub const kautosavefile = struct {
     ///
     /// ` self: QtC.KAutoSaveFile `
     ///
-    pub fn QBaseIsSequential(self: ?*anyopaque) bool {
-        return qtc.KAutoSaveFile_QBaseIsSequential(@ptrCast(self));
+    pub fn SuperIsSequential(self: ?*anyopaque) bool {
+        return qtc.KAutoSaveFile_SuperIsSequential(@ptrCast(self));
     }
 
     /// Inherited from QFileDevice
@@ -2682,6 +2730,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_Pos(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPos` instead
+    ///
+    pub const QBasePos = SuperPos;
+
     /// Inherited from QFileDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#pos)
@@ -2692,8 +2744,8 @@ pub const kautosavefile = struct {
     ///
     /// ` self: QtC.KAutoSaveFile `
     ///
-    pub fn QBasePos(self: ?*anyopaque) i64 {
-        return qtc.KAutoSaveFile_QBasePos(@ptrCast(self));
+    pub fn SuperPos(self: ?*anyopaque) i64 {
+        return qtc.KAutoSaveFile_SuperPos(@ptrCast(self));
     }
 
     /// Inherited from QFileDevice
@@ -2728,6 +2780,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_Seek(@ptrCast(self), @bitCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperSeek` instead
+    ///
+    pub const QBaseSeek = SuperSeek;
+
     /// Inherited from QFileDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#seek)
@@ -2740,8 +2796,8 @@ pub const kautosavefile = struct {
     ///
     /// ` offset: i64 `
     ///
-    pub fn QBaseSeek(self: ?*anyopaque, offset: i64) bool {
-        return qtc.KAutoSaveFile_QBaseSeek(@ptrCast(self), @bitCast(offset));
+    pub fn SuperSeek(self: ?*anyopaque, offset: i64) bool {
+        return qtc.KAutoSaveFile_SuperSeek(@ptrCast(self), @bitCast(offset));
     }
 
     /// Inherited from QFileDevice
@@ -2774,6 +2830,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_AtEnd(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperAtEnd` instead
+    ///
+    pub const QBaseAtEnd = SuperAtEnd;
+
     /// Inherited from QFileDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
@@ -2784,8 +2844,8 @@ pub const kautosavefile = struct {
     ///
     /// ` self: QtC.KAutoSaveFile `
     ///
-    pub fn QBaseAtEnd(self: ?*anyopaque) bool {
-        return qtc.KAutoSaveFile_QBaseAtEnd(@ptrCast(self));
+    pub fn SuperAtEnd(self: ?*anyopaque) bool {
+        return qtc.KAutoSaveFile_SuperAtEnd(@ptrCast(self));
     }
 
     /// Inherited from QFileDevice
@@ -2823,6 +2883,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_ReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
+    /// ### DEPRECATED: Use `SuperReadData` instead
+    ///
+    pub const QBaseReadData = SuperReadData;
+
     /// Inherited from QFileDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readData)
@@ -2837,9 +2901,9 @@ pub const kautosavefile = struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn QBaseReadData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn SuperReadData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.KAutoSaveFile_QBaseReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.KAutoSaveFile_SuperReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QFileDevice
@@ -2877,6 +2941,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_WriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
     }
 
+    /// ### DEPRECATED: Use `SuperWriteData` instead
+    ///
+    pub const QBaseWriteData = SuperWriteData;
+
     /// Inherited from QFileDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#writeData)
@@ -2891,9 +2959,9 @@ pub const kautosavefile = struct {
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn QBaseWriteData(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn SuperWriteData(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.KAutoSaveFile_QBaseWriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
+        return qtc.KAutoSaveFile_SuperWriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
     }
 
     /// Inherited from QFileDevice
@@ -2931,6 +2999,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_ReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
+    /// ### DEPRECATED: Use `SuperReadLineData` instead
+    ///
+    pub const QBaseReadLineData = SuperReadLineData;
+
     /// Inherited from QFileDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#readLineData)
@@ -2945,9 +3017,9 @@ pub const kautosavefile = struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn QBaseReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn SuperReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.KAutoSaveFile_QBaseReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.KAutoSaveFile_SuperReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QFileDevice
@@ -2980,6 +3052,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_Reset(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperReset` instead
+    ///
+    pub const QBaseReset = SuperReset;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#reset)
@@ -2990,8 +3066,8 @@ pub const kautosavefile = struct {
     ///
     /// ` self: QtC.KAutoSaveFile `
     ///
-    pub fn QBaseReset(self: ?*anyopaque) bool {
-        return qtc.KAutoSaveFile_QBaseReset(@ptrCast(self));
+    pub fn SuperReset(self: ?*anyopaque) bool {
+        return qtc.KAutoSaveFile_SuperReset(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -3024,6 +3100,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_BytesAvailable(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperBytesAvailable` instead
+    ///
+    pub const QBaseBytesAvailable = SuperBytesAvailable;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
@@ -3034,8 +3114,8 @@ pub const kautosavefile = struct {
     ///
     /// ` self: QtC.KAutoSaveFile `
     ///
-    pub fn QBaseBytesAvailable(self: ?*anyopaque) i64 {
-        return qtc.KAutoSaveFile_QBaseBytesAvailable(@ptrCast(self));
+    pub fn SuperBytesAvailable(self: ?*anyopaque) i64 {
+        return qtc.KAutoSaveFile_SuperBytesAvailable(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -3068,6 +3148,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_BytesToWrite(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperBytesToWrite` instead
+    ///
+    pub const QBaseBytesToWrite = SuperBytesToWrite;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesToWrite)
@@ -3078,8 +3162,8 @@ pub const kautosavefile = struct {
     ///
     /// ` self: QtC.KAutoSaveFile `
     ///
-    pub fn QBaseBytesToWrite(self: ?*anyopaque) i64 {
-        return qtc.KAutoSaveFile_QBaseBytesToWrite(@ptrCast(self));
+    pub fn SuperBytesToWrite(self: ?*anyopaque) i64 {
+        return qtc.KAutoSaveFile_SuperBytesToWrite(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -3112,6 +3196,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_CanReadLine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCanReadLine` instead
+    ///
+    pub const QBaseCanReadLine = SuperCanReadLine;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#canReadLine)
@@ -3122,8 +3210,8 @@ pub const kautosavefile = struct {
     ///
     /// ` self: QtC.KAutoSaveFile `
     ///
-    pub fn QBaseCanReadLine(self: ?*anyopaque) bool {
-        return qtc.KAutoSaveFile_QBaseCanReadLine(@ptrCast(self));
+    pub fn SuperCanReadLine(self: ?*anyopaque) bool {
+        return qtc.KAutoSaveFile_SuperCanReadLine(@ptrCast(self));
     }
 
     /// Inherited from QIODevice
@@ -3158,6 +3246,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_WaitForReadyRead(@ptrCast(self), @bitCast(msecs));
     }
 
+    /// ### DEPRECATED: Use `SuperWaitForReadyRead` instead
+    ///
+    pub const QBaseWaitForReadyRead = SuperWaitForReadyRead;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
@@ -3170,8 +3262,8 @@ pub const kautosavefile = struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn QBaseWaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.KAutoSaveFile_QBaseWaitForReadyRead(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
+        return qtc.KAutoSaveFile_SuperWaitForReadyRead(@ptrCast(self), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -3206,6 +3298,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_WaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
     }
 
+    /// ### DEPRECATED: Use `SuperWaitForBytesWritten` instead
+    ///
+    pub const QBaseWaitForBytesWritten = SuperWaitForBytesWritten;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForBytesWritten)
@@ -3218,8 +3314,8 @@ pub const kautosavefile = struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn QBaseWaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.KAutoSaveFile_QBaseWaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
+        return qtc.KAutoSaveFile_SuperWaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -3254,6 +3350,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_SkipData(@ptrCast(self), @bitCast(maxSize));
     }
 
+    /// ### DEPRECATED: Use `SuperSkipData` instead
+    ///
+    pub const QBaseSkipData = SuperSkipData;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#skipData)
@@ -3266,8 +3366,8 @@ pub const kautosavefile = struct {
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn QBaseSkipData(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.KAutoSaveFile_QBaseSkipData(@ptrCast(self), @bitCast(maxSize));
+    pub fn SuperSkipData(self: ?*anyopaque, maxSize: i64) i64 {
+        return qtc.KAutoSaveFile_SuperSkipData(@ptrCast(self), @bitCast(maxSize));
     }
 
     /// Inherited from QIODevice
@@ -3302,6 +3402,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -3314,8 +3418,8 @@ pub const kautosavefile = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KAutoSaveFile_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KAutoSaveFile_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3352,6 +3456,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -3366,8 +3474,8 @@ pub const kautosavefile = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KAutoSaveFile_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KAutoSaveFile_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3402,6 +3510,10 @@ pub const kautosavefile = struct {
         qtc.KAutoSaveFile_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -3414,8 +3526,8 @@ pub const kautosavefile = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAutoSaveFile_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KAutoSaveFile_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3450,6 +3562,10 @@ pub const kautosavefile = struct {
         qtc.KAutoSaveFile_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -3462,8 +3578,8 @@ pub const kautosavefile = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAutoSaveFile_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KAutoSaveFile_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3498,6 +3614,10 @@ pub const kautosavefile = struct {
         qtc.KAutoSaveFile_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -3510,8 +3630,8 @@ pub const kautosavefile = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAutoSaveFile_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KAutoSaveFile_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3546,6 +3666,10 @@ pub const kautosavefile = struct {
         qtc.KAutoSaveFile_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3558,8 +3682,8 @@ pub const kautosavefile = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KAutoSaveFile_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KAutoSaveFile_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3594,6 +3718,10 @@ pub const kautosavefile = struct {
         qtc.KAutoSaveFile_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -3606,8 +3734,8 @@ pub const kautosavefile = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KAutoSaveFile_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KAutoSaveFile_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3642,6 +3770,10 @@ pub const kautosavefile = struct {
         qtc.KAutoSaveFile_SetOpenMode(@ptrCast(self), @bitCast(openMode));
     }
 
+    /// ### DEPRECATED: Use `SuperSetOpenMode` instead
+    ///
+    pub const QBaseSetOpenMode = SuperSetOpenMode;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
@@ -3654,8 +3786,8 @@ pub const kautosavefile = struct {
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i32) void {
-        qtc.KAutoSaveFile_QBaseSetOpenMode(@ptrCast(self), @bitCast(openMode));
+    pub fn SuperSetOpenMode(self: ?*anyopaque, openMode: i32) void {
+        qtc.KAutoSaveFile_SuperSetOpenMode(@ptrCast(self), @bitCast(openMode));
     }
 
     /// Inherited from QIODevice
@@ -3694,6 +3826,10 @@ pub const kautosavefile = struct {
         qtc.KAutoSaveFile_SetErrorString(@ptrCast(self), errorString_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSetErrorString` instead
+    ///
+    pub const QBaseSetErrorString = SuperSetErrorString;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
@@ -3706,12 +3842,12 @@ pub const kautosavefile = struct {
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn QBaseSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
+    pub fn SuperSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.KAutoSaveFile_QBaseSetErrorString(@ptrCast(self), errorString_str);
+        qtc.KAutoSaveFile_SuperSetErrorString(@ptrCast(self), errorString_str);
     }
 
     /// Inherited from QIODevice
@@ -3744,6 +3880,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -3754,8 +3894,8 @@ pub const kautosavefile = struct {
     ///
     /// ` self: QtC.KAutoSaveFile `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KAutoSaveFile_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KAutoSaveFile_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3788,6 +3928,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -3798,8 +3942,8 @@ pub const kautosavefile = struct {
     ///
     /// ` self: QtC.KAutoSaveFile `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KAutoSaveFile_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KAutoSaveFile_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3835,6 +3979,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -3847,9 +3995,9 @@ pub const kautosavefile = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KAutoSaveFile_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KAutoSaveFile_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3884,6 +4032,10 @@ pub const kautosavefile = struct {
         return qtc.KAutoSaveFile_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -3896,8 +4048,8 @@ pub const kautosavefile = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KAutoSaveFile_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KAutoSaveFile_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3931,6 +4083,9 @@ pub const kautosavefile = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#dtor.KAutoSaveFile)
     ///
@@ -3940,7 +4095,7 @@ pub const kautosavefile = struct {
     ///
     /// ` self: QtC.KAutoSaveFile `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KAutoSaveFile_Delete(@ptrCast(self));
     }
 };

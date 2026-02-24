@@ -268,6 +268,10 @@ pub const qgeomaneuver = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#dtor.QGeoManeuver)
     ///
     /// Delete this object from C++ memory.
@@ -276,7 +280,7 @@ pub const qgeomaneuver = struct {
     ///
     /// ` self: QtC.QGeoManeuver `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGeoManeuver_Delete(@ptrCast(self));
     }
 };

@@ -299,7 +299,7 @@ KTextEditor__View* KTextEditor__MainWindow_OpenUrl2(KTextEditor__MainWindow* sel
 }
 
 // Base class handler implementation
-QMetaObject* KTextEditor__MainWindow_QBaseMetaObject(const KTextEditor__MainWindow* self) {
+QMetaObject* KTextEditor__MainWindow_SuperMetaObject(const KTextEditor__MainWindow* self) {
     auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self));
     if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
         vktexteditormainwindow->setKTextEditor__MainWindow_MetaObject_IsBase(true);
@@ -318,7 +318,7 @@ void KTextEditor__MainWindow_OnMetaObject(const KTextEditor__MainWindow* self, i
 }
 
 // Base class handler implementation
-void* KTextEditor__MainWindow_QBaseMetacast(KTextEditor__MainWindow* self, const char* param1) {
+void* KTextEditor__MainWindow_SuperMetacast(KTextEditor__MainWindow* self, const char* param1) {
     auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
     if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
         vktexteditormainwindow->setKTextEditor__MainWindow_Metacast_IsBase(true);
@@ -337,7 +337,7 @@ void KTextEditor__MainWindow_OnMetacast(KTextEditor__MainWindow* self, intptr_t 
 }
 
 // Base class handler implementation
-int KTextEditor__MainWindow_QBaseMetacall(KTextEditor__MainWindow* self, int param1, int param2, void** param3) {
+int KTextEditor__MainWindow_SuperMetacall(KTextEditor__MainWindow* self, int param1, int param2, void** param3) {
     auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
     if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
         vktexteditormainwindow->setKTextEditor__MainWindow_Metacall_IsBase(true);
@@ -366,7 +366,7 @@ bool KTextEditor__MainWindow_Event(KTextEditor__MainWindow* self, QEvent* event)
 }
 
 // Base class handler implementation
-bool KTextEditor__MainWindow_QBaseEvent(KTextEditor__MainWindow* self, QEvent* event) {
+bool KTextEditor__MainWindow_SuperEvent(KTextEditor__MainWindow* self, QEvent* event) {
     auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
     if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
         vktexteditormainwindow->setKTextEditor__MainWindow_Event_IsBase(true);
@@ -395,7 +395,7 @@ bool KTextEditor__MainWindow_EventFilter(KTextEditor__MainWindow* self, QObject*
 }
 
 // Base class handler implementation
-bool KTextEditor__MainWindow_QBaseEventFilter(KTextEditor__MainWindow* self, QObject* watched, QEvent* event) {
+bool KTextEditor__MainWindow_SuperEventFilter(KTextEditor__MainWindow* self, QObject* watched, QEvent* event) {
     auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
     if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
         vktexteditormainwindow->setKTextEditor__MainWindow_EventFilter_IsBase(true);
@@ -424,7 +424,7 @@ void KTextEditor__MainWindow_TimerEvent(KTextEditor__MainWindow* self, QTimerEve
 }
 
 // Base class handler implementation
-void KTextEditor__MainWindow_QBaseTimerEvent(KTextEditor__MainWindow* self, QTimerEvent* event) {
+void KTextEditor__MainWindow_SuperTimerEvent(KTextEditor__MainWindow* self, QTimerEvent* event) {
     auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
     if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
         vktexteditormainwindow->setKTextEditor__MainWindow_TimerEvent_IsBase(true);
@@ -453,7 +453,7 @@ void KTextEditor__MainWindow_ChildEvent(KTextEditor__MainWindow* self, QChildEve
 }
 
 // Base class handler implementation
-void KTextEditor__MainWindow_QBaseChildEvent(KTextEditor__MainWindow* self, QChildEvent* event) {
+void KTextEditor__MainWindow_SuperChildEvent(KTextEditor__MainWindow* self, QChildEvent* event) {
     auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
     if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
         vktexteditormainwindow->setKTextEditor__MainWindow_ChildEvent_IsBase(true);
@@ -482,7 +482,7 @@ void KTextEditor__MainWindow_CustomEvent(KTextEditor__MainWindow* self, QEvent* 
 }
 
 // Base class handler implementation
-void KTextEditor__MainWindow_QBaseCustomEvent(KTextEditor__MainWindow* self, QEvent* event) {
+void KTextEditor__MainWindow_SuperCustomEvent(KTextEditor__MainWindow* self, QEvent* event) {
     auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
     if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
         vktexteditormainwindow->setKTextEditor__MainWindow_CustomEvent_IsBase(true);
@@ -511,7 +511,7 @@ void KTextEditor__MainWindow_ConnectNotify(KTextEditor__MainWindow* self, const 
 }
 
 // Base class handler implementation
-void KTextEditor__MainWindow_QBaseConnectNotify(KTextEditor__MainWindow* self, const QMetaMethod* signal) {
+void KTextEditor__MainWindow_SuperConnectNotify(KTextEditor__MainWindow* self, const QMetaMethod* signal) {
     auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
     if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
         vktexteditormainwindow->setKTextEditor__MainWindow_ConnectNotify_IsBase(true);
@@ -540,7 +540,7 @@ void KTextEditor__MainWindow_DisconnectNotify(KTextEditor__MainWindow* self, con
 }
 
 // Base class handler implementation
-void KTextEditor__MainWindow_QBaseDisconnectNotify(KTextEditor__MainWindow* self, const QMetaMethod* signal) {
+void KTextEditor__MainWindow_SuperDisconnectNotify(KTextEditor__MainWindow* self, const QMetaMethod* signal) {
     auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
     if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
         vktexteditormainwindow->setKTextEditor__MainWindow_DisconnectNotify_IsBase(true);
@@ -569,7 +569,7 @@ QObject* KTextEditor__MainWindow_Sender(const KTextEditor__MainWindow* self) {
 }
 
 // Base class handler implementation
-QObject* KTextEditor__MainWindow_QBaseSender(const KTextEditor__MainWindow* self) {
+QObject* KTextEditor__MainWindow_SuperSender(const KTextEditor__MainWindow* self) {
     auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self));
     if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
         vktexteditormainwindow->setKTextEditor__MainWindow_Sender_IsBase(true);
@@ -598,7 +598,7 @@ int KTextEditor__MainWindow_SenderSignalIndex(const KTextEditor__MainWindow* sel
 }
 
 // Base class handler implementation
-int KTextEditor__MainWindow_QBaseSenderSignalIndex(const KTextEditor__MainWindow* self) {
+int KTextEditor__MainWindow_SuperSenderSignalIndex(const KTextEditor__MainWindow* self) {
     auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self));
     if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
         vktexteditormainwindow->setKTextEditor__MainWindow_SenderSignalIndex_IsBase(true);
@@ -627,7 +627,7 @@ int KTextEditor__MainWindow_Receivers(const KTextEditor__MainWindow* self, const
 }
 
 // Base class handler implementation
-int KTextEditor__MainWindow_QBaseReceivers(const KTextEditor__MainWindow* self, const char* signal) {
+int KTextEditor__MainWindow_SuperReceivers(const KTextEditor__MainWindow* self, const char* signal) {
     auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self));
     if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
         vktexteditormainwindow->setKTextEditor__MainWindow_Receivers_IsBase(true);
@@ -656,7 +656,7 @@ bool KTextEditor__MainWindow_IsSignalConnected(const KTextEditor__MainWindow* se
 }
 
 // Base class handler implementation
-bool KTextEditor__MainWindow_QBaseIsSignalConnected(const KTextEditor__MainWindow* self, const QMetaMethod* signal) {
+bool KTextEditor__MainWindow_SuperIsSignalConnected(const KTextEditor__MainWindow* self, const QMetaMethod* signal) {
     auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self));
     if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
         vktexteditormainwindow->setKTextEditor__MainWindow_IsSignalConnected_IsBase(true);

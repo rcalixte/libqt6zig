@@ -182,7 +182,7 @@ void KColumnHeadersModel_Connect_SortOrderChanged(KColumnHeadersModel* self, int
 }
 
 // Base class handler implementation
-QMetaObject* KColumnHeadersModel_QBaseMetaObject(const KColumnHeadersModel* self) {
+QMetaObject* KColumnHeadersModel_SuperMetaObject(const KColumnHeadersModel* self) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_MetaObject_IsBase(true);
@@ -201,7 +201,7 @@ void KColumnHeadersModel_OnMetaObject(const KColumnHeadersModel* self, intptr_t 
 }
 
 // Base class handler implementation
-void* KColumnHeadersModel_QBaseMetacast(KColumnHeadersModel* self, const char* param1) {
+void* KColumnHeadersModel_SuperMetacast(KColumnHeadersModel* self, const char* param1) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_Metacast_IsBase(true);
@@ -220,7 +220,7 @@ void KColumnHeadersModel_OnMetacast(KColumnHeadersModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KColumnHeadersModel_QBaseMetacall(KColumnHeadersModel* self, int param1, int param2, void** param3) {
+int KColumnHeadersModel_SuperMetacall(KColumnHeadersModel* self, int param1, int param2, void** param3) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_Metacall_IsBase(true);
@@ -239,7 +239,7 @@ void KColumnHeadersModel_OnMetacall(KColumnHeadersModel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KColumnHeadersModel_QBaseRowCount(const KColumnHeadersModel* self, const QModelIndex* parent) {
+int KColumnHeadersModel_SuperRowCount(const KColumnHeadersModel* self, const QModelIndex* parent) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_RowCount_IsBase(true);
@@ -258,7 +258,7 @@ void KColumnHeadersModel_OnRowCount(const KColumnHeadersModel* self, intptr_t sl
 }
 
 // Base class handler implementation
-QVariant* KColumnHeadersModel_QBaseData(const KColumnHeadersModel* self, const QModelIndex* index, int role) {
+QVariant* KColumnHeadersModel_SuperData(const KColumnHeadersModel* self, const QModelIndex* index, int role) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_Data_IsBase(true);
@@ -277,7 +277,7 @@ void KColumnHeadersModel_OnData(const KColumnHeadersModel* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ KColumnHeadersModel_QBaseRoleNames(const KColumnHeadersModel* self) {
+libqt_map /* of int to libqt_string */ KColumnHeadersModel_SuperRoleNames(const KColumnHeadersModel* self) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_RoleNames_IsBase(true);
@@ -344,7 +344,7 @@ QModelIndex* KColumnHeadersModel_Index(const KColumnHeadersModel* self, int row,
 }
 
 // Base class handler implementation
-QModelIndex* KColumnHeadersModel_QBaseIndex(const KColumnHeadersModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* KColumnHeadersModel_SuperIndex(const KColumnHeadersModel* self, int row, int column, const QModelIndex* parent) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_Index_IsBase(true);
@@ -373,7 +373,7 @@ QModelIndex* KColumnHeadersModel_Sibling(const KColumnHeadersModel* self, int ro
 }
 
 // Base class handler implementation
-QModelIndex* KColumnHeadersModel_QBaseSibling(const KColumnHeadersModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* KColumnHeadersModel_SuperSibling(const KColumnHeadersModel* self, int row, int column, const QModelIndex* idx) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_Sibling_IsBase(true);
@@ -402,7 +402,7 @@ bool KColumnHeadersModel_DropMimeData(KColumnHeadersModel* self, const QMimeData
 }
 
 // Base class handler implementation
-bool KColumnHeadersModel_QBaseDropMimeData(KColumnHeadersModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KColumnHeadersModel_SuperDropMimeData(KColumnHeadersModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_DropMimeData_IsBase(true);
@@ -431,7 +431,7 @@ int KColumnHeadersModel_Flags(const KColumnHeadersModel* self, const QModelIndex
 }
 
 // Base class handler implementation
-int KColumnHeadersModel_QBaseFlags(const KColumnHeadersModel* self, const QModelIndex* index) {
+int KColumnHeadersModel_SuperFlags(const KColumnHeadersModel* self, const QModelIndex* index) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_Flags_IsBase(true);
@@ -460,7 +460,7 @@ bool KColumnHeadersModel_SetData(KColumnHeadersModel* self, const QModelIndex* i
 }
 
 // Base class handler implementation
-bool KColumnHeadersModel_QBaseSetData(KColumnHeadersModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool KColumnHeadersModel_SuperSetData(KColumnHeadersModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_SetData_IsBase(true);
@@ -489,7 +489,7 @@ QVariant* KColumnHeadersModel_HeaderData(const KColumnHeadersModel* self, int se
 }
 
 // Base class handler implementation
-QVariant* KColumnHeadersModel_QBaseHeaderData(const KColumnHeadersModel* self, int section, int orientation, int role) {
+QVariant* KColumnHeadersModel_SuperHeaderData(const KColumnHeadersModel* self, int section, int orientation, int role) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_HeaderData_IsBase(true);
@@ -518,7 +518,7 @@ bool KColumnHeadersModel_SetHeaderData(KColumnHeadersModel* self, int section, i
 }
 
 // Base class handler implementation
-bool KColumnHeadersModel_QBaseSetHeaderData(KColumnHeadersModel* self, int section, int orientation, const QVariant* value, int role) {
+bool KColumnHeadersModel_SuperSetHeaderData(KColumnHeadersModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_SetHeaderData_IsBase(true);
@@ -575,7 +575,7 @@ libqt_map /* of int to QVariant* */ KColumnHeadersModel_ItemData(const KColumnHe
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ KColumnHeadersModel_QBaseItemData(const KColumnHeadersModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ KColumnHeadersModel_SuperItemData(const KColumnHeadersModel* self, const QModelIndex* index) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_ItemData_IsBase(true);
@@ -638,7 +638,7 @@ bool KColumnHeadersModel_SetItemData(KColumnHeadersModel* self, const QModelInde
 }
 
 // Base class handler implementation
-bool KColumnHeadersModel_QBaseSetItemData(KColumnHeadersModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool KColumnHeadersModel_SuperSetItemData(KColumnHeadersModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -673,7 +673,7 @@ bool KColumnHeadersModel_ClearItemData(KColumnHeadersModel* self, const QModelIn
 }
 
 // Base class handler implementation
-bool KColumnHeadersModel_QBaseClearItemData(KColumnHeadersModel* self, const QModelIndex* index) {
+bool KColumnHeadersModel_SuperClearItemData(KColumnHeadersModel* self, const QModelIndex* index) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_ClearItemData_IsBase(true);
@@ -736,7 +736,7 @@ libqt_list /* of libqt_string */ KColumnHeadersModel_MimeTypes(const KColumnHead
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KColumnHeadersModel_QBaseMimeTypes(const KColumnHeadersModel* self) {
+libqt_list /* of libqt_string */ KColumnHeadersModel_SuperMimeTypes(const KColumnHeadersModel* self) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_MimeTypes_IsBase(true);
@@ -805,7 +805,7 @@ QMimeData* KColumnHeadersModel_MimeData(const KColumnHeadersModel* self, const l
 }
 
 // Base class handler implementation
-QMimeData* KColumnHeadersModel_QBaseMimeData(const KColumnHeadersModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* KColumnHeadersModel_SuperMimeData(const KColumnHeadersModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -840,7 +840,7 @@ bool KColumnHeadersModel_CanDropMimeData(const KColumnHeadersModel* self, const 
 }
 
 // Base class handler implementation
-bool KColumnHeadersModel_QBaseCanDropMimeData(const KColumnHeadersModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KColumnHeadersModel_SuperCanDropMimeData(const KColumnHeadersModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_CanDropMimeData_IsBase(true);
@@ -869,7 +869,7 @@ int KColumnHeadersModel_SupportedDropActions(const KColumnHeadersModel* self) {
 }
 
 // Base class handler implementation
-int KColumnHeadersModel_QBaseSupportedDropActions(const KColumnHeadersModel* self) {
+int KColumnHeadersModel_SuperSupportedDropActions(const KColumnHeadersModel* self) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_SupportedDropActions_IsBase(true);
@@ -898,7 +898,7 @@ int KColumnHeadersModel_SupportedDragActions(const KColumnHeadersModel* self) {
 }
 
 // Base class handler implementation
-int KColumnHeadersModel_QBaseSupportedDragActions(const KColumnHeadersModel* self) {
+int KColumnHeadersModel_SuperSupportedDragActions(const KColumnHeadersModel* self) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_SupportedDragActions_IsBase(true);
@@ -927,7 +927,7 @@ bool KColumnHeadersModel_InsertRows(KColumnHeadersModel* self, int row, int coun
 }
 
 // Base class handler implementation
-bool KColumnHeadersModel_QBaseInsertRows(KColumnHeadersModel* self, int row, int count, const QModelIndex* parent) {
+bool KColumnHeadersModel_SuperInsertRows(KColumnHeadersModel* self, int row, int count, const QModelIndex* parent) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_InsertRows_IsBase(true);
@@ -956,7 +956,7 @@ bool KColumnHeadersModel_InsertColumns(KColumnHeadersModel* self, int column, in
 }
 
 // Base class handler implementation
-bool KColumnHeadersModel_QBaseInsertColumns(KColumnHeadersModel* self, int column, int count, const QModelIndex* parent) {
+bool KColumnHeadersModel_SuperInsertColumns(KColumnHeadersModel* self, int column, int count, const QModelIndex* parent) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_InsertColumns_IsBase(true);
@@ -985,7 +985,7 @@ bool KColumnHeadersModel_RemoveRows(KColumnHeadersModel* self, int row, int coun
 }
 
 // Base class handler implementation
-bool KColumnHeadersModel_QBaseRemoveRows(KColumnHeadersModel* self, int row, int count, const QModelIndex* parent) {
+bool KColumnHeadersModel_SuperRemoveRows(KColumnHeadersModel* self, int row, int count, const QModelIndex* parent) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_RemoveRows_IsBase(true);
@@ -1014,7 +1014,7 @@ bool KColumnHeadersModel_RemoveColumns(KColumnHeadersModel* self, int column, in
 }
 
 // Base class handler implementation
-bool KColumnHeadersModel_QBaseRemoveColumns(KColumnHeadersModel* self, int column, int count, const QModelIndex* parent) {
+bool KColumnHeadersModel_SuperRemoveColumns(KColumnHeadersModel* self, int column, int count, const QModelIndex* parent) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_RemoveColumns_IsBase(true);
@@ -1043,7 +1043,7 @@ bool KColumnHeadersModel_MoveRows(KColumnHeadersModel* self, const QModelIndex* 
 }
 
 // Base class handler implementation
-bool KColumnHeadersModel_QBaseMoveRows(KColumnHeadersModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KColumnHeadersModel_SuperMoveRows(KColumnHeadersModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_MoveRows_IsBase(true);
@@ -1072,7 +1072,7 @@ bool KColumnHeadersModel_MoveColumns(KColumnHeadersModel* self, const QModelInde
 }
 
 // Base class handler implementation
-bool KColumnHeadersModel_QBaseMoveColumns(KColumnHeadersModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KColumnHeadersModel_SuperMoveColumns(KColumnHeadersModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_MoveColumns_IsBase(true);
@@ -1101,7 +1101,7 @@ void KColumnHeadersModel_FetchMore(KColumnHeadersModel* self, const QModelIndex*
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseFetchMore(KColumnHeadersModel* self, const QModelIndex* parent) {
+void KColumnHeadersModel_SuperFetchMore(KColumnHeadersModel* self, const QModelIndex* parent) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_FetchMore_IsBase(true);
@@ -1130,7 +1130,7 @@ bool KColumnHeadersModel_CanFetchMore(const KColumnHeadersModel* self, const QMo
 }
 
 // Base class handler implementation
-bool KColumnHeadersModel_QBaseCanFetchMore(const KColumnHeadersModel* self, const QModelIndex* parent) {
+bool KColumnHeadersModel_SuperCanFetchMore(const KColumnHeadersModel* self, const QModelIndex* parent) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_CanFetchMore_IsBase(true);
@@ -1159,7 +1159,7 @@ void KColumnHeadersModel_Sort(KColumnHeadersModel* self, int column, int order) 
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseSort(KColumnHeadersModel* self, int column, int order) {
+void KColumnHeadersModel_SuperSort(KColumnHeadersModel* self, int column, int order) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_Sort_IsBase(true);
@@ -1188,7 +1188,7 @@ QModelIndex* KColumnHeadersModel_Buddy(const KColumnHeadersModel* self, const QM
 }
 
 // Base class handler implementation
-QModelIndex* KColumnHeadersModel_QBaseBuddy(const KColumnHeadersModel* self, const QModelIndex* index) {
+QModelIndex* KColumnHeadersModel_SuperBuddy(const KColumnHeadersModel* self, const QModelIndex* index) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_Buddy_IsBase(true);
@@ -1235,7 +1235,7 @@ libqt_list /* of QModelIndex* */ KColumnHeadersModel_Match(const KColumnHeadersM
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KColumnHeadersModel_QBaseMatch(const KColumnHeadersModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ KColumnHeadersModel_SuperMatch(const KColumnHeadersModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_Match_IsBase(true);
@@ -1282,7 +1282,7 @@ QSize* KColumnHeadersModel_Span(const KColumnHeadersModel* self, const QModelInd
 }
 
 // Base class handler implementation
-QSize* KColumnHeadersModel_QBaseSpan(const KColumnHeadersModel* self, const QModelIndex* index) {
+QSize* KColumnHeadersModel_SuperSpan(const KColumnHeadersModel* self, const QModelIndex* index) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_Span_IsBase(true);
@@ -1311,7 +1311,7 @@ void KColumnHeadersModel_MultiData(const KColumnHeadersModel* self, const QModel
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseMultiData(const KColumnHeadersModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void KColumnHeadersModel_SuperMultiData(const KColumnHeadersModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_MultiData_IsBase(true);
@@ -1340,7 +1340,7 @@ bool KColumnHeadersModel_Submit(KColumnHeadersModel* self) {
 }
 
 // Base class handler implementation
-bool KColumnHeadersModel_QBaseSubmit(KColumnHeadersModel* self) {
+bool KColumnHeadersModel_SuperSubmit(KColumnHeadersModel* self) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_Submit_IsBase(true);
@@ -1369,7 +1369,7 @@ void KColumnHeadersModel_Revert(KColumnHeadersModel* self) {
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseRevert(KColumnHeadersModel* self) {
+void KColumnHeadersModel_SuperRevert(KColumnHeadersModel* self) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_Revert_IsBase(true);
@@ -1398,7 +1398,7 @@ void KColumnHeadersModel_ResetInternalData(KColumnHeadersModel* self) {
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseResetInternalData(KColumnHeadersModel* self) {
+void KColumnHeadersModel_SuperResetInternalData(KColumnHeadersModel* self) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_ResetInternalData_IsBase(true);
@@ -1427,7 +1427,7 @@ bool KColumnHeadersModel_Event(KColumnHeadersModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KColumnHeadersModel_QBaseEvent(KColumnHeadersModel* self, QEvent* event) {
+bool KColumnHeadersModel_SuperEvent(KColumnHeadersModel* self, QEvent* event) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_Event_IsBase(true);
@@ -1456,7 +1456,7 @@ bool KColumnHeadersModel_EventFilter(KColumnHeadersModel* self, QObject* watched
 }
 
 // Base class handler implementation
-bool KColumnHeadersModel_QBaseEventFilter(KColumnHeadersModel* self, QObject* watched, QEvent* event) {
+bool KColumnHeadersModel_SuperEventFilter(KColumnHeadersModel* self, QObject* watched, QEvent* event) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_EventFilter_IsBase(true);
@@ -1485,7 +1485,7 @@ void KColumnHeadersModel_TimerEvent(KColumnHeadersModel* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseTimerEvent(KColumnHeadersModel* self, QTimerEvent* event) {
+void KColumnHeadersModel_SuperTimerEvent(KColumnHeadersModel* self, QTimerEvent* event) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_TimerEvent_IsBase(true);
@@ -1514,7 +1514,7 @@ void KColumnHeadersModel_ChildEvent(KColumnHeadersModel* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseChildEvent(KColumnHeadersModel* self, QChildEvent* event) {
+void KColumnHeadersModel_SuperChildEvent(KColumnHeadersModel* self, QChildEvent* event) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_ChildEvent_IsBase(true);
@@ -1543,7 +1543,7 @@ void KColumnHeadersModel_CustomEvent(KColumnHeadersModel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseCustomEvent(KColumnHeadersModel* self, QEvent* event) {
+void KColumnHeadersModel_SuperCustomEvent(KColumnHeadersModel* self, QEvent* event) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_CustomEvent_IsBase(true);
@@ -1572,7 +1572,7 @@ void KColumnHeadersModel_ConnectNotify(KColumnHeadersModel* self, const QMetaMet
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseConnectNotify(KColumnHeadersModel* self, const QMetaMethod* signal) {
+void KColumnHeadersModel_SuperConnectNotify(KColumnHeadersModel* self, const QMetaMethod* signal) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_ConnectNotify_IsBase(true);
@@ -1601,7 +1601,7 @@ void KColumnHeadersModel_DisconnectNotify(KColumnHeadersModel* self, const QMeta
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseDisconnectNotify(KColumnHeadersModel* self, const QMetaMethod* signal) {
+void KColumnHeadersModel_SuperDisconnectNotify(KColumnHeadersModel* self, const QMetaMethod* signal) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_DisconnectNotify_IsBase(true);
@@ -1629,7 +1629,7 @@ QModelIndex* KColumnHeadersModel_CreateIndex(const KColumnHeadersModel* self, in
 }
 
 // Base class handler implementation
-QModelIndex* KColumnHeadersModel_QBaseCreateIndex(const KColumnHeadersModel* self, int row, int column) {
+QModelIndex* KColumnHeadersModel_SuperCreateIndex(const KColumnHeadersModel* self, int row, int column) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_CreateIndex_IsBase(true);
@@ -1663,7 +1663,7 @@ void KColumnHeadersModel_EncodeData(const KColumnHeadersModel* self, const libqt
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseEncodeData(const KColumnHeadersModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void KColumnHeadersModel_SuperEncodeData(const KColumnHeadersModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -1698,7 +1698,7 @@ bool KColumnHeadersModel_DecodeData(KColumnHeadersModel* self, int row, int colu
 }
 
 // Base class handler implementation
-bool KColumnHeadersModel_QBaseDecodeData(KColumnHeadersModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool KColumnHeadersModel_SuperDecodeData(KColumnHeadersModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_DecodeData_IsBase(true);
@@ -1727,7 +1727,7 @@ void KColumnHeadersModel_BeginInsertRows(KColumnHeadersModel* self, const QModel
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseBeginInsertRows(KColumnHeadersModel* self, const QModelIndex* parent, int first, int last) {
+void KColumnHeadersModel_SuperBeginInsertRows(KColumnHeadersModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_BeginInsertRows_IsBase(true);
@@ -1756,7 +1756,7 @@ void KColumnHeadersModel_EndInsertRows(KColumnHeadersModel* self) {
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseEndInsertRows(KColumnHeadersModel* self) {
+void KColumnHeadersModel_SuperEndInsertRows(KColumnHeadersModel* self) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_EndInsertRows_IsBase(true);
@@ -1785,7 +1785,7 @@ void KColumnHeadersModel_BeginRemoveRows(KColumnHeadersModel* self, const QModel
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseBeginRemoveRows(KColumnHeadersModel* self, const QModelIndex* parent, int first, int last) {
+void KColumnHeadersModel_SuperBeginRemoveRows(KColumnHeadersModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_BeginRemoveRows_IsBase(true);
@@ -1814,7 +1814,7 @@ void KColumnHeadersModel_EndRemoveRows(KColumnHeadersModel* self) {
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseEndRemoveRows(KColumnHeadersModel* self) {
+void KColumnHeadersModel_SuperEndRemoveRows(KColumnHeadersModel* self) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_EndRemoveRows_IsBase(true);
@@ -1843,7 +1843,7 @@ bool KColumnHeadersModel_BeginMoveRows(KColumnHeadersModel* self, const QModelIn
 }
 
 // Base class handler implementation
-bool KColumnHeadersModel_QBaseBeginMoveRows(KColumnHeadersModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool KColumnHeadersModel_SuperBeginMoveRows(KColumnHeadersModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_BeginMoveRows_IsBase(true);
@@ -1872,7 +1872,7 @@ void KColumnHeadersModel_EndMoveRows(KColumnHeadersModel* self) {
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseEndMoveRows(KColumnHeadersModel* self) {
+void KColumnHeadersModel_SuperEndMoveRows(KColumnHeadersModel* self) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_EndMoveRows_IsBase(true);
@@ -1901,7 +1901,7 @@ void KColumnHeadersModel_BeginInsertColumns(KColumnHeadersModel* self, const QMo
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseBeginInsertColumns(KColumnHeadersModel* self, const QModelIndex* parent, int first, int last) {
+void KColumnHeadersModel_SuperBeginInsertColumns(KColumnHeadersModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_BeginInsertColumns_IsBase(true);
@@ -1930,7 +1930,7 @@ void KColumnHeadersModel_EndInsertColumns(KColumnHeadersModel* self) {
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseEndInsertColumns(KColumnHeadersModel* self) {
+void KColumnHeadersModel_SuperEndInsertColumns(KColumnHeadersModel* self) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_EndInsertColumns_IsBase(true);
@@ -1959,7 +1959,7 @@ void KColumnHeadersModel_BeginRemoveColumns(KColumnHeadersModel* self, const QMo
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseBeginRemoveColumns(KColumnHeadersModel* self, const QModelIndex* parent, int first, int last) {
+void KColumnHeadersModel_SuperBeginRemoveColumns(KColumnHeadersModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_BeginRemoveColumns_IsBase(true);
@@ -1988,7 +1988,7 @@ void KColumnHeadersModel_EndRemoveColumns(KColumnHeadersModel* self) {
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseEndRemoveColumns(KColumnHeadersModel* self) {
+void KColumnHeadersModel_SuperEndRemoveColumns(KColumnHeadersModel* self) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_EndRemoveColumns_IsBase(true);
@@ -2017,7 +2017,7 @@ bool KColumnHeadersModel_BeginMoveColumns(KColumnHeadersModel* self, const QMode
 }
 
 // Base class handler implementation
-bool KColumnHeadersModel_QBaseBeginMoveColumns(KColumnHeadersModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool KColumnHeadersModel_SuperBeginMoveColumns(KColumnHeadersModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_BeginMoveColumns_IsBase(true);
@@ -2046,7 +2046,7 @@ void KColumnHeadersModel_EndMoveColumns(KColumnHeadersModel* self) {
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseEndMoveColumns(KColumnHeadersModel* self) {
+void KColumnHeadersModel_SuperEndMoveColumns(KColumnHeadersModel* self) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_EndMoveColumns_IsBase(true);
@@ -2075,7 +2075,7 @@ void KColumnHeadersModel_BeginResetModel(KColumnHeadersModel* self) {
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseBeginResetModel(KColumnHeadersModel* self) {
+void KColumnHeadersModel_SuperBeginResetModel(KColumnHeadersModel* self) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_BeginResetModel_IsBase(true);
@@ -2104,7 +2104,7 @@ void KColumnHeadersModel_EndResetModel(KColumnHeadersModel* self) {
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseEndResetModel(KColumnHeadersModel* self) {
+void KColumnHeadersModel_SuperEndResetModel(KColumnHeadersModel* self) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_EndResetModel_IsBase(true);
@@ -2133,7 +2133,7 @@ void KColumnHeadersModel_ChangePersistentIndex(KColumnHeadersModel* self, const 
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseChangePersistentIndex(KColumnHeadersModel* self, const QModelIndex* from, const QModelIndex* to) {
+void KColumnHeadersModel_SuperChangePersistentIndex(KColumnHeadersModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_ChangePersistentIndex_IsBase(true);
@@ -2174,7 +2174,7 @@ void KColumnHeadersModel_ChangePersistentIndexList(KColumnHeadersModel* self, co
 }
 
 // Base class handler implementation
-void KColumnHeadersModel_QBaseChangePersistentIndexList(KColumnHeadersModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void KColumnHeadersModel_SuperChangePersistentIndexList(KColumnHeadersModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2233,7 +2233,7 @@ libqt_list /* of QModelIndex* */ KColumnHeadersModel_PersistentIndexList(const K
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KColumnHeadersModel_QBasePersistentIndexList(const KColumnHeadersModel* self) {
+libqt_list /* of QModelIndex* */ KColumnHeadersModel_SuperPersistentIndexList(const KColumnHeadersModel* self) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_PersistentIndexList_IsBase(true);
@@ -2280,7 +2280,7 @@ QObject* KColumnHeadersModel_Sender(const KColumnHeadersModel* self) {
 }
 
 // Base class handler implementation
-QObject* KColumnHeadersModel_QBaseSender(const KColumnHeadersModel* self) {
+QObject* KColumnHeadersModel_SuperSender(const KColumnHeadersModel* self) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_Sender_IsBase(true);
@@ -2309,7 +2309,7 @@ int KColumnHeadersModel_SenderSignalIndex(const KColumnHeadersModel* self) {
 }
 
 // Base class handler implementation
-int KColumnHeadersModel_QBaseSenderSignalIndex(const KColumnHeadersModel* self) {
+int KColumnHeadersModel_SuperSenderSignalIndex(const KColumnHeadersModel* self) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_SenderSignalIndex_IsBase(true);
@@ -2338,7 +2338,7 @@ int KColumnHeadersModel_Receivers(const KColumnHeadersModel* self, const char* s
 }
 
 // Base class handler implementation
-int KColumnHeadersModel_QBaseReceivers(const KColumnHeadersModel* self, const char* signal) {
+int KColumnHeadersModel_SuperReceivers(const KColumnHeadersModel* self, const char* signal) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_Receivers_IsBase(true);
@@ -2367,7 +2367,7 @@ bool KColumnHeadersModel_IsSignalConnected(const KColumnHeadersModel* self, cons
 }
 
 // Base class handler implementation
-bool KColumnHeadersModel_QBaseIsSignalConnected(const KColumnHeadersModel* self, const QMetaMethod* signal) {
+bool KColumnHeadersModel_SuperIsSignalConnected(const KColumnHeadersModel* self, const QMetaMethod* signal) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
     if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
         vkcolumnheadersmodel->setKColumnHeadersModel_IsSignalConnected_IsBase(true);

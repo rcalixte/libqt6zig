@@ -481,6 +481,10 @@ pub const kservicegroup = struct {
         return qtc.KSycocaEntry_IsSeparator(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kservicegroup.html#dtor.KServiceGroup)
     ///
     /// Delete this object from C++ memory.
@@ -489,7 +493,7 @@ pub const kservicegroup = struct {
     ///
     /// ` self: QtC.KServiceGroup `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KServiceGroup_Delete(@ptrCast(self));
     }
 };

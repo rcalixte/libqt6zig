@@ -148,6 +148,10 @@ pub const qwebengineloadinginfo = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#dtor.QWebEngineLoadingInfo)
     ///
     /// Delete this object from C++ memory.
@@ -156,7 +160,7 @@ pub const qwebengineloadinginfo = struct {
     ///
     /// ` self: QtC.QWebEngineLoadingInfo `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebEngineLoadingInfo_Delete(@ptrCast(self));
     }
 };

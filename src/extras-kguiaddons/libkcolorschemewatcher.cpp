@@ -63,7 +63,7 @@ void KColorSchemeWatcher_Connect_SystemPreferenceChanged(KColorSchemeWatcher* se
 }
 
 // Base class handler implementation
-QMetaObject* KColorSchemeWatcher_QBaseMetaObject(const KColorSchemeWatcher* self) {
+QMetaObject* KColorSchemeWatcher_SuperMetaObject(const KColorSchemeWatcher* self) {
     auto* vkcolorschemewatcher = const_cast<VirtualKColorSchemeWatcher*>(dynamic_cast<const VirtualKColorSchemeWatcher*>(self));
     if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
         vkcolorschemewatcher->setKColorSchemeWatcher_MetaObject_IsBase(true);
@@ -82,7 +82,7 @@ void KColorSchemeWatcher_OnMetaObject(const KColorSchemeWatcher* self, intptr_t 
 }
 
 // Base class handler implementation
-void* KColorSchemeWatcher_QBaseMetacast(KColorSchemeWatcher* self, const char* param1) {
+void* KColorSchemeWatcher_SuperMetacast(KColorSchemeWatcher* self, const char* param1) {
     auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
     if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
         vkcolorschemewatcher->setKColorSchemeWatcher_Metacast_IsBase(true);
@@ -101,7 +101,7 @@ void KColorSchemeWatcher_OnMetacast(KColorSchemeWatcher* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KColorSchemeWatcher_QBaseMetacall(KColorSchemeWatcher* self, int param1, int param2, void** param3) {
+int KColorSchemeWatcher_SuperMetacall(KColorSchemeWatcher* self, int param1, int param2, void** param3) {
     auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
     if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
         vkcolorschemewatcher->setKColorSchemeWatcher_Metacall_IsBase(true);
@@ -130,7 +130,7 @@ bool KColorSchemeWatcher_Event(KColorSchemeWatcher* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KColorSchemeWatcher_QBaseEvent(KColorSchemeWatcher* self, QEvent* event) {
+bool KColorSchemeWatcher_SuperEvent(KColorSchemeWatcher* self, QEvent* event) {
     auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
     if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
         vkcolorschemewatcher->setKColorSchemeWatcher_Event_IsBase(true);
@@ -159,7 +159,7 @@ bool KColorSchemeWatcher_EventFilter(KColorSchemeWatcher* self, QObject* watched
 }
 
 // Base class handler implementation
-bool KColorSchemeWatcher_QBaseEventFilter(KColorSchemeWatcher* self, QObject* watched, QEvent* event) {
+bool KColorSchemeWatcher_SuperEventFilter(KColorSchemeWatcher* self, QObject* watched, QEvent* event) {
     auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
     if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
         vkcolorschemewatcher->setKColorSchemeWatcher_EventFilter_IsBase(true);
@@ -188,7 +188,7 @@ void KColorSchemeWatcher_TimerEvent(KColorSchemeWatcher* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void KColorSchemeWatcher_QBaseTimerEvent(KColorSchemeWatcher* self, QTimerEvent* event) {
+void KColorSchemeWatcher_SuperTimerEvent(KColorSchemeWatcher* self, QTimerEvent* event) {
     auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
     if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
         vkcolorschemewatcher->setKColorSchemeWatcher_TimerEvent_IsBase(true);
@@ -217,7 +217,7 @@ void KColorSchemeWatcher_ChildEvent(KColorSchemeWatcher* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void KColorSchemeWatcher_QBaseChildEvent(KColorSchemeWatcher* self, QChildEvent* event) {
+void KColorSchemeWatcher_SuperChildEvent(KColorSchemeWatcher* self, QChildEvent* event) {
     auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
     if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
         vkcolorschemewatcher->setKColorSchemeWatcher_ChildEvent_IsBase(true);
@@ -246,7 +246,7 @@ void KColorSchemeWatcher_CustomEvent(KColorSchemeWatcher* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KColorSchemeWatcher_QBaseCustomEvent(KColorSchemeWatcher* self, QEvent* event) {
+void KColorSchemeWatcher_SuperCustomEvent(KColorSchemeWatcher* self, QEvent* event) {
     auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
     if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
         vkcolorschemewatcher->setKColorSchemeWatcher_CustomEvent_IsBase(true);
@@ -275,7 +275,7 @@ void KColorSchemeWatcher_ConnectNotify(KColorSchemeWatcher* self, const QMetaMet
 }
 
 // Base class handler implementation
-void KColorSchemeWatcher_QBaseConnectNotify(KColorSchemeWatcher* self, const QMetaMethod* signal) {
+void KColorSchemeWatcher_SuperConnectNotify(KColorSchemeWatcher* self, const QMetaMethod* signal) {
     auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
     if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
         vkcolorschemewatcher->setKColorSchemeWatcher_ConnectNotify_IsBase(true);
@@ -304,7 +304,7 @@ void KColorSchemeWatcher_DisconnectNotify(KColorSchemeWatcher* self, const QMeta
 }
 
 // Base class handler implementation
-void KColorSchemeWatcher_QBaseDisconnectNotify(KColorSchemeWatcher* self, const QMetaMethod* signal) {
+void KColorSchemeWatcher_SuperDisconnectNotify(KColorSchemeWatcher* self, const QMetaMethod* signal) {
     auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
     if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
         vkcolorschemewatcher->setKColorSchemeWatcher_DisconnectNotify_IsBase(true);
@@ -333,7 +333,7 @@ QObject* KColorSchemeWatcher_Sender(const KColorSchemeWatcher* self) {
 }
 
 // Base class handler implementation
-QObject* KColorSchemeWatcher_QBaseSender(const KColorSchemeWatcher* self) {
+QObject* KColorSchemeWatcher_SuperSender(const KColorSchemeWatcher* self) {
     auto* vkcolorschemewatcher = const_cast<VirtualKColorSchemeWatcher*>(dynamic_cast<const VirtualKColorSchemeWatcher*>(self));
     if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
         vkcolorschemewatcher->setKColorSchemeWatcher_Sender_IsBase(true);
@@ -362,7 +362,7 @@ int KColorSchemeWatcher_SenderSignalIndex(const KColorSchemeWatcher* self) {
 }
 
 // Base class handler implementation
-int KColorSchemeWatcher_QBaseSenderSignalIndex(const KColorSchemeWatcher* self) {
+int KColorSchemeWatcher_SuperSenderSignalIndex(const KColorSchemeWatcher* self) {
     auto* vkcolorschemewatcher = const_cast<VirtualKColorSchemeWatcher*>(dynamic_cast<const VirtualKColorSchemeWatcher*>(self));
     if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
         vkcolorschemewatcher->setKColorSchemeWatcher_SenderSignalIndex_IsBase(true);
@@ -391,7 +391,7 @@ int KColorSchemeWatcher_Receivers(const KColorSchemeWatcher* self, const char* s
 }
 
 // Base class handler implementation
-int KColorSchemeWatcher_QBaseReceivers(const KColorSchemeWatcher* self, const char* signal) {
+int KColorSchemeWatcher_SuperReceivers(const KColorSchemeWatcher* self, const char* signal) {
     auto* vkcolorschemewatcher = const_cast<VirtualKColorSchemeWatcher*>(dynamic_cast<const VirtualKColorSchemeWatcher*>(self));
     if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
         vkcolorschemewatcher->setKColorSchemeWatcher_Receivers_IsBase(true);
@@ -420,7 +420,7 @@ bool KColorSchemeWatcher_IsSignalConnected(const KColorSchemeWatcher* self, cons
 }
 
 // Base class handler implementation
-bool KColorSchemeWatcher_QBaseIsSignalConnected(const KColorSchemeWatcher* self, const QMetaMethod* signal) {
+bool KColorSchemeWatcher_SuperIsSignalConnected(const KColorSchemeWatcher* self, const QMetaMethod* signal) {
     auto* vkcolorschemewatcher = const_cast<VirtualKColorSchemeWatcher*>(dynamic_cast<const VirtualKColorSchemeWatcher*>(self));
     if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
         vkcolorschemewatcher->setKColorSchemeWatcher_IsSignalConnected_IsBase(true);

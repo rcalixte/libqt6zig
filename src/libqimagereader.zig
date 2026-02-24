@@ -816,6 +816,10 @@ pub const qimagereader = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimagereader.html#dtor.QImageReader)
     ///
     /// Delete this object from C++ memory.
@@ -824,7 +828,7 @@ pub const qimagereader = struct {
     ///
     /// ` self: QtC.QImageReader `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QImageReader_Delete(@ptrCast(self));
     }
 };

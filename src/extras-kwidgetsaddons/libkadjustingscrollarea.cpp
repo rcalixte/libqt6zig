@@ -107,7 +107,7 @@ bool KAdjustingScrollArea_Event(KAdjustingScrollArea* self, QEvent* event) {
 }
 
 // Base class handler implementation
-QMetaObject* KAdjustingScrollArea_QBaseMetaObject(const KAdjustingScrollArea* self) {
+QMetaObject* KAdjustingScrollArea_SuperMetaObject(const KAdjustingScrollArea* self) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_MetaObject_IsBase(true);
@@ -126,7 +126,7 @@ void KAdjustingScrollArea_OnMetaObject(const KAdjustingScrollArea* self, intptr_
 }
 
 // Base class handler implementation
-void* KAdjustingScrollArea_QBaseMetacast(KAdjustingScrollArea* self, const char* param1) {
+void* KAdjustingScrollArea_SuperMetacast(KAdjustingScrollArea* self, const char* param1) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_Metacast_IsBase(true);
@@ -145,7 +145,7 @@ void KAdjustingScrollArea_OnMetacast(KAdjustingScrollArea* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int KAdjustingScrollArea_QBaseMetacall(KAdjustingScrollArea* self, int param1, int param2, void** param3) {
+int KAdjustingScrollArea_SuperMetacall(KAdjustingScrollArea* self, int param1, int param2, void** param3) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_Metacall_IsBase(true);
@@ -164,7 +164,7 @@ void KAdjustingScrollArea_OnMetacall(KAdjustingScrollArea* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-QSize* KAdjustingScrollArea_QBaseMinimumSizeHint(const KAdjustingScrollArea* self) {
+QSize* KAdjustingScrollArea_SuperMinimumSizeHint(const KAdjustingScrollArea* self) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_MinimumSizeHint_IsBase(true);
@@ -183,7 +183,7 @@ void KAdjustingScrollArea_OnMinimumSizeHint(const KAdjustingScrollArea* self, in
 }
 
 // Base class handler implementation
-QSize* KAdjustingScrollArea_QBaseSizeHint(const KAdjustingScrollArea* self) {
+QSize* KAdjustingScrollArea_SuperSizeHint(const KAdjustingScrollArea* self) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_SizeHint_IsBase(true);
@@ -202,7 +202,7 @@ void KAdjustingScrollArea_OnSizeHint(const KAdjustingScrollArea* self, intptr_t 
 }
 
 // Base class handler implementation
-bool KAdjustingScrollArea_QBaseEvent(KAdjustingScrollArea* self, QEvent* event) {
+bool KAdjustingScrollArea_SuperEvent(KAdjustingScrollArea* self, QEvent* event) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_Event_IsBase(true);
@@ -231,7 +231,7 @@ bool KAdjustingScrollArea_FocusNextPrevChild(KAdjustingScrollArea* self, bool ne
 }
 
 // Base class handler implementation
-bool KAdjustingScrollArea_QBaseFocusNextPrevChild(KAdjustingScrollArea* self, bool next) {
+bool KAdjustingScrollArea_SuperFocusNextPrevChild(KAdjustingScrollArea* self, bool next) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_FocusNextPrevChild_IsBase(true);
@@ -260,7 +260,7 @@ void KAdjustingScrollArea_ResizeEvent(KAdjustingScrollArea* self, QResizeEvent* 
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseResizeEvent(KAdjustingScrollArea* self, QResizeEvent* param1) {
+void KAdjustingScrollArea_SuperResizeEvent(KAdjustingScrollArea* self, QResizeEvent* param1) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_ResizeEvent_IsBase(true);
@@ -289,7 +289,7 @@ void KAdjustingScrollArea_ScrollContentsBy(KAdjustingScrollArea* self, int dx, i
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseScrollContentsBy(KAdjustingScrollArea* self, int dx, int dy) {
+void KAdjustingScrollArea_SuperScrollContentsBy(KAdjustingScrollArea* self, int dx, int dy) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_ScrollContentsBy_IsBase(true);
@@ -317,7 +317,7 @@ QSize* KAdjustingScrollArea_ViewportSizeHint(const KAdjustingScrollArea* self) {
 }
 
 // Base class handler implementation
-QSize* KAdjustingScrollArea_QBaseViewportSizeHint(const KAdjustingScrollArea* self) {
+QSize* KAdjustingScrollArea_SuperViewportSizeHint(const KAdjustingScrollArea* self) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_ViewportSizeHint_IsBase(true);
@@ -345,7 +345,7 @@ void KAdjustingScrollArea_SetupViewport(KAdjustingScrollArea* self, QWidget* vie
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseSetupViewport(KAdjustingScrollArea* self, QWidget* viewport) {
+void KAdjustingScrollArea_SuperSetupViewport(KAdjustingScrollArea* self, QWidget* viewport) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_SetupViewport_IsBase(true);
@@ -374,7 +374,7 @@ bool KAdjustingScrollArea_ViewportEvent(KAdjustingScrollArea* self, QEvent* para
 }
 
 // Base class handler implementation
-bool KAdjustingScrollArea_QBaseViewportEvent(KAdjustingScrollArea* self, QEvent* param1) {
+bool KAdjustingScrollArea_SuperViewportEvent(KAdjustingScrollArea* self, QEvent* param1) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_ViewportEvent_IsBase(true);
@@ -403,7 +403,7 @@ void KAdjustingScrollArea_PaintEvent(KAdjustingScrollArea* self, QPaintEvent* pa
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBasePaintEvent(KAdjustingScrollArea* self, QPaintEvent* param1) {
+void KAdjustingScrollArea_SuperPaintEvent(KAdjustingScrollArea* self, QPaintEvent* param1) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_PaintEvent_IsBase(true);
@@ -432,7 +432,7 @@ void KAdjustingScrollArea_MousePressEvent(KAdjustingScrollArea* self, QMouseEven
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseMousePressEvent(KAdjustingScrollArea* self, QMouseEvent* param1) {
+void KAdjustingScrollArea_SuperMousePressEvent(KAdjustingScrollArea* self, QMouseEvent* param1) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_MousePressEvent_IsBase(true);
@@ -461,7 +461,7 @@ void KAdjustingScrollArea_MouseReleaseEvent(KAdjustingScrollArea* self, QMouseEv
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseMouseReleaseEvent(KAdjustingScrollArea* self, QMouseEvent* param1) {
+void KAdjustingScrollArea_SuperMouseReleaseEvent(KAdjustingScrollArea* self, QMouseEvent* param1) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_MouseReleaseEvent_IsBase(true);
@@ -490,7 +490,7 @@ void KAdjustingScrollArea_MouseDoubleClickEvent(KAdjustingScrollArea* self, QMou
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseMouseDoubleClickEvent(KAdjustingScrollArea* self, QMouseEvent* param1) {
+void KAdjustingScrollArea_SuperMouseDoubleClickEvent(KAdjustingScrollArea* self, QMouseEvent* param1) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_MouseDoubleClickEvent_IsBase(true);
@@ -519,7 +519,7 @@ void KAdjustingScrollArea_MouseMoveEvent(KAdjustingScrollArea* self, QMouseEvent
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseMouseMoveEvent(KAdjustingScrollArea* self, QMouseEvent* param1) {
+void KAdjustingScrollArea_SuperMouseMoveEvent(KAdjustingScrollArea* self, QMouseEvent* param1) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_MouseMoveEvent_IsBase(true);
@@ -548,7 +548,7 @@ void KAdjustingScrollArea_WheelEvent(KAdjustingScrollArea* self, QWheelEvent* pa
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseWheelEvent(KAdjustingScrollArea* self, QWheelEvent* param1) {
+void KAdjustingScrollArea_SuperWheelEvent(KAdjustingScrollArea* self, QWheelEvent* param1) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_WheelEvent_IsBase(true);
@@ -577,7 +577,7 @@ void KAdjustingScrollArea_ContextMenuEvent(KAdjustingScrollArea* self, QContextM
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseContextMenuEvent(KAdjustingScrollArea* self, QContextMenuEvent* param1) {
+void KAdjustingScrollArea_SuperContextMenuEvent(KAdjustingScrollArea* self, QContextMenuEvent* param1) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_ContextMenuEvent_IsBase(true);
@@ -606,7 +606,7 @@ void KAdjustingScrollArea_DragEnterEvent(KAdjustingScrollArea* self, QDragEnterE
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseDragEnterEvent(KAdjustingScrollArea* self, QDragEnterEvent* param1) {
+void KAdjustingScrollArea_SuperDragEnterEvent(KAdjustingScrollArea* self, QDragEnterEvent* param1) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_DragEnterEvent_IsBase(true);
@@ -635,7 +635,7 @@ void KAdjustingScrollArea_DragMoveEvent(KAdjustingScrollArea* self, QDragMoveEve
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseDragMoveEvent(KAdjustingScrollArea* self, QDragMoveEvent* param1) {
+void KAdjustingScrollArea_SuperDragMoveEvent(KAdjustingScrollArea* self, QDragMoveEvent* param1) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_DragMoveEvent_IsBase(true);
@@ -664,7 +664,7 @@ void KAdjustingScrollArea_DragLeaveEvent(KAdjustingScrollArea* self, QDragLeaveE
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseDragLeaveEvent(KAdjustingScrollArea* self, QDragLeaveEvent* param1) {
+void KAdjustingScrollArea_SuperDragLeaveEvent(KAdjustingScrollArea* self, QDragLeaveEvent* param1) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_DragLeaveEvent_IsBase(true);
@@ -693,7 +693,7 @@ void KAdjustingScrollArea_DropEvent(KAdjustingScrollArea* self, QDropEvent* para
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseDropEvent(KAdjustingScrollArea* self, QDropEvent* param1) {
+void KAdjustingScrollArea_SuperDropEvent(KAdjustingScrollArea* self, QDropEvent* param1) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_DropEvent_IsBase(true);
@@ -722,7 +722,7 @@ void KAdjustingScrollArea_KeyPressEvent(KAdjustingScrollArea* self, QKeyEvent* p
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseKeyPressEvent(KAdjustingScrollArea* self, QKeyEvent* param1) {
+void KAdjustingScrollArea_SuperKeyPressEvent(KAdjustingScrollArea* self, QKeyEvent* param1) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_KeyPressEvent_IsBase(true);
@@ -751,7 +751,7 @@ void KAdjustingScrollArea_ChangeEvent(KAdjustingScrollArea* self, QEvent* param1
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseChangeEvent(KAdjustingScrollArea* self, QEvent* param1) {
+void KAdjustingScrollArea_SuperChangeEvent(KAdjustingScrollArea* self, QEvent* param1) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_ChangeEvent_IsBase(true);
@@ -780,7 +780,7 @@ void KAdjustingScrollArea_InitStyleOption(const KAdjustingScrollArea* self, QSty
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseInitStyleOption(const KAdjustingScrollArea* self, QStyleOptionFrame* option) {
+void KAdjustingScrollArea_SuperInitStyleOption(const KAdjustingScrollArea* self, QStyleOptionFrame* option) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_InitStyleOption_IsBase(true);
@@ -809,7 +809,7 @@ int KAdjustingScrollArea_DevType(const KAdjustingScrollArea* self) {
 }
 
 // Base class handler implementation
-int KAdjustingScrollArea_QBaseDevType(const KAdjustingScrollArea* self) {
+int KAdjustingScrollArea_SuperDevType(const KAdjustingScrollArea* self) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_DevType_IsBase(true);
@@ -838,7 +838,7 @@ void KAdjustingScrollArea_SetVisible(KAdjustingScrollArea* self, bool visible) {
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseSetVisible(KAdjustingScrollArea* self, bool visible) {
+void KAdjustingScrollArea_SuperSetVisible(KAdjustingScrollArea* self, bool visible) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_SetVisible_IsBase(true);
@@ -867,7 +867,7 @@ int KAdjustingScrollArea_HeightForWidth(const KAdjustingScrollArea* self, int pa
 }
 
 // Base class handler implementation
-int KAdjustingScrollArea_QBaseHeightForWidth(const KAdjustingScrollArea* self, int param1) {
+int KAdjustingScrollArea_SuperHeightForWidth(const KAdjustingScrollArea* self, int param1) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_HeightForWidth_IsBase(true);
@@ -896,7 +896,7 @@ bool KAdjustingScrollArea_HasHeightForWidth(const KAdjustingScrollArea* self) {
 }
 
 // Base class handler implementation
-bool KAdjustingScrollArea_QBaseHasHeightForWidth(const KAdjustingScrollArea* self) {
+bool KAdjustingScrollArea_SuperHasHeightForWidth(const KAdjustingScrollArea* self) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_HasHeightForWidth_IsBase(true);
@@ -925,7 +925,7 @@ QPaintEngine* KAdjustingScrollArea_PaintEngine(const KAdjustingScrollArea* self)
 }
 
 // Base class handler implementation
-QPaintEngine* KAdjustingScrollArea_QBasePaintEngine(const KAdjustingScrollArea* self) {
+QPaintEngine* KAdjustingScrollArea_SuperPaintEngine(const KAdjustingScrollArea* self) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_PaintEngine_IsBase(true);
@@ -954,7 +954,7 @@ void KAdjustingScrollArea_KeyReleaseEvent(KAdjustingScrollArea* self, QKeyEvent*
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseKeyReleaseEvent(KAdjustingScrollArea* self, QKeyEvent* event) {
+void KAdjustingScrollArea_SuperKeyReleaseEvent(KAdjustingScrollArea* self, QKeyEvent* event) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_KeyReleaseEvent_IsBase(true);
@@ -983,7 +983,7 @@ void KAdjustingScrollArea_FocusInEvent(KAdjustingScrollArea* self, QFocusEvent* 
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseFocusInEvent(KAdjustingScrollArea* self, QFocusEvent* event) {
+void KAdjustingScrollArea_SuperFocusInEvent(KAdjustingScrollArea* self, QFocusEvent* event) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_FocusInEvent_IsBase(true);
@@ -1012,7 +1012,7 @@ void KAdjustingScrollArea_FocusOutEvent(KAdjustingScrollArea* self, QFocusEvent*
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseFocusOutEvent(KAdjustingScrollArea* self, QFocusEvent* event) {
+void KAdjustingScrollArea_SuperFocusOutEvent(KAdjustingScrollArea* self, QFocusEvent* event) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_FocusOutEvent_IsBase(true);
@@ -1041,7 +1041,7 @@ void KAdjustingScrollArea_EnterEvent(KAdjustingScrollArea* self, QEnterEvent* ev
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseEnterEvent(KAdjustingScrollArea* self, QEnterEvent* event) {
+void KAdjustingScrollArea_SuperEnterEvent(KAdjustingScrollArea* self, QEnterEvent* event) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_EnterEvent_IsBase(true);
@@ -1070,7 +1070,7 @@ void KAdjustingScrollArea_LeaveEvent(KAdjustingScrollArea* self, QEvent* event) 
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseLeaveEvent(KAdjustingScrollArea* self, QEvent* event) {
+void KAdjustingScrollArea_SuperLeaveEvent(KAdjustingScrollArea* self, QEvent* event) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_LeaveEvent_IsBase(true);
@@ -1099,7 +1099,7 @@ void KAdjustingScrollArea_MoveEvent(KAdjustingScrollArea* self, QMoveEvent* even
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseMoveEvent(KAdjustingScrollArea* self, QMoveEvent* event) {
+void KAdjustingScrollArea_SuperMoveEvent(KAdjustingScrollArea* self, QMoveEvent* event) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_MoveEvent_IsBase(true);
@@ -1128,7 +1128,7 @@ void KAdjustingScrollArea_CloseEvent(KAdjustingScrollArea* self, QCloseEvent* ev
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseCloseEvent(KAdjustingScrollArea* self, QCloseEvent* event) {
+void KAdjustingScrollArea_SuperCloseEvent(KAdjustingScrollArea* self, QCloseEvent* event) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_CloseEvent_IsBase(true);
@@ -1157,7 +1157,7 @@ void KAdjustingScrollArea_TabletEvent(KAdjustingScrollArea* self, QTabletEvent* 
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseTabletEvent(KAdjustingScrollArea* self, QTabletEvent* event) {
+void KAdjustingScrollArea_SuperTabletEvent(KAdjustingScrollArea* self, QTabletEvent* event) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_TabletEvent_IsBase(true);
@@ -1186,7 +1186,7 @@ void KAdjustingScrollArea_ActionEvent(KAdjustingScrollArea* self, QActionEvent* 
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseActionEvent(KAdjustingScrollArea* self, QActionEvent* event) {
+void KAdjustingScrollArea_SuperActionEvent(KAdjustingScrollArea* self, QActionEvent* event) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_ActionEvent_IsBase(true);
@@ -1215,7 +1215,7 @@ void KAdjustingScrollArea_ShowEvent(KAdjustingScrollArea* self, QShowEvent* even
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseShowEvent(KAdjustingScrollArea* self, QShowEvent* event) {
+void KAdjustingScrollArea_SuperShowEvent(KAdjustingScrollArea* self, QShowEvent* event) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_ShowEvent_IsBase(true);
@@ -1244,7 +1244,7 @@ void KAdjustingScrollArea_HideEvent(KAdjustingScrollArea* self, QHideEvent* even
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseHideEvent(KAdjustingScrollArea* self, QHideEvent* event) {
+void KAdjustingScrollArea_SuperHideEvent(KAdjustingScrollArea* self, QHideEvent* event) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_HideEvent_IsBase(true);
@@ -1274,7 +1274,7 @@ bool KAdjustingScrollArea_NativeEvent(KAdjustingScrollArea* self, const libqt_st
 }
 
 // Base class handler implementation
-bool KAdjustingScrollArea_QBaseNativeEvent(KAdjustingScrollArea* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KAdjustingScrollArea_SuperNativeEvent(KAdjustingScrollArea* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
@@ -1304,7 +1304,7 @@ int KAdjustingScrollArea_Metric(const KAdjustingScrollArea* self, int param1) {
 }
 
 // Base class handler implementation
-int KAdjustingScrollArea_QBaseMetric(const KAdjustingScrollArea* self, int param1) {
+int KAdjustingScrollArea_SuperMetric(const KAdjustingScrollArea* self, int param1) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_Metric_IsBase(true);
@@ -1333,7 +1333,7 @@ void KAdjustingScrollArea_InitPainter(const KAdjustingScrollArea* self, QPainter
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseInitPainter(const KAdjustingScrollArea* self, QPainter* painter) {
+void KAdjustingScrollArea_SuperInitPainter(const KAdjustingScrollArea* self, QPainter* painter) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_InitPainter_IsBase(true);
@@ -1362,7 +1362,7 @@ QPaintDevice* KAdjustingScrollArea_Redirected(const KAdjustingScrollArea* self, 
 }
 
 // Base class handler implementation
-QPaintDevice* KAdjustingScrollArea_QBaseRedirected(const KAdjustingScrollArea* self, QPoint* offset) {
+QPaintDevice* KAdjustingScrollArea_SuperRedirected(const KAdjustingScrollArea* self, QPoint* offset) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_Redirected_IsBase(true);
@@ -1391,7 +1391,7 @@ QPainter* KAdjustingScrollArea_SharedPainter(const KAdjustingScrollArea* self) {
 }
 
 // Base class handler implementation
-QPainter* KAdjustingScrollArea_QBaseSharedPainter(const KAdjustingScrollArea* self) {
+QPainter* KAdjustingScrollArea_SuperSharedPainter(const KAdjustingScrollArea* self) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_SharedPainter_IsBase(true);
@@ -1420,7 +1420,7 @@ void KAdjustingScrollArea_InputMethodEvent(KAdjustingScrollArea* self, QInputMet
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseInputMethodEvent(KAdjustingScrollArea* self, QInputMethodEvent* param1) {
+void KAdjustingScrollArea_SuperInputMethodEvent(KAdjustingScrollArea* self, QInputMethodEvent* param1) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_InputMethodEvent_IsBase(true);
@@ -1449,7 +1449,7 @@ QVariant* KAdjustingScrollArea_InputMethodQuery(const KAdjustingScrollArea* self
 }
 
 // Base class handler implementation
-QVariant* KAdjustingScrollArea_QBaseInputMethodQuery(const KAdjustingScrollArea* self, int param1) {
+QVariant* KAdjustingScrollArea_SuperInputMethodQuery(const KAdjustingScrollArea* self, int param1) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_InputMethodQuery_IsBase(true);
@@ -1478,7 +1478,7 @@ void KAdjustingScrollArea_TimerEvent(KAdjustingScrollArea* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseTimerEvent(KAdjustingScrollArea* self, QTimerEvent* event) {
+void KAdjustingScrollArea_SuperTimerEvent(KAdjustingScrollArea* self, QTimerEvent* event) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_TimerEvent_IsBase(true);
@@ -1507,7 +1507,7 @@ void KAdjustingScrollArea_ChildEvent(KAdjustingScrollArea* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseChildEvent(KAdjustingScrollArea* self, QChildEvent* event) {
+void KAdjustingScrollArea_SuperChildEvent(KAdjustingScrollArea* self, QChildEvent* event) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_ChildEvent_IsBase(true);
@@ -1536,7 +1536,7 @@ void KAdjustingScrollArea_CustomEvent(KAdjustingScrollArea* self, QEvent* event)
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseCustomEvent(KAdjustingScrollArea* self, QEvent* event) {
+void KAdjustingScrollArea_SuperCustomEvent(KAdjustingScrollArea* self, QEvent* event) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_CustomEvent_IsBase(true);
@@ -1565,7 +1565,7 @@ void KAdjustingScrollArea_ConnectNotify(KAdjustingScrollArea* self, const QMetaM
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseConnectNotify(KAdjustingScrollArea* self, const QMetaMethod* signal) {
+void KAdjustingScrollArea_SuperConnectNotify(KAdjustingScrollArea* self, const QMetaMethod* signal) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_ConnectNotify_IsBase(true);
@@ -1594,7 +1594,7 @@ void KAdjustingScrollArea_DisconnectNotify(KAdjustingScrollArea* self, const QMe
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseDisconnectNotify(KAdjustingScrollArea* self, const QMetaMethod* signal) {
+void KAdjustingScrollArea_SuperDisconnectNotify(KAdjustingScrollArea* self, const QMetaMethod* signal) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_DisconnectNotify_IsBase(true);
@@ -1623,7 +1623,7 @@ void KAdjustingScrollArea_SetViewportMargins(KAdjustingScrollArea* self, int lef
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseSetViewportMargins(KAdjustingScrollArea* self, int left, int top, int right, int bottom) {
+void KAdjustingScrollArea_SuperSetViewportMargins(KAdjustingScrollArea* self, int left, int top, int right, int bottom) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_SetViewportMargins_IsBase(true);
@@ -1651,7 +1651,7 @@ QMargins* KAdjustingScrollArea_ViewportMargins(const KAdjustingScrollArea* self)
 }
 
 // Base class handler implementation
-QMargins* KAdjustingScrollArea_QBaseViewportMargins(const KAdjustingScrollArea* self) {
+QMargins* KAdjustingScrollArea_SuperViewportMargins(const KAdjustingScrollArea* self) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_ViewportMargins_IsBase(true);
@@ -1679,7 +1679,7 @@ void KAdjustingScrollArea_DrawFrame(KAdjustingScrollArea* self, QPainter* param1
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseDrawFrame(KAdjustingScrollArea* self, QPainter* param1) {
+void KAdjustingScrollArea_SuperDrawFrame(KAdjustingScrollArea* self, QPainter* param1) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_DrawFrame_IsBase(true);
@@ -1708,7 +1708,7 @@ void KAdjustingScrollArea_UpdateMicroFocus(KAdjustingScrollArea* self) {
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseUpdateMicroFocus(KAdjustingScrollArea* self) {
+void KAdjustingScrollArea_SuperUpdateMicroFocus(KAdjustingScrollArea* self) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_UpdateMicroFocus_IsBase(true);
@@ -1737,7 +1737,7 @@ void KAdjustingScrollArea_Create(KAdjustingScrollArea* self) {
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseCreate(KAdjustingScrollArea* self) {
+void KAdjustingScrollArea_SuperCreate(KAdjustingScrollArea* self) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_Create_IsBase(true);
@@ -1766,7 +1766,7 @@ void KAdjustingScrollArea_Destroy(KAdjustingScrollArea* self) {
 }
 
 // Base class handler implementation
-void KAdjustingScrollArea_QBaseDestroy(KAdjustingScrollArea* self) {
+void KAdjustingScrollArea_SuperDestroy(KAdjustingScrollArea* self) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_Destroy_IsBase(true);
@@ -1795,7 +1795,7 @@ bool KAdjustingScrollArea_FocusNextChild(KAdjustingScrollArea* self) {
 }
 
 // Base class handler implementation
-bool KAdjustingScrollArea_QBaseFocusNextChild(KAdjustingScrollArea* self) {
+bool KAdjustingScrollArea_SuperFocusNextChild(KAdjustingScrollArea* self) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_FocusNextChild_IsBase(true);
@@ -1824,7 +1824,7 @@ bool KAdjustingScrollArea_FocusPreviousChild(KAdjustingScrollArea* self) {
 }
 
 // Base class handler implementation
-bool KAdjustingScrollArea_QBaseFocusPreviousChild(KAdjustingScrollArea* self) {
+bool KAdjustingScrollArea_SuperFocusPreviousChild(KAdjustingScrollArea* self) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_FocusPreviousChild_IsBase(true);
@@ -1853,7 +1853,7 @@ QObject* KAdjustingScrollArea_Sender(const KAdjustingScrollArea* self) {
 }
 
 // Base class handler implementation
-QObject* KAdjustingScrollArea_QBaseSender(const KAdjustingScrollArea* self) {
+QObject* KAdjustingScrollArea_SuperSender(const KAdjustingScrollArea* self) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_Sender_IsBase(true);
@@ -1882,7 +1882,7 @@ int KAdjustingScrollArea_SenderSignalIndex(const KAdjustingScrollArea* self) {
 }
 
 // Base class handler implementation
-int KAdjustingScrollArea_QBaseSenderSignalIndex(const KAdjustingScrollArea* self) {
+int KAdjustingScrollArea_SuperSenderSignalIndex(const KAdjustingScrollArea* self) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_SenderSignalIndex_IsBase(true);
@@ -1911,7 +1911,7 @@ int KAdjustingScrollArea_Receivers(const KAdjustingScrollArea* self, const char*
 }
 
 // Base class handler implementation
-int KAdjustingScrollArea_QBaseReceivers(const KAdjustingScrollArea* self, const char* signal) {
+int KAdjustingScrollArea_SuperReceivers(const KAdjustingScrollArea* self, const char* signal) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_Receivers_IsBase(true);
@@ -1940,7 +1940,7 @@ bool KAdjustingScrollArea_IsSignalConnected(const KAdjustingScrollArea* self, co
 }
 
 // Base class handler implementation
-bool KAdjustingScrollArea_QBaseIsSignalConnected(const KAdjustingScrollArea* self, const QMetaMethod* signal) {
+bool KAdjustingScrollArea_SuperIsSignalConnected(const KAdjustingScrollArea* self, const QMetaMethod* signal) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_IsSignalConnected_IsBase(true);
@@ -1969,7 +1969,7 @@ double KAdjustingScrollArea_GetDecodedMetricF(const KAdjustingScrollArea* self, 
 }
 
 // Base class handler implementation
-double KAdjustingScrollArea_QBaseGetDecodedMetricF(const KAdjustingScrollArea* self, int metricA, int metricB) {
+double KAdjustingScrollArea_SuperGetDecodedMetricF(const KAdjustingScrollArea* self, int metricA, int metricB) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
     if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
         vkadjustingscrollarea->setKAdjustingScrollArea_GetDecodedMetricF_IsBase(true);

@@ -152,13 +152,17 @@ pub const kprocesslist__kprocessinfo = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KProcessList__KProcessInfo `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KProcessList__KProcessInfo_Delete(@ptrCast(self));
     }
 };

@@ -79,6 +79,10 @@ pub const qxmlstreamattribute = struct {
         return qtc.QXmlStreamAttribute_IsDefault(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattribute.html#dtor.QXmlStreamAttribute)
     ///
     /// Delete this object from C++ memory.
@@ -87,7 +91,7 @@ pub const qxmlstreamattribute = struct {
     ///
     /// ` self: QtC.QXmlStreamAttribute `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QXmlStreamAttribute_Delete(@ptrCast(self));
     }
 };
@@ -178,6 +182,10 @@ pub const qxmlstreamattributes = struct {
         return qtc.QXmlStreamAttributes_HasAttribute2(@ptrCast(self), namespaceUri.ptr, name.ptr);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattributes.html#dtor.QXmlStreamAttributes)
     ///
     /// Delete this object from C++ memory.
@@ -186,7 +194,7 @@ pub const qxmlstreamattributes = struct {
     ///
     /// ` self: QtC.QXmlStreamAttributes `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QXmlStreamAttributes_Delete(@ptrCast(self));
     }
 };
@@ -230,6 +238,10 @@ pub const qxmlstreamnamespacedeclaration = struct {
         return qtc.QXmlStreamNamespaceDeclaration_new3(@ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamnamespacedeclaration.html#dtor.QXmlStreamNamespaceDeclaration)
     ///
     /// Delete this object from C++ memory.
@@ -238,7 +250,7 @@ pub const qxmlstreamnamespacedeclaration = struct {
     ///
     /// ` self: QtC.QXmlStreamNamespaceDeclaration `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QXmlStreamNamespaceDeclaration_Delete(@ptrCast(self));
     }
 };
@@ -261,6 +273,10 @@ pub const qxmlstreamnotationdeclaration = struct {
         return qtc.QXmlStreamNotationDeclaration_new2(@ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamnotationdeclaration.html#dtor.QXmlStreamNotationDeclaration)
     ///
     /// Delete this object from C++ memory.
@@ -269,7 +285,7 @@ pub const qxmlstreamnotationdeclaration = struct {
     ///
     /// ` self: QtC.QXmlStreamNotationDeclaration `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QXmlStreamNotationDeclaration_Delete(@ptrCast(self));
     }
 };
@@ -292,6 +308,10 @@ pub const qxmlstreamentitydeclaration = struct {
         return qtc.QXmlStreamEntityDeclaration_new2(@ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentitydeclaration.html#dtor.QXmlStreamEntityDeclaration)
     ///
     /// Delete this object from C++ memory.
@@ -300,7 +320,7 @@ pub const qxmlstreamentitydeclaration = struct {
     ///
     /// ` self: QtC.QXmlStreamEntityDeclaration `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QXmlStreamEntityDeclaration_Delete(@ptrCast(self));
     }
 };
@@ -357,6 +377,10 @@ pub const qxmlstreamentityresolver = struct {
         qtc.QXmlStreamEntityResolver_OnResolveEntity(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperResolveEntity` instead
+    ///
+    pub const QBaseResolveEntity = SuperResolveEntity;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html#resolveEntity)
     ///
     /// Base class method implementation
@@ -371,7 +395,7 @@ pub const qxmlstreamentityresolver = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseResolveEntity(self: ?*anyopaque, publicId: []const u8, systemId: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn SuperResolveEntity(self: ?*anyopaque, publicId: []const u8, systemId: []const u8, allocator: std.mem.Allocator) []const u8 {
         const publicId_str = qtc.libqt_string{
             .len = publicId.len,
             .data = publicId.ptr,
@@ -380,7 +404,7 @@ pub const qxmlstreamentityresolver = struct {
             .len = systemId.len,
             .data = systemId.ptr,
         };
-        var _str = qtc.QXmlStreamEntityResolver_QBaseResolveEntity(@ptrCast(self), publicId_str, systemId_str);
+        var _str = qtc.QXmlStreamEntityResolver_SuperResolveEntity(@ptrCast(self), publicId_str, systemId_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamentityresolver.ResolveEntity: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -425,6 +449,10 @@ pub const qxmlstreamentityresolver = struct {
         qtc.QXmlStreamEntityResolver_OnResolveUndeclaredEntity(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperResolveUndeclaredEntity` instead
+    ///
+    pub const QBaseResolveUndeclaredEntity = SuperResolveUndeclaredEntity;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html#resolveUndeclaredEntity)
     ///
     /// Base class method implementation
@@ -437,17 +465,20 @@ pub const qxmlstreamentityresolver = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseResolveUndeclaredEntity(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn SuperResolveUndeclaredEntity(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        var _str = qtc.QXmlStreamEntityResolver_QBaseResolveUndeclaredEntity(@ptrCast(self), name_str);
+        var _str = qtc.QXmlStreamEntityResolver_SuperResolveUndeclaredEntity(@ptrCast(self), name_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamentityresolver.ResolveUndeclaredEntity: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html#dtor.QXmlStreamEntityResolver)
     ///
@@ -457,7 +488,7 @@ pub const qxmlstreamentityresolver = struct {
     ///
     /// ` self: QtC.QXmlStreamEntityResolver `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QXmlStreamEntityResolver_Delete(@ptrCast(self));
     }
 };
@@ -1023,6 +1054,10 @@ pub const qxmlstreamreader = struct {
         qtc.QXmlStreamReader_RaiseError1(@ptrCast(self), message_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#dtor.QXmlStreamReader)
     ///
     /// Delete this object from C++ memory.
@@ -1031,7 +1066,7 @@ pub const qxmlstreamreader = struct {
     ///
     /// ` self: QtC.QXmlStreamReader `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QXmlStreamReader_Delete(@ptrCast(self));
     }
 };
@@ -1458,6 +1493,10 @@ pub const qxmlstreamwriter = struct {
         qtc.QXmlStreamWriter_WriteProcessingInstruction2(@ptrCast(self), target.ptr, data.ptr);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#dtor.QXmlStreamWriter)
     ///
     /// Delete this object from C++ memory.
@@ -1466,7 +1505,7 @@ pub const qxmlstreamwriter = struct {
     ///
     /// ` self: QtC.QXmlStreamWriter `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QXmlStreamWriter_Delete(@ptrCast(self));
     }
 };

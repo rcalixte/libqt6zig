@@ -118,6 +118,10 @@ pub const qreadwritelock = struct {
         return qtc.QReadWriteLock_TryLockForWrite1(@ptrCast(self), @ptrCast(timeout));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qreadwritelock.html#dtor.QReadWriteLock)
     ///
     /// Delete this object from C++ memory.
@@ -126,7 +130,7 @@ pub const qreadwritelock = struct {
     ///
     /// ` self: QtC.QReadWriteLock `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QReadWriteLock_Delete(@ptrCast(self));
     }
 };
@@ -173,6 +177,10 @@ pub const qreadlocker = struct {
         return qtc.QReadLocker_ReadWriteLock(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qreadlocker.html#dtor.QReadLocker)
     ///
     /// Delete this object from C++ memory.
@@ -181,7 +189,7 @@ pub const qreadlocker = struct {
     ///
     /// ` self: QtC.QReadLocker `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QReadLocker_Delete(@ptrCast(self));
     }
 };
@@ -228,6 +236,10 @@ pub const qwritelocker = struct {
         return qtc.QWriteLocker_ReadWriteLock(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwritelocker.html#dtor.QWriteLocker)
     ///
     /// Delete this object from C++ memory.
@@ -236,7 +248,7 @@ pub const qwritelocker = struct {
     ///
     /// ` self: QtC.QWriteLocker `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWriteLocker_Delete(@ptrCast(self));
     }
 };

@@ -168,7 +168,7 @@ void Sonnet__DictionaryComboBox_Connect_DictionaryNameChanged(Sonnet__Dictionary
 }
 
 // Base class handler implementation
-QMetaObject* Sonnet__DictionaryComboBox_QBaseMetaObject(const Sonnet__DictionaryComboBox* self) {
+QMetaObject* Sonnet__DictionaryComboBox_SuperMetaObject(const Sonnet__DictionaryComboBox* self) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MetaObject_IsBase(true);
@@ -187,7 +187,7 @@ void Sonnet__DictionaryComboBox_OnMetaObject(const Sonnet__DictionaryComboBox* s
 }
 
 // Base class handler implementation
-void* Sonnet__DictionaryComboBox_QBaseMetacast(Sonnet__DictionaryComboBox* self, const char* param1) {
+void* Sonnet__DictionaryComboBox_SuperMetacast(Sonnet__DictionaryComboBox* self, const char* param1) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Metacast_IsBase(true);
@@ -206,7 +206,7 @@ void Sonnet__DictionaryComboBox_OnMetacast(Sonnet__DictionaryComboBox* self, int
 }
 
 // Base class handler implementation
-int Sonnet__DictionaryComboBox_QBaseMetacall(Sonnet__DictionaryComboBox* self, int param1, int param2, void** param3) {
+int Sonnet__DictionaryComboBox_SuperMetacall(Sonnet__DictionaryComboBox* self, int param1, int param2, void** param3) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Metacall_IsBase(true);
@@ -235,7 +235,7 @@ void Sonnet__DictionaryComboBox_SetModel(Sonnet__DictionaryComboBox* self, QAbst
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseSetModel(Sonnet__DictionaryComboBox* self, QAbstractItemModel* model) {
+void Sonnet__DictionaryComboBox_SuperSetModel(Sonnet__DictionaryComboBox* self, QAbstractItemModel* model) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_SetModel_IsBase(true);
@@ -264,7 +264,7 @@ QSize* Sonnet__DictionaryComboBox_SizeHint(const Sonnet__DictionaryComboBox* sel
 }
 
 // Base class handler implementation
-QSize* Sonnet__DictionaryComboBox_QBaseSizeHint(const Sonnet__DictionaryComboBox* self) {
+QSize* Sonnet__DictionaryComboBox_SuperSizeHint(const Sonnet__DictionaryComboBox* self) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_SizeHint_IsBase(true);
@@ -293,7 +293,7 @@ QSize* Sonnet__DictionaryComboBox_MinimumSizeHint(const Sonnet__DictionaryComboB
 }
 
 // Base class handler implementation
-QSize* Sonnet__DictionaryComboBox_QBaseMinimumSizeHint(const Sonnet__DictionaryComboBox* self) {
+QSize* Sonnet__DictionaryComboBox_SuperMinimumSizeHint(const Sonnet__DictionaryComboBox* self) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MinimumSizeHint_IsBase(true);
@@ -322,7 +322,7 @@ void Sonnet__DictionaryComboBox_ShowPopup(Sonnet__DictionaryComboBox* self) {
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseShowPopup(Sonnet__DictionaryComboBox* self) {
+void Sonnet__DictionaryComboBox_SuperShowPopup(Sonnet__DictionaryComboBox* self) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ShowPopup_IsBase(true);
@@ -351,7 +351,7 @@ void Sonnet__DictionaryComboBox_HidePopup(Sonnet__DictionaryComboBox* self) {
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseHidePopup(Sonnet__DictionaryComboBox* self) {
+void Sonnet__DictionaryComboBox_SuperHidePopup(Sonnet__DictionaryComboBox* self) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_HidePopup_IsBase(true);
@@ -380,7 +380,7 @@ bool Sonnet__DictionaryComboBox_Event(Sonnet__DictionaryComboBox* self, QEvent* 
 }
 
 // Base class handler implementation
-bool Sonnet__DictionaryComboBox_QBaseEvent(Sonnet__DictionaryComboBox* self, QEvent* event) {
+bool Sonnet__DictionaryComboBox_SuperEvent(Sonnet__DictionaryComboBox* self, QEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Event_IsBase(true);
@@ -409,7 +409,7 @@ QVariant* Sonnet__DictionaryComboBox_InputMethodQuery(const Sonnet__DictionaryCo
 }
 
 // Base class handler implementation
-QVariant* Sonnet__DictionaryComboBox_QBaseInputMethodQuery(const Sonnet__DictionaryComboBox* self, int param1) {
+QVariant* Sonnet__DictionaryComboBox_SuperInputMethodQuery(const Sonnet__DictionaryComboBox* self, int param1) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_InputMethodQuery_IsBase(true);
@@ -438,7 +438,7 @@ void Sonnet__DictionaryComboBox_FocusInEvent(Sonnet__DictionaryComboBox* self, Q
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseFocusInEvent(Sonnet__DictionaryComboBox* self, QFocusEvent* e) {
+void Sonnet__DictionaryComboBox_SuperFocusInEvent(Sonnet__DictionaryComboBox* self, QFocusEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_FocusInEvent_IsBase(true);
@@ -467,7 +467,7 @@ void Sonnet__DictionaryComboBox_FocusOutEvent(Sonnet__DictionaryComboBox* self, 
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseFocusOutEvent(Sonnet__DictionaryComboBox* self, QFocusEvent* e) {
+void Sonnet__DictionaryComboBox_SuperFocusOutEvent(Sonnet__DictionaryComboBox* self, QFocusEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_FocusOutEvent_IsBase(true);
@@ -496,7 +496,7 @@ void Sonnet__DictionaryComboBox_ChangeEvent(Sonnet__DictionaryComboBox* self, QE
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseChangeEvent(Sonnet__DictionaryComboBox* self, QEvent* e) {
+void Sonnet__DictionaryComboBox_SuperChangeEvent(Sonnet__DictionaryComboBox* self, QEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ChangeEvent_IsBase(true);
@@ -525,7 +525,7 @@ void Sonnet__DictionaryComboBox_ResizeEvent(Sonnet__DictionaryComboBox* self, QR
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseResizeEvent(Sonnet__DictionaryComboBox* self, QResizeEvent* e) {
+void Sonnet__DictionaryComboBox_SuperResizeEvent(Sonnet__DictionaryComboBox* self, QResizeEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ResizeEvent_IsBase(true);
@@ -554,7 +554,7 @@ void Sonnet__DictionaryComboBox_PaintEvent(Sonnet__DictionaryComboBox* self, QPa
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBasePaintEvent(Sonnet__DictionaryComboBox* self, QPaintEvent* e) {
+void Sonnet__DictionaryComboBox_SuperPaintEvent(Sonnet__DictionaryComboBox* self, QPaintEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_PaintEvent_IsBase(true);
@@ -583,7 +583,7 @@ void Sonnet__DictionaryComboBox_ShowEvent(Sonnet__DictionaryComboBox* self, QSho
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseShowEvent(Sonnet__DictionaryComboBox* self, QShowEvent* e) {
+void Sonnet__DictionaryComboBox_SuperShowEvent(Sonnet__DictionaryComboBox* self, QShowEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ShowEvent_IsBase(true);
@@ -612,7 +612,7 @@ void Sonnet__DictionaryComboBox_HideEvent(Sonnet__DictionaryComboBox* self, QHid
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseHideEvent(Sonnet__DictionaryComboBox* self, QHideEvent* e) {
+void Sonnet__DictionaryComboBox_SuperHideEvent(Sonnet__DictionaryComboBox* self, QHideEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_HideEvent_IsBase(true);
@@ -641,7 +641,7 @@ void Sonnet__DictionaryComboBox_MousePressEvent(Sonnet__DictionaryComboBox* self
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseMousePressEvent(Sonnet__DictionaryComboBox* self, QMouseEvent* e) {
+void Sonnet__DictionaryComboBox_SuperMousePressEvent(Sonnet__DictionaryComboBox* self, QMouseEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MousePressEvent_IsBase(true);
@@ -670,7 +670,7 @@ void Sonnet__DictionaryComboBox_MouseReleaseEvent(Sonnet__DictionaryComboBox* se
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseMouseReleaseEvent(Sonnet__DictionaryComboBox* self, QMouseEvent* e) {
+void Sonnet__DictionaryComboBox_SuperMouseReleaseEvent(Sonnet__DictionaryComboBox* self, QMouseEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MouseReleaseEvent_IsBase(true);
@@ -699,7 +699,7 @@ void Sonnet__DictionaryComboBox_KeyPressEvent(Sonnet__DictionaryComboBox* self, 
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseKeyPressEvent(Sonnet__DictionaryComboBox* self, QKeyEvent* e) {
+void Sonnet__DictionaryComboBox_SuperKeyPressEvent(Sonnet__DictionaryComboBox* self, QKeyEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_KeyPressEvent_IsBase(true);
@@ -728,7 +728,7 @@ void Sonnet__DictionaryComboBox_KeyReleaseEvent(Sonnet__DictionaryComboBox* self
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseKeyReleaseEvent(Sonnet__DictionaryComboBox* self, QKeyEvent* e) {
+void Sonnet__DictionaryComboBox_SuperKeyReleaseEvent(Sonnet__DictionaryComboBox* self, QKeyEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_KeyReleaseEvent_IsBase(true);
@@ -757,7 +757,7 @@ void Sonnet__DictionaryComboBox_WheelEvent(Sonnet__DictionaryComboBox* self, QWh
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseWheelEvent(Sonnet__DictionaryComboBox* self, QWheelEvent* e) {
+void Sonnet__DictionaryComboBox_SuperWheelEvent(Sonnet__DictionaryComboBox* self, QWheelEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_WheelEvent_IsBase(true);
@@ -786,7 +786,7 @@ void Sonnet__DictionaryComboBox_ContextMenuEvent(Sonnet__DictionaryComboBox* sel
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseContextMenuEvent(Sonnet__DictionaryComboBox* self, QContextMenuEvent* e) {
+void Sonnet__DictionaryComboBox_SuperContextMenuEvent(Sonnet__DictionaryComboBox* self, QContextMenuEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ContextMenuEvent_IsBase(true);
@@ -815,7 +815,7 @@ void Sonnet__DictionaryComboBox_InputMethodEvent(Sonnet__DictionaryComboBox* sel
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseInputMethodEvent(Sonnet__DictionaryComboBox* self, QInputMethodEvent* param1) {
+void Sonnet__DictionaryComboBox_SuperInputMethodEvent(Sonnet__DictionaryComboBox* self, QInputMethodEvent* param1) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_InputMethodEvent_IsBase(true);
@@ -844,7 +844,7 @@ void Sonnet__DictionaryComboBox_InitStyleOption(const Sonnet__DictionaryComboBox
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseInitStyleOption(const Sonnet__DictionaryComboBox* self, QStyleOptionComboBox* option) {
+void Sonnet__DictionaryComboBox_SuperInitStyleOption(const Sonnet__DictionaryComboBox* self, QStyleOptionComboBox* option) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_InitStyleOption_IsBase(true);
@@ -873,7 +873,7 @@ int Sonnet__DictionaryComboBox_DevType(const Sonnet__DictionaryComboBox* self) {
 }
 
 // Base class handler implementation
-int Sonnet__DictionaryComboBox_QBaseDevType(const Sonnet__DictionaryComboBox* self) {
+int Sonnet__DictionaryComboBox_SuperDevType(const Sonnet__DictionaryComboBox* self) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DevType_IsBase(true);
@@ -902,7 +902,7 @@ void Sonnet__DictionaryComboBox_SetVisible(Sonnet__DictionaryComboBox* self, boo
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseSetVisible(Sonnet__DictionaryComboBox* self, bool visible) {
+void Sonnet__DictionaryComboBox_SuperSetVisible(Sonnet__DictionaryComboBox* self, bool visible) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_SetVisible_IsBase(true);
@@ -931,7 +931,7 @@ int Sonnet__DictionaryComboBox_HeightForWidth(const Sonnet__DictionaryComboBox* 
 }
 
 // Base class handler implementation
-int Sonnet__DictionaryComboBox_QBaseHeightForWidth(const Sonnet__DictionaryComboBox* self, int param1) {
+int Sonnet__DictionaryComboBox_SuperHeightForWidth(const Sonnet__DictionaryComboBox* self, int param1) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_HeightForWidth_IsBase(true);
@@ -960,7 +960,7 @@ bool Sonnet__DictionaryComboBox_HasHeightForWidth(const Sonnet__DictionaryComboB
 }
 
 // Base class handler implementation
-bool Sonnet__DictionaryComboBox_QBaseHasHeightForWidth(const Sonnet__DictionaryComboBox* self) {
+bool Sonnet__DictionaryComboBox_SuperHasHeightForWidth(const Sonnet__DictionaryComboBox* self) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_HasHeightForWidth_IsBase(true);
@@ -989,7 +989,7 @@ QPaintEngine* Sonnet__DictionaryComboBox_PaintEngine(const Sonnet__DictionaryCom
 }
 
 // Base class handler implementation
-QPaintEngine* Sonnet__DictionaryComboBox_QBasePaintEngine(const Sonnet__DictionaryComboBox* self) {
+QPaintEngine* Sonnet__DictionaryComboBox_SuperPaintEngine(const Sonnet__DictionaryComboBox* self) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_PaintEngine_IsBase(true);
@@ -1018,7 +1018,7 @@ void Sonnet__DictionaryComboBox_MouseDoubleClickEvent(Sonnet__DictionaryComboBox
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseMouseDoubleClickEvent(Sonnet__DictionaryComboBox* self, QMouseEvent* event) {
+void Sonnet__DictionaryComboBox_SuperMouseDoubleClickEvent(Sonnet__DictionaryComboBox* self, QMouseEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MouseDoubleClickEvent_IsBase(true);
@@ -1047,7 +1047,7 @@ void Sonnet__DictionaryComboBox_MouseMoveEvent(Sonnet__DictionaryComboBox* self,
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseMouseMoveEvent(Sonnet__DictionaryComboBox* self, QMouseEvent* event) {
+void Sonnet__DictionaryComboBox_SuperMouseMoveEvent(Sonnet__DictionaryComboBox* self, QMouseEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MouseMoveEvent_IsBase(true);
@@ -1076,7 +1076,7 @@ void Sonnet__DictionaryComboBox_EnterEvent(Sonnet__DictionaryComboBox* self, QEn
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseEnterEvent(Sonnet__DictionaryComboBox* self, QEnterEvent* event) {
+void Sonnet__DictionaryComboBox_SuperEnterEvent(Sonnet__DictionaryComboBox* self, QEnterEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_EnterEvent_IsBase(true);
@@ -1105,7 +1105,7 @@ void Sonnet__DictionaryComboBox_LeaveEvent(Sonnet__DictionaryComboBox* self, QEv
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseLeaveEvent(Sonnet__DictionaryComboBox* self, QEvent* event) {
+void Sonnet__DictionaryComboBox_SuperLeaveEvent(Sonnet__DictionaryComboBox* self, QEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_LeaveEvent_IsBase(true);
@@ -1134,7 +1134,7 @@ void Sonnet__DictionaryComboBox_MoveEvent(Sonnet__DictionaryComboBox* self, QMov
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseMoveEvent(Sonnet__DictionaryComboBox* self, QMoveEvent* event) {
+void Sonnet__DictionaryComboBox_SuperMoveEvent(Sonnet__DictionaryComboBox* self, QMoveEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MoveEvent_IsBase(true);
@@ -1163,7 +1163,7 @@ void Sonnet__DictionaryComboBox_CloseEvent(Sonnet__DictionaryComboBox* self, QCl
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseCloseEvent(Sonnet__DictionaryComboBox* self, QCloseEvent* event) {
+void Sonnet__DictionaryComboBox_SuperCloseEvent(Sonnet__DictionaryComboBox* self, QCloseEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_CloseEvent_IsBase(true);
@@ -1192,7 +1192,7 @@ void Sonnet__DictionaryComboBox_TabletEvent(Sonnet__DictionaryComboBox* self, QT
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseTabletEvent(Sonnet__DictionaryComboBox* self, QTabletEvent* event) {
+void Sonnet__DictionaryComboBox_SuperTabletEvent(Sonnet__DictionaryComboBox* self, QTabletEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_TabletEvent_IsBase(true);
@@ -1221,7 +1221,7 @@ void Sonnet__DictionaryComboBox_ActionEvent(Sonnet__DictionaryComboBox* self, QA
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseActionEvent(Sonnet__DictionaryComboBox* self, QActionEvent* event) {
+void Sonnet__DictionaryComboBox_SuperActionEvent(Sonnet__DictionaryComboBox* self, QActionEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ActionEvent_IsBase(true);
@@ -1250,7 +1250,7 @@ void Sonnet__DictionaryComboBox_DragEnterEvent(Sonnet__DictionaryComboBox* self,
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseDragEnterEvent(Sonnet__DictionaryComboBox* self, QDragEnterEvent* event) {
+void Sonnet__DictionaryComboBox_SuperDragEnterEvent(Sonnet__DictionaryComboBox* self, QDragEnterEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DragEnterEvent_IsBase(true);
@@ -1279,7 +1279,7 @@ void Sonnet__DictionaryComboBox_DragMoveEvent(Sonnet__DictionaryComboBox* self, 
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseDragMoveEvent(Sonnet__DictionaryComboBox* self, QDragMoveEvent* event) {
+void Sonnet__DictionaryComboBox_SuperDragMoveEvent(Sonnet__DictionaryComboBox* self, QDragMoveEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DragMoveEvent_IsBase(true);
@@ -1308,7 +1308,7 @@ void Sonnet__DictionaryComboBox_DragLeaveEvent(Sonnet__DictionaryComboBox* self,
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseDragLeaveEvent(Sonnet__DictionaryComboBox* self, QDragLeaveEvent* event) {
+void Sonnet__DictionaryComboBox_SuperDragLeaveEvent(Sonnet__DictionaryComboBox* self, QDragLeaveEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DragLeaveEvent_IsBase(true);
@@ -1337,7 +1337,7 @@ void Sonnet__DictionaryComboBox_DropEvent(Sonnet__DictionaryComboBox* self, QDro
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseDropEvent(Sonnet__DictionaryComboBox* self, QDropEvent* event) {
+void Sonnet__DictionaryComboBox_SuperDropEvent(Sonnet__DictionaryComboBox* self, QDropEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DropEvent_IsBase(true);
@@ -1367,7 +1367,7 @@ bool Sonnet__DictionaryComboBox_NativeEvent(Sonnet__DictionaryComboBox* self, co
 }
 
 // Base class handler implementation
-bool Sonnet__DictionaryComboBox_QBaseNativeEvent(Sonnet__DictionaryComboBox* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool Sonnet__DictionaryComboBox_SuperNativeEvent(Sonnet__DictionaryComboBox* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
@@ -1397,7 +1397,7 @@ int Sonnet__DictionaryComboBox_Metric(const Sonnet__DictionaryComboBox* self, in
 }
 
 // Base class handler implementation
-int Sonnet__DictionaryComboBox_QBaseMetric(const Sonnet__DictionaryComboBox* self, int param1) {
+int Sonnet__DictionaryComboBox_SuperMetric(const Sonnet__DictionaryComboBox* self, int param1) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Metric_IsBase(true);
@@ -1426,7 +1426,7 @@ void Sonnet__DictionaryComboBox_InitPainter(const Sonnet__DictionaryComboBox* se
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseInitPainter(const Sonnet__DictionaryComboBox* self, QPainter* painter) {
+void Sonnet__DictionaryComboBox_SuperInitPainter(const Sonnet__DictionaryComboBox* self, QPainter* painter) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_InitPainter_IsBase(true);
@@ -1455,7 +1455,7 @@ QPaintDevice* Sonnet__DictionaryComboBox_Redirected(const Sonnet__DictionaryComb
 }
 
 // Base class handler implementation
-QPaintDevice* Sonnet__DictionaryComboBox_QBaseRedirected(const Sonnet__DictionaryComboBox* self, QPoint* offset) {
+QPaintDevice* Sonnet__DictionaryComboBox_SuperRedirected(const Sonnet__DictionaryComboBox* self, QPoint* offset) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Redirected_IsBase(true);
@@ -1484,7 +1484,7 @@ QPainter* Sonnet__DictionaryComboBox_SharedPainter(const Sonnet__DictionaryCombo
 }
 
 // Base class handler implementation
-QPainter* Sonnet__DictionaryComboBox_QBaseSharedPainter(const Sonnet__DictionaryComboBox* self) {
+QPainter* Sonnet__DictionaryComboBox_SuperSharedPainter(const Sonnet__DictionaryComboBox* self) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_SharedPainter_IsBase(true);
@@ -1513,7 +1513,7 @@ bool Sonnet__DictionaryComboBox_FocusNextPrevChild(Sonnet__DictionaryComboBox* s
 }
 
 // Base class handler implementation
-bool Sonnet__DictionaryComboBox_QBaseFocusNextPrevChild(Sonnet__DictionaryComboBox* self, bool next) {
+bool Sonnet__DictionaryComboBox_SuperFocusNextPrevChild(Sonnet__DictionaryComboBox* self, bool next) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_FocusNextPrevChild_IsBase(true);
@@ -1542,7 +1542,7 @@ bool Sonnet__DictionaryComboBox_EventFilter(Sonnet__DictionaryComboBox* self, QO
 }
 
 // Base class handler implementation
-bool Sonnet__DictionaryComboBox_QBaseEventFilter(Sonnet__DictionaryComboBox* self, QObject* watched, QEvent* event) {
+bool Sonnet__DictionaryComboBox_SuperEventFilter(Sonnet__DictionaryComboBox* self, QObject* watched, QEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_EventFilter_IsBase(true);
@@ -1571,7 +1571,7 @@ void Sonnet__DictionaryComboBox_TimerEvent(Sonnet__DictionaryComboBox* self, QTi
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseTimerEvent(Sonnet__DictionaryComboBox* self, QTimerEvent* event) {
+void Sonnet__DictionaryComboBox_SuperTimerEvent(Sonnet__DictionaryComboBox* self, QTimerEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_TimerEvent_IsBase(true);
@@ -1600,7 +1600,7 @@ void Sonnet__DictionaryComboBox_ChildEvent(Sonnet__DictionaryComboBox* self, QCh
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseChildEvent(Sonnet__DictionaryComboBox* self, QChildEvent* event) {
+void Sonnet__DictionaryComboBox_SuperChildEvent(Sonnet__DictionaryComboBox* self, QChildEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ChildEvent_IsBase(true);
@@ -1629,7 +1629,7 @@ void Sonnet__DictionaryComboBox_CustomEvent(Sonnet__DictionaryComboBox* self, QE
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseCustomEvent(Sonnet__DictionaryComboBox* self, QEvent* event) {
+void Sonnet__DictionaryComboBox_SuperCustomEvent(Sonnet__DictionaryComboBox* self, QEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_CustomEvent_IsBase(true);
@@ -1658,7 +1658,7 @@ void Sonnet__DictionaryComboBox_ConnectNotify(Sonnet__DictionaryComboBox* self, 
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseConnectNotify(Sonnet__DictionaryComboBox* self, const QMetaMethod* signal) {
+void Sonnet__DictionaryComboBox_SuperConnectNotify(Sonnet__DictionaryComboBox* self, const QMetaMethod* signal) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ConnectNotify_IsBase(true);
@@ -1687,7 +1687,7 @@ void Sonnet__DictionaryComboBox_DisconnectNotify(Sonnet__DictionaryComboBox* sel
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseDisconnectNotify(Sonnet__DictionaryComboBox* self, const QMetaMethod* signal) {
+void Sonnet__DictionaryComboBox_SuperDisconnectNotify(Sonnet__DictionaryComboBox* self, const QMetaMethod* signal) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DisconnectNotify_IsBase(true);
@@ -1716,7 +1716,7 @@ void Sonnet__DictionaryComboBox_UpdateMicroFocus(Sonnet__DictionaryComboBox* sel
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseUpdateMicroFocus(Sonnet__DictionaryComboBox* self) {
+void Sonnet__DictionaryComboBox_SuperUpdateMicroFocus(Sonnet__DictionaryComboBox* self) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_UpdateMicroFocus_IsBase(true);
@@ -1745,7 +1745,7 @@ void Sonnet__DictionaryComboBox_Create(Sonnet__DictionaryComboBox* self) {
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseCreate(Sonnet__DictionaryComboBox* self) {
+void Sonnet__DictionaryComboBox_SuperCreate(Sonnet__DictionaryComboBox* self) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Create_IsBase(true);
@@ -1774,7 +1774,7 @@ void Sonnet__DictionaryComboBox_Destroy(Sonnet__DictionaryComboBox* self) {
 }
 
 // Base class handler implementation
-void Sonnet__DictionaryComboBox_QBaseDestroy(Sonnet__DictionaryComboBox* self) {
+void Sonnet__DictionaryComboBox_SuperDestroy(Sonnet__DictionaryComboBox* self) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Destroy_IsBase(true);
@@ -1803,7 +1803,7 @@ bool Sonnet__DictionaryComboBox_FocusNextChild(Sonnet__DictionaryComboBox* self)
 }
 
 // Base class handler implementation
-bool Sonnet__DictionaryComboBox_QBaseFocusNextChild(Sonnet__DictionaryComboBox* self) {
+bool Sonnet__DictionaryComboBox_SuperFocusNextChild(Sonnet__DictionaryComboBox* self) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_FocusNextChild_IsBase(true);
@@ -1832,7 +1832,7 @@ bool Sonnet__DictionaryComboBox_FocusPreviousChild(Sonnet__DictionaryComboBox* s
 }
 
 // Base class handler implementation
-bool Sonnet__DictionaryComboBox_QBaseFocusPreviousChild(Sonnet__DictionaryComboBox* self) {
+bool Sonnet__DictionaryComboBox_SuperFocusPreviousChild(Sonnet__DictionaryComboBox* self) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_FocusPreviousChild_IsBase(true);
@@ -1861,7 +1861,7 @@ QObject* Sonnet__DictionaryComboBox_Sender(const Sonnet__DictionaryComboBox* sel
 }
 
 // Base class handler implementation
-QObject* Sonnet__DictionaryComboBox_QBaseSender(const Sonnet__DictionaryComboBox* self) {
+QObject* Sonnet__DictionaryComboBox_SuperSender(const Sonnet__DictionaryComboBox* self) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Sender_IsBase(true);
@@ -1890,7 +1890,7 @@ int Sonnet__DictionaryComboBox_SenderSignalIndex(const Sonnet__DictionaryComboBo
 }
 
 // Base class handler implementation
-int Sonnet__DictionaryComboBox_QBaseSenderSignalIndex(const Sonnet__DictionaryComboBox* self) {
+int Sonnet__DictionaryComboBox_SuperSenderSignalIndex(const Sonnet__DictionaryComboBox* self) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_SenderSignalIndex_IsBase(true);
@@ -1919,7 +1919,7 @@ int Sonnet__DictionaryComboBox_Receivers(const Sonnet__DictionaryComboBox* self,
 }
 
 // Base class handler implementation
-int Sonnet__DictionaryComboBox_QBaseReceivers(const Sonnet__DictionaryComboBox* self, const char* signal) {
+int Sonnet__DictionaryComboBox_SuperReceivers(const Sonnet__DictionaryComboBox* self, const char* signal) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Receivers_IsBase(true);
@@ -1948,7 +1948,7 @@ bool Sonnet__DictionaryComboBox_IsSignalConnected(const Sonnet__DictionaryComboB
 }
 
 // Base class handler implementation
-bool Sonnet__DictionaryComboBox_QBaseIsSignalConnected(const Sonnet__DictionaryComboBox* self, const QMetaMethod* signal) {
+bool Sonnet__DictionaryComboBox_SuperIsSignalConnected(const Sonnet__DictionaryComboBox* self, const QMetaMethod* signal) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_IsSignalConnected_IsBase(true);
@@ -1977,7 +1977,7 @@ double Sonnet__DictionaryComboBox_GetDecodedMetricF(const Sonnet__DictionaryComb
 }
 
 // Base class handler implementation
-double Sonnet__DictionaryComboBox_QBaseGetDecodedMetricF(const Sonnet__DictionaryComboBox* self, int metricA, int metricB) {
+double Sonnet__DictionaryComboBox_SuperGetDecodedMetricF(const Sonnet__DictionaryComboBox* self, int metricA, int metricB) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
     if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_GetDecodedMetricF_IsBase(true);

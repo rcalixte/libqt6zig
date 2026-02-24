@@ -295,7 +295,7 @@ void KCompletionBox_InsertItems2(KCompletionBox* self, const libqt_list /* of li
 }
 
 // Base class handler implementation
-QMetaObject* KCompletionBox_QBaseMetaObject(const KCompletionBox* self) {
+QMetaObject* KCompletionBox_SuperMetaObject(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_MetaObject_IsBase(true);
@@ -314,7 +314,7 @@ void KCompletionBox_OnMetaObject(const KCompletionBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KCompletionBox_QBaseMetacast(KCompletionBox* self, const char* param1) {
+void* KCompletionBox_SuperMetacast(KCompletionBox* self, const char* param1) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_Metacast_IsBase(true);
@@ -333,7 +333,7 @@ void KCompletionBox_OnMetacast(KCompletionBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KCompletionBox_QBaseMetacall(KCompletionBox* self, int param1, int param2, void** param3) {
+int KCompletionBox_SuperMetacall(KCompletionBox* self, int param1, int param2, void** param3) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_Metacall_IsBase(true);
@@ -352,7 +352,7 @@ void KCompletionBox_OnMetacall(KCompletionBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* KCompletionBox_QBaseSizeHint(const KCompletionBox* self) {
+QSize* KCompletionBox_SuperSizeHint(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_SizeHint_IsBase(true);
@@ -371,7 +371,7 @@ void KCompletionBox_OnSizeHint(const KCompletionBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBasePopup(KCompletionBox* self) {
+void KCompletionBox_SuperPopup(KCompletionBox* self) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_Popup_IsBase(true);
@@ -390,7 +390,7 @@ void KCompletionBox_OnPopup(KCompletionBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseSetVisible(KCompletionBox* self, bool visible) {
+void KCompletionBox_SuperSetVisible(KCompletionBox* self, bool visible) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_SetVisible_IsBase(true);
@@ -409,7 +409,7 @@ void KCompletionBox_OnSetVisible(KCompletionBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KCompletionBox_QBaseEventFilter(KCompletionBox* self, QObject* param1, QEvent* param2) {
+bool KCompletionBox_SuperEventFilter(KCompletionBox* self, QObject* param1, QEvent* param2) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_EventFilter_IsBase(true);
@@ -428,7 +428,7 @@ void KCompletionBox_OnEventFilter(KCompletionBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPoint* KCompletionBox_QBaseGlobalPositionHint(const KCompletionBox* self) {
+QPoint* KCompletionBox_SuperGlobalPositionHint(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_GlobalPositionHint_IsBase(true);
@@ -446,7 +446,7 @@ void KCompletionBox_OnGlobalPositionHint(const KCompletionBox* self, intptr_t sl
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseSlotActivated(KCompletionBox* self, QListWidgetItem* param1) {
+void KCompletionBox_SuperSlotActivated(KCompletionBox* self, QListWidgetItem* param1) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_SlotActivated_IsBase(true);
@@ -475,7 +475,7 @@ void KCompletionBox_SetSelectionModel(KCompletionBox* self, QItemSelectionModel*
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseSetSelectionModel(KCompletionBox* self, QItemSelectionModel* selectionModel) {
+void KCompletionBox_SuperSetSelectionModel(KCompletionBox* self, QItemSelectionModel* selectionModel) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_SetSelectionModel_IsBase(true);
@@ -504,7 +504,7 @@ void KCompletionBox_DropEvent(KCompletionBox* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseDropEvent(KCompletionBox* self, QDropEvent* event) {
+void KCompletionBox_SuperDropEvent(KCompletionBox* self, QDropEvent* event) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_DropEvent_IsBase(true);
@@ -533,7 +533,7 @@ bool KCompletionBox_Event(KCompletionBox* self, QEvent* e) {
 }
 
 // Base class handler implementation
-bool KCompletionBox_QBaseEvent(KCompletionBox* self, QEvent* e) {
+bool KCompletionBox_SuperEvent(KCompletionBox* self, QEvent* e) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_Event_IsBase(true);
@@ -596,7 +596,7 @@ libqt_list /* of libqt_string */ KCompletionBox_MimeTypes(const KCompletionBox* 
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KCompletionBox_QBaseMimeTypes(const KCompletionBox* self) {
+libqt_list /* of libqt_string */ KCompletionBox_SuperMimeTypes(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_MimeTypes_IsBase(true);
@@ -665,7 +665,7 @@ QMimeData* KCompletionBox_MimeData(const KCompletionBox* self, const libqt_list 
 }
 
 // Base class handler implementation
-QMimeData* KCompletionBox_QBaseMimeData(const KCompletionBox* self, const libqt_list /* of QListWidgetItem* */ items) {
+QMimeData* KCompletionBox_SuperMimeData(const KCompletionBox* self, const libqt_list /* of QListWidgetItem* */ items) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     QList<QListWidgetItem*> items_QList;
     items_QList.reserve(items.len);
@@ -700,7 +700,7 @@ bool KCompletionBox_DropMimeData(KCompletionBox* self, int index, const QMimeDat
 }
 
 // Base class handler implementation
-bool KCompletionBox_QBaseDropMimeData(KCompletionBox* self, int index, const QMimeData* data, int action) {
+bool KCompletionBox_SuperDropMimeData(KCompletionBox* self, int index, const QMimeData* data, int action) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_DropMimeData_IsBase(true);
@@ -729,7 +729,7 @@ int KCompletionBox_SupportedDropActions(const KCompletionBox* self) {
 }
 
 // Base class handler implementation
-int KCompletionBox_QBaseSupportedDropActions(const KCompletionBox* self) {
+int KCompletionBox_SuperSupportedDropActions(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_SupportedDropActions_IsBase(true);
@@ -758,7 +758,7 @@ QRect* KCompletionBox_VisualRect(const KCompletionBox* self, const QModelIndex* 
 }
 
 // Base class handler implementation
-QRect* KCompletionBox_QBaseVisualRect(const KCompletionBox* self, const QModelIndex* index) {
+QRect* KCompletionBox_SuperVisualRect(const KCompletionBox* self, const QModelIndex* index) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_VisualRect_IsBase(true);
@@ -787,7 +787,7 @@ void KCompletionBox_ScrollTo(KCompletionBox* self, const QModelIndex* index, int
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseScrollTo(KCompletionBox* self, const QModelIndex* index, int hint) {
+void KCompletionBox_SuperScrollTo(KCompletionBox* self, const QModelIndex* index, int hint) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_ScrollTo_IsBase(true);
@@ -816,7 +816,7 @@ QModelIndex* KCompletionBox_IndexAt(const KCompletionBox* self, const QPoint* p)
 }
 
 // Base class handler implementation
-QModelIndex* KCompletionBox_QBaseIndexAt(const KCompletionBox* self, const QPoint* p) {
+QModelIndex* KCompletionBox_SuperIndexAt(const KCompletionBox* self, const QPoint* p) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_IndexAt_IsBase(true);
@@ -845,7 +845,7 @@ void KCompletionBox_DoItemsLayout(KCompletionBox* self) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseDoItemsLayout(KCompletionBox* self) {
+void KCompletionBox_SuperDoItemsLayout(KCompletionBox* self) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_DoItemsLayout_IsBase(true);
@@ -874,7 +874,7 @@ void KCompletionBox_Reset(KCompletionBox* self) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseReset(KCompletionBox* self) {
+void KCompletionBox_SuperReset(KCompletionBox* self) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_Reset_IsBase(true);
@@ -903,7 +903,7 @@ void KCompletionBox_SetRootIndex(KCompletionBox* self, const QModelIndex* index)
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseSetRootIndex(KCompletionBox* self, const QModelIndex* index) {
+void KCompletionBox_SuperSetRootIndex(KCompletionBox* self, const QModelIndex* index) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_SetRootIndex_IsBase(true);
@@ -932,7 +932,7 @@ void KCompletionBox_ScrollContentsBy(KCompletionBox* self, int dx, int dy) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseScrollContentsBy(KCompletionBox* self, int dx, int dy) {
+void KCompletionBox_SuperScrollContentsBy(KCompletionBox* self, int dx, int dy) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_ScrollContentsBy_IsBase(true);
@@ -967,7 +967,7 @@ void KCompletionBox_DataChanged(KCompletionBox* self, const QModelIndex* topLeft
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseDataChanged(KCompletionBox* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
+void KCompletionBox_SuperDataChanged(KCompletionBox* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     QList<int> roles_QList;
     roles_QList.reserve(roles.len);
@@ -1002,7 +1002,7 @@ void KCompletionBox_RowsInserted(KCompletionBox* self, const QModelIndex* parent
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseRowsInserted(KCompletionBox* self, const QModelIndex* parent, int start, int end) {
+void KCompletionBox_SuperRowsInserted(KCompletionBox* self, const QModelIndex* parent, int start, int end) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_RowsInserted_IsBase(true);
@@ -1031,7 +1031,7 @@ void KCompletionBox_RowsAboutToBeRemoved(KCompletionBox* self, const QModelIndex
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseRowsAboutToBeRemoved(KCompletionBox* self, const QModelIndex* parent, int start, int end) {
+void KCompletionBox_SuperRowsAboutToBeRemoved(KCompletionBox* self, const QModelIndex* parent, int start, int end) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_RowsAboutToBeRemoved_IsBase(true);
@@ -1060,7 +1060,7 @@ void KCompletionBox_MouseMoveEvent(KCompletionBox* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseMouseMoveEvent(KCompletionBox* self, QMouseEvent* e) {
+void KCompletionBox_SuperMouseMoveEvent(KCompletionBox* self, QMouseEvent* e) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_MouseMoveEvent_IsBase(true);
@@ -1089,7 +1089,7 @@ void KCompletionBox_MouseReleaseEvent(KCompletionBox* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseMouseReleaseEvent(KCompletionBox* self, QMouseEvent* e) {
+void KCompletionBox_SuperMouseReleaseEvent(KCompletionBox* self, QMouseEvent* e) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_MouseReleaseEvent_IsBase(true);
@@ -1118,7 +1118,7 @@ void KCompletionBox_WheelEvent(KCompletionBox* self, QWheelEvent* e) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseWheelEvent(KCompletionBox* self, QWheelEvent* e) {
+void KCompletionBox_SuperWheelEvent(KCompletionBox* self, QWheelEvent* e) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_WheelEvent_IsBase(true);
@@ -1147,7 +1147,7 @@ void KCompletionBox_TimerEvent(KCompletionBox* self, QTimerEvent* e) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseTimerEvent(KCompletionBox* self, QTimerEvent* e) {
+void KCompletionBox_SuperTimerEvent(KCompletionBox* self, QTimerEvent* e) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_TimerEvent_IsBase(true);
@@ -1176,7 +1176,7 @@ void KCompletionBox_ResizeEvent(KCompletionBox* self, QResizeEvent* e) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseResizeEvent(KCompletionBox* self, QResizeEvent* e) {
+void KCompletionBox_SuperResizeEvent(KCompletionBox* self, QResizeEvent* e) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_ResizeEvent_IsBase(true);
@@ -1205,7 +1205,7 @@ void KCompletionBox_DragMoveEvent(KCompletionBox* self, QDragMoveEvent* e) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseDragMoveEvent(KCompletionBox* self, QDragMoveEvent* e) {
+void KCompletionBox_SuperDragMoveEvent(KCompletionBox* self, QDragMoveEvent* e) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_DragMoveEvent_IsBase(true);
@@ -1234,7 +1234,7 @@ void KCompletionBox_DragLeaveEvent(KCompletionBox* self, QDragLeaveEvent* e) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseDragLeaveEvent(KCompletionBox* self, QDragLeaveEvent* e) {
+void KCompletionBox_SuperDragLeaveEvent(KCompletionBox* self, QDragLeaveEvent* e) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_DragLeaveEvent_IsBase(true);
@@ -1263,7 +1263,7 @@ void KCompletionBox_StartDrag(KCompletionBox* self, int supportedActions) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseStartDrag(KCompletionBox* self, int supportedActions) {
+void KCompletionBox_SuperStartDrag(KCompletionBox* self, int supportedActions) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_StartDrag_IsBase(true);
@@ -1292,7 +1292,7 @@ void KCompletionBox_InitViewItemOption(const KCompletionBox* self, QStyleOptionV
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseInitViewItemOption(const KCompletionBox* self, QStyleOptionViewItem* option) {
+void KCompletionBox_SuperInitViewItemOption(const KCompletionBox* self, QStyleOptionViewItem* option) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_InitViewItemOption_IsBase(true);
@@ -1321,7 +1321,7 @@ void KCompletionBox_PaintEvent(KCompletionBox* self, QPaintEvent* e) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBasePaintEvent(KCompletionBox* self, QPaintEvent* e) {
+void KCompletionBox_SuperPaintEvent(KCompletionBox* self, QPaintEvent* e) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_PaintEvent_IsBase(true);
@@ -1350,7 +1350,7 @@ int KCompletionBox_HorizontalOffset(const KCompletionBox* self) {
 }
 
 // Base class handler implementation
-int KCompletionBox_QBaseHorizontalOffset(const KCompletionBox* self) {
+int KCompletionBox_SuperHorizontalOffset(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_HorizontalOffset_IsBase(true);
@@ -1379,7 +1379,7 @@ int KCompletionBox_VerticalOffset(const KCompletionBox* self) {
 }
 
 // Base class handler implementation
-int KCompletionBox_QBaseVerticalOffset(const KCompletionBox* self) {
+int KCompletionBox_SuperVerticalOffset(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_VerticalOffset_IsBase(true);
@@ -1407,7 +1407,7 @@ QModelIndex* KCompletionBox_MoveCursor(KCompletionBox* self, int cursorAction, i
 }
 
 // Base class handler implementation
-QModelIndex* KCompletionBox_QBaseMoveCursor(KCompletionBox* self, int cursorAction, int modifiers) {
+QModelIndex* KCompletionBox_SuperMoveCursor(KCompletionBox* self, int cursorAction, int modifiers) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_MoveCursor_IsBase(true);
@@ -1435,7 +1435,7 @@ void KCompletionBox_SetSelection(KCompletionBox* self, const QRect* rect, int co
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseSetSelection(KCompletionBox* self, const QRect* rect, int command) {
+void KCompletionBox_SuperSetSelection(KCompletionBox* self, const QRect* rect, int command) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_SetSelection_IsBase(true);
@@ -1463,7 +1463,7 @@ QRegion* KCompletionBox_VisualRegionForSelection(const KCompletionBox* self, con
 }
 
 // Base class handler implementation
-QRegion* KCompletionBox_QBaseVisualRegionForSelection(const KCompletionBox* self, const QItemSelection* selection) {
+QRegion* KCompletionBox_SuperVisualRegionForSelection(const KCompletionBox* self, const QItemSelection* selection) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_VisualRegionForSelection_IsBase(true);
@@ -1509,7 +1509,7 @@ libqt_list /* of QModelIndex* */ KCompletionBox_SelectedIndexes(const KCompletio
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KCompletionBox_QBaseSelectedIndexes(const KCompletionBox* self) {
+libqt_list /* of QModelIndex* */ KCompletionBox_SuperSelectedIndexes(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_SelectedIndexes_IsBase(true);
@@ -1556,7 +1556,7 @@ void KCompletionBox_UpdateGeometries(KCompletionBox* self) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseUpdateGeometries(KCompletionBox* self) {
+void KCompletionBox_SuperUpdateGeometries(KCompletionBox* self) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_UpdateGeometries_IsBase(true);
@@ -1585,7 +1585,7 @@ bool KCompletionBox_IsIndexHidden(const KCompletionBox* self, const QModelIndex*
 }
 
 // Base class handler implementation
-bool KCompletionBox_QBaseIsIndexHidden(const KCompletionBox* self, const QModelIndex* index) {
+bool KCompletionBox_SuperIsIndexHidden(const KCompletionBox* self, const QModelIndex* index) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_IsIndexHidden_IsBase(true);
@@ -1614,7 +1614,7 @@ void KCompletionBox_SelectionChanged(KCompletionBox* self, const QItemSelection*
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseSelectionChanged(KCompletionBox* self, const QItemSelection* selected, const QItemSelection* deselected) {
+void KCompletionBox_SuperSelectionChanged(KCompletionBox* self, const QItemSelection* selected, const QItemSelection* deselected) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_SelectionChanged_IsBase(true);
@@ -1643,7 +1643,7 @@ void KCompletionBox_CurrentChanged(KCompletionBox* self, const QModelIndex* curr
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseCurrentChanged(KCompletionBox* self, const QModelIndex* current, const QModelIndex* previous) {
+void KCompletionBox_SuperCurrentChanged(KCompletionBox* self, const QModelIndex* current, const QModelIndex* previous) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_CurrentChanged_IsBase(true);
@@ -1671,7 +1671,7 @@ QSize* KCompletionBox_ViewportSizeHint(const KCompletionBox* self) {
 }
 
 // Base class handler implementation
-QSize* KCompletionBox_QBaseViewportSizeHint(const KCompletionBox* self) {
+QSize* KCompletionBox_SuperViewportSizeHint(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_ViewportSizeHint_IsBase(true);
@@ -1700,7 +1700,7 @@ void KCompletionBox_KeyboardSearch(KCompletionBox* self, const libqt_string sear
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseKeyboardSearch(KCompletionBox* self, const libqt_string search) {
+void KCompletionBox_SuperKeyboardSearch(KCompletionBox* self, const libqt_string search) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     QString search_QString = QString::fromUtf8(search.data, search.len);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
@@ -1730,7 +1730,7 @@ int KCompletionBox_SizeHintForRow(const KCompletionBox* self, int row) {
 }
 
 // Base class handler implementation
-int KCompletionBox_QBaseSizeHintForRow(const KCompletionBox* self, int row) {
+int KCompletionBox_SuperSizeHintForRow(const KCompletionBox* self, int row) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_SizeHintForRow_IsBase(true);
@@ -1759,7 +1759,7 @@ int KCompletionBox_SizeHintForColumn(const KCompletionBox* self, int column) {
 }
 
 // Base class handler implementation
-int KCompletionBox_QBaseSizeHintForColumn(const KCompletionBox* self, int column) {
+int KCompletionBox_SuperSizeHintForColumn(const KCompletionBox* self, int column) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_SizeHintForColumn_IsBase(true);
@@ -1788,7 +1788,7 @@ QAbstractItemDelegate* KCompletionBox_ItemDelegateForIndex(const KCompletionBox*
 }
 
 // Base class handler implementation
-QAbstractItemDelegate* KCompletionBox_QBaseItemDelegateForIndex(const KCompletionBox* self, const QModelIndex* index) {
+QAbstractItemDelegate* KCompletionBox_SuperItemDelegateForIndex(const KCompletionBox* self, const QModelIndex* index) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_ItemDelegateForIndex_IsBase(true);
@@ -1817,7 +1817,7 @@ QVariant* KCompletionBox_InputMethodQuery(const KCompletionBox* self, int query)
 }
 
 // Base class handler implementation
-QVariant* KCompletionBox_QBaseInputMethodQuery(const KCompletionBox* self, int query) {
+QVariant* KCompletionBox_SuperInputMethodQuery(const KCompletionBox* self, int query) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_InputMethodQuery_IsBase(true);
@@ -1846,7 +1846,7 @@ void KCompletionBox_SelectAll(KCompletionBox* self) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseSelectAll(KCompletionBox* self) {
+void KCompletionBox_SuperSelectAll(KCompletionBox* self) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_SelectAll_IsBase(true);
@@ -1875,7 +1875,7 @@ void KCompletionBox_UpdateEditorData(KCompletionBox* self) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseUpdateEditorData(KCompletionBox* self) {
+void KCompletionBox_SuperUpdateEditorData(KCompletionBox* self) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_UpdateEditorData_IsBase(true);
@@ -1904,7 +1904,7 @@ void KCompletionBox_UpdateEditorGeometries(KCompletionBox* self) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseUpdateEditorGeometries(KCompletionBox* self) {
+void KCompletionBox_SuperUpdateEditorGeometries(KCompletionBox* self) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_UpdateEditorGeometries_IsBase(true);
@@ -1933,7 +1933,7 @@ void KCompletionBox_VerticalScrollbarAction(KCompletionBox* self, int action) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseVerticalScrollbarAction(KCompletionBox* self, int action) {
+void KCompletionBox_SuperVerticalScrollbarAction(KCompletionBox* self, int action) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_VerticalScrollbarAction_IsBase(true);
@@ -1962,7 +1962,7 @@ void KCompletionBox_HorizontalScrollbarAction(KCompletionBox* self, int action) 
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseHorizontalScrollbarAction(KCompletionBox* self, int action) {
+void KCompletionBox_SuperHorizontalScrollbarAction(KCompletionBox* self, int action) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_HorizontalScrollbarAction_IsBase(true);
@@ -1991,7 +1991,7 @@ void KCompletionBox_VerticalScrollbarValueChanged(KCompletionBox* self, int valu
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseVerticalScrollbarValueChanged(KCompletionBox* self, int value) {
+void KCompletionBox_SuperVerticalScrollbarValueChanged(KCompletionBox* self, int value) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_VerticalScrollbarValueChanged_IsBase(true);
@@ -2020,7 +2020,7 @@ void KCompletionBox_HorizontalScrollbarValueChanged(KCompletionBox* self, int va
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseHorizontalScrollbarValueChanged(KCompletionBox* self, int value) {
+void KCompletionBox_SuperHorizontalScrollbarValueChanged(KCompletionBox* self, int value) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_HorizontalScrollbarValueChanged_IsBase(true);
@@ -2049,7 +2049,7 @@ void KCompletionBox_CloseEditor(KCompletionBox* self, QWidget* editor, int hint)
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseCloseEditor(KCompletionBox* self, QWidget* editor, int hint) {
+void KCompletionBox_SuperCloseEditor(KCompletionBox* self, QWidget* editor, int hint) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_CloseEditor_IsBase(true);
@@ -2078,7 +2078,7 @@ void KCompletionBox_CommitData(KCompletionBox* self, QWidget* editor) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseCommitData(KCompletionBox* self, QWidget* editor) {
+void KCompletionBox_SuperCommitData(KCompletionBox* self, QWidget* editor) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_CommitData_IsBase(true);
@@ -2107,7 +2107,7 @@ void KCompletionBox_EditorDestroyed(KCompletionBox* self, QObject* editor) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseEditorDestroyed(KCompletionBox* self, QObject* editor) {
+void KCompletionBox_SuperEditorDestroyed(KCompletionBox* self, QObject* editor) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_EditorDestroyed_IsBase(true);
@@ -2136,7 +2136,7 @@ bool KCompletionBox_Edit2(KCompletionBox* self, const QModelIndex* index, int tr
 }
 
 // Base class handler implementation
-bool KCompletionBox_QBaseEdit2(KCompletionBox* self, const QModelIndex* index, int trigger, QEvent* event) {
+bool KCompletionBox_SuperEdit2(KCompletionBox* self, const QModelIndex* index, int trigger, QEvent* event) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_Edit2_IsBase(true);
@@ -2165,7 +2165,7 @@ int KCompletionBox_SelectionCommand(const KCompletionBox* self, const QModelInde
 }
 
 // Base class handler implementation
-int KCompletionBox_QBaseSelectionCommand(const KCompletionBox* self, const QModelIndex* index, const QEvent* event) {
+int KCompletionBox_SuperSelectionCommand(const KCompletionBox* self, const QModelIndex* index, const QEvent* event) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_SelectionCommand_IsBase(true);
@@ -2194,7 +2194,7 @@ bool KCompletionBox_FocusNextPrevChild(KCompletionBox* self, bool next) {
 }
 
 // Base class handler implementation
-bool KCompletionBox_QBaseFocusNextPrevChild(KCompletionBox* self, bool next) {
+bool KCompletionBox_SuperFocusNextPrevChild(KCompletionBox* self, bool next) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_FocusNextPrevChild_IsBase(true);
@@ -2223,7 +2223,7 @@ bool KCompletionBox_ViewportEvent(KCompletionBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KCompletionBox_QBaseViewportEvent(KCompletionBox* self, QEvent* event) {
+bool KCompletionBox_SuperViewportEvent(KCompletionBox* self, QEvent* event) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_ViewportEvent_IsBase(true);
@@ -2252,7 +2252,7 @@ void KCompletionBox_MousePressEvent(KCompletionBox* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseMousePressEvent(KCompletionBox* self, QMouseEvent* event) {
+void KCompletionBox_SuperMousePressEvent(KCompletionBox* self, QMouseEvent* event) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_MousePressEvent_IsBase(true);
@@ -2281,7 +2281,7 @@ void KCompletionBox_MouseDoubleClickEvent(KCompletionBox* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseMouseDoubleClickEvent(KCompletionBox* self, QMouseEvent* event) {
+void KCompletionBox_SuperMouseDoubleClickEvent(KCompletionBox* self, QMouseEvent* event) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_MouseDoubleClickEvent_IsBase(true);
@@ -2310,7 +2310,7 @@ void KCompletionBox_DragEnterEvent(KCompletionBox* self, QDragEnterEvent* event)
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseDragEnterEvent(KCompletionBox* self, QDragEnterEvent* event) {
+void KCompletionBox_SuperDragEnterEvent(KCompletionBox* self, QDragEnterEvent* event) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_DragEnterEvent_IsBase(true);
@@ -2339,7 +2339,7 @@ void KCompletionBox_FocusInEvent(KCompletionBox* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseFocusInEvent(KCompletionBox* self, QFocusEvent* event) {
+void KCompletionBox_SuperFocusInEvent(KCompletionBox* self, QFocusEvent* event) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_FocusInEvent_IsBase(true);
@@ -2368,7 +2368,7 @@ void KCompletionBox_FocusOutEvent(KCompletionBox* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseFocusOutEvent(KCompletionBox* self, QFocusEvent* event) {
+void KCompletionBox_SuperFocusOutEvent(KCompletionBox* self, QFocusEvent* event) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_FocusOutEvent_IsBase(true);
@@ -2397,7 +2397,7 @@ void KCompletionBox_KeyPressEvent(KCompletionBox* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseKeyPressEvent(KCompletionBox* self, QKeyEvent* event) {
+void KCompletionBox_SuperKeyPressEvent(KCompletionBox* self, QKeyEvent* event) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_KeyPressEvent_IsBase(true);
@@ -2426,7 +2426,7 @@ void KCompletionBox_InputMethodEvent(KCompletionBox* self, QInputMethodEvent* ev
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseInputMethodEvent(KCompletionBox* self, QInputMethodEvent* event) {
+void KCompletionBox_SuperInputMethodEvent(KCompletionBox* self, QInputMethodEvent* event) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_InputMethodEvent_IsBase(true);
@@ -2455,7 +2455,7 @@ QSize* KCompletionBox_MinimumSizeHint(const KCompletionBox* self) {
 }
 
 // Base class handler implementation
-QSize* KCompletionBox_QBaseMinimumSizeHint(const KCompletionBox* self) {
+QSize* KCompletionBox_SuperMinimumSizeHint(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_MinimumSizeHint_IsBase(true);
@@ -2484,7 +2484,7 @@ void KCompletionBox_SetupViewport(KCompletionBox* self, QWidget* viewport) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseSetupViewport(KCompletionBox* self, QWidget* viewport) {
+void KCompletionBox_SuperSetupViewport(KCompletionBox* self, QWidget* viewport) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_SetupViewport_IsBase(true);
@@ -2513,7 +2513,7 @@ void KCompletionBox_ContextMenuEvent(KCompletionBox* self, QContextMenuEvent* pa
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseContextMenuEvent(KCompletionBox* self, QContextMenuEvent* param1) {
+void KCompletionBox_SuperContextMenuEvent(KCompletionBox* self, QContextMenuEvent* param1) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_ContextMenuEvent_IsBase(true);
@@ -2542,7 +2542,7 @@ void KCompletionBox_ChangeEvent(KCompletionBox* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseChangeEvent(KCompletionBox* self, QEvent* param1) {
+void KCompletionBox_SuperChangeEvent(KCompletionBox* self, QEvent* param1) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_ChangeEvent_IsBase(true);
@@ -2571,7 +2571,7 @@ void KCompletionBox_InitStyleOption(const KCompletionBox* self, QStyleOptionFram
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseInitStyleOption(const KCompletionBox* self, QStyleOptionFrame* option) {
+void KCompletionBox_SuperInitStyleOption(const KCompletionBox* self, QStyleOptionFrame* option) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_InitStyleOption_IsBase(true);
@@ -2600,7 +2600,7 @@ int KCompletionBox_DevType(const KCompletionBox* self) {
 }
 
 // Base class handler implementation
-int KCompletionBox_QBaseDevType(const KCompletionBox* self) {
+int KCompletionBox_SuperDevType(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_DevType_IsBase(true);
@@ -2629,7 +2629,7 @@ int KCompletionBox_HeightForWidth(const KCompletionBox* self, int param1) {
 }
 
 // Base class handler implementation
-int KCompletionBox_QBaseHeightForWidth(const KCompletionBox* self, int param1) {
+int KCompletionBox_SuperHeightForWidth(const KCompletionBox* self, int param1) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_HeightForWidth_IsBase(true);
@@ -2658,7 +2658,7 @@ bool KCompletionBox_HasHeightForWidth(const KCompletionBox* self) {
 }
 
 // Base class handler implementation
-bool KCompletionBox_QBaseHasHeightForWidth(const KCompletionBox* self) {
+bool KCompletionBox_SuperHasHeightForWidth(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_HasHeightForWidth_IsBase(true);
@@ -2687,7 +2687,7 @@ QPaintEngine* KCompletionBox_PaintEngine(const KCompletionBox* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KCompletionBox_QBasePaintEngine(const KCompletionBox* self) {
+QPaintEngine* KCompletionBox_SuperPaintEngine(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_PaintEngine_IsBase(true);
@@ -2716,7 +2716,7 @@ void KCompletionBox_KeyReleaseEvent(KCompletionBox* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseKeyReleaseEvent(KCompletionBox* self, QKeyEvent* event) {
+void KCompletionBox_SuperKeyReleaseEvent(KCompletionBox* self, QKeyEvent* event) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_KeyReleaseEvent_IsBase(true);
@@ -2745,7 +2745,7 @@ void KCompletionBox_EnterEvent(KCompletionBox* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseEnterEvent(KCompletionBox* self, QEnterEvent* event) {
+void KCompletionBox_SuperEnterEvent(KCompletionBox* self, QEnterEvent* event) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_EnterEvent_IsBase(true);
@@ -2774,7 +2774,7 @@ void KCompletionBox_LeaveEvent(KCompletionBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseLeaveEvent(KCompletionBox* self, QEvent* event) {
+void KCompletionBox_SuperLeaveEvent(KCompletionBox* self, QEvent* event) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_LeaveEvent_IsBase(true);
@@ -2803,7 +2803,7 @@ void KCompletionBox_MoveEvent(KCompletionBox* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseMoveEvent(KCompletionBox* self, QMoveEvent* event) {
+void KCompletionBox_SuperMoveEvent(KCompletionBox* self, QMoveEvent* event) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_MoveEvent_IsBase(true);
@@ -2832,7 +2832,7 @@ void KCompletionBox_CloseEvent(KCompletionBox* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseCloseEvent(KCompletionBox* self, QCloseEvent* event) {
+void KCompletionBox_SuperCloseEvent(KCompletionBox* self, QCloseEvent* event) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_CloseEvent_IsBase(true);
@@ -2861,7 +2861,7 @@ void KCompletionBox_TabletEvent(KCompletionBox* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseTabletEvent(KCompletionBox* self, QTabletEvent* event) {
+void KCompletionBox_SuperTabletEvent(KCompletionBox* self, QTabletEvent* event) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_TabletEvent_IsBase(true);
@@ -2890,7 +2890,7 @@ void KCompletionBox_ActionEvent(KCompletionBox* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseActionEvent(KCompletionBox* self, QActionEvent* event) {
+void KCompletionBox_SuperActionEvent(KCompletionBox* self, QActionEvent* event) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_ActionEvent_IsBase(true);
@@ -2919,7 +2919,7 @@ void KCompletionBox_ShowEvent(KCompletionBox* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseShowEvent(KCompletionBox* self, QShowEvent* event) {
+void KCompletionBox_SuperShowEvent(KCompletionBox* self, QShowEvent* event) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_ShowEvent_IsBase(true);
@@ -2948,7 +2948,7 @@ void KCompletionBox_HideEvent(KCompletionBox* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseHideEvent(KCompletionBox* self, QHideEvent* event) {
+void KCompletionBox_SuperHideEvent(KCompletionBox* self, QHideEvent* event) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_HideEvent_IsBase(true);
@@ -2978,7 +2978,7 @@ bool KCompletionBox_NativeEvent(KCompletionBox* self, const libqt_string eventTy
 }
 
 // Base class handler implementation
-bool KCompletionBox_QBaseNativeEvent(KCompletionBox* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KCompletionBox_SuperNativeEvent(KCompletionBox* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
@@ -3008,7 +3008,7 @@ int KCompletionBox_Metric(const KCompletionBox* self, int param1) {
 }
 
 // Base class handler implementation
-int KCompletionBox_QBaseMetric(const KCompletionBox* self, int param1) {
+int KCompletionBox_SuperMetric(const KCompletionBox* self, int param1) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_Metric_IsBase(true);
@@ -3037,7 +3037,7 @@ void KCompletionBox_InitPainter(const KCompletionBox* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseInitPainter(const KCompletionBox* self, QPainter* painter) {
+void KCompletionBox_SuperInitPainter(const KCompletionBox* self, QPainter* painter) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_InitPainter_IsBase(true);
@@ -3066,7 +3066,7 @@ QPaintDevice* KCompletionBox_Redirected(const KCompletionBox* self, QPoint* offs
 }
 
 // Base class handler implementation
-QPaintDevice* KCompletionBox_QBaseRedirected(const KCompletionBox* self, QPoint* offset) {
+QPaintDevice* KCompletionBox_SuperRedirected(const KCompletionBox* self, QPoint* offset) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_Redirected_IsBase(true);
@@ -3095,7 +3095,7 @@ QPainter* KCompletionBox_SharedPainter(const KCompletionBox* self) {
 }
 
 // Base class handler implementation
-QPainter* KCompletionBox_QBaseSharedPainter(const KCompletionBox* self) {
+QPainter* KCompletionBox_SuperSharedPainter(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_SharedPainter_IsBase(true);
@@ -3124,7 +3124,7 @@ void KCompletionBox_ChildEvent(KCompletionBox* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseChildEvent(KCompletionBox* self, QChildEvent* event) {
+void KCompletionBox_SuperChildEvent(KCompletionBox* self, QChildEvent* event) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_ChildEvent_IsBase(true);
@@ -3153,7 +3153,7 @@ void KCompletionBox_CustomEvent(KCompletionBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseCustomEvent(KCompletionBox* self, QEvent* event) {
+void KCompletionBox_SuperCustomEvent(KCompletionBox* self, QEvent* event) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_CustomEvent_IsBase(true);
@@ -3182,7 +3182,7 @@ void KCompletionBox_ConnectNotify(KCompletionBox* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseConnectNotify(KCompletionBox* self, const QMetaMethod* signal) {
+void KCompletionBox_SuperConnectNotify(KCompletionBox* self, const QMetaMethod* signal) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_ConnectNotify_IsBase(true);
@@ -3211,7 +3211,7 @@ void KCompletionBox_DisconnectNotify(KCompletionBox* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseDisconnectNotify(KCompletionBox* self, const QMetaMethod* signal) {
+void KCompletionBox_SuperDisconnectNotify(KCompletionBox* self, const QMetaMethod* signal) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_DisconnectNotify_IsBase(true);
@@ -3239,7 +3239,7 @@ QRect* KCompletionBox_CalculateGeometry(const KCompletionBox* self) {
 }
 
 // Base class handler implementation
-QRect* KCompletionBox_QBaseCalculateGeometry(const KCompletionBox* self) {
+QRect* KCompletionBox_SuperCalculateGeometry(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_CalculateGeometry_IsBase(true);
@@ -3267,7 +3267,7 @@ void KCompletionBox_ResizeAndReposition(KCompletionBox* self) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseResizeAndReposition(KCompletionBox* self) {
+void KCompletionBox_SuperResizeAndReposition(KCompletionBox* self) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_ResizeAndReposition_IsBase(true);
@@ -3296,7 +3296,7 @@ void KCompletionBox_ResizeContents(KCompletionBox* self, int width, int height) 
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseResizeContents(KCompletionBox* self, int width, int height) {
+void KCompletionBox_SuperResizeContents(KCompletionBox* self, int width, int height) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_ResizeContents_IsBase(true);
@@ -3324,7 +3324,7 @@ QSize* KCompletionBox_ContentsSize(const KCompletionBox* self) {
 }
 
 // Base class handler implementation
-QSize* KCompletionBox_QBaseContentsSize(const KCompletionBox* self) {
+QSize* KCompletionBox_SuperContentsSize(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_ContentsSize_IsBase(true);
@@ -3351,7 +3351,7 @@ QRect* KCompletionBox_RectForIndex(const KCompletionBox* self, const QModelIndex
 }
 
 // Base class handler implementation
-QRect* KCompletionBox_QBaseRectForIndex(const KCompletionBox* self, const QModelIndex* index) {
+QRect* KCompletionBox_SuperRectForIndex(const KCompletionBox* self, const QModelIndex* index) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_RectForIndex_IsBase(true);
@@ -3379,7 +3379,7 @@ void KCompletionBox_SetPositionForIndex(KCompletionBox* self, const QPoint* posi
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseSetPositionForIndex(KCompletionBox* self, const QPoint* position, const QModelIndex* index) {
+void KCompletionBox_SuperSetPositionForIndex(KCompletionBox* self, const QPoint* position, const QModelIndex* index) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_SetPositionForIndex_IsBase(true);
@@ -3408,7 +3408,7 @@ int KCompletionBox_State(const KCompletionBox* self) {
 }
 
 // Base class handler implementation
-int KCompletionBox_QBaseState(const KCompletionBox* self) {
+int KCompletionBox_SuperState(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_State_IsBase(true);
@@ -3437,7 +3437,7 @@ void KCompletionBox_SetState(KCompletionBox* self, int state) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseSetState(KCompletionBox* self, int state) {
+void KCompletionBox_SuperSetState(KCompletionBox* self, int state) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_SetState_IsBase(true);
@@ -3466,7 +3466,7 @@ void KCompletionBox_ScheduleDelayedItemsLayout(KCompletionBox* self) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseScheduleDelayedItemsLayout(KCompletionBox* self) {
+void KCompletionBox_SuperScheduleDelayedItemsLayout(KCompletionBox* self) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_ScheduleDelayedItemsLayout_IsBase(true);
@@ -3495,7 +3495,7 @@ void KCompletionBox_ExecuteDelayedItemsLayout(KCompletionBox* self) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseExecuteDelayedItemsLayout(KCompletionBox* self) {
+void KCompletionBox_SuperExecuteDelayedItemsLayout(KCompletionBox* self) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_ExecuteDelayedItemsLayout_IsBase(true);
@@ -3524,7 +3524,7 @@ void KCompletionBox_SetDirtyRegion(KCompletionBox* self, const QRegion* region) 
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseSetDirtyRegion(KCompletionBox* self, const QRegion* region) {
+void KCompletionBox_SuperSetDirtyRegion(KCompletionBox* self, const QRegion* region) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_SetDirtyRegion_IsBase(true);
@@ -3553,7 +3553,7 @@ void KCompletionBox_ScrollDirtyRegion(KCompletionBox* self, int dx, int dy) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseScrollDirtyRegion(KCompletionBox* self, int dx, int dy) {
+void KCompletionBox_SuperScrollDirtyRegion(KCompletionBox* self, int dx, int dy) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_ScrollDirtyRegion_IsBase(true);
@@ -3581,7 +3581,7 @@ QPoint* KCompletionBox_DirtyRegionOffset(const KCompletionBox* self) {
 }
 
 // Base class handler implementation
-QPoint* KCompletionBox_QBaseDirtyRegionOffset(const KCompletionBox* self) {
+QPoint* KCompletionBox_SuperDirtyRegionOffset(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_DirtyRegionOffset_IsBase(true);
@@ -3609,7 +3609,7 @@ void KCompletionBox_StartAutoScroll(KCompletionBox* self) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseStartAutoScroll(KCompletionBox* self) {
+void KCompletionBox_SuperStartAutoScroll(KCompletionBox* self) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_StartAutoScroll_IsBase(true);
@@ -3638,7 +3638,7 @@ void KCompletionBox_StopAutoScroll(KCompletionBox* self) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseStopAutoScroll(KCompletionBox* self) {
+void KCompletionBox_SuperStopAutoScroll(KCompletionBox* self) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_StopAutoScroll_IsBase(true);
@@ -3667,7 +3667,7 @@ void KCompletionBox_DoAutoScroll(KCompletionBox* self) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseDoAutoScroll(KCompletionBox* self) {
+void KCompletionBox_SuperDoAutoScroll(KCompletionBox* self) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_DoAutoScroll_IsBase(true);
@@ -3696,7 +3696,7 @@ int KCompletionBox_DropIndicatorPosition(const KCompletionBox* self) {
 }
 
 // Base class handler implementation
-int KCompletionBox_QBaseDropIndicatorPosition(const KCompletionBox* self) {
+int KCompletionBox_SuperDropIndicatorPosition(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_DropIndicatorPosition_IsBase(true);
@@ -3725,7 +3725,7 @@ void KCompletionBox_SetViewportMargins(KCompletionBox* self, int left, int top, 
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseSetViewportMargins(KCompletionBox* self, int left, int top, int right, int bottom) {
+void KCompletionBox_SuperSetViewportMargins(KCompletionBox* self, int left, int top, int right, int bottom) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_SetViewportMargins_IsBase(true);
@@ -3753,7 +3753,7 @@ QMargins* KCompletionBox_ViewportMargins(const KCompletionBox* self) {
 }
 
 // Base class handler implementation
-QMargins* KCompletionBox_QBaseViewportMargins(const KCompletionBox* self) {
+QMargins* KCompletionBox_SuperViewportMargins(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_ViewportMargins_IsBase(true);
@@ -3781,7 +3781,7 @@ void KCompletionBox_DrawFrame(KCompletionBox* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseDrawFrame(KCompletionBox* self, QPainter* param1) {
+void KCompletionBox_SuperDrawFrame(KCompletionBox* self, QPainter* param1) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_DrawFrame_IsBase(true);
@@ -3810,7 +3810,7 @@ void KCompletionBox_UpdateMicroFocus(KCompletionBox* self) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseUpdateMicroFocus(KCompletionBox* self) {
+void KCompletionBox_SuperUpdateMicroFocus(KCompletionBox* self) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_UpdateMicroFocus_IsBase(true);
@@ -3839,7 +3839,7 @@ void KCompletionBox_Create(KCompletionBox* self) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseCreate(KCompletionBox* self) {
+void KCompletionBox_SuperCreate(KCompletionBox* self) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_Create_IsBase(true);
@@ -3868,7 +3868,7 @@ void KCompletionBox_Destroy(KCompletionBox* self) {
 }
 
 // Base class handler implementation
-void KCompletionBox_QBaseDestroy(KCompletionBox* self) {
+void KCompletionBox_SuperDestroy(KCompletionBox* self) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_Destroy_IsBase(true);
@@ -3897,7 +3897,7 @@ bool KCompletionBox_FocusNextChild(KCompletionBox* self) {
 }
 
 // Base class handler implementation
-bool KCompletionBox_QBaseFocusNextChild(KCompletionBox* self) {
+bool KCompletionBox_SuperFocusNextChild(KCompletionBox* self) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_FocusNextChild_IsBase(true);
@@ -3926,7 +3926,7 @@ bool KCompletionBox_FocusPreviousChild(KCompletionBox* self) {
 }
 
 // Base class handler implementation
-bool KCompletionBox_QBaseFocusPreviousChild(KCompletionBox* self) {
+bool KCompletionBox_SuperFocusPreviousChild(KCompletionBox* self) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_FocusPreviousChild_IsBase(true);
@@ -3955,7 +3955,7 @@ QObject* KCompletionBox_Sender(const KCompletionBox* self) {
 }
 
 // Base class handler implementation
-QObject* KCompletionBox_QBaseSender(const KCompletionBox* self) {
+QObject* KCompletionBox_SuperSender(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_Sender_IsBase(true);
@@ -3984,7 +3984,7 @@ int KCompletionBox_SenderSignalIndex(const KCompletionBox* self) {
 }
 
 // Base class handler implementation
-int KCompletionBox_QBaseSenderSignalIndex(const KCompletionBox* self) {
+int KCompletionBox_SuperSenderSignalIndex(const KCompletionBox* self) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_SenderSignalIndex_IsBase(true);
@@ -4013,7 +4013,7 @@ int KCompletionBox_Receivers(const KCompletionBox* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KCompletionBox_QBaseReceivers(const KCompletionBox* self, const char* signal) {
+int KCompletionBox_SuperReceivers(const KCompletionBox* self, const char* signal) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_Receivers_IsBase(true);
@@ -4042,7 +4042,7 @@ bool KCompletionBox_IsSignalConnected(const KCompletionBox* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool KCompletionBox_QBaseIsSignalConnected(const KCompletionBox* self, const QMetaMethod* signal) {
+bool KCompletionBox_SuperIsSignalConnected(const KCompletionBox* self, const QMetaMethod* signal) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_IsSignalConnected_IsBase(true);
@@ -4071,7 +4071,7 @@ double KCompletionBox_GetDecodedMetricF(const KCompletionBox* self, int metricA,
 }
 
 // Base class handler implementation
-double KCompletionBox_QBaseGetDecodedMetricF(const KCompletionBox* self, int metricA, int metricB) {
+double KCompletionBox_SuperGetDecodedMetricF(const KCompletionBox* self, int metricA, int metricB) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         vkcompletionbox->setKCompletionBox_GetDecodedMetricF_IsBase(true);

@@ -1158,31 +1158,31 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
 
     // Friend functions
     friend bool QsciLexerPython_ReadProperties(QsciLexerPython* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerPython_QBaseReadProperties(QsciLexerPython* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerPython_SuperReadProperties(QsciLexerPython* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerPython_WriteProperties(const QsciLexerPython* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerPython_QBaseWriteProperties(const QsciLexerPython* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerPython_SuperWriteProperties(const QsciLexerPython* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerPython_TimerEvent(QsciLexerPython* self, QTimerEvent* event);
-    friend void QsciLexerPython_QBaseTimerEvent(QsciLexerPython* self, QTimerEvent* event);
+    friend void QsciLexerPython_SuperTimerEvent(QsciLexerPython* self, QTimerEvent* event);
     friend void QsciLexerPython_ChildEvent(QsciLexerPython* self, QChildEvent* event);
-    friend void QsciLexerPython_QBaseChildEvent(QsciLexerPython* self, QChildEvent* event);
+    friend void QsciLexerPython_SuperChildEvent(QsciLexerPython* self, QChildEvent* event);
     friend void QsciLexerPython_CustomEvent(QsciLexerPython* self, QEvent* event);
-    friend void QsciLexerPython_QBaseCustomEvent(QsciLexerPython* self, QEvent* event);
+    friend void QsciLexerPython_SuperCustomEvent(QsciLexerPython* self, QEvent* event);
     friend void QsciLexerPython_ConnectNotify(QsciLexerPython* self, const QMetaMethod* signal);
-    friend void QsciLexerPython_QBaseConnectNotify(QsciLexerPython* self, const QMetaMethod* signal);
+    friend void QsciLexerPython_SuperConnectNotify(QsciLexerPython* self, const QMetaMethod* signal);
     friend void QsciLexerPython_DisconnectNotify(QsciLexerPython* self, const QMetaMethod* signal);
-    friend void QsciLexerPython_QBaseDisconnectNotify(QsciLexerPython* self, const QMetaMethod* signal);
+    friend void QsciLexerPython_SuperDisconnectNotify(QsciLexerPython* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerPython_TextAsBytes(const QsciLexerPython* self, const libqt_string text);
-    friend libqt_string QsciLexerPython_QBaseTextAsBytes(const QsciLexerPython* self, const libqt_string text);
+    friend libqt_string QsciLexerPython_SuperTextAsBytes(const QsciLexerPython* self, const libqt_string text);
     friend libqt_string QsciLexerPython_BytesAsText(const QsciLexerPython* self, const char* bytes, int size);
-    friend libqt_string QsciLexerPython_QBaseBytesAsText(const QsciLexerPython* self, const char* bytes, int size);
+    friend libqt_string QsciLexerPython_SuperBytesAsText(const QsciLexerPython* self, const char* bytes, int size);
     friend QObject* QsciLexerPython_Sender(const QsciLexerPython* self);
-    friend QObject* QsciLexerPython_QBaseSender(const QsciLexerPython* self);
+    friend QObject* QsciLexerPython_SuperSender(const QsciLexerPython* self);
     friend int QsciLexerPython_SenderSignalIndex(const QsciLexerPython* self);
-    friend int QsciLexerPython_QBaseSenderSignalIndex(const QsciLexerPython* self);
+    friend int QsciLexerPython_SuperSenderSignalIndex(const QsciLexerPython* self);
     friend int QsciLexerPython_Receivers(const QsciLexerPython* self, const char* signal);
-    friend int QsciLexerPython_QBaseReceivers(const QsciLexerPython* self, const char* signal);
+    friend int QsciLexerPython_SuperReceivers(const QsciLexerPython* self, const char* signal);
     friend bool QsciLexerPython_IsSignalConnected(const QsciLexerPython* self, const QMetaMethod* signal);
-    friend bool QsciLexerPython_QBaseIsSignalConnected(const QsciLexerPython* self, const QMetaMethod* signal);
+    friend bool QsciLexerPython_SuperIsSignalConnected(const QsciLexerPython* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -108,13 +108,17 @@ pub const attica__license = struct {
         qtc.Attica__License_SetUrl(@ptrCast(self), @ptrCast(url));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Attica__License `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Attica__License_Delete(@ptrCast(self));
     }
 };

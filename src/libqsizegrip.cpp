@@ -154,7 +154,7 @@ bool QSizeGrip_Event(QSizeGrip* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-QMetaObject* QSizeGrip_QBaseMetaObject(const QSizeGrip* self) {
+QMetaObject* QSizeGrip_SuperMetaObject(const QSizeGrip* self) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_MetaObject_IsBase(true);
@@ -173,7 +173,7 @@ void QSizeGrip_OnMetaObject(const QSizeGrip* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QSizeGrip_QBaseMetacast(QSizeGrip* self, const char* param1) {
+void* QSizeGrip_SuperMetacast(QSizeGrip* self, const char* param1) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_Metacast_IsBase(true);
@@ -192,7 +192,7 @@ void QSizeGrip_OnMetacast(QSizeGrip* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSizeGrip_QBaseMetacall(QSizeGrip* self, int param1, int param2, void** param3) {
+int QSizeGrip_SuperMetacall(QSizeGrip* self, int param1, int param2, void** param3) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_Metacall_IsBase(true);
@@ -211,7 +211,7 @@ void QSizeGrip_OnMetacall(QSizeGrip* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QSizeGrip_QBaseSizeHint(const QSizeGrip* self) {
+QSize* QSizeGrip_SuperSizeHint(const QSizeGrip* self) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_SizeHint_IsBase(true);
@@ -230,7 +230,7 @@ void QSizeGrip_OnSizeHint(const QSizeGrip* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseSetVisible(QSizeGrip* self, bool visible) {
+void QSizeGrip_SuperSetVisible(QSizeGrip* self, bool visible) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_SetVisible_IsBase(true);
@@ -249,7 +249,7 @@ void QSizeGrip_OnSetVisible(QSizeGrip* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBasePaintEvent(QSizeGrip* self, QPaintEvent* param1) {
+void QSizeGrip_SuperPaintEvent(QSizeGrip* self, QPaintEvent* param1) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_PaintEvent_IsBase(true);
@@ -268,7 +268,7 @@ void QSizeGrip_OnPaintEvent(QSizeGrip* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseMousePressEvent(QSizeGrip* self, QMouseEvent* param1) {
+void QSizeGrip_SuperMousePressEvent(QSizeGrip* self, QMouseEvent* param1) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_MousePressEvent_IsBase(true);
@@ -287,7 +287,7 @@ void QSizeGrip_OnMousePressEvent(QSizeGrip* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseMouseMoveEvent(QSizeGrip* self, QMouseEvent* param1) {
+void QSizeGrip_SuperMouseMoveEvent(QSizeGrip* self, QMouseEvent* param1) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_MouseMoveEvent_IsBase(true);
@@ -306,7 +306,7 @@ void QSizeGrip_OnMouseMoveEvent(QSizeGrip* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseMouseReleaseEvent(QSizeGrip* self, QMouseEvent* mouseEvent) {
+void QSizeGrip_SuperMouseReleaseEvent(QSizeGrip* self, QMouseEvent* mouseEvent) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_MouseReleaseEvent_IsBase(true);
@@ -325,7 +325,7 @@ void QSizeGrip_OnMouseReleaseEvent(QSizeGrip* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseMoveEvent(QSizeGrip* self, QMoveEvent* moveEvent) {
+void QSizeGrip_SuperMoveEvent(QSizeGrip* self, QMoveEvent* moveEvent) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_MoveEvent_IsBase(true);
@@ -344,7 +344,7 @@ void QSizeGrip_OnMoveEvent(QSizeGrip* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseShowEvent(QSizeGrip* self, QShowEvent* showEvent) {
+void QSizeGrip_SuperShowEvent(QSizeGrip* self, QShowEvent* showEvent) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_ShowEvent_IsBase(true);
@@ -363,7 +363,7 @@ void QSizeGrip_OnShowEvent(QSizeGrip* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseHideEvent(QSizeGrip* self, QHideEvent* hideEvent) {
+void QSizeGrip_SuperHideEvent(QSizeGrip* self, QHideEvent* hideEvent) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_HideEvent_IsBase(true);
@@ -382,7 +382,7 @@ void QSizeGrip_OnHideEvent(QSizeGrip* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSizeGrip_QBaseEventFilter(QSizeGrip* self, QObject* param1, QEvent* param2) {
+bool QSizeGrip_SuperEventFilter(QSizeGrip* self, QObject* param1, QEvent* param2) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_EventFilter_IsBase(true);
@@ -401,7 +401,7 @@ void QSizeGrip_OnEventFilter(QSizeGrip* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSizeGrip_QBaseEvent(QSizeGrip* self, QEvent* param1) {
+bool QSizeGrip_SuperEvent(QSizeGrip* self, QEvent* param1) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_Event_IsBase(true);
@@ -430,7 +430,7 @@ int QSizeGrip_DevType(const QSizeGrip* self) {
 }
 
 // Base class handler implementation
-int QSizeGrip_QBaseDevType(const QSizeGrip* self) {
+int QSizeGrip_SuperDevType(const QSizeGrip* self) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_DevType_IsBase(true);
@@ -459,7 +459,7 @@ QSize* QSizeGrip_MinimumSizeHint(const QSizeGrip* self) {
 }
 
 // Base class handler implementation
-QSize* QSizeGrip_QBaseMinimumSizeHint(const QSizeGrip* self) {
+QSize* QSizeGrip_SuperMinimumSizeHint(const QSizeGrip* self) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_MinimumSizeHint_IsBase(true);
@@ -488,7 +488,7 @@ int QSizeGrip_HeightForWidth(const QSizeGrip* self, int param1) {
 }
 
 // Base class handler implementation
-int QSizeGrip_QBaseHeightForWidth(const QSizeGrip* self, int param1) {
+int QSizeGrip_SuperHeightForWidth(const QSizeGrip* self, int param1) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_HeightForWidth_IsBase(true);
@@ -517,7 +517,7 @@ bool QSizeGrip_HasHeightForWidth(const QSizeGrip* self) {
 }
 
 // Base class handler implementation
-bool QSizeGrip_QBaseHasHeightForWidth(const QSizeGrip* self) {
+bool QSizeGrip_SuperHasHeightForWidth(const QSizeGrip* self) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_HasHeightForWidth_IsBase(true);
@@ -546,7 +546,7 @@ QPaintEngine* QSizeGrip_PaintEngine(const QSizeGrip* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QSizeGrip_QBasePaintEngine(const QSizeGrip* self) {
+QPaintEngine* QSizeGrip_SuperPaintEngine(const QSizeGrip* self) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_PaintEngine_IsBase(true);
@@ -575,7 +575,7 @@ void QSizeGrip_MouseDoubleClickEvent(QSizeGrip* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseMouseDoubleClickEvent(QSizeGrip* self, QMouseEvent* event) {
+void QSizeGrip_SuperMouseDoubleClickEvent(QSizeGrip* self, QMouseEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_MouseDoubleClickEvent_IsBase(true);
@@ -604,7 +604,7 @@ void QSizeGrip_WheelEvent(QSizeGrip* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseWheelEvent(QSizeGrip* self, QWheelEvent* event) {
+void QSizeGrip_SuperWheelEvent(QSizeGrip* self, QWheelEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_WheelEvent_IsBase(true);
@@ -633,7 +633,7 @@ void QSizeGrip_KeyPressEvent(QSizeGrip* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseKeyPressEvent(QSizeGrip* self, QKeyEvent* event) {
+void QSizeGrip_SuperKeyPressEvent(QSizeGrip* self, QKeyEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_KeyPressEvent_IsBase(true);
@@ -662,7 +662,7 @@ void QSizeGrip_KeyReleaseEvent(QSizeGrip* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseKeyReleaseEvent(QSizeGrip* self, QKeyEvent* event) {
+void QSizeGrip_SuperKeyReleaseEvent(QSizeGrip* self, QKeyEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_KeyReleaseEvent_IsBase(true);
@@ -691,7 +691,7 @@ void QSizeGrip_FocusInEvent(QSizeGrip* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseFocusInEvent(QSizeGrip* self, QFocusEvent* event) {
+void QSizeGrip_SuperFocusInEvent(QSizeGrip* self, QFocusEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_FocusInEvent_IsBase(true);
@@ -720,7 +720,7 @@ void QSizeGrip_FocusOutEvent(QSizeGrip* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseFocusOutEvent(QSizeGrip* self, QFocusEvent* event) {
+void QSizeGrip_SuperFocusOutEvent(QSizeGrip* self, QFocusEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_FocusOutEvent_IsBase(true);
@@ -749,7 +749,7 @@ void QSizeGrip_EnterEvent(QSizeGrip* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseEnterEvent(QSizeGrip* self, QEnterEvent* event) {
+void QSizeGrip_SuperEnterEvent(QSizeGrip* self, QEnterEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_EnterEvent_IsBase(true);
@@ -778,7 +778,7 @@ void QSizeGrip_LeaveEvent(QSizeGrip* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseLeaveEvent(QSizeGrip* self, QEvent* event) {
+void QSizeGrip_SuperLeaveEvent(QSizeGrip* self, QEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_LeaveEvent_IsBase(true);
@@ -807,7 +807,7 @@ void QSizeGrip_ResizeEvent(QSizeGrip* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseResizeEvent(QSizeGrip* self, QResizeEvent* event) {
+void QSizeGrip_SuperResizeEvent(QSizeGrip* self, QResizeEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_ResizeEvent_IsBase(true);
@@ -836,7 +836,7 @@ void QSizeGrip_CloseEvent(QSizeGrip* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseCloseEvent(QSizeGrip* self, QCloseEvent* event) {
+void QSizeGrip_SuperCloseEvent(QSizeGrip* self, QCloseEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_CloseEvent_IsBase(true);
@@ -865,7 +865,7 @@ void QSizeGrip_ContextMenuEvent(QSizeGrip* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseContextMenuEvent(QSizeGrip* self, QContextMenuEvent* event) {
+void QSizeGrip_SuperContextMenuEvent(QSizeGrip* self, QContextMenuEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_ContextMenuEvent_IsBase(true);
@@ -894,7 +894,7 @@ void QSizeGrip_TabletEvent(QSizeGrip* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseTabletEvent(QSizeGrip* self, QTabletEvent* event) {
+void QSizeGrip_SuperTabletEvent(QSizeGrip* self, QTabletEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_TabletEvent_IsBase(true);
@@ -923,7 +923,7 @@ void QSizeGrip_ActionEvent(QSizeGrip* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseActionEvent(QSizeGrip* self, QActionEvent* event) {
+void QSizeGrip_SuperActionEvent(QSizeGrip* self, QActionEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_ActionEvent_IsBase(true);
@@ -952,7 +952,7 @@ void QSizeGrip_DragEnterEvent(QSizeGrip* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseDragEnterEvent(QSizeGrip* self, QDragEnterEvent* event) {
+void QSizeGrip_SuperDragEnterEvent(QSizeGrip* self, QDragEnterEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_DragEnterEvent_IsBase(true);
@@ -981,7 +981,7 @@ void QSizeGrip_DragMoveEvent(QSizeGrip* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseDragMoveEvent(QSizeGrip* self, QDragMoveEvent* event) {
+void QSizeGrip_SuperDragMoveEvent(QSizeGrip* self, QDragMoveEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_DragMoveEvent_IsBase(true);
@@ -1010,7 +1010,7 @@ void QSizeGrip_DragLeaveEvent(QSizeGrip* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseDragLeaveEvent(QSizeGrip* self, QDragLeaveEvent* event) {
+void QSizeGrip_SuperDragLeaveEvent(QSizeGrip* self, QDragLeaveEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_DragLeaveEvent_IsBase(true);
@@ -1039,7 +1039,7 @@ void QSizeGrip_DropEvent(QSizeGrip* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseDropEvent(QSizeGrip* self, QDropEvent* event) {
+void QSizeGrip_SuperDropEvent(QSizeGrip* self, QDropEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_DropEvent_IsBase(true);
@@ -1069,7 +1069,7 @@ bool QSizeGrip_NativeEvent(QSizeGrip* self, const libqt_string eventType, void* 
 }
 
 // Base class handler implementation
-bool QSizeGrip_QBaseNativeEvent(QSizeGrip* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QSizeGrip_SuperNativeEvent(QSizeGrip* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
@@ -1099,7 +1099,7 @@ void QSizeGrip_ChangeEvent(QSizeGrip* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseChangeEvent(QSizeGrip* self, QEvent* param1) {
+void QSizeGrip_SuperChangeEvent(QSizeGrip* self, QEvent* param1) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_ChangeEvent_IsBase(true);
@@ -1128,7 +1128,7 @@ int QSizeGrip_Metric(const QSizeGrip* self, int param1) {
 }
 
 // Base class handler implementation
-int QSizeGrip_QBaseMetric(const QSizeGrip* self, int param1) {
+int QSizeGrip_SuperMetric(const QSizeGrip* self, int param1) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_Metric_IsBase(true);
@@ -1157,7 +1157,7 @@ void QSizeGrip_InitPainter(const QSizeGrip* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseInitPainter(const QSizeGrip* self, QPainter* painter) {
+void QSizeGrip_SuperInitPainter(const QSizeGrip* self, QPainter* painter) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_InitPainter_IsBase(true);
@@ -1186,7 +1186,7 @@ QPaintDevice* QSizeGrip_Redirected(const QSizeGrip* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QSizeGrip_QBaseRedirected(const QSizeGrip* self, QPoint* offset) {
+QPaintDevice* QSizeGrip_SuperRedirected(const QSizeGrip* self, QPoint* offset) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_Redirected_IsBase(true);
@@ -1215,7 +1215,7 @@ QPainter* QSizeGrip_SharedPainter(const QSizeGrip* self) {
 }
 
 // Base class handler implementation
-QPainter* QSizeGrip_QBaseSharedPainter(const QSizeGrip* self) {
+QPainter* QSizeGrip_SuperSharedPainter(const QSizeGrip* self) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_SharedPainter_IsBase(true);
@@ -1244,7 +1244,7 @@ void QSizeGrip_InputMethodEvent(QSizeGrip* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseInputMethodEvent(QSizeGrip* self, QInputMethodEvent* param1) {
+void QSizeGrip_SuperInputMethodEvent(QSizeGrip* self, QInputMethodEvent* param1) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_InputMethodEvent_IsBase(true);
@@ -1273,7 +1273,7 @@ QVariant* QSizeGrip_InputMethodQuery(const QSizeGrip* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QSizeGrip_QBaseInputMethodQuery(const QSizeGrip* self, int param1) {
+QVariant* QSizeGrip_SuperInputMethodQuery(const QSizeGrip* self, int param1) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_InputMethodQuery_IsBase(true);
@@ -1302,7 +1302,7 @@ bool QSizeGrip_FocusNextPrevChild(QSizeGrip* self, bool next) {
 }
 
 // Base class handler implementation
-bool QSizeGrip_QBaseFocusNextPrevChild(QSizeGrip* self, bool next) {
+bool QSizeGrip_SuperFocusNextPrevChild(QSizeGrip* self, bool next) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_FocusNextPrevChild_IsBase(true);
@@ -1331,7 +1331,7 @@ void QSizeGrip_TimerEvent(QSizeGrip* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseTimerEvent(QSizeGrip* self, QTimerEvent* event) {
+void QSizeGrip_SuperTimerEvent(QSizeGrip* self, QTimerEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_TimerEvent_IsBase(true);
@@ -1360,7 +1360,7 @@ void QSizeGrip_ChildEvent(QSizeGrip* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseChildEvent(QSizeGrip* self, QChildEvent* event) {
+void QSizeGrip_SuperChildEvent(QSizeGrip* self, QChildEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_ChildEvent_IsBase(true);
@@ -1389,7 +1389,7 @@ void QSizeGrip_CustomEvent(QSizeGrip* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseCustomEvent(QSizeGrip* self, QEvent* event) {
+void QSizeGrip_SuperCustomEvent(QSizeGrip* self, QEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_CustomEvent_IsBase(true);
@@ -1418,7 +1418,7 @@ void QSizeGrip_ConnectNotify(QSizeGrip* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseConnectNotify(QSizeGrip* self, const QMetaMethod* signal) {
+void QSizeGrip_SuperConnectNotify(QSizeGrip* self, const QMetaMethod* signal) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_ConnectNotify_IsBase(true);
@@ -1447,7 +1447,7 @@ void QSizeGrip_DisconnectNotify(QSizeGrip* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseDisconnectNotify(QSizeGrip* self, const QMetaMethod* signal) {
+void QSizeGrip_SuperDisconnectNotify(QSizeGrip* self, const QMetaMethod* signal) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_DisconnectNotify_IsBase(true);
@@ -1476,7 +1476,7 @@ void QSizeGrip_UpdateMicroFocus(QSizeGrip* self) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseUpdateMicroFocus(QSizeGrip* self) {
+void QSizeGrip_SuperUpdateMicroFocus(QSizeGrip* self) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_UpdateMicroFocus_IsBase(true);
@@ -1505,7 +1505,7 @@ void QSizeGrip_Create(QSizeGrip* self) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseCreate(QSizeGrip* self) {
+void QSizeGrip_SuperCreate(QSizeGrip* self) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_Create_IsBase(true);
@@ -1534,7 +1534,7 @@ void QSizeGrip_Destroy(QSizeGrip* self) {
 }
 
 // Base class handler implementation
-void QSizeGrip_QBaseDestroy(QSizeGrip* self) {
+void QSizeGrip_SuperDestroy(QSizeGrip* self) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_Destroy_IsBase(true);
@@ -1563,7 +1563,7 @@ bool QSizeGrip_FocusNextChild(QSizeGrip* self) {
 }
 
 // Base class handler implementation
-bool QSizeGrip_QBaseFocusNextChild(QSizeGrip* self) {
+bool QSizeGrip_SuperFocusNextChild(QSizeGrip* self) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_FocusNextChild_IsBase(true);
@@ -1592,7 +1592,7 @@ bool QSizeGrip_FocusPreviousChild(QSizeGrip* self) {
 }
 
 // Base class handler implementation
-bool QSizeGrip_QBaseFocusPreviousChild(QSizeGrip* self) {
+bool QSizeGrip_SuperFocusPreviousChild(QSizeGrip* self) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_FocusPreviousChild_IsBase(true);
@@ -1621,7 +1621,7 @@ QObject* QSizeGrip_Sender(const QSizeGrip* self) {
 }
 
 // Base class handler implementation
-QObject* QSizeGrip_QBaseSender(const QSizeGrip* self) {
+QObject* QSizeGrip_SuperSender(const QSizeGrip* self) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_Sender_IsBase(true);
@@ -1650,7 +1650,7 @@ int QSizeGrip_SenderSignalIndex(const QSizeGrip* self) {
 }
 
 // Base class handler implementation
-int QSizeGrip_QBaseSenderSignalIndex(const QSizeGrip* self) {
+int QSizeGrip_SuperSenderSignalIndex(const QSizeGrip* self) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_SenderSignalIndex_IsBase(true);
@@ -1679,7 +1679,7 @@ int QSizeGrip_Receivers(const QSizeGrip* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QSizeGrip_QBaseReceivers(const QSizeGrip* self, const char* signal) {
+int QSizeGrip_SuperReceivers(const QSizeGrip* self, const char* signal) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_Receivers_IsBase(true);
@@ -1708,7 +1708,7 @@ bool QSizeGrip_IsSignalConnected(const QSizeGrip* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool QSizeGrip_QBaseIsSignalConnected(const QSizeGrip* self, const QMetaMethod* signal) {
+bool QSizeGrip_SuperIsSignalConnected(const QSizeGrip* self, const QMetaMethod* signal) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_IsSignalConnected_IsBase(true);
@@ -1737,7 +1737,7 @@ double QSizeGrip_GetDecodedMetricF(const QSizeGrip* self, int metricA, int metri
 }
 
 // Base class handler implementation
-double QSizeGrip_QBaseGetDecodedMetricF(const QSizeGrip* self, int metricA, int metricB) {
+double QSizeGrip_SuperGetDecodedMetricF(const QSizeGrip* self, int metricA, int metricB) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
     if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
         vqsizegrip->setQSizeGrip_GetDecodedMetricF_IsBase(true);

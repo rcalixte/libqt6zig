@@ -73,7 +73,7 @@ QObject* QExtensionFactory_CreateExtension(const QExtensionFactory* self, QObjec
 }
 
 // Base class handler implementation
-QMetaObject* QExtensionFactory_QBaseMetaObject(const QExtensionFactory* self) {
+QMetaObject* QExtensionFactory_SuperMetaObject(const QExtensionFactory* self) {
     auto* vqextensionfactory = const_cast<VirtualQExtensionFactory*>(dynamic_cast<const VirtualQExtensionFactory*>(self));
     if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
         vqextensionfactory->setQExtensionFactory_MetaObject_IsBase(true);
@@ -92,7 +92,7 @@ void QExtensionFactory_OnMetaObject(const QExtensionFactory* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* QExtensionFactory_QBaseMetacast(QExtensionFactory* self, const char* param1) {
+void* QExtensionFactory_SuperMetacast(QExtensionFactory* self, const char* param1) {
     auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
     if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
         vqextensionfactory->setQExtensionFactory_Metacast_IsBase(true);
@@ -111,7 +111,7 @@ void QExtensionFactory_OnMetacast(QExtensionFactory* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QExtensionFactory_QBaseMetacall(QExtensionFactory* self, int param1, int param2, void** param3) {
+int QExtensionFactory_SuperMetacall(QExtensionFactory* self, int param1, int param2, void** param3) {
     auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
     if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
         vqextensionfactory->setQExtensionFactory_Metacall_IsBase(true);
@@ -130,7 +130,7 @@ void QExtensionFactory_OnMetacall(QExtensionFactory* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QObject* QExtensionFactory_QBaseExtension(const QExtensionFactory* self, QObject* object, const libqt_string iid) {
+QObject* QExtensionFactory_SuperExtension(const QExtensionFactory* self, QObject* object, const libqt_string iid) {
     auto* vqextensionfactory = const_cast<VirtualQExtensionFactory*>(dynamic_cast<const VirtualQExtensionFactory*>(self));
     QString iid_QString = QString::fromUtf8(iid.data, iid.len);
     if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
@@ -150,7 +150,7 @@ void QExtensionFactory_OnExtension(const QExtensionFactory* self, intptr_t slot)
 }
 
 // Base class handler implementation
-QObject* QExtensionFactory_QBaseCreateExtension(const QExtensionFactory* self, QObject* object, const libqt_string iid, QObject* parent) {
+QObject* QExtensionFactory_SuperCreateExtension(const QExtensionFactory* self, QObject* object, const libqt_string iid, QObject* parent) {
     auto* vqextensionfactory = const_cast<VirtualQExtensionFactory*>(dynamic_cast<const VirtualQExtensionFactory*>(self));
     QString iid_QString = QString::fromUtf8(iid.data, iid.len);
     if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
@@ -180,7 +180,7 @@ bool QExtensionFactory_Event(QExtensionFactory* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QExtensionFactory_QBaseEvent(QExtensionFactory* self, QEvent* event) {
+bool QExtensionFactory_SuperEvent(QExtensionFactory* self, QEvent* event) {
     auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
     if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
         vqextensionfactory->setQExtensionFactory_Event_IsBase(true);
@@ -209,7 +209,7 @@ bool QExtensionFactory_EventFilter(QExtensionFactory* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool QExtensionFactory_QBaseEventFilter(QExtensionFactory* self, QObject* watched, QEvent* event) {
+bool QExtensionFactory_SuperEventFilter(QExtensionFactory* self, QObject* watched, QEvent* event) {
     auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
     if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
         vqextensionfactory->setQExtensionFactory_EventFilter_IsBase(true);
@@ -238,7 +238,7 @@ void QExtensionFactory_TimerEvent(QExtensionFactory* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QExtensionFactory_QBaseTimerEvent(QExtensionFactory* self, QTimerEvent* event) {
+void QExtensionFactory_SuperTimerEvent(QExtensionFactory* self, QTimerEvent* event) {
     auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
     if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
         vqextensionfactory->setQExtensionFactory_TimerEvent_IsBase(true);
@@ -267,7 +267,7 @@ void QExtensionFactory_ChildEvent(QExtensionFactory* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QExtensionFactory_QBaseChildEvent(QExtensionFactory* self, QChildEvent* event) {
+void QExtensionFactory_SuperChildEvent(QExtensionFactory* self, QChildEvent* event) {
     auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
     if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
         vqextensionfactory->setQExtensionFactory_ChildEvent_IsBase(true);
@@ -296,7 +296,7 @@ void QExtensionFactory_CustomEvent(QExtensionFactory* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QExtensionFactory_QBaseCustomEvent(QExtensionFactory* self, QEvent* event) {
+void QExtensionFactory_SuperCustomEvent(QExtensionFactory* self, QEvent* event) {
     auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
     if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
         vqextensionfactory->setQExtensionFactory_CustomEvent_IsBase(true);
@@ -325,7 +325,7 @@ void QExtensionFactory_ConnectNotify(QExtensionFactory* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void QExtensionFactory_QBaseConnectNotify(QExtensionFactory* self, const QMetaMethod* signal) {
+void QExtensionFactory_SuperConnectNotify(QExtensionFactory* self, const QMetaMethod* signal) {
     auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
     if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
         vqextensionfactory->setQExtensionFactory_ConnectNotify_IsBase(true);
@@ -354,7 +354,7 @@ void QExtensionFactory_DisconnectNotify(QExtensionFactory* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void QExtensionFactory_QBaseDisconnectNotify(QExtensionFactory* self, const QMetaMethod* signal) {
+void QExtensionFactory_SuperDisconnectNotify(QExtensionFactory* self, const QMetaMethod* signal) {
     auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
     if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
         vqextensionfactory->setQExtensionFactory_DisconnectNotify_IsBase(true);
@@ -383,7 +383,7 @@ QObject* QExtensionFactory_Sender(const QExtensionFactory* self) {
 }
 
 // Base class handler implementation
-QObject* QExtensionFactory_QBaseSender(const QExtensionFactory* self) {
+QObject* QExtensionFactory_SuperSender(const QExtensionFactory* self) {
     auto* vqextensionfactory = const_cast<VirtualQExtensionFactory*>(dynamic_cast<const VirtualQExtensionFactory*>(self));
     if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
         vqextensionfactory->setQExtensionFactory_Sender_IsBase(true);
@@ -412,7 +412,7 @@ int QExtensionFactory_SenderSignalIndex(const QExtensionFactory* self) {
 }
 
 // Base class handler implementation
-int QExtensionFactory_QBaseSenderSignalIndex(const QExtensionFactory* self) {
+int QExtensionFactory_SuperSenderSignalIndex(const QExtensionFactory* self) {
     auto* vqextensionfactory = const_cast<VirtualQExtensionFactory*>(dynamic_cast<const VirtualQExtensionFactory*>(self));
     if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
         vqextensionfactory->setQExtensionFactory_SenderSignalIndex_IsBase(true);
@@ -441,7 +441,7 @@ int QExtensionFactory_Receivers(const QExtensionFactory* self, const char* signa
 }
 
 // Base class handler implementation
-int QExtensionFactory_QBaseReceivers(const QExtensionFactory* self, const char* signal) {
+int QExtensionFactory_SuperReceivers(const QExtensionFactory* self, const char* signal) {
     auto* vqextensionfactory = const_cast<VirtualQExtensionFactory*>(dynamic_cast<const VirtualQExtensionFactory*>(self));
     if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
         vqextensionfactory->setQExtensionFactory_Receivers_IsBase(true);
@@ -470,7 +470,7 @@ bool QExtensionFactory_IsSignalConnected(const QExtensionFactory* self, const QM
 }
 
 // Base class handler implementation
-bool QExtensionFactory_QBaseIsSignalConnected(const QExtensionFactory* self, const QMetaMethod* signal) {
+bool QExtensionFactory_SuperIsSignalConnected(const QExtensionFactory* self, const QMetaMethod* signal) {
     auto* vqextensionfactory = const_cast<VirtualQExtensionFactory*>(dynamic_cast<const VirtualQExtensionFactory*>(self));
     if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
         vqextensionfactory->setQExtensionFactory_IsSignalConnected_IsBase(true);

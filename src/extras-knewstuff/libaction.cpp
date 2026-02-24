@@ -77,7 +77,7 @@ void KNSWidgets__Action_Connect_DialogFinished(KNSWidgets__Action* self, intptr_
 }
 
 // Base class handler implementation
-QMetaObject* KNSWidgets__Action_QBaseMetaObject(const KNSWidgets__Action* self) {
+QMetaObject* KNSWidgets__Action_SuperMetaObject(const KNSWidgets__Action* self) {
     auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
     if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
         vknswidgetsaction->setKNSWidgets__Action_MetaObject_IsBase(true);
@@ -96,7 +96,7 @@ void KNSWidgets__Action_OnMetaObject(const KNSWidgets__Action* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* KNSWidgets__Action_QBaseMetacast(KNSWidgets__Action* self, const char* param1) {
+void* KNSWidgets__Action_SuperMetacast(KNSWidgets__Action* self, const char* param1) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
     if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
         vknswidgetsaction->setKNSWidgets__Action_Metacast_IsBase(true);
@@ -115,7 +115,7 @@ void KNSWidgets__Action_OnMetacast(KNSWidgets__Action* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KNSWidgets__Action_QBaseMetacall(KNSWidgets__Action* self, int param1, int param2, void** param3) {
+int KNSWidgets__Action_SuperMetacall(KNSWidgets__Action* self, int param1, int param2, void** param3) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
     if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
         vknswidgetsaction->setKNSWidgets__Action_Metacall_IsBase(true);
@@ -144,7 +144,7 @@ bool KNSWidgets__Action_Event(KNSWidgets__Action* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool KNSWidgets__Action_QBaseEvent(KNSWidgets__Action* self, QEvent* param1) {
+bool KNSWidgets__Action_SuperEvent(KNSWidgets__Action* self, QEvent* param1) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
     if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
         vknswidgetsaction->setKNSWidgets__Action_Event_IsBase(true);
@@ -173,7 +173,7 @@ bool KNSWidgets__Action_EventFilter(KNSWidgets__Action* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool KNSWidgets__Action_QBaseEventFilter(KNSWidgets__Action* self, QObject* watched, QEvent* event) {
+bool KNSWidgets__Action_SuperEventFilter(KNSWidgets__Action* self, QObject* watched, QEvent* event) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
     if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
         vknswidgetsaction->setKNSWidgets__Action_EventFilter_IsBase(true);
@@ -202,7 +202,7 @@ void KNSWidgets__Action_TimerEvent(KNSWidgets__Action* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void KNSWidgets__Action_QBaseTimerEvent(KNSWidgets__Action* self, QTimerEvent* event) {
+void KNSWidgets__Action_SuperTimerEvent(KNSWidgets__Action* self, QTimerEvent* event) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
     if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
         vknswidgetsaction->setKNSWidgets__Action_TimerEvent_IsBase(true);
@@ -231,7 +231,7 @@ void KNSWidgets__Action_ChildEvent(KNSWidgets__Action* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void KNSWidgets__Action_QBaseChildEvent(KNSWidgets__Action* self, QChildEvent* event) {
+void KNSWidgets__Action_SuperChildEvent(KNSWidgets__Action* self, QChildEvent* event) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
     if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
         vknswidgetsaction->setKNSWidgets__Action_ChildEvent_IsBase(true);
@@ -260,7 +260,7 @@ void KNSWidgets__Action_CustomEvent(KNSWidgets__Action* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KNSWidgets__Action_QBaseCustomEvent(KNSWidgets__Action* self, QEvent* event) {
+void KNSWidgets__Action_SuperCustomEvent(KNSWidgets__Action* self, QEvent* event) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
     if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
         vknswidgetsaction->setKNSWidgets__Action_CustomEvent_IsBase(true);
@@ -289,7 +289,7 @@ void KNSWidgets__Action_ConnectNotify(KNSWidgets__Action* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void KNSWidgets__Action_QBaseConnectNotify(KNSWidgets__Action* self, const QMetaMethod* signal) {
+void KNSWidgets__Action_SuperConnectNotify(KNSWidgets__Action* self, const QMetaMethod* signal) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
     if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
         vknswidgetsaction->setKNSWidgets__Action_ConnectNotify_IsBase(true);
@@ -318,7 +318,7 @@ void KNSWidgets__Action_DisconnectNotify(KNSWidgets__Action* self, const QMetaMe
 }
 
 // Base class handler implementation
-void KNSWidgets__Action_QBaseDisconnectNotify(KNSWidgets__Action* self, const QMetaMethod* signal) {
+void KNSWidgets__Action_SuperDisconnectNotify(KNSWidgets__Action* self, const QMetaMethod* signal) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
     if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
         vknswidgetsaction->setKNSWidgets__Action_DisconnectNotify_IsBase(true);
@@ -347,7 +347,7 @@ QObject* KNSWidgets__Action_Sender(const KNSWidgets__Action* self) {
 }
 
 // Base class handler implementation
-QObject* KNSWidgets__Action_QBaseSender(const KNSWidgets__Action* self) {
+QObject* KNSWidgets__Action_SuperSender(const KNSWidgets__Action* self) {
     auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
     if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
         vknswidgetsaction->setKNSWidgets__Action_Sender_IsBase(true);
@@ -376,7 +376,7 @@ int KNSWidgets__Action_SenderSignalIndex(const KNSWidgets__Action* self) {
 }
 
 // Base class handler implementation
-int KNSWidgets__Action_QBaseSenderSignalIndex(const KNSWidgets__Action* self) {
+int KNSWidgets__Action_SuperSenderSignalIndex(const KNSWidgets__Action* self) {
     auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
     if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
         vknswidgetsaction->setKNSWidgets__Action_SenderSignalIndex_IsBase(true);
@@ -405,7 +405,7 @@ int KNSWidgets__Action_Receivers(const KNSWidgets__Action* self, const char* sig
 }
 
 // Base class handler implementation
-int KNSWidgets__Action_QBaseReceivers(const KNSWidgets__Action* self, const char* signal) {
+int KNSWidgets__Action_SuperReceivers(const KNSWidgets__Action* self, const char* signal) {
     auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
     if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
         vknswidgetsaction->setKNSWidgets__Action_Receivers_IsBase(true);
@@ -434,7 +434,7 @@ bool KNSWidgets__Action_IsSignalConnected(const KNSWidgets__Action* self, const 
 }
 
 // Base class handler implementation
-bool KNSWidgets__Action_QBaseIsSignalConnected(const KNSWidgets__Action* self, const QMetaMethod* signal) {
+bool KNSWidgets__Action_SuperIsSignalConnected(const KNSWidgets__Action* self, const QMetaMethod* signal) {
     auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
     if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
         vknswidgetsaction->setKNSWidgets__Action_IsSignalConnected_IsBase(true);

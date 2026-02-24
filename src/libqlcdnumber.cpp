@@ -197,7 +197,7 @@ void QLCDNumber_PaintEvent(QLCDNumber* self, QPaintEvent* param1) {
 }
 
 // Base class handler implementation
-QMetaObject* QLCDNumber_QBaseMetaObject(const QLCDNumber* self) {
+QMetaObject* QLCDNumber_SuperMetaObject(const QLCDNumber* self) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_MetaObject_IsBase(true);
@@ -216,7 +216,7 @@ void QLCDNumber_OnMetaObject(const QLCDNumber* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QLCDNumber_QBaseMetacast(QLCDNumber* self, const char* param1) {
+void* QLCDNumber_SuperMetacast(QLCDNumber* self, const char* param1) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_Metacast_IsBase(true);
@@ -235,7 +235,7 @@ void QLCDNumber_OnMetacast(QLCDNumber* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QLCDNumber_QBaseMetacall(QLCDNumber* self, int param1, int param2, void** param3) {
+int QLCDNumber_SuperMetacall(QLCDNumber* self, int param1, int param2, void** param3) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_Metacall_IsBase(true);
@@ -254,7 +254,7 @@ void QLCDNumber_OnMetacall(QLCDNumber* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QLCDNumber_QBaseSizeHint(const QLCDNumber* self) {
+QSize* QLCDNumber_SuperSizeHint(const QLCDNumber* self) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_SizeHint_IsBase(true);
@@ -273,7 +273,7 @@ void QLCDNumber_OnSizeHint(const QLCDNumber* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QLCDNumber_QBaseEvent(QLCDNumber* self, QEvent* e) {
+bool QLCDNumber_SuperEvent(QLCDNumber* self, QEvent* e) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_Event_IsBase(true);
@@ -292,7 +292,7 @@ void QLCDNumber_OnEvent(QLCDNumber* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBasePaintEvent(QLCDNumber* self, QPaintEvent* param1) {
+void QLCDNumber_SuperPaintEvent(QLCDNumber* self, QPaintEvent* param1) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_PaintEvent_IsBase(true);
@@ -321,7 +321,7 @@ void QLCDNumber_ChangeEvent(QLCDNumber* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseChangeEvent(QLCDNumber* self, QEvent* param1) {
+void QLCDNumber_SuperChangeEvent(QLCDNumber* self, QEvent* param1) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_ChangeEvent_IsBase(true);
@@ -350,7 +350,7 @@ void QLCDNumber_InitStyleOption(const QLCDNumber* self, QStyleOptionFrame* optio
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseInitStyleOption(const QLCDNumber* self, QStyleOptionFrame* option) {
+void QLCDNumber_SuperInitStyleOption(const QLCDNumber* self, QStyleOptionFrame* option) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_InitStyleOption_IsBase(true);
@@ -379,7 +379,7 @@ int QLCDNumber_DevType(const QLCDNumber* self) {
 }
 
 // Base class handler implementation
-int QLCDNumber_QBaseDevType(const QLCDNumber* self) {
+int QLCDNumber_SuperDevType(const QLCDNumber* self) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_DevType_IsBase(true);
@@ -408,7 +408,7 @@ void QLCDNumber_SetVisible(QLCDNumber* self, bool visible) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseSetVisible(QLCDNumber* self, bool visible) {
+void QLCDNumber_SuperSetVisible(QLCDNumber* self, bool visible) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_SetVisible_IsBase(true);
@@ -437,7 +437,7 @@ QSize* QLCDNumber_MinimumSizeHint(const QLCDNumber* self) {
 }
 
 // Base class handler implementation
-QSize* QLCDNumber_QBaseMinimumSizeHint(const QLCDNumber* self) {
+QSize* QLCDNumber_SuperMinimumSizeHint(const QLCDNumber* self) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_MinimumSizeHint_IsBase(true);
@@ -466,7 +466,7 @@ int QLCDNumber_HeightForWidth(const QLCDNumber* self, int param1) {
 }
 
 // Base class handler implementation
-int QLCDNumber_QBaseHeightForWidth(const QLCDNumber* self, int param1) {
+int QLCDNumber_SuperHeightForWidth(const QLCDNumber* self, int param1) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_HeightForWidth_IsBase(true);
@@ -495,7 +495,7 @@ bool QLCDNumber_HasHeightForWidth(const QLCDNumber* self) {
 }
 
 // Base class handler implementation
-bool QLCDNumber_QBaseHasHeightForWidth(const QLCDNumber* self) {
+bool QLCDNumber_SuperHasHeightForWidth(const QLCDNumber* self) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_HasHeightForWidth_IsBase(true);
@@ -524,7 +524,7 @@ QPaintEngine* QLCDNumber_PaintEngine(const QLCDNumber* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QLCDNumber_QBasePaintEngine(const QLCDNumber* self) {
+QPaintEngine* QLCDNumber_SuperPaintEngine(const QLCDNumber* self) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_PaintEngine_IsBase(true);
@@ -553,7 +553,7 @@ void QLCDNumber_MousePressEvent(QLCDNumber* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseMousePressEvent(QLCDNumber* self, QMouseEvent* event) {
+void QLCDNumber_SuperMousePressEvent(QLCDNumber* self, QMouseEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_MousePressEvent_IsBase(true);
@@ -582,7 +582,7 @@ void QLCDNumber_MouseReleaseEvent(QLCDNumber* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseMouseReleaseEvent(QLCDNumber* self, QMouseEvent* event) {
+void QLCDNumber_SuperMouseReleaseEvent(QLCDNumber* self, QMouseEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_MouseReleaseEvent_IsBase(true);
@@ -611,7 +611,7 @@ void QLCDNumber_MouseDoubleClickEvent(QLCDNumber* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseMouseDoubleClickEvent(QLCDNumber* self, QMouseEvent* event) {
+void QLCDNumber_SuperMouseDoubleClickEvent(QLCDNumber* self, QMouseEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_MouseDoubleClickEvent_IsBase(true);
@@ -640,7 +640,7 @@ void QLCDNumber_MouseMoveEvent(QLCDNumber* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseMouseMoveEvent(QLCDNumber* self, QMouseEvent* event) {
+void QLCDNumber_SuperMouseMoveEvent(QLCDNumber* self, QMouseEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_MouseMoveEvent_IsBase(true);
@@ -669,7 +669,7 @@ void QLCDNumber_WheelEvent(QLCDNumber* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseWheelEvent(QLCDNumber* self, QWheelEvent* event) {
+void QLCDNumber_SuperWheelEvent(QLCDNumber* self, QWheelEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_WheelEvent_IsBase(true);
@@ -698,7 +698,7 @@ void QLCDNumber_KeyPressEvent(QLCDNumber* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseKeyPressEvent(QLCDNumber* self, QKeyEvent* event) {
+void QLCDNumber_SuperKeyPressEvent(QLCDNumber* self, QKeyEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_KeyPressEvent_IsBase(true);
@@ -727,7 +727,7 @@ void QLCDNumber_KeyReleaseEvent(QLCDNumber* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseKeyReleaseEvent(QLCDNumber* self, QKeyEvent* event) {
+void QLCDNumber_SuperKeyReleaseEvent(QLCDNumber* self, QKeyEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_KeyReleaseEvent_IsBase(true);
@@ -756,7 +756,7 @@ void QLCDNumber_FocusInEvent(QLCDNumber* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseFocusInEvent(QLCDNumber* self, QFocusEvent* event) {
+void QLCDNumber_SuperFocusInEvent(QLCDNumber* self, QFocusEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_FocusInEvent_IsBase(true);
@@ -785,7 +785,7 @@ void QLCDNumber_FocusOutEvent(QLCDNumber* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseFocusOutEvent(QLCDNumber* self, QFocusEvent* event) {
+void QLCDNumber_SuperFocusOutEvent(QLCDNumber* self, QFocusEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_FocusOutEvent_IsBase(true);
@@ -814,7 +814,7 @@ void QLCDNumber_EnterEvent(QLCDNumber* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseEnterEvent(QLCDNumber* self, QEnterEvent* event) {
+void QLCDNumber_SuperEnterEvent(QLCDNumber* self, QEnterEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_EnterEvent_IsBase(true);
@@ -843,7 +843,7 @@ void QLCDNumber_LeaveEvent(QLCDNumber* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseLeaveEvent(QLCDNumber* self, QEvent* event) {
+void QLCDNumber_SuperLeaveEvent(QLCDNumber* self, QEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_LeaveEvent_IsBase(true);
@@ -872,7 +872,7 @@ void QLCDNumber_MoveEvent(QLCDNumber* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseMoveEvent(QLCDNumber* self, QMoveEvent* event) {
+void QLCDNumber_SuperMoveEvent(QLCDNumber* self, QMoveEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_MoveEvent_IsBase(true);
@@ -901,7 +901,7 @@ void QLCDNumber_ResizeEvent(QLCDNumber* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseResizeEvent(QLCDNumber* self, QResizeEvent* event) {
+void QLCDNumber_SuperResizeEvent(QLCDNumber* self, QResizeEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_ResizeEvent_IsBase(true);
@@ -930,7 +930,7 @@ void QLCDNumber_CloseEvent(QLCDNumber* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseCloseEvent(QLCDNumber* self, QCloseEvent* event) {
+void QLCDNumber_SuperCloseEvent(QLCDNumber* self, QCloseEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_CloseEvent_IsBase(true);
@@ -959,7 +959,7 @@ void QLCDNumber_ContextMenuEvent(QLCDNumber* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseContextMenuEvent(QLCDNumber* self, QContextMenuEvent* event) {
+void QLCDNumber_SuperContextMenuEvent(QLCDNumber* self, QContextMenuEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_ContextMenuEvent_IsBase(true);
@@ -988,7 +988,7 @@ void QLCDNumber_TabletEvent(QLCDNumber* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseTabletEvent(QLCDNumber* self, QTabletEvent* event) {
+void QLCDNumber_SuperTabletEvent(QLCDNumber* self, QTabletEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_TabletEvent_IsBase(true);
@@ -1017,7 +1017,7 @@ void QLCDNumber_ActionEvent(QLCDNumber* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseActionEvent(QLCDNumber* self, QActionEvent* event) {
+void QLCDNumber_SuperActionEvent(QLCDNumber* self, QActionEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_ActionEvent_IsBase(true);
@@ -1046,7 +1046,7 @@ void QLCDNumber_DragEnterEvent(QLCDNumber* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseDragEnterEvent(QLCDNumber* self, QDragEnterEvent* event) {
+void QLCDNumber_SuperDragEnterEvent(QLCDNumber* self, QDragEnterEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_DragEnterEvent_IsBase(true);
@@ -1075,7 +1075,7 @@ void QLCDNumber_DragMoveEvent(QLCDNumber* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseDragMoveEvent(QLCDNumber* self, QDragMoveEvent* event) {
+void QLCDNumber_SuperDragMoveEvent(QLCDNumber* self, QDragMoveEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_DragMoveEvent_IsBase(true);
@@ -1104,7 +1104,7 @@ void QLCDNumber_DragLeaveEvent(QLCDNumber* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseDragLeaveEvent(QLCDNumber* self, QDragLeaveEvent* event) {
+void QLCDNumber_SuperDragLeaveEvent(QLCDNumber* self, QDragLeaveEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_DragLeaveEvent_IsBase(true);
@@ -1133,7 +1133,7 @@ void QLCDNumber_DropEvent(QLCDNumber* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseDropEvent(QLCDNumber* self, QDropEvent* event) {
+void QLCDNumber_SuperDropEvent(QLCDNumber* self, QDropEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_DropEvent_IsBase(true);
@@ -1162,7 +1162,7 @@ void QLCDNumber_ShowEvent(QLCDNumber* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseShowEvent(QLCDNumber* self, QShowEvent* event) {
+void QLCDNumber_SuperShowEvent(QLCDNumber* self, QShowEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_ShowEvent_IsBase(true);
@@ -1191,7 +1191,7 @@ void QLCDNumber_HideEvent(QLCDNumber* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseHideEvent(QLCDNumber* self, QHideEvent* event) {
+void QLCDNumber_SuperHideEvent(QLCDNumber* self, QHideEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_HideEvent_IsBase(true);
@@ -1221,7 +1221,7 @@ bool QLCDNumber_NativeEvent(QLCDNumber* self, const libqt_string eventType, void
 }
 
 // Base class handler implementation
-bool QLCDNumber_QBaseNativeEvent(QLCDNumber* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QLCDNumber_SuperNativeEvent(QLCDNumber* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
@@ -1251,7 +1251,7 @@ int QLCDNumber_Metric(const QLCDNumber* self, int param1) {
 }
 
 // Base class handler implementation
-int QLCDNumber_QBaseMetric(const QLCDNumber* self, int param1) {
+int QLCDNumber_SuperMetric(const QLCDNumber* self, int param1) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_Metric_IsBase(true);
@@ -1280,7 +1280,7 @@ void QLCDNumber_InitPainter(const QLCDNumber* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseInitPainter(const QLCDNumber* self, QPainter* painter) {
+void QLCDNumber_SuperInitPainter(const QLCDNumber* self, QPainter* painter) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_InitPainter_IsBase(true);
@@ -1309,7 +1309,7 @@ QPaintDevice* QLCDNumber_Redirected(const QLCDNumber* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QLCDNumber_QBaseRedirected(const QLCDNumber* self, QPoint* offset) {
+QPaintDevice* QLCDNumber_SuperRedirected(const QLCDNumber* self, QPoint* offset) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_Redirected_IsBase(true);
@@ -1338,7 +1338,7 @@ QPainter* QLCDNumber_SharedPainter(const QLCDNumber* self) {
 }
 
 // Base class handler implementation
-QPainter* QLCDNumber_QBaseSharedPainter(const QLCDNumber* self) {
+QPainter* QLCDNumber_SuperSharedPainter(const QLCDNumber* self) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_SharedPainter_IsBase(true);
@@ -1367,7 +1367,7 @@ void QLCDNumber_InputMethodEvent(QLCDNumber* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseInputMethodEvent(QLCDNumber* self, QInputMethodEvent* param1) {
+void QLCDNumber_SuperInputMethodEvent(QLCDNumber* self, QInputMethodEvent* param1) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_InputMethodEvent_IsBase(true);
@@ -1396,7 +1396,7 @@ QVariant* QLCDNumber_InputMethodQuery(const QLCDNumber* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QLCDNumber_QBaseInputMethodQuery(const QLCDNumber* self, int param1) {
+QVariant* QLCDNumber_SuperInputMethodQuery(const QLCDNumber* self, int param1) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_InputMethodQuery_IsBase(true);
@@ -1425,7 +1425,7 @@ bool QLCDNumber_FocusNextPrevChild(QLCDNumber* self, bool next) {
 }
 
 // Base class handler implementation
-bool QLCDNumber_QBaseFocusNextPrevChild(QLCDNumber* self, bool next) {
+bool QLCDNumber_SuperFocusNextPrevChild(QLCDNumber* self, bool next) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_FocusNextPrevChild_IsBase(true);
@@ -1454,7 +1454,7 @@ bool QLCDNumber_EventFilter(QLCDNumber* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QLCDNumber_QBaseEventFilter(QLCDNumber* self, QObject* watched, QEvent* event) {
+bool QLCDNumber_SuperEventFilter(QLCDNumber* self, QObject* watched, QEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_EventFilter_IsBase(true);
@@ -1483,7 +1483,7 @@ void QLCDNumber_TimerEvent(QLCDNumber* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseTimerEvent(QLCDNumber* self, QTimerEvent* event) {
+void QLCDNumber_SuperTimerEvent(QLCDNumber* self, QTimerEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_TimerEvent_IsBase(true);
@@ -1512,7 +1512,7 @@ void QLCDNumber_ChildEvent(QLCDNumber* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseChildEvent(QLCDNumber* self, QChildEvent* event) {
+void QLCDNumber_SuperChildEvent(QLCDNumber* self, QChildEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_ChildEvent_IsBase(true);
@@ -1541,7 +1541,7 @@ void QLCDNumber_CustomEvent(QLCDNumber* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseCustomEvent(QLCDNumber* self, QEvent* event) {
+void QLCDNumber_SuperCustomEvent(QLCDNumber* self, QEvent* event) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_CustomEvent_IsBase(true);
@@ -1570,7 +1570,7 @@ void QLCDNumber_ConnectNotify(QLCDNumber* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseConnectNotify(QLCDNumber* self, const QMetaMethod* signal) {
+void QLCDNumber_SuperConnectNotify(QLCDNumber* self, const QMetaMethod* signal) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_ConnectNotify_IsBase(true);
@@ -1599,7 +1599,7 @@ void QLCDNumber_DisconnectNotify(QLCDNumber* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseDisconnectNotify(QLCDNumber* self, const QMetaMethod* signal) {
+void QLCDNumber_SuperDisconnectNotify(QLCDNumber* self, const QMetaMethod* signal) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_DisconnectNotify_IsBase(true);
@@ -1628,7 +1628,7 @@ void QLCDNumber_DrawFrame(QLCDNumber* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseDrawFrame(QLCDNumber* self, QPainter* param1) {
+void QLCDNumber_SuperDrawFrame(QLCDNumber* self, QPainter* param1) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_DrawFrame_IsBase(true);
@@ -1657,7 +1657,7 @@ void QLCDNumber_UpdateMicroFocus(QLCDNumber* self) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseUpdateMicroFocus(QLCDNumber* self) {
+void QLCDNumber_SuperUpdateMicroFocus(QLCDNumber* self) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_UpdateMicroFocus_IsBase(true);
@@ -1686,7 +1686,7 @@ void QLCDNumber_Create(QLCDNumber* self) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseCreate(QLCDNumber* self) {
+void QLCDNumber_SuperCreate(QLCDNumber* self) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_Create_IsBase(true);
@@ -1715,7 +1715,7 @@ void QLCDNumber_Destroy(QLCDNumber* self) {
 }
 
 // Base class handler implementation
-void QLCDNumber_QBaseDestroy(QLCDNumber* self) {
+void QLCDNumber_SuperDestroy(QLCDNumber* self) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_Destroy_IsBase(true);
@@ -1744,7 +1744,7 @@ bool QLCDNumber_FocusNextChild(QLCDNumber* self) {
 }
 
 // Base class handler implementation
-bool QLCDNumber_QBaseFocusNextChild(QLCDNumber* self) {
+bool QLCDNumber_SuperFocusNextChild(QLCDNumber* self) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_FocusNextChild_IsBase(true);
@@ -1773,7 +1773,7 @@ bool QLCDNumber_FocusPreviousChild(QLCDNumber* self) {
 }
 
 // Base class handler implementation
-bool QLCDNumber_QBaseFocusPreviousChild(QLCDNumber* self) {
+bool QLCDNumber_SuperFocusPreviousChild(QLCDNumber* self) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_FocusPreviousChild_IsBase(true);
@@ -1802,7 +1802,7 @@ QObject* QLCDNumber_Sender(const QLCDNumber* self) {
 }
 
 // Base class handler implementation
-QObject* QLCDNumber_QBaseSender(const QLCDNumber* self) {
+QObject* QLCDNumber_SuperSender(const QLCDNumber* self) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_Sender_IsBase(true);
@@ -1831,7 +1831,7 @@ int QLCDNumber_SenderSignalIndex(const QLCDNumber* self) {
 }
 
 // Base class handler implementation
-int QLCDNumber_QBaseSenderSignalIndex(const QLCDNumber* self) {
+int QLCDNumber_SuperSenderSignalIndex(const QLCDNumber* self) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_SenderSignalIndex_IsBase(true);
@@ -1860,7 +1860,7 @@ int QLCDNumber_Receivers(const QLCDNumber* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QLCDNumber_QBaseReceivers(const QLCDNumber* self, const char* signal) {
+int QLCDNumber_SuperReceivers(const QLCDNumber* self, const char* signal) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_Receivers_IsBase(true);
@@ -1889,7 +1889,7 @@ bool QLCDNumber_IsSignalConnected(const QLCDNumber* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QLCDNumber_QBaseIsSignalConnected(const QLCDNumber* self, const QMetaMethod* signal) {
+bool QLCDNumber_SuperIsSignalConnected(const QLCDNumber* self, const QMetaMethod* signal) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_IsSignalConnected_IsBase(true);
@@ -1918,7 +1918,7 @@ double QLCDNumber_GetDecodedMetricF(const QLCDNumber* self, int metricA, int met
 }
 
 // Base class handler implementation
-double QLCDNumber_QBaseGetDecodedMetricF(const QLCDNumber* self, int metricA, int metricB) {
+double QLCDNumber_SuperGetDecodedMetricF(const QLCDNumber* self, int metricA, int metricB) {
     auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->setQLCDNumber_GetDecodedMetricF_IsBase(true);

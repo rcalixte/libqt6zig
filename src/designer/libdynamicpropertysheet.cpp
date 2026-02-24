@@ -59,7 +59,7 @@ bool QDesignerDynamicPropertySheetExtension_CanAddDynamicProperty(const QDesigne
 }
 
 // Base class handler implementation
-bool QDesignerDynamicPropertySheetExtension_QBaseDynamicPropertiesAllowed(const QDesignerDynamicPropertySheetExtension* self) {
+bool QDesignerDynamicPropertySheetExtension_SuperDynamicPropertiesAllowed(const QDesignerDynamicPropertySheetExtension* self) {
     auto* vqdesignerdynamicpropertysheetextension = const_cast<VirtualQDesignerDynamicPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerDynamicPropertySheetExtension*>(self));
     if (vqdesignerdynamicpropertysheetextension && vqdesignerdynamicpropertysheetextension->isVirtualQDesignerDynamicPropertySheetExtension) {
         vqdesignerdynamicpropertysheetextension->setQDesignerDynamicPropertySheetExtension_DynamicPropertiesAllowed_IsBase(true);
@@ -78,7 +78,7 @@ void QDesignerDynamicPropertySheetExtension_OnDynamicPropertiesAllowed(const QDe
 }
 
 // Base class handler implementation
-int QDesignerDynamicPropertySheetExtension_QBaseAddDynamicProperty(QDesignerDynamicPropertySheetExtension* self, const libqt_string propertyName, const QVariant* value) {
+int QDesignerDynamicPropertySheetExtension_SuperAddDynamicProperty(QDesignerDynamicPropertySheetExtension* self, const libqt_string propertyName, const QVariant* value) {
     auto* vqdesignerdynamicpropertysheetextension = dynamic_cast<VirtualQDesignerDynamicPropertySheetExtension*>(self);
     QString propertyName_QString = QString::fromUtf8(propertyName.data, propertyName.len);
     if (vqdesignerdynamicpropertysheetextension && vqdesignerdynamicpropertysheetextension->isVirtualQDesignerDynamicPropertySheetExtension) {
@@ -98,7 +98,7 @@ void QDesignerDynamicPropertySheetExtension_OnAddDynamicProperty(QDesignerDynami
 }
 
 // Base class handler implementation
-bool QDesignerDynamicPropertySheetExtension_QBaseRemoveDynamicProperty(QDesignerDynamicPropertySheetExtension* self, int index) {
+bool QDesignerDynamicPropertySheetExtension_SuperRemoveDynamicProperty(QDesignerDynamicPropertySheetExtension* self, int index) {
     auto* vqdesignerdynamicpropertysheetextension = dynamic_cast<VirtualQDesignerDynamicPropertySheetExtension*>(self);
     if (vqdesignerdynamicpropertysheetextension && vqdesignerdynamicpropertysheetextension->isVirtualQDesignerDynamicPropertySheetExtension) {
         vqdesignerdynamicpropertysheetextension->setQDesignerDynamicPropertySheetExtension_RemoveDynamicProperty_IsBase(true);
@@ -117,7 +117,7 @@ void QDesignerDynamicPropertySheetExtension_OnRemoveDynamicProperty(QDesignerDyn
 }
 
 // Base class handler implementation
-bool QDesignerDynamicPropertySheetExtension_QBaseIsDynamicProperty(const QDesignerDynamicPropertySheetExtension* self, int index) {
+bool QDesignerDynamicPropertySheetExtension_SuperIsDynamicProperty(const QDesignerDynamicPropertySheetExtension* self, int index) {
     auto* vqdesignerdynamicpropertysheetextension = const_cast<VirtualQDesignerDynamicPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerDynamicPropertySheetExtension*>(self));
     if (vqdesignerdynamicpropertysheetextension && vqdesignerdynamicpropertysheetextension->isVirtualQDesignerDynamicPropertySheetExtension) {
         vqdesignerdynamicpropertysheetextension->setQDesignerDynamicPropertySheetExtension_IsDynamicProperty_IsBase(true);
@@ -136,7 +136,7 @@ void QDesignerDynamicPropertySheetExtension_OnIsDynamicProperty(const QDesignerD
 }
 
 // Base class handler implementation
-bool QDesignerDynamicPropertySheetExtension_QBaseCanAddDynamicProperty(const QDesignerDynamicPropertySheetExtension* self, const libqt_string propertyName) {
+bool QDesignerDynamicPropertySheetExtension_SuperCanAddDynamicProperty(const QDesignerDynamicPropertySheetExtension* self, const libqt_string propertyName) {
     auto* vqdesignerdynamicpropertysheetextension = const_cast<VirtualQDesignerDynamicPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerDynamicPropertySheetExtension*>(self));
     QString propertyName_QString = QString::fromUtf8(propertyName.data, propertyName.len);
     if (vqdesignerdynamicpropertysheetextension && vqdesignerdynamicpropertysheetextension->isVirtualQDesignerDynamicPropertySheetExtension) {

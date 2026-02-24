@@ -374,7 +374,7 @@ void QObject_Connect_Destroyed1(QObject* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QObject_QBaseMetaObject(const QObject* self) {
+QMetaObject* QObject_SuperMetaObject(const QObject* self) {
     auto* vqobject = const_cast<VirtualQObject*>(dynamic_cast<const VirtualQObject*>(self));
     if (vqobject && vqobject->isVirtualQObject) {
         vqobject->setQObject_MetaObject_IsBase(true);
@@ -393,7 +393,7 @@ void QObject_OnMetaObject(const QObject* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QObject_QBaseMetacast(QObject* self, const char* param1) {
+void* QObject_SuperMetacast(QObject* self, const char* param1) {
     auto* vqobject = dynamic_cast<VirtualQObject*>(self);
     if (vqobject && vqobject->isVirtualQObject) {
         vqobject->setQObject_Metacast_IsBase(true);
@@ -412,7 +412,7 @@ void QObject_OnMetacast(QObject* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QObject_QBaseMetacall(QObject* self, int param1, int param2, void** param3) {
+int QObject_SuperMetacall(QObject* self, int param1, int param2, void** param3) {
     auto* vqobject = dynamic_cast<VirtualQObject*>(self);
     if (vqobject && vqobject->isVirtualQObject) {
         vqobject->setQObject_Metacall_IsBase(true);
@@ -431,7 +431,7 @@ void QObject_OnMetacall(QObject* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QObject_QBaseEvent(QObject* self, QEvent* event) {
+bool QObject_SuperEvent(QObject* self, QEvent* event) {
     auto* vqobject = dynamic_cast<VirtualQObject*>(self);
     if (vqobject && vqobject->isVirtualQObject) {
         vqobject->setQObject_Event_IsBase(true);
@@ -450,7 +450,7 @@ void QObject_OnEvent(QObject* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QObject_QBaseEventFilter(QObject* self, QObject* watched, QEvent* event) {
+bool QObject_SuperEventFilter(QObject* self, QObject* watched, QEvent* event) {
     auto* vqobject = dynamic_cast<VirtualQObject*>(self);
     if (vqobject && vqobject->isVirtualQObject) {
         vqobject->setQObject_EventFilter_IsBase(true);
@@ -469,7 +469,7 @@ void QObject_OnEventFilter(QObject* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QObject_QBaseTimerEvent(QObject* self, QTimerEvent* event) {
+void QObject_SuperTimerEvent(QObject* self, QTimerEvent* event) {
     auto* vqobject = dynamic_cast<VirtualQObject*>(self);
     if (vqobject && vqobject->isVirtualQObject) {
         vqobject->setQObject_TimerEvent_IsBase(true);
@@ -488,7 +488,7 @@ void QObject_OnTimerEvent(QObject* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QObject_QBaseChildEvent(QObject* self, QChildEvent* event) {
+void QObject_SuperChildEvent(QObject* self, QChildEvent* event) {
     auto* vqobject = dynamic_cast<VirtualQObject*>(self);
     if (vqobject && vqobject->isVirtualQObject) {
         vqobject->setQObject_ChildEvent_IsBase(true);
@@ -507,7 +507,7 @@ void QObject_OnChildEvent(QObject* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QObject_QBaseCustomEvent(QObject* self, QEvent* event) {
+void QObject_SuperCustomEvent(QObject* self, QEvent* event) {
     auto* vqobject = dynamic_cast<VirtualQObject*>(self);
     if (vqobject && vqobject->isVirtualQObject) {
         vqobject->setQObject_CustomEvent_IsBase(true);
@@ -526,7 +526,7 @@ void QObject_OnCustomEvent(QObject* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QObject_QBaseConnectNotify(QObject* self, const QMetaMethod* signal) {
+void QObject_SuperConnectNotify(QObject* self, const QMetaMethod* signal) {
     auto* vqobject = dynamic_cast<VirtualQObject*>(self);
     if (vqobject && vqobject->isVirtualQObject) {
         vqobject->setQObject_ConnectNotify_IsBase(true);
@@ -545,7 +545,7 @@ void QObject_OnConnectNotify(QObject* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QObject_QBaseDisconnectNotify(QObject* self, const QMetaMethod* signal) {
+void QObject_SuperDisconnectNotify(QObject* self, const QMetaMethod* signal) {
     auto* vqobject = dynamic_cast<VirtualQObject*>(self);
     if (vqobject && vqobject->isVirtualQObject) {
         vqobject->setQObject_DisconnectNotify_IsBase(true);
@@ -574,7 +574,7 @@ QObject* QObject_Sender(const QObject* self) {
 }
 
 // Base class handler implementation
-QObject* QObject_QBaseSender(const QObject* self) {
+QObject* QObject_SuperSender(const QObject* self) {
     auto* vqobject = const_cast<VirtualQObject*>(dynamic_cast<const VirtualQObject*>(self));
     if (vqobject && vqobject->isVirtualQObject) {
         vqobject->setQObject_Sender_IsBase(true);
@@ -603,7 +603,7 @@ int QObject_SenderSignalIndex(const QObject* self) {
 }
 
 // Base class handler implementation
-int QObject_QBaseSenderSignalIndex(const QObject* self) {
+int QObject_SuperSenderSignalIndex(const QObject* self) {
     auto* vqobject = const_cast<VirtualQObject*>(dynamic_cast<const VirtualQObject*>(self));
     if (vqobject && vqobject->isVirtualQObject) {
         vqobject->setQObject_SenderSignalIndex_IsBase(true);
@@ -632,7 +632,7 @@ int QObject_Receivers(const QObject* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QObject_QBaseReceivers(const QObject* self, const char* signal) {
+int QObject_SuperReceivers(const QObject* self, const char* signal) {
     auto* vqobject = const_cast<VirtualQObject*>(dynamic_cast<const VirtualQObject*>(self));
     if (vqobject && vqobject->isVirtualQObject) {
         vqobject->setQObject_Receivers_IsBase(true);
@@ -661,7 +661,7 @@ bool QObject_IsSignalConnected(const QObject* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QObject_QBaseIsSignalConnected(const QObject* self, const QMetaMethod* signal) {
+bool QObject_SuperIsSignalConnected(const QObject* self, const QMetaMethod* signal) {
     auto* vqobject = const_cast<VirtualQObject*>(dynamic_cast<const VirtualQObject*>(self));
     if (vqobject && vqobject->isVirtualQObject) {
         vqobject->setQObject_IsSignalConnected_IsBase(true);

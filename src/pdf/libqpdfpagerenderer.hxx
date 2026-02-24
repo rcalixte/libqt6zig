@@ -328,23 +328,23 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
 
     // Friend functions
     friend void QPdfPageRenderer_TimerEvent(QPdfPageRenderer* self, QTimerEvent* event);
-    friend void QPdfPageRenderer_QBaseTimerEvent(QPdfPageRenderer* self, QTimerEvent* event);
+    friend void QPdfPageRenderer_SuperTimerEvent(QPdfPageRenderer* self, QTimerEvent* event);
     friend void QPdfPageRenderer_ChildEvent(QPdfPageRenderer* self, QChildEvent* event);
-    friend void QPdfPageRenderer_QBaseChildEvent(QPdfPageRenderer* self, QChildEvent* event);
+    friend void QPdfPageRenderer_SuperChildEvent(QPdfPageRenderer* self, QChildEvent* event);
     friend void QPdfPageRenderer_CustomEvent(QPdfPageRenderer* self, QEvent* event);
-    friend void QPdfPageRenderer_QBaseCustomEvent(QPdfPageRenderer* self, QEvent* event);
+    friend void QPdfPageRenderer_SuperCustomEvent(QPdfPageRenderer* self, QEvent* event);
     friend void QPdfPageRenderer_ConnectNotify(QPdfPageRenderer* self, const QMetaMethod* signal);
-    friend void QPdfPageRenderer_QBaseConnectNotify(QPdfPageRenderer* self, const QMetaMethod* signal);
+    friend void QPdfPageRenderer_SuperConnectNotify(QPdfPageRenderer* self, const QMetaMethod* signal);
     friend void QPdfPageRenderer_DisconnectNotify(QPdfPageRenderer* self, const QMetaMethod* signal);
-    friend void QPdfPageRenderer_QBaseDisconnectNotify(QPdfPageRenderer* self, const QMetaMethod* signal);
+    friend void QPdfPageRenderer_SuperDisconnectNotify(QPdfPageRenderer* self, const QMetaMethod* signal);
     friend QObject* QPdfPageRenderer_Sender(const QPdfPageRenderer* self);
-    friend QObject* QPdfPageRenderer_QBaseSender(const QPdfPageRenderer* self);
+    friend QObject* QPdfPageRenderer_SuperSender(const QPdfPageRenderer* self);
     friend int QPdfPageRenderer_SenderSignalIndex(const QPdfPageRenderer* self);
-    friend int QPdfPageRenderer_QBaseSenderSignalIndex(const QPdfPageRenderer* self);
+    friend int QPdfPageRenderer_SuperSenderSignalIndex(const QPdfPageRenderer* self);
     friend int QPdfPageRenderer_Receivers(const QPdfPageRenderer* self, const char* signal);
-    friend int QPdfPageRenderer_QBaseReceivers(const QPdfPageRenderer* self, const char* signal);
+    friend int QPdfPageRenderer_SuperReceivers(const QPdfPageRenderer* self, const char* signal);
     friend bool QPdfPageRenderer_IsSignalConnected(const QPdfPageRenderer* self, const QMetaMethod* signal);
-    friend bool QPdfPageRenderer_QBaseIsSignalConnected(const QPdfPageRenderer* self, const QMetaMethod* signal);
+    friend bool QPdfPageRenderer_SuperIsSignalConnected(const QPdfPageRenderer* self, const QMetaMethod* signal);
 };
 
 #endif

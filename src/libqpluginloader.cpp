@@ -144,7 +144,7 @@ int QPluginLoader_LoadHints(const QPluginLoader* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QPluginLoader_QBaseMetaObject(const QPluginLoader* self) {
+QMetaObject* QPluginLoader_SuperMetaObject(const QPluginLoader* self) {
     auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
     if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
         vqpluginloader->setQPluginLoader_MetaObject_IsBase(true);
@@ -163,7 +163,7 @@ void QPluginLoader_OnMetaObject(const QPluginLoader* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QPluginLoader_QBaseMetacast(QPluginLoader* self, const char* param1) {
+void* QPluginLoader_SuperMetacast(QPluginLoader* self, const char* param1) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
     if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
         vqpluginloader->setQPluginLoader_Metacast_IsBase(true);
@@ -182,7 +182,7 @@ void QPluginLoader_OnMetacast(QPluginLoader* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPluginLoader_QBaseMetacall(QPluginLoader* self, int param1, int param2, void** param3) {
+int QPluginLoader_SuperMetacall(QPluginLoader* self, int param1, int param2, void** param3) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
     if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
         vqpluginloader->setQPluginLoader_Metacall_IsBase(true);
@@ -211,7 +211,7 @@ bool QPluginLoader_Event(QPluginLoader* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPluginLoader_QBaseEvent(QPluginLoader* self, QEvent* event) {
+bool QPluginLoader_SuperEvent(QPluginLoader* self, QEvent* event) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
     if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
         vqpluginloader->setQPluginLoader_Event_IsBase(true);
@@ -240,7 +240,7 @@ bool QPluginLoader_EventFilter(QPluginLoader* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QPluginLoader_QBaseEventFilter(QPluginLoader* self, QObject* watched, QEvent* event) {
+bool QPluginLoader_SuperEventFilter(QPluginLoader* self, QObject* watched, QEvent* event) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
     if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
         vqpluginloader->setQPluginLoader_EventFilter_IsBase(true);
@@ -269,7 +269,7 @@ void QPluginLoader_TimerEvent(QPluginLoader* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QPluginLoader_QBaseTimerEvent(QPluginLoader* self, QTimerEvent* event) {
+void QPluginLoader_SuperTimerEvent(QPluginLoader* self, QTimerEvent* event) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
     if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
         vqpluginloader->setQPluginLoader_TimerEvent_IsBase(true);
@@ -298,7 +298,7 @@ void QPluginLoader_ChildEvent(QPluginLoader* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QPluginLoader_QBaseChildEvent(QPluginLoader* self, QChildEvent* event) {
+void QPluginLoader_SuperChildEvent(QPluginLoader* self, QChildEvent* event) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
     if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
         vqpluginloader->setQPluginLoader_ChildEvent_IsBase(true);
@@ -327,7 +327,7 @@ void QPluginLoader_CustomEvent(QPluginLoader* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPluginLoader_QBaseCustomEvent(QPluginLoader* self, QEvent* event) {
+void QPluginLoader_SuperCustomEvent(QPluginLoader* self, QEvent* event) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
     if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
         vqpluginloader->setQPluginLoader_CustomEvent_IsBase(true);
@@ -356,7 +356,7 @@ void QPluginLoader_ConnectNotify(QPluginLoader* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QPluginLoader_QBaseConnectNotify(QPluginLoader* self, const QMetaMethod* signal) {
+void QPluginLoader_SuperConnectNotify(QPluginLoader* self, const QMetaMethod* signal) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
     if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
         vqpluginloader->setQPluginLoader_ConnectNotify_IsBase(true);
@@ -385,7 +385,7 @@ void QPluginLoader_DisconnectNotify(QPluginLoader* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QPluginLoader_QBaseDisconnectNotify(QPluginLoader* self, const QMetaMethod* signal) {
+void QPluginLoader_SuperDisconnectNotify(QPluginLoader* self, const QMetaMethod* signal) {
     auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
     if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
         vqpluginloader->setQPluginLoader_DisconnectNotify_IsBase(true);
@@ -414,7 +414,7 @@ QObject* QPluginLoader_Sender(const QPluginLoader* self) {
 }
 
 // Base class handler implementation
-QObject* QPluginLoader_QBaseSender(const QPluginLoader* self) {
+QObject* QPluginLoader_SuperSender(const QPluginLoader* self) {
     auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
     if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
         vqpluginloader->setQPluginLoader_Sender_IsBase(true);
@@ -443,7 +443,7 @@ int QPluginLoader_SenderSignalIndex(const QPluginLoader* self) {
 }
 
 // Base class handler implementation
-int QPluginLoader_QBaseSenderSignalIndex(const QPluginLoader* self) {
+int QPluginLoader_SuperSenderSignalIndex(const QPluginLoader* self) {
     auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
     if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
         vqpluginloader->setQPluginLoader_SenderSignalIndex_IsBase(true);
@@ -472,7 +472,7 @@ int QPluginLoader_Receivers(const QPluginLoader* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QPluginLoader_QBaseReceivers(const QPluginLoader* self, const char* signal) {
+int QPluginLoader_SuperReceivers(const QPluginLoader* self, const char* signal) {
     auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
     if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
         vqpluginloader->setQPluginLoader_Receivers_IsBase(true);
@@ -501,7 +501,7 @@ bool QPluginLoader_IsSignalConnected(const QPluginLoader* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QPluginLoader_QBaseIsSignalConnected(const QPluginLoader* self, const QMetaMethod* signal) {
+bool QPluginLoader_SuperIsSignalConnected(const QPluginLoader* self, const QMetaMethod* signal) {
     auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
     if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
         vqpluginloader->setQPluginLoader_IsSignalConnected_IsBase(true);

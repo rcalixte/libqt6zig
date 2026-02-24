@@ -114,7 +114,7 @@ QUndoCommand* QUndoCommand_Child(const QUndoCommand* self, int index) {
 }
 
 // Base class handler implementation
-void QUndoCommand_QBaseUndo(QUndoCommand* self) {
+void QUndoCommand_SuperUndo(QUndoCommand* self) {
     auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
     if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
         vqundocommand->setQUndoCommand_Undo_IsBase(true);
@@ -133,7 +133,7 @@ void QUndoCommand_OnUndo(QUndoCommand* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QUndoCommand_QBaseRedo(QUndoCommand* self) {
+void QUndoCommand_SuperRedo(QUndoCommand* self) {
     auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
     if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
         vqundocommand->setQUndoCommand_Redo_IsBase(true);
@@ -152,7 +152,7 @@ void QUndoCommand_OnRedo(QUndoCommand* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QUndoCommand_QBaseId(const QUndoCommand* self) {
+int QUndoCommand_SuperId(const QUndoCommand* self) {
     auto* vqundocommand = const_cast<VirtualQUndoCommand*>(dynamic_cast<const VirtualQUndoCommand*>(self));
     if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
         vqundocommand->setQUndoCommand_Id_IsBase(true);
@@ -171,7 +171,7 @@ void QUndoCommand_OnId(const QUndoCommand* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QUndoCommand_QBaseMergeWith(QUndoCommand* self, const QUndoCommand* other) {
+bool QUndoCommand_SuperMergeWith(QUndoCommand* self, const QUndoCommand* other) {
     auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
     if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
         vqundocommand->setQUndoCommand_MergeWith_IsBase(true);
@@ -458,7 +458,7 @@ void QUndoStack_SetActive1(QUndoStack* self, bool active) {
 }
 
 // Base class handler implementation
-QMetaObject* QUndoStack_QBaseMetaObject(const QUndoStack* self) {
+QMetaObject* QUndoStack_SuperMetaObject(const QUndoStack* self) {
     auto* vqundostack = const_cast<VirtualQUndoStack*>(dynamic_cast<const VirtualQUndoStack*>(self));
     if (vqundostack && vqundostack->isVirtualQUndoStack) {
         vqundostack->setQUndoStack_MetaObject_IsBase(true);
@@ -477,7 +477,7 @@ void QUndoStack_OnMetaObject(const QUndoStack* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QUndoStack_QBaseMetacast(QUndoStack* self, const char* param1) {
+void* QUndoStack_SuperMetacast(QUndoStack* self, const char* param1) {
     auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
     if (vqundostack && vqundostack->isVirtualQUndoStack) {
         vqundostack->setQUndoStack_Metacast_IsBase(true);
@@ -496,7 +496,7 @@ void QUndoStack_OnMetacast(QUndoStack* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QUndoStack_QBaseMetacall(QUndoStack* self, int param1, int param2, void** param3) {
+int QUndoStack_SuperMetacall(QUndoStack* self, int param1, int param2, void** param3) {
     auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
     if (vqundostack && vqundostack->isVirtualQUndoStack) {
         vqundostack->setQUndoStack_Metacall_IsBase(true);
@@ -525,7 +525,7 @@ bool QUndoStack_Event(QUndoStack* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QUndoStack_QBaseEvent(QUndoStack* self, QEvent* event) {
+bool QUndoStack_SuperEvent(QUndoStack* self, QEvent* event) {
     auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
     if (vqundostack && vqundostack->isVirtualQUndoStack) {
         vqundostack->setQUndoStack_Event_IsBase(true);
@@ -554,7 +554,7 @@ bool QUndoStack_EventFilter(QUndoStack* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QUndoStack_QBaseEventFilter(QUndoStack* self, QObject* watched, QEvent* event) {
+bool QUndoStack_SuperEventFilter(QUndoStack* self, QObject* watched, QEvent* event) {
     auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
     if (vqundostack && vqundostack->isVirtualQUndoStack) {
         vqundostack->setQUndoStack_EventFilter_IsBase(true);
@@ -583,7 +583,7 @@ void QUndoStack_TimerEvent(QUndoStack* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoStack_QBaseTimerEvent(QUndoStack* self, QTimerEvent* event) {
+void QUndoStack_SuperTimerEvent(QUndoStack* self, QTimerEvent* event) {
     auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
     if (vqundostack && vqundostack->isVirtualQUndoStack) {
         vqundostack->setQUndoStack_TimerEvent_IsBase(true);
@@ -612,7 +612,7 @@ void QUndoStack_ChildEvent(QUndoStack* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoStack_QBaseChildEvent(QUndoStack* self, QChildEvent* event) {
+void QUndoStack_SuperChildEvent(QUndoStack* self, QChildEvent* event) {
     auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
     if (vqundostack && vqundostack->isVirtualQUndoStack) {
         vqundostack->setQUndoStack_ChildEvent_IsBase(true);
@@ -641,7 +641,7 @@ void QUndoStack_CustomEvent(QUndoStack* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QUndoStack_QBaseCustomEvent(QUndoStack* self, QEvent* event) {
+void QUndoStack_SuperCustomEvent(QUndoStack* self, QEvent* event) {
     auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
     if (vqundostack && vqundostack->isVirtualQUndoStack) {
         vqundostack->setQUndoStack_CustomEvent_IsBase(true);
@@ -670,7 +670,7 @@ void QUndoStack_ConnectNotify(QUndoStack* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QUndoStack_QBaseConnectNotify(QUndoStack* self, const QMetaMethod* signal) {
+void QUndoStack_SuperConnectNotify(QUndoStack* self, const QMetaMethod* signal) {
     auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
     if (vqundostack && vqundostack->isVirtualQUndoStack) {
         vqundostack->setQUndoStack_ConnectNotify_IsBase(true);
@@ -699,7 +699,7 @@ void QUndoStack_DisconnectNotify(QUndoStack* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QUndoStack_QBaseDisconnectNotify(QUndoStack* self, const QMetaMethod* signal) {
+void QUndoStack_SuperDisconnectNotify(QUndoStack* self, const QMetaMethod* signal) {
     auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
     if (vqundostack && vqundostack->isVirtualQUndoStack) {
         vqundostack->setQUndoStack_DisconnectNotify_IsBase(true);
@@ -728,7 +728,7 @@ QObject* QUndoStack_Sender(const QUndoStack* self) {
 }
 
 // Base class handler implementation
-QObject* QUndoStack_QBaseSender(const QUndoStack* self) {
+QObject* QUndoStack_SuperSender(const QUndoStack* self) {
     auto* vqundostack = const_cast<VirtualQUndoStack*>(dynamic_cast<const VirtualQUndoStack*>(self));
     if (vqundostack && vqundostack->isVirtualQUndoStack) {
         vqundostack->setQUndoStack_Sender_IsBase(true);
@@ -757,7 +757,7 @@ int QUndoStack_SenderSignalIndex(const QUndoStack* self) {
 }
 
 // Base class handler implementation
-int QUndoStack_QBaseSenderSignalIndex(const QUndoStack* self) {
+int QUndoStack_SuperSenderSignalIndex(const QUndoStack* self) {
     auto* vqundostack = const_cast<VirtualQUndoStack*>(dynamic_cast<const VirtualQUndoStack*>(self));
     if (vqundostack && vqundostack->isVirtualQUndoStack) {
         vqundostack->setQUndoStack_SenderSignalIndex_IsBase(true);
@@ -786,7 +786,7 @@ int QUndoStack_Receivers(const QUndoStack* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QUndoStack_QBaseReceivers(const QUndoStack* self, const char* signal) {
+int QUndoStack_SuperReceivers(const QUndoStack* self, const char* signal) {
     auto* vqundostack = const_cast<VirtualQUndoStack*>(dynamic_cast<const VirtualQUndoStack*>(self));
     if (vqundostack && vqundostack->isVirtualQUndoStack) {
         vqundostack->setQUndoStack_Receivers_IsBase(true);
@@ -815,7 +815,7 @@ bool QUndoStack_IsSignalConnected(const QUndoStack* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QUndoStack_QBaseIsSignalConnected(const QUndoStack* self, const QMetaMethod* signal) {
+bool QUndoStack_SuperIsSignalConnected(const QUndoStack* self, const QMetaMethod* signal) {
     auto* vqundostack = const_cast<VirtualQUndoStack*>(dynamic_cast<const VirtualQUndoStack*>(self));
     if (vqundostack && vqundostack->isVirtualQUndoStack) {
         vqundostack->setQUndoStack_IsSignalConnected_IsBase(true);

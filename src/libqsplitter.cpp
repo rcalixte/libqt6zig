@@ -276,7 +276,7 @@ void QSplitter_SetOpaqueResize1(QSplitter* self, bool opaqueVal) {
 }
 
 // Base class handler implementation
-QMetaObject* QSplitter_QBaseMetaObject(const QSplitter* self) {
+QMetaObject* QSplitter_SuperMetaObject(const QSplitter* self) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_MetaObject_IsBase(true);
@@ -295,7 +295,7 @@ void QSplitter_OnMetaObject(const QSplitter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QSplitter_QBaseMetacast(QSplitter* self, const char* param1) {
+void* QSplitter_SuperMetacast(QSplitter* self, const char* param1) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_Metacast_IsBase(true);
@@ -314,7 +314,7 @@ void QSplitter_OnMetacast(QSplitter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSplitter_QBaseMetacall(QSplitter* self, int param1, int param2, void** param3) {
+int QSplitter_SuperMetacall(QSplitter* self, int param1, int param2, void** param3) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_Metacall_IsBase(true);
@@ -333,7 +333,7 @@ void QSplitter_OnMetacall(QSplitter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QSplitter_QBaseSizeHint(const QSplitter* self) {
+QSize* QSplitter_SuperSizeHint(const QSplitter* self) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_SizeHint_IsBase(true);
@@ -352,7 +352,7 @@ void QSplitter_OnSizeHint(const QSplitter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QSplitter_QBaseMinimumSizeHint(const QSplitter* self) {
+QSize* QSplitter_SuperMinimumSizeHint(const QSplitter* self) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_MinimumSizeHint_IsBase(true);
@@ -371,7 +371,7 @@ void QSplitter_OnMinimumSizeHint(const QSplitter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSplitterHandle* QSplitter_QBaseCreateHandle(QSplitter* self) {
+QSplitterHandle* QSplitter_SuperCreateHandle(QSplitter* self) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_CreateHandle_IsBase(true);
@@ -390,7 +390,7 @@ void QSplitter_OnCreateHandle(QSplitter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseChildEvent(QSplitter* self, QChildEvent* param1) {
+void QSplitter_SuperChildEvent(QSplitter* self, QChildEvent* param1) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_ChildEvent_IsBase(true);
@@ -409,7 +409,7 @@ void QSplitter_OnChildEvent(QSplitter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSplitter_QBaseEvent(QSplitter* self, QEvent* param1) {
+bool QSplitter_SuperEvent(QSplitter* self, QEvent* param1) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_Event_IsBase(true);
@@ -428,7 +428,7 @@ void QSplitter_OnEvent(QSplitter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseResizeEvent(QSplitter* self, QResizeEvent* param1) {
+void QSplitter_SuperResizeEvent(QSplitter* self, QResizeEvent* param1) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_ResizeEvent_IsBase(true);
@@ -447,7 +447,7 @@ void QSplitter_OnResizeEvent(QSplitter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseChangeEvent(QSplitter* self, QEvent* param1) {
+void QSplitter_SuperChangeEvent(QSplitter* self, QEvent* param1) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_ChangeEvent_IsBase(true);
@@ -476,7 +476,7 @@ void QSplitter_PaintEvent(QSplitter* self, QPaintEvent* param1) {
 }
 
 // Base class handler implementation
-void QSplitter_QBasePaintEvent(QSplitter* self, QPaintEvent* param1) {
+void QSplitter_SuperPaintEvent(QSplitter* self, QPaintEvent* param1) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_PaintEvent_IsBase(true);
@@ -505,7 +505,7 @@ void QSplitter_InitStyleOption(const QSplitter* self, QStyleOptionFrame* option)
 }
 
 // Base class handler implementation
-void QSplitter_QBaseInitStyleOption(const QSplitter* self, QStyleOptionFrame* option) {
+void QSplitter_SuperInitStyleOption(const QSplitter* self, QStyleOptionFrame* option) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_InitStyleOption_IsBase(true);
@@ -534,7 +534,7 @@ int QSplitter_DevType(const QSplitter* self) {
 }
 
 // Base class handler implementation
-int QSplitter_QBaseDevType(const QSplitter* self) {
+int QSplitter_SuperDevType(const QSplitter* self) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_DevType_IsBase(true);
@@ -563,7 +563,7 @@ void QSplitter_SetVisible(QSplitter* self, bool visible) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseSetVisible(QSplitter* self, bool visible) {
+void QSplitter_SuperSetVisible(QSplitter* self, bool visible) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_SetVisible_IsBase(true);
@@ -592,7 +592,7 @@ int QSplitter_HeightForWidth(const QSplitter* self, int param1) {
 }
 
 // Base class handler implementation
-int QSplitter_QBaseHeightForWidth(const QSplitter* self, int param1) {
+int QSplitter_SuperHeightForWidth(const QSplitter* self, int param1) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_HeightForWidth_IsBase(true);
@@ -621,7 +621,7 @@ bool QSplitter_HasHeightForWidth(const QSplitter* self) {
 }
 
 // Base class handler implementation
-bool QSplitter_QBaseHasHeightForWidth(const QSplitter* self) {
+bool QSplitter_SuperHasHeightForWidth(const QSplitter* self) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_HasHeightForWidth_IsBase(true);
@@ -650,7 +650,7 @@ QPaintEngine* QSplitter_PaintEngine(const QSplitter* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QSplitter_QBasePaintEngine(const QSplitter* self) {
+QPaintEngine* QSplitter_SuperPaintEngine(const QSplitter* self) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_PaintEngine_IsBase(true);
@@ -679,7 +679,7 @@ void QSplitter_MousePressEvent(QSplitter* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseMousePressEvent(QSplitter* self, QMouseEvent* event) {
+void QSplitter_SuperMousePressEvent(QSplitter* self, QMouseEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_MousePressEvent_IsBase(true);
@@ -708,7 +708,7 @@ void QSplitter_MouseReleaseEvent(QSplitter* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseMouseReleaseEvent(QSplitter* self, QMouseEvent* event) {
+void QSplitter_SuperMouseReleaseEvent(QSplitter* self, QMouseEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_MouseReleaseEvent_IsBase(true);
@@ -737,7 +737,7 @@ void QSplitter_MouseDoubleClickEvent(QSplitter* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseMouseDoubleClickEvent(QSplitter* self, QMouseEvent* event) {
+void QSplitter_SuperMouseDoubleClickEvent(QSplitter* self, QMouseEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_MouseDoubleClickEvent_IsBase(true);
@@ -766,7 +766,7 @@ void QSplitter_MouseMoveEvent(QSplitter* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseMouseMoveEvent(QSplitter* self, QMouseEvent* event) {
+void QSplitter_SuperMouseMoveEvent(QSplitter* self, QMouseEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_MouseMoveEvent_IsBase(true);
@@ -795,7 +795,7 @@ void QSplitter_WheelEvent(QSplitter* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseWheelEvent(QSplitter* self, QWheelEvent* event) {
+void QSplitter_SuperWheelEvent(QSplitter* self, QWheelEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_WheelEvent_IsBase(true);
@@ -824,7 +824,7 @@ void QSplitter_KeyPressEvent(QSplitter* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseKeyPressEvent(QSplitter* self, QKeyEvent* event) {
+void QSplitter_SuperKeyPressEvent(QSplitter* self, QKeyEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_KeyPressEvent_IsBase(true);
@@ -853,7 +853,7 @@ void QSplitter_KeyReleaseEvent(QSplitter* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseKeyReleaseEvent(QSplitter* self, QKeyEvent* event) {
+void QSplitter_SuperKeyReleaseEvent(QSplitter* self, QKeyEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_KeyReleaseEvent_IsBase(true);
@@ -882,7 +882,7 @@ void QSplitter_FocusInEvent(QSplitter* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseFocusInEvent(QSplitter* self, QFocusEvent* event) {
+void QSplitter_SuperFocusInEvent(QSplitter* self, QFocusEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_FocusInEvent_IsBase(true);
@@ -911,7 +911,7 @@ void QSplitter_FocusOutEvent(QSplitter* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseFocusOutEvent(QSplitter* self, QFocusEvent* event) {
+void QSplitter_SuperFocusOutEvent(QSplitter* self, QFocusEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_FocusOutEvent_IsBase(true);
@@ -940,7 +940,7 @@ void QSplitter_EnterEvent(QSplitter* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseEnterEvent(QSplitter* self, QEnterEvent* event) {
+void QSplitter_SuperEnterEvent(QSplitter* self, QEnterEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_EnterEvent_IsBase(true);
@@ -969,7 +969,7 @@ void QSplitter_LeaveEvent(QSplitter* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseLeaveEvent(QSplitter* self, QEvent* event) {
+void QSplitter_SuperLeaveEvent(QSplitter* self, QEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_LeaveEvent_IsBase(true);
@@ -998,7 +998,7 @@ void QSplitter_MoveEvent(QSplitter* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseMoveEvent(QSplitter* self, QMoveEvent* event) {
+void QSplitter_SuperMoveEvent(QSplitter* self, QMoveEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_MoveEvent_IsBase(true);
@@ -1027,7 +1027,7 @@ void QSplitter_CloseEvent(QSplitter* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseCloseEvent(QSplitter* self, QCloseEvent* event) {
+void QSplitter_SuperCloseEvent(QSplitter* self, QCloseEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_CloseEvent_IsBase(true);
@@ -1056,7 +1056,7 @@ void QSplitter_ContextMenuEvent(QSplitter* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseContextMenuEvent(QSplitter* self, QContextMenuEvent* event) {
+void QSplitter_SuperContextMenuEvent(QSplitter* self, QContextMenuEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_ContextMenuEvent_IsBase(true);
@@ -1085,7 +1085,7 @@ void QSplitter_TabletEvent(QSplitter* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseTabletEvent(QSplitter* self, QTabletEvent* event) {
+void QSplitter_SuperTabletEvent(QSplitter* self, QTabletEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_TabletEvent_IsBase(true);
@@ -1114,7 +1114,7 @@ void QSplitter_ActionEvent(QSplitter* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseActionEvent(QSplitter* self, QActionEvent* event) {
+void QSplitter_SuperActionEvent(QSplitter* self, QActionEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_ActionEvent_IsBase(true);
@@ -1143,7 +1143,7 @@ void QSplitter_DragEnterEvent(QSplitter* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseDragEnterEvent(QSplitter* self, QDragEnterEvent* event) {
+void QSplitter_SuperDragEnterEvent(QSplitter* self, QDragEnterEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_DragEnterEvent_IsBase(true);
@@ -1172,7 +1172,7 @@ void QSplitter_DragMoveEvent(QSplitter* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseDragMoveEvent(QSplitter* self, QDragMoveEvent* event) {
+void QSplitter_SuperDragMoveEvent(QSplitter* self, QDragMoveEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_DragMoveEvent_IsBase(true);
@@ -1201,7 +1201,7 @@ void QSplitter_DragLeaveEvent(QSplitter* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseDragLeaveEvent(QSplitter* self, QDragLeaveEvent* event) {
+void QSplitter_SuperDragLeaveEvent(QSplitter* self, QDragLeaveEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_DragLeaveEvent_IsBase(true);
@@ -1230,7 +1230,7 @@ void QSplitter_DropEvent(QSplitter* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseDropEvent(QSplitter* self, QDropEvent* event) {
+void QSplitter_SuperDropEvent(QSplitter* self, QDropEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_DropEvent_IsBase(true);
@@ -1259,7 +1259,7 @@ void QSplitter_ShowEvent(QSplitter* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseShowEvent(QSplitter* self, QShowEvent* event) {
+void QSplitter_SuperShowEvent(QSplitter* self, QShowEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_ShowEvent_IsBase(true);
@@ -1288,7 +1288,7 @@ void QSplitter_HideEvent(QSplitter* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseHideEvent(QSplitter* self, QHideEvent* event) {
+void QSplitter_SuperHideEvent(QSplitter* self, QHideEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_HideEvent_IsBase(true);
@@ -1318,7 +1318,7 @@ bool QSplitter_NativeEvent(QSplitter* self, const libqt_string eventType, void* 
 }
 
 // Base class handler implementation
-bool QSplitter_QBaseNativeEvent(QSplitter* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QSplitter_SuperNativeEvent(QSplitter* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
@@ -1348,7 +1348,7 @@ int QSplitter_Metric(const QSplitter* self, int param1) {
 }
 
 // Base class handler implementation
-int QSplitter_QBaseMetric(const QSplitter* self, int param1) {
+int QSplitter_SuperMetric(const QSplitter* self, int param1) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_Metric_IsBase(true);
@@ -1377,7 +1377,7 @@ void QSplitter_InitPainter(const QSplitter* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseInitPainter(const QSplitter* self, QPainter* painter) {
+void QSplitter_SuperInitPainter(const QSplitter* self, QPainter* painter) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_InitPainter_IsBase(true);
@@ -1406,7 +1406,7 @@ QPaintDevice* QSplitter_Redirected(const QSplitter* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QSplitter_QBaseRedirected(const QSplitter* self, QPoint* offset) {
+QPaintDevice* QSplitter_SuperRedirected(const QSplitter* self, QPoint* offset) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_Redirected_IsBase(true);
@@ -1435,7 +1435,7 @@ QPainter* QSplitter_SharedPainter(const QSplitter* self) {
 }
 
 // Base class handler implementation
-QPainter* QSplitter_QBaseSharedPainter(const QSplitter* self) {
+QPainter* QSplitter_SuperSharedPainter(const QSplitter* self) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_SharedPainter_IsBase(true);
@@ -1464,7 +1464,7 @@ void QSplitter_InputMethodEvent(QSplitter* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseInputMethodEvent(QSplitter* self, QInputMethodEvent* param1) {
+void QSplitter_SuperInputMethodEvent(QSplitter* self, QInputMethodEvent* param1) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_InputMethodEvent_IsBase(true);
@@ -1493,7 +1493,7 @@ QVariant* QSplitter_InputMethodQuery(const QSplitter* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QSplitter_QBaseInputMethodQuery(const QSplitter* self, int param1) {
+QVariant* QSplitter_SuperInputMethodQuery(const QSplitter* self, int param1) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_InputMethodQuery_IsBase(true);
@@ -1522,7 +1522,7 @@ bool QSplitter_FocusNextPrevChild(QSplitter* self, bool next) {
 }
 
 // Base class handler implementation
-bool QSplitter_QBaseFocusNextPrevChild(QSplitter* self, bool next) {
+bool QSplitter_SuperFocusNextPrevChild(QSplitter* self, bool next) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_FocusNextPrevChild_IsBase(true);
@@ -1551,7 +1551,7 @@ bool QSplitter_EventFilter(QSplitter* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSplitter_QBaseEventFilter(QSplitter* self, QObject* watched, QEvent* event) {
+bool QSplitter_SuperEventFilter(QSplitter* self, QObject* watched, QEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_EventFilter_IsBase(true);
@@ -1580,7 +1580,7 @@ void QSplitter_TimerEvent(QSplitter* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseTimerEvent(QSplitter* self, QTimerEvent* event) {
+void QSplitter_SuperTimerEvent(QSplitter* self, QTimerEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_TimerEvent_IsBase(true);
@@ -1609,7 +1609,7 @@ void QSplitter_CustomEvent(QSplitter* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseCustomEvent(QSplitter* self, QEvent* event) {
+void QSplitter_SuperCustomEvent(QSplitter* self, QEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_CustomEvent_IsBase(true);
@@ -1638,7 +1638,7 @@ void QSplitter_ConnectNotify(QSplitter* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseConnectNotify(QSplitter* self, const QMetaMethod* signal) {
+void QSplitter_SuperConnectNotify(QSplitter* self, const QMetaMethod* signal) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_ConnectNotify_IsBase(true);
@@ -1667,7 +1667,7 @@ void QSplitter_DisconnectNotify(QSplitter* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseDisconnectNotify(QSplitter* self, const QMetaMethod* signal) {
+void QSplitter_SuperDisconnectNotify(QSplitter* self, const QMetaMethod* signal) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_DisconnectNotify_IsBase(true);
@@ -1696,7 +1696,7 @@ void QSplitter_MoveSplitter(QSplitter* self, int pos, int index) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseMoveSplitter(QSplitter* self, int pos, int index) {
+void QSplitter_SuperMoveSplitter(QSplitter* self, int pos, int index) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_MoveSplitter_IsBase(true);
@@ -1725,7 +1725,7 @@ void QSplitter_SetRubberBand(QSplitter* self, int position) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseSetRubberBand(QSplitter* self, int position) {
+void QSplitter_SuperSetRubberBand(QSplitter* self, int position) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_SetRubberBand_IsBase(true);
@@ -1754,7 +1754,7 @@ int QSplitter_ClosestLegalPosition(QSplitter* self, int param1, int param2) {
 }
 
 // Base class handler implementation
-int QSplitter_QBaseClosestLegalPosition(QSplitter* self, int param1, int param2) {
+int QSplitter_SuperClosestLegalPosition(QSplitter* self, int param1, int param2) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_ClosestLegalPosition_IsBase(true);
@@ -1783,7 +1783,7 @@ void QSplitter_DrawFrame(QSplitter* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseDrawFrame(QSplitter* self, QPainter* param1) {
+void QSplitter_SuperDrawFrame(QSplitter* self, QPainter* param1) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_DrawFrame_IsBase(true);
@@ -1812,7 +1812,7 @@ void QSplitter_UpdateMicroFocus(QSplitter* self) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseUpdateMicroFocus(QSplitter* self) {
+void QSplitter_SuperUpdateMicroFocus(QSplitter* self) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_UpdateMicroFocus_IsBase(true);
@@ -1841,7 +1841,7 @@ void QSplitter_Create(QSplitter* self) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseCreate(QSplitter* self) {
+void QSplitter_SuperCreate(QSplitter* self) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_Create_IsBase(true);
@@ -1870,7 +1870,7 @@ void QSplitter_Destroy(QSplitter* self) {
 }
 
 // Base class handler implementation
-void QSplitter_QBaseDestroy(QSplitter* self) {
+void QSplitter_SuperDestroy(QSplitter* self) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_Destroy_IsBase(true);
@@ -1899,7 +1899,7 @@ bool QSplitter_FocusNextChild(QSplitter* self) {
 }
 
 // Base class handler implementation
-bool QSplitter_QBaseFocusNextChild(QSplitter* self) {
+bool QSplitter_SuperFocusNextChild(QSplitter* self) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_FocusNextChild_IsBase(true);
@@ -1928,7 +1928,7 @@ bool QSplitter_FocusPreviousChild(QSplitter* self) {
 }
 
 // Base class handler implementation
-bool QSplitter_QBaseFocusPreviousChild(QSplitter* self) {
+bool QSplitter_SuperFocusPreviousChild(QSplitter* self) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_FocusPreviousChild_IsBase(true);
@@ -1957,7 +1957,7 @@ QObject* QSplitter_Sender(const QSplitter* self) {
 }
 
 // Base class handler implementation
-QObject* QSplitter_QBaseSender(const QSplitter* self) {
+QObject* QSplitter_SuperSender(const QSplitter* self) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_Sender_IsBase(true);
@@ -1986,7 +1986,7 @@ int QSplitter_SenderSignalIndex(const QSplitter* self) {
 }
 
 // Base class handler implementation
-int QSplitter_QBaseSenderSignalIndex(const QSplitter* self) {
+int QSplitter_SuperSenderSignalIndex(const QSplitter* self) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_SenderSignalIndex_IsBase(true);
@@ -2015,7 +2015,7 @@ int QSplitter_Receivers(const QSplitter* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QSplitter_QBaseReceivers(const QSplitter* self, const char* signal) {
+int QSplitter_SuperReceivers(const QSplitter* self, const char* signal) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_Receivers_IsBase(true);
@@ -2044,7 +2044,7 @@ bool QSplitter_IsSignalConnected(const QSplitter* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool QSplitter_QBaseIsSignalConnected(const QSplitter* self, const QMetaMethod* signal) {
+bool QSplitter_SuperIsSignalConnected(const QSplitter* self, const QMetaMethod* signal) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_IsSignalConnected_IsBase(true);
@@ -2073,7 +2073,7 @@ double QSplitter_GetDecodedMetricF(const QSplitter* self, int metricA, int metri
 }
 
 // Base class handler implementation
-double QSplitter_QBaseGetDecodedMetricF(const QSplitter* self, int metricA, int metricB) {
+double QSplitter_SuperGetDecodedMetricF(const QSplitter* self, int metricA, int metricB) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
     if (vqsplitter && vqsplitter->isVirtualQSplitter) {
         vqsplitter->setQSplitter_GetDecodedMetricF_IsBase(true);
@@ -2195,7 +2195,7 @@ bool QSplitterHandle_Event(QSplitterHandle* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-QMetaObject* QSplitterHandle_QBaseMetaObject(const QSplitterHandle* self) {
+QMetaObject* QSplitterHandle_SuperMetaObject(const QSplitterHandle* self) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_MetaObject_IsBase(true);
@@ -2214,7 +2214,7 @@ void QSplitterHandle_OnMetaObject(const QSplitterHandle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QSplitterHandle_QBaseMetacast(QSplitterHandle* self, const char* param1) {
+void* QSplitterHandle_SuperMetacast(QSplitterHandle* self, const char* param1) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_Metacast_IsBase(true);
@@ -2233,7 +2233,7 @@ void QSplitterHandle_OnMetacast(QSplitterHandle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSplitterHandle_QBaseMetacall(QSplitterHandle* self, int param1, int param2, void** param3) {
+int QSplitterHandle_SuperMetacall(QSplitterHandle* self, int param1, int param2, void** param3) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_Metacall_IsBase(true);
@@ -2252,7 +2252,7 @@ void QSplitterHandle_OnMetacall(QSplitterHandle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QSplitterHandle_QBaseSizeHint(const QSplitterHandle* self) {
+QSize* QSplitterHandle_SuperSizeHint(const QSplitterHandle* self) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_SizeHint_IsBase(true);
@@ -2271,7 +2271,7 @@ void QSplitterHandle_OnSizeHint(const QSplitterHandle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBasePaintEvent(QSplitterHandle* self, QPaintEvent* param1) {
+void QSplitterHandle_SuperPaintEvent(QSplitterHandle* self, QPaintEvent* param1) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_PaintEvent_IsBase(true);
@@ -2290,7 +2290,7 @@ void QSplitterHandle_OnPaintEvent(QSplitterHandle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseMouseMoveEvent(QSplitterHandle* self, QMouseEvent* param1) {
+void QSplitterHandle_SuperMouseMoveEvent(QSplitterHandle* self, QMouseEvent* param1) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_MouseMoveEvent_IsBase(true);
@@ -2309,7 +2309,7 @@ void QSplitterHandle_OnMouseMoveEvent(QSplitterHandle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseMousePressEvent(QSplitterHandle* self, QMouseEvent* param1) {
+void QSplitterHandle_SuperMousePressEvent(QSplitterHandle* self, QMouseEvent* param1) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_MousePressEvent_IsBase(true);
@@ -2328,7 +2328,7 @@ void QSplitterHandle_OnMousePressEvent(QSplitterHandle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseMouseReleaseEvent(QSplitterHandle* self, QMouseEvent* param1) {
+void QSplitterHandle_SuperMouseReleaseEvent(QSplitterHandle* self, QMouseEvent* param1) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_MouseReleaseEvent_IsBase(true);
@@ -2347,7 +2347,7 @@ void QSplitterHandle_OnMouseReleaseEvent(QSplitterHandle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseResizeEvent(QSplitterHandle* self, QResizeEvent* param1) {
+void QSplitterHandle_SuperResizeEvent(QSplitterHandle* self, QResizeEvent* param1) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_ResizeEvent_IsBase(true);
@@ -2366,7 +2366,7 @@ void QSplitterHandle_OnResizeEvent(QSplitterHandle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSplitterHandle_QBaseEvent(QSplitterHandle* self, QEvent* param1) {
+bool QSplitterHandle_SuperEvent(QSplitterHandle* self, QEvent* param1) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_Event_IsBase(true);
@@ -2395,7 +2395,7 @@ int QSplitterHandle_DevType(const QSplitterHandle* self) {
 }
 
 // Base class handler implementation
-int QSplitterHandle_QBaseDevType(const QSplitterHandle* self) {
+int QSplitterHandle_SuperDevType(const QSplitterHandle* self) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_DevType_IsBase(true);
@@ -2424,7 +2424,7 @@ void QSplitterHandle_SetVisible(QSplitterHandle* self, bool visible) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseSetVisible(QSplitterHandle* self, bool visible) {
+void QSplitterHandle_SuperSetVisible(QSplitterHandle* self, bool visible) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_SetVisible_IsBase(true);
@@ -2453,7 +2453,7 @@ QSize* QSplitterHandle_MinimumSizeHint(const QSplitterHandle* self) {
 }
 
 // Base class handler implementation
-QSize* QSplitterHandle_QBaseMinimumSizeHint(const QSplitterHandle* self) {
+QSize* QSplitterHandle_SuperMinimumSizeHint(const QSplitterHandle* self) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_MinimumSizeHint_IsBase(true);
@@ -2482,7 +2482,7 @@ int QSplitterHandle_HeightForWidth(const QSplitterHandle* self, int param1) {
 }
 
 // Base class handler implementation
-int QSplitterHandle_QBaseHeightForWidth(const QSplitterHandle* self, int param1) {
+int QSplitterHandle_SuperHeightForWidth(const QSplitterHandle* self, int param1) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_HeightForWidth_IsBase(true);
@@ -2511,7 +2511,7 @@ bool QSplitterHandle_HasHeightForWidth(const QSplitterHandle* self) {
 }
 
 // Base class handler implementation
-bool QSplitterHandle_QBaseHasHeightForWidth(const QSplitterHandle* self) {
+bool QSplitterHandle_SuperHasHeightForWidth(const QSplitterHandle* self) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_HasHeightForWidth_IsBase(true);
@@ -2540,7 +2540,7 @@ QPaintEngine* QSplitterHandle_PaintEngine(const QSplitterHandle* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QSplitterHandle_QBasePaintEngine(const QSplitterHandle* self) {
+QPaintEngine* QSplitterHandle_SuperPaintEngine(const QSplitterHandle* self) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_PaintEngine_IsBase(true);
@@ -2569,7 +2569,7 @@ void QSplitterHandle_MouseDoubleClickEvent(QSplitterHandle* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseMouseDoubleClickEvent(QSplitterHandle* self, QMouseEvent* event) {
+void QSplitterHandle_SuperMouseDoubleClickEvent(QSplitterHandle* self, QMouseEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_MouseDoubleClickEvent_IsBase(true);
@@ -2598,7 +2598,7 @@ void QSplitterHandle_WheelEvent(QSplitterHandle* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseWheelEvent(QSplitterHandle* self, QWheelEvent* event) {
+void QSplitterHandle_SuperWheelEvent(QSplitterHandle* self, QWheelEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_WheelEvent_IsBase(true);
@@ -2627,7 +2627,7 @@ void QSplitterHandle_KeyPressEvent(QSplitterHandle* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseKeyPressEvent(QSplitterHandle* self, QKeyEvent* event) {
+void QSplitterHandle_SuperKeyPressEvent(QSplitterHandle* self, QKeyEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_KeyPressEvent_IsBase(true);
@@ -2656,7 +2656,7 @@ void QSplitterHandle_KeyReleaseEvent(QSplitterHandle* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseKeyReleaseEvent(QSplitterHandle* self, QKeyEvent* event) {
+void QSplitterHandle_SuperKeyReleaseEvent(QSplitterHandle* self, QKeyEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_KeyReleaseEvent_IsBase(true);
@@ -2685,7 +2685,7 @@ void QSplitterHandle_FocusInEvent(QSplitterHandle* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseFocusInEvent(QSplitterHandle* self, QFocusEvent* event) {
+void QSplitterHandle_SuperFocusInEvent(QSplitterHandle* self, QFocusEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_FocusInEvent_IsBase(true);
@@ -2714,7 +2714,7 @@ void QSplitterHandle_FocusOutEvent(QSplitterHandle* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseFocusOutEvent(QSplitterHandle* self, QFocusEvent* event) {
+void QSplitterHandle_SuperFocusOutEvent(QSplitterHandle* self, QFocusEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_FocusOutEvent_IsBase(true);
@@ -2743,7 +2743,7 @@ void QSplitterHandle_EnterEvent(QSplitterHandle* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseEnterEvent(QSplitterHandle* self, QEnterEvent* event) {
+void QSplitterHandle_SuperEnterEvent(QSplitterHandle* self, QEnterEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_EnterEvent_IsBase(true);
@@ -2772,7 +2772,7 @@ void QSplitterHandle_LeaveEvent(QSplitterHandle* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseLeaveEvent(QSplitterHandle* self, QEvent* event) {
+void QSplitterHandle_SuperLeaveEvent(QSplitterHandle* self, QEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_LeaveEvent_IsBase(true);
@@ -2801,7 +2801,7 @@ void QSplitterHandle_MoveEvent(QSplitterHandle* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseMoveEvent(QSplitterHandle* self, QMoveEvent* event) {
+void QSplitterHandle_SuperMoveEvent(QSplitterHandle* self, QMoveEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_MoveEvent_IsBase(true);
@@ -2830,7 +2830,7 @@ void QSplitterHandle_CloseEvent(QSplitterHandle* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseCloseEvent(QSplitterHandle* self, QCloseEvent* event) {
+void QSplitterHandle_SuperCloseEvent(QSplitterHandle* self, QCloseEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_CloseEvent_IsBase(true);
@@ -2859,7 +2859,7 @@ void QSplitterHandle_ContextMenuEvent(QSplitterHandle* self, QContextMenuEvent* 
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseContextMenuEvent(QSplitterHandle* self, QContextMenuEvent* event) {
+void QSplitterHandle_SuperContextMenuEvent(QSplitterHandle* self, QContextMenuEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_ContextMenuEvent_IsBase(true);
@@ -2888,7 +2888,7 @@ void QSplitterHandle_TabletEvent(QSplitterHandle* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseTabletEvent(QSplitterHandle* self, QTabletEvent* event) {
+void QSplitterHandle_SuperTabletEvent(QSplitterHandle* self, QTabletEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_TabletEvent_IsBase(true);
@@ -2917,7 +2917,7 @@ void QSplitterHandle_ActionEvent(QSplitterHandle* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseActionEvent(QSplitterHandle* self, QActionEvent* event) {
+void QSplitterHandle_SuperActionEvent(QSplitterHandle* self, QActionEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_ActionEvent_IsBase(true);
@@ -2946,7 +2946,7 @@ void QSplitterHandle_DragEnterEvent(QSplitterHandle* self, QDragEnterEvent* even
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseDragEnterEvent(QSplitterHandle* self, QDragEnterEvent* event) {
+void QSplitterHandle_SuperDragEnterEvent(QSplitterHandle* self, QDragEnterEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_DragEnterEvent_IsBase(true);
@@ -2975,7 +2975,7 @@ void QSplitterHandle_DragMoveEvent(QSplitterHandle* self, QDragMoveEvent* event)
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseDragMoveEvent(QSplitterHandle* self, QDragMoveEvent* event) {
+void QSplitterHandle_SuperDragMoveEvent(QSplitterHandle* self, QDragMoveEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_DragMoveEvent_IsBase(true);
@@ -3004,7 +3004,7 @@ void QSplitterHandle_DragLeaveEvent(QSplitterHandle* self, QDragLeaveEvent* even
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseDragLeaveEvent(QSplitterHandle* self, QDragLeaveEvent* event) {
+void QSplitterHandle_SuperDragLeaveEvent(QSplitterHandle* self, QDragLeaveEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_DragLeaveEvent_IsBase(true);
@@ -3033,7 +3033,7 @@ void QSplitterHandle_DropEvent(QSplitterHandle* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseDropEvent(QSplitterHandle* self, QDropEvent* event) {
+void QSplitterHandle_SuperDropEvent(QSplitterHandle* self, QDropEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_DropEvent_IsBase(true);
@@ -3062,7 +3062,7 @@ void QSplitterHandle_ShowEvent(QSplitterHandle* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseShowEvent(QSplitterHandle* self, QShowEvent* event) {
+void QSplitterHandle_SuperShowEvent(QSplitterHandle* self, QShowEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_ShowEvent_IsBase(true);
@@ -3091,7 +3091,7 @@ void QSplitterHandle_HideEvent(QSplitterHandle* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseHideEvent(QSplitterHandle* self, QHideEvent* event) {
+void QSplitterHandle_SuperHideEvent(QSplitterHandle* self, QHideEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_HideEvent_IsBase(true);
@@ -3121,7 +3121,7 @@ bool QSplitterHandle_NativeEvent(QSplitterHandle* self, const libqt_string event
 }
 
 // Base class handler implementation
-bool QSplitterHandle_QBaseNativeEvent(QSplitterHandle* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QSplitterHandle_SuperNativeEvent(QSplitterHandle* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
@@ -3151,7 +3151,7 @@ void QSplitterHandle_ChangeEvent(QSplitterHandle* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseChangeEvent(QSplitterHandle* self, QEvent* param1) {
+void QSplitterHandle_SuperChangeEvent(QSplitterHandle* self, QEvent* param1) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_ChangeEvent_IsBase(true);
@@ -3180,7 +3180,7 @@ int QSplitterHandle_Metric(const QSplitterHandle* self, int param1) {
 }
 
 // Base class handler implementation
-int QSplitterHandle_QBaseMetric(const QSplitterHandle* self, int param1) {
+int QSplitterHandle_SuperMetric(const QSplitterHandle* self, int param1) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_Metric_IsBase(true);
@@ -3209,7 +3209,7 @@ void QSplitterHandle_InitPainter(const QSplitterHandle* self, QPainter* painter)
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseInitPainter(const QSplitterHandle* self, QPainter* painter) {
+void QSplitterHandle_SuperInitPainter(const QSplitterHandle* self, QPainter* painter) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_InitPainter_IsBase(true);
@@ -3238,7 +3238,7 @@ QPaintDevice* QSplitterHandle_Redirected(const QSplitterHandle* self, QPoint* of
 }
 
 // Base class handler implementation
-QPaintDevice* QSplitterHandle_QBaseRedirected(const QSplitterHandle* self, QPoint* offset) {
+QPaintDevice* QSplitterHandle_SuperRedirected(const QSplitterHandle* self, QPoint* offset) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_Redirected_IsBase(true);
@@ -3267,7 +3267,7 @@ QPainter* QSplitterHandle_SharedPainter(const QSplitterHandle* self) {
 }
 
 // Base class handler implementation
-QPainter* QSplitterHandle_QBaseSharedPainter(const QSplitterHandle* self) {
+QPainter* QSplitterHandle_SuperSharedPainter(const QSplitterHandle* self) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_SharedPainter_IsBase(true);
@@ -3296,7 +3296,7 @@ void QSplitterHandle_InputMethodEvent(QSplitterHandle* self, QInputMethodEvent* 
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseInputMethodEvent(QSplitterHandle* self, QInputMethodEvent* param1) {
+void QSplitterHandle_SuperInputMethodEvent(QSplitterHandle* self, QInputMethodEvent* param1) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_InputMethodEvent_IsBase(true);
@@ -3325,7 +3325,7 @@ QVariant* QSplitterHandle_InputMethodQuery(const QSplitterHandle* self, int para
 }
 
 // Base class handler implementation
-QVariant* QSplitterHandle_QBaseInputMethodQuery(const QSplitterHandle* self, int param1) {
+QVariant* QSplitterHandle_SuperInputMethodQuery(const QSplitterHandle* self, int param1) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_InputMethodQuery_IsBase(true);
@@ -3354,7 +3354,7 @@ bool QSplitterHandle_FocusNextPrevChild(QSplitterHandle* self, bool next) {
 }
 
 // Base class handler implementation
-bool QSplitterHandle_QBaseFocusNextPrevChild(QSplitterHandle* self, bool next) {
+bool QSplitterHandle_SuperFocusNextPrevChild(QSplitterHandle* self, bool next) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_FocusNextPrevChild_IsBase(true);
@@ -3383,7 +3383,7 @@ bool QSplitterHandle_EventFilter(QSplitterHandle* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool QSplitterHandle_QBaseEventFilter(QSplitterHandle* self, QObject* watched, QEvent* event) {
+bool QSplitterHandle_SuperEventFilter(QSplitterHandle* self, QObject* watched, QEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_EventFilter_IsBase(true);
@@ -3412,7 +3412,7 @@ void QSplitterHandle_TimerEvent(QSplitterHandle* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseTimerEvent(QSplitterHandle* self, QTimerEvent* event) {
+void QSplitterHandle_SuperTimerEvent(QSplitterHandle* self, QTimerEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_TimerEvent_IsBase(true);
@@ -3441,7 +3441,7 @@ void QSplitterHandle_ChildEvent(QSplitterHandle* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseChildEvent(QSplitterHandle* self, QChildEvent* event) {
+void QSplitterHandle_SuperChildEvent(QSplitterHandle* self, QChildEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_ChildEvent_IsBase(true);
@@ -3470,7 +3470,7 @@ void QSplitterHandle_CustomEvent(QSplitterHandle* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseCustomEvent(QSplitterHandle* self, QEvent* event) {
+void QSplitterHandle_SuperCustomEvent(QSplitterHandle* self, QEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_CustomEvent_IsBase(true);
@@ -3499,7 +3499,7 @@ void QSplitterHandle_ConnectNotify(QSplitterHandle* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseConnectNotify(QSplitterHandle* self, const QMetaMethod* signal) {
+void QSplitterHandle_SuperConnectNotify(QSplitterHandle* self, const QMetaMethod* signal) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_ConnectNotify_IsBase(true);
@@ -3528,7 +3528,7 @@ void QSplitterHandle_DisconnectNotify(QSplitterHandle* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseDisconnectNotify(QSplitterHandle* self, const QMetaMethod* signal) {
+void QSplitterHandle_SuperDisconnectNotify(QSplitterHandle* self, const QMetaMethod* signal) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_DisconnectNotify_IsBase(true);
@@ -3557,7 +3557,7 @@ void QSplitterHandle_MoveSplitter(QSplitterHandle* self, int p) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseMoveSplitter(QSplitterHandle* self, int p) {
+void QSplitterHandle_SuperMoveSplitter(QSplitterHandle* self, int p) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_MoveSplitter_IsBase(true);
@@ -3586,7 +3586,7 @@ int QSplitterHandle_ClosestLegalPosition(QSplitterHandle* self, int p) {
 }
 
 // Base class handler implementation
-int QSplitterHandle_QBaseClosestLegalPosition(QSplitterHandle* self, int p) {
+int QSplitterHandle_SuperClosestLegalPosition(QSplitterHandle* self, int p) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_ClosestLegalPosition_IsBase(true);
@@ -3615,7 +3615,7 @@ void QSplitterHandle_UpdateMicroFocus(QSplitterHandle* self) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseUpdateMicroFocus(QSplitterHandle* self) {
+void QSplitterHandle_SuperUpdateMicroFocus(QSplitterHandle* self) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_UpdateMicroFocus_IsBase(true);
@@ -3644,7 +3644,7 @@ void QSplitterHandle_Create(QSplitterHandle* self) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseCreate(QSplitterHandle* self) {
+void QSplitterHandle_SuperCreate(QSplitterHandle* self) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_Create_IsBase(true);
@@ -3673,7 +3673,7 @@ void QSplitterHandle_Destroy(QSplitterHandle* self) {
 }
 
 // Base class handler implementation
-void QSplitterHandle_QBaseDestroy(QSplitterHandle* self) {
+void QSplitterHandle_SuperDestroy(QSplitterHandle* self) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_Destroy_IsBase(true);
@@ -3702,7 +3702,7 @@ bool QSplitterHandle_FocusNextChild(QSplitterHandle* self) {
 }
 
 // Base class handler implementation
-bool QSplitterHandle_QBaseFocusNextChild(QSplitterHandle* self) {
+bool QSplitterHandle_SuperFocusNextChild(QSplitterHandle* self) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_FocusNextChild_IsBase(true);
@@ -3731,7 +3731,7 @@ bool QSplitterHandle_FocusPreviousChild(QSplitterHandle* self) {
 }
 
 // Base class handler implementation
-bool QSplitterHandle_QBaseFocusPreviousChild(QSplitterHandle* self) {
+bool QSplitterHandle_SuperFocusPreviousChild(QSplitterHandle* self) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_FocusPreviousChild_IsBase(true);
@@ -3760,7 +3760,7 @@ QObject* QSplitterHandle_Sender(const QSplitterHandle* self) {
 }
 
 // Base class handler implementation
-QObject* QSplitterHandle_QBaseSender(const QSplitterHandle* self) {
+QObject* QSplitterHandle_SuperSender(const QSplitterHandle* self) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_Sender_IsBase(true);
@@ -3789,7 +3789,7 @@ int QSplitterHandle_SenderSignalIndex(const QSplitterHandle* self) {
 }
 
 // Base class handler implementation
-int QSplitterHandle_QBaseSenderSignalIndex(const QSplitterHandle* self) {
+int QSplitterHandle_SuperSenderSignalIndex(const QSplitterHandle* self) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_SenderSignalIndex_IsBase(true);
@@ -3818,7 +3818,7 @@ int QSplitterHandle_Receivers(const QSplitterHandle* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QSplitterHandle_QBaseReceivers(const QSplitterHandle* self, const char* signal) {
+int QSplitterHandle_SuperReceivers(const QSplitterHandle* self, const char* signal) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_Receivers_IsBase(true);
@@ -3847,7 +3847,7 @@ bool QSplitterHandle_IsSignalConnected(const QSplitterHandle* self, const QMetaM
 }
 
 // Base class handler implementation
-bool QSplitterHandle_QBaseIsSignalConnected(const QSplitterHandle* self, const QMetaMethod* signal) {
+bool QSplitterHandle_SuperIsSignalConnected(const QSplitterHandle* self, const QMetaMethod* signal) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_IsSignalConnected_IsBase(true);
@@ -3876,7 +3876,7 @@ double QSplitterHandle_GetDecodedMetricF(const QSplitterHandle* self, int metric
 }
 
 // Base class handler implementation
-double QSplitterHandle_QBaseGetDecodedMetricF(const QSplitterHandle* self, int metricA, int metricB) {
+double QSplitterHandle_SuperGetDecodedMetricF(const QSplitterHandle* self, int metricA, int metricB) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_GetDecodedMetricF_IsBase(true);

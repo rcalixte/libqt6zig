@@ -129,7 +129,7 @@ void KCodecAction_SlotActionTriggered(KCodecAction* self, QAction* param1) {
 }
 
 // Base class handler implementation
-QMetaObject* KCodecAction_QBaseMetaObject(const KCodecAction* self) {
+QMetaObject* KCodecAction_SuperMetaObject(const KCodecAction* self) {
     auto* vkcodecaction = const_cast<VirtualKCodecAction*>(dynamic_cast<const VirtualKCodecAction*>(self));
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->setKCodecAction_MetaObject_IsBase(true);
@@ -148,7 +148,7 @@ void KCodecAction_OnMetaObject(const KCodecAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KCodecAction_QBaseMetacast(KCodecAction* self, const char* param1) {
+void* KCodecAction_SuperMetacast(KCodecAction* self, const char* param1) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->setKCodecAction_Metacast_IsBase(true);
@@ -167,7 +167,7 @@ void KCodecAction_OnMetacast(KCodecAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KCodecAction_QBaseMetacall(KCodecAction* self, int param1, int param2, void** param3) {
+int KCodecAction_SuperMetacall(KCodecAction* self, int param1, int param2, void** param3) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->setKCodecAction_Metacall_IsBase(true);
@@ -186,7 +186,7 @@ void KCodecAction_OnMetacall(KCodecAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCodecAction_QBaseSlotActionTriggered(KCodecAction* self, QAction* param1) {
+void KCodecAction_SuperSlotActionTriggered(KCodecAction* self, QAction* param1) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->setKCodecAction_SlotActionTriggered_IsBase(true);
@@ -215,7 +215,7 @@ QAction* KCodecAction_RemoveAction(KCodecAction* self, QAction* action) {
 }
 
 // Base class handler implementation
-QAction* KCodecAction_QBaseRemoveAction(KCodecAction* self, QAction* action) {
+QAction* KCodecAction_SuperRemoveAction(KCodecAction* self, QAction* action) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->setKCodecAction_RemoveAction_IsBase(true);
@@ -244,7 +244,7 @@ void KCodecAction_InsertAction(KCodecAction* self, QAction* before, QAction* act
 }
 
 // Base class handler implementation
-void KCodecAction_QBaseInsertAction(KCodecAction* self, QAction* before, QAction* action) {
+void KCodecAction_SuperInsertAction(KCodecAction* self, QAction* before, QAction* action) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->setKCodecAction_InsertAction_IsBase(true);
@@ -273,7 +273,7 @@ QWidget* KCodecAction_CreateWidget(KCodecAction* self, QWidget* parent) {
 }
 
 // Base class handler implementation
-QWidget* KCodecAction_QBaseCreateWidget(KCodecAction* self, QWidget* parent) {
+QWidget* KCodecAction_SuperCreateWidget(KCodecAction* self, QWidget* parent) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->setKCodecAction_CreateWidget_IsBase(true);
@@ -302,7 +302,7 @@ void KCodecAction_DeleteWidget(KCodecAction* self, QWidget* widget) {
 }
 
 // Base class handler implementation
-void KCodecAction_QBaseDeleteWidget(KCodecAction* self, QWidget* widget) {
+void KCodecAction_SuperDeleteWidget(KCodecAction* self, QWidget* widget) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->setKCodecAction_DeleteWidget_IsBase(true);
@@ -331,7 +331,7 @@ bool KCodecAction_Event(KCodecAction* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KCodecAction_QBaseEvent(KCodecAction* self, QEvent* event) {
+bool KCodecAction_SuperEvent(KCodecAction* self, QEvent* event) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->setKCodecAction_Event_IsBase(true);
@@ -360,7 +360,7 @@ bool KCodecAction_EventFilter(KCodecAction* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool KCodecAction_QBaseEventFilter(KCodecAction* self, QObject* watched, QEvent* event) {
+bool KCodecAction_SuperEventFilter(KCodecAction* self, QObject* watched, QEvent* event) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->setKCodecAction_EventFilter_IsBase(true);
@@ -389,7 +389,7 @@ void KCodecAction_TimerEvent(KCodecAction* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KCodecAction_QBaseTimerEvent(KCodecAction* self, QTimerEvent* event) {
+void KCodecAction_SuperTimerEvent(KCodecAction* self, QTimerEvent* event) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->setKCodecAction_TimerEvent_IsBase(true);
@@ -418,7 +418,7 @@ void KCodecAction_ChildEvent(KCodecAction* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KCodecAction_QBaseChildEvent(KCodecAction* self, QChildEvent* event) {
+void KCodecAction_SuperChildEvent(KCodecAction* self, QChildEvent* event) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->setKCodecAction_ChildEvent_IsBase(true);
@@ -447,7 +447,7 @@ void KCodecAction_CustomEvent(KCodecAction* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KCodecAction_QBaseCustomEvent(KCodecAction* self, QEvent* event) {
+void KCodecAction_SuperCustomEvent(KCodecAction* self, QEvent* event) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->setKCodecAction_CustomEvent_IsBase(true);
@@ -476,7 +476,7 @@ void KCodecAction_ConnectNotify(KCodecAction* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KCodecAction_QBaseConnectNotify(KCodecAction* self, const QMetaMethod* signal) {
+void KCodecAction_SuperConnectNotify(KCodecAction* self, const QMetaMethod* signal) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->setKCodecAction_ConnectNotify_IsBase(true);
@@ -505,7 +505,7 @@ void KCodecAction_DisconnectNotify(KCodecAction* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void KCodecAction_QBaseDisconnectNotify(KCodecAction* self, const QMetaMethod* signal) {
+void KCodecAction_SuperDisconnectNotify(KCodecAction* self, const QMetaMethod* signal) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->setKCodecAction_DisconnectNotify_IsBase(true);
@@ -534,7 +534,7 @@ void KCodecAction_SlotToggled(KCodecAction* self, bool param1) {
 }
 
 // Base class handler implementation
-void KCodecAction_QBaseSlotToggled(KCodecAction* self, bool param1) {
+void KCodecAction_SuperSlotToggled(KCodecAction* self, bool param1) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->setKCodecAction_SlotToggled_IsBase(true);
@@ -581,7 +581,7 @@ libqt_list /* of QWidget* */ KCodecAction_CreatedWidgets(const KCodecAction* sel
 }
 
 // Base class handler implementation
-libqt_list /* of QWidget* */ KCodecAction_QBaseCreatedWidgets(const KCodecAction* self) {
+libqt_list /* of QWidget* */ KCodecAction_SuperCreatedWidgets(const KCodecAction* self) {
     auto* vkcodecaction = const_cast<VirtualKCodecAction*>(dynamic_cast<const VirtualKCodecAction*>(self));
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->setKCodecAction_CreatedWidgets_IsBase(true);
@@ -628,7 +628,7 @@ QObject* KCodecAction_Sender(const KCodecAction* self) {
 }
 
 // Base class handler implementation
-QObject* KCodecAction_QBaseSender(const KCodecAction* self) {
+QObject* KCodecAction_SuperSender(const KCodecAction* self) {
     auto* vkcodecaction = const_cast<VirtualKCodecAction*>(dynamic_cast<const VirtualKCodecAction*>(self));
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->setKCodecAction_Sender_IsBase(true);
@@ -657,7 +657,7 @@ int KCodecAction_SenderSignalIndex(const KCodecAction* self) {
 }
 
 // Base class handler implementation
-int KCodecAction_QBaseSenderSignalIndex(const KCodecAction* self) {
+int KCodecAction_SuperSenderSignalIndex(const KCodecAction* self) {
     auto* vkcodecaction = const_cast<VirtualKCodecAction*>(dynamic_cast<const VirtualKCodecAction*>(self));
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->setKCodecAction_SenderSignalIndex_IsBase(true);
@@ -686,7 +686,7 @@ int KCodecAction_Receivers(const KCodecAction* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KCodecAction_QBaseReceivers(const KCodecAction* self, const char* signal) {
+int KCodecAction_SuperReceivers(const KCodecAction* self, const char* signal) {
     auto* vkcodecaction = const_cast<VirtualKCodecAction*>(dynamic_cast<const VirtualKCodecAction*>(self));
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->setKCodecAction_Receivers_IsBase(true);
@@ -715,7 +715,7 @@ bool KCodecAction_IsSignalConnected(const KCodecAction* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool KCodecAction_QBaseIsSignalConnected(const KCodecAction* self, const QMetaMethod* signal) {
+bool KCodecAction_SuperIsSignalConnected(const KCodecAction* self, const QMetaMethod* signal) {
     auto* vkcodecaction = const_cast<VirtualKCodecAction*>(dynamic_cast<const VirtualKCodecAction*>(self));
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->setKCodecAction_IsSignalConnected_IsBase(true);

@@ -50,7 +50,7 @@ int KWindowStateSaver_Metacall(KWindowStateSaver* self, int param1, int param2, 
 }
 
 // Base class handler implementation
-QMetaObject* KWindowStateSaver_QBaseMetaObject(const KWindowStateSaver* self) {
+QMetaObject* KWindowStateSaver_SuperMetaObject(const KWindowStateSaver* self) {
     auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
     if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
         vkwindowstatesaver->setKWindowStateSaver_MetaObject_IsBase(true);
@@ -69,7 +69,7 @@ void KWindowStateSaver_OnMetaObject(const KWindowStateSaver* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* KWindowStateSaver_QBaseMetacast(KWindowStateSaver* self, const char* param1) {
+void* KWindowStateSaver_SuperMetacast(KWindowStateSaver* self, const char* param1) {
     auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
     if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
         vkwindowstatesaver->setKWindowStateSaver_Metacast_IsBase(true);
@@ -88,7 +88,7 @@ void KWindowStateSaver_OnMetacast(KWindowStateSaver* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KWindowStateSaver_QBaseMetacall(KWindowStateSaver* self, int param1, int param2, void** param3) {
+int KWindowStateSaver_SuperMetacall(KWindowStateSaver* self, int param1, int param2, void** param3) {
     auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
     if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
         vkwindowstatesaver->setKWindowStateSaver_Metacall_IsBase(true);
@@ -117,7 +117,7 @@ bool KWindowStateSaver_Event(KWindowStateSaver* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KWindowStateSaver_QBaseEvent(KWindowStateSaver* self, QEvent* event) {
+bool KWindowStateSaver_SuperEvent(KWindowStateSaver* self, QEvent* event) {
     auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
     if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
         vkwindowstatesaver->setKWindowStateSaver_Event_IsBase(true);
@@ -146,7 +146,7 @@ void KWindowStateSaver_ChildEvent(KWindowStateSaver* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KWindowStateSaver_QBaseChildEvent(KWindowStateSaver* self, QChildEvent* event) {
+void KWindowStateSaver_SuperChildEvent(KWindowStateSaver* self, QChildEvent* event) {
     auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
     if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
         vkwindowstatesaver->setKWindowStateSaver_ChildEvent_IsBase(true);
@@ -175,7 +175,7 @@ void KWindowStateSaver_CustomEvent(KWindowStateSaver* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KWindowStateSaver_QBaseCustomEvent(KWindowStateSaver* self, QEvent* event) {
+void KWindowStateSaver_SuperCustomEvent(KWindowStateSaver* self, QEvent* event) {
     auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
     if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
         vkwindowstatesaver->setKWindowStateSaver_CustomEvent_IsBase(true);
@@ -204,7 +204,7 @@ void KWindowStateSaver_ConnectNotify(KWindowStateSaver* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void KWindowStateSaver_QBaseConnectNotify(KWindowStateSaver* self, const QMetaMethod* signal) {
+void KWindowStateSaver_SuperConnectNotify(KWindowStateSaver* self, const QMetaMethod* signal) {
     auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
     if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
         vkwindowstatesaver->setKWindowStateSaver_ConnectNotify_IsBase(true);
@@ -233,7 +233,7 @@ void KWindowStateSaver_DisconnectNotify(KWindowStateSaver* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void KWindowStateSaver_QBaseDisconnectNotify(KWindowStateSaver* self, const QMetaMethod* signal) {
+void KWindowStateSaver_SuperDisconnectNotify(KWindowStateSaver* self, const QMetaMethod* signal) {
     auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
     if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
         vkwindowstatesaver->setKWindowStateSaver_DisconnectNotify_IsBase(true);
@@ -262,7 +262,7 @@ QObject* KWindowStateSaver_Sender(const KWindowStateSaver* self) {
 }
 
 // Base class handler implementation
-QObject* KWindowStateSaver_QBaseSender(const KWindowStateSaver* self) {
+QObject* KWindowStateSaver_SuperSender(const KWindowStateSaver* self) {
     auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
     if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
         vkwindowstatesaver->setKWindowStateSaver_Sender_IsBase(true);
@@ -291,7 +291,7 @@ int KWindowStateSaver_SenderSignalIndex(const KWindowStateSaver* self) {
 }
 
 // Base class handler implementation
-int KWindowStateSaver_QBaseSenderSignalIndex(const KWindowStateSaver* self) {
+int KWindowStateSaver_SuperSenderSignalIndex(const KWindowStateSaver* self) {
     auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
     if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
         vkwindowstatesaver->setKWindowStateSaver_SenderSignalIndex_IsBase(true);
@@ -320,7 +320,7 @@ int KWindowStateSaver_Receivers(const KWindowStateSaver* self, const char* signa
 }
 
 // Base class handler implementation
-int KWindowStateSaver_QBaseReceivers(const KWindowStateSaver* self, const char* signal) {
+int KWindowStateSaver_SuperReceivers(const KWindowStateSaver* self, const char* signal) {
     auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
     if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
         vkwindowstatesaver->setKWindowStateSaver_Receivers_IsBase(true);
@@ -349,7 +349,7 @@ bool KWindowStateSaver_IsSignalConnected(const KWindowStateSaver* self, const QM
 }
 
 // Base class handler implementation
-bool KWindowStateSaver_QBaseIsSignalConnected(const KWindowStateSaver* self, const QMetaMethod* signal) {
+bool KWindowStateSaver_SuperIsSignalConnected(const KWindowStateSaver* self, const QMetaMethod* signal) {
     auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
     if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
         vkwindowstatesaver->setKWindowStateSaver_IsSignalConnected_IsBase(true);

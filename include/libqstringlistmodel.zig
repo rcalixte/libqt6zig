@@ -101,6 +101,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -109,8 +113,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` self: QtC.QStringListModel `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QStringListModel_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QStringListModel_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -136,6 +140,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -144,9 +152,9 @@ pub const qstringlistmodel = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QStringListModel_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QStringListModel_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -175,6 +183,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -187,8 +199,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QStringListModel_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QStringListModel_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -234,6 +246,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_OnRowCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRowCount` instead
+    ///
+    pub const QBaseRowCount = SuperRowCount;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#rowCount)
     ///
     /// Base class method implementation
@@ -244,8 +260,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseRowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.QStringListModel_QBaseRowCount(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperRowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
+        return qtc.QStringListModel_SuperRowCount(@ptrCast(self), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#sibling)
@@ -278,6 +294,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_OnSibling(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSibling` instead
+    ///
+    pub const QBaseSibling = SuperSibling;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#sibling)
     ///
     /// Base class method implementation
@@ -292,8 +312,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` idx: QtC.QModelIndex `
     ///
-    pub fn QBaseSibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QStringListModel_QBaseSibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
+    pub fn SuperSibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
+        return qtc.QStringListModel_SuperSibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#data)
@@ -324,6 +344,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_OnData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperData` instead
+    ///
+    pub const QBaseData = SuperData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#data)
     ///
     /// Base class method implementation
@@ -336,8 +360,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn QBaseData(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.QStringListModel_QBaseData(@ptrCast(self), @ptrCast(index), @bitCast(role));
+    pub fn SuperData(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
+        return qtc.QStringListModel_SuperData(@ptrCast(self), @ptrCast(index), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#setData)
@@ -370,6 +394,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_OnSetData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetData` instead
+    ///
+    pub const QBaseSetData = SuperSetData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#setData)
     ///
     /// Base class method implementation
@@ -384,8 +412,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn QBaseSetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.QStringListModel_QBaseSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
+    pub fn SuperSetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
+        return qtc.QStringListModel_SuperSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#clearItemData)
@@ -414,6 +442,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_OnClearItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClearItemData` instead
+    ///
+    pub const QBaseClearItemData = SuperClearItemData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#clearItemData)
     ///
     /// Base class method implementation
@@ -424,8 +456,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QStringListModel_QBaseClearItemData(@ptrCast(self), @ptrCast(index));
+    pub fn SuperClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
+        return qtc.QStringListModel_SuperClearItemData(@ptrCast(self), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#flags)
@@ -458,6 +490,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_OnFlags(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFlags` instead
+    ///
+    pub const QBaseFlags = SuperFlags;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#flags)
     ///
     /// Base class method implementation
@@ -472,8 +508,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn QBaseFlags(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.QStringListModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
+    pub fn SuperFlags(self: ?*anyopaque, index: ?*anyopaque) i32 {
+        return qtc.QStringListModel_SuperFlags(@ptrCast(self), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#insertRows)
@@ -506,6 +542,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_OnInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInsertRows` instead
+    ///
+    pub const QBaseInsertRows = SuperInsertRows;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#insertRows)
     ///
     /// Base class method implementation
@@ -520,8 +560,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseInsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QStringListModel_QBaseInsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn SuperInsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
+        return qtc.QStringListModel_SuperInsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#removeRows)
@@ -554,6 +594,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_OnRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRemoveRows` instead
+    ///
+    pub const QBaseRemoveRows = SuperRemoveRows;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#removeRows)
     ///
     /// Base class method implementation
@@ -568,8 +612,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseRemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QStringListModel_QBaseRemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn SuperRemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
+        return qtc.QStringListModel_SuperRemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#moveRows)
@@ -606,6 +650,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_OnMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveRows` instead
+    ///
+    pub const QBaseMoveRows = SuperMoveRows;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#moveRows)
     ///
     /// Base class method implementation
@@ -624,8 +672,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn QBaseMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QStringListModel_QBaseMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn SuperMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
+        return qtc.QStringListModel_SuperMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#itemData)
@@ -674,6 +722,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_OnItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperItemData` instead
+    ///
+    pub const QBaseItemData = SuperItemData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#itemData)
     ///
     /// Base class method implementation
@@ -686,8 +738,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.QStringListModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
+    pub fn SuperItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
+        const _map: qtc.libqt_map = qtc.QStringListModel_SuperItemData(@ptrCast(self), @ptrCast(index));
         var _ret: arraymap_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -751,6 +803,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_OnSetItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetItemData` instead
+    ///
+    pub const QBaseSetItemData = SuperSetItemData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#setItemData)
     ///
     /// Base class method implementation
@@ -765,7 +821,7 @@ pub const qstringlistmodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    pub fn SuperSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("qstringlistmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -783,7 +839,7 @@ pub const qstringlistmodel = struct {
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.QStringListModel_QBaseSetItemData(@ptrCast(self), @ptrCast(index), roles_map);
+        return qtc.QStringListModel_SuperSetItemData(@ptrCast(self), @ptrCast(index), roles_map);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#sort)
@@ -814,6 +870,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_OnSort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSort` instead
+    ///
+    pub const QBaseSort = SuperSort;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#sort)
     ///
     /// Base class method implementation
@@ -826,8 +886,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn QBaseSort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.QStringListModel_QBaseSort(@ptrCast(self), @bitCast(column), @bitCast(order));
+    pub fn SuperSort(self: ?*anyopaque, column: i32, order: i32) void {
+        qtc.QStringListModel_SuperSort(@ptrCast(self), @bitCast(column), @bitCast(order));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#stringList)
@@ -911,6 +971,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_OnSupportedDropActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSupportedDropActions` instead
+    ///
+    pub const QBaseSupportedDropActions = SuperSupportedDropActions;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#supportedDropActions)
     ///
     /// Base class method implementation
@@ -923,8 +987,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn QBaseSupportedDropActions(self: ?*anyopaque) i32 {
-        return qtc.QStringListModel_QBaseSupportedDropActions(@ptrCast(self));
+    pub fn SuperSupportedDropActions(self: ?*anyopaque) i32 {
+        return qtc.QStringListModel_SuperSupportedDropActions(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1015,6 +1079,10 @@ pub const qstringlistmodel = struct {
         qtc.QAbstractItemModel_OnParent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperParent` instead
+    ///
+    pub const QBaseParent = SuperParent;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
@@ -1027,8 +1095,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` child: QtC.QModelIndex `
     ///
-    pub fn QBaseParent(self: ?*anyopaque, child: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractItemModel_QBaseParent(@ptrCast(self), @ptrCast(child));
+    pub fn SuperParent(self: ?*anyopaque, child: ?*anyopaque) QtC.QModelIndex {
+        return qtc.QAbstractItemModel_SuperParent(@ptrCast(self), @ptrCast(child));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1061,6 +1129,10 @@ pub const qstringlistmodel = struct {
         qtc.QAbstractItemModel_OnColumnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperColumnCount` instead
+    ///
+    pub const QBaseColumnCount = SuperColumnCount;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#columnCount)
@@ -1073,8 +1145,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.QAbstractItemModel_QBaseColumnCount(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
+        return qtc.QAbstractItemModel_SuperColumnCount(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1107,6 +1179,10 @@ pub const qstringlistmodel = struct {
         qtc.QAbstractItemModel_OnHasChildren(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHasChildren` instead
+    ///
+    pub const QBaseHasChildren = SuperHasChildren;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
@@ -1119,8 +1195,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseHasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_QBaseHasChildren(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperHasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
+        return qtc.QAbstractItemModel_SuperHasChildren(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2359,6 +2435,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_Index(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperIndex` instead
+    ///
+    pub const QBaseIndex = SuperIndex;
+
     /// Inherited from QAbstractListModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#index)
@@ -2375,8 +2455,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseIndex(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QStringListModel_QBaseIndex(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperIndex(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
+        return qtc.QStringListModel_SuperIndex(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractListModel
@@ -2419,6 +2499,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_DropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperDropMimeData` instead
+    ///
+    pub const QBaseDropMimeData = SuperDropMimeData;
+
     /// Inherited from QAbstractListModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractlistmodel.html#dropMimeData)
@@ -2439,8 +2523,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QStringListModel_QBaseDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
+        return qtc.QStringListModel_SuperDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractListModel
@@ -2479,6 +2563,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_HeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
     }
 
+    /// ### DEPRECATED: Use `SuperHeaderData` instead
+    ///
+    pub const QBaseHeaderData = SuperHeaderData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerData)
@@ -2495,8 +2583,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn QBaseHeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.QStringListModel_QBaseHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
+    pub fn SuperHeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
+        return qtc.QStringListModel_SuperHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2537,6 +2625,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_SetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
     }
 
+    /// ### DEPRECATED: Use `SuperSetHeaderData` instead
+    ///
+    pub const QBaseSetHeaderData = SuperSetHeaderData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setHeaderData)
@@ -2555,8 +2647,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn QBaseSetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.QStringListModel_QBaseSetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
+    pub fn SuperSetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
+        return qtc.QStringListModel_SuperSetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2606,6 +2698,10 @@ pub const qstringlistmodel = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperMimeTypes` instead
+    ///
+    pub const QBaseMimeTypes = SuperMimeTypes;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
@@ -2618,8 +2714,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QStringListModel_QBaseMimeTypes(@ptrCast(self));
+    pub fn SuperMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QStringListModel_SuperMimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -2675,6 +2771,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_MimeData(@ptrCast(self), indexes_list);
     }
 
+    /// ### DEPRECATED: Use `SuperMimeData` instead
+    ///
+    pub const QBaseMimeData = SuperMimeData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
@@ -2687,12 +2787,12 @@ pub const qstringlistmodel = struct {
     ///
     /// ` indexes: []QtC.QModelIndex `
     ///
-    pub fn QBaseMimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
+    pub fn SuperMimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        return qtc.QStringListModel_QBaseMimeData(@ptrCast(self), indexes_list);
+        return qtc.QStringListModel_SuperMimeData(@ptrCast(self), indexes_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -2735,6 +2835,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperCanDropMimeData` instead
+    ///
+    pub const QBaseCanDropMimeData = SuperCanDropMimeData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
@@ -2755,8 +2859,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseCanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QStringListModel_QBaseCanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperCanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
+        return qtc.QStringListModel_SuperCanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2793,6 +2897,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_SupportedDragActions(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSupportedDragActions` instead
+    ///
+    pub const QBaseSupportedDragActions = SuperSupportedDragActions;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
@@ -2807,8 +2915,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn QBaseSupportedDragActions(self: ?*anyopaque) i32 {
-        return qtc.QStringListModel_QBaseSupportedDragActions(@ptrCast(self));
+    pub fn SuperSupportedDragActions(self: ?*anyopaque) i32 {
+        return qtc.QStringListModel_SuperSupportedDragActions(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2847,6 +2955,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_InsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperInsertColumns` instead
+    ///
+    pub const QBaseInsertColumns = SuperInsertColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
@@ -2863,8 +2975,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseInsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QStringListModel_QBaseInsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn SuperInsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
+        return qtc.QStringListModel_SuperInsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2903,6 +3015,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_RemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperRemoveColumns` instead
+    ///
+    pub const QBaseRemoveColumns = SuperRemoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#removeColumns)
@@ -2919,8 +3035,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseRemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QStringListModel_QBaseRemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn SuperRemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
+        return qtc.QStringListModel_SuperRemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2963,6 +3079,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveColumns` instead
+    ///
+    pub const QBaseMoveColumns = SuperMoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
@@ -2983,8 +3103,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn QBaseMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QStringListModel_QBaseMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn SuperMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
+        return qtc.QStringListModel_SuperMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3019,6 +3139,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_FetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperFetchMore` instead
+    ///
+    pub const QBaseFetchMore = SuperFetchMore;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#fetchMore)
@@ -3031,8 +3155,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseFetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QStringListModel_QBaseFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperFetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
+        qtc.QStringListModel_SuperFetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3067,6 +3191,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_CanFetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperCanFetchMore` instead
+    ///
+    pub const QBaseCanFetchMore = SuperCanFetchMore;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canFetchMore)
@@ -3079,8 +3207,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseCanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.QStringListModel_QBaseCanFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperCanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
+        return qtc.QStringListModel_SuperCanFetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3115,6 +3243,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_Buddy(@ptrCast(self), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperBuddy` instead
+    ///
+    pub const QBaseBuddy = SuperBuddy;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
@@ -3127,8 +3259,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseBuddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QStringListModel_QBaseBuddy(@ptrCast(self), @ptrCast(index));
+    pub fn SuperBuddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
+        return qtc.QStringListModel_SuperBuddy(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3178,6 +3310,10 @@ pub const qstringlistmodel = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperMatch` instead
+    ///
+    pub const QBaseMatch = SuperMatch;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
@@ -3200,8 +3336,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QStringListModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
+    pub fn SuperMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
+        const _arr: qtc.libqt_list = qtc.QStringListModel_SuperMatch(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qstringlistmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -3247,6 +3383,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_Span(@ptrCast(self), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperSpan` instead
+    ///
+    pub const QBaseSpan = SuperSpan;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
@@ -3259,8 +3399,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseSpan(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.QStringListModel_QBaseSpan(@ptrCast(self), @ptrCast(index));
+    pub fn SuperSpan(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
+        return qtc.QStringListModel_SuperSpan(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3315,6 +3455,10 @@ pub const qstringlistmodel = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperRoleNames` instead
+    ///
+    pub const QBaseRoleNames = SuperRoleNames;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#roleNames)
@@ -3327,8 +3471,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.libqt_map = qtc.QStringListModel_QBaseRoleNames(@ptrCast(self));
+    pub fn SuperRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
+        const _map: qtc.libqt_map = qtc.QStringListModel_SuperRoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -3389,6 +3533,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_MultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
     }
 
+    /// ### DEPRECATED: Use `SuperMultiData` instead
+    ///
+    pub const QBaseMultiData = SuperMultiData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
@@ -3403,8 +3551,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` roleDataSpan: QtC.QModelRoleDataSpan `
     ///
-    pub fn QBaseMultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
-        qtc.QStringListModel_QBaseMultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
+    pub fn SuperMultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
+        qtc.QStringListModel_SuperMultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3437,6 +3585,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_Submit(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSubmit` instead
+    ///
+    pub const QBaseSubmit = SuperSubmit;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#submit)
@@ -3447,8 +3599,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` self: QtC.QStringListModel `
     ///
-    pub fn QBaseSubmit(self: ?*anyopaque) bool {
-        return qtc.QStringListModel_QBaseSubmit(@ptrCast(self));
+    pub fn SuperSubmit(self: ?*anyopaque) bool {
+        return qtc.QStringListModel_SuperSubmit(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3481,6 +3633,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_Revert(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperRevert` instead
+    ///
+    pub const QBaseRevert = SuperRevert;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
@@ -3491,8 +3647,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` self: QtC.QStringListModel `
     ///
-    pub fn QBaseRevert(self: ?*anyopaque) void {
-        qtc.QStringListModel_QBaseRevert(@ptrCast(self));
+    pub fn SuperRevert(self: ?*anyopaque) void {
+        qtc.QStringListModel_SuperRevert(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3525,6 +3681,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_ResetInternalData(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperResetInternalData` instead
+    ///
+    pub const QBaseResetInternalData = SuperResetInternalData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
@@ -3535,8 +3695,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` self: QtC.QStringListModel `
     ///
-    pub fn QBaseResetInternalData(self: ?*anyopaque) void {
-        qtc.QStringListModel_QBaseResetInternalData(@ptrCast(self));
+    pub fn SuperResetInternalData(self: ?*anyopaque) void {
+        qtc.QStringListModel_SuperResetInternalData(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3571,6 +3731,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -3583,8 +3747,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QStringListModel_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QStringListModel_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3621,6 +3785,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -3635,8 +3803,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QStringListModel_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QStringListModel_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3671,6 +3839,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -3683,8 +3855,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStringListModel_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStringListModel_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3719,6 +3891,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -3731,8 +3907,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStringListModel_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStringListModel_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3767,6 +3943,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -3779,8 +3959,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QStringListModel_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QStringListModel_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3815,6 +3995,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3827,8 +4011,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QStringListModel_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QStringListModel_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3863,6 +4047,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -3875,8 +4063,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QStringListModel_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QStringListModel_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3913,6 +4101,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_CreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateIndex` instead
+    ///
+    pub const QBaseCreateIndex = SuperCreateIndex;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
@@ -3927,8 +4119,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn QBaseCreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.QStringListModel_QBaseCreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn SuperCreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
+        return qtc.QStringListModel_SuperCreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3969,6 +4161,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_EncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
     }
 
+    /// ### DEPRECATED: Use `SuperEncodeData` instead
+    ///
+    pub const QBaseEncodeData = SuperEncodeData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
@@ -3983,12 +4179,12 @@ pub const qstringlistmodel = struct {
     ///
     /// ` stream: QtC.QDataStream `
     ///
-    pub fn QBaseEncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
+    pub fn SuperEncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        qtc.QStringListModel_QBaseEncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
+        qtc.QStringListModel_SuperEncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4029,6 +4225,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_DecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
     }
 
+    /// ### DEPRECATED: Use `SuperDecodeData` instead
+    ///
+    pub const QBaseDecodeData = SuperDecodeData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
@@ -4047,8 +4247,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` stream: QtC.QDataStream `
     ///
-    pub fn QBaseDecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.QStringListModel_QBaseDecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
+    pub fn SuperDecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
+        return qtc.QStringListModel_SuperDecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4087,6 +4287,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_BeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginInsertRows` instead
+    ///
+    pub const QBaseBeginInsertRows = SuperBeginInsertRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
@@ -4103,8 +4307,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn QBaseBeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QStringListModel_QBaseBeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
+        qtc.QStringListModel_SuperBeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4137,6 +4341,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_EndInsertRows(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndInsertRows` instead
+    ///
+    pub const QBaseEndInsertRows = SuperEndInsertRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
@@ -4147,8 +4355,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` self: QtC.QStringListModel `
     ///
-    pub fn QBaseEndInsertRows(self: ?*anyopaque) void {
-        qtc.QStringListModel_QBaseEndInsertRows(@ptrCast(self));
+    pub fn SuperEndInsertRows(self: ?*anyopaque) void {
+        qtc.QStringListModel_SuperEndInsertRows(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4187,6 +4395,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_BeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginRemoveRows` instead
+    ///
+    pub const QBaseBeginRemoveRows = SuperBeginRemoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveRows)
@@ -4203,8 +4415,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn QBaseBeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QStringListModel_QBaseBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
+        qtc.QStringListModel_SuperBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4237,6 +4449,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_EndRemoveRows(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndRemoveRows` instead
+    ///
+    pub const QBaseEndRemoveRows = SuperEndRemoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveRows)
@@ -4247,8 +4463,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` self: QtC.QStringListModel `
     ///
-    pub fn QBaseEndRemoveRows(self: ?*anyopaque) void {
-        qtc.QStringListModel_QBaseEndRemoveRows(@ptrCast(self));
+    pub fn SuperEndRemoveRows(self: ?*anyopaque) void {
+        qtc.QStringListModel_SuperEndRemoveRows(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4291,6 +4507,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_BeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginMoveRows` instead
+    ///
+    pub const QBaseBeginMoveRows = SuperBeginMoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
@@ -4311,8 +4531,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn QBaseBeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.QStringListModel_QBaseBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
+    pub fn SuperBeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
+        return qtc.QStringListModel_SuperBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4345,6 +4565,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_EndMoveRows(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndMoveRows` instead
+    ///
+    pub const QBaseEndMoveRows = SuperEndMoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
@@ -4355,8 +4579,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` self: QtC.QStringListModel `
     ///
-    pub fn QBaseEndMoveRows(self: ?*anyopaque) void {
-        qtc.QStringListModel_QBaseEndMoveRows(@ptrCast(self));
+    pub fn SuperEndMoveRows(self: ?*anyopaque) void {
+        qtc.QStringListModel_SuperEndMoveRows(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4395,6 +4619,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_BeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginInsertColumns` instead
+    ///
+    pub const QBaseBeginInsertColumns = SuperBeginInsertColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
@@ -4411,8 +4639,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn QBaseBeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QStringListModel_QBaseBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
+        qtc.QStringListModel_SuperBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4445,6 +4673,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_EndInsertColumns(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndInsertColumns` instead
+    ///
+    pub const QBaseEndInsertColumns = SuperEndInsertColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
@@ -4455,8 +4687,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` self: QtC.QStringListModel `
     ///
-    pub fn QBaseEndInsertColumns(self: ?*anyopaque) void {
-        qtc.QStringListModel_QBaseEndInsertColumns(@ptrCast(self));
+    pub fn SuperEndInsertColumns(self: ?*anyopaque) void {
+        qtc.QStringListModel_SuperEndInsertColumns(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4495,6 +4727,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_BeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginRemoveColumns` instead
+    ///
+    pub const QBaseBeginRemoveColumns = SuperBeginRemoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginRemoveColumns)
@@ -4511,8 +4747,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn QBaseBeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QStringListModel_QBaseBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
+        qtc.QStringListModel_SuperBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4545,6 +4781,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_EndRemoveColumns(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndRemoveColumns` instead
+    ///
+    pub const QBaseEndRemoveColumns = SuperEndRemoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endRemoveColumns)
@@ -4555,8 +4795,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` self: QtC.QStringListModel `
     ///
-    pub fn QBaseEndRemoveColumns(self: ?*anyopaque) void {
-        qtc.QStringListModel_QBaseEndRemoveColumns(@ptrCast(self));
+    pub fn SuperEndRemoveColumns(self: ?*anyopaque) void {
+        qtc.QStringListModel_SuperEndRemoveColumns(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4599,6 +4839,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_BeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginMoveColumns` instead
+    ///
+    pub const QBaseBeginMoveColumns = SuperBeginMoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
@@ -4619,8 +4863,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn QBaseBeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.QStringListModel_QBaseBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
+    pub fn SuperBeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
+        return qtc.QStringListModel_SuperBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4653,6 +4897,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_EndMoveColumns(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndMoveColumns` instead
+    ///
+    pub const QBaseEndMoveColumns = SuperEndMoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
@@ -4663,8 +4911,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` self: QtC.QStringListModel `
     ///
-    pub fn QBaseEndMoveColumns(self: ?*anyopaque) void {
-        qtc.QStringListModel_QBaseEndMoveColumns(@ptrCast(self));
+    pub fn SuperEndMoveColumns(self: ?*anyopaque) void {
+        qtc.QStringListModel_SuperEndMoveColumns(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4697,6 +4945,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_BeginResetModel(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginResetModel` instead
+    ///
+    pub const QBaseBeginResetModel = SuperBeginResetModel;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
@@ -4707,8 +4959,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` self: QtC.QStringListModel `
     ///
-    pub fn QBaseBeginResetModel(self: ?*anyopaque) void {
-        qtc.QStringListModel_QBaseBeginResetModel(@ptrCast(self));
+    pub fn SuperBeginResetModel(self: ?*anyopaque) void {
+        qtc.QStringListModel_SuperBeginResetModel(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4741,6 +4993,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_EndResetModel(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndResetModel` instead
+    ///
+    pub const QBaseEndResetModel = SuperEndResetModel;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endResetModel)
@@ -4751,8 +5007,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` self: QtC.QStringListModel `
     ///
-    pub fn QBaseEndResetModel(self: ?*anyopaque) void {
-        qtc.QStringListModel_QBaseEndResetModel(@ptrCast(self));
+    pub fn SuperEndResetModel(self: ?*anyopaque) void {
+        qtc.QStringListModel_SuperEndResetModel(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4789,6 +5045,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_ChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
     }
 
+    /// ### DEPRECATED: Use `SuperChangePersistentIndex` instead
+    ///
+    pub const QBaseChangePersistentIndex = SuperChangePersistentIndex;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
@@ -4803,8 +5063,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` to: QtC.QModelIndex `
     ///
-    pub fn QBaseChangePersistentIndex(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
-        qtc.QStringListModel_QBaseChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
+    pub fn SuperChangePersistentIndex(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
+        qtc.QStringListModel_SuperChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4849,6 +5109,10 @@ pub const qstringlistmodel = struct {
         qtc.QStringListModel_ChangePersistentIndexList(@ptrCast(self), from_list, to_list);
     }
 
+    /// ### DEPRECATED: Use `SuperChangePersistentIndexList` instead
+    ///
+    pub const QBaseChangePersistentIndexList = SuperChangePersistentIndexList;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
@@ -4863,7 +5127,7 @@ pub const qstringlistmodel = struct {
     ///
     /// ` to: []QtC.QModelIndex `
     ///
-    pub fn QBaseChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
+    pub fn SuperChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -4872,7 +5136,7 @@ pub const qstringlistmodel = struct {
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
-        qtc.QStringListModel_QBaseChangePersistentIndexList(@ptrCast(self), from_list, to_list);
+        qtc.QStringListModel_SuperChangePersistentIndexList(@ptrCast(self), from_list, to_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -4912,6 +5176,10 @@ pub const qstringlistmodel = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperPersistentIndexList` instead
+    ///
+    pub const QBasePersistentIndexList = SuperPersistentIndexList;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
@@ -4924,8 +5192,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBasePersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QStringListModel_QBasePersistentIndexList(@ptrCast(self));
+    pub fn SuperPersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
+        const _arr: qtc.libqt_list = qtc.QStringListModel_SuperPersistentIndexList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qstringlistmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -4969,6 +5237,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -4979,8 +5251,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` self: QtC.QStringListModel `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QStringListModel_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QStringListModel_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -5013,6 +5285,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -5023,8 +5299,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` self: QtC.QStringListModel `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QStringListModel_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QStringListModel_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -5060,6 +5336,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -5072,9 +5352,9 @@ pub const qstringlistmodel = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QStringListModel_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QStringListModel_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5109,6 +5389,10 @@ pub const qstringlistmodel = struct {
         return qtc.QStringListModel_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -5121,8 +5405,8 @@ pub const qstringlistmodel = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QStringListModel_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QStringListModel_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -5380,6 +5664,9 @@ pub const qstringlistmodel = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringlistmodel.html#dtor.QStringListModel)
     ///
@@ -5389,7 +5676,7 @@ pub const qstringlistmodel = struct {
     ///
     /// ` self: QtC.QStringListModel `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStringListModel_Delete(@ptrCast(self));
     }
 };

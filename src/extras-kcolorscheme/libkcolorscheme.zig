@@ -287,6 +287,10 @@ pub const kcolorscheme = struct {
         qtc.KColorScheme_AdjustForeground4(@ptrCast(param1), @bitCast(newRole), @bitCast(color), @bitCast(set));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#dtor.KColorScheme)
     ///
     /// Delete this object from C++ memory.
@@ -295,7 +299,7 @@ pub const kcolorscheme = struct {
     ///
     /// ` self: QtC.KColorScheme `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KColorScheme_Delete(@ptrCast(self));
     }
 };

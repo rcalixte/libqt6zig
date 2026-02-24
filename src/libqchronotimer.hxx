@@ -330,23 +330,23 @@ class VirtualQChronoTimer final : public QChronoTimer {
 
     // Friend functions
     friend void QChronoTimer_TimerEvent(QChronoTimer* self, QTimerEvent* param1);
-    friend void QChronoTimer_QBaseTimerEvent(QChronoTimer* self, QTimerEvent* param1);
+    friend void QChronoTimer_SuperTimerEvent(QChronoTimer* self, QTimerEvent* param1);
     friend void QChronoTimer_ChildEvent(QChronoTimer* self, QChildEvent* event);
-    friend void QChronoTimer_QBaseChildEvent(QChronoTimer* self, QChildEvent* event);
+    friend void QChronoTimer_SuperChildEvent(QChronoTimer* self, QChildEvent* event);
     friend void QChronoTimer_CustomEvent(QChronoTimer* self, QEvent* event);
-    friend void QChronoTimer_QBaseCustomEvent(QChronoTimer* self, QEvent* event);
+    friend void QChronoTimer_SuperCustomEvent(QChronoTimer* self, QEvent* event);
     friend void QChronoTimer_ConnectNotify(QChronoTimer* self, const QMetaMethod* signal);
-    friend void QChronoTimer_QBaseConnectNotify(QChronoTimer* self, const QMetaMethod* signal);
+    friend void QChronoTimer_SuperConnectNotify(QChronoTimer* self, const QMetaMethod* signal);
     friend void QChronoTimer_DisconnectNotify(QChronoTimer* self, const QMetaMethod* signal);
-    friend void QChronoTimer_QBaseDisconnectNotify(QChronoTimer* self, const QMetaMethod* signal);
+    friend void QChronoTimer_SuperDisconnectNotify(QChronoTimer* self, const QMetaMethod* signal);
     friend QObject* QChronoTimer_Sender(const QChronoTimer* self);
-    friend QObject* QChronoTimer_QBaseSender(const QChronoTimer* self);
+    friend QObject* QChronoTimer_SuperSender(const QChronoTimer* self);
     friend int QChronoTimer_SenderSignalIndex(const QChronoTimer* self);
-    friend int QChronoTimer_QBaseSenderSignalIndex(const QChronoTimer* self);
+    friend int QChronoTimer_SuperSenderSignalIndex(const QChronoTimer* self);
     friend int QChronoTimer_Receivers(const QChronoTimer* self, const char* signal);
-    friend int QChronoTimer_QBaseReceivers(const QChronoTimer* self, const char* signal);
+    friend int QChronoTimer_SuperReceivers(const QChronoTimer* self, const char* signal);
     friend bool QChronoTimer_IsSignalConnected(const QChronoTimer* self, const QMetaMethod* signal);
-    friend bool QChronoTimer_QBaseIsSignalConnected(const QChronoTimer* self, const QMetaMethod* signal);
+    friend bool QChronoTimer_SuperIsSignalConnected(const QChronoTimer* self, const QMetaMethod* signal);
 };
 
 #endif

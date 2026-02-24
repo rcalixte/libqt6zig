@@ -70,7 +70,7 @@ QTest__QTouchEventWidgetSequence* QTest__QTouchEventWidgetSequence_Release3(QTes
 }
 
 // Base class handler implementation
-QTest__QTouchEventWidgetSequence* QTest__QTouchEventWidgetSequence_QBaseStationary(QTest__QTouchEventWidgetSequence* self, int touchId) {
+QTest__QTouchEventWidgetSequence* QTest__QTouchEventWidgetSequence_SuperStationary(QTest__QTouchEventWidgetSequence* self, int touchId) {
     auto* vqtestqtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
     if (vqtestqtoucheventwidgetsequence && vqtestqtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
         vqtestqtoucheventwidgetsequence->setQTest__QTouchEventWidgetSequence_Stationary_IsBase(true);
@@ -89,7 +89,7 @@ void QTest__QTouchEventWidgetSequence_OnStationary(QTest__QTouchEventWidgetSeque
 }
 
 // Base class handler implementation
-bool QTest__QTouchEventWidgetSequence_QBaseCommit(QTest__QTouchEventWidgetSequence* self, bool processEvents) {
+bool QTest__QTouchEventWidgetSequence_SuperCommit(QTest__QTouchEventWidgetSequence* self, bool processEvents) {
     auto* vqtestqtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
     if (vqtestqtoucheventwidgetsequence && vqtestqtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
         vqtestqtoucheventwidgetsequence->setQTest__QTouchEventWidgetSequence_Commit_IsBase(true);
@@ -117,7 +117,7 @@ QEventPoint* QTest__QTouchEventWidgetSequence_Point(QTest__QTouchEventWidgetSequ
 }
 
 // Base class handler implementation
-QEventPoint* QTest__QTouchEventWidgetSequence_QBasePoint(QTest__QTouchEventWidgetSequence* self, int touchId) {
+QEventPoint* QTest__QTouchEventWidgetSequence_SuperPoint(QTest__QTouchEventWidgetSequence* self, int touchId) {
     auto* vqtestqtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
     if (vqtestqtoucheventwidgetsequence && vqtestqtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
         vqtestqtoucheventwidgetsequence->setQTest__QTouchEventWidgetSequence_Point_IsBase(true);
@@ -144,7 +144,7 @@ QEventPoint* QTest__QTouchEventWidgetSequence_PointOrPreviousPoint(QTest__QTouch
 }
 
 // Base class handler implementation
-QEventPoint* QTest__QTouchEventWidgetSequence_QBasePointOrPreviousPoint(QTest__QTouchEventWidgetSequence* self, int touchId) {
+QEventPoint* QTest__QTouchEventWidgetSequence_SuperPointOrPreviousPoint(QTest__QTouchEventWidgetSequence* self, int touchId) {
     auto* vqtestqtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
     if (vqtestqtoucheventwidgetsequence && vqtestqtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
         vqtestqtoucheventwidgetsequence->setQTest__QTouchEventWidgetSequence_PointOrPreviousPoint_IsBase(true);

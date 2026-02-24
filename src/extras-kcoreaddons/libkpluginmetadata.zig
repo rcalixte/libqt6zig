@@ -701,6 +701,10 @@ pub const kpluginmetadata = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kpluginmetadata.html#dtor.KPluginMetaData)
     ///
     /// Delete this object from C++ memory.
@@ -709,7 +713,7 @@ pub const kpluginmetadata = struct {
     ///
     /// ` self: QtC.KPluginMetaData `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KPluginMetaData_Delete(@ptrCast(self));
     }
 };

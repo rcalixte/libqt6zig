@@ -136,7 +136,7 @@ long long KCompressionDevice_WriteData(KCompressionDevice* self, const char* dat
 }
 
 // Base class handler implementation
-QMetaObject* KCompressionDevice_QBaseMetaObject(const KCompressionDevice* self) {
+QMetaObject* KCompressionDevice_SuperMetaObject(const KCompressionDevice* self) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_MetaObject_IsBase(true);
@@ -155,7 +155,7 @@ void KCompressionDevice_OnMetaObject(const KCompressionDevice* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* KCompressionDevice_QBaseMetacast(KCompressionDevice* self, const char* param1) {
+void* KCompressionDevice_SuperMetacast(KCompressionDevice* self, const char* param1) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_Metacast_IsBase(true);
@@ -174,7 +174,7 @@ void KCompressionDevice_OnMetacast(KCompressionDevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KCompressionDevice_QBaseMetacall(KCompressionDevice* self, int param1, int param2, void** param3) {
+int KCompressionDevice_SuperMetacall(KCompressionDevice* self, int param1, int param2, void** param3) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_Metacall_IsBase(true);
@@ -193,7 +193,7 @@ void KCompressionDevice_OnMetacall(KCompressionDevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KCompressionDevice_QBaseOpen(KCompressionDevice* self, int mode) {
+bool KCompressionDevice_SuperOpen(KCompressionDevice* self, int mode) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_Open_IsBase(true);
@@ -212,7 +212,7 @@ void KCompressionDevice_OnOpen(KCompressionDevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCompressionDevice_QBaseClose(KCompressionDevice* self) {
+void KCompressionDevice_SuperClose(KCompressionDevice* self) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_Close_IsBase(true);
@@ -231,7 +231,7 @@ void KCompressionDevice_OnClose(KCompressionDevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KCompressionDevice_QBaseSeek(KCompressionDevice* self, long long param1) {
+bool KCompressionDevice_SuperSeek(KCompressionDevice* self, long long param1) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_Seek_IsBase(true);
@@ -250,7 +250,7 @@ void KCompressionDevice_OnSeek(KCompressionDevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KCompressionDevice_QBaseAtEnd(const KCompressionDevice* self) {
+bool KCompressionDevice_SuperAtEnd(const KCompressionDevice* self) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_AtEnd_IsBase(true);
@@ -269,7 +269,7 @@ void KCompressionDevice_OnAtEnd(const KCompressionDevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long KCompressionDevice_QBaseReadData(KCompressionDevice* self, char* data, long long maxlen) {
+long long KCompressionDevice_SuperReadData(KCompressionDevice* self, char* data, long long maxlen) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_ReadData_IsBase(true);
@@ -288,7 +288,7 @@ void KCompressionDevice_OnReadData(KCompressionDevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long KCompressionDevice_QBaseWriteData(KCompressionDevice* self, const char* data, long long lenVal) {
+long long KCompressionDevice_SuperWriteData(KCompressionDevice* self, const char* data, long long lenVal) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_WriteData_IsBase(true);
@@ -317,7 +317,7 @@ bool KCompressionDevice_IsSequential(const KCompressionDevice* self) {
 }
 
 // Base class handler implementation
-bool KCompressionDevice_QBaseIsSequential(const KCompressionDevice* self) {
+bool KCompressionDevice_SuperIsSequential(const KCompressionDevice* self) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_IsSequential_IsBase(true);
@@ -346,7 +346,7 @@ long long KCompressionDevice_Pos(const KCompressionDevice* self) {
 }
 
 // Base class handler implementation
-long long KCompressionDevice_QBasePos(const KCompressionDevice* self) {
+long long KCompressionDevice_SuperPos(const KCompressionDevice* self) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_Pos_IsBase(true);
@@ -375,7 +375,7 @@ long long KCompressionDevice_Size(const KCompressionDevice* self) {
 }
 
 // Base class handler implementation
-long long KCompressionDevice_QBaseSize(const KCompressionDevice* self) {
+long long KCompressionDevice_SuperSize(const KCompressionDevice* self) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_Size_IsBase(true);
@@ -404,7 +404,7 @@ bool KCompressionDevice_Reset(KCompressionDevice* self) {
 }
 
 // Base class handler implementation
-bool KCompressionDevice_QBaseReset(KCompressionDevice* self) {
+bool KCompressionDevice_SuperReset(KCompressionDevice* self) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_Reset_IsBase(true);
@@ -433,7 +433,7 @@ long long KCompressionDevice_BytesAvailable(const KCompressionDevice* self) {
 }
 
 // Base class handler implementation
-long long KCompressionDevice_QBaseBytesAvailable(const KCompressionDevice* self) {
+long long KCompressionDevice_SuperBytesAvailable(const KCompressionDevice* self) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_BytesAvailable_IsBase(true);
@@ -462,7 +462,7 @@ long long KCompressionDevice_BytesToWrite(const KCompressionDevice* self) {
 }
 
 // Base class handler implementation
-long long KCompressionDevice_QBaseBytesToWrite(const KCompressionDevice* self) {
+long long KCompressionDevice_SuperBytesToWrite(const KCompressionDevice* self) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_BytesToWrite_IsBase(true);
@@ -491,7 +491,7 @@ bool KCompressionDevice_CanReadLine(const KCompressionDevice* self) {
 }
 
 // Base class handler implementation
-bool KCompressionDevice_QBaseCanReadLine(const KCompressionDevice* self) {
+bool KCompressionDevice_SuperCanReadLine(const KCompressionDevice* self) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_CanReadLine_IsBase(true);
@@ -520,7 +520,7 @@ bool KCompressionDevice_WaitForReadyRead(KCompressionDevice* self, int msecs) {
 }
 
 // Base class handler implementation
-bool KCompressionDevice_QBaseWaitForReadyRead(KCompressionDevice* self, int msecs) {
+bool KCompressionDevice_SuperWaitForReadyRead(KCompressionDevice* self, int msecs) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_WaitForReadyRead_IsBase(true);
@@ -549,7 +549,7 @@ bool KCompressionDevice_WaitForBytesWritten(KCompressionDevice* self, int msecs)
 }
 
 // Base class handler implementation
-bool KCompressionDevice_QBaseWaitForBytesWritten(KCompressionDevice* self, int msecs) {
+bool KCompressionDevice_SuperWaitForBytesWritten(KCompressionDevice* self, int msecs) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_WaitForBytesWritten_IsBase(true);
@@ -578,7 +578,7 @@ long long KCompressionDevice_ReadLineData(KCompressionDevice* self, char* data, 
 }
 
 // Base class handler implementation
-long long KCompressionDevice_QBaseReadLineData(KCompressionDevice* self, char* data, long long maxlen) {
+long long KCompressionDevice_SuperReadLineData(KCompressionDevice* self, char* data, long long maxlen) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_ReadLineData_IsBase(true);
@@ -607,7 +607,7 @@ long long KCompressionDevice_SkipData(KCompressionDevice* self, long long maxSiz
 }
 
 // Base class handler implementation
-long long KCompressionDevice_QBaseSkipData(KCompressionDevice* self, long long maxSize) {
+long long KCompressionDevice_SuperSkipData(KCompressionDevice* self, long long maxSize) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_SkipData_IsBase(true);
@@ -636,7 +636,7 @@ bool KCompressionDevice_Event(KCompressionDevice* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KCompressionDevice_QBaseEvent(KCompressionDevice* self, QEvent* event) {
+bool KCompressionDevice_SuperEvent(KCompressionDevice* self, QEvent* event) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_Event_IsBase(true);
@@ -665,7 +665,7 @@ bool KCompressionDevice_EventFilter(KCompressionDevice* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool KCompressionDevice_QBaseEventFilter(KCompressionDevice* self, QObject* watched, QEvent* event) {
+bool KCompressionDevice_SuperEventFilter(KCompressionDevice* self, QObject* watched, QEvent* event) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_EventFilter_IsBase(true);
@@ -694,7 +694,7 @@ void KCompressionDevice_TimerEvent(KCompressionDevice* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void KCompressionDevice_QBaseTimerEvent(KCompressionDevice* self, QTimerEvent* event) {
+void KCompressionDevice_SuperTimerEvent(KCompressionDevice* self, QTimerEvent* event) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_TimerEvent_IsBase(true);
@@ -723,7 +723,7 @@ void KCompressionDevice_ChildEvent(KCompressionDevice* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void KCompressionDevice_QBaseChildEvent(KCompressionDevice* self, QChildEvent* event) {
+void KCompressionDevice_SuperChildEvent(KCompressionDevice* self, QChildEvent* event) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_ChildEvent_IsBase(true);
@@ -752,7 +752,7 @@ void KCompressionDevice_CustomEvent(KCompressionDevice* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KCompressionDevice_QBaseCustomEvent(KCompressionDevice* self, QEvent* event) {
+void KCompressionDevice_SuperCustomEvent(KCompressionDevice* self, QEvent* event) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_CustomEvent_IsBase(true);
@@ -781,7 +781,7 @@ void KCompressionDevice_ConnectNotify(KCompressionDevice* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void KCompressionDevice_QBaseConnectNotify(KCompressionDevice* self, const QMetaMethod* signal) {
+void KCompressionDevice_SuperConnectNotify(KCompressionDevice* self, const QMetaMethod* signal) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_ConnectNotify_IsBase(true);
@@ -810,7 +810,7 @@ void KCompressionDevice_DisconnectNotify(KCompressionDevice* self, const QMetaMe
 }
 
 // Base class handler implementation
-void KCompressionDevice_QBaseDisconnectNotify(KCompressionDevice* self, const QMetaMethod* signal) {
+void KCompressionDevice_SuperDisconnectNotify(KCompressionDevice* self, const QMetaMethod* signal) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_DisconnectNotify_IsBase(true);
@@ -839,7 +839,7 @@ KFilterBase* KCompressionDevice_FilterBase(KCompressionDevice* self) {
 }
 
 // Base class handler implementation
-KFilterBase* KCompressionDevice_QBaseFilterBase(KCompressionDevice* self) {
+KFilterBase* KCompressionDevice_SuperFilterBase(KCompressionDevice* self) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_FilterBase_IsBase(true);
@@ -868,7 +868,7 @@ void KCompressionDevice_SetOpenMode(KCompressionDevice* self, int openMode) {
 }
 
 // Base class handler implementation
-void KCompressionDevice_QBaseSetOpenMode(KCompressionDevice* self, int openMode) {
+void KCompressionDevice_SuperSetOpenMode(KCompressionDevice* self, int openMode) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_SetOpenMode_IsBase(true);
@@ -898,7 +898,7 @@ void KCompressionDevice_SetErrorString(KCompressionDevice* self, const libqt_str
 }
 
 // Base class handler implementation
-void KCompressionDevice_QBaseSetErrorString(KCompressionDevice* self, const libqt_string errorString) {
+void KCompressionDevice_SuperSetErrorString(KCompressionDevice* self, const libqt_string errorString) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
@@ -928,7 +928,7 @@ QObject* KCompressionDevice_Sender(const KCompressionDevice* self) {
 }
 
 // Base class handler implementation
-QObject* KCompressionDevice_QBaseSender(const KCompressionDevice* self) {
+QObject* KCompressionDevice_SuperSender(const KCompressionDevice* self) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_Sender_IsBase(true);
@@ -957,7 +957,7 @@ int KCompressionDevice_SenderSignalIndex(const KCompressionDevice* self) {
 }
 
 // Base class handler implementation
-int KCompressionDevice_QBaseSenderSignalIndex(const KCompressionDevice* self) {
+int KCompressionDevice_SuperSenderSignalIndex(const KCompressionDevice* self) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_SenderSignalIndex_IsBase(true);
@@ -986,7 +986,7 @@ int KCompressionDevice_Receivers(const KCompressionDevice* self, const char* sig
 }
 
 // Base class handler implementation
-int KCompressionDevice_QBaseReceivers(const KCompressionDevice* self, const char* signal) {
+int KCompressionDevice_SuperReceivers(const KCompressionDevice* self, const char* signal) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_Receivers_IsBase(true);
@@ -1015,7 +1015,7 @@ bool KCompressionDevice_IsSignalConnected(const KCompressionDevice* self, const 
 }
 
 // Base class handler implementation
-bool KCompressionDevice_QBaseIsSignalConnected(const KCompressionDevice* self, const QMetaMethod* signal) {
+bool KCompressionDevice_SuperIsSignalConnected(const KCompressionDevice* self, const QMetaMethod* signal) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_IsSignalConnected_IsBase(true);

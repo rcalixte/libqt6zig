@@ -309,17 +309,17 @@ class VirtualKConfig final : public KConfig {
 
     // Friend functions
     friend bool KConfig_HasGroupImpl(const KConfig* self, const libqt_string groupName);
-    friend bool KConfig_QBaseHasGroupImpl(const KConfig* self, const libqt_string groupName);
+    friend bool KConfig_SuperHasGroupImpl(const KConfig* self, const libqt_string groupName);
     friend KConfigGroup* KConfig_GroupImpl(KConfig* self, const libqt_string groupName);
-    friend KConfigGroup* KConfig_QBaseGroupImpl(KConfig* self, const libqt_string groupName);
+    friend KConfigGroup* KConfig_SuperGroupImpl(KConfig* self, const libqt_string groupName);
     friend KConfigGroup* KConfig_GroupImpl2(const KConfig* self, const libqt_string groupName);
-    friend KConfigGroup* KConfig_QBaseGroupImpl2(const KConfig* self, const libqt_string groupName);
+    friend KConfigGroup* KConfig_SuperGroupImpl2(const KConfig* self, const libqt_string groupName);
     friend void KConfig_DeleteGroupImpl(KConfig* self, const libqt_string groupName, int flags);
-    friend void KConfig_QBaseDeleteGroupImpl(KConfig* self, const libqt_string groupName, int flags);
+    friend void KConfig_SuperDeleteGroupImpl(KConfig* self, const libqt_string groupName, int flags);
     friend bool KConfig_IsGroupImmutableImpl(const KConfig* self, const libqt_string groupName);
-    friend bool KConfig_QBaseIsGroupImmutableImpl(const KConfig* self, const libqt_string groupName);
+    friend bool KConfig_SuperIsGroupImmutableImpl(const KConfig* self, const libqt_string groupName);
     friend void KConfig_VirtualHook(KConfig* self, int id, void* data);
-    friend void KConfig_QBaseVirtualHook(KConfig* self, int id, void* data);
+    friend void KConfig_SuperVirtualHook(KConfig* self, int id, void* data);
 };
 
 #endif

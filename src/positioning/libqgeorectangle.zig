@@ -406,6 +406,10 @@ pub const qgeorectangle = struct {
         return qtc.QGeoShape_BoundingGeoRectangle(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#dtor.QGeoRectangle)
     ///
     /// Delete this object from C++ memory.
@@ -414,7 +418,7 @@ pub const qgeorectangle = struct {
     ///
     /// ` self: QtC.QGeoRectangle `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGeoRectangle_Delete(@ptrCast(self));
     }
 };

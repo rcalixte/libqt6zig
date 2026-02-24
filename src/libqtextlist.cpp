@@ -94,7 +94,7 @@ QTextListFormat* QTextList_Format(const QTextList* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QTextList_QBaseMetaObject(const QTextList* self) {
+QMetaObject* QTextList_SuperMetaObject(const QTextList* self) {
     auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
     if (vqtextlist && vqtextlist->isVirtualQTextList) {
         vqtextlist->setQTextList_MetaObject_IsBase(true);
@@ -113,7 +113,7 @@ void QTextList_OnMetaObject(const QTextList* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QTextList_QBaseMetacast(QTextList* self, const char* param1) {
+void* QTextList_SuperMetacast(QTextList* self, const char* param1) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
     if (vqtextlist && vqtextlist->isVirtualQTextList) {
         vqtextlist->setQTextList_Metacast_IsBase(true);
@@ -132,7 +132,7 @@ void QTextList_OnMetacast(QTextList* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTextList_QBaseMetacall(QTextList* self, int param1, int param2, void** param3) {
+int QTextList_SuperMetacall(QTextList* self, int param1, int param2, void** param3) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
     if (vqtextlist && vqtextlist->isVirtualQTextList) {
         vqtextlist->setQTextList_Metacall_IsBase(true);
@@ -161,7 +161,7 @@ void QTextList_BlockInserted(QTextList* self, const QTextBlock* block) {
 }
 
 // Base class handler implementation
-void QTextList_QBaseBlockInserted(QTextList* self, const QTextBlock* block) {
+void QTextList_SuperBlockInserted(QTextList* self, const QTextBlock* block) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
     if (vqtextlist && vqtextlist->isVirtualQTextList) {
         vqtextlist->setQTextList_BlockInserted_IsBase(true);
@@ -190,7 +190,7 @@ void QTextList_BlockRemoved(QTextList* self, const QTextBlock* block) {
 }
 
 // Base class handler implementation
-void QTextList_QBaseBlockRemoved(QTextList* self, const QTextBlock* block) {
+void QTextList_SuperBlockRemoved(QTextList* self, const QTextBlock* block) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
     if (vqtextlist && vqtextlist->isVirtualQTextList) {
         vqtextlist->setQTextList_BlockRemoved_IsBase(true);
@@ -219,7 +219,7 @@ void QTextList_BlockFormatChanged(QTextList* self, const QTextBlock* block) {
 }
 
 // Base class handler implementation
-void QTextList_QBaseBlockFormatChanged(QTextList* self, const QTextBlock* block) {
+void QTextList_SuperBlockFormatChanged(QTextList* self, const QTextBlock* block) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
     if (vqtextlist && vqtextlist->isVirtualQTextList) {
         vqtextlist->setQTextList_BlockFormatChanged_IsBase(true);
@@ -248,7 +248,7 @@ bool QTextList_Event(QTextList* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTextList_QBaseEvent(QTextList* self, QEvent* event) {
+bool QTextList_SuperEvent(QTextList* self, QEvent* event) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
     if (vqtextlist && vqtextlist->isVirtualQTextList) {
         vqtextlist->setQTextList_Event_IsBase(true);
@@ -277,7 +277,7 @@ bool QTextList_EventFilter(QTextList* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTextList_QBaseEventFilter(QTextList* self, QObject* watched, QEvent* event) {
+bool QTextList_SuperEventFilter(QTextList* self, QObject* watched, QEvent* event) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
     if (vqtextlist && vqtextlist->isVirtualQTextList) {
         vqtextlist->setQTextList_EventFilter_IsBase(true);
@@ -306,7 +306,7 @@ void QTextList_TimerEvent(QTextList* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QTextList_QBaseTimerEvent(QTextList* self, QTimerEvent* event) {
+void QTextList_SuperTimerEvent(QTextList* self, QTimerEvent* event) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
     if (vqtextlist && vqtextlist->isVirtualQTextList) {
         vqtextlist->setQTextList_TimerEvent_IsBase(true);
@@ -335,7 +335,7 @@ void QTextList_ChildEvent(QTextList* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QTextList_QBaseChildEvent(QTextList* self, QChildEvent* event) {
+void QTextList_SuperChildEvent(QTextList* self, QChildEvent* event) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
     if (vqtextlist && vqtextlist->isVirtualQTextList) {
         vqtextlist->setQTextList_ChildEvent_IsBase(true);
@@ -364,7 +364,7 @@ void QTextList_CustomEvent(QTextList* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTextList_QBaseCustomEvent(QTextList* self, QEvent* event) {
+void QTextList_SuperCustomEvent(QTextList* self, QEvent* event) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
     if (vqtextlist && vqtextlist->isVirtualQTextList) {
         vqtextlist->setQTextList_CustomEvent_IsBase(true);
@@ -393,7 +393,7 @@ void QTextList_ConnectNotify(QTextList* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTextList_QBaseConnectNotify(QTextList* self, const QMetaMethod* signal) {
+void QTextList_SuperConnectNotify(QTextList* self, const QMetaMethod* signal) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
     if (vqtextlist && vqtextlist->isVirtualQTextList) {
         vqtextlist->setQTextList_ConnectNotify_IsBase(true);
@@ -422,7 +422,7 @@ void QTextList_DisconnectNotify(QTextList* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTextList_QBaseDisconnectNotify(QTextList* self, const QMetaMethod* signal) {
+void QTextList_SuperDisconnectNotify(QTextList* self, const QMetaMethod* signal) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
     if (vqtextlist && vqtextlist->isVirtualQTextList) {
         vqtextlist->setQTextList_DisconnectNotify_IsBase(true);
@@ -469,7 +469,7 @@ libqt_list /* of QTextBlock* */ QTextList_BlockList(const QTextList* self) {
 }
 
 // Base class handler implementation
-libqt_list /* of QTextBlock* */ QTextList_QBaseBlockList(const QTextList* self) {
+libqt_list /* of QTextBlock* */ QTextList_SuperBlockList(const QTextList* self) {
     auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
     if (vqtextlist && vqtextlist->isVirtualQTextList) {
         vqtextlist->setQTextList_BlockList_IsBase(true);
@@ -516,7 +516,7 @@ QObject* QTextList_Sender(const QTextList* self) {
 }
 
 // Base class handler implementation
-QObject* QTextList_QBaseSender(const QTextList* self) {
+QObject* QTextList_SuperSender(const QTextList* self) {
     auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
     if (vqtextlist && vqtextlist->isVirtualQTextList) {
         vqtextlist->setQTextList_Sender_IsBase(true);
@@ -545,7 +545,7 @@ int QTextList_SenderSignalIndex(const QTextList* self) {
 }
 
 // Base class handler implementation
-int QTextList_QBaseSenderSignalIndex(const QTextList* self) {
+int QTextList_SuperSenderSignalIndex(const QTextList* self) {
     auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
     if (vqtextlist && vqtextlist->isVirtualQTextList) {
         vqtextlist->setQTextList_SenderSignalIndex_IsBase(true);
@@ -574,7 +574,7 @@ int QTextList_Receivers(const QTextList* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QTextList_QBaseReceivers(const QTextList* self, const char* signal) {
+int QTextList_SuperReceivers(const QTextList* self, const char* signal) {
     auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
     if (vqtextlist && vqtextlist->isVirtualQTextList) {
         vqtextlist->setQTextList_Receivers_IsBase(true);
@@ -603,7 +603,7 @@ bool QTextList_IsSignalConnected(const QTextList* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool QTextList_QBaseIsSignalConnected(const QTextList* self, const QMetaMethod* signal) {
+bool QTextList_SuperIsSignalConnected(const QTextList* self, const QMetaMethod* signal) {
     auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
     if (vqtextlist && vqtextlist->isVirtualQTextList) {
         vqtextlist->setQTextList_IsSignalConnected_IsBase(true);

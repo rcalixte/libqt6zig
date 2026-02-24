@@ -1934,7 +1934,7 @@ void QsciScintilla_SetWrapVisualFlags3(QsciScintilla* self, int endFlag, int sta
 }
 
 // Base class handler implementation
-QMetaObject* QsciScintilla_QBaseMetaObject(const QsciScintilla* self) {
+QMetaObject* QsciScintilla_SuperMetaObject(const QsciScintilla* self) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_MetaObject_IsBase(true);
@@ -1953,7 +1953,7 @@ void QsciScintilla_OnMetaObject(const QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QsciScintilla_QBaseMetacast(QsciScintilla* self, const char* param1) {
+void* QsciScintilla_SuperMetacast(QsciScintilla* self, const char* param1) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_Metacast_IsBase(true);
@@ -1972,7 +1972,7 @@ void QsciScintilla_OnMetacast(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QsciScintilla_QBaseMetacall(QsciScintilla* self, int param1, int param2, void** param3) {
+int QsciScintilla_SuperMetacall(QsciScintilla* self, int param1, int param2, void** param3) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_Metacall_IsBase(true);
@@ -1991,7 +1991,7 @@ void QsciScintilla_OnMetacall(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QsciScintilla_QBaseApiContext(QsciScintilla* self, int pos, int* context_start, int* last_word_start) {
+libqt_list /* of libqt_string */ QsciScintilla_SuperApiContext(QsciScintilla* self, int pos, int* context_start, int* last_word_start) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_ApiContext_IsBase(true);
@@ -2044,7 +2044,7 @@ void QsciScintilla_OnApiContext(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QsciScintilla_QBaseFindFirst(QsciScintilla* self, const libqt_string expr, bool re, bool cs, bool wo, bool wrap, bool forward, int line, int index, bool show, bool posix, bool cxx11) {
+bool QsciScintilla_SuperFindFirst(QsciScintilla* self, const libqt_string expr, bool re, bool cs, bool wo, bool wrap, bool forward, int line, int index, bool show, bool posix, bool cxx11) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     QString expr_QString = QString::fromUtf8(expr.data, expr.len);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
@@ -2064,7 +2064,7 @@ void QsciScintilla_OnFindFirst(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QsciScintilla_QBaseFindFirstInSelection(QsciScintilla* self, const libqt_string expr, bool re, bool cs, bool wo, bool forward, bool show, bool posix, bool cxx11) {
+bool QsciScintilla_SuperFindFirstInSelection(QsciScintilla* self, const libqt_string expr, bool re, bool cs, bool wo, bool forward, bool show, bool posix, bool cxx11) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     QString expr_QString = QString::fromUtf8(expr.data, expr.len);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
@@ -2084,7 +2084,7 @@ void QsciScintilla_OnFindFirstInSelection(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QsciScintilla_QBaseFindNext(QsciScintilla* self) {
+bool QsciScintilla_SuperFindNext(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_FindNext_IsBase(true);
@@ -2103,7 +2103,7 @@ void QsciScintilla_OnFindNext(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseRecolor(QsciScintilla* self, int start, int end) {
+void QsciScintilla_SuperRecolor(QsciScintilla* self, int start, int end) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_Recolor_IsBase(true);
@@ -2122,7 +2122,7 @@ void QsciScintilla_OnRecolor(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseReplace(QsciScintilla* self, const libqt_string replaceStr) {
+void QsciScintilla_SuperReplace(QsciScintilla* self, const libqt_string replaceStr) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     QString replaceStr_QString = QString::fromUtf8(replaceStr.data, replaceStr.len);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
@@ -2142,7 +2142,7 @@ void QsciScintilla_OnReplace(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseAppend(QsciScintilla* self, const libqt_string text) {
+void QsciScintilla_SuperAppend(QsciScintilla* self, const libqt_string text) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
@@ -2162,7 +2162,7 @@ void QsciScintilla_OnAppend(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseAutoCompleteFromAll(QsciScintilla* self) {
+void QsciScintilla_SuperAutoCompleteFromAll(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_AutoCompleteFromAll_IsBase(true);
@@ -2181,7 +2181,7 @@ void QsciScintilla_OnAutoCompleteFromAll(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseAutoCompleteFromAPIs(QsciScintilla* self) {
+void QsciScintilla_SuperAutoCompleteFromAPIs(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_AutoCompleteFromAPIs_IsBase(true);
@@ -2200,7 +2200,7 @@ void QsciScintilla_OnAutoCompleteFromAPIs(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseAutoCompleteFromDocument(QsciScintilla* self) {
+void QsciScintilla_SuperAutoCompleteFromDocument(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_AutoCompleteFromDocument_IsBase(true);
@@ -2219,7 +2219,7 @@ void QsciScintilla_OnAutoCompleteFromDocument(QsciScintilla* self, intptr_t slot
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseCallTip(QsciScintilla* self) {
+void QsciScintilla_SuperCallTip(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_CallTip_IsBase(true);
@@ -2238,7 +2238,7 @@ void QsciScintilla_OnCallTip(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseClear(QsciScintilla* self) {
+void QsciScintilla_SuperClear(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_Clear_IsBase(true);
@@ -2257,7 +2257,7 @@ void QsciScintilla_OnClear(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseCopy(QsciScintilla* self) {
+void QsciScintilla_SuperCopy(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_Copy_IsBase(true);
@@ -2276,7 +2276,7 @@ void QsciScintilla_OnCopy(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseCut(QsciScintilla* self) {
+void QsciScintilla_SuperCut(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_Cut_IsBase(true);
@@ -2295,7 +2295,7 @@ void QsciScintilla_OnCut(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseEnsureCursorVisible(QsciScintilla* self) {
+void QsciScintilla_SuperEnsureCursorVisible(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_EnsureCursorVisible_IsBase(true);
@@ -2314,7 +2314,7 @@ void QsciScintilla_OnEnsureCursorVisible(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseEnsureLineVisible(QsciScintilla* self, int line) {
+void QsciScintilla_SuperEnsureLineVisible(QsciScintilla* self, int line) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_EnsureLineVisible_IsBase(true);
@@ -2333,7 +2333,7 @@ void QsciScintilla_OnEnsureLineVisible(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseFoldAll(QsciScintilla* self, bool children) {
+void QsciScintilla_SuperFoldAll(QsciScintilla* self, bool children) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_FoldAll_IsBase(true);
@@ -2352,7 +2352,7 @@ void QsciScintilla_OnFoldAll(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseFoldLine(QsciScintilla* self, int line) {
+void QsciScintilla_SuperFoldLine(QsciScintilla* self, int line) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_FoldLine_IsBase(true);
@@ -2371,7 +2371,7 @@ void QsciScintilla_OnFoldLine(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseIndent(QsciScintilla* self, int line) {
+void QsciScintilla_SuperIndent(QsciScintilla* self, int line) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_Indent_IsBase(true);
@@ -2390,7 +2390,7 @@ void QsciScintilla_OnIndent(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseInsert(QsciScintilla* self, const libqt_string text) {
+void QsciScintilla_SuperInsert(QsciScintilla* self, const libqt_string text) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
@@ -2410,7 +2410,7 @@ void QsciScintilla_OnInsert(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseInsertAt(QsciScintilla* self, const libqt_string text, int line, int index) {
+void QsciScintilla_SuperInsertAt(QsciScintilla* self, const libqt_string text, int line, int index) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
@@ -2430,7 +2430,7 @@ void QsciScintilla_OnInsertAt(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseMoveToMatchingBrace(QsciScintilla* self) {
+void QsciScintilla_SuperMoveToMatchingBrace(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_MoveToMatchingBrace_IsBase(true);
@@ -2449,7 +2449,7 @@ void QsciScintilla_OnMoveToMatchingBrace(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBasePaste(QsciScintilla* self) {
+void QsciScintilla_SuperPaste(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_Paste_IsBase(true);
@@ -2468,7 +2468,7 @@ void QsciScintilla_OnPaste(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseRedo(QsciScintilla* self) {
+void QsciScintilla_SuperRedo(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_Redo_IsBase(true);
@@ -2487,7 +2487,7 @@ void QsciScintilla_OnRedo(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseRemoveSelectedText(QsciScintilla* self) {
+void QsciScintilla_SuperRemoveSelectedText(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_RemoveSelectedText_IsBase(true);
@@ -2506,7 +2506,7 @@ void QsciScintilla_OnRemoveSelectedText(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseReplaceSelectedText(QsciScintilla* self, const libqt_string text) {
+void QsciScintilla_SuperReplaceSelectedText(QsciScintilla* self, const libqt_string text) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
@@ -2526,7 +2526,7 @@ void QsciScintilla_OnReplaceSelectedText(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseResetSelectionBackgroundColor(QsciScintilla* self) {
+void QsciScintilla_SuperResetSelectionBackgroundColor(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_ResetSelectionBackgroundColor_IsBase(true);
@@ -2545,7 +2545,7 @@ void QsciScintilla_OnResetSelectionBackgroundColor(QsciScintilla* self, intptr_t
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseResetSelectionForegroundColor(QsciScintilla* self) {
+void QsciScintilla_SuperResetSelectionForegroundColor(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_ResetSelectionForegroundColor_IsBase(true);
@@ -2564,7 +2564,7 @@ void QsciScintilla_OnResetSelectionForegroundColor(QsciScintilla* self, intptr_t
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSelectAll(QsciScintilla* self, bool selectVal) {
+void QsciScintilla_SuperSelectAll(QsciScintilla* self, bool selectVal) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SelectAll_IsBase(true);
@@ -2583,7 +2583,7 @@ void QsciScintilla_OnSelectAll(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSelectToMatchingBrace(QsciScintilla* self) {
+void QsciScintilla_SuperSelectToMatchingBrace(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SelectToMatchingBrace_IsBase(true);
@@ -2602,7 +2602,7 @@ void QsciScintilla_OnSelectToMatchingBrace(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetAutoCompletionCaseSensitivity(QsciScintilla* self, bool cs) {
+void QsciScintilla_SuperSetAutoCompletionCaseSensitivity(QsciScintilla* self, bool cs) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetAutoCompletionCaseSensitivity_IsBase(true);
@@ -2621,7 +2621,7 @@ void QsciScintilla_OnSetAutoCompletionCaseSensitivity(QsciScintilla* self, intpt
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetAutoCompletionReplaceWord(QsciScintilla* self, bool replace) {
+void QsciScintilla_SuperSetAutoCompletionReplaceWord(QsciScintilla* self, bool replace) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetAutoCompletionReplaceWord_IsBase(true);
@@ -2640,7 +2640,7 @@ void QsciScintilla_OnSetAutoCompletionReplaceWord(QsciScintilla* self, intptr_t 
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetAutoCompletionShowSingle(QsciScintilla* self, bool single) {
+void QsciScintilla_SuperSetAutoCompletionShowSingle(QsciScintilla* self, bool single) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetAutoCompletionShowSingle_IsBase(true);
@@ -2659,7 +2659,7 @@ void QsciScintilla_OnSetAutoCompletionShowSingle(QsciScintilla* self, intptr_t s
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetAutoCompletionSource(QsciScintilla* self, int source) {
+void QsciScintilla_SuperSetAutoCompletionSource(QsciScintilla* self, int source) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetAutoCompletionSource_IsBase(true);
@@ -2678,7 +2678,7 @@ void QsciScintilla_OnSetAutoCompletionSource(QsciScintilla* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetAutoCompletionThreshold(QsciScintilla* self, int thresh) {
+void QsciScintilla_SuperSetAutoCompletionThreshold(QsciScintilla* self, int thresh) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetAutoCompletionThreshold_IsBase(true);
@@ -2697,7 +2697,7 @@ void QsciScintilla_OnSetAutoCompletionThreshold(QsciScintilla* self, intptr_t sl
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetAutoCompletionUseSingle(QsciScintilla* self, int single) {
+void QsciScintilla_SuperSetAutoCompletionUseSingle(QsciScintilla* self, int single) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetAutoCompletionUseSingle_IsBase(true);
@@ -2716,7 +2716,7 @@ void QsciScintilla_OnSetAutoCompletionUseSingle(QsciScintilla* self, intptr_t sl
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetAutoIndent(QsciScintilla* self, bool autoindent) {
+void QsciScintilla_SuperSetAutoIndent(QsciScintilla* self, bool autoindent) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetAutoIndent_IsBase(true);
@@ -2735,7 +2735,7 @@ void QsciScintilla_OnSetAutoIndent(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetBraceMatching(QsciScintilla* self, int bm) {
+void QsciScintilla_SuperSetBraceMatching(QsciScintilla* self, int bm) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetBraceMatching_IsBase(true);
@@ -2754,7 +2754,7 @@ void QsciScintilla_OnSetBraceMatching(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetBackspaceUnindents(QsciScintilla* self, bool unindent) {
+void QsciScintilla_SuperSetBackspaceUnindents(QsciScintilla* self, bool unindent) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetBackspaceUnindents_IsBase(true);
@@ -2773,7 +2773,7 @@ void QsciScintilla_OnSetBackspaceUnindents(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetCaretForegroundColor(QsciScintilla* self, const QColor* col) {
+void QsciScintilla_SuperSetCaretForegroundColor(QsciScintilla* self, const QColor* col) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetCaretForegroundColor_IsBase(true);
@@ -2792,7 +2792,7 @@ void QsciScintilla_OnSetCaretForegroundColor(QsciScintilla* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetCaretLineBackgroundColor(QsciScintilla* self, const QColor* col) {
+void QsciScintilla_SuperSetCaretLineBackgroundColor(QsciScintilla* self, const QColor* col) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetCaretLineBackgroundColor_IsBase(true);
@@ -2811,7 +2811,7 @@ void QsciScintilla_OnSetCaretLineBackgroundColor(QsciScintilla* self, intptr_t s
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetCaretLineFrameWidth(QsciScintilla* self, int width) {
+void QsciScintilla_SuperSetCaretLineFrameWidth(QsciScintilla* self, int width) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetCaretLineFrameWidth_IsBase(true);
@@ -2830,7 +2830,7 @@ void QsciScintilla_OnSetCaretLineFrameWidth(QsciScintilla* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetCaretLineVisible(QsciScintilla* self, bool enable) {
+void QsciScintilla_SuperSetCaretLineVisible(QsciScintilla* self, bool enable) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetCaretLineVisible_IsBase(true);
@@ -2849,7 +2849,7 @@ void QsciScintilla_OnSetCaretLineVisible(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetCaretWidth(QsciScintilla* self, int width) {
+void QsciScintilla_SuperSetCaretWidth(QsciScintilla* self, int width) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetCaretWidth_IsBase(true);
@@ -2868,7 +2868,7 @@ void QsciScintilla_OnSetCaretWidth(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetColor(QsciScintilla* self, const QColor* c) {
+void QsciScintilla_SuperSetColor(QsciScintilla* self, const QColor* c) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetColor_IsBase(true);
@@ -2887,7 +2887,7 @@ void QsciScintilla_OnSetColor(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetCursorPosition(QsciScintilla* self, int line, int index) {
+void QsciScintilla_SuperSetCursorPosition(QsciScintilla* self, int line, int index) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetCursorPosition_IsBase(true);
@@ -2906,7 +2906,7 @@ void QsciScintilla_OnSetCursorPosition(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetEolMode(QsciScintilla* self, int mode) {
+void QsciScintilla_SuperSetEolMode(QsciScintilla* self, int mode) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetEolMode_IsBase(true);
@@ -2925,7 +2925,7 @@ void QsciScintilla_OnSetEolMode(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetEolVisibility(QsciScintilla* self, bool visible) {
+void QsciScintilla_SuperSetEolVisibility(QsciScintilla* self, bool visible) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetEolVisibility_IsBase(true);
@@ -2944,7 +2944,7 @@ void QsciScintilla_OnSetEolVisibility(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetFolding(QsciScintilla* self, int fold, int margin) {
+void QsciScintilla_SuperSetFolding(QsciScintilla* self, int fold, int margin) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetFolding_IsBase(true);
@@ -2963,7 +2963,7 @@ void QsciScintilla_OnSetFolding(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetIndentation(QsciScintilla* self, int line, int indentation) {
+void QsciScintilla_SuperSetIndentation(QsciScintilla* self, int line, int indentation) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetIndentation_IsBase(true);
@@ -2982,7 +2982,7 @@ void QsciScintilla_OnSetIndentation(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetIndentationGuides(QsciScintilla* self, bool enable) {
+void QsciScintilla_SuperSetIndentationGuides(QsciScintilla* self, bool enable) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetIndentationGuides_IsBase(true);
@@ -3001,7 +3001,7 @@ void QsciScintilla_OnSetIndentationGuides(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetIndentationGuidesBackgroundColor(QsciScintilla* self, const QColor* col) {
+void QsciScintilla_SuperSetIndentationGuidesBackgroundColor(QsciScintilla* self, const QColor* col) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetIndentationGuidesBackgroundColor_IsBase(true);
@@ -3020,7 +3020,7 @@ void QsciScintilla_OnSetIndentationGuidesBackgroundColor(QsciScintilla* self, in
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetIndentationGuidesForegroundColor(QsciScintilla* self, const QColor* col) {
+void QsciScintilla_SuperSetIndentationGuidesForegroundColor(QsciScintilla* self, const QColor* col) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetIndentationGuidesForegroundColor_IsBase(true);
@@ -3039,7 +3039,7 @@ void QsciScintilla_OnSetIndentationGuidesForegroundColor(QsciScintilla* self, in
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetIndentationsUseTabs(QsciScintilla* self, bool tabs) {
+void QsciScintilla_SuperSetIndentationsUseTabs(QsciScintilla* self, bool tabs) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetIndentationsUseTabs_IsBase(true);
@@ -3058,7 +3058,7 @@ void QsciScintilla_OnSetIndentationsUseTabs(QsciScintilla* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetIndentationWidth(QsciScintilla* self, int width) {
+void QsciScintilla_SuperSetIndentationWidth(QsciScintilla* self, int width) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetIndentationWidth_IsBase(true);
@@ -3077,7 +3077,7 @@ void QsciScintilla_OnSetIndentationWidth(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetLexer(QsciScintilla* self, QsciLexer* lexer) {
+void QsciScintilla_SuperSetLexer(QsciScintilla* self, QsciLexer* lexer) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetLexer_IsBase(true);
@@ -3096,7 +3096,7 @@ void QsciScintilla_OnSetLexer(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetMarginsBackgroundColor(QsciScintilla* self, const QColor* col) {
+void QsciScintilla_SuperSetMarginsBackgroundColor(QsciScintilla* self, const QColor* col) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetMarginsBackgroundColor_IsBase(true);
@@ -3115,7 +3115,7 @@ void QsciScintilla_OnSetMarginsBackgroundColor(QsciScintilla* self, intptr_t slo
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetMarginsFont(QsciScintilla* self, const QFont* f) {
+void QsciScintilla_SuperSetMarginsFont(QsciScintilla* self, const QFont* f) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetMarginsFont_IsBase(true);
@@ -3134,7 +3134,7 @@ void QsciScintilla_OnSetMarginsFont(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetMarginsForegroundColor(QsciScintilla* self, const QColor* col) {
+void QsciScintilla_SuperSetMarginsForegroundColor(QsciScintilla* self, const QColor* col) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetMarginsForegroundColor_IsBase(true);
@@ -3153,7 +3153,7 @@ void QsciScintilla_OnSetMarginsForegroundColor(QsciScintilla* self, intptr_t slo
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetMarginLineNumbers(QsciScintilla* self, int margin, bool lnrs) {
+void QsciScintilla_SuperSetMarginLineNumbers(QsciScintilla* self, int margin, bool lnrs) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetMarginLineNumbers_IsBase(true);
@@ -3172,7 +3172,7 @@ void QsciScintilla_OnSetMarginLineNumbers(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetMarginMarkerMask(QsciScintilla* self, int margin, int mask) {
+void QsciScintilla_SuperSetMarginMarkerMask(QsciScintilla* self, int margin, int mask) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetMarginMarkerMask_IsBase(true);
@@ -3191,7 +3191,7 @@ void QsciScintilla_OnSetMarginMarkerMask(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetMarginSensitivity(QsciScintilla* self, int margin, bool sens) {
+void QsciScintilla_SuperSetMarginSensitivity(QsciScintilla* self, int margin, bool sens) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetMarginSensitivity_IsBase(true);
@@ -3210,7 +3210,7 @@ void QsciScintilla_OnSetMarginSensitivity(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetMarginWidth(QsciScintilla* self, int margin, int width) {
+void QsciScintilla_SuperSetMarginWidth(QsciScintilla* self, int margin, int width) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetMarginWidth_IsBase(true);
@@ -3229,7 +3229,7 @@ void QsciScintilla_OnSetMarginWidth(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetMarginWidth2(QsciScintilla* self, int margin, const libqt_string s) {
+void QsciScintilla_SuperSetMarginWidth2(QsciScintilla* self, int margin, const libqt_string s) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     QString s_QString = QString::fromUtf8(s.data, s.len);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
@@ -3249,7 +3249,7 @@ void QsciScintilla_OnSetMarginWidth2(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetModified(QsciScintilla* self, bool m) {
+void QsciScintilla_SuperSetModified(QsciScintilla* self, bool m) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetModified_IsBase(true);
@@ -3268,7 +3268,7 @@ void QsciScintilla_OnSetModified(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetPaper(QsciScintilla* self, const QColor* c) {
+void QsciScintilla_SuperSetPaper(QsciScintilla* self, const QColor* c) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetPaper_IsBase(true);
@@ -3287,7 +3287,7 @@ void QsciScintilla_OnSetPaper(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetReadOnly(QsciScintilla* self, bool ro) {
+void QsciScintilla_SuperSetReadOnly(QsciScintilla* self, bool ro) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetReadOnly_IsBase(true);
@@ -3306,7 +3306,7 @@ void QsciScintilla_OnSetReadOnly(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetSelection(QsciScintilla* self, int lineFrom, int indexFrom, int lineTo, int indexTo) {
+void QsciScintilla_SuperSetSelection(QsciScintilla* self, int lineFrom, int indexFrom, int lineTo, int indexTo) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetSelection_IsBase(true);
@@ -3325,7 +3325,7 @@ void QsciScintilla_OnSetSelection(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetSelectionBackgroundColor(QsciScintilla* self, const QColor* col) {
+void QsciScintilla_SuperSetSelectionBackgroundColor(QsciScintilla* self, const QColor* col) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetSelectionBackgroundColor_IsBase(true);
@@ -3344,7 +3344,7 @@ void QsciScintilla_OnSetSelectionBackgroundColor(QsciScintilla* self, intptr_t s
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetSelectionForegroundColor(QsciScintilla* self, const QColor* col) {
+void QsciScintilla_SuperSetSelectionForegroundColor(QsciScintilla* self, const QColor* col) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetSelectionForegroundColor_IsBase(true);
@@ -3363,7 +3363,7 @@ void QsciScintilla_OnSetSelectionForegroundColor(QsciScintilla* self, intptr_t s
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetTabIndents(QsciScintilla* self, bool indent) {
+void QsciScintilla_SuperSetTabIndents(QsciScintilla* self, bool indent) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetTabIndents_IsBase(true);
@@ -3382,7 +3382,7 @@ void QsciScintilla_OnSetTabIndents(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetTabWidth(QsciScintilla* self, int width) {
+void QsciScintilla_SuperSetTabWidth(QsciScintilla* self, int width) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetTabWidth_IsBase(true);
@@ -3401,7 +3401,7 @@ void QsciScintilla_OnSetTabWidth(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetText(QsciScintilla* self, const libqt_string text) {
+void QsciScintilla_SuperSetText(QsciScintilla* self, const libqt_string text) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
@@ -3421,7 +3421,7 @@ void QsciScintilla_OnSetText(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetUtf8(QsciScintilla* self, bool cp) {
+void QsciScintilla_SuperSetUtf8(QsciScintilla* self, bool cp) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetUtf8_IsBase(true);
@@ -3440,7 +3440,7 @@ void QsciScintilla_OnSetUtf8(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetWhitespaceVisibility(QsciScintilla* self, int mode) {
+void QsciScintilla_SuperSetWhitespaceVisibility(QsciScintilla* self, int mode) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetWhitespaceVisibility_IsBase(true);
@@ -3459,7 +3459,7 @@ void QsciScintilla_OnSetWhitespaceVisibility(QsciScintilla* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetWrapMode(QsciScintilla* self, int mode) {
+void QsciScintilla_SuperSetWrapMode(QsciScintilla* self, int mode) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetWrapMode_IsBase(true);
@@ -3478,7 +3478,7 @@ void QsciScintilla_OnSetWrapMode(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseUndo(QsciScintilla* self) {
+void QsciScintilla_SuperUndo(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_Undo_IsBase(true);
@@ -3497,7 +3497,7 @@ void QsciScintilla_OnUndo(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseUnindent(QsciScintilla* self, int line) {
+void QsciScintilla_SuperUnindent(QsciScintilla* self, int line) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_Unindent_IsBase(true);
@@ -3516,7 +3516,7 @@ void QsciScintilla_OnUnindent(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseZoomIn(QsciScintilla* self, int range) {
+void QsciScintilla_SuperZoomIn(QsciScintilla* self, int range) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_ZoomIn_IsBase(true);
@@ -3535,7 +3535,7 @@ void QsciScintilla_OnZoomIn(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseZoomIn2(QsciScintilla* self) {
+void QsciScintilla_SuperZoomIn2(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_ZoomIn2_IsBase(true);
@@ -3554,7 +3554,7 @@ void QsciScintilla_OnZoomIn2(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseZoomOut(QsciScintilla* self, int range) {
+void QsciScintilla_SuperZoomOut(QsciScintilla* self, int range) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_ZoomOut_IsBase(true);
@@ -3573,7 +3573,7 @@ void QsciScintilla_OnZoomOut(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseZoomOut2(QsciScintilla* self) {
+void QsciScintilla_SuperZoomOut2(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_ZoomOut2_IsBase(true);
@@ -3592,7 +3592,7 @@ void QsciScintilla_OnZoomOut2(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseZoomTo(QsciScintilla* self, int size) {
+void QsciScintilla_SuperZoomTo(QsciScintilla* self, int size) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_ZoomTo_IsBase(true);
@@ -3611,7 +3611,7 @@ void QsciScintilla_OnZoomTo(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QsciScintilla_QBaseEvent(QsciScintilla* self, QEvent* e) {
+bool QsciScintilla_SuperEvent(QsciScintilla* self, QEvent* e) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_Event_IsBase(true);
@@ -3630,7 +3630,7 @@ void QsciScintilla_OnEvent(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseChangeEvent(QsciScintilla* self, QEvent* e) {
+void QsciScintilla_SuperChangeEvent(QsciScintilla* self, QEvent* e) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_ChangeEvent_IsBase(true);
@@ -3649,7 +3649,7 @@ void QsciScintilla_OnChangeEvent(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseContextMenuEvent(QsciScintilla* self, QContextMenuEvent* e) {
+void QsciScintilla_SuperContextMenuEvent(QsciScintilla* self, QContextMenuEvent* e) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_ContextMenuEvent_IsBase(true);
@@ -3668,7 +3668,7 @@ void QsciScintilla_OnContextMenuEvent(QsciScintilla* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseWheelEvent(QsciScintilla* self, QWheelEvent* e) {
+void QsciScintilla_SuperWheelEvent(QsciScintilla* self, QWheelEvent* e) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_WheelEvent_IsBase(true);
@@ -3697,7 +3697,7 @@ bool QsciScintilla_CanInsertFromMimeData(const QsciScintilla* self, const QMimeD
 }
 
 // Base class handler implementation
-bool QsciScintilla_QBaseCanInsertFromMimeData(const QsciScintilla* self, const QMimeData* source) {
+bool QsciScintilla_SuperCanInsertFromMimeData(const QsciScintilla* self, const QMimeData* source) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_CanInsertFromMimeData_IsBase(true);
@@ -3736,7 +3736,7 @@ libqt_string QsciScintilla_FromMimeData(const QsciScintilla* self, const QMimeDa
 }
 
 // Base class handler implementation
-libqt_string QsciScintilla_QBaseFromMimeData(const QsciScintilla* self, const QMimeData* source, bool* rectangular) {
+libqt_string QsciScintilla_SuperFromMimeData(const QsciScintilla* self, const QMimeData* source, bool* rectangular) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_FromMimeData_IsBase(true);
@@ -3776,7 +3776,7 @@ QMimeData* QsciScintilla_ToMimeData(const QsciScintilla* self, const libqt_strin
 }
 
 // Base class handler implementation
-QMimeData* QsciScintilla_QBaseToMimeData(const QsciScintilla* self, const libqt_string text, bool rectangular) {
+QMimeData* QsciScintilla_SuperToMimeData(const QsciScintilla* self, const libqt_string text, bool rectangular) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     QByteArray text_QByteArray(text.data, text.len);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
@@ -3806,7 +3806,7 @@ void QsciScintilla_DragEnterEvent(QsciScintilla* self, QDragEnterEvent* e) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseDragEnterEvent(QsciScintilla* self, QDragEnterEvent* e) {
+void QsciScintilla_SuperDragEnterEvent(QsciScintilla* self, QDragEnterEvent* e) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_DragEnterEvent_IsBase(true);
@@ -3835,7 +3835,7 @@ void QsciScintilla_DragLeaveEvent(QsciScintilla* self, QDragLeaveEvent* e) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseDragLeaveEvent(QsciScintilla* self, QDragLeaveEvent* e) {
+void QsciScintilla_SuperDragLeaveEvent(QsciScintilla* self, QDragLeaveEvent* e) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_DragLeaveEvent_IsBase(true);
@@ -3864,7 +3864,7 @@ void QsciScintilla_DragMoveEvent(QsciScintilla* self, QDragMoveEvent* e) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseDragMoveEvent(QsciScintilla* self, QDragMoveEvent* e) {
+void QsciScintilla_SuperDragMoveEvent(QsciScintilla* self, QDragMoveEvent* e) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_DragMoveEvent_IsBase(true);
@@ -3893,7 +3893,7 @@ void QsciScintilla_DropEvent(QsciScintilla* self, QDropEvent* e) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseDropEvent(QsciScintilla* self, QDropEvent* e) {
+void QsciScintilla_SuperDropEvent(QsciScintilla* self, QDropEvent* e) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_DropEvent_IsBase(true);
@@ -3922,7 +3922,7 @@ void QsciScintilla_FocusInEvent(QsciScintilla* self, QFocusEvent* e) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseFocusInEvent(QsciScintilla* self, QFocusEvent* e) {
+void QsciScintilla_SuperFocusInEvent(QsciScintilla* self, QFocusEvent* e) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_FocusInEvent_IsBase(true);
@@ -3951,7 +3951,7 @@ void QsciScintilla_FocusOutEvent(QsciScintilla* self, QFocusEvent* e) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseFocusOutEvent(QsciScintilla* self, QFocusEvent* e) {
+void QsciScintilla_SuperFocusOutEvent(QsciScintilla* self, QFocusEvent* e) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_FocusOutEvent_IsBase(true);
@@ -3980,7 +3980,7 @@ bool QsciScintilla_FocusNextPrevChild(QsciScintilla* self, bool next) {
 }
 
 // Base class handler implementation
-bool QsciScintilla_QBaseFocusNextPrevChild(QsciScintilla* self, bool next) {
+bool QsciScintilla_SuperFocusNextPrevChild(QsciScintilla* self, bool next) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_FocusNextPrevChild_IsBase(true);
@@ -4009,7 +4009,7 @@ void QsciScintilla_KeyPressEvent(QsciScintilla* self, QKeyEvent* e) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseKeyPressEvent(QsciScintilla* self, QKeyEvent* e) {
+void QsciScintilla_SuperKeyPressEvent(QsciScintilla* self, QKeyEvent* e) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_KeyPressEvent_IsBase(true);
@@ -4038,7 +4038,7 @@ void QsciScintilla_InputMethodEvent(QsciScintilla* self, QInputMethodEvent* even
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseInputMethodEvent(QsciScintilla* self, QInputMethodEvent* event) {
+void QsciScintilla_SuperInputMethodEvent(QsciScintilla* self, QInputMethodEvent* event) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_InputMethodEvent_IsBase(true);
@@ -4066,7 +4066,7 @@ QVariant* QsciScintilla_InputMethodQuery(const QsciScintilla* self, int query) {
 }
 
 // Base class handler implementation
-QVariant* QsciScintilla_QBaseInputMethodQuery(const QsciScintilla* self, int query) {
+QVariant* QsciScintilla_SuperInputMethodQuery(const QsciScintilla* self, int query) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_InputMethodQuery_IsBase(true);
@@ -4094,7 +4094,7 @@ void QsciScintilla_MouseDoubleClickEvent(QsciScintilla* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseMouseDoubleClickEvent(QsciScintilla* self, QMouseEvent* e) {
+void QsciScintilla_SuperMouseDoubleClickEvent(QsciScintilla* self, QMouseEvent* e) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_MouseDoubleClickEvent_IsBase(true);
@@ -4123,7 +4123,7 @@ void QsciScintilla_MouseMoveEvent(QsciScintilla* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseMouseMoveEvent(QsciScintilla* self, QMouseEvent* e) {
+void QsciScintilla_SuperMouseMoveEvent(QsciScintilla* self, QMouseEvent* e) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_MouseMoveEvent_IsBase(true);
@@ -4152,7 +4152,7 @@ void QsciScintilla_MousePressEvent(QsciScintilla* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseMousePressEvent(QsciScintilla* self, QMouseEvent* e) {
+void QsciScintilla_SuperMousePressEvent(QsciScintilla* self, QMouseEvent* e) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_MousePressEvent_IsBase(true);
@@ -4181,7 +4181,7 @@ void QsciScintilla_MouseReleaseEvent(QsciScintilla* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseMouseReleaseEvent(QsciScintilla* self, QMouseEvent* e) {
+void QsciScintilla_SuperMouseReleaseEvent(QsciScintilla* self, QMouseEvent* e) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_MouseReleaseEvent_IsBase(true);
@@ -4210,7 +4210,7 @@ void QsciScintilla_PaintEvent(QsciScintilla* self, QPaintEvent* e) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBasePaintEvent(QsciScintilla* self, QPaintEvent* e) {
+void QsciScintilla_SuperPaintEvent(QsciScintilla* self, QPaintEvent* e) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_PaintEvent_IsBase(true);
@@ -4239,7 +4239,7 @@ void QsciScintilla_ResizeEvent(QsciScintilla* self, QResizeEvent* e) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseResizeEvent(QsciScintilla* self, QResizeEvent* e) {
+void QsciScintilla_SuperResizeEvent(QsciScintilla* self, QResizeEvent* e) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_ResizeEvent_IsBase(true);
@@ -4268,7 +4268,7 @@ void QsciScintilla_ScrollContentsBy(QsciScintilla* self, int dx, int dy) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseScrollContentsBy(QsciScintilla* self, int dx, int dy) {
+void QsciScintilla_SuperScrollContentsBy(QsciScintilla* self, int dx, int dy) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_ScrollContentsBy_IsBase(true);
@@ -4297,7 +4297,7 @@ QSize* QsciScintilla_MinimumSizeHint(const QsciScintilla* self) {
 }
 
 // Base class handler implementation
-QSize* QsciScintilla_QBaseMinimumSizeHint(const QsciScintilla* self) {
+QSize* QsciScintilla_SuperMinimumSizeHint(const QsciScintilla* self) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_MinimumSizeHint_IsBase(true);
@@ -4326,7 +4326,7 @@ QSize* QsciScintilla_SizeHint(const QsciScintilla* self) {
 }
 
 // Base class handler implementation
-QSize* QsciScintilla_QBaseSizeHint(const QsciScintilla* self) {
+QSize* QsciScintilla_SuperSizeHint(const QsciScintilla* self) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SizeHint_IsBase(true);
@@ -4355,7 +4355,7 @@ void QsciScintilla_SetupViewport(QsciScintilla* self, QWidget* viewport) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetupViewport(QsciScintilla* self, QWidget* viewport) {
+void QsciScintilla_SuperSetupViewport(QsciScintilla* self, QWidget* viewport) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetupViewport_IsBase(true);
@@ -4384,7 +4384,7 @@ bool QsciScintilla_EventFilter(QsciScintilla* self, QObject* param1, QEvent* par
 }
 
 // Base class handler implementation
-bool QsciScintilla_QBaseEventFilter(QsciScintilla* self, QObject* param1, QEvent* param2) {
+bool QsciScintilla_SuperEventFilter(QsciScintilla* self, QObject* param1, QEvent* param2) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_EventFilter_IsBase(true);
@@ -4413,7 +4413,7 @@ bool QsciScintilla_ViewportEvent(QsciScintilla* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool QsciScintilla_QBaseViewportEvent(QsciScintilla* self, QEvent* param1) {
+bool QsciScintilla_SuperViewportEvent(QsciScintilla* self, QEvent* param1) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_ViewportEvent_IsBase(true);
@@ -4441,7 +4441,7 @@ QSize* QsciScintilla_ViewportSizeHint(const QsciScintilla* self) {
 }
 
 // Base class handler implementation
-QSize* QsciScintilla_QBaseViewportSizeHint(const QsciScintilla* self) {
+QSize* QsciScintilla_SuperViewportSizeHint(const QsciScintilla* self) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_ViewportSizeHint_IsBase(true);
@@ -4469,7 +4469,7 @@ void QsciScintilla_InitStyleOption(const QsciScintilla* self, QStyleOptionFrame*
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseInitStyleOption(const QsciScintilla* self, QStyleOptionFrame* option) {
+void QsciScintilla_SuperInitStyleOption(const QsciScintilla* self, QStyleOptionFrame* option) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_InitStyleOption_IsBase(true);
@@ -4498,7 +4498,7 @@ int QsciScintilla_DevType(const QsciScintilla* self) {
 }
 
 // Base class handler implementation
-int QsciScintilla_QBaseDevType(const QsciScintilla* self) {
+int QsciScintilla_SuperDevType(const QsciScintilla* self) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_DevType_IsBase(true);
@@ -4527,7 +4527,7 @@ void QsciScintilla_SetVisible(QsciScintilla* self, bool visible) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetVisible(QsciScintilla* self, bool visible) {
+void QsciScintilla_SuperSetVisible(QsciScintilla* self, bool visible) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetVisible_IsBase(true);
@@ -4556,7 +4556,7 @@ int QsciScintilla_HeightForWidth(const QsciScintilla* self, int param1) {
 }
 
 // Base class handler implementation
-int QsciScintilla_QBaseHeightForWidth(const QsciScintilla* self, int param1) {
+int QsciScintilla_SuperHeightForWidth(const QsciScintilla* self, int param1) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_HeightForWidth_IsBase(true);
@@ -4585,7 +4585,7 @@ bool QsciScintilla_HasHeightForWidth(const QsciScintilla* self) {
 }
 
 // Base class handler implementation
-bool QsciScintilla_QBaseHasHeightForWidth(const QsciScintilla* self) {
+bool QsciScintilla_SuperHasHeightForWidth(const QsciScintilla* self) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_HasHeightForWidth_IsBase(true);
@@ -4614,7 +4614,7 @@ QPaintEngine* QsciScintilla_PaintEngine(const QsciScintilla* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QsciScintilla_QBasePaintEngine(const QsciScintilla* self) {
+QPaintEngine* QsciScintilla_SuperPaintEngine(const QsciScintilla* self) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_PaintEngine_IsBase(true);
@@ -4643,7 +4643,7 @@ void QsciScintilla_KeyReleaseEvent(QsciScintilla* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseKeyReleaseEvent(QsciScintilla* self, QKeyEvent* event) {
+void QsciScintilla_SuperKeyReleaseEvent(QsciScintilla* self, QKeyEvent* event) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_KeyReleaseEvent_IsBase(true);
@@ -4672,7 +4672,7 @@ void QsciScintilla_EnterEvent(QsciScintilla* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseEnterEvent(QsciScintilla* self, QEnterEvent* event) {
+void QsciScintilla_SuperEnterEvent(QsciScintilla* self, QEnterEvent* event) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_EnterEvent_IsBase(true);
@@ -4701,7 +4701,7 @@ void QsciScintilla_LeaveEvent(QsciScintilla* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseLeaveEvent(QsciScintilla* self, QEvent* event) {
+void QsciScintilla_SuperLeaveEvent(QsciScintilla* self, QEvent* event) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_LeaveEvent_IsBase(true);
@@ -4730,7 +4730,7 @@ void QsciScintilla_MoveEvent(QsciScintilla* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseMoveEvent(QsciScintilla* self, QMoveEvent* event) {
+void QsciScintilla_SuperMoveEvent(QsciScintilla* self, QMoveEvent* event) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_MoveEvent_IsBase(true);
@@ -4759,7 +4759,7 @@ void QsciScintilla_CloseEvent(QsciScintilla* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseCloseEvent(QsciScintilla* self, QCloseEvent* event) {
+void QsciScintilla_SuperCloseEvent(QsciScintilla* self, QCloseEvent* event) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_CloseEvent_IsBase(true);
@@ -4788,7 +4788,7 @@ void QsciScintilla_TabletEvent(QsciScintilla* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseTabletEvent(QsciScintilla* self, QTabletEvent* event) {
+void QsciScintilla_SuperTabletEvent(QsciScintilla* self, QTabletEvent* event) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_TabletEvent_IsBase(true);
@@ -4817,7 +4817,7 @@ void QsciScintilla_ActionEvent(QsciScintilla* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseActionEvent(QsciScintilla* self, QActionEvent* event) {
+void QsciScintilla_SuperActionEvent(QsciScintilla* self, QActionEvent* event) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_ActionEvent_IsBase(true);
@@ -4846,7 +4846,7 @@ void QsciScintilla_ShowEvent(QsciScintilla* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseShowEvent(QsciScintilla* self, QShowEvent* event) {
+void QsciScintilla_SuperShowEvent(QsciScintilla* self, QShowEvent* event) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_ShowEvent_IsBase(true);
@@ -4875,7 +4875,7 @@ void QsciScintilla_HideEvent(QsciScintilla* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseHideEvent(QsciScintilla* self, QHideEvent* event) {
+void QsciScintilla_SuperHideEvent(QsciScintilla* self, QHideEvent* event) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_HideEvent_IsBase(true);
@@ -4905,7 +4905,7 @@ bool QsciScintilla_NativeEvent(QsciScintilla* self, const libqt_string eventType
 }
 
 // Base class handler implementation
-bool QsciScintilla_QBaseNativeEvent(QsciScintilla* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QsciScintilla_SuperNativeEvent(QsciScintilla* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
@@ -4935,7 +4935,7 @@ int QsciScintilla_Metric(const QsciScintilla* self, int param1) {
 }
 
 // Base class handler implementation
-int QsciScintilla_QBaseMetric(const QsciScintilla* self, int param1) {
+int QsciScintilla_SuperMetric(const QsciScintilla* self, int param1) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_Metric_IsBase(true);
@@ -4964,7 +4964,7 @@ void QsciScintilla_InitPainter(const QsciScintilla* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseInitPainter(const QsciScintilla* self, QPainter* painter) {
+void QsciScintilla_SuperInitPainter(const QsciScintilla* self, QPainter* painter) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_InitPainter_IsBase(true);
@@ -4993,7 +4993,7 @@ QPaintDevice* QsciScintilla_Redirected(const QsciScintilla* self, QPoint* offset
 }
 
 // Base class handler implementation
-QPaintDevice* QsciScintilla_QBaseRedirected(const QsciScintilla* self, QPoint* offset) {
+QPaintDevice* QsciScintilla_SuperRedirected(const QsciScintilla* self, QPoint* offset) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_Redirected_IsBase(true);
@@ -5022,7 +5022,7 @@ QPainter* QsciScintilla_SharedPainter(const QsciScintilla* self) {
 }
 
 // Base class handler implementation
-QPainter* QsciScintilla_QBaseSharedPainter(const QsciScintilla* self) {
+QPainter* QsciScintilla_SuperSharedPainter(const QsciScintilla* self) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SharedPainter_IsBase(true);
@@ -5051,7 +5051,7 @@ void QsciScintilla_TimerEvent(QsciScintilla* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseTimerEvent(QsciScintilla* self, QTimerEvent* event) {
+void QsciScintilla_SuperTimerEvent(QsciScintilla* self, QTimerEvent* event) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_TimerEvent_IsBase(true);
@@ -5080,7 +5080,7 @@ void QsciScintilla_ChildEvent(QsciScintilla* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseChildEvent(QsciScintilla* self, QChildEvent* event) {
+void QsciScintilla_SuperChildEvent(QsciScintilla* self, QChildEvent* event) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_ChildEvent_IsBase(true);
@@ -5109,7 +5109,7 @@ void QsciScintilla_CustomEvent(QsciScintilla* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseCustomEvent(QsciScintilla* self, QEvent* event) {
+void QsciScintilla_SuperCustomEvent(QsciScintilla* self, QEvent* event) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_CustomEvent_IsBase(true);
@@ -5138,7 +5138,7 @@ void QsciScintilla_ConnectNotify(QsciScintilla* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseConnectNotify(QsciScintilla* self, const QMetaMethod* signal) {
+void QsciScintilla_SuperConnectNotify(QsciScintilla* self, const QMetaMethod* signal) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_ConnectNotify_IsBase(true);
@@ -5167,7 +5167,7 @@ void QsciScintilla_DisconnectNotify(QsciScintilla* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseDisconnectNotify(QsciScintilla* self, const QMetaMethod* signal) {
+void QsciScintilla_SuperDisconnectNotify(QsciScintilla* self, const QMetaMethod* signal) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_DisconnectNotify_IsBase(true);
@@ -5196,7 +5196,7 @@ void QsciScintilla_SetScrollBars(QsciScintilla* self) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetScrollBars(QsciScintilla* self) {
+void QsciScintilla_SuperSetScrollBars(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetScrollBars_IsBase(true);
@@ -5225,7 +5225,7 @@ bool QsciScintilla_ContextMenuNeeded(const QsciScintilla* self, int x, int y) {
 }
 
 // Base class handler implementation
-bool QsciScintilla_QBaseContextMenuNeeded(const QsciScintilla* self, int x, int y) {
+bool QsciScintilla_SuperContextMenuNeeded(const QsciScintilla* self, int x, int y) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_ContextMenuNeeded_IsBase(true);
@@ -5254,7 +5254,7 @@ void QsciScintilla_SetViewportMargins(QsciScintilla* self, int left, int top, in
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseSetViewportMargins(QsciScintilla* self, int left, int top, int right, int bottom) {
+void QsciScintilla_SuperSetViewportMargins(QsciScintilla* self, int left, int top, int right, int bottom) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SetViewportMargins_IsBase(true);
@@ -5282,7 +5282,7 @@ QMargins* QsciScintilla_ViewportMargins(const QsciScintilla* self) {
 }
 
 // Base class handler implementation
-QMargins* QsciScintilla_QBaseViewportMargins(const QsciScintilla* self) {
+QMargins* QsciScintilla_SuperViewportMargins(const QsciScintilla* self) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_ViewportMargins_IsBase(true);
@@ -5310,7 +5310,7 @@ void QsciScintilla_DrawFrame(QsciScintilla* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseDrawFrame(QsciScintilla* self, QPainter* param1) {
+void QsciScintilla_SuperDrawFrame(QsciScintilla* self, QPainter* param1) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_DrawFrame_IsBase(true);
@@ -5339,7 +5339,7 @@ void QsciScintilla_UpdateMicroFocus(QsciScintilla* self) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseUpdateMicroFocus(QsciScintilla* self) {
+void QsciScintilla_SuperUpdateMicroFocus(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_UpdateMicroFocus_IsBase(true);
@@ -5368,7 +5368,7 @@ void QsciScintilla_Create(QsciScintilla* self) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseCreate(QsciScintilla* self) {
+void QsciScintilla_SuperCreate(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_Create_IsBase(true);
@@ -5397,7 +5397,7 @@ void QsciScintilla_Destroy(QsciScintilla* self) {
 }
 
 // Base class handler implementation
-void QsciScintilla_QBaseDestroy(QsciScintilla* self) {
+void QsciScintilla_SuperDestroy(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_Destroy_IsBase(true);
@@ -5426,7 +5426,7 @@ bool QsciScintilla_FocusNextChild(QsciScintilla* self) {
 }
 
 // Base class handler implementation
-bool QsciScintilla_QBaseFocusNextChild(QsciScintilla* self) {
+bool QsciScintilla_SuperFocusNextChild(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_FocusNextChild_IsBase(true);
@@ -5455,7 +5455,7 @@ bool QsciScintilla_FocusPreviousChild(QsciScintilla* self) {
 }
 
 // Base class handler implementation
-bool QsciScintilla_QBaseFocusPreviousChild(QsciScintilla* self) {
+bool QsciScintilla_SuperFocusPreviousChild(QsciScintilla* self) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_FocusPreviousChild_IsBase(true);
@@ -5484,7 +5484,7 @@ QObject* QsciScintilla_Sender(const QsciScintilla* self) {
 }
 
 // Base class handler implementation
-QObject* QsciScintilla_QBaseSender(const QsciScintilla* self) {
+QObject* QsciScintilla_SuperSender(const QsciScintilla* self) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_Sender_IsBase(true);
@@ -5513,7 +5513,7 @@ int QsciScintilla_SenderSignalIndex(const QsciScintilla* self) {
 }
 
 // Base class handler implementation
-int QsciScintilla_QBaseSenderSignalIndex(const QsciScintilla* self) {
+int QsciScintilla_SuperSenderSignalIndex(const QsciScintilla* self) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SenderSignalIndex_IsBase(true);
@@ -5542,7 +5542,7 @@ int QsciScintilla_Receivers(const QsciScintilla* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QsciScintilla_QBaseReceivers(const QsciScintilla* self, const char* signal) {
+int QsciScintilla_SuperReceivers(const QsciScintilla* self, const char* signal) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_Receivers_IsBase(true);
@@ -5571,7 +5571,7 @@ bool QsciScintilla_IsSignalConnected(const QsciScintilla* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QsciScintilla_QBaseIsSignalConnected(const QsciScintilla* self, const QMetaMethod* signal) {
+bool QsciScintilla_SuperIsSignalConnected(const QsciScintilla* self, const QMetaMethod* signal) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_IsSignalConnected_IsBase(true);
@@ -5600,7 +5600,7 @@ double QsciScintilla_GetDecodedMetricF(const QsciScintilla* self, int metricA, i
 }
 
 // Base class handler implementation
-double QsciScintilla_QBaseGetDecodedMetricF(const QsciScintilla* self, int metricA, int metricB) {
+double QsciScintilla_SuperGetDecodedMetricF(const QsciScintilla* self, int metricA, int metricB) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_GetDecodedMetricF_IsBase(true);

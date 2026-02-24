@@ -42,7 +42,7 @@ void KParts__OpenUrlEvent_SetAccepted(KParts__OpenUrlEvent* self, bool accepted)
 }
 
 // Base class handler implementation
-void KParts__OpenUrlEvent_QBaseSetAccepted(KParts__OpenUrlEvent* self, bool accepted) {
+void KParts__OpenUrlEvent_SuperSetAccepted(KParts__OpenUrlEvent* self, bool accepted) {
     auto* vkpartsopenurlevent = dynamic_cast<VirtualKPartsOpenUrlEvent*>(self);
     if (vkpartsopenurlevent && vkpartsopenurlevent->isVirtualKPartsOpenUrlEvent) {
         vkpartsopenurlevent->setKParts__OpenUrlEvent_SetAccepted_IsBase(true);
@@ -71,7 +71,7 @@ QEvent* KParts__OpenUrlEvent_Clone(const KParts__OpenUrlEvent* self) {
 }
 
 // Base class handler implementation
-QEvent* KParts__OpenUrlEvent_QBaseClone(const KParts__OpenUrlEvent* self) {
+QEvent* KParts__OpenUrlEvent_SuperClone(const KParts__OpenUrlEvent* self) {
     auto* vkpartsopenurlevent = const_cast<VirtualKPartsOpenUrlEvent*>(dynamic_cast<const VirtualKPartsOpenUrlEvent*>(self));
     if (vkpartsopenurlevent && vkpartsopenurlevent->isVirtualKPartsOpenUrlEvent) {
         vkpartsopenurlevent->setKParts__OpenUrlEvent_Clone_IsBase(true);

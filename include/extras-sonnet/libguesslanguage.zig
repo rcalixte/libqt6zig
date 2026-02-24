@@ -82,13 +82,17 @@ pub const sonnet__guesslanguage = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Sonnet__GuessLanguage `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Sonnet__GuessLanguage_Delete(@ptrCast(self));
     }
 };

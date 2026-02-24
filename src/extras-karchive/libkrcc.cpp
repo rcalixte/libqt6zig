@@ -85,7 +85,7 @@ void KRcc_VirtualHook(KRcc* self, int id, void* data) {
 }
 
 // Base class handler implementation
-bool KRcc_QBaseDoPrepareWriting(KRcc* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
+bool KRcc_SuperDoPrepareWriting(KRcc* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString user_QString = QString::fromUtf8(user.data, user.len);
@@ -107,7 +107,7 @@ void KRcc_OnDoPrepareWriting(KRcc* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KRcc_QBaseDoFinishWriting(KRcc* self, long long size) {
+bool KRcc_SuperDoFinishWriting(KRcc* self, long long size) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
     if (vkrcc && vkrcc->isVirtualKRcc) {
         vkrcc->setKRcc_DoFinishWriting_IsBase(true);
@@ -126,7 +126,7 @@ void KRcc_OnDoFinishWriting(KRcc* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KRcc_QBaseDoWriteDir(KRcc* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
+bool KRcc_SuperDoWriteDir(KRcc* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString user_QString = QString::fromUtf8(user.data, user.len);
@@ -148,7 +148,7 @@ void KRcc_OnDoWriteDir(KRcc* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KRcc_QBaseDoWriteSymLink(KRcc* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
+bool KRcc_SuperDoWriteSymLink(KRcc* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString target_QString = QString::fromUtf8(target.data, target.len);
@@ -171,7 +171,7 @@ void KRcc_OnDoWriteSymLink(KRcc* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KRcc_QBaseOpenArchive(KRcc* self, int mode) {
+bool KRcc_SuperOpenArchive(KRcc* self, int mode) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
     if (vkrcc && vkrcc->isVirtualKRcc) {
         vkrcc->setKRcc_OpenArchive_IsBase(true);
@@ -190,7 +190,7 @@ void KRcc_OnOpenArchive(KRcc* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KRcc_QBaseCloseArchive(KRcc* self) {
+bool KRcc_SuperCloseArchive(KRcc* self) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
     if (vkrcc && vkrcc->isVirtualKRcc) {
         vkrcc->setKRcc_CloseArchive_IsBase(true);
@@ -209,7 +209,7 @@ void KRcc_OnCloseArchive(KRcc* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KRcc_QBaseVirtualHook(KRcc* self, int id, void* data) {
+void KRcc_SuperVirtualHook(KRcc* self, int id, void* data) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
     if (vkrcc && vkrcc->isVirtualKRcc) {
         vkrcc->setKRcc_VirtualHook_IsBase(true);
@@ -238,7 +238,7 @@ bool KRcc_Open(KRcc* self, int mode) {
 }
 
 // Base class handler implementation
-bool KRcc_QBaseOpen(KRcc* self, int mode) {
+bool KRcc_SuperOpen(KRcc* self, int mode) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
     if (vkrcc && vkrcc->isVirtualKRcc) {
         vkrcc->setKRcc_Open_IsBase(true);
@@ -267,7 +267,7 @@ bool KRcc_Close(KRcc* self) {
 }
 
 // Base class handler implementation
-bool KRcc_QBaseClose(KRcc* self) {
+bool KRcc_SuperClose(KRcc* self) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
     if (vkrcc && vkrcc->isVirtualKRcc) {
         vkrcc->setKRcc_Close_IsBase(true);
@@ -296,7 +296,7 @@ KArchiveDirectory* KRcc_RootDir(KRcc* self) {
 }
 
 // Base class handler implementation
-KArchiveDirectory* KRcc_QBaseRootDir(KRcc* self) {
+KArchiveDirectory* KRcc_SuperRootDir(KRcc* self) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
     if (vkrcc && vkrcc->isVirtualKRcc) {
         vkrcc->setKRcc_RootDir_IsBase(true);
@@ -325,7 +325,7 @@ bool KRcc_DoWriteData(KRcc* self, const char* data, long long size) {
 }
 
 // Base class handler implementation
-bool KRcc_QBaseDoWriteData(KRcc* self, const char* data, long long size) {
+bool KRcc_SuperDoWriteData(KRcc* self, const char* data, long long size) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
     if (vkrcc && vkrcc->isVirtualKRcc) {
         vkrcc->setKRcc_DoWriteData_IsBase(true);
@@ -354,7 +354,7 @@ bool KRcc_CreateDevice(KRcc* self, int mode) {
 }
 
 // Base class handler implementation
-bool KRcc_QBaseCreateDevice(KRcc* self, int mode) {
+bool KRcc_SuperCreateDevice(KRcc* self, int mode) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
     if (vkrcc && vkrcc->isVirtualKRcc) {
         vkrcc->setKRcc_CreateDevice_IsBase(true);
@@ -384,7 +384,7 @@ void KRcc_SetErrorString(KRcc* self, const libqt_string errorStr) {
 }
 
 // Base class handler implementation
-void KRcc_QBaseSetErrorString(KRcc* self, const libqt_string errorStr) {
+void KRcc_SuperSetErrorString(KRcc* self, const libqt_string errorStr) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
     QString errorStr_QString = QString::fromUtf8(errorStr.data, errorStr.len);
     if (vkrcc && vkrcc->isVirtualKRcc) {
@@ -415,7 +415,7 @@ KArchiveDirectory* KRcc_FindOrCreate(KRcc* self, const libqt_string path) {
 }
 
 // Base class handler implementation
-KArchiveDirectory* KRcc_QBaseFindOrCreate(KRcc* self, const libqt_string path) {
+KArchiveDirectory* KRcc_SuperFindOrCreate(KRcc* self, const libqt_string path) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
     QString path_QString = QString::fromUtf8(path.data, path.len);
     if (vkrcc && vkrcc->isVirtualKRcc) {
@@ -445,7 +445,7 @@ void KRcc_SetDevice(KRcc* self, QIODevice* dev) {
 }
 
 // Base class handler implementation
-void KRcc_QBaseSetDevice(KRcc* self, QIODevice* dev) {
+void KRcc_SuperSetDevice(KRcc* self, QIODevice* dev) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
     if (vkrcc && vkrcc->isVirtualKRcc) {
         vkrcc->setKRcc_SetDevice_IsBase(true);
@@ -474,7 +474,7 @@ void KRcc_SetRootDir(KRcc* self, KArchiveDirectory* rootDir) {
 }
 
 // Base class handler implementation
-void KRcc_QBaseSetRootDir(KRcc* self, KArchiveDirectory* rootDir) {
+void KRcc_SuperSetRootDir(KRcc* self, KArchiveDirectory* rootDir) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
     if (vkrcc && vkrcc->isVirtualKRcc) {
         vkrcc->setKRcc_SetRootDir_IsBase(true);

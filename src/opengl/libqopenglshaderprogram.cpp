@@ -122,7 +122,7 @@ bool QOpenGLShader_HasOpenGLShaders2(int typeVal, QOpenGLContext* context) {
 }
 
 // Base class handler implementation
-QMetaObject* QOpenGLShader_QBaseMetaObject(const QOpenGLShader* self) {
+QMetaObject* QOpenGLShader_SuperMetaObject(const QOpenGLShader* self) {
     auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
     if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
         vqopenglshader->setQOpenGLShader_MetaObject_IsBase(true);
@@ -141,7 +141,7 @@ void QOpenGLShader_OnMetaObject(const QOpenGLShader* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QOpenGLShader_QBaseMetacast(QOpenGLShader* self, const char* param1) {
+void* QOpenGLShader_SuperMetacast(QOpenGLShader* self, const char* param1) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
     if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
         vqopenglshader->setQOpenGLShader_Metacast_IsBase(true);
@@ -160,7 +160,7 @@ void QOpenGLShader_OnMetacast(QOpenGLShader* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QOpenGLShader_QBaseMetacall(QOpenGLShader* self, int param1, int param2, void** param3) {
+int QOpenGLShader_SuperMetacall(QOpenGLShader* self, int param1, int param2, void** param3) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
     if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
         vqopenglshader->setQOpenGLShader_Metacall_IsBase(true);
@@ -189,7 +189,7 @@ bool QOpenGLShader_Event(QOpenGLShader* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QOpenGLShader_QBaseEvent(QOpenGLShader* self, QEvent* event) {
+bool QOpenGLShader_SuperEvent(QOpenGLShader* self, QEvent* event) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
     if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
         vqopenglshader->setQOpenGLShader_Event_IsBase(true);
@@ -218,7 +218,7 @@ bool QOpenGLShader_EventFilter(QOpenGLShader* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QOpenGLShader_QBaseEventFilter(QOpenGLShader* self, QObject* watched, QEvent* event) {
+bool QOpenGLShader_SuperEventFilter(QOpenGLShader* self, QObject* watched, QEvent* event) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
     if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
         vqopenglshader->setQOpenGLShader_EventFilter_IsBase(true);
@@ -247,7 +247,7 @@ void QOpenGLShader_TimerEvent(QOpenGLShader* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLShader_QBaseTimerEvent(QOpenGLShader* self, QTimerEvent* event) {
+void QOpenGLShader_SuperTimerEvent(QOpenGLShader* self, QTimerEvent* event) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
     if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
         vqopenglshader->setQOpenGLShader_TimerEvent_IsBase(true);
@@ -276,7 +276,7 @@ void QOpenGLShader_ChildEvent(QOpenGLShader* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLShader_QBaseChildEvent(QOpenGLShader* self, QChildEvent* event) {
+void QOpenGLShader_SuperChildEvent(QOpenGLShader* self, QChildEvent* event) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
     if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
         vqopenglshader->setQOpenGLShader_ChildEvent_IsBase(true);
@@ -305,7 +305,7 @@ void QOpenGLShader_CustomEvent(QOpenGLShader* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLShader_QBaseCustomEvent(QOpenGLShader* self, QEvent* event) {
+void QOpenGLShader_SuperCustomEvent(QOpenGLShader* self, QEvent* event) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
     if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
         vqopenglshader->setQOpenGLShader_CustomEvent_IsBase(true);
@@ -334,7 +334,7 @@ void QOpenGLShader_ConnectNotify(QOpenGLShader* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QOpenGLShader_QBaseConnectNotify(QOpenGLShader* self, const QMetaMethod* signal) {
+void QOpenGLShader_SuperConnectNotify(QOpenGLShader* self, const QMetaMethod* signal) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
     if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
         vqopenglshader->setQOpenGLShader_ConnectNotify_IsBase(true);
@@ -363,7 +363,7 @@ void QOpenGLShader_DisconnectNotify(QOpenGLShader* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QOpenGLShader_QBaseDisconnectNotify(QOpenGLShader* self, const QMetaMethod* signal) {
+void QOpenGLShader_SuperDisconnectNotify(QOpenGLShader* self, const QMetaMethod* signal) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
     if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
         vqopenglshader->setQOpenGLShader_DisconnectNotify_IsBase(true);
@@ -392,7 +392,7 @@ QObject* QOpenGLShader_Sender(const QOpenGLShader* self) {
 }
 
 // Base class handler implementation
-QObject* QOpenGLShader_QBaseSender(const QOpenGLShader* self) {
+QObject* QOpenGLShader_SuperSender(const QOpenGLShader* self) {
     auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
     if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
         vqopenglshader->setQOpenGLShader_Sender_IsBase(true);
@@ -421,7 +421,7 @@ int QOpenGLShader_SenderSignalIndex(const QOpenGLShader* self) {
 }
 
 // Base class handler implementation
-int QOpenGLShader_QBaseSenderSignalIndex(const QOpenGLShader* self) {
+int QOpenGLShader_SuperSenderSignalIndex(const QOpenGLShader* self) {
     auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
     if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
         vqopenglshader->setQOpenGLShader_SenderSignalIndex_IsBase(true);
@@ -450,7 +450,7 @@ int QOpenGLShader_Receivers(const QOpenGLShader* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QOpenGLShader_QBaseReceivers(const QOpenGLShader* self, const char* signal) {
+int QOpenGLShader_SuperReceivers(const QOpenGLShader* self, const char* signal) {
     auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
     if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
         vqopenglshader->setQOpenGLShader_Receivers_IsBase(true);
@@ -479,7 +479,7 @@ bool QOpenGLShader_IsSignalConnected(const QOpenGLShader* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QOpenGLShader_QBaseIsSignalConnected(const QOpenGLShader* self, const QMetaMethod* signal) {
+bool QOpenGLShader_SuperIsSignalConnected(const QOpenGLShader* self, const QMetaMethod* signal) {
     auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
     if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
         vqopenglshader->setQOpenGLShader_IsSignalConnected_IsBase(true);
@@ -1117,7 +1117,7 @@ bool QOpenGLShaderProgram_HasOpenGLShaderPrograms1(QOpenGLContext* context) {
 }
 
 // Base class handler implementation
-QMetaObject* QOpenGLShaderProgram_QBaseMetaObject(const QOpenGLShaderProgram* self) {
+QMetaObject* QOpenGLShaderProgram_SuperMetaObject(const QOpenGLShaderProgram* self) {
     auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
     if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
         vqopenglshaderprogram->setQOpenGLShaderProgram_MetaObject_IsBase(true);
@@ -1136,7 +1136,7 @@ void QOpenGLShaderProgram_OnMetaObject(const QOpenGLShaderProgram* self, intptr_
 }
 
 // Base class handler implementation
-void* QOpenGLShaderProgram_QBaseMetacast(QOpenGLShaderProgram* self, const char* param1) {
+void* QOpenGLShaderProgram_SuperMetacast(QOpenGLShaderProgram* self, const char* param1) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
     if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
         vqopenglshaderprogram->setQOpenGLShaderProgram_Metacast_IsBase(true);
@@ -1155,7 +1155,7 @@ void QOpenGLShaderProgram_OnMetacast(QOpenGLShaderProgram* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int QOpenGLShaderProgram_QBaseMetacall(QOpenGLShaderProgram* self, int param1, int param2, void** param3) {
+int QOpenGLShaderProgram_SuperMetacall(QOpenGLShaderProgram* self, int param1, int param2, void** param3) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
     if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
         vqopenglshaderprogram->setQOpenGLShaderProgram_Metacall_IsBase(true);
@@ -1174,7 +1174,7 @@ void QOpenGLShaderProgram_OnMetacall(QOpenGLShaderProgram* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-bool QOpenGLShaderProgram_QBaseLink(QOpenGLShaderProgram* self) {
+bool QOpenGLShaderProgram_SuperLink(QOpenGLShaderProgram* self) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
     if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
         vqopenglshaderprogram->setQOpenGLShaderProgram_Link_IsBase(true);
@@ -1203,7 +1203,7 @@ bool QOpenGLShaderProgram_Event(QOpenGLShaderProgram* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QOpenGLShaderProgram_QBaseEvent(QOpenGLShaderProgram* self, QEvent* event) {
+bool QOpenGLShaderProgram_SuperEvent(QOpenGLShaderProgram* self, QEvent* event) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
     if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
         vqopenglshaderprogram->setQOpenGLShaderProgram_Event_IsBase(true);
@@ -1232,7 +1232,7 @@ bool QOpenGLShaderProgram_EventFilter(QOpenGLShaderProgram* self, QObject* watch
 }
 
 // Base class handler implementation
-bool QOpenGLShaderProgram_QBaseEventFilter(QOpenGLShaderProgram* self, QObject* watched, QEvent* event) {
+bool QOpenGLShaderProgram_SuperEventFilter(QOpenGLShaderProgram* self, QObject* watched, QEvent* event) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
     if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
         vqopenglshaderprogram->setQOpenGLShaderProgram_EventFilter_IsBase(true);
@@ -1261,7 +1261,7 @@ void QOpenGLShaderProgram_TimerEvent(QOpenGLShaderProgram* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void QOpenGLShaderProgram_QBaseTimerEvent(QOpenGLShaderProgram* self, QTimerEvent* event) {
+void QOpenGLShaderProgram_SuperTimerEvent(QOpenGLShaderProgram* self, QTimerEvent* event) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
     if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
         vqopenglshaderprogram->setQOpenGLShaderProgram_TimerEvent_IsBase(true);
@@ -1290,7 +1290,7 @@ void QOpenGLShaderProgram_ChildEvent(QOpenGLShaderProgram* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void QOpenGLShaderProgram_QBaseChildEvent(QOpenGLShaderProgram* self, QChildEvent* event) {
+void QOpenGLShaderProgram_SuperChildEvent(QOpenGLShaderProgram* self, QChildEvent* event) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
     if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
         vqopenglshaderprogram->setQOpenGLShaderProgram_ChildEvent_IsBase(true);
@@ -1319,7 +1319,7 @@ void QOpenGLShaderProgram_CustomEvent(QOpenGLShaderProgram* self, QEvent* event)
 }
 
 // Base class handler implementation
-void QOpenGLShaderProgram_QBaseCustomEvent(QOpenGLShaderProgram* self, QEvent* event) {
+void QOpenGLShaderProgram_SuperCustomEvent(QOpenGLShaderProgram* self, QEvent* event) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
     if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
         vqopenglshaderprogram->setQOpenGLShaderProgram_CustomEvent_IsBase(true);
@@ -1348,7 +1348,7 @@ void QOpenGLShaderProgram_ConnectNotify(QOpenGLShaderProgram* self, const QMetaM
 }
 
 // Base class handler implementation
-void QOpenGLShaderProgram_QBaseConnectNotify(QOpenGLShaderProgram* self, const QMetaMethod* signal) {
+void QOpenGLShaderProgram_SuperConnectNotify(QOpenGLShaderProgram* self, const QMetaMethod* signal) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
     if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
         vqopenglshaderprogram->setQOpenGLShaderProgram_ConnectNotify_IsBase(true);
@@ -1377,7 +1377,7 @@ void QOpenGLShaderProgram_DisconnectNotify(QOpenGLShaderProgram* self, const QMe
 }
 
 // Base class handler implementation
-void QOpenGLShaderProgram_QBaseDisconnectNotify(QOpenGLShaderProgram* self, const QMetaMethod* signal) {
+void QOpenGLShaderProgram_SuperDisconnectNotify(QOpenGLShaderProgram* self, const QMetaMethod* signal) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
     if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
         vqopenglshaderprogram->setQOpenGLShaderProgram_DisconnectNotify_IsBase(true);
@@ -1406,7 +1406,7 @@ QObject* QOpenGLShaderProgram_Sender(const QOpenGLShaderProgram* self) {
 }
 
 // Base class handler implementation
-QObject* QOpenGLShaderProgram_QBaseSender(const QOpenGLShaderProgram* self) {
+QObject* QOpenGLShaderProgram_SuperSender(const QOpenGLShaderProgram* self) {
     auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
     if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
         vqopenglshaderprogram->setQOpenGLShaderProgram_Sender_IsBase(true);
@@ -1435,7 +1435,7 @@ int QOpenGLShaderProgram_SenderSignalIndex(const QOpenGLShaderProgram* self) {
 }
 
 // Base class handler implementation
-int QOpenGLShaderProgram_QBaseSenderSignalIndex(const QOpenGLShaderProgram* self) {
+int QOpenGLShaderProgram_SuperSenderSignalIndex(const QOpenGLShaderProgram* self) {
     auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
     if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
         vqopenglshaderprogram->setQOpenGLShaderProgram_SenderSignalIndex_IsBase(true);
@@ -1464,7 +1464,7 @@ int QOpenGLShaderProgram_Receivers(const QOpenGLShaderProgram* self, const char*
 }
 
 // Base class handler implementation
-int QOpenGLShaderProgram_QBaseReceivers(const QOpenGLShaderProgram* self, const char* signal) {
+int QOpenGLShaderProgram_SuperReceivers(const QOpenGLShaderProgram* self, const char* signal) {
     auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
     if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
         vqopenglshaderprogram->setQOpenGLShaderProgram_Receivers_IsBase(true);
@@ -1493,7 +1493,7 @@ bool QOpenGLShaderProgram_IsSignalConnected(const QOpenGLShaderProgram* self, co
 }
 
 // Base class handler implementation
-bool QOpenGLShaderProgram_QBaseIsSignalConnected(const QOpenGLShaderProgram* self, const QMetaMethod* signal) {
+bool QOpenGLShaderProgram_SuperIsSignalConnected(const QOpenGLShaderProgram* self, const QMetaMethod* signal) {
     auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
     if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
         vqopenglshaderprogram->setQOpenGLShaderProgram_IsSignalConnected_IsBase(true);

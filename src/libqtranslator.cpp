@@ -168,7 +168,7 @@ bool QTranslator_Load34(QTranslator* self, const unsigned char* data, int lenVal
 }
 
 // Base class handler implementation
-QMetaObject* QTranslator_QBaseMetaObject(const QTranslator* self) {
+QMetaObject* QTranslator_SuperMetaObject(const QTranslator* self) {
     auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
     if (vqtranslator && vqtranslator->isVirtualQTranslator) {
         vqtranslator->setQTranslator_MetaObject_IsBase(true);
@@ -187,7 +187,7 @@ void QTranslator_OnMetaObject(const QTranslator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QTranslator_QBaseMetacast(QTranslator* self, const char* param1) {
+void* QTranslator_SuperMetacast(QTranslator* self, const char* param1) {
     auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
     if (vqtranslator && vqtranslator->isVirtualQTranslator) {
         vqtranslator->setQTranslator_Metacast_IsBase(true);
@@ -206,7 +206,7 @@ void QTranslator_OnMetacast(QTranslator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QTranslator_QBaseMetacall(QTranslator* self, int param1, int param2, void** param3) {
+int QTranslator_SuperMetacall(QTranslator* self, int param1, int param2, void** param3) {
     auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
     if (vqtranslator && vqtranslator->isVirtualQTranslator) {
         vqtranslator->setQTranslator_Metacall_IsBase(true);
@@ -225,7 +225,7 @@ void QTranslator_OnMetacall(QTranslator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string QTranslator_QBaseTranslate(const QTranslator* self, const char* context, const char* sourceText, const char* disambiguation, int n) {
+libqt_string QTranslator_SuperTranslate(const QTranslator* self, const char* context, const char* sourceText, const char* disambiguation, int n) {
     auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
     if (vqtranslator && vqtranslator->isVirtualQTranslator) {
         vqtranslator->setQTranslator_Translate_IsBase(true);
@@ -260,7 +260,7 @@ void QTranslator_OnTranslate(const QTranslator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QTranslator_QBaseIsEmpty(const QTranslator* self) {
+bool QTranslator_SuperIsEmpty(const QTranslator* self) {
     auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
     if (vqtranslator && vqtranslator->isVirtualQTranslator) {
         vqtranslator->setQTranslator_IsEmpty_IsBase(true);
@@ -289,7 +289,7 @@ bool QTranslator_Event(QTranslator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QTranslator_QBaseEvent(QTranslator* self, QEvent* event) {
+bool QTranslator_SuperEvent(QTranslator* self, QEvent* event) {
     auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
     if (vqtranslator && vqtranslator->isVirtualQTranslator) {
         vqtranslator->setQTranslator_Event_IsBase(true);
@@ -318,7 +318,7 @@ bool QTranslator_EventFilter(QTranslator* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QTranslator_QBaseEventFilter(QTranslator* self, QObject* watched, QEvent* event) {
+bool QTranslator_SuperEventFilter(QTranslator* self, QObject* watched, QEvent* event) {
     auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
     if (vqtranslator && vqtranslator->isVirtualQTranslator) {
         vqtranslator->setQTranslator_EventFilter_IsBase(true);
@@ -347,7 +347,7 @@ void QTranslator_TimerEvent(QTranslator* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QTranslator_QBaseTimerEvent(QTranslator* self, QTimerEvent* event) {
+void QTranslator_SuperTimerEvent(QTranslator* self, QTimerEvent* event) {
     auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
     if (vqtranslator && vqtranslator->isVirtualQTranslator) {
         vqtranslator->setQTranslator_TimerEvent_IsBase(true);
@@ -376,7 +376,7 @@ void QTranslator_ChildEvent(QTranslator* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QTranslator_QBaseChildEvent(QTranslator* self, QChildEvent* event) {
+void QTranslator_SuperChildEvent(QTranslator* self, QChildEvent* event) {
     auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
     if (vqtranslator && vqtranslator->isVirtualQTranslator) {
         vqtranslator->setQTranslator_ChildEvent_IsBase(true);
@@ -405,7 +405,7 @@ void QTranslator_CustomEvent(QTranslator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QTranslator_QBaseCustomEvent(QTranslator* self, QEvent* event) {
+void QTranslator_SuperCustomEvent(QTranslator* self, QEvent* event) {
     auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
     if (vqtranslator && vqtranslator->isVirtualQTranslator) {
         vqtranslator->setQTranslator_CustomEvent_IsBase(true);
@@ -434,7 +434,7 @@ void QTranslator_ConnectNotify(QTranslator* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QTranslator_QBaseConnectNotify(QTranslator* self, const QMetaMethod* signal) {
+void QTranslator_SuperConnectNotify(QTranslator* self, const QMetaMethod* signal) {
     auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
     if (vqtranslator && vqtranslator->isVirtualQTranslator) {
         vqtranslator->setQTranslator_ConnectNotify_IsBase(true);
@@ -463,7 +463,7 @@ void QTranslator_DisconnectNotify(QTranslator* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QTranslator_QBaseDisconnectNotify(QTranslator* self, const QMetaMethod* signal) {
+void QTranslator_SuperDisconnectNotify(QTranslator* self, const QMetaMethod* signal) {
     auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
     if (vqtranslator && vqtranslator->isVirtualQTranslator) {
         vqtranslator->setQTranslator_DisconnectNotify_IsBase(true);
@@ -492,7 +492,7 @@ QObject* QTranslator_Sender(const QTranslator* self) {
 }
 
 // Base class handler implementation
-QObject* QTranslator_QBaseSender(const QTranslator* self) {
+QObject* QTranslator_SuperSender(const QTranslator* self) {
     auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
     if (vqtranslator && vqtranslator->isVirtualQTranslator) {
         vqtranslator->setQTranslator_Sender_IsBase(true);
@@ -521,7 +521,7 @@ int QTranslator_SenderSignalIndex(const QTranslator* self) {
 }
 
 // Base class handler implementation
-int QTranslator_QBaseSenderSignalIndex(const QTranslator* self) {
+int QTranslator_SuperSenderSignalIndex(const QTranslator* self) {
     auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
     if (vqtranslator && vqtranslator->isVirtualQTranslator) {
         vqtranslator->setQTranslator_SenderSignalIndex_IsBase(true);
@@ -550,7 +550,7 @@ int QTranslator_Receivers(const QTranslator* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QTranslator_QBaseReceivers(const QTranslator* self, const char* signal) {
+int QTranslator_SuperReceivers(const QTranslator* self, const char* signal) {
     auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
     if (vqtranslator && vqtranslator->isVirtualQTranslator) {
         vqtranslator->setQTranslator_Receivers_IsBase(true);
@@ -579,7 +579,7 @@ bool QTranslator_IsSignalConnected(const QTranslator* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QTranslator_QBaseIsSignalConnected(const QTranslator* self, const QMetaMethod* signal) {
+bool QTranslator_SuperIsSignalConnected(const QTranslator* self, const QMetaMethod* signal) {
     auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
     if (vqtranslator && vqtranslator->isVirtualQTranslator) {
         vqtranslator->setQTranslator_IsSignalConnected_IsBase(true);

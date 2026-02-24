@@ -322,7 +322,7 @@ void KXMLGUIClient_ReplaceXMLFile3(KXMLGUIClient* self, const libqt_string xmlfi
 }
 
 // Base class handler implementation
-QAction* KXMLGUIClient_QBaseAction2(const KXMLGUIClient* self, const QDomElement* element) {
+QAction* KXMLGUIClient_SuperAction2(const KXMLGUIClient* self, const QDomElement* element) {
     auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
     if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
         vkxmlguiclient->setKXMLGUIClient_Action2_IsBase(true);
@@ -341,7 +341,7 @@ void KXMLGUIClient_OnAction2(const KXMLGUIClient* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KActionCollection* KXMLGUIClient_QBaseActionCollection(const KXMLGUIClient* self) {
+KActionCollection* KXMLGUIClient_SuperActionCollection(const KXMLGUIClient* self) {
     auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
     if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
         vkxmlguiclient->setKXMLGUIClient_ActionCollection_IsBase(true);
@@ -360,7 +360,7 @@ void KXMLGUIClient_OnActionCollection(const KXMLGUIClient* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-libqt_string KXMLGUIClient_QBaseComponentName(const KXMLGUIClient* self) {
+libqt_string KXMLGUIClient_SuperComponentName(const KXMLGUIClient* self) {
     auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
     if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
         vkxmlguiclient->setKXMLGUIClient_ComponentName_IsBase(true);
@@ -395,7 +395,7 @@ void KXMLGUIClient_OnComponentName(const KXMLGUIClient* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QDomDocument* KXMLGUIClient_QBaseDomDocument(const KXMLGUIClient* self) {
+QDomDocument* KXMLGUIClient_SuperDomDocument(const KXMLGUIClient* self) {
     auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
     if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
         vkxmlguiclient->setKXMLGUIClient_DomDocument_IsBase(true);
@@ -414,7 +414,7 @@ void KXMLGUIClient_OnDomDocument(const KXMLGUIClient* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string KXMLGUIClient_QBaseXmlFile(const KXMLGUIClient* self) {
+libqt_string KXMLGUIClient_SuperXmlFile(const KXMLGUIClient* self) {
     auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
     if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
         vkxmlguiclient->setKXMLGUIClient_XmlFile_IsBase(true);
@@ -449,7 +449,7 @@ void KXMLGUIClient_OnXmlFile(const KXMLGUIClient* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string KXMLGUIClient_QBaseLocalXMLFile(const KXMLGUIClient* self) {
+libqt_string KXMLGUIClient_SuperLocalXMLFile(const KXMLGUIClient* self) {
     auto* vkxmlguiclient = const_cast<VirtualKXMLGUIClient*>(dynamic_cast<const VirtualKXMLGUIClient*>(self));
     if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
         vkxmlguiclient->setKXMLGUIClient_LocalXMLFile_IsBase(true);
@@ -484,7 +484,7 @@ void KXMLGUIClient_OnLocalXMLFile(const KXMLGUIClient* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KXMLGUIClient_QBaseSetComponentName(KXMLGUIClient* self, const libqt_string componentName, const libqt_string componentDisplayName) {
+void KXMLGUIClient_SuperSetComponentName(KXMLGUIClient* self, const libqt_string componentName, const libqt_string componentDisplayName) {
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
     QString componentName_QString = QString::fromUtf8(componentName.data, componentName.len);
     QString componentDisplayName_QString = QString::fromUtf8(componentDisplayName.data, componentDisplayName.len);
@@ -505,7 +505,7 @@ void KXMLGUIClient_OnSetComponentName(KXMLGUIClient* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KXMLGUIClient_QBaseSetXMLFile(KXMLGUIClient* self, const libqt_string file, bool merge, bool setXMLDoc) {
+void KXMLGUIClient_SuperSetXMLFile(KXMLGUIClient* self, const libqt_string file, bool merge, bool setXMLDoc) {
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
     if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
@@ -525,7 +525,7 @@ void KXMLGUIClient_OnSetXMLFile(KXMLGUIClient* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KXMLGUIClient_QBaseSetLocalXMLFile(KXMLGUIClient* self, const libqt_string file) {
+void KXMLGUIClient_SuperSetLocalXMLFile(KXMLGUIClient* self, const libqt_string file) {
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
     if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
@@ -545,7 +545,7 @@ void KXMLGUIClient_OnSetLocalXMLFile(KXMLGUIClient* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KXMLGUIClient_QBaseSetXML(KXMLGUIClient* self, const libqt_string document, bool merge) {
+void KXMLGUIClient_SuperSetXML(KXMLGUIClient* self, const libqt_string document, bool merge) {
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
     QString document_QString = QString::fromUtf8(document.data, document.len);
     if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
@@ -565,7 +565,7 @@ void KXMLGUIClient_OnSetXML(KXMLGUIClient* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KXMLGUIClient_QBaseSetDOMDocument(KXMLGUIClient* self, const QDomDocument* document, bool merge) {
+void KXMLGUIClient_SuperSetDOMDocument(KXMLGUIClient* self, const QDomDocument* document, bool merge) {
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
     if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
         vkxmlguiclient->setKXMLGUIClient_SetDOMDocument_IsBase(true);
@@ -584,7 +584,7 @@ void KXMLGUIClient_OnSetDOMDocument(KXMLGUIClient* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KXMLGUIClient_QBaseStateChanged(KXMLGUIClient* self, const libqt_string newstate, int reverse) {
+void KXMLGUIClient_SuperStateChanged(KXMLGUIClient* self, const libqt_string newstate, int reverse) {
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
     QString newstate_QString = QString::fromUtf8(newstate.data, newstate.len);
     if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
@@ -630,7 +630,7 @@ libqt_string KXMLGUIClient_StandardsXmlFileLocation(KXMLGUIClient* self) {
 }
 
 // Base class handler implementation
-libqt_string KXMLGUIClient_QBaseStandardsXmlFileLocation(KXMLGUIClient* self) {
+libqt_string KXMLGUIClient_SuperStandardsXmlFileLocation(KXMLGUIClient* self) {
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
     if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
         vkxmlguiclient->setKXMLGUIClient_StandardsXmlFileLocation_IsBase(true);
@@ -675,7 +675,7 @@ void KXMLGUIClient_LoadStandardsXmlFile(KXMLGUIClient* self) {
 }
 
 // Base class handler implementation
-void KXMLGUIClient_QBaseLoadStandardsXmlFile(KXMLGUIClient* self) {
+void KXMLGUIClient_SuperLoadStandardsXmlFile(KXMLGUIClient* self) {
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
     if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
         vkxmlguiclient->setKXMLGUIClient_LoadStandardsXmlFile_IsBase(true);

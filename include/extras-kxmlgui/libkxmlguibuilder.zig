@@ -89,6 +89,10 @@ pub const kxmlguibuilder = struct {
         qtc.KXMLGUIBuilder_OnContainerTags(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperContainerTags` instead
+    ///
+    pub const QBaseContainerTags = SuperContainerTags;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguibuilder.html#containerTags)
     ///
     /// Base class method implementation
@@ -99,8 +103,8 @@ pub const kxmlguibuilder = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseContainerTags(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KXMLGUIBuilder_QBaseContainerTags(@ptrCast(self));
+    pub fn SuperContainerTags(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KXMLGUIBuilder_SuperContainerTags(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -150,6 +154,10 @@ pub const kxmlguibuilder = struct {
         qtc.KXMLGUIBuilder_OnCreateContainer(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateContainer` instead
+    ///
+    pub const QBaseCreateContainer = SuperCreateContainer;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguibuilder.html#createContainer)
     ///
     /// Base class method implementation
@@ -166,8 +174,8 @@ pub const kxmlguibuilder = struct {
     ///
     /// ` containerAction: QtC.QAction `
     ///
-    pub fn QBaseCreateContainer(self: ?*anyopaque, parent: ?*anyopaque, index: i32, element: ?*anyopaque, containerAction: ?**anyopaque) QtC.QWidget {
-        return qtc.KXMLGUIBuilder_QBaseCreateContainer(@ptrCast(self), @ptrCast(parent), @bitCast(index), @ptrCast(element), @ptrCast(containerAction));
+    pub fn SuperCreateContainer(self: ?*anyopaque, parent: ?*anyopaque, index: i32, element: ?*anyopaque, containerAction: ?**anyopaque) QtC.QWidget {
+        return qtc.KXMLGUIBuilder_SuperCreateContainer(@ptrCast(self), @ptrCast(parent), @bitCast(index), @ptrCast(element), @ptrCast(containerAction));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguibuilder.html#removeContainer)
@@ -202,6 +210,10 @@ pub const kxmlguibuilder = struct {
         qtc.KXMLGUIBuilder_OnRemoveContainer(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRemoveContainer` instead
+    ///
+    pub const QBaseRemoveContainer = SuperRemoveContainer;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguibuilder.html#removeContainer)
     ///
     /// Base class method implementation
@@ -218,8 +230,8 @@ pub const kxmlguibuilder = struct {
     ///
     /// ` containerAction: QtC.QAction `
     ///
-    pub fn QBaseRemoveContainer(self: ?*anyopaque, container: ?*anyopaque, parent: ?*anyopaque, element: ?*anyopaque, containerAction: ?*anyopaque) void {
-        qtc.KXMLGUIBuilder_QBaseRemoveContainer(@ptrCast(self), @ptrCast(container), @ptrCast(parent), @ptrCast(element), @ptrCast(containerAction));
+    pub fn SuperRemoveContainer(self: ?*anyopaque, container: ?*anyopaque, parent: ?*anyopaque, element: ?*anyopaque, containerAction: ?*anyopaque) void {
+        qtc.KXMLGUIBuilder_SuperRemoveContainer(@ptrCast(self), @ptrCast(container), @ptrCast(parent), @ptrCast(element), @ptrCast(containerAction));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguibuilder.html#customTags)
@@ -265,6 +277,10 @@ pub const kxmlguibuilder = struct {
         qtc.KXMLGUIBuilder_OnCustomTags(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomTags` instead
+    ///
+    pub const QBaseCustomTags = SuperCustomTags;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguibuilder.html#customTags)
     ///
     /// Base class method implementation
@@ -275,8 +291,8 @@ pub const kxmlguibuilder = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseCustomTags(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KXMLGUIBuilder_QBaseCustomTags(@ptrCast(self));
+    pub fn SuperCustomTags(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KXMLGUIBuilder_SuperCustomTags(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -324,6 +340,10 @@ pub const kxmlguibuilder = struct {
         qtc.KXMLGUIBuilder_OnCreateCustomElement(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateCustomElement` instead
+    ///
+    pub const QBaseCreateCustomElement = SuperCreateCustomElement;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguibuilder.html#createCustomElement)
     ///
     /// Base class method implementation
@@ -338,8 +358,8 @@ pub const kxmlguibuilder = struct {
     ///
     /// ` element: QtC.QDomElement `
     ///
-    pub fn QBaseCreateCustomElement(self: ?*anyopaque, parent: ?*anyopaque, index: i32, element: ?*anyopaque) QtC.QAction {
-        return qtc.KXMLGUIBuilder_QBaseCreateCustomElement(@ptrCast(self), @ptrCast(parent), @bitCast(index), @ptrCast(element));
+    pub fn SuperCreateCustomElement(self: ?*anyopaque, parent: ?*anyopaque, index: i32, element: ?*anyopaque) QtC.QAction {
+        return qtc.KXMLGUIBuilder_SuperCreateCustomElement(@ptrCast(self), @ptrCast(parent), @bitCast(index), @ptrCast(element));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguibuilder.html#finalizeGUI)
@@ -368,6 +388,10 @@ pub const kxmlguibuilder = struct {
         qtc.KXMLGUIBuilder_OnFinalizeGUI(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFinalizeGUI` instead
+    ///
+    pub const QBaseFinalizeGUI = SuperFinalizeGUI;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguibuilder.html#finalizeGUI)
     ///
     /// Base class method implementation
@@ -378,9 +402,12 @@ pub const kxmlguibuilder = struct {
     ///
     /// ` client: QtC.KXMLGUIClient `
     ///
-    pub fn QBaseFinalizeGUI(self: ?*anyopaque, client: ?*anyopaque) void {
-        qtc.KXMLGUIBuilder_QBaseFinalizeGUI(@ptrCast(self), @ptrCast(client));
+    pub fn SuperFinalizeGUI(self: ?*anyopaque, client: ?*anyopaque) void {
+        qtc.KXMLGUIBuilder_SuperFinalizeGUI(@ptrCast(self), @ptrCast(client));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguibuilder.html#dtor.KXMLGUIBuilder)
     ///
@@ -390,7 +417,7 @@ pub const kxmlguibuilder = struct {
     ///
     /// ` self: QtC.KXMLGUIBuilder `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KXMLGUIBuilder_Delete(@ptrCast(self));
     }
 };

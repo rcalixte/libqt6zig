@@ -60,6 +60,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -68,8 +72,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` self: QtC.QGraphicsProxyWidget `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QGraphicsProxyWidget_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QGraphicsProxyWidget_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -95,6 +99,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -103,9 +111,9 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QGraphicsProxyWidget_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QGraphicsProxyWidget_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -134,6 +142,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -146,8 +158,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsProxyWidget_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QGraphicsProxyWidget_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -227,6 +239,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnSetGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetGeometry` instead
+    ///
+    pub const QBaseSetGeometry = SuperSetGeometry;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#setGeometry)
     ///
     /// Base class method implementation
@@ -237,8 +253,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` rect: QtC.QRectF `
     ///
-    pub fn QBaseSetGeometry(self: ?*anyopaque, rect: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseSetGeometry(@ptrCast(self), @ptrCast(rect));
+    pub fn SuperSetGeometry(self: ?*anyopaque, rect: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperSetGeometry(@ptrCast(self), @ptrCast(rect));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#paint)
@@ -271,6 +287,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPaint` instead
+    ///
+    pub const QBasePaint = SuperPaint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#paint)
     ///
     /// Base class method implementation
@@ -285,8 +305,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` widget: QtC.QWidget `
     ///
-    pub fn QBasePaint(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBasePaint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(widget));
+    pub fn SuperPaint(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, widget: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperPaint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#type)
@@ -313,6 +333,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperType` instead
+    ///
+    pub const QBaseType = SuperType;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#type)
     ///
     /// Base class method implementation
@@ -321,8 +345,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` self: QtC.QGraphicsProxyWidget `
     ///
-    pub fn QBaseType(self: ?*anyopaque) i32 {
-        return qtc.QGraphicsProxyWidget_QBaseType(@ptrCast(self));
+    pub fn SuperType(self: ?*anyopaque) i32 {
+        return qtc.QGraphicsProxyWidget_SuperType(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#createProxyForChildWidget)
@@ -365,6 +389,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnItemChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperItemChange` instead
+    ///
+    pub const QBaseItemChange = SuperItemChange;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#itemChange)
     ///
     /// Base class method implementation
@@ -377,8 +405,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn QBaseItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsProxyWidget_QBaseItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
+    pub fn SuperItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
+        return qtc.QGraphicsProxyWidget_SuperItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#event)
@@ -407,6 +435,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#event)
     ///
     /// Base class method implementation
@@ -417,8 +449,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGraphicsProxyWidget_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGraphicsProxyWidget_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#eventFilter)
@@ -449,6 +481,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#eventFilter)
     ///
     /// Base class method implementation
@@ -461,8 +497,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGraphicsProxyWidget_QBaseEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGraphicsProxyWidget_SuperEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#showEvent)
@@ -491,6 +527,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#showEvent)
     ///
     /// Base class method implementation
@@ -501,8 +541,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hideEvent)
@@ -531,6 +571,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hideEvent)
     ///
     /// Base class method implementation
@@ -541,8 +585,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#contextMenuEvent)
@@ -571,6 +615,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#contextMenuEvent)
     ///
     /// Base class method implementation
@@ -581,8 +629,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QGraphicsSceneContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragEnterEvent)
@@ -611,6 +659,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragEnterEvent)
     ///
     /// Base class method implementation
@@ -621,8 +673,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QGraphicsSceneDragDropEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragLeaveEvent)
@@ -651,6 +703,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragLeaveEvent)
     ///
     /// Base class method implementation
@@ -661,8 +717,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QGraphicsSceneDragDropEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragMoveEvent)
@@ -691,6 +747,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dragMoveEvent)
     ///
     /// Base class method implementation
@@ -701,8 +761,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QGraphicsSceneDragDropEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dropEvent)
@@ -731,6 +791,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dropEvent)
     ///
     /// Base class method implementation
@@ -741,8 +805,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QGraphicsSceneDragDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverEnterEvent)
@@ -771,6 +835,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnHoverEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHoverEnterEvent` instead
+    ///
+    pub const QBaseHoverEnterEvent = SuperHoverEnterEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverEnterEvent)
     ///
     /// Base class method implementation
@@ -781,8 +849,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QGraphicsSceneHoverEvent `
     ///
-    pub fn QBaseHoverEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseHoverEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHoverEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperHoverEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverLeaveEvent)
@@ -811,6 +879,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnHoverLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHoverLeaveEvent` instead
+    ///
+    pub const QBaseHoverLeaveEvent = SuperHoverLeaveEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverLeaveEvent)
     ///
     /// Base class method implementation
@@ -821,8 +893,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QGraphicsSceneHoverEvent `
     ///
-    pub fn QBaseHoverLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseHoverLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHoverLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperHoverLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverMoveEvent)
@@ -851,6 +923,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnHoverMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHoverMoveEvent` instead
+    ///
+    pub const QBaseHoverMoveEvent = SuperHoverMoveEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#hoverMoveEvent)
     ///
     /// Base class method implementation
@@ -861,8 +937,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QGraphicsSceneHoverEvent `
     ///
-    pub fn QBaseHoverMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseHoverMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHoverMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperHoverMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#grabMouseEvent)
@@ -891,6 +967,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnGrabMouseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGrabMouseEvent` instead
+    ///
+    pub const QBaseGrabMouseEvent = SuperGrabMouseEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#grabMouseEvent)
     ///
     /// Base class method implementation
@@ -901,8 +981,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseGrabMouseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseGrabMouseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperGrabMouseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperGrabMouseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#ungrabMouseEvent)
@@ -931,6 +1011,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnUngrabMouseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUngrabMouseEvent` instead
+    ///
+    pub const QBaseUngrabMouseEvent = SuperUngrabMouseEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#ungrabMouseEvent)
     ///
     /// Base class method implementation
@@ -941,8 +1025,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseUngrabMouseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseUngrabMouseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperUngrabMouseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperUngrabMouseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseMoveEvent)
@@ -971,6 +1055,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseMoveEvent)
     ///
     /// Base class method implementation
@@ -981,8 +1069,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QGraphicsSceneMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mousePressEvent)
@@ -1011,6 +1099,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mousePressEvent)
     ///
     /// Base class method implementation
@@ -1021,8 +1113,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QGraphicsSceneMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseReleaseEvent)
@@ -1051,6 +1143,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
@@ -1061,8 +1157,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QGraphicsSceneMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseDoubleClickEvent)
@@ -1091,6 +1187,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#mouseDoubleClickEvent)
     ///
     /// Base class method implementation
@@ -1101,8 +1201,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QGraphicsSceneMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#wheelEvent)
@@ -1131,6 +1231,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#wheelEvent)
     ///
     /// Base class method implementation
@@ -1141,8 +1245,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QGraphicsSceneWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#keyPressEvent)
@@ -1171,6 +1275,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#keyPressEvent)
     ///
     /// Base class method implementation
@@ -1181,8 +1289,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperKeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#keyReleaseEvent)
@@ -1211,6 +1319,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#keyReleaseEvent)
     ///
     /// Base class method implementation
@@ -1221,8 +1333,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusInEvent)
@@ -1251,6 +1363,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusInEvent)
     ///
     /// Base class method implementation
@@ -1261,8 +1377,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusOutEvent)
@@ -1291,6 +1407,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusOutEvent)
     ///
     /// Base class method implementation
@@ -1301,8 +1421,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusNextPrevChild)
@@ -1331,6 +1451,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    ///
+    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#focusNextPrevChild)
     ///
     /// Base class method implementation
@@ -1341,8 +1465,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` next: bool `
     ///
-    pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QGraphicsProxyWidget_QBaseFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
+        return qtc.QGraphicsProxyWidget_SuperFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#inputMethodQuery)
@@ -1371,6 +1495,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#inputMethodQuery)
     ///
     /// Base class method implementation
@@ -1381,8 +1509,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsProxyWidget_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
+        return qtc.QGraphicsProxyWidget_SuperInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#inputMethodEvent)
@@ -1411,6 +1539,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#inputMethodEvent)
     ///
     /// Base class method implementation
@@ -1421,8 +1553,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperInputMethodEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#sizeHint)
@@ -1453,6 +1585,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#sizeHint)
     ///
     /// Base class method implementation
@@ -1465,8 +1601,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` constraint: QtC.QSizeF `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
-        return qtc.QGraphicsProxyWidget_QBaseSizeHint(@ptrCast(self), @bitCast(which), @ptrCast(constraint));
+    pub fn SuperSizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
+        return qtc.QGraphicsProxyWidget_SuperSizeHint(@ptrCast(self), @bitCast(which), @ptrCast(constraint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#resizeEvent)
@@ -1495,6 +1631,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#resizeEvent)
     ///
     /// Base class method implementation
@@ -1505,8 +1645,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QGraphicsSceneResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#newProxyWidget)
@@ -1535,6 +1675,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_OnNewProxyWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperNewProxyWidget` instead
+    ///
+    pub const QBaseNewProxyWidget = SuperNewProxyWidget;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#newProxyWidget)
     ///
     /// Base class method implementation
@@ -1545,8 +1689,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` param1: QtC.QWidget `
     ///
-    pub fn QBaseNewProxyWidget(self: ?*anyopaque, param1: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QGraphicsProxyWidget_QBaseNewProxyWidget(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperNewProxyWidget(self: ?*anyopaque, param1: ?*anyopaque) QtC.QGraphicsProxyWidget {
+        return qtc.QGraphicsProxyWidget_SuperNewProxyWidget(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -6386,6 +6530,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_GetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
+    /// ### DEPRECATED: Use `SuperGetContentsMargins` instead
+    ///
+    pub const QBaseGetContentsMargins = SuperGetContentsMargins;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#getContentsMargins)
@@ -6404,8 +6552,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` bottom: *f64 `
     ///
-    pub fn QBaseGetContentsMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
-        qtc.QGraphicsProxyWidget_QBaseGetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
+    pub fn SuperGetContentsMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
+        qtc.QGraphicsProxyWidget_SuperGetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6444,6 +6592,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_PaintWindowFrame(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(widget));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintWindowFrame` instead
+    ///
+    pub const QBasePaintWindowFrame = SuperPaintWindowFrame;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#paintWindowFrame)
@@ -6460,8 +6612,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` widget: QtC.QWidget `
     ///
-    pub fn QBasePaintWindowFrame(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBasePaintWindowFrame(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(widget));
+    pub fn SuperPaintWindowFrame(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, widget: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperPaintWindowFrame(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(widget));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6494,6 +6646,10 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_BoundingRect(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperBoundingRect` instead
+    ///
+    pub const QBaseBoundingRect = SuperBoundingRect;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#boundingRect)
@@ -6504,8 +6660,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` self: QtC.QGraphicsProxyWidget `
     ///
-    pub fn QBaseBoundingRect(self: ?*anyopaque) QtC.QRectF {
-        return qtc.QGraphicsProxyWidget_QBaseBoundingRect(@ptrCast(self));
+    pub fn SuperBoundingRect(self: ?*anyopaque) QtC.QRectF {
+        return qtc.QGraphicsProxyWidget_SuperBoundingRect(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6538,6 +6694,10 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_Shape(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperShape` instead
+    ///
+    pub const QBaseShape = SuperShape;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#shape)
@@ -6548,8 +6708,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` self: QtC.QGraphicsProxyWidget `
     ///
-    pub fn QBaseShape(self: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsProxyWidget_QBaseShape(@ptrCast(self));
+    pub fn SuperShape(self: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsProxyWidget_SuperShape(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6584,6 +6744,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_InitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
+    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    ///
+    pub const QBaseInitStyleOption = SuperInitStyleOption;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#initStyleOption)
@@ -6596,8 +6760,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` option: QtC.QStyleOption `
     ///
-    pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6630,6 +6794,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_UpdateGeometry(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateGeometry` instead
+    ///
+    pub const QBaseUpdateGeometry = SuperUpdateGeometry;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#updateGeometry)
@@ -6640,8 +6808,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` self: QtC.QGraphicsProxyWidget `
     ///
-    pub fn QBaseUpdateGeometry(self: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseUpdateGeometry(@ptrCast(self));
+    pub fn SuperUpdateGeometry(self: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperUpdateGeometry(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6682,6 +6850,10 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_PropertyChange(@ptrCast(self), propertyName_str, @ptrCast(value));
     }
 
+    /// ### DEPRECATED: Use `SuperPropertyChange` instead
+    ///
+    pub const QBasePropertyChange = SuperPropertyChange;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#propertyChange)
@@ -6696,12 +6868,12 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn QBasePropertyChange(self: ?*anyopaque, propertyName: []const u8, value: ?*anyopaque) QtC.QVariant {
+    pub fn SuperPropertyChange(self: ?*anyopaque, propertyName: []const u8, value: ?*anyopaque) QtC.QVariant {
         const propertyName_str = qtc.libqt_string{
             .len = propertyName.len,
             .data = propertyName.ptr,
         };
-        return qtc.QGraphicsProxyWidget_QBasePropertyChange(@ptrCast(self), propertyName_str, @ptrCast(value));
+        return qtc.QGraphicsProxyWidget_SuperPropertyChange(@ptrCast(self), propertyName_str, @ptrCast(value));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6736,6 +6908,10 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_SceneEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperSceneEvent` instead
+    ///
+    pub const QBaseSceneEvent = SuperSceneEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#sceneEvent)
@@ -6748,8 +6924,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseSceneEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGraphicsProxyWidget_QBaseSceneEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperSceneEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGraphicsProxyWidget_SuperSceneEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6784,6 +6960,10 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_WindowFrameEvent(@ptrCast(self), @ptrCast(e));
     }
 
+    /// ### DEPRECATED: Use `SuperWindowFrameEvent` instead
+    ///
+    pub const QBaseWindowFrameEvent = SuperWindowFrameEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameEvent)
@@ -6796,8 +6976,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` e: QtC.QEvent `
     ///
-    pub fn QBaseWindowFrameEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QGraphicsProxyWidget_QBaseWindowFrameEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperWindowFrameEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
+        return qtc.QGraphicsProxyWidget_SuperWindowFrameEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6836,6 +7016,10 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_WindowFrameSectionAt(@ptrCast(self), @ptrCast(pos));
     }
 
+    /// ### DEPRECATED: Use `SuperWindowFrameSectionAt` instead
+    ///
+    pub const QBaseWindowFrameSectionAt = SuperWindowFrameSectionAt;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameSectionAt)
@@ -6852,8 +7036,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` qnamespace_enums.WindowFrameSection `
     ///
-    pub fn QBaseWindowFrameSectionAt(self: ?*anyopaque, pos: ?*anyopaque) i32 {
-        return qtc.QGraphicsProxyWidget_QBaseWindowFrameSectionAt(@ptrCast(self), @ptrCast(pos));
+    pub fn SuperWindowFrameSectionAt(self: ?*anyopaque, pos: ?*anyopaque) i32 {
+        return qtc.QGraphicsProxyWidget_SuperWindowFrameSectionAt(@ptrCast(self), @ptrCast(pos));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6888,6 +7072,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_ChangeEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    ///
+    pub const QBaseChangeEvent = SuperChangeEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#changeEvent)
@@ -6900,8 +7088,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseChangeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseChangeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChangeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperChangeEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6936,6 +7124,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#closeEvent)
@@ -6948,8 +7140,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -6984,6 +7176,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#moveEvent)
@@ -6996,8 +7192,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QGraphicsSceneMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -7030,6 +7226,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_PolishEvent(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPolishEvent` instead
+    ///
+    pub const QBasePolishEvent = SuperPolishEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#polishEvent)
@@ -7040,8 +7240,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` self: QtC.QGraphicsProxyWidget `
     ///
-    pub fn QBasePolishEvent(self: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBasePolishEvent(@ptrCast(self));
+    pub fn SuperPolishEvent(self: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperPolishEvent(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsWidget
@@ -7076,6 +7276,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_GrabKeyboardEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperGrabKeyboardEvent` instead
+    ///
+    pub const QBaseGrabKeyboardEvent = SuperGrabKeyboardEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#grabKeyboardEvent)
@@ -7088,8 +7292,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseGrabKeyboardEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseGrabKeyboardEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperGrabKeyboardEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperGrabKeyboardEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -7124,6 +7328,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_UngrabKeyboardEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperUngrabKeyboardEvent` instead
+    ///
+    pub const QBaseUngrabKeyboardEvent = SuperUngrabKeyboardEvent;
+
     /// Inherited from QGraphicsWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicswidget.html#ungrabKeyboardEvent)
@@ -7136,8 +7344,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseUngrabKeyboardEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseUngrabKeyboardEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperUngrabKeyboardEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperUngrabKeyboardEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsWidget
@@ -7172,6 +7380,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -7184,8 +7396,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7220,6 +7432,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -7232,8 +7448,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7268,6 +7484,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -7280,8 +7500,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7316,6 +7536,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7328,8 +7552,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -7364,6 +7588,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -7376,8 +7604,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -7412,6 +7640,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_Advance(@ptrCast(self), @bitCast(phase));
     }
 
+    /// ### DEPRECATED: Use `SuperAdvance` instead
+    ///
+    pub const QBaseAdvance = SuperAdvance;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
@@ -7424,8 +7656,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` phase: i32 `
     ///
-    pub fn QBaseAdvance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsProxyWidget_QBaseAdvance(@ptrCast(self), @bitCast(phase));
+    pub fn SuperAdvance(self: ?*anyopaque, phase: i32) void {
+        qtc.QGraphicsProxyWidget_SuperAdvance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -7460,6 +7692,10 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_Contains(@ptrCast(self), @ptrCast(point));
     }
 
+    /// ### DEPRECATED: Use `SuperContains` instead
+    ///
+    pub const QBaseContains = SuperContains;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
@@ -7472,8 +7708,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` point: QtC.QPointF `
     ///
-    pub fn QBaseContains(self: ?*anyopaque, point: ?*anyopaque) bool {
-        return qtc.QGraphicsProxyWidget_QBaseContains(@ptrCast(self), @ptrCast(point));
+    pub fn SuperContains(self: ?*anyopaque, point: ?*anyopaque) bool {
+        return qtc.QGraphicsProxyWidget_SuperContains(@ptrCast(self), @ptrCast(point));
     }
 
     /// Inherited from QGraphicsItem
@@ -7510,6 +7746,10 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_CollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `SuperCollidesWithItem` instead
+    ///
+    pub const QBaseCollidesWithItem = SuperCollidesWithItem;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
@@ -7524,8 +7764,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
-    pub fn QBaseCollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsProxyWidget_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
+    pub fn SuperCollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
+        return qtc.QGraphicsProxyWidget_SuperCollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -7562,6 +7802,10 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_CollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `SuperCollidesWithPath` instead
+    ///
+    pub const QBaseCollidesWithPath = SuperCollidesWithPath;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
@@ -7576,8 +7820,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
-    pub fn QBaseCollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsProxyWidget_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
+    pub fn SuperCollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
+        return qtc.QGraphicsProxyWidget_SuperCollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -7612,6 +7856,10 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_IsObscuredBy(@ptrCast(self), @ptrCast(item));
     }
 
+    /// ### DEPRECATED: Use `SuperIsObscuredBy` instead
+    ///
+    pub const QBaseIsObscuredBy = SuperIsObscuredBy;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
@@ -7624,8 +7872,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` item: QtC.QGraphicsItem `
     ///
-    pub fn QBaseIsObscuredBy(self: ?*anyopaque, item: ?*anyopaque) bool {
-        return qtc.QGraphicsProxyWidget_QBaseIsObscuredBy(@ptrCast(self), @ptrCast(item));
+    pub fn SuperIsObscuredBy(self: ?*anyopaque, item: ?*anyopaque) bool {
+        return qtc.QGraphicsProxyWidget_SuperIsObscuredBy(@ptrCast(self), @ptrCast(item));
     }
 
     /// Inherited from QGraphicsItem
@@ -7658,6 +7906,10 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_OpaqueArea(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperOpaqueArea` instead
+    ///
+    pub const QBaseOpaqueArea = SuperOpaqueArea;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
@@ -7668,8 +7920,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` self: QtC.QGraphicsProxyWidget `
     ///
-    pub fn QBaseOpaqueArea(self: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsProxyWidget_QBaseOpaqueArea(@ptrCast(self));
+    pub fn SuperOpaqueArea(self: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsProxyWidget_SuperOpaqueArea(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsItem
@@ -7706,6 +7958,10 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_SceneEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperSceneEventFilter` instead
+    ///
+    pub const QBaseSceneEventFilter = SuperSceneEventFilter;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
@@ -7720,8 +7976,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseSceneEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGraphicsProxyWidget_QBaseSceneEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperSceneEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGraphicsProxyWidget_SuperSceneEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -7756,6 +8012,10 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_SupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
+    /// ### DEPRECATED: Use `SuperSupportsExtension` instead
+    ///
+    pub const QBaseSupportsExtension = SuperSupportsExtension;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
@@ -7768,8 +8028,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsProxyWidget_QBaseSupportsExtension(@ptrCast(self), @bitCast(extension));
+    pub fn SuperSupportsExtension(self: ?*anyopaque, extension: i32) bool {
+        return qtc.QGraphicsProxyWidget_SuperSupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// Inherited from QGraphicsItem
@@ -7806,6 +8066,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_SetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
+    /// ### DEPRECATED: Use `SuperSetExtension` instead
+    ///
+    pub const QBaseSetExtension = SuperSetExtension;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
@@ -7820,8 +8084,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseSetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
+    pub fn SuperSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperSetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// Inherited from QGraphicsItem
@@ -7856,6 +8120,10 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_Extension(@ptrCast(self), @ptrCast(variant));
     }
 
+    /// ### DEPRECATED: Use `SuperExtension` instead
+    ///
+    pub const QBaseExtension = SuperExtension;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
@@ -7868,8 +8136,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn QBaseExtension(self: ?*anyopaque, variant: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsProxyWidget_QBaseExtension(@ptrCast(self), @ptrCast(variant));
+    pub fn SuperExtension(self: ?*anyopaque, variant: ?*anyopaque) QtC.QVariant {
+        return qtc.QGraphicsProxyWidget_SuperExtension(@ptrCast(self), @ptrCast(variant));
     }
 
     /// Inherited from QGraphicsItem
@@ -7902,6 +8170,10 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_IsEmpty(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsEmpty` instead
+    ///
+    pub const QBaseIsEmpty = SuperIsEmpty;
+
     /// Inherited from QGraphicsLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
@@ -7912,8 +8184,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` self: QtC.QGraphicsProxyWidget `
     ///
-    pub fn QBaseIsEmpty(self: ?*anyopaque) bool {
-        return qtc.QGraphicsProxyWidget_QBaseIsEmpty(@ptrCast(self));
+    pub fn SuperIsEmpty(self: ?*anyopaque) bool {
+        return qtc.QGraphicsProxyWidget_SuperIsEmpty(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -7946,6 +8218,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
@@ -7956,8 +8232,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` self: QtC.QGraphicsProxyWidget `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsObject
@@ -7990,6 +8266,10 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -8000,8 +8280,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` self: QtC.QGraphicsProxyWidget `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QGraphicsProxyWidget_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QGraphicsProxyWidget_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -8034,6 +8314,10 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -8044,8 +8328,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` self: QtC.QGraphicsProxyWidget `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QGraphicsProxyWidget_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QGraphicsProxyWidget_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -8081,6 +8365,10 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -8093,9 +8381,9 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QGraphicsProxyWidget_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QGraphicsProxyWidget_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -8130,6 +8418,10 @@ pub const qgraphicsproxywidget = struct {
         return qtc.QGraphicsProxyWidget_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -8142,8 +8434,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QGraphicsProxyWidget_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QGraphicsProxyWidget_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -8176,6 +8468,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_AddToIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperAddToIndex` instead
+    ///
+    pub const QBaseAddToIndex = SuperAddToIndex;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
@@ -8186,8 +8482,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` self: QtC.QGraphicsProxyWidget `
     ///
-    pub fn QBaseAddToIndex(self: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseAddToIndex(@ptrCast(self));
+    pub fn SuperAddToIndex(self: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperAddToIndex(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsItem
@@ -8220,6 +8516,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_RemoveFromIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperRemoveFromIndex` instead
+    ///
+    pub const QBaseRemoveFromIndex = SuperRemoveFromIndex;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
@@ -8230,8 +8530,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` self: QtC.QGraphicsProxyWidget `
     ///
-    pub fn QBaseRemoveFromIndex(self: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseRemoveFromIndex(@ptrCast(self));
+    pub fn SuperRemoveFromIndex(self: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperRemoveFromIndex(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsItem
@@ -8264,6 +8564,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_PrepareGeometryChange(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPrepareGeometryChange` instead
+    ///
+    pub const QBasePrepareGeometryChange = SuperPrepareGeometryChange;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
@@ -8274,8 +8578,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` self: QtC.QGraphicsProxyWidget `
     ///
-    pub fn QBasePrepareGeometryChange(self: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBasePrepareGeometryChange(@ptrCast(self));
+    pub fn SuperPrepareGeometryChange(self: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperPrepareGeometryChange(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsItem
@@ -8310,6 +8614,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_SetGraphicsItem(@ptrCast(self), @ptrCast(item));
     }
 
+    /// ### DEPRECATED: Use `SuperSetGraphicsItem` instead
+    ///
+    pub const QBaseSetGraphicsItem = SuperSetGraphicsItem;
+
     /// Inherited from QGraphicsLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
@@ -8322,8 +8630,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` item: QtC.QGraphicsItem `
     ///
-    pub fn QBaseSetGraphicsItem(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QGraphicsProxyWidget_QBaseSetGraphicsItem(@ptrCast(self), @ptrCast(item));
+    pub fn SuperSetGraphicsItem(self: ?*anyopaque, item: ?*anyopaque) void {
+        qtc.QGraphicsProxyWidget_SuperSetGraphicsItem(@ptrCast(self), @ptrCast(item));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -8358,6 +8666,10 @@ pub const qgraphicsproxywidget = struct {
         qtc.QGraphicsProxyWidget_SetOwnedByLayout(@ptrCast(self), ownedByLayout);
     }
 
+    /// ### DEPRECATED: Use `SuperSetOwnedByLayout` instead
+    ///
+    pub const QBaseSetOwnedByLayout = SuperSetOwnedByLayout;
+
     /// Inherited from QGraphicsLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
@@ -8370,8 +8682,8 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` ownedByLayout: bool `
     ///
-    pub fn QBaseSetOwnedByLayout(self: ?*anyopaque, ownedByLayout: bool) void {
-        qtc.QGraphicsProxyWidget_QBaseSetOwnedByLayout(@ptrCast(self), ownedByLayout);
+    pub fn SuperSetOwnedByLayout(self: ?*anyopaque, ownedByLayout: bool) void {
+        qtc.QGraphicsProxyWidget_SuperSetOwnedByLayout(@ptrCast(self), ownedByLayout);
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -8405,6 +8717,9 @@ pub const qgraphicsproxywidget = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsproxywidget.html#dtor.QGraphicsProxyWidget)
     ///
@@ -8414,7 +8729,7 @@ pub const qgraphicsproxywidget = struct {
     ///
     /// ` self: QtC.QGraphicsProxyWidget `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGraphicsProxyWidget_Delete(@ptrCast(self));
     }
 };

@@ -191,7 +191,7 @@ void QGeoRoutingManagerEngine_Connect_ErrorOccurred3(QGeoRoutingManagerEngine* s
 }
 
 // Base class handler implementation
-QMetaObject* QGeoRoutingManagerEngine_QBaseMetaObject(const QGeoRoutingManagerEngine* self) {
+QMetaObject* QGeoRoutingManagerEngine_SuperMetaObject(const QGeoRoutingManagerEngine* self) {
     auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_MetaObject_IsBase(true);
@@ -210,7 +210,7 @@ void QGeoRoutingManagerEngine_OnMetaObject(const QGeoRoutingManagerEngine* self,
 }
 
 // Base class handler implementation
-void* QGeoRoutingManagerEngine_QBaseMetacast(QGeoRoutingManagerEngine* self, const char* param1) {
+void* QGeoRoutingManagerEngine_SuperMetacast(QGeoRoutingManagerEngine* self, const char* param1) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Metacast_IsBase(true);
@@ -229,7 +229,7 @@ void QGeoRoutingManagerEngine_OnMetacast(QGeoRoutingManagerEngine* self, intptr_
 }
 
 // Base class handler implementation
-int QGeoRoutingManagerEngine_QBaseMetacall(QGeoRoutingManagerEngine* self, int param1, int param2, void** param3) {
+int QGeoRoutingManagerEngine_SuperMetacall(QGeoRoutingManagerEngine* self, int param1, int param2, void** param3) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Metacall_IsBase(true);
@@ -248,7 +248,7 @@ void QGeoRoutingManagerEngine_OnMetacall(QGeoRoutingManagerEngine* self, intptr_
 }
 
 // Base class handler implementation
-QGeoRouteReply* QGeoRoutingManagerEngine_QBaseCalculateRoute(QGeoRoutingManagerEngine* self, const QGeoRouteRequest* request) {
+QGeoRouteReply* QGeoRoutingManagerEngine_SuperCalculateRoute(QGeoRoutingManagerEngine* self, const QGeoRouteRequest* request) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_CalculateRoute_IsBase(true);
@@ -267,7 +267,7 @@ void QGeoRoutingManagerEngine_OnCalculateRoute(QGeoRoutingManagerEngine* self, i
 }
 
 // Base class handler implementation
-QGeoRouteReply* QGeoRoutingManagerEngine_QBaseUpdateRoute(QGeoRoutingManagerEngine* self, const QGeoRoute* route, const QGeoCoordinate* position) {
+QGeoRouteReply* QGeoRoutingManagerEngine_SuperUpdateRoute(QGeoRoutingManagerEngine* self, const QGeoRoute* route, const QGeoCoordinate* position) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_UpdateRoute_IsBase(true);
@@ -296,7 +296,7 @@ bool QGeoRoutingManagerEngine_Event(QGeoRoutingManagerEngine* self, QEvent* even
 }
 
 // Base class handler implementation
-bool QGeoRoutingManagerEngine_QBaseEvent(QGeoRoutingManagerEngine* self, QEvent* event) {
+bool QGeoRoutingManagerEngine_SuperEvent(QGeoRoutingManagerEngine* self, QEvent* event) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Event_IsBase(true);
@@ -325,7 +325,7 @@ bool QGeoRoutingManagerEngine_EventFilter(QGeoRoutingManagerEngine* self, QObjec
 }
 
 // Base class handler implementation
-bool QGeoRoutingManagerEngine_QBaseEventFilter(QGeoRoutingManagerEngine* self, QObject* watched, QEvent* event) {
+bool QGeoRoutingManagerEngine_SuperEventFilter(QGeoRoutingManagerEngine* self, QObject* watched, QEvent* event) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_EventFilter_IsBase(true);
@@ -354,7 +354,7 @@ void QGeoRoutingManagerEngine_TimerEvent(QGeoRoutingManagerEngine* self, QTimerE
 }
 
 // Base class handler implementation
-void QGeoRoutingManagerEngine_QBaseTimerEvent(QGeoRoutingManagerEngine* self, QTimerEvent* event) {
+void QGeoRoutingManagerEngine_SuperTimerEvent(QGeoRoutingManagerEngine* self, QTimerEvent* event) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_TimerEvent_IsBase(true);
@@ -383,7 +383,7 @@ void QGeoRoutingManagerEngine_ChildEvent(QGeoRoutingManagerEngine* self, QChildE
 }
 
 // Base class handler implementation
-void QGeoRoutingManagerEngine_QBaseChildEvent(QGeoRoutingManagerEngine* self, QChildEvent* event) {
+void QGeoRoutingManagerEngine_SuperChildEvent(QGeoRoutingManagerEngine* self, QChildEvent* event) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_ChildEvent_IsBase(true);
@@ -412,7 +412,7 @@ void QGeoRoutingManagerEngine_CustomEvent(QGeoRoutingManagerEngine* self, QEvent
 }
 
 // Base class handler implementation
-void QGeoRoutingManagerEngine_QBaseCustomEvent(QGeoRoutingManagerEngine* self, QEvent* event) {
+void QGeoRoutingManagerEngine_SuperCustomEvent(QGeoRoutingManagerEngine* self, QEvent* event) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_CustomEvent_IsBase(true);
@@ -441,7 +441,7 @@ void QGeoRoutingManagerEngine_ConnectNotify(QGeoRoutingManagerEngine* self, cons
 }
 
 // Base class handler implementation
-void QGeoRoutingManagerEngine_QBaseConnectNotify(QGeoRoutingManagerEngine* self, const QMetaMethod* signal) {
+void QGeoRoutingManagerEngine_SuperConnectNotify(QGeoRoutingManagerEngine* self, const QMetaMethod* signal) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_ConnectNotify_IsBase(true);
@@ -470,7 +470,7 @@ void QGeoRoutingManagerEngine_DisconnectNotify(QGeoRoutingManagerEngine* self, c
 }
 
 // Base class handler implementation
-void QGeoRoutingManagerEngine_QBaseDisconnectNotify(QGeoRoutingManagerEngine* self, const QMetaMethod* signal) {
+void QGeoRoutingManagerEngine_SuperDisconnectNotify(QGeoRoutingManagerEngine* self, const QMetaMethod* signal) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_DisconnectNotify_IsBase(true);
@@ -499,7 +499,7 @@ void QGeoRoutingManagerEngine_SetSupportedTravelModes(QGeoRoutingManagerEngine* 
 }
 
 // Base class handler implementation
-void QGeoRoutingManagerEngine_QBaseSetSupportedTravelModes(QGeoRoutingManagerEngine* self, int travelModes) {
+void QGeoRoutingManagerEngine_SuperSetSupportedTravelModes(QGeoRoutingManagerEngine* self, int travelModes) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedTravelModes_IsBase(true);
@@ -528,7 +528,7 @@ void QGeoRoutingManagerEngine_SetSupportedFeatureTypes(QGeoRoutingManagerEngine*
 }
 
 // Base class handler implementation
-void QGeoRoutingManagerEngine_QBaseSetSupportedFeatureTypes(QGeoRoutingManagerEngine* self, int featureTypes) {
+void QGeoRoutingManagerEngine_SuperSetSupportedFeatureTypes(QGeoRoutingManagerEngine* self, int featureTypes) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedFeatureTypes_IsBase(true);
@@ -557,7 +557,7 @@ void QGeoRoutingManagerEngine_SetSupportedFeatureWeights(QGeoRoutingManagerEngin
 }
 
 // Base class handler implementation
-void QGeoRoutingManagerEngine_QBaseSetSupportedFeatureWeights(QGeoRoutingManagerEngine* self, int featureWeights) {
+void QGeoRoutingManagerEngine_SuperSetSupportedFeatureWeights(QGeoRoutingManagerEngine* self, int featureWeights) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedFeatureWeights_IsBase(true);
@@ -586,7 +586,7 @@ void QGeoRoutingManagerEngine_SetSupportedRouteOptimizations(QGeoRoutingManagerE
 }
 
 // Base class handler implementation
-void QGeoRoutingManagerEngine_QBaseSetSupportedRouteOptimizations(QGeoRoutingManagerEngine* self, int optimizations) {
+void QGeoRoutingManagerEngine_SuperSetSupportedRouteOptimizations(QGeoRoutingManagerEngine* self, int optimizations) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedRouteOptimizations_IsBase(true);
@@ -615,7 +615,7 @@ void QGeoRoutingManagerEngine_SetSupportedSegmentDetails(QGeoRoutingManagerEngin
 }
 
 // Base class handler implementation
-void QGeoRoutingManagerEngine_QBaseSetSupportedSegmentDetails(QGeoRoutingManagerEngine* self, int segmentDetails) {
+void QGeoRoutingManagerEngine_SuperSetSupportedSegmentDetails(QGeoRoutingManagerEngine* self, int segmentDetails) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedSegmentDetails_IsBase(true);
@@ -644,7 +644,7 @@ void QGeoRoutingManagerEngine_SetSupportedManeuverDetails(QGeoRoutingManagerEngi
 }
 
 // Base class handler implementation
-void QGeoRoutingManagerEngine_QBaseSetSupportedManeuverDetails(QGeoRoutingManagerEngine* self, int maneuverDetails) {
+void QGeoRoutingManagerEngine_SuperSetSupportedManeuverDetails(QGeoRoutingManagerEngine* self, int maneuverDetails) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedManeuverDetails_IsBase(true);
@@ -673,7 +673,7 @@ QObject* QGeoRoutingManagerEngine_Sender(const QGeoRoutingManagerEngine* self) {
 }
 
 // Base class handler implementation
-QObject* QGeoRoutingManagerEngine_QBaseSender(const QGeoRoutingManagerEngine* self) {
+QObject* QGeoRoutingManagerEngine_SuperSender(const QGeoRoutingManagerEngine* self) {
     auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Sender_IsBase(true);
@@ -702,7 +702,7 @@ int QGeoRoutingManagerEngine_SenderSignalIndex(const QGeoRoutingManagerEngine* s
 }
 
 // Base class handler implementation
-int QGeoRoutingManagerEngine_QBaseSenderSignalIndex(const QGeoRoutingManagerEngine* self) {
+int QGeoRoutingManagerEngine_SuperSenderSignalIndex(const QGeoRoutingManagerEngine* self) {
     auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SenderSignalIndex_IsBase(true);
@@ -731,7 +731,7 @@ int QGeoRoutingManagerEngine_Receivers(const QGeoRoutingManagerEngine* self, con
 }
 
 // Base class handler implementation
-int QGeoRoutingManagerEngine_QBaseReceivers(const QGeoRoutingManagerEngine* self, const char* signal) {
+int QGeoRoutingManagerEngine_SuperReceivers(const QGeoRoutingManagerEngine* self, const char* signal) {
     auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Receivers_IsBase(true);
@@ -760,7 +760,7 @@ bool QGeoRoutingManagerEngine_IsSignalConnected(const QGeoRoutingManagerEngine* 
 }
 
 // Base class handler implementation
-bool QGeoRoutingManagerEngine_QBaseIsSignalConnected(const QGeoRoutingManagerEngine* self, const QMetaMethod* signal) {
+bool QGeoRoutingManagerEngine_SuperIsSignalConnected(const QGeoRoutingManagerEngine* self, const QMetaMethod* signal) {
     auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
     if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_IsSignalConnected_IsBase(true);

@@ -1098,31 +1098,31 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
 
     // Friend functions
     friend bool QsciLexerCoffeeScript_ReadProperties(QsciLexerCoffeeScript* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerCoffeeScript_QBaseReadProperties(QsciLexerCoffeeScript* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerCoffeeScript_SuperReadProperties(QsciLexerCoffeeScript* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerCoffeeScript_WriteProperties(const QsciLexerCoffeeScript* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerCoffeeScript_QBaseWriteProperties(const QsciLexerCoffeeScript* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerCoffeeScript_SuperWriteProperties(const QsciLexerCoffeeScript* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerCoffeeScript_TimerEvent(QsciLexerCoffeeScript* self, QTimerEvent* event);
-    friend void QsciLexerCoffeeScript_QBaseTimerEvent(QsciLexerCoffeeScript* self, QTimerEvent* event);
+    friend void QsciLexerCoffeeScript_SuperTimerEvent(QsciLexerCoffeeScript* self, QTimerEvent* event);
     friend void QsciLexerCoffeeScript_ChildEvent(QsciLexerCoffeeScript* self, QChildEvent* event);
-    friend void QsciLexerCoffeeScript_QBaseChildEvent(QsciLexerCoffeeScript* self, QChildEvent* event);
+    friend void QsciLexerCoffeeScript_SuperChildEvent(QsciLexerCoffeeScript* self, QChildEvent* event);
     friend void QsciLexerCoffeeScript_CustomEvent(QsciLexerCoffeeScript* self, QEvent* event);
-    friend void QsciLexerCoffeeScript_QBaseCustomEvent(QsciLexerCoffeeScript* self, QEvent* event);
+    friend void QsciLexerCoffeeScript_SuperCustomEvent(QsciLexerCoffeeScript* self, QEvent* event);
     friend void QsciLexerCoffeeScript_ConnectNotify(QsciLexerCoffeeScript* self, const QMetaMethod* signal);
-    friend void QsciLexerCoffeeScript_QBaseConnectNotify(QsciLexerCoffeeScript* self, const QMetaMethod* signal);
+    friend void QsciLexerCoffeeScript_SuperConnectNotify(QsciLexerCoffeeScript* self, const QMetaMethod* signal);
     friend void QsciLexerCoffeeScript_DisconnectNotify(QsciLexerCoffeeScript* self, const QMetaMethod* signal);
-    friend void QsciLexerCoffeeScript_QBaseDisconnectNotify(QsciLexerCoffeeScript* self, const QMetaMethod* signal);
+    friend void QsciLexerCoffeeScript_SuperDisconnectNotify(QsciLexerCoffeeScript* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerCoffeeScript_TextAsBytes(const QsciLexerCoffeeScript* self, const libqt_string text);
-    friend libqt_string QsciLexerCoffeeScript_QBaseTextAsBytes(const QsciLexerCoffeeScript* self, const libqt_string text);
+    friend libqt_string QsciLexerCoffeeScript_SuperTextAsBytes(const QsciLexerCoffeeScript* self, const libqt_string text);
     friend libqt_string QsciLexerCoffeeScript_BytesAsText(const QsciLexerCoffeeScript* self, const char* bytes, int size);
-    friend libqt_string QsciLexerCoffeeScript_QBaseBytesAsText(const QsciLexerCoffeeScript* self, const char* bytes, int size);
+    friend libqt_string QsciLexerCoffeeScript_SuperBytesAsText(const QsciLexerCoffeeScript* self, const char* bytes, int size);
     friend QObject* QsciLexerCoffeeScript_Sender(const QsciLexerCoffeeScript* self);
-    friend QObject* QsciLexerCoffeeScript_QBaseSender(const QsciLexerCoffeeScript* self);
+    friend QObject* QsciLexerCoffeeScript_SuperSender(const QsciLexerCoffeeScript* self);
     friend int QsciLexerCoffeeScript_SenderSignalIndex(const QsciLexerCoffeeScript* self);
-    friend int QsciLexerCoffeeScript_QBaseSenderSignalIndex(const QsciLexerCoffeeScript* self);
+    friend int QsciLexerCoffeeScript_SuperSenderSignalIndex(const QsciLexerCoffeeScript* self);
     friend int QsciLexerCoffeeScript_Receivers(const QsciLexerCoffeeScript* self, const char* signal);
-    friend int QsciLexerCoffeeScript_QBaseReceivers(const QsciLexerCoffeeScript* self, const char* signal);
+    friend int QsciLexerCoffeeScript_SuperReceivers(const QsciLexerCoffeeScript* self, const char* signal);
     friend bool QsciLexerCoffeeScript_IsSignalConnected(const QsciLexerCoffeeScript* self, const QMetaMethod* signal);
-    friend bool QsciLexerCoffeeScript_QBaseIsSignalConnected(const QsciLexerCoffeeScript* self, const QMetaMethod* signal);
+    friend bool QsciLexerCoffeeScript_SuperIsSignalConnected(const QsciLexerCoffeeScript* self, const QMetaMethod* signal);
 };
 
 #endif

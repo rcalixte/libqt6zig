@@ -206,6 +206,10 @@ pub const kparts__openurlevent = struct {
         qtc.KParts__OpenUrlEvent_SetAccepted(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    ///
+    pub const QBaseSetAccepted = SuperSetAccepted;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -218,8 +222,8 @@ pub const kparts__openurlevent = struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.KParts__OpenUrlEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.KParts__OpenUrlEvent_SuperSetAccepted(@ptrCast(self), accepted);
     }
 
     /// Inherited from QEvent
@@ -252,6 +256,10 @@ pub const kparts__openurlevent = struct {
         return qtc.KParts__OpenUrlEvent_Clone(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
@@ -262,8 +270,8 @@ pub const kparts__openurlevent = struct {
     ///
     /// ` self: QtC.KParts__OpenUrlEvent `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QEvent {
-        return qtc.KParts__OpenUrlEvent_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QEvent {
+        return qtc.KParts__OpenUrlEvent_SuperClone(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -281,6 +289,9 @@ pub const kparts__openurlevent = struct {
     pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
         qtc.KParts__OpenUrlEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -288,7 +299,7 @@ pub const kparts__openurlevent = struct {
     ///
     /// ` self: QtC.KParts__OpenUrlEvent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KParts__OpenUrlEvent_Delete(@ptrCast(self));
     }
 };

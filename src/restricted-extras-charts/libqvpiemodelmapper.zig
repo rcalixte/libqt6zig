@@ -46,6 +46,10 @@ pub const qvpiemodelmapper = struct {
         qtc.QVPieModelMapper_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -54,8 +58,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` self: QtC.QVPieModelMapper `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QVPieModelMapper_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QVPieModelMapper_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -81,6 +85,10 @@ pub const qvpiemodelmapper = struct {
         qtc.QVPieModelMapper_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -89,9 +97,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QVPieModelMapper_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QVPieModelMapper_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -120,6 +128,10 @@ pub const qvpiemodelmapper = struct {
         qtc.QVPieModelMapper_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -132,8 +144,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QVPieModelMapper_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QVPieModelMapper_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1213,6 +1225,10 @@ pub const qvpiemodelmapper = struct {
         return qtc.QVPieModelMapper_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1225,8 +1241,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QVPieModelMapper_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QVPieModelMapper_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1263,6 +1279,10 @@ pub const qvpiemodelmapper = struct {
         return qtc.QVPieModelMapper_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1277,8 +1297,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QVPieModelMapper_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QVPieModelMapper_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1313,6 +1333,10 @@ pub const qvpiemodelmapper = struct {
         qtc.QVPieModelMapper_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1325,8 +1349,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVPieModelMapper_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QVPieModelMapper_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1361,6 +1385,10 @@ pub const qvpiemodelmapper = struct {
         qtc.QVPieModelMapper_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1373,8 +1401,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVPieModelMapper_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QVPieModelMapper_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1409,6 +1437,10 @@ pub const qvpiemodelmapper = struct {
         qtc.QVPieModelMapper_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1421,8 +1453,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVPieModelMapper_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QVPieModelMapper_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1457,6 +1489,10 @@ pub const qvpiemodelmapper = struct {
         qtc.QVPieModelMapper_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1469,8 +1505,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QVPieModelMapper_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QVPieModelMapper_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1505,6 +1541,10 @@ pub const qvpiemodelmapper = struct {
         qtc.QVPieModelMapper_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1517,8 +1557,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QVPieModelMapper_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QVPieModelMapper_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1551,6 +1591,10 @@ pub const qvpiemodelmapper = struct {
         return qtc.QVPieModelMapper_First(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFirst` instead
+    ///
+    pub const QBaseFirst = SuperFirst;
+
     /// Inherited from QPieModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#first)
@@ -1561,8 +1605,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` self: QtC.QVPieModelMapper `
     ///
-    pub fn QBaseFirst(self: ?*anyopaque) i32 {
-        return qtc.QVPieModelMapper_QBaseFirst(@ptrCast(self));
+    pub fn SuperFirst(self: ?*anyopaque) i32 {
+        return qtc.QVPieModelMapper_SuperFirst(@ptrCast(self));
     }
 
     /// Inherited from QPieModelMapper
@@ -1597,6 +1641,10 @@ pub const qvpiemodelmapper = struct {
         qtc.QVPieModelMapper_SetFirst(@ptrCast(self), @bitCast(first));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFirst` instead
+    ///
+    pub const QBaseSetFirst = SuperSetFirst;
+
     /// Inherited from QPieModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#setFirst)
@@ -1609,8 +1657,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` first: i32 `
     ///
-    pub fn QBaseSetFirst(self: ?*anyopaque, first: i32) void {
-        qtc.QVPieModelMapper_QBaseSetFirst(@ptrCast(self), @bitCast(first));
+    pub fn SuperSetFirst(self: ?*anyopaque, first: i32) void {
+        qtc.QVPieModelMapper_SuperSetFirst(@ptrCast(self), @bitCast(first));
     }
 
     /// Inherited from QPieModelMapper
@@ -1643,6 +1691,10 @@ pub const qvpiemodelmapper = struct {
         return qtc.QVPieModelMapper_Count(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCount` instead
+    ///
+    pub const QBaseCount = SuperCount;
+
     /// Inherited from QPieModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#count)
@@ -1653,8 +1705,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` self: QtC.QVPieModelMapper `
     ///
-    pub fn QBaseCount(self: ?*anyopaque) i32 {
-        return qtc.QVPieModelMapper_QBaseCount(@ptrCast(self));
+    pub fn SuperCount(self: ?*anyopaque) i32 {
+        return qtc.QVPieModelMapper_SuperCount(@ptrCast(self));
     }
 
     /// Inherited from QPieModelMapper
@@ -1689,6 +1741,10 @@ pub const qvpiemodelmapper = struct {
         qtc.QVPieModelMapper_SetCount(@ptrCast(self), @bitCast(count));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCount` instead
+    ///
+    pub const QBaseSetCount = SuperSetCount;
+
     /// Inherited from QPieModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#setCount)
@@ -1701,8 +1757,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn QBaseSetCount(self: ?*anyopaque, count: i32) void {
-        qtc.QVPieModelMapper_QBaseSetCount(@ptrCast(self), @bitCast(count));
+    pub fn SuperSetCount(self: ?*anyopaque, count: i32) void {
+        qtc.QVPieModelMapper_SuperSetCount(@ptrCast(self), @bitCast(count));
     }
 
     /// Inherited from QPieModelMapper
@@ -1735,6 +1791,10 @@ pub const qvpiemodelmapper = struct {
         return qtc.QVPieModelMapper_ValuesSection(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperValuesSection` instead
+    ///
+    pub const QBaseValuesSection = SuperValuesSection;
+
     /// Inherited from QPieModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#valuesSection)
@@ -1745,8 +1805,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` self: QtC.QVPieModelMapper `
     ///
-    pub fn QBaseValuesSection(self: ?*anyopaque) i32 {
-        return qtc.QVPieModelMapper_QBaseValuesSection(@ptrCast(self));
+    pub fn SuperValuesSection(self: ?*anyopaque) i32 {
+        return qtc.QVPieModelMapper_SuperValuesSection(@ptrCast(self));
     }
 
     /// Inherited from QPieModelMapper
@@ -1781,6 +1841,10 @@ pub const qvpiemodelmapper = struct {
         qtc.QVPieModelMapper_SetValuesSection(@ptrCast(self), @bitCast(valuesSection));
     }
 
+    /// ### DEPRECATED: Use `SuperSetValuesSection` instead
+    ///
+    pub const QBaseSetValuesSection = SuperSetValuesSection;
+
     /// Inherited from QPieModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#setValuesSection)
@@ -1793,8 +1857,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` valuesSection: i32 `
     ///
-    pub fn QBaseSetValuesSection(self: ?*anyopaque, valuesSection: i32) void {
-        qtc.QVPieModelMapper_QBaseSetValuesSection(@ptrCast(self), @bitCast(valuesSection));
+    pub fn SuperSetValuesSection(self: ?*anyopaque, valuesSection: i32) void {
+        qtc.QVPieModelMapper_SuperSetValuesSection(@ptrCast(self), @bitCast(valuesSection));
     }
 
     /// Inherited from QPieModelMapper
@@ -1827,6 +1891,10 @@ pub const qvpiemodelmapper = struct {
         return qtc.QVPieModelMapper_LabelsSection(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperLabelsSection` instead
+    ///
+    pub const QBaseLabelsSection = SuperLabelsSection;
+
     /// Inherited from QPieModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#labelsSection)
@@ -1837,8 +1905,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` self: QtC.QVPieModelMapper `
     ///
-    pub fn QBaseLabelsSection(self: ?*anyopaque) i32 {
-        return qtc.QVPieModelMapper_QBaseLabelsSection(@ptrCast(self));
+    pub fn SuperLabelsSection(self: ?*anyopaque) i32 {
+        return qtc.QVPieModelMapper_SuperLabelsSection(@ptrCast(self));
     }
 
     /// Inherited from QPieModelMapper
@@ -1873,6 +1941,10 @@ pub const qvpiemodelmapper = struct {
         qtc.QVPieModelMapper_SetLabelsSection(@ptrCast(self), @bitCast(labelsSection));
     }
 
+    /// ### DEPRECATED: Use `SuperSetLabelsSection` instead
+    ///
+    pub const QBaseSetLabelsSection = SuperSetLabelsSection;
+
     /// Inherited from QPieModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#setLabelsSection)
@@ -1885,8 +1957,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` labelsSection: i32 `
     ///
-    pub fn QBaseSetLabelsSection(self: ?*anyopaque, labelsSection: i32) void {
-        qtc.QVPieModelMapper_QBaseSetLabelsSection(@ptrCast(self), @bitCast(labelsSection));
+    pub fn SuperSetLabelsSection(self: ?*anyopaque, labelsSection: i32) void {
+        qtc.QVPieModelMapper_SuperSetLabelsSection(@ptrCast(self), @bitCast(labelsSection));
     }
 
     /// Inherited from QPieModelMapper
@@ -1923,6 +1995,10 @@ pub const qvpiemodelmapper = struct {
         return qtc.QVPieModelMapper_Orientation(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperOrientation` instead
+    ///
+    pub const QBaseOrientation = SuperOrientation;
+
     /// Inherited from QPieModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#orientation)
@@ -1937,8 +2013,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn QBaseOrientation(self: ?*anyopaque) i32 {
-        return qtc.QVPieModelMapper_QBaseOrientation(@ptrCast(self));
+    pub fn SuperOrientation(self: ?*anyopaque) i32 {
+        return qtc.QVPieModelMapper_SuperOrientation(@ptrCast(self));
     }
 
     /// Inherited from QPieModelMapper
@@ -1973,6 +2049,10 @@ pub const qvpiemodelmapper = struct {
         qtc.QVPieModelMapper_SetOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
+    /// ### DEPRECATED: Use `SuperSetOrientation` instead
+    ///
+    pub const QBaseSetOrientation = SuperSetOrientation;
+
     /// Inherited from QPieModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpiemodelmapper.html#setOrientation)
@@ -1985,8 +2065,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    pub fn QBaseSetOrientation(self: ?*anyopaque, orientation: i32) void {
-        qtc.QVPieModelMapper_QBaseSetOrientation(@ptrCast(self), @bitCast(orientation));
+    pub fn SuperSetOrientation(self: ?*anyopaque, orientation: i32) void {
+        qtc.QVPieModelMapper_SuperSetOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
     /// Inherited from QPieModelMapper
@@ -2019,6 +2099,10 @@ pub const qvpiemodelmapper = struct {
         return qtc.QVPieModelMapper_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2029,8 +2113,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` self: QtC.QVPieModelMapper `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QVPieModelMapper_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QVPieModelMapper_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2063,6 +2147,10 @@ pub const qvpiemodelmapper = struct {
         return qtc.QVPieModelMapper_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2073,8 +2161,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` self: QtC.QVPieModelMapper `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QVPieModelMapper_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QVPieModelMapper_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2110,6 +2198,10 @@ pub const qvpiemodelmapper = struct {
         return qtc.QVPieModelMapper_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2122,9 +2214,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QVPieModelMapper_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QVPieModelMapper_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2159,6 +2251,10 @@ pub const qvpiemodelmapper = struct {
         return qtc.QVPieModelMapper_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2171,8 +2267,8 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QVPieModelMapper_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QVPieModelMapper_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2206,6 +2302,9 @@ pub const qvpiemodelmapper = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvpiemodelmapper-qtcharts.html#dtor.QVPieModelMapper)
     ///
@@ -2215,7 +2314,7 @@ pub const qvpiemodelmapper = struct {
     ///
     /// ` self: QtC.QVPieModelMapper `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QVPieModelMapper_Delete(@ptrCast(self));
     }
 };

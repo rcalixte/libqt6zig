@@ -246,7 +246,7 @@ bool KActionSelector_EventFilter(KActionSelector* self, QObject* param1, QEvent*
 }
 
 // Base class handler implementation
-QMetaObject* KActionSelector_QBaseMetaObject(const KActionSelector* self) {
+QMetaObject* KActionSelector_SuperMetaObject(const KActionSelector* self) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_MetaObject_IsBase(true);
@@ -265,7 +265,7 @@ void KActionSelector_OnMetaObject(const KActionSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KActionSelector_QBaseMetacast(KActionSelector* self, const char* param1) {
+void* KActionSelector_SuperMetacast(KActionSelector* self, const char* param1) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_Metacast_IsBase(true);
@@ -284,7 +284,7 @@ void KActionSelector_OnMetacast(KActionSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KActionSelector_QBaseMetacall(KActionSelector* self, int param1, int param2, void** param3) {
+int KActionSelector_SuperMetacall(KActionSelector* self, int param1, int param2, void** param3) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_Metacall_IsBase(true);
@@ -303,7 +303,7 @@ void KActionSelector_OnMetacall(KActionSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseKeyPressEvent(KActionSelector* self, QKeyEvent* param1) {
+void KActionSelector_SuperKeyPressEvent(KActionSelector* self, QKeyEvent* param1) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_KeyPressEvent_IsBase(true);
@@ -322,7 +322,7 @@ void KActionSelector_OnKeyPressEvent(KActionSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KActionSelector_QBaseEventFilter(KActionSelector* self, QObject* param1, QEvent* param2) {
+bool KActionSelector_SuperEventFilter(KActionSelector* self, QObject* param1, QEvent* param2) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_EventFilter_IsBase(true);
@@ -351,7 +351,7 @@ int KActionSelector_DevType(const KActionSelector* self) {
 }
 
 // Base class handler implementation
-int KActionSelector_QBaseDevType(const KActionSelector* self) {
+int KActionSelector_SuperDevType(const KActionSelector* self) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_DevType_IsBase(true);
@@ -380,7 +380,7 @@ void KActionSelector_SetVisible(KActionSelector* self, bool visible) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseSetVisible(KActionSelector* self, bool visible) {
+void KActionSelector_SuperSetVisible(KActionSelector* self, bool visible) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_SetVisible_IsBase(true);
@@ -409,7 +409,7 @@ QSize* KActionSelector_SizeHint(const KActionSelector* self) {
 }
 
 // Base class handler implementation
-QSize* KActionSelector_QBaseSizeHint(const KActionSelector* self) {
+QSize* KActionSelector_SuperSizeHint(const KActionSelector* self) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_SizeHint_IsBase(true);
@@ -438,7 +438,7 @@ QSize* KActionSelector_MinimumSizeHint(const KActionSelector* self) {
 }
 
 // Base class handler implementation
-QSize* KActionSelector_QBaseMinimumSizeHint(const KActionSelector* self) {
+QSize* KActionSelector_SuperMinimumSizeHint(const KActionSelector* self) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_MinimumSizeHint_IsBase(true);
@@ -467,7 +467,7 @@ int KActionSelector_HeightForWidth(const KActionSelector* self, int param1) {
 }
 
 // Base class handler implementation
-int KActionSelector_QBaseHeightForWidth(const KActionSelector* self, int param1) {
+int KActionSelector_SuperHeightForWidth(const KActionSelector* self, int param1) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_HeightForWidth_IsBase(true);
@@ -496,7 +496,7 @@ bool KActionSelector_HasHeightForWidth(const KActionSelector* self) {
 }
 
 // Base class handler implementation
-bool KActionSelector_QBaseHasHeightForWidth(const KActionSelector* self) {
+bool KActionSelector_SuperHasHeightForWidth(const KActionSelector* self) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_HasHeightForWidth_IsBase(true);
@@ -525,7 +525,7 @@ QPaintEngine* KActionSelector_PaintEngine(const KActionSelector* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KActionSelector_QBasePaintEngine(const KActionSelector* self) {
+QPaintEngine* KActionSelector_SuperPaintEngine(const KActionSelector* self) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_PaintEngine_IsBase(true);
@@ -554,7 +554,7 @@ bool KActionSelector_Event(KActionSelector* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KActionSelector_QBaseEvent(KActionSelector* self, QEvent* event) {
+bool KActionSelector_SuperEvent(KActionSelector* self, QEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_Event_IsBase(true);
@@ -583,7 +583,7 @@ void KActionSelector_MousePressEvent(KActionSelector* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseMousePressEvent(KActionSelector* self, QMouseEvent* event) {
+void KActionSelector_SuperMousePressEvent(KActionSelector* self, QMouseEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_MousePressEvent_IsBase(true);
@@ -612,7 +612,7 @@ void KActionSelector_MouseReleaseEvent(KActionSelector* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseMouseReleaseEvent(KActionSelector* self, QMouseEvent* event) {
+void KActionSelector_SuperMouseReleaseEvent(KActionSelector* self, QMouseEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_MouseReleaseEvent_IsBase(true);
@@ -641,7 +641,7 @@ void KActionSelector_MouseDoubleClickEvent(KActionSelector* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseMouseDoubleClickEvent(KActionSelector* self, QMouseEvent* event) {
+void KActionSelector_SuperMouseDoubleClickEvent(KActionSelector* self, QMouseEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_MouseDoubleClickEvent_IsBase(true);
@@ -670,7 +670,7 @@ void KActionSelector_MouseMoveEvent(KActionSelector* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseMouseMoveEvent(KActionSelector* self, QMouseEvent* event) {
+void KActionSelector_SuperMouseMoveEvent(KActionSelector* self, QMouseEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_MouseMoveEvent_IsBase(true);
@@ -699,7 +699,7 @@ void KActionSelector_WheelEvent(KActionSelector* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseWheelEvent(KActionSelector* self, QWheelEvent* event) {
+void KActionSelector_SuperWheelEvent(KActionSelector* self, QWheelEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_WheelEvent_IsBase(true);
@@ -728,7 +728,7 @@ void KActionSelector_KeyReleaseEvent(KActionSelector* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseKeyReleaseEvent(KActionSelector* self, QKeyEvent* event) {
+void KActionSelector_SuperKeyReleaseEvent(KActionSelector* self, QKeyEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_KeyReleaseEvent_IsBase(true);
@@ -757,7 +757,7 @@ void KActionSelector_FocusInEvent(KActionSelector* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseFocusInEvent(KActionSelector* self, QFocusEvent* event) {
+void KActionSelector_SuperFocusInEvent(KActionSelector* self, QFocusEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_FocusInEvent_IsBase(true);
@@ -786,7 +786,7 @@ void KActionSelector_FocusOutEvent(KActionSelector* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseFocusOutEvent(KActionSelector* self, QFocusEvent* event) {
+void KActionSelector_SuperFocusOutEvent(KActionSelector* self, QFocusEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_FocusOutEvent_IsBase(true);
@@ -815,7 +815,7 @@ void KActionSelector_EnterEvent(KActionSelector* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseEnterEvent(KActionSelector* self, QEnterEvent* event) {
+void KActionSelector_SuperEnterEvent(KActionSelector* self, QEnterEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_EnterEvent_IsBase(true);
@@ -844,7 +844,7 @@ void KActionSelector_LeaveEvent(KActionSelector* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseLeaveEvent(KActionSelector* self, QEvent* event) {
+void KActionSelector_SuperLeaveEvent(KActionSelector* self, QEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_LeaveEvent_IsBase(true);
@@ -873,7 +873,7 @@ void KActionSelector_PaintEvent(KActionSelector* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBasePaintEvent(KActionSelector* self, QPaintEvent* event) {
+void KActionSelector_SuperPaintEvent(KActionSelector* self, QPaintEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_PaintEvent_IsBase(true);
@@ -902,7 +902,7 @@ void KActionSelector_MoveEvent(KActionSelector* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseMoveEvent(KActionSelector* self, QMoveEvent* event) {
+void KActionSelector_SuperMoveEvent(KActionSelector* self, QMoveEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_MoveEvent_IsBase(true);
@@ -931,7 +931,7 @@ void KActionSelector_ResizeEvent(KActionSelector* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseResizeEvent(KActionSelector* self, QResizeEvent* event) {
+void KActionSelector_SuperResizeEvent(KActionSelector* self, QResizeEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_ResizeEvent_IsBase(true);
@@ -960,7 +960,7 @@ void KActionSelector_CloseEvent(KActionSelector* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseCloseEvent(KActionSelector* self, QCloseEvent* event) {
+void KActionSelector_SuperCloseEvent(KActionSelector* self, QCloseEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_CloseEvent_IsBase(true);
@@ -989,7 +989,7 @@ void KActionSelector_ContextMenuEvent(KActionSelector* self, QContextMenuEvent* 
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseContextMenuEvent(KActionSelector* self, QContextMenuEvent* event) {
+void KActionSelector_SuperContextMenuEvent(KActionSelector* self, QContextMenuEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_ContextMenuEvent_IsBase(true);
@@ -1018,7 +1018,7 @@ void KActionSelector_TabletEvent(KActionSelector* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseTabletEvent(KActionSelector* self, QTabletEvent* event) {
+void KActionSelector_SuperTabletEvent(KActionSelector* self, QTabletEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_TabletEvent_IsBase(true);
@@ -1047,7 +1047,7 @@ void KActionSelector_ActionEvent(KActionSelector* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseActionEvent(KActionSelector* self, QActionEvent* event) {
+void KActionSelector_SuperActionEvent(KActionSelector* self, QActionEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_ActionEvent_IsBase(true);
@@ -1076,7 +1076,7 @@ void KActionSelector_DragEnterEvent(KActionSelector* self, QDragEnterEvent* even
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseDragEnterEvent(KActionSelector* self, QDragEnterEvent* event) {
+void KActionSelector_SuperDragEnterEvent(KActionSelector* self, QDragEnterEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_DragEnterEvent_IsBase(true);
@@ -1105,7 +1105,7 @@ void KActionSelector_DragMoveEvent(KActionSelector* self, QDragMoveEvent* event)
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseDragMoveEvent(KActionSelector* self, QDragMoveEvent* event) {
+void KActionSelector_SuperDragMoveEvent(KActionSelector* self, QDragMoveEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_DragMoveEvent_IsBase(true);
@@ -1134,7 +1134,7 @@ void KActionSelector_DragLeaveEvent(KActionSelector* self, QDragLeaveEvent* even
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseDragLeaveEvent(KActionSelector* self, QDragLeaveEvent* event) {
+void KActionSelector_SuperDragLeaveEvent(KActionSelector* self, QDragLeaveEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_DragLeaveEvent_IsBase(true);
@@ -1163,7 +1163,7 @@ void KActionSelector_DropEvent(KActionSelector* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseDropEvent(KActionSelector* self, QDropEvent* event) {
+void KActionSelector_SuperDropEvent(KActionSelector* self, QDropEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_DropEvent_IsBase(true);
@@ -1192,7 +1192,7 @@ void KActionSelector_ShowEvent(KActionSelector* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseShowEvent(KActionSelector* self, QShowEvent* event) {
+void KActionSelector_SuperShowEvent(KActionSelector* self, QShowEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_ShowEvent_IsBase(true);
@@ -1221,7 +1221,7 @@ void KActionSelector_HideEvent(KActionSelector* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseHideEvent(KActionSelector* self, QHideEvent* event) {
+void KActionSelector_SuperHideEvent(KActionSelector* self, QHideEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_HideEvent_IsBase(true);
@@ -1251,7 +1251,7 @@ bool KActionSelector_NativeEvent(KActionSelector* self, const libqt_string event
 }
 
 // Base class handler implementation
-bool KActionSelector_QBaseNativeEvent(KActionSelector* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KActionSelector_SuperNativeEvent(KActionSelector* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
@@ -1281,7 +1281,7 @@ void KActionSelector_ChangeEvent(KActionSelector* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseChangeEvent(KActionSelector* self, QEvent* param1) {
+void KActionSelector_SuperChangeEvent(KActionSelector* self, QEvent* param1) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_ChangeEvent_IsBase(true);
@@ -1310,7 +1310,7 @@ int KActionSelector_Metric(const KActionSelector* self, int param1) {
 }
 
 // Base class handler implementation
-int KActionSelector_QBaseMetric(const KActionSelector* self, int param1) {
+int KActionSelector_SuperMetric(const KActionSelector* self, int param1) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_Metric_IsBase(true);
@@ -1339,7 +1339,7 @@ void KActionSelector_InitPainter(const KActionSelector* self, QPainter* painter)
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseInitPainter(const KActionSelector* self, QPainter* painter) {
+void KActionSelector_SuperInitPainter(const KActionSelector* self, QPainter* painter) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_InitPainter_IsBase(true);
@@ -1368,7 +1368,7 @@ QPaintDevice* KActionSelector_Redirected(const KActionSelector* self, QPoint* of
 }
 
 // Base class handler implementation
-QPaintDevice* KActionSelector_QBaseRedirected(const KActionSelector* self, QPoint* offset) {
+QPaintDevice* KActionSelector_SuperRedirected(const KActionSelector* self, QPoint* offset) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_Redirected_IsBase(true);
@@ -1397,7 +1397,7 @@ QPainter* KActionSelector_SharedPainter(const KActionSelector* self) {
 }
 
 // Base class handler implementation
-QPainter* KActionSelector_QBaseSharedPainter(const KActionSelector* self) {
+QPainter* KActionSelector_SuperSharedPainter(const KActionSelector* self) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_SharedPainter_IsBase(true);
@@ -1426,7 +1426,7 @@ void KActionSelector_InputMethodEvent(KActionSelector* self, QInputMethodEvent* 
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseInputMethodEvent(KActionSelector* self, QInputMethodEvent* param1) {
+void KActionSelector_SuperInputMethodEvent(KActionSelector* self, QInputMethodEvent* param1) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_InputMethodEvent_IsBase(true);
@@ -1455,7 +1455,7 @@ QVariant* KActionSelector_InputMethodQuery(const KActionSelector* self, int para
 }
 
 // Base class handler implementation
-QVariant* KActionSelector_QBaseInputMethodQuery(const KActionSelector* self, int param1) {
+QVariant* KActionSelector_SuperInputMethodQuery(const KActionSelector* self, int param1) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_InputMethodQuery_IsBase(true);
@@ -1484,7 +1484,7 @@ bool KActionSelector_FocusNextPrevChild(KActionSelector* self, bool next) {
 }
 
 // Base class handler implementation
-bool KActionSelector_QBaseFocusNextPrevChild(KActionSelector* self, bool next) {
+bool KActionSelector_SuperFocusNextPrevChild(KActionSelector* self, bool next) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_FocusNextPrevChild_IsBase(true);
@@ -1513,7 +1513,7 @@ void KActionSelector_TimerEvent(KActionSelector* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseTimerEvent(KActionSelector* self, QTimerEvent* event) {
+void KActionSelector_SuperTimerEvent(KActionSelector* self, QTimerEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_TimerEvent_IsBase(true);
@@ -1542,7 +1542,7 @@ void KActionSelector_ChildEvent(KActionSelector* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseChildEvent(KActionSelector* self, QChildEvent* event) {
+void KActionSelector_SuperChildEvent(KActionSelector* self, QChildEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_ChildEvent_IsBase(true);
@@ -1571,7 +1571,7 @@ void KActionSelector_CustomEvent(KActionSelector* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseCustomEvent(KActionSelector* self, QEvent* event) {
+void KActionSelector_SuperCustomEvent(KActionSelector* self, QEvent* event) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_CustomEvent_IsBase(true);
@@ -1600,7 +1600,7 @@ void KActionSelector_ConnectNotify(KActionSelector* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseConnectNotify(KActionSelector* self, const QMetaMethod* signal) {
+void KActionSelector_SuperConnectNotify(KActionSelector* self, const QMetaMethod* signal) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_ConnectNotify_IsBase(true);
@@ -1629,7 +1629,7 @@ void KActionSelector_DisconnectNotify(KActionSelector* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseDisconnectNotify(KActionSelector* self, const QMetaMethod* signal) {
+void KActionSelector_SuperDisconnectNotify(KActionSelector* self, const QMetaMethod* signal) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_DisconnectNotify_IsBase(true);
@@ -1658,7 +1658,7 @@ void KActionSelector_UpdateMicroFocus(KActionSelector* self) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseUpdateMicroFocus(KActionSelector* self) {
+void KActionSelector_SuperUpdateMicroFocus(KActionSelector* self) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_UpdateMicroFocus_IsBase(true);
@@ -1687,7 +1687,7 @@ void KActionSelector_Create(KActionSelector* self) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseCreate(KActionSelector* self) {
+void KActionSelector_SuperCreate(KActionSelector* self) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_Create_IsBase(true);
@@ -1716,7 +1716,7 @@ void KActionSelector_Destroy(KActionSelector* self) {
 }
 
 // Base class handler implementation
-void KActionSelector_QBaseDestroy(KActionSelector* self) {
+void KActionSelector_SuperDestroy(KActionSelector* self) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_Destroy_IsBase(true);
@@ -1745,7 +1745,7 @@ bool KActionSelector_FocusNextChild(KActionSelector* self) {
 }
 
 // Base class handler implementation
-bool KActionSelector_QBaseFocusNextChild(KActionSelector* self) {
+bool KActionSelector_SuperFocusNextChild(KActionSelector* self) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_FocusNextChild_IsBase(true);
@@ -1774,7 +1774,7 @@ bool KActionSelector_FocusPreviousChild(KActionSelector* self) {
 }
 
 // Base class handler implementation
-bool KActionSelector_QBaseFocusPreviousChild(KActionSelector* self) {
+bool KActionSelector_SuperFocusPreviousChild(KActionSelector* self) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_FocusPreviousChild_IsBase(true);
@@ -1803,7 +1803,7 @@ QObject* KActionSelector_Sender(const KActionSelector* self) {
 }
 
 // Base class handler implementation
-QObject* KActionSelector_QBaseSender(const KActionSelector* self) {
+QObject* KActionSelector_SuperSender(const KActionSelector* self) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_Sender_IsBase(true);
@@ -1832,7 +1832,7 @@ int KActionSelector_SenderSignalIndex(const KActionSelector* self) {
 }
 
 // Base class handler implementation
-int KActionSelector_QBaseSenderSignalIndex(const KActionSelector* self) {
+int KActionSelector_SuperSenderSignalIndex(const KActionSelector* self) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_SenderSignalIndex_IsBase(true);
@@ -1861,7 +1861,7 @@ int KActionSelector_Receivers(const KActionSelector* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KActionSelector_QBaseReceivers(const KActionSelector* self, const char* signal) {
+int KActionSelector_SuperReceivers(const KActionSelector* self, const char* signal) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_Receivers_IsBase(true);
@@ -1890,7 +1890,7 @@ bool KActionSelector_IsSignalConnected(const KActionSelector* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KActionSelector_QBaseIsSignalConnected(const KActionSelector* self, const QMetaMethod* signal) {
+bool KActionSelector_SuperIsSignalConnected(const KActionSelector* self, const QMetaMethod* signal) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_IsSignalConnected_IsBase(true);
@@ -1919,7 +1919,7 @@ double KActionSelector_GetDecodedMetricF(const KActionSelector* self, int metric
 }
 
 // Base class handler implementation
-double KActionSelector_QBaseGetDecodedMetricF(const KActionSelector* self, int metricA, int metricB) {
+double KActionSelector_SuperGetDecodedMetricF(const KActionSelector* self, int metricA, int metricB) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
     if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
         vkactionselector->setKActionSelector_GetDecodedMetricF_IsBase(true);

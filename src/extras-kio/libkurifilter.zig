@@ -85,6 +85,10 @@ pub const kurifiltersearchprovider = struct {
         qtc.KUriFilterSearchProvider_OnIconName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIconName` instead
+    ///
+    pub const QBaseIconName = SuperIconName;
+
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#iconName)
     ///
     /// Base class method implementation
@@ -95,8 +99,8 @@ pub const kurifiltersearchprovider = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseIconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KUriFilterSearchProvider_QBaseIconName(@ptrCast(self));
+    pub fn SuperIconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KUriFilterSearchProvider_SuperIconName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurifiltersearchprovider.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -188,6 +192,10 @@ pub const kurifiltersearchprovider = struct {
         qtc.KUriFilterSearchProvider_OnSetDesktopEntryName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetDesktopEntryName` instead
+    ///
+    pub const QBaseSetDesktopEntryName = SuperSetDesktopEntryName;
+
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setDesktopEntryName)
     ///
     /// Base class method implementation
@@ -198,12 +206,12 @@ pub const kurifiltersearchprovider = struct {
     ///
     /// ` desktopEntryName: []const u8 `
     ///
-    pub fn QBaseSetDesktopEntryName(self: ?*anyopaque, desktopEntryName: []const u8) void {
+    pub fn SuperSetDesktopEntryName(self: ?*anyopaque, desktopEntryName: []const u8) void {
         const desktopEntryName_str = qtc.libqt_string{
             .len = desktopEntryName.len,
             .data = desktopEntryName.ptr,
         };
-        qtc.KUriFilterSearchProvider_QBaseSetDesktopEntryName(@ptrCast(self), desktopEntryName_str);
+        qtc.KUriFilterSearchProvider_SuperSetDesktopEntryName(@ptrCast(self), desktopEntryName_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setIconName)
@@ -236,6 +244,10 @@ pub const kurifiltersearchprovider = struct {
         qtc.KUriFilterSearchProvider_OnSetIconName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetIconName` instead
+    ///
+    pub const QBaseSetIconName = SuperSetIconName;
+
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setIconName)
     ///
     /// Base class method implementation
@@ -246,12 +258,12 @@ pub const kurifiltersearchprovider = struct {
     ///
     /// ` iconName: []const u8 `
     ///
-    pub fn QBaseSetIconName(self: ?*anyopaque, iconName: []const u8) void {
+    pub fn SuperSetIconName(self: ?*anyopaque, iconName: []const u8) void {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
             .data = iconName.ptr,
         };
-        qtc.KUriFilterSearchProvider_QBaseSetIconName(@ptrCast(self), iconName_str);
+        qtc.KUriFilterSearchProvider_SuperSetIconName(@ptrCast(self), iconName_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setKeys)
@@ -294,6 +306,10 @@ pub const kurifiltersearchprovider = struct {
         qtc.KUriFilterSearchProvider_OnSetKeys(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetKeys` instead
+    ///
+    pub const QBaseSetKeys = SuperSetKeys;
+
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setKeys)
     ///
     /// Base class method implementation
@@ -306,7 +322,7 @@ pub const kurifiltersearchprovider = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetKeys(self: ?*anyopaque, keys: []const []const u8, allocator: std.mem.Allocator) void {
+    pub fn SuperSetKeys(self: ?*anyopaque, keys: []const []const u8, allocator: std.mem.Allocator) void {
         const keys_arr = allocator.alloc(qtc.libqt_string, keys.len) catch @panic("kurifiltersearchprovider.SetKeys: Memory allocation failed");
         defer allocator.free(keys_arr);
         for (keys, 0..keys.len) |item, i| {
@@ -319,7 +335,7 @@ pub const kurifiltersearchprovider = struct {
             .len = keys.len,
             .data = keys_arr.ptr,
         };
-        qtc.KUriFilterSearchProvider_QBaseSetKeys(@ptrCast(self), keys_list);
+        qtc.KUriFilterSearchProvider_SuperSetKeys(@ptrCast(self), keys_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setName)
@@ -352,6 +368,10 @@ pub const kurifiltersearchprovider = struct {
         qtc.KUriFilterSearchProvider_OnSetName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetName` instead
+    ///
+    pub const QBaseSetName = SuperSetName;
+
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setName)
     ///
     /// Base class method implementation
@@ -362,13 +382,16 @@ pub const kurifiltersearchprovider = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn QBaseSetName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SuperSetName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.KUriFilterSearchProvider_QBaseSetName(@ptrCast(self), name_str);
+        qtc.KUriFilterSearchProvider_SuperSetName(@ptrCast(self), name_str);
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#dtor.KUriFilterSearchProvider)
     ///
@@ -378,7 +401,7 @@ pub const kurifiltersearchprovider = struct {
     ///
     /// ` self: QtC.KUriFilterSearchProvider `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KUriFilterSearchProvider_Delete(@ptrCast(self));
     }
 };
@@ -949,6 +972,10 @@ pub const kurifilterdata = struct {
         qtc.KUriFilterData_OperatorAssign2(@ptrCast(self), url_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kurifilterdata.html#dtor.KUriFilterData)
     ///
     /// Delete this object from C++ memory.
@@ -957,7 +984,7 @@ pub const kurifilterdata = struct {
     ///
     /// ` self: QtC.KUriFilterData `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KUriFilterData_Delete(@ptrCast(self));
     }
 };
@@ -1237,6 +1264,10 @@ pub const kurifilter = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kurifilter.html#dtor.KUriFilter)
     ///
     /// Delete this object from C++ memory.
@@ -1245,7 +1276,7 @@ pub const kurifilter = struct {
     ///
     /// ` self: QtC.KUriFilter `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KUriFilter_Delete(@ptrCast(self));
     }
 };

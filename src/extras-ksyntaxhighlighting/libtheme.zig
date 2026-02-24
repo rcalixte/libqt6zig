@@ -209,13 +209,17 @@ pub const ksyntaxhighlighting__theme = struct {
         return qtc.KSyntaxHighlighting__Theme_EditorColor(@ptrCast(self), @bitCast(role));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KSyntaxHighlighting__Theme `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KSyntaxHighlighting__Theme_Delete(@ptrCast(self));
     }
 };

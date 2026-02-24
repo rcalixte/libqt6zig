@@ -217,6 +217,10 @@ pub const qplaceresult = struct {
         qtc.QPlaceSearchResult_SetIcon(@ptrCast(self), @ptrCast(icon));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceresult.html#dtor.QPlaceResult)
     ///
     /// Delete this object from C++ memory.
@@ -225,7 +229,7 @@ pub const qplaceresult = struct {
     ///
     /// ` self: QtC.QPlaceResult `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPlaceResult_Delete(@ptrCast(self));
     }
 };

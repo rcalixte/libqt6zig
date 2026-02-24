@@ -303,7 +303,7 @@ class VirtualKFilterBase : public KFilterBase {
 
     // Friend functions
     friend void KFilterBase_VirtualHook(KFilterBase* self, int id, void* data);
-    friend void KFilterBase_QBaseVirtualHook(KFilterBase* self, int id, void* data);
+    friend void KFilterBase_SuperVirtualHook(KFilterBase* self, int id, void* data);
 };
 
 #endif

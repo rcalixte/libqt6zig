@@ -77,7 +77,7 @@ QAccessibleBridge* QAccessibleBridgePlugin_Create(QAccessibleBridgePlugin* self,
 }
 
 // Base class handler implementation
-QMetaObject* QAccessibleBridgePlugin_QBaseMetaObject(const QAccessibleBridgePlugin* self) {
+QMetaObject* QAccessibleBridgePlugin_SuperMetaObject(const QAccessibleBridgePlugin* self) {
     auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self));
     if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
         vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_MetaObject_IsBase(true);
@@ -96,7 +96,7 @@ void QAccessibleBridgePlugin_OnMetaObject(const QAccessibleBridgePlugin* self, i
 }
 
 // Base class handler implementation
-void* QAccessibleBridgePlugin_QBaseMetacast(QAccessibleBridgePlugin* self, const char* param1) {
+void* QAccessibleBridgePlugin_SuperMetacast(QAccessibleBridgePlugin* self, const char* param1) {
     auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
     if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
         vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Metacast_IsBase(true);
@@ -115,7 +115,7 @@ void QAccessibleBridgePlugin_OnMetacast(QAccessibleBridgePlugin* self, intptr_t 
 }
 
 // Base class handler implementation
-int QAccessibleBridgePlugin_QBaseMetacall(QAccessibleBridgePlugin* self, int param1, int param2, void** param3) {
+int QAccessibleBridgePlugin_SuperMetacall(QAccessibleBridgePlugin* self, int param1, int param2, void** param3) {
     auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
     if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
         vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Metacall_IsBase(true);
@@ -134,7 +134,7 @@ void QAccessibleBridgePlugin_OnMetacall(QAccessibleBridgePlugin* self, intptr_t 
 }
 
 // Base class handler implementation
-QAccessibleBridge* QAccessibleBridgePlugin_QBaseCreate(QAccessibleBridgePlugin* self, const libqt_string key) {
+QAccessibleBridge* QAccessibleBridgePlugin_SuperCreate(QAccessibleBridgePlugin* self, const libqt_string key) {
     auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
     QString key_QString = QString::fromUtf8(key.data, key.len);
     if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
@@ -164,7 +164,7 @@ bool QAccessibleBridgePlugin_Event(QAccessibleBridgePlugin* self, QEvent* event)
 }
 
 // Base class handler implementation
-bool QAccessibleBridgePlugin_QBaseEvent(QAccessibleBridgePlugin* self, QEvent* event) {
+bool QAccessibleBridgePlugin_SuperEvent(QAccessibleBridgePlugin* self, QEvent* event) {
     auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
     if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
         vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Event_IsBase(true);
@@ -193,7 +193,7 @@ bool QAccessibleBridgePlugin_EventFilter(QAccessibleBridgePlugin* self, QObject*
 }
 
 // Base class handler implementation
-bool QAccessibleBridgePlugin_QBaseEventFilter(QAccessibleBridgePlugin* self, QObject* watched, QEvent* event) {
+bool QAccessibleBridgePlugin_SuperEventFilter(QAccessibleBridgePlugin* self, QObject* watched, QEvent* event) {
     auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
     if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
         vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_EventFilter_IsBase(true);
@@ -222,7 +222,7 @@ void QAccessibleBridgePlugin_TimerEvent(QAccessibleBridgePlugin* self, QTimerEve
 }
 
 // Base class handler implementation
-void QAccessibleBridgePlugin_QBaseTimerEvent(QAccessibleBridgePlugin* self, QTimerEvent* event) {
+void QAccessibleBridgePlugin_SuperTimerEvent(QAccessibleBridgePlugin* self, QTimerEvent* event) {
     auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
     if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
         vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_TimerEvent_IsBase(true);
@@ -251,7 +251,7 @@ void QAccessibleBridgePlugin_ChildEvent(QAccessibleBridgePlugin* self, QChildEve
 }
 
 // Base class handler implementation
-void QAccessibleBridgePlugin_QBaseChildEvent(QAccessibleBridgePlugin* self, QChildEvent* event) {
+void QAccessibleBridgePlugin_SuperChildEvent(QAccessibleBridgePlugin* self, QChildEvent* event) {
     auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
     if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
         vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_ChildEvent_IsBase(true);
@@ -280,7 +280,7 @@ void QAccessibleBridgePlugin_CustomEvent(QAccessibleBridgePlugin* self, QEvent* 
 }
 
 // Base class handler implementation
-void QAccessibleBridgePlugin_QBaseCustomEvent(QAccessibleBridgePlugin* self, QEvent* event) {
+void QAccessibleBridgePlugin_SuperCustomEvent(QAccessibleBridgePlugin* self, QEvent* event) {
     auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
     if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
         vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_CustomEvent_IsBase(true);
@@ -309,7 +309,7 @@ void QAccessibleBridgePlugin_ConnectNotify(QAccessibleBridgePlugin* self, const 
 }
 
 // Base class handler implementation
-void QAccessibleBridgePlugin_QBaseConnectNotify(QAccessibleBridgePlugin* self, const QMetaMethod* signal) {
+void QAccessibleBridgePlugin_SuperConnectNotify(QAccessibleBridgePlugin* self, const QMetaMethod* signal) {
     auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
     if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
         vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_ConnectNotify_IsBase(true);
@@ -338,7 +338,7 @@ void QAccessibleBridgePlugin_DisconnectNotify(QAccessibleBridgePlugin* self, con
 }
 
 // Base class handler implementation
-void QAccessibleBridgePlugin_QBaseDisconnectNotify(QAccessibleBridgePlugin* self, const QMetaMethod* signal) {
+void QAccessibleBridgePlugin_SuperDisconnectNotify(QAccessibleBridgePlugin* self, const QMetaMethod* signal) {
     auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
     if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
         vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_DisconnectNotify_IsBase(true);
@@ -367,7 +367,7 @@ QObject* QAccessibleBridgePlugin_Sender(const QAccessibleBridgePlugin* self) {
 }
 
 // Base class handler implementation
-QObject* QAccessibleBridgePlugin_QBaseSender(const QAccessibleBridgePlugin* self) {
+QObject* QAccessibleBridgePlugin_SuperSender(const QAccessibleBridgePlugin* self) {
     auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self));
     if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
         vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Sender_IsBase(true);
@@ -396,7 +396,7 @@ int QAccessibleBridgePlugin_SenderSignalIndex(const QAccessibleBridgePlugin* sel
 }
 
 // Base class handler implementation
-int QAccessibleBridgePlugin_QBaseSenderSignalIndex(const QAccessibleBridgePlugin* self) {
+int QAccessibleBridgePlugin_SuperSenderSignalIndex(const QAccessibleBridgePlugin* self) {
     auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self));
     if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
         vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_SenderSignalIndex_IsBase(true);
@@ -425,7 +425,7 @@ int QAccessibleBridgePlugin_Receivers(const QAccessibleBridgePlugin* self, const
 }
 
 // Base class handler implementation
-int QAccessibleBridgePlugin_QBaseReceivers(const QAccessibleBridgePlugin* self, const char* signal) {
+int QAccessibleBridgePlugin_SuperReceivers(const QAccessibleBridgePlugin* self, const char* signal) {
     auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self));
     if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
         vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Receivers_IsBase(true);
@@ -454,7 +454,7 @@ bool QAccessibleBridgePlugin_IsSignalConnected(const QAccessibleBridgePlugin* se
 }
 
 // Base class handler implementation
-bool QAccessibleBridgePlugin_QBaseIsSignalConnected(const QAccessibleBridgePlugin* self, const QMetaMethod* signal) {
+bool QAccessibleBridgePlugin_SuperIsSignalConnected(const QAccessibleBridgePlugin* self, const QMetaMethod* signal) {
     auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self));
     if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
         vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_IsSignalConnected_IsBase(true);

@@ -84,7 +84,7 @@ void KViewStateMaintainerBase_RestoreState(KViewStateMaintainerBase* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KViewStateMaintainerBase_QBaseMetaObject(const KViewStateMaintainerBase* self) {
+QMetaObject* KViewStateMaintainerBase_SuperMetaObject(const KViewStateMaintainerBase* self) {
     auto* vkviewstatemaintainerbase = const_cast<VirtualKViewStateMaintainerBase*>(dynamic_cast<const VirtualKViewStateMaintainerBase*>(self));
     if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_MetaObject_IsBase(true);
@@ -103,7 +103,7 @@ void KViewStateMaintainerBase_OnMetaObject(const KViewStateMaintainerBase* self,
 }
 
 // Base class handler implementation
-void* KViewStateMaintainerBase_QBaseMetacast(KViewStateMaintainerBase* self, const char* param1) {
+void* KViewStateMaintainerBase_SuperMetacast(KViewStateMaintainerBase* self, const char* param1) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
     if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_Metacast_IsBase(true);
@@ -122,7 +122,7 @@ void KViewStateMaintainerBase_OnMetacast(KViewStateMaintainerBase* self, intptr_
 }
 
 // Base class handler implementation
-int KViewStateMaintainerBase_QBaseMetacall(KViewStateMaintainerBase* self, int param1, int param2, void** param3) {
+int KViewStateMaintainerBase_SuperMetacall(KViewStateMaintainerBase* self, int param1, int param2, void** param3) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
     if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_Metacall_IsBase(true);
@@ -141,7 +141,7 @@ void KViewStateMaintainerBase_OnMetacall(KViewStateMaintainerBase* self, intptr_
 }
 
 // Base class handler implementation
-void KViewStateMaintainerBase_QBaseSaveState(KViewStateMaintainerBase* self) {
+void KViewStateMaintainerBase_SuperSaveState(KViewStateMaintainerBase* self) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
     if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_SaveState_IsBase(true);
@@ -160,7 +160,7 @@ void KViewStateMaintainerBase_OnSaveState(KViewStateMaintainerBase* self, intptr
 }
 
 // Base class handler implementation
-void KViewStateMaintainerBase_QBaseRestoreState(KViewStateMaintainerBase* self) {
+void KViewStateMaintainerBase_SuperRestoreState(KViewStateMaintainerBase* self) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
     if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_RestoreState_IsBase(true);
@@ -189,7 +189,7 @@ bool KViewStateMaintainerBase_Event(KViewStateMaintainerBase* self, QEvent* even
 }
 
 // Base class handler implementation
-bool KViewStateMaintainerBase_QBaseEvent(KViewStateMaintainerBase* self, QEvent* event) {
+bool KViewStateMaintainerBase_SuperEvent(KViewStateMaintainerBase* self, QEvent* event) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
     if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_Event_IsBase(true);
@@ -218,7 +218,7 @@ bool KViewStateMaintainerBase_EventFilter(KViewStateMaintainerBase* self, QObjec
 }
 
 // Base class handler implementation
-bool KViewStateMaintainerBase_QBaseEventFilter(KViewStateMaintainerBase* self, QObject* watched, QEvent* event) {
+bool KViewStateMaintainerBase_SuperEventFilter(KViewStateMaintainerBase* self, QObject* watched, QEvent* event) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
     if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_EventFilter_IsBase(true);
@@ -247,7 +247,7 @@ void KViewStateMaintainerBase_TimerEvent(KViewStateMaintainerBase* self, QTimerE
 }
 
 // Base class handler implementation
-void KViewStateMaintainerBase_QBaseTimerEvent(KViewStateMaintainerBase* self, QTimerEvent* event) {
+void KViewStateMaintainerBase_SuperTimerEvent(KViewStateMaintainerBase* self, QTimerEvent* event) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
     if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_TimerEvent_IsBase(true);
@@ -276,7 +276,7 @@ void KViewStateMaintainerBase_ChildEvent(KViewStateMaintainerBase* self, QChildE
 }
 
 // Base class handler implementation
-void KViewStateMaintainerBase_QBaseChildEvent(KViewStateMaintainerBase* self, QChildEvent* event) {
+void KViewStateMaintainerBase_SuperChildEvent(KViewStateMaintainerBase* self, QChildEvent* event) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
     if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_ChildEvent_IsBase(true);
@@ -305,7 +305,7 @@ void KViewStateMaintainerBase_CustomEvent(KViewStateMaintainerBase* self, QEvent
 }
 
 // Base class handler implementation
-void KViewStateMaintainerBase_QBaseCustomEvent(KViewStateMaintainerBase* self, QEvent* event) {
+void KViewStateMaintainerBase_SuperCustomEvent(KViewStateMaintainerBase* self, QEvent* event) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
     if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_CustomEvent_IsBase(true);
@@ -334,7 +334,7 @@ void KViewStateMaintainerBase_ConnectNotify(KViewStateMaintainerBase* self, cons
 }
 
 // Base class handler implementation
-void KViewStateMaintainerBase_QBaseConnectNotify(KViewStateMaintainerBase* self, const QMetaMethod* signal) {
+void KViewStateMaintainerBase_SuperConnectNotify(KViewStateMaintainerBase* self, const QMetaMethod* signal) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
     if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_ConnectNotify_IsBase(true);
@@ -363,7 +363,7 @@ void KViewStateMaintainerBase_DisconnectNotify(KViewStateMaintainerBase* self, c
 }
 
 // Base class handler implementation
-void KViewStateMaintainerBase_QBaseDisconnectNotify(KViewStateMaintainerBase* self, const QMetaMethod* signal) {
+void KViewStateMaintainerBase_SuperDisconnectNotify(KViewStateMaintainerBase* self, const QMetaMethod* signal) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
     if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_DisconnectNotify_IsBase(true);
@@ -392,7 +392,7 @@ QObject* KViewStateMaintainerBase_Sender(const KViewStateMaintainerBase* self) {
 }
 
 // Base class handler implementation
-QObject* KViewStateMaintainerBase_QBaseSender(const KViewStateMaintainerBase* self) {
+QObject* KViewStateMaintainerBase_SuperSender(const KViewStateMaintainerBase* self) {
     auto* vkviewstatemaintainerbase = const_cast<VirtualKViewStateMaintainerBase*>(dynamic_cast<const VirtualKViewStateMaintainerBase*>(self));
     if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_Sender_IsBase(true);
@@ -421,7 +421,7 @@ int KViewStateMaintainerBase_SenderSignalIndex(const KViewStateMaintainerBase* s
 }
 
 // Base class handler implementation
-int KViewStateMaintainerBase_QBaseSenderSignalIndex(const KViewStateMaintainerBase* self) {
+int KViewStateMaintainerBase_SuperSenderSignalIndex(const KViewStateMaintainerBase* self) {
     auto* vkviewstatemaintainerbase = const_cast<VirtualKViewStateMaintainerBase*>(dynamic_cast<const VirtualKViewStateMaintainerBase*>(self));
     if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_SenderSignalIndex_IsBase(true);
@@ -450,7 +450,7 @@ int KViewStateMaintainerBase_Receivers(const KViewStateMaintainerBase* self, con
 }
 
 // Base class handler implementation
-int KViewStateMaintainerBase_QBaseReceivers(const KViewStateMaintainerBase* self, const char* signal) {
+int KViewStateMaintainerBase_SuperReceivers(const KViewStateMaintainerBase* self, const char* signal) {
     auto* vkviewstatemaintainerbase = const_cast<VirtualKViewStateMaintainerBase*>(dynamic_cast<const VirtualKViewStateMaintainerBase*>(self));
     if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_Receivers_IsBase(true);
@@ -479,7 +479,7 @@ bool KViewStateMaintainerBase_IsSignalConnected(const KViewStateMaintainerBase* 
 }
 
 // Base class handler implementation
-bool KViewStateMaintainerBase_QBaseIsSignalConnected(const KViewStateMaintainerBase* self, const QMetaMethod* signal) {
+bool KViewStateMaintainerBase_SuperIsSignalConnected(const KViewStateMaintainerBase* self, const QMetaMethod* signal) {
     auto* vkviewstatemaintainerbase = const_cast<VirtualKViewStateMaintainerBase*>(dynamic_cast<const VirtualKViewStateMaintainerBase*>(self));
     if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_IsSignalConnected_IsBase(true);

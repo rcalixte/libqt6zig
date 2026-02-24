@@ -222,7 +222,7 @@ void KSvg__ImageSet_Connect_BasePathChanged(KSvg__ImageSet* self, intptr_t slot)
 }
 
 // Base class handler implementation
-QMetaObject* KSvg__ImageSet_QBaseMetaObject(const KSvg__ImageSet* self) {
+QMetaObject* KSvg__ImageSet_SuperMetaObject(const KSvg__ImageSet* self) {
     auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
     if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
         vksvgimageset->setKSvg__ImageSet_MetaObject_IsBase(true);
@@ -241,7 +241,7 @@ void KSvg__ImageSet_OnMetaObject(const KSvg__ImageSet* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KSvg__ImageSet_QBaseMetacast(KSvg__ImageSet* self, const char* param1) {
+void* KSvg__ImageSet_SuperMetacast(KSvg__ImageSet* self, const char* param1) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
     if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
         vksvgimageset->setKSvg__ImageSet_Metacast_IsBase(true);
@@ -260,7 +260,7 @@ void KSvg__ImageSet_OnMetacast(KSvg__ImageSet* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KSvg__ImageSet_QBaseMetacall(KSvg__ImageSet* self, int param1, int param2, void** param3) {
+int KSvg__ImageSet_SuperMetacall(KSvg__ImageSet* self, int param1, int param2, void** param3) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
     if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
         vksvgimageset->setKSvg__ImageSet_Metacall_IsBase(true);
@@ -289,7 +289,7 @@ bool KSvg__ImageSet_Event(KSvg__ImageSet* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KSvg__ImageSet_QBaseEvent(KSvg__ImageSet* self, QEvent* event) {
+bool KSvg__ImageSet_SuperEvent(KSvg__ImageSet* self, QEvent* event) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
     if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
         vksvgimageset->setKSvg__ImageSet_Event_IsBase(true);
@@ -318,7 +318,7 @@ bool KSvg__ImageSet_EventFilter(KSvg__ImageSet* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool KSvg__ImageSet_QBaseEventFilter(KSvg__ImageSet* self, QObject* watched, QEvent* event) {
+bool KSvg__ImageSet_SuperEventFilter(KSvg__ImageSet* self, QObject* watched, QEvent* event) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
     if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
         vksvgimageset->setKSvg__ImageSet_EventFilter_IsBase(true);
@@ -347,7 +347,7 @@ void KSvg__ImageSet_TimerEvent(KSvg__ImageSet* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KSvg__ImageSet_QBaseTimerEvent(KSvg__ImageSet* self, QTimerEvent* event) {
+void KSvg__ImageSet_SuperTimerEvent(KSvg__ImageSet* self, QTimerEvent* event) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
     if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
         vksvgimageset->setKSvg__ImageSet_TimerEvent_IsBase(true);
@@ -376,7 +376,7 @@ void KSvg__ImageSet_ChildEvent(KSvg__ImageSet* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KSvg__ImageSet_QBaseChildEvent(KSvg__ImageSet* self, QChildEvent* event) {
+void KSvg__ImageSet_SuperChildEvent(KSvg__ImageSet* self, QChildEvent* event) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
     if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
         vksvgimageset->setKSvg__ImageSet_ChildEvent_IsBase(true);
@@ -405,7 +405,7 @@ void KSvg__ImageSet_CustomEvent(KSvg__ImageSet* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KSvg__ImageSet_QBaseCustomEvent(KSvg__ImageSet* self, QEvent* event) {
+void KSvg__ImageSet_SuperCustomEvent(KSvg__ImageSet* self, QEvent* event) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
     if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
         vksvgimageset->setKSvg__ImageSet_CustomEvent_IsBase(true);
@@ -434,7 +434,7 @@ void KSvg__ImageSet_ConnectNotify(KSvg__ImageSet* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void KSvg__ImageSet_QBaseConnectNotify(KSvg__ImageSet* self, const QMetaMethod* signal) {
+void KSvg__ImageSet_SuperConnectNotify(KSvg__ImageSet* self, const QMetaMethod* signal) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
     if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
         vksvgimageset->setKSvg__ImageSet_ConnectNotify_IsBase(true);
@@ -463,7 +463,7 @@ void KSvg__ImageSet_DisconnectNotify(KSvg__ImageSet* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void KSvg__ImageSet_QBaseDisconnectNotify(KSvg__ImageSet* self, const QMetaMethod* signal) {
+void KSvg__ImageSet_SuperDisconnectNotify(KSvg__ImageSet* self, const QMetaMethod* signal) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
     if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
         vksvgimageset->setKSvg__ImageSet_DisconnectNotify_IsBase(true);
@@ -492,7 +492,7 @@ QObject* KSvg__ImageSet_Sender(const KSvg__ImageSet* self) {
 }
 
 // Base class handler implementation
-QObject* KSvg__ImageSet_QBaseSender(const KSvg__ImageSet* self) {
+QObject* KSvg__ImageSet_SuperSender(const KSvg__ImageSet* self) {
     auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
     if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
         vksvgimageset->setKSvg__ImageSet_Sender_IsBase(true);
@@ -521,7 +521,7 @@ int KSvg__ImageSet_SenderSignalIndex(const KSvg__ImageSet* self) {
 }
 
 // Base class handler implementation
-int KSvg__ImageSet_QBaseSenderSignalIndex(const KSvg__ImageSet* self) {
+int KSvg__ImageSet_SuperSenderSignalIndex(const KSvg__ImageSet* self) {
     auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
     if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
         vksvgimageset->setKSvg__ImageSet_SenderSignalIndex_IsBase(true);
@@ -550,7 +550,7 @@ int KSvg__ImageSet_Receivers(const KSvg__ImageSet* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KSvg__ImageSet_QBaseReceivers(const KSvg__ImageSet* self, const char* signal) {
+int KSvg__ImageSet_SuperReceivers(const KSvg__ImageSet* self, const char* signal) {
     auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
     if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
         vksvgimageset->setKSvg__ImageSet_Receivers_IsBase(true);
@@ -579,7 +579,7 @@ bool KSvg__ImageSet_IsSignalConnected(const KSvg__ImageSet* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool KSvg__ImageSet_QBaseIsSignalConnected(const KSvg__ImageSet* self, const QMetaMethod* signal) {
+bool KSvg__ImageSet_SuperIsSignalConnected(const KSvg__ImageSet* self, const QMetaMethod* signal) {
     auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
     if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
         vksvgimageset->setKSvg__ImageSet_IsSignalConnected_IsBase(true);

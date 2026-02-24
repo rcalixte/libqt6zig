@@ -31,6 +31,10 @@ pub const qscidocument = struct {
         qtc.QsciDocument_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciDocument.html)
     ///
     /// Delete this object from C++ memory.
@@ -39,7 +43,7 @@ pub const qscidocument = struct {
     ///
     /// ` self: QtC.QsciDocument `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QsciDocument_Delete(@ptrCast(self));
     }
 };

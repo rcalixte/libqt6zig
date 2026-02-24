@@ -888,23 +888,23 @@ class VirtualQCommonStyle final : public QCommonStyle {
 
     // Friend functions
     friend void QCommonStyle_TimerEvent(QCommonStyle* self, QTimerEvent* event);
-    friend void QCommonStyle_QBaseTimerEvent(QCommonStyle* self, QTimerEvent* event);
+    friend void QCommonStyle_SuperTimerEvent(QCommonStyle* self, QTimerEvent* event);
     friend void QCommonStyle_ChildEvent(QCommonStyle* self, QChildEvent* event);
-    friend void QCommonStyle_QBaseChildEvent(QCommonStyle* self, QChildEvent* event);
+    friend void QCommonStyle_SuperChildEvent(QCommonStyle* self, QChildEvent* event);
     friend void QCommonStyle_CustomEvent(QCommonStyle* self, QEvent* event);
-    friend void QCommonStyle_QBaseCustomEvent(QCommonStyle* self, QEvent* event);
+    friend void QCommonStyle_SuperCustomEvent(QCommonStyle* self, QEvent* event);
     friend void QCommonStyle_ConnectNotify(QCommonStyle* self, const QMetaMethod* signal);
-    friend void QCommonStyle_QBaseConnectNotify(QCommonStyle* self, const QMetaMethod* signal);
+    friend void QCommonStyle_SuperConnectNotify(QCommonStyle* self, const QMetaMethod* signal);
     friend void QCommonStyle_DisconnectNotify(QCommonStyle* self, const QMetaMethod* signal);
-    friend void QCommonStyle_QBaseDisconnectNotify(QCommonStyle* self, const QMetaMethod* signal);
+    friend void QCommonStyle_SuperDisconnectNotify(QCommonStyle* self, const QMetaMethod* signal);
     friend QObject* QCommonStyle_Sender(const QCommonStyle* self);
-    friend QObject* QCommonStyle_QBaseSender(const QCommonStyle* self);
+    friend QObject* QCommonStyle_SuperSender(const QCommonStyle* self);
     friend int QCommonStyle_SenderSignalIndex(const QCommonStyle* self);
-    friend int QCommonStyle_QBaseSenderSignalIndex(const QCommonStyle* self);
+    friend int QCommonStyle_SuperSenderSignalIndex(const QCommonStyle* self);
     friend int QCommonStyle_Receivers(const QCommonStyle* self, const char* signal);
-    friend int QCommonStyle_QBaseReceivers(const QCommonStyle* self, const char* signal);
+    friend int QCommonStyle_SuperReceivers(const QCommonStyle* self, const char* signal);
     friend bool QCommonStyle_IsSignalConnected(const QCommonStyle* self, const QMetaMethod* signal);
-    friend bool QCommonStyle_QBaseIsSignalConnected(const QCommonStyle* self, const QMetaMethod* signal);
+    friend bool QCommonStyle_SuperIsSignalConnected(const QCommonStyle* self, const QMetaMethod* signal);
 };
 
 #endif

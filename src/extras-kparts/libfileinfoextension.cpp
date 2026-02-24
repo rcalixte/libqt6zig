@@ -76,7 +76,7 @@ KFileItemList* KParts__FileInfoExtension_QueryFor(const KParts__FileInfoExtensio
 }
 
 // Base class handler implementation
-QMetaObject* KParts__FileInfoExtension_QBaseMetaObject(const KParts__FileInfoExtension* self) {
+QMetaObject* KParts__FileInfoExtension_SuperMetaObject(const KParts__FileInfoExtension* self) {
     auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
     if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
         vkpartsfileinfoextension->setKParts__FileInfoExtension_MetaObject_IsBase(true);
@@ -95,7 +95,7 @@ void KParts__FileInfoExtension_OnMetaObject(const KParts__FileInfoExtension* sel
 }
 
 // Base class handler implementation
-void* KParts__FileInfoExtension_QBaseMetacast(KParts__FileInfoExtension* self, const char* param1) {
+void* KParts__FileInfoExtension_SuperMetacast(KParts__FileInfoExtension* self, const char* param1) {
     auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
     if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
         vkpartsfileinfoextension->setKParts__FileInfoExtension_Metacast_IsBase(true);
@@ -114,7 +114,7 @@ void KParts__FileInfoExtension_OnMetacast(KParts__FileInfoExtension* self, intpt
 }
 
 // Base class handler implementation
-int KParts__FileInfoExtension_QBaseMetacall(KParts__FileInfoExtension* self, int param1, int param2, void** param3) {
+int KParts__FileInfoExtension_SuperMetacall(KParts__FileInfoExtension* self, int param1, int param2, void** param3) {
     auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
     if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
         vkpartsfileinfoextension->setKParts__FileInfoExtension_Metacall_IsBase(true);
@@ -133,7 +133,7 @@ void KParts__FileInfoExtension_OnMetacall(KParts__FileInfoExtension* self, intpt
 }
 
 // Base class handler implementation
-bool KParts__FileInfoExtension_QBaseHasSelection(const KParts__FileInfoExtension* self) {
+bool KParts__FileInfoExtension_SuperHasSelection(const KParts__FileInfoExtension* self) {
     auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
     if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
         vkpartsfileinfoextension->setKParts__FileInfoExtension_HasSelection_IsBase(true);
@@ -152,7 +152,7 @@ void KParts__FileInfoExtension_OnHasSelection(const KParts__FileInfoExtension* s
 }
 
 // Base class handler implementation
-int KParts__FileInfoExtension_QBaseSupportedQueryModes(const KParts__FileInfoExtension* self) {
+int KParts__FileInfoExtension_SuperSupportedQueryModes(const KParts__FileInfoExtension* self) {
     auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
     if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
         vkpartsfileinfoextension->setKParts__FileInfoExtension_SupportedQueryModes_IsBase(true);
@@ -171,7 +171,7 @@ void KParts__FileInfoExtension_OnSupportedQueryModes(const KParts__FileInfoExten
 }
 
 // Base class handler implementation
-KFileItemList* KParts__FileInfoExtension_QBaseQueryFor(const KParts__FileInfoExtension* self, int mode) {
+KFileItemList* KParts__FileInfoExtension_SuperQueryFor(const KParts__FileInfoExtension* self, int mode) {
     auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
     if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
         vkpartsfileinfoextension->setKParts__FileInfoExtension_QueryFor_IsBase(true);
@@ -200,7 +200,7 @@ bool KParts__FileInfoExtension_Event(KParts__FileInfoExtension* self, QEvent* ev
 }
 
 // Base class handler implementation
-bool KParts__FileInfoExtension_QBaseEvent(KParts__FileInfoExtension* self, QEvent* event) {
+bool KParts__FileInfoExtension_SuperEvent(KParts__FileInfoExtension* self, QEvent* event) {
     auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
     if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
         vkpartsfileinfoextension->setKParts__FileInfoExtension_Event_IsBase(true);
@@ -229,7 +229,7 @@ bool KParts__FileInfoExtension_EventFilter(KParts__FileInfoExtension* self, QObj
 }
 
 // Base class handler implementation
-bool KParts__FileInfoExtension_QBaseEventFilter(KParts__FileInfoExtension* self, QObject* watched, QEvent* event) {
+bool KParts__FileInfoExtension_SuperEventFilter(KParts__FileInfoExtension* self, QObject* watched, QEvent* event) {
     auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
     if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
         vkpartsfileinfoextension->setKParts__FileInfoExtension_EventFilter_IsBase(true);
@@ -258,7 +258,7 @@ void KParts__FileInfoExtension_TimerEvent(KParts__FileInfoExtension* self, QTime
 }
 
 // Base class handler implementation
-void KParts__FileInfoExtension_QBaseTimerEvent(KParts__FileInfoExtension* self, QTimerEvent* event) {
+void KParts__FileInfoExtension_SuperTimerEvent(KParts__FileInfoExtension* self, QTimerEvent* event) {
     auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
     if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
         vkpartsfileinfoextension->setKParts__FileInfoExtension_TimerEvent_IsBase(true);
@@ -287,7 +287,7 @@ void KParts__FileInfoExtension_ChildEvent(KParts__FileInfoExtension* self, QChil
 }
 
 // Base class handler implementation
-void KParts__FileInfoExtension_QBaseChildEvent(KParts__FileInfoExtension* self, QChildEvent* event) {
+void KParts__FileInfoExtension_SuperChildEvent(KParts__FileInfoExtension* self, QChildEvent* event) {
     auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
     if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
         vkpartsfileinfoextension->setKParts__FileInfoExtension_ChildEvent_IsBase(true);
@@ -316,7 +316,7 @@ void KParts__FileInfoExtension_CustomEvent(KParts__FileInfoExtension* self, QEve
 }
 
 // Base class handler implementation
-void KParts__FileInfoExtension_QBaseCustomEvent(KParts__FileInfoExtension* self, QEvent* event) {
+void KParts__FileInfoExtension_SuperCustomEvent(KParts__FileInfoExtension* self, QEvent* event) {
     auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
     if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
         vkpartsfileinfoextension->setKParts__FileInfoExtension_CustomEvent_IsBase(true);
@@ -345,7 +345,7 @@ void KParts__FileInfoExtension_ConnectNotify(KParts__FileInfoExtension* self, co
 }
 
 // Base class handler implementation
-void KParts__FileInfoExtension_QBaseConnectNotify(KParts__FileInfoExtension* self, const QMetaMethod* signal) {
+void KParts__FileInfoExtension_SuperConnectNotify(KParts__FileInfoExtension* self, const QMetaMethod* signal) {
     auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
     if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
         vkpartsfileinfoextension->setKParts__FileInfoExtension_ConnectNotify_IsBase(true);
@@ -374,7 +374,7 @@ void KParts__FileInfoExtension_DisconnectNotify(KParts__FileInfoExtension* self,
 }
 
 // Base class handler implementation
-void KParts__FileInfoExtension_QBaseDisconnectNotify(KParts__FileInfoExtension* self, const QMetaMethod* signal) {
+void KParts__FileInfoExtension_SuperDisconnectNotify(KParts__FileInfoExtension* self, const QMetaMethod* signal) {
     auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
     if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
         vkpartsfileinfoextension->setKParts__FileInfoExtension_DisconnectNotify_IsBase(true);
@@ -403,7 +403,7 @@ QObject* KParts__FileInfoExtension_Sender(const KParts__FileInfoExtension* self)
 }
 
 // Base class handler implementation
-QObject* KParts__FileInfoExtension_QBaseSender(const KParts__FileInfoExtension* self) {
+QObject* KParts__FileInfoExtension_SuperSender(const KParts__FileInfoExtension* self) {
     auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
     if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
         vkpartsfileinfoextension->setKParts__FileInfoExtension_Sender_IsBase(true);
@@ -432,7 +432,7 @@ int KParts__FileInfoExtension_SenderSignalIndex(const KParts__FileInfoExtension*
 }
 
 // Base class handler implementation
-int KParts__FileInfoExtension_QBaseSenderSignalIndex(const KParts__FileInfoExtension* self) {
+int KParts__FileInfoExtension_SuperSenderSignalIndex(const KParts__FileInfoExtension* self) {
     auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
     if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
         vkpartsfileinfoextension->setKParts__FileInfoExtension_SenderSignalIndex_IsBase(true);
@@ -461,7 +461,7 @@ int KParts__FileInfoExtension_Receivers(const KParts__FileInfoExtension* self, c
 }
 
 // Base class handler implementation
-int KParts__FileInfoExtension_QBaseReceivers(const KParts__FileInfoExtension* self, const char* signal) {
+int KParts__FileInfoExtension_SuperReceivers(const KParts__FileInfoExtension* self, const char* signal) {
     auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
     if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
         vkpartsfileinfoextension->setKParts__FileInfoExtension_Receivers_IsBase(true);
@@ -490,7 +490,7 @@ bool KParts__FileInfoExtension_IsSignalConnected(const KParts__FileInfoExtension
 }
 
 // Base class handler implementation
-bool KParts__FileInfoExtension_QBaseIsSignalConnected(const KParts__FileInfoExtension* self, const QMetaMethod* signal) {
+bool KParts__FileInfoExtension_SuperIsSignalConnected(const KParts__FileInfoExtension* self, const QMetaMethod* signal) {
     auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
     if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
         vkpartsfileinfoextension->setKParts__FileInfoExtension_IsSignalConnected_IsBase(true);

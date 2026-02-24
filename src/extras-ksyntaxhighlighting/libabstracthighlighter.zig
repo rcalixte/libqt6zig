@@ -47,13 +47,17 @@ pub const ksyntaxhighlighting__abstracthighlighter = struct {
         qtc.KSyntaxHighlighting__AbstractHighlighter_SetTheme(@ptrCast(self), @ptrCast(theme));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KSyntaxHighlighting__AbstractHighlighter `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KSyntaxHighlighting__AbstractHighlighter_Delete(@ptrCast(self));
     }
 };

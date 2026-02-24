@@ -676,7 +676,7 @@ void QWebSocket_Ping1(QWebSocket* self, const libqt_string payload) {
 }
 
 // Base class handler implementation
-QMetaObject* QWebSocket_QBaseMetaObject(const QWebSocket* self) {
+QMetaObject* QWebSocket_SuperMetaObject(const QWebSocket* self) {
     auto* vqwebsocket = const_cast<VirtualQWebSocket*>(dynamic_cast<const VirtualQWebSocket*>(self));
     if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
         vqwebsocket->setQWebSocket_MetaObject_IsBase(true);
@@ -695,7 +695,7 @@ void QWebSocket_OnMetaObject(const QWebSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QWebSocket_QBaseMetacast(QWebSocket* self, const char* param1) {
+void* QWebSocket_SuperMetacast(QWebSocket* self, const char* param1) {
     auto* vqwebsocket = dynamic_cast<VirtualQWebSocket*>(self);
     if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
         vqwebsocket->setQWebSocket_Metacast_IsBase(true);
@@ -714,7 +714,7 @@ void QWebSocket_OnMetacast(QWebSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QWebSocket_QBaseMetacall(QWebSocket* self, int param1, int param2, void** param3) {
+int QWebSocket_SuperMetacall(QWebSocket* self, int param1, int param2, void** param3) {
     auto* vqwebsocket = dynamic_cast<VirtualQWebSocket*>(self);
     if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
         vqwebsocket->setQWebSocket_Metacall_IsBase(true);
@@ -743,7 +743,7 @@ bool QWebSocket_Event(QWebSocket* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QWebSocket_QBaseEvent(QWebSocket* self, QEvent* event) {
+bool QWebSocket_SuperEvent(QWebSocket* self, QEvent* event) {
     auto* vqwebsocket = dynamic_cast<VirtualQWebSocket*>(self);
     if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
         vqwebsocket->setQWebSocket_Event_IsBase(true);
@@ -772,7 +772,7 @@ bool QWebSocket_EventFilter(QWebSocket* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QWebSocket_QBaseEventFilter(QWebSocket* self, QObject* watched, QEvent* event) {
+bool QWebSocket_SuperEventFilter(QWebSocket* self, QObject* watched, QEvent* event) {
     auto* vqwebsocket = dynamic_cast<VirtualQWebSocket*>(self);
     if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
         vqwebsocket->setQWebSocket_EventFilter_IsBase(true);
@@ -801,7 +801,7 @@ void QWebSocket_TimerEvent(QWebSocket* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QWebSocket_QBaseTimerEvent(QWebSocket* self, QTimerEvent* event) {
+void QWebSocket_SuperTimerEvent(QWebSocket* self, QTimerEvent* event) {
     auto* vqwebsocket = dynamic_cast<VirtualQWebSocket*>(self);
     if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
         vqwebsocket->setQWebSocket_TimerEvent_IsBase(true);
@@ -830,7 +830,7 @@ void QWebSocket_ChildEvent(QWebSocket* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QWebSocket_QBaseChildEvent(QWebSocket* self, QChildEvent* event) {
+void QWebSocket_SuperChildEvent(QWebSocket* self, QChildEvent* event) {
     auto* vqwebsocket = dynamic_cast<VirtualQWebSocket*>(self);
     if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
         vqwebsocket->setQWebSocket_ChildEvent_IsBase(true);
@@ -859,7 +859,7 @@ void QWebSocket_CustomEvent(QWebSocket* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QWebSocket_QBaseCustomEvent(QWebSocket* self, QEvent* event) {
+void QWebSocket_SuperCustomEvent(QWebSocket* self, QEvent* event) {
     auto* vqwebsocket = dynamic_cast<VirtualQWebSocket*>(self);
     if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
         vqwebsocket->setQWebSocket_CustomEvent_IsBase(true);
@@ -888,7 +888,7 @@ void QWebSocket_ConnectNotify(QWebSocket* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QWebSocket_QBaseConnectNotify(QWebSocket* self, const QMetaMethod* signal) {
+void QWebSocket_SuperConnectNotify(QWebSocket* self, const QMetaMethod* signal) {
     auto* vqwebsocket = dynamic_cast<VirtualQWebSocket*>(self);
     if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
         vqwebsocket->setQWebSocket_ConnectNotify_IsBase(true);
@@ -917,7 +917,7 @@ void QWebSocket_DisconnectNotify(QWebSocket* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QWebSocket_QBaseDisconnectNotify(QWebSocket* self, const QMetaMethod* signal) {
+void QWebSocket_SuperDisconnectNotify(QWebSocket* self, const QMetaMethod* signal) {
     auto* vqwebsocket = dynamic_cast<VirtualQWebSocket*>(self);
     if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
         vqwebsocket->setQWebSocket_DisconnectNotify_IsBase(true);
@@ -946,7 +946,7 @@ QObject* QWebSocket_Sender(const QWebSocket* self) {
 }
 
 // Base class handler implementation
-QObject* QWebSocket_QBaseSender(const QWebSocket* self) {
+QObject* QWebSocket_SuperSender(const QWebSocket* self) {
     auto* vqwebsocket = const_cast<VirtualQWebSocket*>(dynamic_cast<const VirtualQWebSocket*>(self));
     if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
         vqwebsocket->setQWebSocket_Sender_IsBase(true);
@@ -975,7 +975,7 @@ int QWebSocket_SenderSignalIndex(const QWebSocket* self) {
 }
 
 // Base class handler implementation
-int QWebSocket_QBaseSenderSignalIndex(const QWebSocket* self) {
+int QWebSocket_SuperSenderSignalIndex(const QWebSocket* self) {
     auto* vqwebsocket = const_cast<VirtualQWebSocket*>(dynamic_cast<const VirtualQWebSocket*>(self));
     if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
         vqwebsocket->setQWebSocket_SenderSignalIndex_IsBase(true);
@@ -1004,7 +1004,7 @@ int QWebSocket_Receivers(const QWebSocket* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QWebSocket_QBaseReceivers(const QWebSocket* self, const char* signal) {
+int QWebSocket_SuperReceivers(const QWebSocket* self, const char* signal) {
     auto* vqwebsocket = const_cast<VirtualQWebSocket*>(dynamic_cast<const VirtualQWebSocket*>(self));
     if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
         vqwebsocket->setQWebSocket_Receivers_IsBase(true);
@@ -1033,7 +1033,7 @@ bool QWebSocket_IsSignalConnected(const QWebSocket* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QWebSocket_QBaseIsSignalConnected(const QWebSocket* self, const QMetaMethod* signal) {
+bool QWebSocket_SuperIsSignalConnected(const QWebSocket* self, const QMetaMethod* signal) {
     auto* vqwebsocket = const_cast<VirtualQWebSocket*>(dynamic_cast<const VirtualQWebSocket*>(self));
     if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
         vqwebsocket->setQWebSocket_IsSignalConnected_IsBase(true);

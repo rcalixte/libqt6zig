@@ -46,6 +46,10 @@ pub const qdesignerformeditorinterface = struct {
         qtc.QDesignerFormEditorInterface_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -54,8 +58,8 @@ pub const qdesignerformeditorinterface = struct {
     ///
     /// ` self: QtC.QDesignerFormEditorInterface `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QDesignerFormEditorInterface_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QDesignerFormEditorInterface_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -81,6 +85,10 @@ pub const qdesignerformeditorinterface = struct {
         qtc.QDesignerFormEditorInterface_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -89,9 +97,9 @@ pub const qdesignerformeditorinterface = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QDesignerFormEditorInterface_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QDesignerFormEditorInterface_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -120,6 +128,10 @@ pub const qdesignerformeditorinterface = struct {
         qtc.QDesignerFormEditorInterface_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -132,8 +144,8 @@ pub const qdesignerformeditorinterface = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDesignerFormEditorInterface_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QDesignerFormEditorInterface_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -473,6 +485,10 @@ pub const qdesignerformeditorinterface = struct {
         qtc.QDesignerFormEditorInterface_OnSetFormManager(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFormManager` instead
+    ///
+    pub const QBaseSetFormManager = SuperSetFormManager;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setFormManager)
     ///
     /// Base class method implementation
@@ -483,8 +499,8 @@ pub const qdesignerformeditorinterface = struct {
     ///
     /// ` formWindowManager: QtC.QDesignerFormWindowManagerInterface `
     ///
-    pub fn QBaseSetFormManager(self: ?*anyopaque, formWindowManager: ?*anyopaque) void {
-        qtc.QDesignerFormEditorInterface_QBaseSetFormManager(@ptrCast(self), @ptrCast(formWindowManager));
+    pub fn SuperSetFormManager(self: ?*anyopaque, formWindowManager: ?*anyopaque) void {
+        qtc.QDesignerFormEditorInterface_SuperSetFormManager(@ptrCast(self), @ptrCast(formWindowManager));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setMetaDataBase)
@@ -513,6 +529,10 @@ pub const qdesignerformeditorinterface = struct {
         qtc.QDesignerFormEditorInterface_OnSetMetaDataBase(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetMetaDataBase` instead
+    ///
+    pub const QBaseSetMetaDataBase = SuperSetMetaDataBase;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setMetaDataBase)
     ///
     /// Base class method implementation
@@ -523,8 +543,8 @@ pub const qdesignerformeditorinterface = struct {
     ///
     /// ` metaDataBase: QtC.QDesignerMetaDataBaseInterface `
     ///
-    pub fn QBaseSetMetaDataBase(self: ?*anyopaque, metaDataBase: ?*anyopaque) void {
-        qtc.QDesignerFormEditorInterface_QBaseSetMetaDataBase(@ptrCast(self), @ptrCast(metaDataBase));
+    pub fn SuperSetMetaDataBase(self: ?*anyopaque, metaDataBase: ?*anyopaque) void {
+        qtc.QDesignerFormEditorInterface_SuperSetMetaDataBase(@ptrCast(self), @ptrCast(metaDataBase));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setWidgetDataBase)
@@ -553,6 +573,10 @@ pub const qdesignerformeditorinterface = struct {
         qtc.QDesignerFormEditorInterface_OnSetWidgetDataBase(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetWidgetDataBase` instead
+    ///
+    pub const QBaseSetWidgetDataBase = SuperSetWidgetDataBase;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setWidgetDataBase)
     ///
     /// Base class method implementation
@@ -563,8 +587,8 @@ pub const qdesignerformeditorinterface = struct {
     ///
     /// ` widgetDataBase: QtC.QDesignerWidgetDataBaseInterface `
     ///
-    pub fn QBaseSetWidgetDataBase(self: ?*anyopaque, widgetDataBase: ?*anyopaque) void {
-        qtc.QDesignerFormEditorInterface_QBaseSetWidgetDataBase(@ptrCast(self), @ptrCast(widgetDataBase));
+    pub fn SuperSetWidgetDataBase(self: ?*anyopaque, widgetDataBase: ?*anyopaque) void {
+        qtc.QDesignerFormEditorInterface_SuperSetWidgetDataBase(@ptrCast(self), @ptrCast(widgetDataBase));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setPromotion)
@@ -593,6 +617,10 @@ pub const qdesignerformeditorinterface = struct {
         qtc.QDesignerFormEditorInterface_OnSetPromotion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPromotion` instead
+    ///
+    pub const QBaseSetPromotion = SuperSetPromotion;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setPromotion)
     ///
     /// Base class method implementation
@@ -603,8 +631,8 @@ pub const qdesignerformeditorinterface = struct {
     ///
     /// ` promotion: QtC.QDesignerPromotionInterface `
     ///
-    pub fn QBaseSetPromotion(self: ?*anyopaque, promotion: ?*anyopaque) void {
-        qtc.QDesignerFormEditorInterface_QBaseSetPromotion(@ptrCast(self), @ptrCast(promotion));
+    pub fn SuperSetPromotion(self: ?*anyopaque, promotion: ?*anyopaque) void {
+        qtc.QDesignerFormEditorInterface_SuperSetPromotion(@ptrCast(self), @ptrCast(promotion));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setWidgetFactory)
@@ -633,6 +661,10 @@ pub const qdesignerformeditorinterface = struct {
         qtc.QDesignerFormEditorInterface_OnSetWidgetFactory(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetWidgetFactory` instead
+    ///
+    pub const QBaseSetWidgetFactory = SuperSetWidgetFactory;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setWidgetFactory)
     ///
     /// Base class method implementation
@@ -643,8 +675,8 @@ pub const qdesignerformeditorinterface = struct {
     ///
     /// ` widgetFactory: QtC.QDesignerWidgetFactoryInterface `
     ///
-    pub fn QBaseSetWidgetFactory(self: ?*anyopaque, widgetFactory: ?*anyopaque) void {
-        qtc.QDesignerFormEditorInterface_QBaseSetWidgetFactory(@ptrCast(self), @ptrCast(widgetFactory));
+    pub fn SuperSetWidgetFactory(self: ?*anyopaque, widgetFactory: ?*anyopaque) void {
+        qtc.QDesignerFormEditorInterface_SuperSetWidgetFactory(@ptrCast(self), @ptrCast(widgetFactory));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setExtensionManager)
@@ -673,6 +705,10 @@ pub const qdesignerformeditorinterface = struct {
         qtc.QDesignerFormEditorInterface_OnSetExtensionManager(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetExtensionManager` instead
+    ///
+    pub const QBaseSetExtensionManager = SuperSetExtensionManager;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setExtensionManager)
     ///
     /// Base class method implementation
@@ -683,8 +719,8 @@ pub const qdesignerformeditorinterface = struct {
     ///
     /// ` extensionManager: QtC.QExtensionManager `
     ///
-    pub fn QBaseSetExtensionManager(self: ?*anyopaque, extensionManager: ?*anyopaque) void {
-        qtc.QDesignerFormEditorInterface_QBaseSetExtensionManager(@ptrCast(self), @ptrCast(extensionManager));
+    pub fn SuperSetExtensionManager(self: ?*anyopaque, extensionManager: ?*anyopaque) void {
+        qtc.QDesignerFormEditorInterface_SuperSetExtensionManager(@ptrCast(self), @ptrCast(extensionManager));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1483,6 +1519,10 @@ pub const qdesignerformeditorinterface = struct {
         return qtc.QDesignerFormEditorInterface_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1495,8 +1535,8 @@ pub const qdesignerformeditorinterface = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDesignerFormEditorInterface_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QDesignerFormEditorInterface_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1533,6 +1573,10 @@ pub const qdesignerformeditorinterface = struct {
         return qtc.QDesignerFormEditorInterface_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1547,8 +1591,8 @@ pub const qdesignerformeditorinterface = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDesignerFormEditorInterface_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QDesignerFormEditorInterface_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1583,6 +1627,10 @@ pub const qdesignerformeditorinterface = struct {
         qtc.QDesignerFormEditorInterface_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1595,8 +1643,8 @@ pub const qdesignerformeditorinterface = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerFormEditorInterface_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QDesignerFormEditorInterface_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1631,6 +1679,10 @@ pub const qdesignerformeditorinterface = struct {
         qtc.QDesignerFormEditorInterface_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1643,8 +1695,8 @@ pub const qdesignerformeditorinterface = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerFormEditorInterface_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QDesignerFormEditorInterface_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1679,6 +1731,10 @@ pub const qdesignerformeditorinterface = struct {
         qtc.QDesignerFormEditorInterface_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1691,8 +1747,8 @@ pub const qdesignerformeditorinterface = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerFormEditorInterface_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QDesignerFormEditorInterface_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1727,6 +1783,10 @@ pub const qdesignerformeditorinterface = struct {
         qtc.QDesignerFormEditorInterface_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1739,8 +1799,8 @@ pub const qdesignerformeditorinterface = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDesignerFormEditorInterface_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QDesignerFormEditorInterface_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1775,6 +1835,10 @@ pub const qdesignerformeditorinterface = struct {
         qtc.QDesignerFormEditorInterface_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1787,8 +1851,8 @@ pub const qdesignerformeditorinterface = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDesignerFormEditorInterface_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QDesignerFormEditorInterface_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1821,6 +1885,10 @@ pub const qdesignerformeditorinterface = struct {
         return qtc.QDesignerFormEditorInterface_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1831,8 +1899,8 @@ pub const qdesignerformeditorinterface = struct {
     ///
     /// ` self: QtC.QDesignerFormEditorInterface `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QDesignerFormEditorInterface_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QDesignerFormEditorInterface_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1865,6 +1933,10 @@ pub const qdesignerformeditorinterface = struct {
         return qtc.QDesignerFormEditorInterface_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1875,8 +1947,8 @@ pub const qdesignerformeditorinterface = struct {
     ///
     /// ` self: QtC.QDesignerFormEditorInterface `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QDesignerFormEditorInterface_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QDesignerFormEditorInterface_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1912,6 +1984,10 @@ pub const qdesignerformeditorinterface = struct {
         return qtc.QDesignerFormEditorInterface_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1924,9 +2000,9 @@ pub const qdesignerformeditorinterface = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QDesignerFormEditorInterface_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QDesignerFormEditorInterface_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1961,6 +2037,10 @@ pub const qdesignerformeditorinterface = struct {
         return qtc.QDesignerFormEditorInterface_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -1973,8 +2053,8 @@ pub const qdesignerformeditorinterface = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QDesignerFormEditorInterface_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QDesignerFormEditorInterface_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2008,6 +2088,9 @@ pub const qdesignerformeditorinterface = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#dtor.QDesignerFormEditorInterface)
     ///
@@ -2017,7 +2100,7 @@ pub const qdesignerformeditorinterface = struct {
     ///
     /// ` self: QtC.QDesignerFormEditorInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDesignerFormEditorInterface_Delete(@ptrCast(self));
     }
 };

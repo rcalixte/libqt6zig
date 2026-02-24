@@ -150,7 +150,7 @@ double QCategoryAxis_StartValue1(const QCategoryAxis* self, const libqt_string c
 }
 
 // Base class handler implementation
-QMetaObject* QCategoryAxis_QBaseMetaObject(const QCategoryAxis* self) {
+QMetaObject* QCategoryAxis_SuperMetaObject(const QCategoryAxis* self) {
     auto* vqcategoryaxis = const_cast<VirtualQCategoryAxis*>(dynamic_cast<const VirtualQCategoryAxis*>(self));
     if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
         vqcategoryaxis->setQCategoryAxis_MetaObject_IsBase(true);
@@ -169,7 +169,7 @@ void QCategoryAxis_OnMetaObject(const QCategoryAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCategoryAxis_QBaseMetacast(QCategoryAxis* self, const char* param1) {
+void* QCategoryAxis_SuperMetacast(QCategoryAxis* self, const char* param1) {
     auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
     if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
         vqcategoryaxis->setQCategoryAxis_Metacast_IsBase(true);
@@ -188,7 +188,7 @@ void QCategoryAxis_OnMetacast(QCategoryAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCategoryAxis_QBaseMetacall(QCategoryAxis* self, int param1, int param2, void** param3) {
+int QCategoryAxis_SuperMetacall(QCategoryAxis* self, int param1, int param2, void** param3) {
     auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
     if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
         vqcategoryaxis->setQCategoryAxis_Metacall_IsBase(true);
@@ -207,7 +207,7 @@ void QCategoryAxis_OnMetacall(QCategoryAxis* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCategoryAxis_QBaseType(const QCategoryAxis* self) {
+int QCategoryAxis_SuperType(const QCategoryAxis* self) {
     auto* vqcategoryaxis = const_cast<VirtualQCategoryAxis*>(dynamic_cast<const VirtualQCategoryAxis*>(self));
     if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
         vqcategoryaxis->setQCategoryAxis_Type_IsBase(true);
@@ -236,7 +236,7 @@ bool QCategoryAxis_Event(QCategoryAxis* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCategoryAxis_QBaseEvent(QCategoryAxis* self, QEvent* event) {
+bool QCategoryAxis_SuperEvent(QCategoryAxis* self, QEvent* event) {
     auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
     if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
         vqcategoryaxis->setQCategoryAxis_Event_IsBase(true);
@@ -265,7 +265,7 @@ bool QCategoryAxis_EventFilter(QCategoryAxis* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QCategoryAxis_QBaseEventFilter(QCategoryAxis* self, QObject* watched, QEvent* event) {
+bool QCategoryAxis_SuperEventFilter(QCategoryAxis* self, QObject* watched, QEvent* event) {
     auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
     if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
         vqcategoryaxis->setQCategoryAxis_EventFilter_IsBase(true);
@@ -294,7 +294,7 @@ void QCategoryAxis_TimerEvent(QCategoryAxis* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCategoryAxis_QBaseTimerEvent(QCategoryAxis* self, QTimerEvent* event) {
+void QCategoryAxis_SuperTimerEvent(QCategoryAxis* self, QTimerEvent* event) {
     auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
     if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
         vqcategoryaxis->setQCategoryAxis_TimerEvent_IsBase(true);
@@ -323,7 +323,7 @@ void QCategoryAxis_ChildEvent(QCategoryAxis* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCategoryAxis_QBaseChildEvent(QCategoryAxis* self, QChildEvent* event) {
+void QCategoryAxis_SuperChildEvent(QCategoryAxis* self, QChildEvent* event) {
     auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
     if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
         vqcategoryaxis->setQCategoryAxis_ChildEvent_IsBase(true);
@@ -352,7 +352,7 @@ void QCategoryAxis_CustomEvent(QCategoryAxis* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCategoryAxis_QBaseCustomEvent(QCategoryAxis* self, QEvent* event) {
+void QCategoryAxis_SuperCustomEvent(QCategoryAxis* self, QEvent* event) {
     auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
     if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
         vqcategoryaxis->setQCategoryAxis_CustomEvent_IsBase(true);
@@ -381,7 +381,7 @@ void QCategoryAxis_ConnectNotify(QCategoryAxis* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QCategoryAxis_QBaseConnectNotify(QCategoryAxis* self, const QMetaMethod* signal) {
+void QCategoryAxis_SuperConnectNotify(QCategoryAxis* self, const QMetaMethod* signal) {
     auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
     if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
         vqcategoryaxis->setQCategoryAxis_ConnectNotify_IsBase(true);
@@ -410,7 +410,7 @@ void QCategoryAxis_DisconnectNotify(QCategoryAxis* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QCategoryAxis_QBaseDisconnectNotify(QCategoryAxis* self, const QMetaMethod* signal) {
+void QCategoryAxis_SuperDisconnectNotify(QCategoryAxis* self, const QMetaMethod* signal) {
     auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
     if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
         vqcategoryaxis->setQCategoryAxis_DisconnectNotify_IsBase(true);
@@ -439,7 +439,7 @@ QObject* QCategoryAxis_Sender(const QCategoryAxis* self) {
 }
 
 // Base class handler implementation
-QObject* QCategoryAxis_QBaseSender(const QCategoryAxis* self) {
+QObject* QCategoryAxis_SuperSender(const QCategoryAxis* self) {
     auto* vqcategoryaxis = const_cast<VirtualQCategoryAxis*>(dynamic_cast<const VirtualQCategoryAxis*>(self));
     if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
         vqcategoryaxis->setQCategoryAxis_Sender_IsBase(true);
@@ -468,7 +468,7 @@ int QCategoryAxis_SenderSignalIndex(const QCategoryAxis* self) {
 }
 
 // Base class handler implementation
-int QCategoryAxis_QBaseSenderSignalIndex(const QCategoryAxis* self) {
+int QCategoryAxis_SuperSenderSignalIndex(const QCategoryAxis* self) {
     auto* vqcategoryaxis = const_cast<VirtualQCategoryAxis*>(dynamic_cast<const VirtualQCategoryAxis*>(self));
     if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
         vqcategoryaxis->setQCategoryAxis_SenderSignalIndex_IsBase(true);
@@ -497,7 +497,7 @@ int QCategoryAxis_Receivers(const QCategoryAxis* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCategoryAxis_QBaseReceivers(const QCategoryAxis* self, const char* signal) {
+int QCategoryAxis_SuperReceivers(const QCategoryAxis* self, const char* signal) {
     auto* vqcategoryaxis = const_cast<VirtualQCategoryAxis*>(dynamic_cast<const VirtualQCategoryAxis*>(self));
     if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
         vqcategoryaxis->setQCategoryAxis_Receivers_IsBase(true);
@@ -526,7 +526,7 @@ bool QCategoryAxis_IsSignalConnected(const QCategoryAxis* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QCategoryAxis_QBaseIsSignalConnected(const QCategoryAxis* self, const QMetaMethod* signal) {
+bool QCategoryAxis_SuperIsSignalConnected(const QCategoryAxis* self, const QMetaMethod* signal) {
     auto* vqcategoryaxis = const_cast<VirtualQCategoryAxis*>(dynamic_cast<const VirtualQCategoryAxis*>(self));
     if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
         vqcategoryaxis->setQCategoryAxis_IsSignalConnected_IsBase(true);

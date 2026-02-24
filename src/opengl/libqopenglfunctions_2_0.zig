@@ -34,6 +34,10 @@ pub const qopenglfunctions_2_0 = struct {
         qtc.QOpenGLFunctions_2_0_OnInitializeOpenGLFunctions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInitializeOpenGLFunctions` instead
+    ///
+    pub const QBaseInitializeOpenGLFunctions = SuperInitializeOpenGLFunctions;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0.html#initializeOpenGLFunctions)
     ///
     /// Base class method implementation
@@ -42,8 +46,8 @@ pub const qopenglfunctions_2_0 = struct {
     ///
     /// ` self: QtC.QOpenGLFunctions_2_0 `
     ///
-    pub fn QBaseInitializeOpenGLFunctions(self: ?*anyopaque) bool {
-        return qtc.QOpenGLFunctions_2_0_QBaseInitializeOpenGLFunctions(@ptrCast(self));
+    pub fn SuperInitializeOpenGLFunctions(self: ?*anyopaque) bool {
+        return qtc.QOpenGLFunctions_2_0_SuperInitializeOpenGLFunctions(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0.html#glViewport)
@@ -8773,6 +8777,10 @@ pub const qopenglfunctions_2_0 = struct {
         return qtc.QOpenGLFunctions_2_0_IsInitialized(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsInitialized` instead
+    ///
+    pub const QBaseIsInitialized = SuperIsInitialized;
+
     /// Inherited from QAbstractOpenGLFunctions
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractopenglfunctions.html#isInitialized)
@@ -8783,8 +8791,8 @@ pub const qopenglfunctions_2_0 = struct {
     ///
     /// ` self: QtC.QOpenGLFunctions_2_0 `
     ///
-    pub fn QBaseIsInitialized(self: ?*anyopaque) bool {
-        return qtc.QOpenGLFunctions_2_0_QBaseIsInitialized(@ptrCast(self));
+    pub fn SuperIsInitialized(self: ?*anyopaque) bool {
+        return qtc.QOpenGLFunctions_2_0_SuperIsInitialized(@ptrCast(self));
     }
 
     /// Inherited from QAbstractOpenGLFunctions
@@ -8819,6 +8827,10 @@ pub const qopenglfunctions_2_0 = struct {
         qtc.QOpenGLFunctions_2_0_SetOwningContext(@ptrCast(self), @ptrCast(context));
     }
 
+    /// ### DEPRECATED: Use `SuperSetOwningContext` instead
+    ///
+    pub const QBaseSetOwningContext = SuperSetOwningContext;
+
     /// Inherited from QAbstractOpenGLFunctions
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractopenglfunctions.html#setOwningContext)
@@ -8831,8 +8843,8 @@ pub const qopenglfunctions_2_0 = struct {
     ///
     /// ` context: QtC.QOpenGLContext `
     ///
-    pub fn QBaseSetOwningContext(self: ?*anyopaque, context: ?*anyopaque) void {
-        qtc.QOpenGLFunctions_2_0_QBaseSetOwningContext(@ptrCast(self), @ptrCast(context));
+    pub fn SuperSetOwningContext(self: ?*anyopaque, context: ?*anyopaque) void {
+        qtc.QOpenGLFunctions_2_0_SuperSetOwningContext(@ptrCast(self), @ptrCast(context));
     }
 
     /// Inherited from QAbstractOpenGLFunctions
@@ -8865,6 +8877,10 @@ pub const qopenglfunctions_2_0 = struct {
         return qtc.QOpenGLFunctions_2_0_OwningContext(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperOwningContext` instead
+    ///
+    pub const QBaseOwningContext = SuperOwningContext;
+
     /// Inherited from QAbstractOpenGLFunctions
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractopenglfunctions.html#owningContext)
@@ -8875,8 +8891,8 @@ pub const qopenglfunctions_2_0 = struct {
     ///
     /// ` self: QtC.QOpenGLFunctions_2_0 `
     ///
-    pub fn QBaseOwningContext(self: ?*anyopaque) QtC.QOpenGLContext {
-        return qtc.QOpenGLFunctions_2_0_QBaseOwningContext(@ptrCast(self));
+    pub fn SuperOwningContext(self: ?*anyopaque) QtC.QOpenGLContext {
+        return qtc.QOpenGLFunctions_2_0_SuperOwningContext(@ptrCast(self));
     }
 
     /// Inherited from QAbstractOpenGLFunctions
@@ -8894,6 +8910,9 @@ pub const qopenglfunctions_2_0 = struct {
     pub fn OnOwningContext(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QOpenGLContext) void {
         qtc.QOpenGLFunctions_2_0_OnOwningContext(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0.html#dtor.QOpenGLFunctions_2_0)
     ///
@@ -8903,7 +8922,7 @@ pub const qopenglfunctions_2_0 = struct {
     ///
     /// ` self: QtC.QOpenGLFunctions_2_0 `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QOpenGLFunctions_2_0_Delete(@ptrCast(self));
     }
 };

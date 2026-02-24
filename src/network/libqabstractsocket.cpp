@@ -419,7 +419,7 @@ void QAbstractSocket_ConnectToHost3(QAbstractSocket* self, const QHostAddress* a
 }
 
 // Base class handler implementation
-QMetaObject* QAbstractSocket_QBaseMetaObject(const QAbstractSocket* self) {
+QMetaObject* QAbstractSocket_SuperMetaObject(const QAbstractSocket* self) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_MetaObject_IsBase(true);
@@ -438,7 +438,7 @@ void QAbstractSocket_OnMetaObject(const QAbstractSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QAbstractSocket_QBaseMetacast(QAbstractSocket* self, const char* param1) {
+void* QAbstractSocket_SuperMetacast(QAbstractSocket* self, const char* param1) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_Metacast_IsBase(true);
@@ -457,7 +457,7 @@ void QAbstractSocket_OnMetacast(QAbstractSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAbstractSocket_QBaseMetacall(QAbstractSocket* self, int param1, int param2, void** param3) {
+int QAbstractSocket_SuperMetacall(QAbstractSocket* self, int param1, int param2, void** param3) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_Metacall_IsBase(true);
@@ -476,7 +476,7 @@ void QAbstractSocket_OnMetacall(QAbstractSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractSocket_QBaseResume(QAbstractSocket* self) {
+void QAbstractSocket_SuperResume(QAbstractSocket* self) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_Resume_IsBase(true);
@@ -495,7 +495,7 @@ void QAbstractSocket_OnResume(QAbstractSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QAbstractSocket_QBaseBind(QAbstractSocket* self, const QHostAddress* address, uint16_t port, int mode) {
+bool QAbstractSocket_SuperBind(QAbstractSocket* self, const QHostAddress* address, uint16_t port, int mode) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_Bind_IsBase(true);
@@ -514,7 +514,7 @@ void QAbstractSocket_OnBind(QAbstractSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractSocket_QBaseConnectToHost(QAbstractSocket* self, const libqt_string hostName, uint16_t port, int mode, int protocol) {
+void QAbstractSocket_SuperConnectToHost(QAbstractSocket* self, const libqt_string hostName, uint16_t port, int mode, int protocol) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     QString hostName_QString = QString::fromUtf8(hostName.data, hostName.len);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
@@ -534,7 +534,7 @@ void QAbstractSocket_OnConnectToHost(QAbstractSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractSocket_QBaseDisconnectFromHost(QAbstractSocket* self) {
+void QAbstractSocket_SuperDisconnectFromHost(QAbstractSocket* self) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_DisconnectFromHost_IsBase(true);
@@ -553,7 +553,7 @@ void QAbstractSocket_OnDisconnectFromHost(QAbstractSocket* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-long long QAbstractSocket_QBaseBytesAvailable(const QAbstractSocket* self) {
+long long QAbstractSocket_SuperBytesAvailable(const QAbstractSocket* self) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_BytesAvailable_IsBase(true);
@@ -572,7 +572,7 @@ void QAbstractSocket_OnBytesAvailable(const QAbstractSocket* self, intptr_t slot
 }
 
 // Base class handler implementation
-long long QAbstractSocket_QBaseBytesToWrite(const QAbstractSocket* self) {
+long long QAbstractSocket_SuperBytesToWrite(const QAbstractSocket* self) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_BytesToWrite_IsBase(true);
@@ -591,7 +591,7 @@ void QAbstractSocket_OnBytesToWrite(const QAbstractSocket* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void QAbstractSocket_QBaseSetReadBufferSize(QAbstractSocket* self, long long size) {
+void QAbstractSocket_SuperSetReadBufferSize(QAbstractSocket* self, long long size) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_SetReadBufferSize_IsBase(true);
@@ -610,7 +610,7 @@ void QAbstractSocket_OnSetReadBufferSize(QAbstractSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-intptr_t QAbstractSocket_QBaseSocketDescriptor(const QAbstractSocket* self) {
+intptr_t QAbstractSocket_SuperSocketDescriptor(const QAbstractSocket* self) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_SocketDescriptor_IsBase(true);
@@ -631,7 +631,7 @@ void QAbstractSocket_OnSocketDescriptor(const QAbstractSocket* self, intptr_t sl
 }
 
 // Base class handler implementation
-bool QAbstractSocket_QBaseSetSocketDescriptor(QAbstractSocket* self, intptr_t socketDescriptor, int state, int openMode) {
+bool QAbstractSocket_SuperSetSocketDescriptor(QAbstractSocket* self, intptr_t socketDescriptor, int state, int openMode) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_SetSocketDescriptor_IsBase(true);
@@ -650,7 +650,7 @@ void QAbstractSocket_OnSetSocketDescriptor(QAbstractSocket* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void QAbstractSocket_QBaseSetSocketOption(QAbstractSocket* self, int option, const QVariant* value) {
+void QAbstractSocket_SuperSetSocketOption(QAbstractSocket* self, int option, const QVariant* value) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_SetSocketOption_IsBase(true);
@@ -669,7 +669,7 @@ void QAbstractSocket_OnSetSocketOption(QAbstractSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QAbstractSocket_QBaseSocketOption(QAbstractSocket* self, int option) {
+QVariant* QAbstractSocket_SuperSocketOption(QAbstractSocket* self, int option) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_SocketOption_IsBase(true);
@@ -688,7 +688,7 @@ void QAbstractSocket_OnSocketOption(QAbstractSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractSocket_QBaseClose(QAbstractSocket* self) {
+void QAbstractSocket_SuperClose(QAbstractSocket* self) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_Close_IsBase(true);
@@ -707,7 +707,7 @@ void QAbstractSocket_OnClose(QAbstractSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QAbstractSocket_QBaseIsSequential(const QAbstractSocket* self) {
+bool QAbstractSocket_SuperIsSequential(const QAbstractSocket* self) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_IsSequential_IsBase(true);
@@ -726,7 +726,7 @@ void QAbstractSocket_OnIsSequential(const QAbstractSocket* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-bool QAbstractSocket_QBaseWaitForConnected(QAbstractSocket* self, int msecs) {
+bool QAbstractSocket_SuperWaitForConnected(QAbstractSocket* self, int msecs) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_WaitForConnected_IsBase(true);
@@ -745,7 +745,7 @@ void QAbstractSocket_OnWaitForConnected(QAbstractSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QAbstractSocket_QBaseWaitForReadyRead(QAbstractSocket* self, int msecs) {
+bool QAbstractSocket_SuperWaitForReadyRead(QAbstractSocket* self, int msecs) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_WaitForReadyRead_IsBase(true);
@@ -764,7 +764,7 @@ void QAbstractSocket_OnWaitForReadyRead(QAbstractSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QAbstractSocket_QBaseWaitForBytesWritten(QAbstractSocket* self, int msecs) {
+bool QAbstractSocket_SuperWaitForBytesWritten(QAbstractSocket* self, int msecs) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_WaitForBytesWritten_IsBase(true);
@@ -783,7 +783,7 @@ void QAbstractSocket_OnWaitForBytesWritten(QAbstractSocket* self, intptr_t slot)
 }
 
 // Base class handler implementation
-bool QAbstractSocket_QBaseWaitForDisconnected(QAbstractSocket* self, int msecs) {
+bool QAbstractSocket_SuperWaitForDisconnected(QAbstractSocket* self, int msecs) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_WaitForDisconnected_IsBase(true);
@@ -802,7 +802,7 @@ void QAbstractSocket_OnWaitForDisconnected(QAbstractSocket* self, intptr_t slot)
 }
 
 // Base class handler implementation
-long long QAbstractSocket_QBaseReadData(QAbstractSocket* self, char* data, long long maxlen) {
+long long QAbstractSocket_SuperReadData(QAbstractSocket* self, char* data, long long maxlen) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_ReadData_IsBase(true);
@@ -821,7 +821,7 @@ void QAbstractSocket_OnReadData(QAbstractSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QAbstractSocket_QBaseReadLineData(QAbstractSocket* self, char* data, long long maxlen) {
+long long QAbstractSocket_SuperReadLineData(QAbstractSocket* self, char* data, long long maxlen) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_ReadLineData_IsBase(true);
@@ -840,7 +840,7 @@ void QAbstractSocket_OnReadLineData(QAbstractSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QAbstractSocket_QBaseSkipData(QAbstractSocket* self, long long maxSize) {
+long long QAbstractSocket_SuperSkipData(QAbstractSocket* self, long long maxSize) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_SkipData_IsBase(true);
@@ -859,7 +859,7 @@ void QAbstractSocket_OnSkipData(QAbstractSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QAbstractSocket_QBaseWriteData(QAbstractSocket* self, const char* data, long long lenVal) {
+long long QAbstractSocket_SuperWriteData(QAbstractSocket* self, const char* data, long long lenVal) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_WriteData_IsBase(true);
@@ -888,7 +888,7 @@ bool QAbstractSocket_Open(QAbstractSocket* self, int mode) {
 }
 
 // Base class handler implementation
-bool QAbstractSocket_QBaseOpen(QAbstractSocket* self, int mode) {
+bool QAbstractSocket_SuperOpen(QAbstractSocket* self, int mode) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_Open_IsBase(true);
@@ -917,7 +917,7 @@ long long QAbstractSocket_Pos(const QAbstractSocket* self) {
 }
 
 // Base class handler implementation
-long long QAbstractSocket_QBasePos(const QAbstractSocket* self) {
+long long QAbstractSocket_SuperPos(const QAbstractSocket* self) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_Pos_IsBase(true);
@@ -946,7 +946,7 @@ long long QAbstractSocket_Size(const QAbstractSocket* self) {
 }
 
 // Base class handler implementation
-long long QAbstractSocket_QBaseSize(const QAbstractSocket* self) {
+long long QAbstractSocket_SuperSize(const QAbstractSocket* self) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_Size_IsBase(true);
@@ -975,7 +975,7 @@ bool QAbstractSocket_Seek(QAbstractSocket* self, long long pos) {
 }
 
 // Base class handler implementation
-bool QAbstractSocket_QBaseSeek(QAbstractSocket* self, long long pos) {
+bool QAbstractSocket_SuperSeek(QAbstractSocket* self, long long pos) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_Seek_IsBase(true);
@@ -1004,7 +1004,7 @@ bool QAbstractSocket_AtEnd(const QAbstractSocket* self) {
 }
 
 // Base class handler implementation
-bool QAbstractSocket_QBaseAtEnd(const QAbstractSocket* self) {
+bool QAbstractSocket_SuperAtEnd(const QAbstractSocket* self) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_AtEnd_IsBase(true);
@@ -1033,7 +1033,7 @@ bool QAbstractSocket_Reset(QAbstractSocket* self) {
 }
 
 // Base class handler implementation
-bool QAbstractSocket_QBaseReset(QAbstractSocket* self) {
+bool QAbstractSocket_SuperReset(QAbstractSocket* self) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_Reset_IsBase(true);
@@ -1062,7 +1062,7 @@ bool QAbstractSocket_CanReadLine(const QAbstractSocket* self) {
 }
 
 // Base class handler implementation
-bool QAbstractSocket_QBaseCanReadLine(const QAbstractSocket* self) {
+bool QAbstractSocket_SuperCanReadLine(const QAbstractSocket* self) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_CanReadLine_IsBase(true);
@@ -1091,7 +1091,7 @@ bool QAbstractSocket_Event(QAbstractSocket* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QAbstractSocket_QBaseEvent(QAbstractSocket* self, QEvent* event) {
+bool QAbstractSocket_SuperEvent(QAbstractSocket* self, QEvent* event) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_Event_IsBase(true);
@@ -1120,7 +1120,7 @@ bool QAbstractSocket_EventFilter(QAbstractSocket* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool QAbstractSocket_QBaseEventFilter(QAbstractSocket* self, QObject* watched, QEvent* event) {
+bool QAbstractSocket_SuperEventFilter(QAbstractSocket* self, QObject* watched, QEvent* event) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_EventFilter_IsBase(true);
@@ -1149,7 +1149,7 @@ void QAbstractSocket_TimerEvent(QAbstractSocket* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractSocket_QBaseTimerEvent(QAbstractSocket* self, QTimerEvent* event) {
+void QAbstractSocket_SuperTimerEvent(QAbstractSocket* self, QTimerEvent* event) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_TimerEvent_IsBase(true);
@@ -1178,7 +1178,7 @@ void QAbstractSocket_ChildEvent(QAbstractSocket* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractSocket_QBaseChildEvent(QAbstractSocket* self, QChildEvent* event) {
+void QAbstractSocket_SuperChildEvent(QAbstractSocket* self, QChildEvent* event) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_ChildEvent_IsBase(true);
@@ -1207,7 +1207,7 @@ void QAbstractSocket_CustomEvent(QAbstractSocket* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAbstractSocket_QBaseCustomEvent(QAbstractSocket* self, QEvent* event) {
+void QAbstractSocket_SuperCustomEvent(QAbstractSocket* self, QEvent* event) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_CustomEvent_IsBase(true);
@@ -1236,7 +1236,7 @@ void QAbstractSocket_ConnectNotify(QAbstractSocket* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void QAbstractSocket_QBaseConnectNotify(QAbstractSocket* self, const QMetaMethod* signal) {
+void QAbstractSocket_SuperConnectNotify(QAbstractSocket* self, const QMetaMethod* signal) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_ConnectNotify_IsBase(true);
@@ -1265,7 +1265,7 @@ void QAbstractSocket_DisconnectNotify(QAbstractSocket* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void QAbstractSocket_QBaseDisconnectNotify(QAbstractSocket* self, const QMetaMethod* signal) {
+void QAbstractSocket_SuperDisconnectNotify(QAbstractSocket* self, const QMetaMethod* signal) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_DisconnectNotify_IsBase(true);
@@ -1294,7 +1294,7 @@ void QAbstractSocket_SetSocketState(QAbstractSocket* self, int state) {
 }
 
 // Base class handler implementation
-void QAbstractSocket_QBaseSetSocketState(QAbstractSocket* self, int state) {
+void QAbstractSocket_SuperSetSocketState(QAbstractSocket* self, int state) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_SetSocketState_IsBase(true);
@@ -1323,7 +1323,7 @@ void QAbstractSocket_SetSocketError(QAbstractSocket* self, int socketError) {
 }
 
 // Base class handler implementation
-void QAbstractSocket_QBaseSetSocketError(QAbstractSocket* self, int socketError) {
+void QAbstractSocket_SuperSetSocketError(QAbstractSocket* self, int socketError) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_SetSocketError_IsBase(true);
@@ -1352,7 +1352,7 @@ void QAbstractSocket_SetLocalPort(QAbstractSocket* self, uint16_t port) {
 }
 
 // Base class handler implementation
-void QAbstractSocket_QBaseSetLocalPort(QAbstractSocket* self, uint16_t port) {
+void QAbstractSocket_SuperSetLocalPort(QAbstractSocket* self, uint16_t port) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_SetLocalPort_IsBase(true);
@@ -1381,7 +1381,7 @@ void QAbstractSocket_SetLocalAddress(QAbstractSocket* self, const QHostAddress* 
 }
 
 // Base class handler implementation
-void QAbstractSocket_QBaseSetLocalAddress(QAbstractSocket* self, const QHostAddress* address) {
+void QAbstractSocket_SuperSetLocalAddress(QAbstractSocket* self, const QHostAddress* address) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_SetLocalAddress_IsBase(true);
@@ -1410,7 +1410,7 @@ void QAbstractSocket_SetPeerPort(QAbstractSocket* self, uint16_t port) {
 }
 
 // Base class handler implementation
-void QAbstractSocket_QBaseSetPeerPort(QAbstractSocket* self, uint16_t port) {
+void QAbstractSocket_SuperSetPeerPort(QAbstractSocket* self, uint16_t port) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_SetPeerPort_IsBase(true);
@@ -1439,7 +1439,7 @@ void QAbstractSocket_SetPeerAddress(QAbstractSocket* self, const QHostAddress* a
 }
 
 // Base class handler implementation
-void QAbstractSocket_QBaseSetPeerAddress(QAbstractSocket* self, const QHostAddress* address) {
+void QAbstractSocket_SuperSetPeerAddress(QAbstractSocket* self, const QHostAddress* address) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_SetPeerAddress_IsBase(true);
@@ -1469,7 +1469,7 @@ void QAbstractSocket_SetPeerName(QAbstractSocket* self, const libqt_string name)
 }
 
 // Base class handler implementation
-void QAbstractSocket_QBaseSetPeerName(QAbstractSocket* self, const libqt_string name) {
+void QAbstractSocket_SuperSetPeerName(QAbstractSocket* self, const libqt_string name) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
@@ -1499,7 +1499,7 @@ void QAbstractSocket_SetOpenMode(QAbstractSocket* self, int openMode) {
 }
 
 // Base class handler implementation
-void QAbstractSocket_QBaseSetOpenMode(QAbstractSocket* self, int openMode) {
+void QAbstractSocket_SuperSetOpenMode(QAbstractSocket* self, int openMode) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_SetOpenMode_IsBase(true);
@@ -1529,7 +1529,7 @@ void QAbstractSocket_SetErrorString(QAbstractSocket* self, const libqt_string er
 }
 
 // Base class handler implementation
-void QAbstractSocket_QBaseSetErrorString(QAbstractSocket* self, const libqt_string errorString) {
+void QAbstractSocket_SuperSetErrorString(QAbstractSocket* self, const libqt_string errorString) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
@@ -1559,7 +1559,7 @@ QObject* QAbstractSocket_Sender(const QAbstractSocket* self) {
 }
 
 // Base class handler implementation
-QObject* QAbstractSocket_QBaseSender(const QAbstractSocket* self) {
+QObject* QAbstractSocket_SuperSender(const QAbstractSocket* self) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_Sender_IsBase(true);
@@ -1588,7 +1588,7 @@ int QAbstractSocket_SenderSignalIndex(const QAbstractSocket* self) {
 }
 
 // Base class handler implementation
-int QAbstractSocket_QBaseSenderSignalIndex(const QAbstractSocket* self) {
+int QAbstractSocket_SuperSenderSignalIndex(const QAbstractSocket* self) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_SenderSignalIndex_IsBase(true);
@@ -1617,7 +1617,7 @@ int QAbstractSocket_Receivers(const QAbstractSocket* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QAbstractSocket_QBaseReceivers(const QAbstractSocket* self, const char* signal) {
+int QAbstractSocket_SuperReceivers(const QAbstractSocket* self, const char* signal) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_Receivers_IsBase(true);
@@ -1646,7 +1646,7 @@ bool QAbstractSocket_IsSignalConnected(const QAbstractSocket* self, const QMetaM
 }
 
 // Base class handler implementation
-bool QAbstractSocket_QBaseIsSignalConnected(const QAbstractSocket* self, const QMetaMethod* signal) {
+bool QAbstractSocket_SuperIsSignalConnected(const QAbstractSocket* self, const QMetaMethod* signal) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_IsSignalConnected_IsBase(true);

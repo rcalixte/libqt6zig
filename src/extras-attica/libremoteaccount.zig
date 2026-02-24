@@ -234,13 +234,17 @@ pub const attica__remoteaccount = struct {
         return qtc.Attica__RemoteAccount_IsValid(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Attica__RemoteAccount `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Attica__RemoteAccount_Delete(@ptrCast(self));
     }
 };

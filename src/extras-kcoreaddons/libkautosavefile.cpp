@@ -142,7 +142,7 @@ libqt_list /* of KAutoSaveFile* */ KAutoSaveFile_AllStaleFiles1(const libqt_stri
 }
 
 // Base class handler implementation
-QMetaObject* KAutoSaveFile_QBaseMetaObject(const KAutoSaveFile* self) {
+QMetaObject* KAutoSaveFile_SuperMetaObject(const KAutoSaveFile* self) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_MetaObject_IsBase(true);
@@ -161,7 +161,7 @@ void KAutoSaveFile_OnMetaObject(const KAutoSaveFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KAutoSaveFile_QBaseMetacast(KAutoSaveFile* self, const char* param1) {
+void* KAutoSaveFile_SuperMetacast(KAutoSaveFile* self, const char* param1) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_Metacast_IsBase(true);
@@ -180,7 +180,7 @@ void KAutoSaveFile_OnMetacast(KAutoSaveFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KAutoSaveFile_QBaseMetacall(KAutoSaveFile* self, int param1, int param2, void** param3) {
+int KAutoSaveFile_SuperMetacall(KAutoSaveFile* self, int param1, int param2, void** param3) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_Metacall_IsBase(true);
@@ -199,7 +199,7 @@ void KAutoSaveFile_OnMetacall(KAutoSaveFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KAutoSaveFile_QBaseReleaseLock(KAutoSaveFile* self) {
+void KAutoSaveFile_SuperReleaseLock(KAutoSaveFile* self) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_ReleaseLock_IsBase(true);
@@ -218,7 +218,7 @@ void KAutoSaveFile_OnReleaseLock(KAutoSaveFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KAutoSaveFile_QBaseOpen(KAutoSaveFile* self, int openmode) {
+bool KAutoSaveFile_SuperOpen(KAutoSaveFile* self, int openmode) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_Open_IsBase(true);
@@ -263,7 +263,7 @@ libqt_string KAutoSaveFile_FileName(const KAutoSaveFile* self) {
 }
 
 // Base class handler implementation
-libqt_string KAutoSaveFile_QBaseFileName(const KAutoSaveFile* self) {
+libqt_string KAutoSaveFile_SuperFileName(const KAutoSaveFile* self) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_FileName_IsBase(true);
@@ -308,7 +308,7 @@ long long KAutoSaveFile_Size(const KAutoSaveFile* self) {
 }
 
 // Base class handler implementation
-long long KAutoSaveFile_QBaseSize(const KAutoSaveFile* self) {
+long long KAutoSaveFile_SuperSize(const KAutoSaveFile* self) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_Size_IsBase(true);
@@ -337,7 +337,7 @@ bool KAutoSaveFile_Resize(KAutoSaveFile* self, long long sz) {
 }
 
 // Base class handler implementation
-bool KAutoSaveFile_QBaseResize(KAutoSaveFile* self, long long sz) {
+bool KAutoSaveFile_SuperResize(KAutoSaveFile* self, long long sz) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_Resize_IsBase(true);
@@ -366,7 +366,7 @@ int KAutoSaveFile_Permissions(const KAutoSaveFile* self) {
 }
 
 // Base class handler implementation
-int KAutoSaveFile_QBasePermissions(const KAutoSaveFile* self) {
+int KAutoSaveFile_SuperPermissions(const KAutoSaveFile* self) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_Permissions_IsBase(true);
@@ -395,7 +395,7 @@ bool KAutoSaveFile_SetPermissions(KAutoSaveFile* self, int permissionSpec) {
 }
 
 // Base class handler implementation
-bool KAutoSaveFile_QBaseSetPermissions(KAutoSaveFile* self, int permissionSpec) {
+bool KAutoSaveFile_SuperSetPermissions(KAutoSaveFile* self, int permissionSpec) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_SetPermissions_IsBase(true);
@@ -424,7 +424,7 @@ void KAutoSaveFile_Close(KAutoSaveFile* self) {
 }
 
 // Base class handler implementation
-void KAutoSaveFile_QBaseClose(KAutoSaveFile* self) {
+void KAutoSaveFile_SuperClose(KAutoSaveFile* self) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_Close_IsBase(true);
@@ -453,7 +453,7 @@ bool KAutoSaveFile_IsSequential(const KAutoSaveFile* self) {
 }
 
 // Base class handler implementation
-bool KAutoSaveFile_QBaseIsSequential(const KAutoSaveFile* self) {
+bool KAutoSaveFile_SuperIsSequential(const KAutoSaveFile* self) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_IsSequential_IsBase(true);
@@ -482,7 +482,7 @@ long long KAutoSaveFile_Pos(const KAutoSaveFile* self) {
 }
 
 // Base class handler implementation
-long long KAutoSaveFile_QBasePos(const KAutoSaveFile* self) {
+long long KAutoSaveFile_SuperPos(const KAutoSaveFile* self) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_Pos_IsBase(true);
@@ -511,7 +511,7 @@ bool KAutoSaveFile_Seek(KAutoSaveFile* self, long long offset) {
 }
 
 // Base class handler implementation
-bool KAutoSaveFile_QBaseSeek(KAutoSaveFile* self, long long offset) {
+bool KAutoSaveFile_SuperSeek(KAutoSaveFile* self, long long offset) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_Seek_IsBase(true);
@@ -540,7 +540,7 @@ bool KAutoSaveFile_AtEnd(const KAutoSaveFile* self) {
 }
 
 // Base class handler implementation
-bool KAutoSaveFile_QBaseAtEnd(const KAutoSaveFile* self) {
+bool KAutoSaveFile_SuperAtEnd(const KAutoSaveFile* self) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_AtEnd_IsBase(true);
@@ -569,7 +569,7 @@ long long KAutoSaveFile_ReadData(KAutoSaveFile* self, char* data, long long maxl
 }
 
 // Base class handler implementation
-long long KAutoSaveFile_QBaseReadData(KAutoSaveFile* self, char* data, long long maxlen) {
+long long KAutoSaveFile_SuperReadData(KAutoSaveFile* self, char* data, long long maxlen) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_ReadData_IsBase(true);
@@ -598,7 +598,7 @@ long long KAutoSaveFile_WriteData(KAutoSaveFile* self, const char* data, long lo
 }
 
 // Base class handler implementation
-long long KAutoSaveFile_QBaseWriteData(KAutoSaveFile* self, const char* data, long long lenVal) {
+long long KAutoSaveFile_SuperWriteData(KAutoSaveFile* self, const char* data, long long lenVal) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_WriteData_IsBase(true);
@@ -627,7 +627,7 @@ long long KAutoSaveFile_ReadLineData(KAutoSaveFile* self, char* data, long long 
 }
 
 // Base class handler implementation
-long long KAutoSaveFile_QBaseReadLineData(KAutoSaveFile* self, char* data, long long maxlen) {
+long long KAutoSaveFile_SuperReadLineData(KAutoSaveFile* self, char* data, long long maxlen) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_ReadLineData_IsBase(true);
@@ -656,7 +656,7 @@ bool KAutoSaveFile_Reset(KAutoSaveFile* self) {
 }
 
 // Base class handler implementation
-bool KAutoSaveFile_QBaseReset(KAutoSaveFile* self) {
+bool KAutoSaveFile_SuperReset(KAutoSaveFile* self) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_Reset_IsBase(true);
@@ -685,7 +685,7 @@ long long KAutoSaveFile_BytesAvailable(const KAutoSaveFile* self) {
 }
 
 // Base class handler implementation
-long long KAutoSaveFile_QBaseBytesAvailable(const KAutoSaveFile* self) {
+long long KAutoSaveFile_SuperBytesAvailable(const KAutoSaveFile* self) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_BytesAvailable_IsBase(true);
@@ -714,7 +714,7 @@ long long KAutoSaveFile_BytesToWrite(const KAutoSaveFile* self) {
 }
 
 // Base class handler implementation
-long long KAutoSaveFile_QBaseBytesToWrite(const KAutoSaveFile* self) {
+long long KAutoSaveFile_SuperBytesToWrite(const KAutoSaveFile* self) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_BytesToWrite_IsBase(true);
@@ -743,7 +743,7 @@ bool KAutoSaveFile_CanReadLine(const KAutoSaveFile* self) {
 }
 
 // Base class handler implementation
-bool KAutoSaveFile_QBaseCanReadLine(const KAutoSaveFile* self) {
+bool KAutoSaveFile_SuperCanReadLine(const KAutoSaveFile* self) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_CanReadLine_IsBase(true);
@@ -772,7 +772,7 @@ bool KAutoSaveFile_WaitForReadyRead(KAutoSaveFile* self, int msecs) {
 }
 
 // Base class handler implementation
-bool KAutoSaveFile_QBaseWaitForReadyRead(KAutoSaveFile* self, int msecs) {
+bool KAutoSaveFile_SuperWaitForReadyRead(KAutoSaveFile* self, int msecs) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_WaitForReadyRead_IsBase(true);
@@ -801,7 +801,7 @@ bool KAutoSaveFile_WaitForBytesWritten(KAutoSaveFile* self, int msecs) {
 }
 
 // Base class handler implementation
-bool KAutoSaveFile_QBaseWaitForBytesWritten(KAutoSaveFile* self, int msecs) {
+bool KAutoSaveFile_SuperWaitForBytesWritten(KAutoSaveFile* self, int msecs) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_WaitForBytesWritten_IsBase(true);
@@ -830,7 +830,7 @@ long long KAutoSaveFile_SkipData(KAutoSaveFile* self, long long maxSize) {
 }
 
 // Base class handler implementation
-long long KAutoSaveFile_QBaseSkipData(KAutoSaveFile* self, long long maxSize) {
+long long KAutoSaveFile_SuperSkipData(KAutoSaveFile* self, long long maxSize) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_SkipData_IsBase(true);
@@ -859,7 +859,7 @@ bool KAutoSaveFile_Event(KAutoSaveFile* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KAutoSaveFile_QBaseEvent(KAutoSaveFile* self, QEvent* event) {
+bool KAutoSaveFile_SuperEvent(KAutoSaveFile* self, QEvent* event) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_Event_IsBase(true);
@@ -888,7 +888,7 @@ bool KAutoSaveFile_EventFilter(KAutoSaveFile* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool KAutoSaveFile_QBaseEventFilter(KAutoSaveFile* self, QObject* watched, QEvent* event) {
+bool KAutoSaveFile_SuperEventFilter(KAutoSaveFile* self, QObject* watched, QEvent* event) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_EventFilter_IsBase(true);
@@ -917,7 +917,7 @@ void KAutoSaveFile_TimerEvent(KAutoSaveFile* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KAutoSaveFile_QBaseTimerEvent(KAutoSaveFile* self, QTimerEvent* event) {
+void KAutoSaveFile_SuperTimerEvent(KAutoSaveFile* self, QTimerEvent* event) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_TimerEvent_IsBase(true);
@@ -946,7 +946,7 @@ void KAutoSaveFile_ChildEvent(KAutoSaveFile* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KAutoSaveFile_QBaseChildEvent(KAutoSaveFile* self, QChildEvent* event) {
+void KAutoSaveFile_SuperChildEvent(KAutoSaveFile* self, QChildEvent* event) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_ChildEvent_IsBase(true);
@@ -975,7 +975,7 @@ void KAutoSaveFile_CustomEvent(KAutoSaveFile* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KAutoSaveFile_QBaseCustomEvent(KAutoSaveFile* self, QEvent* event) {
+void KAutoSaveFile_SuperCustomEvent(KAutoSaveFile* self, QEvent* event) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_CustomEvent_IsBase(true);
@@ -1004,7 +1004,7 @@ void KAutoSaveFile_ConnectNotify(KAutoSaveFile* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void KAutoSaveFile_QBaseConnectNotify(KAutoSaveFile* self, const QMetaMethod* signal) {
+void KAutoSaveFile_SuperConnectNotify(KAutoSaveFile* self, const QMetaMethod* signal) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_ConnectNotify_IsBase(true);
@@ -1033,7 +1033,7 @@ void KAutoSaveFile_DisconnectNotify(KAutoSaveFile* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void KAutoSaveFile_QBaseDisconnectNotify(KAutoSaveFile* self, const QMetaMethod* signal) {
+void KAutoSaveFile_SuperDisconnectNotify(KAutoSaveFile* self, const QMetaMethod* signal) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_DisconnectNotify_IsBase(true);
@@ -1062,7 +1062,7 @@ void KAutoSaveFile_SetOpenMode(KAutoSaveFile* self, int openMode) {
 }
 
 // Base class handler implementation
-void KAutoSaveFile_QBaseSetOpenMode(KAutoSaveFile* self, int openMode) {
+void KAutoSaveFile_SuperSetOpenMode(KAutoSaveFile* self, int openMode) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_SetOpenMode_IsBase(true);
@@ -1092,7 +1092,7 @@ void KAutoSaveFile_SetErrorString(KAutoSaveFile* self, const libqt_string errorS
 }
 
 // Base class handler implementation
-void KAutoSaveFile_QBaseSetErrorString(KAutoSaveFile* self, const libqt_string errorString) {
+void KAutoSaveFile_SuperSetErrorString(KAutoSaveFile* self, const libqt_string errorString) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
@@ -1122,7 +1122,7 @@ QObject* KAutoSaveFile_Sender(const KAutoSaveFile* self) {
 }
 
 // Base class handler implementation
-QObject* KAutoSaveFile_QBaseSender(const KAutoSaveFile* self) {
+QObject* KAutoSaveFile_SuperSender(const KAutoSaveFile* self) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_Sender_IsBase(true);
@@ -1151,7 +1151,7 @@ int KAutoSaveFile_SenderSignalIndex(const KAutoSaveFile* self) {
 }
 
 // Base class handler implementation
-int KAutoSaveFile_QBaseSenderSignalIndex(const KAutoSaveFile* self) {
+int KAutoSaveFile_SuperSenderSignalIndex(const KAutoSaveFile* self) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_SenderSignalIndex_IsBase(true);
@@ -1180,7 +1180,7 @@ int KAutoSaveFile_Receivers(const KAutoSaveFile* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KAutoSaveFile_QBaseReceivers(const KAutoSaveFile* self, const char* signal) {
+int KAutoSaveFile_SuperReceivers(const KAutoSaveFile* self, const char* signal) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_Receivers_IsBase(true);
@@ -1209,7 +1209,7 @@ bool KAutoSaveFile_IsSignalConnected(const KAutoSaveFile* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool KAutoSaveFile_QBaseIsSignalConnected(const KAutoSaveFile* self, const QMetaMethod* signal) {
+bool KAutoSaveFile_SuperIsSignalConnected(const KAutoSaveFile* self, const QMetaMethod* signal) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_IsSignalConnected_IsBase(true);

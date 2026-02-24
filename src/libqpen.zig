@@ -444,6 +444,10 @@ pub const qpen = struct {
         return qtc.QPen_IsDetached(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpen.html#dtor.QPen)
     ///
     /// Delete this object from C++ memory.
@@ -452,7 +456,7 @@ pub const qpen = struct {
     ///
     /// ` self: QtC.QPen `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPen_Delete(@ptrCast(self));
     }
 };

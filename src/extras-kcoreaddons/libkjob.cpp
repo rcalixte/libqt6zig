@@ -282,7 +282,7 @@ void KJob_SetFinishedNotificationHidden1(KJob* self, bool hide) {
 }
 
 // Base class handler implementation
-QMetaObject* KJob_QBaseMetaObject(const KJob* self) {
+QMetaObject* KJob_SuperMetaObject(const KJob* self) {
     auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_MetaObject_IsBase(true);
@@ -301,7 +301,7 @@ void KJob_OnMetaObject(const KJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KJob_QBaseMetacast(KJob* self, const char* param1) {
+void* KJob_SuperMetacast(KJob* self, const char* param1) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_Metacast_IsBase(true);
@@ -320,7 +320,7 @@ void KJob_OnMetacast(KJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KJob_QBaseMetacall(KJob* self, int param1, int param2, void** param3) {
+int KJob_SuperMetacall(KJob* self, int param1, int param2, void** param3) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_Metacall_IsBase(true);
@@ -339,7 +339,7 @@ void KJob_OnMetacall(KJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KJob_QBaseStart(KJob* self) {
+void KJob_SuperStart(KJob* self) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_Start_IsBase(true);
@@ -358,7 +358,7 @@ void KJob_OnStart(KJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KJob_QBaseDoKill(KJob* self) {
+bool KJob_SuperDoKill(KJob* self) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_DoKill_IsBase(true);
@@ -377,7 +377,7 @@ void KJob_OnDoKill(KJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KJob_QBaseDoSuspend(KJob* self) {
+bool KJob_SuperDoSuspend(KJob* self) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_DoSuspend_IsBase(true);
@@ -396,7 +396,7 @@ void KJob_OnDoSuspend(KJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KJob_QBaseDoResume(KJob* self) {
+bool KJob_SuperDoResume(KJob* self) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_DoResume_IsBase(true);
@@ -415,7 +415,7 @@ void KJob_OnDoResume(KJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string KJob_QBaseErrorString(const KJob* self) {
+libqt_string KJob_SuperErrorString(const KJob* self) {
     auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_ErrorString_IsBase(true);
@@ -460,7 +460,7 @@ bool KJob_Event(KJob* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KJob_QBaseEvent(KJob* self, QEvent* event) {
+bool KJob_SuperEvent(KJob* self, QEvent* event) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_Event_IsBase(true);
@@ -489,7 +489,7 @@ bool KJob_EventFilter(KJob* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KJob_QBaseEventFilter(KJob* self, QObject* watched, QEvent* event) {
+bool KJob_SuperEventFilter(KJob* self, QObject* watched, QEvent* event) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_EventFilter_IsBase(true);
@@ -518,7 +518,7 @@ void KJob_TimerEvent(KJob* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KJob_QBaseTimerEvent(KJob* self, QTimerEvent* event) {
+void KJob_SuperTimerEvent(KJob* self, QTimerEvent* event) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_TimerEvent_IsBase(true);
@@ -547,7 +547,7 @@ void KJob_ChildEvent(KJob* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KJob_QBaseChildEvent(KJob* self, QChildEvent* event) {
+void KJob_SuperChildEvent(KJob* self, QChildEvent* event) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_ChildEvent_IsBase(true);
@@ -576,7 +576,7 @@ void KJob_CustomEvent(KJob* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KJob_QBaseCustomEvent(KJob* self, QEvent* event) {
+void KJob_SuperCustomEvent(KJob* self, QEvent* event) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_CustomEvent_IsBase(true);
@@ -605,7 +605,7 @@ void KJob_ConnectNotify(KJob* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KJob_QBaseConnectNotify(KJob* self, const QMetaMethod* signal) {
+void KJob_SuperConnectNotify(KJob* self, const QMetaMethod* signal) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_ConnectNotify_IsBase(true);
@@ -634,7 +634,7 @@ void KJob_DisconnectNotify(KJob* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KJob_QBaseDisconnectNotify(KJob* self, const QMetaMethod* signal) {
+void KJob_SuperDisconnectNotify(KJob* self, const QMetaMethod* signal) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_DisconnectNotify_IsBase(true);
@@ -663,7 +663,7 @@ void KJob_SetCapabilities(KJob* self, int capabilities) {
 }
 
 // Base class handler implementation
-void KJob_QBaseSetCapabilities(KJob* self, int capabilities) {
+void KJob_SuperSetCapabilities(KJob* self, int capabilities) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_SetCapabilities_IsBase(true);
@@ -692,7 +692,7 @@ bool KJob_IsFinished(const KJob* self) {
 }
 
 // Base class handler implementation
-bool KJob_QBaseIsFinished(const KJob* self) {
+bool KJob_SuperIsFinished(const KJob* self) {
     auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_IsFinished_IsBase(true);
@@ -721,7 +721,7 @@ void KJob_SetError(KJob* self, int errorCode) {
 }
 
 // Base class handler implementation
-void KJob_QBaseSetError(KJob* self, int errorCode) {
+void KJob_SuperSetError(KJob* self, int errorCode) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_SetError_IsBase(true);
@@ -751,7 +751,7 @@ void KJob_SetErrorText(KJob* self, const libqt_string errorText) {
 }
 
 // Base class handler implementation
-void KJob_QBaseSetErrorText(KJob* self, const libqt_string errorText) {
+void KJob_SuperSetErrorText(KJob* self, const libqt_string errorText) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
     if (vkjob && vkjob->isVirtualKJob) {
@@ -781,7 +781,7 @@ void KJob_SetProcessedAmount(KJob* self, int unit, unsigned long long amount) {
 }
 
 // Base class handler implementation
-void KJob_QBaseSetProcessedAmount(KJob* self, int unit, unsigned long long amount) {
+void KJob_SuperSetProcessedAmount(KJob* self, int unit, unsigned long long amount) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_SetProcessedAmount_IsBase(true);
@@ -810,7 +810,7 @@ void KJob_SetTotalAmount(KJob* self, int unit, unsigned long long amount) {
 }
 
 // Base class handler implementation
-void KJob_QBaseSetTotalAmount(KJob* self, int unit, unsigned long long amount) {
+void KJob_SuperSetTotalAmount(KJob* self, int unit, unsigned long long amount) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_SetTotalAmount_IsBase(true);
@@ -839,7 +839,7 @@ void KJob_SetProgressUnit(KJob* self, int unit) {
 }
 
 // Base class handler implementation
-void KJob_QBaseSetProgressUnit(KJob* self, int unit) {
+void KJob_SuperSetProgressUnit(KJob* self, int unit) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_SetProgressUnit_IsBase(true);
@@ -868,7 +868,7 @@ void KJob_SetPercent(KJob* self, unsigned long percentage) {
 }
 
 // Base class handler implementation
-void KJob_QBaseSetPercent(KJob* self, unsigned long percentage) {
+void KJob_SuperSetPercent(KJob* self, unsigned long percentage) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_SetPercent_IsBase(true);
@@ -897,7 +897,7 @@ void KJob_EmitResult(KJob* self) {
 }
 
 // Base class handler implementation
-void KJob_QBaseEmitResult(KJob* self) {
+void KJob_SuperEmitResult(KJob* self) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_EmitResult_IsBase(true);
@@ -926,7 +926,7 @@ void KJob_EmitPercent(KJob* self, unsigned long long processedAmount, unsigned l
 }
 
 // Base class handler implementation
-void KJob_QBaseEmitPercent(KJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
+void KJob_SuperEmitPercent(KJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_EmitPercent_IsBase(true);
@@ -955,7 +955,7 @@ void KJob_EmitSpeed(KJob* self, unsigned long speed) {
 }
 
 // Base class handler implementation
-void KJob_QBaseEmitSpeed(KJob* self, unsigned long speed) {
+void KJob_SuperEmitSpeed(KJob* self, unsigned long speed) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_EmitSpeed_IsBase(true);
@@ -984,7 +984,7 @@ void KJob_StartElapsedTimer(KJob* self) {
 }
 
 // Base class handler implementation
-void KJob_QBaseStartElapsedTimer(KJob* self) {
+void KJob_SuperStartElapsedTimer(KJob* self) {
     auto* vkjob = dynamic_cast<VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_StartElapsedTimer_IsBase(true);
@@ -1013,7 +1013,7 @@ QObject* KJob_Sender(const KJob* self) {
 }
 
 // Base class handler implementation
-QObject* KJob_QBaseSender(const KJob* self) {
+QObject* KJob_SuperSender(const KJob* self) {
     auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_Sender_IsBase(true);
@@ -1042,7 +1042,7 @@ int KJob_SenderSignalIndex(const KJob* self) {
 }
 
 // Base class handler implementation
-int KJob_QBaseSenderSignalIndex(const KJob* self) {
+int KJob_SuperSenderSignalIndex(const KJob* self) {
     auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_SenderSignalIndex_IsBase(true);
@@ -1071,7 +1071,7 @@ int KJob_Receivers(const KJob* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KJob_QBaseReceivers(const KJob* self, const char* signal) {
+int KJob_SuperReceivers(const KJob* self, const char* signal) {
     auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_Receivers_IsBase(true);
@@ -1100,7 +1100,7 @@ bool KJob_IsSignalConnected(const KJob* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool KJob_QBaseIsSignalConnected(const KJob* self, const QMetaMethod* signal) {
+bool KJob_SuperIsSignalConnected(const KJob* self, const QMetaMethod* signal) {
     auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_IsSignalConnected_IsBase(true);

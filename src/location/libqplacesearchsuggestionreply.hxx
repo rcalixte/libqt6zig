@@ -448,29 +448,29 @@ class VirtualQPlaceSearchSuggestionReply final : public QPlaceSearchSuggestionRe
 
     // Friend functions
     friend void QPlaceSearchSuggestionReply_TimerEvent(QPlaceSearchSuggestionReply* self, QTimerEvent* event);
-    friend void QPlaceSearchSuggestionReply_QBaseTimerEvent(QPlaceSearchSuggestionReply* self, QTimerEvent* event);
+    friend void QPlaceSearchSuggestionReply_SuperTimerEvent(QPlaceSearchSuggestionReply* self, QTimerEvent* event);
     friend void QPlaceSearchSuggestionReply_ChildEvent(QPlaceSearchSuggestionReply* self, QChildEvent* event);
-    friend void QPlaceSearchSuggestionReply_QBaseChildEvent(QPlaceSearchSuggestionReply* self, QChildEvent* event);
+    friend void QPlaceSearchSuggestionReply_SuperChildEvent(QPlaceSearchSuggestionReply* self, QChildEvent* event);
     friend void QPlaceSearchSuggestionReply_CustomEvent(QPlaceSearchSuggestionReply* self, QEvent* event);
-    friend void QPlaceSearchSuggestionReply_QBaseCustomEvent(QPlaceSearchSuggestionReply* self, QEvent* event);
+    friend void QPlaceSearchSuggestionReply_SuperCustomEvent(QPlaceSearchSuggestionReply* self, QEvent* event);
     friend void QPlaceSearchSuggestionReply_ConnectNotify(QPlaceSearchSuggestionReply* self, const QMetaMethod* signal);
-    friend void QPlaceSearchSuggestionReply_QBaseConnectNotify(QPlaceSearchSuggestionReply* self, const QMetaMethod* signal);
+    friend void QPlaceSearchSuggestionReply_SuperConnectNotify(QPlaceSearchSuggestionReply* self, const QMetaMethod* signal);
     friend void QPlaceSearchSuggestionReply_DisconnectNotify(QPlaceSearchSuggestionReply* self, const QMetaMethod* signal);
-    friend void QPlaceSearchSuggestionReply_QBaseDisconnectNotify(QPlaceSearchSuggestionReply* self, const QMetaMethod* signal);
+    friend void QPlaceSearchSuggestionReply_SuperDisconnectNotify(QPlaceSearchSuggestionReply* self, const QMetaMethod* signal);
     friend void QPlaceSearchSuggestionReply_SetSuggestions(QPlaceSearchSuggestionReply* self, const libqt_list /* of libqt_string */ suggestions);
-    friend void QPlaceSearchSuggestionReply_QBaseSetSuggestions(QPlaceSearchSuggestionReply* self, const libqt_list /* of libqt_string */ suggestions);
+    friend void QPlaceSearchSuggestionReply_SuperSetSuggestions(QPlaceSearchSuggestionReply* self, const libqt_list /* of libqt_string */ suggestions);
     friend void QPlaceSearchSuggestionReply_SetFinished(QPlaceSearchSuggestionReply* self, bool finished);
-    friend void QPlaceSearchSuggestionReply_QBaseSetFinished(QPlaceSearchSuggestionReply* self, bool finished);
+    friend void QPlaceSearchSuggestionReply_SuperSetFinished(QPlaceSearchSuggestionReply* self, bool finished);
     friend void QPlaceSearchSuggestionReply_SetError(QPlaceSearchSuggestionReply* self, int errorVal, const libqt_string errorString);
-    friend void QPlaceSearchSuggestionReply_QBaseSetError(QPlaceSearchSuggestionReply* self, int errorVal, const libqt_string errorString);
+    friend void QPlaceSearchSuggestionReply_SuperSetError(QPlaceSearchSuggestionReply* self, int errorVal, const libqt_string errorString);
     friend QObject* QPlaceSearchSuggestionReply_Sender(const QPlaceSearchSuggestionReply* self);
-    friend QObject* QPlaceSearchSuggestionReply_QBaseSender(const QPlaceSearchSuggestionReply* self);
+    friend QObject* QPlaceSearchSuggestionReply_SuperSender(const QPlaceSearchSuggestionReply* self);
     friend int QPlaceSearchSuggestionReply_SenderSignalIndex(const QPlaceSearchSuggestionReply* self);
-    friend int QPlaceSearchSuggestionReply_QBaseSenderSignalIndex(const QPlaceSearchSuggestionReply* self);
+    friend int QPlaceSearchSuggestionReply_SuperSenderSignalIndex(const QPlaceSearchSuggestionReply* self);
     friend int QPlaceSearchSuggestionReply_Receivers(const QPlaceSearchSuggestionReply* self, const char* signal);
-    friend int QPlaceSearchSuggestionReply_QBaseReceivers(const QPlaceSearchSuggestionReply* self, const char* signal);
+    friend int QPlaceSearchSuggestionReply_SuperReceivers(const QPlaceSearchSuggestionReply* self, const char* signal);
     friend bool QPlaceSearchSuggestionReply_IsSignalConnected(const QPlaceSearchSuggestionReply* self, const QMetaMethod* signal);
-    friend bool QPlaceSearchSuggestionReply_QBaseIsSignalConnected(const QPlaceSearchSuggestionReply* self, const QMetaMethod* signal);
+    friend bool QPlaceSearchSuggestionReply_SuperIsSignalConnected(const QPlaceSearchSuggestionReply* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -63,6 +63,10 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnAction2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAction2` instead
+    ///
+    pub const QBaseAction2 = SuperAction2;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#action)
     ///
     /// Base class method implementation
@@ -73,8 +77,8 @@ pub const kxmlguiclient = struct {
     ///
     /// ` element: QtC.QDomElement `
     ///
-    pub fn QBaseAction2(self: ?*anyopaque, element: ?*anyopaque) QtC.QAction {
-        return qtc.KXMLGUIClient_QBaseAction2(@ptrCast(self), @ptrCast(element));
+    pub fn SuperAction2(self: ?*anyopaque, element: ?*anyopaque) QtC.QAction {
+        return qtc.KXMLGUIClient_SuperAction2(@ptrCast(self), @ptrCast(element));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
@@ -101,6 +105,10 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnActionCollection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperActionCollection` instead
+    ///
+    pub const QBaseActionCollection = SuperActionCollection;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#actionCollection)
     ///
     /// Base class method implementation
@@ -109,8 +117,8 @@ pub const kxmlguiclient = struct {
     ///
     /// ` self: QtC.KXMLGUIClient `
     ///
-    pub fn QBaseActionCollection(self: ?*anyopaque) QtC.KActionCollection {
-        return qtc.KXMLGUIClient_QBaseActionCollection(@ptrCast(self));
+    pub fn SuperActionCollection(self: ?*anyopaque) QtC.KActionCollection {
+        return qtc.KXMLGUIClient_SuperActionCollection(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
@@ -145,6 +153,10 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnComponentName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperComponentName` instead
+    ///
+    pub const QBaseComponentName = SuperComponentName;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#componentName)
     ///
     /// Base class method implementation
@@ -155,8 +167,8 @@ pub const kxmlguiclient = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KXMLGUIClient_QBaseComponentName(@ptrCast(self));
+    pub fn SuperComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KXMLGUIClient_SuperComponentName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiclient.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -187,6 +199,10 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnDomDocument(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDomDocument` instead
+    ///
+    pub const QBaseDomDocument = SuperDomDocument;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#domDocument)
     ///
     /// Base class method implementation
@@ -195,8 +211,8 @@ pub const kxmlguiclient = struct {
     ///
     /// ` self: QtC.KXMLGUIClient `
     ///
-    pub fn QBaseDomDocument(self: ?*anyopaque) QtC.QDomDocument {
-        return qtc.KXMLGUIClient_QBaseDomDocument(@ptrCast(self));
+    pub fn SuperDomDocument(self: ?*anyopaque) QtC.QDomDocument {
+        return qtc.KXMLGUIClient_SuperDomDocument(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
@@ -231,6 +247,10 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnXmlFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperXmlFile` instead
+    ///
+    pub const QBaseXmlFile = SuperXmlFile;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#xmlFile)
     ///
     /// Base class method implementation
@@ -241,8 +261,8 @@ pub const kxmlguiclient = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseXmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KXMLGUIClient_QBaseXmlFile(@ptrCast(self));
+    pub fn SuperXmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KXMLGUIClient_SuperXmlFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiclient.XmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -281,6 +301,10 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnLocalXMLFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperLocalXMLFile` instead
+    ///
+    pub const QBaseLocalXMLFile = SuperLocalXMLFile;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#localXMLFile)
     ///
     /// Base class method implementation
@@ -291,8 +315,8 @@ pub const kxmlguiclient = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseLocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KXMLGUIClient_QBaseLocalXMLFile(@ptrCast(self));
+    pub fn SuperLocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KXMLGUIClient_SuperLocalXMLFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiclient.LocalXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -670,6 +694,10 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnSetComponentName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetComponentName` instead
+    ///
+    pub const QBaseSetComponentName = SuperSetComponentName;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setComponentName)
     ///
     /// Base class method implementation
@@ -682,7 +710,7 @@ pub const kxmlguiclient = struct {
     ///
     /// ` componentDisplayName: []const u8 `
     ///
-    pub fn QBaseSetComponentName(self: ?*anyopaque, componentName: []const u8, componentDisplayName: []const u8) void {
+    pub fn SuperSetComponentName(self: ?*anyopaque, componentName: []const u8, componentDisplayName: []const u8) void {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
             .data = componentName.ptr,
@@ -691,7 +719,7 @@ pub const kxmlguiclient = struct {
             .len = componentDisplayName.len,
             .data = componentDisplayName.ptr,
         };
-        qtc.KXMLGUIClient_QBaseSetComponentName(@ptrCast(self), componentName_str, componentDisplayName_str);
+        qtc.KXMLGUIClient_SuperSetComponentName(@ptrCast(self), componentName_str, componentDisplayName_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
@@ -728,6 +756,10 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnSetXMLFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetXMLFile` instead
+    ///
+    pub const QBaseSetXMLFile = SuperSetXMLFile;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXMLFile)
     ///
     /// Base class method implementation
@@ -742,12 +774,12 @@ pub const kxmlguiclient = struct {
     ///
     /// ` setXMLDoc: bool `
     ///
-    pub fn QBaseSetXMLFile(self: ?*anyopaque, file: []const u8, merge: bool, setXMLDoc: bool) void {
+    pub fn SuperSetXMLFile(self: ?*anyopaque, file: []const u8, merge: bool, setXMLDoc: bool) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        qtc.KXMLGUIClient_QBaseSetXMLFile(@ptrCast(self), file_str, merge, setXMLDoc);
+        qtc.KXMLGUIClient_SuperSetXMLFile(@ptrCast(self), file_str, merge, setXMLDoc);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
@@ -782,6 +814,10 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnStandardsXmlFileLocation(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperStandardsXmlFileLocation` instead
+    ///
+    pub const QBaseStandardsXmlFileLocation = SuperStandardsXmlFileLocation;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
     ///
     /// Base class method implementation
@@ -792,8 +828,8 @@ pub const kxmlguiclient = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseStandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KXMLGUIClient_QBaseStandardsXmlFileLocation(@ptrCast(self));
+    pub fn SuperStandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KXMLGUIClient_SuperStandardsXmlFileLocation(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiclient.StandardsXmlFileLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -824,6 +860,10 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnLoadStandardsXmlFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperLoadStandardsXmlFile` instead
+    ///
+    pub const QBaseLoadStandardsXmlFile = SuperLoadStandardsXmlFile;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
     ///
     /// Base class method implementation
@@ -832,8 +872,8 @@ pub const kxmlguiclient = struct {
     ///
     /// ` self: QtC.KXMLGUIClient `
     ///
-    pub fn QBaseLoadStandardsXmlFile(self: ?*anyopaque) void {
-        qtc.KXMLGUIClient_QBaseLoadStandardsXmlFile(@ptrCast(self));
+    pub fn SuperLoadStandardsXmlFile(self: ?*anyopaque) void {
+        qtc.KXMLGUIClient_SuperLoadStandardsXmlFile(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
@@ -866,6 +906,10 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnSetLocalXMLFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetLocalXMLFile` instead
+    ///
+    pub const QBaseSetLocalXMLFile = SuperSetLocalXMLFile;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setLocalXMLFile)
     ///
     /// Base class method implementation
@@ -876,12 +920,12 @@ pub const kxmlguiclient = struct {
     ///
     /// ` file: []const u8 `
     ///
-    pub fn QBaseSetLocalXMLFile(self: ?*anyopaque, file: []const u8) void {
+    pub fn SuperSetLocalXMLFile(self: ?*anyopaque, file: []const u8) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        qtc.KXMLGUIClient_QBaseSetLocalXMLFile(@ptrCast(self), file_str);
+        qtc.KXMLGUIClient_SuperSetLocalXMLFile(@ptrCast(self), file_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
@@ -916,6 +960,10 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnSetXML(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetXML` instead
+    ///
+    pub const QBaseSetXML = SuperSetXML;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setXML)
     ///
     /// Base class method implementation
@@ -928,12 +976,12 @@ pub const kxmlguiclient = struct {
     ///
     /// ` merge: bool `
     ///
-    pub fn QBaseSetXML(self: ?*anyopaque, document: []const u8, merge: bool) void {
+    pub fn SuperSetXML(self: ?*anyopaque, document: []const u8, merge: bool) void {
         const document_str = qtc.libqt_string{
             .len = document.len,
             .data = document.ptr,
         };
-        qtc.KXMLGUIClient_QBaseSetXML(@ptrCast(self), document_str, merge);
+        qtc.KXMLGUIClient_SuperSetXML(@ptrCast(self), document_str, merge);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
@@ -964,6 +1012,10 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnSetDOMDocument(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetDOMDocument` instead
+    ///
+    pub const QBaseSetDOMDocument = SuperSetDOMDocument;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#setDOMDocument)
     ///
     /// Base class method implementation
@@ -976,8 +1028,8 @@ pub const kxmlguiclient = struct {
     ///
     /// ` merge: bool `
     ///
-    pub fn QBaseSetDOMDocument(self: ?*anyopaque, document: ?*anyopaque, merge: bool) void {
-        qtc.KXMLGUIClient_QBaseSetDOMDocument(@ptrCast(self), @ptrCast(document), merge);
+    pub fn SuperSetDOMDocument(self: ?*anyopaque, document: ?*anyopaque, merge: bool) void {
+        qtc.KXMLGUIClient_SuperSetDOMDocument(@ptrCast(self), @ptrCast(document), merge);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
@@ -1012,6 +1064,10 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_OnStateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperStateChanged` instead
+    ///
+    pub const QBaseStateChanged = SuperStateChanged;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#stateChanged)
     ///
     /// Base class method implementation
@@ -1024,12 +1080,12 @@ pub const kxmlguiclient = struct {
     ///
     /// ` reverse: kxmlguiclient_enums.ReverseStateChange `
     ///
-    pub fn QBaseStateChanged(self: ?*anyopaque, newstate: []const u8, reverse: i32) void {
+    pub fn SuperStateChanged(self: ?*anyopaque, newstate: []const u8, reverse: i32) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
             .data = newstate.ptr,
         };
-        qtc.KXMLGUIClient_QBaseStateChanged(@ptrCast(self), newstate_str, @bitCast(reverse));
+        qtc.KXMLGUIClient_SuperStateChanged(@ptrCast(self), newstate_str, @bitCast(reverse));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#replaceXMLFile)
@@ -1056,6 +1112,10 @@ pub const kxmlguiclient = struct {
         qtc.KXMLGUIClient_ReplaceXMLFile3(@ptrCast(self), xmlfile_str, localxmlfile_str, merge);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#dtor.KXMLGUIClient)
     ///
     /// Delete this object from C++ memory.
@@ -1064,7 +1124,7 @@ pub const kxmlguiclient = struct {
     ///
     /// ` self: QtC.KXMLGUIClient `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KXMLGUIClient_Delete(@ptrCast(self));
     }
 };
@@ -1177,13 +1237,17 @@ pub const kxmlguiclient__statechange = struct {
         qtc.KXMLGUIClient__StateChange_SetActionsToDisable(@ptrCast(self), actionsToDisable_list);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KXMLGUIClient__StateChange `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KXMLGUIClient__StateChange_Delete(@ptrCast(self));
     }
 };

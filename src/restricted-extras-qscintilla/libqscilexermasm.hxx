@@ -1178,31 +1178,31 @@ class VirtualQsciLexerMASM final : public QsciLexerMASM {
 
     // Friend functions
     friend bool QsciLexerMASM_ReadProperties(QsciLexerMASM* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerMASM_QBaseReadProperties(QsciLexerMASM* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerMASM_SuperReadProperties(QsciLexerMASM* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerMASM_WriteProperties(const QsciLexerMASM* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerMASM_QBaseWriteProperties(const QsciLexerMASM* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerMASM_SuperWriteProperties(const QsciLexerMASM* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerMASM_TimerEvent(QsciLexerMASM* self, QTimerEvent* event);
-    friend void QsciLexerMASM_QBaseTimerEvent(QsciLexerMASM* self, QTimerEvent* event);
+    friend void QsciLexerMASM_SuperTimerEvent(QsciLexerMASM* self, QTimerEvent* event);
     friend void QsciLexerMASM_ChildEvent(QsciLexerMASM* self, QChildEvent* event);
-    friend void QsciLexerMASM_QBaseChildEvent(QsciLexerMASM* self, QChildEvent* event);
+    friend void QsciLexerMASM_SuperChildEvent(QsciLexerMASM* self, QChildEvent* event);
     friend void QsciLexerMASM_CustomEvent(QsciLexerMASM* self, QEvent* event);
-    friend void QsciLexerMASM_QBaseCustomEvent(QsciLexerMASM* self, QEvent* event);
+    friend void QsciLexerMASM_SuperCustomEvent(QsciLexerMASM* self, QEvent* event);
     friend void QsciLexerMASM_ConnectNotify(QsciLexerMASM* self, const QMetaMethod* signal);
-    friend void QsciLexerMASM_QBaseConnectNotify(QsciLexerMASM* self, const QMetaMethod* signal);
+    friend void QsciLexerMASM_SuperConnectNotify(QsciLexerMASM* self, const QMetaMethod* signal);
     friend void QsciLexerMASM_DisconnectNotify(QsciLexerMASM* self, const QMetaMethod* signal);
-    friend void QsciLexerMASM_QBaseDisconnectNotify(QsciLexerMASM* self, const QMetaMethod* signal);
+    friend void QsciLexerMASM_SuperDisconnectNotify(QsciLexerMASM* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerMASM_TextAsBytes(const QsciLexerMASM* self, const libqt_string text);
-    friend libqt_string QsciLexerMASM_QBaseTextAsBytes(const QsciLexerMASM* self, const libqt_string text);
+    friend libqt_string QsciLexerMASM_SuperTextAsBytes(const QsciLexerMASM* self, const libqt_string text);
     friend libqt_string QsciLexerMASM_BytesAsText(const QsciLexerMASM* self, const char* bytes, int size);
-    friend libqt_string QsciLexerMASM_QBaseBytesAsText(const QsciLexerMASM* self, const char* bytes, int size);
+    friend libqt_string QsciLexerMASM_SuperBytesAsText(const QsciLexerMASM* self, const char* bytes, int size);
     friend QObject* QsciLexerMASM_Sender(const QsciLexerMASM* self);
-    friend QObject* QsciLexerMASM_QBaseSender(const QsciLexerMASM* self);
+    friend QObject* QsciLexerMASM_SuperSender(const QsciLexerMASM* self);
     friend int QsciLexerMASM_SenderSignalIndex(const QsciLexerMASM* self);
-    friend int QsciLexerMASM_QBaseSenderSignalIndex(const QsciLexerMASM* self);
+    friend int QsciLexerMASM_SuperSenderSignalIndex(const QsciLexerMASM* self);
     friend int QsciLexerMASM_Receivers(const QsciLexerMASM* self, const char* signal);
-    friend int QsciLexerMASM_QBaseReceivers(const QsciLexerMASM* self, const char* signal);
+    friend int QsciLexerMASM_SuperReceivers(const QsciLexerMASM* self, const char* signal);
     friend bool QsciLexerMASM_IsSignalConnected(const QsciLexerMASM* self, const QMetaMethod* signal);
-    friend bool QsciLexerMASM_QBaseIsSignalConnected(const QsciLexerMASM* self, const QMetaMethod* signal);
+    friend bool QsciLexerMASM_SuperIsSignalConnected(const QsciLexerMASM* self, const QMetaMethod* signal);
 };
 
 #endif

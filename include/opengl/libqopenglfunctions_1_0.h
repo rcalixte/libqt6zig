@@ -330,16 +330,16 @@ void QOpenGLFunctions_1_0_GlCallList(QOpenGLFunctions_1_0* self, uint32_t list);
 void QOpenGLFunctions_1_0_GlEndList(QOpenGLFunctions_1_0* self);
 void QOpenGLFunctions_1_0_GlNewList(QOpenGLFunctions_1_0* self, uint32_t list, uint32_t mode);
 void QOpenGLFunctions_1_0_OnInitializeOpenGLFunctions(QOpenGLFunctions_1_0* self, intptr_t slot);
-bool QOpenGLFunctions_1_0_QBaseInitializeOpenGLFunctions(QOpenGLFunctions_1_0* self);
+bool QOpenGLFunctions_1_0_SuperInitializeOpenGLFunctions(QOpenGLFunctions_1_0* self);
 bool QOpenGLFunctions_1_0_IsInitialized(const QOpenGLFunctions_1_0* self);
 void QOpenGLFunctions_1_0_OnIsInitialized(const QOpenGLFunctions_1_0* self, intptr_t slot);
-bool QOpenGLFunctions_1_0_QBaseIsInitialized(const QOpenGLFunctions_1_0* self);
+bool QOpenGLFunctions_1_0_SuperIsInitialized(const QOpenGLFunctions_1_0* self);
 void QOpenGLFunctions_1_0_SetOwningContext(QOpenGLFunctions_1_0* self, const QOpenGLContext* context);
 void QOpenGLFunctions_1_0_OnSetOwningContext(QOpenGLFunctions_1_0* self, intptr_t slot);
-void QOpenGLFunctions_1_0_QBaseSetOwningContext(QOpenGLFunctions_1_0* self, const QOpenGLContext* context);
+void QOpenGLFunctions_1_0_SuperSetOwningContext(QOpenGLFunctions_1_0* self, const QOpenGLContext* context);
 QOpenGLContext* QOpenGLFunctions_1_0_OwningContext(const QOpenGLFunctions_1_0* self);
 void QOpenGLFunctions_1_0_OnOwningContext(const QOpenGLFunctions_1_0* self, intptr_t slot);
-QOpenGLContext* QOpenGLFunctions_1_0_QBaseOwningContext(const QOpenGLFunctions_1_0* self);
+QOpenGLContext* QOpenGLFunctions_1_0_SuperOwningContext(const QOpenGLFunctions_1_0* self);
 void QOpenGLFunctions_1_0_Delete(QOpenGLFunctions_1_0* self);
 
 #ifdef __cplusplus

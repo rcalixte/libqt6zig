@@ -48,6 +48,10 @@ pub const ktwofingerswipe = struct {
         qtc.KTwoFingerSwipe_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -56,8 +60,8 @@ pub const ktwofingerswipe = struct {
     ///
     /// ` self: QtC.KTwoFingerSwipe `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KTwoFingerSwipe_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KTwoFingerSwipe_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -83,6 +87,10 @@ pub const ktwofingerswipe = struct {
         qtc.KTwoFingerSwipe_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -91,9 +99,9 @@ pub const ktwofingerswipe = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KTwoFingerSwipe_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KTwoFingerSwipe_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -122,6 +130,10 @@ pub const ktwofingerswipe = struct {
         qtc.KTwoFingerSwipe_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -134,8 +146,8 @@ pub const ktwofingerswipe = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KTwoFingerSwipe_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KTwoFingerSwipe_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1151,6 +1163,10 @@ pub const ktwofingerswipe = struct {
         return qtc.KTwoFingerSwipe_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1163,8 +1179,8 @@ pub const ktwofingerswipe = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KTwoFingerSwipe_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KTwoFingerSwipe_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1201,6 +1217,10 @@ pub const ktwofingerswipe = struct {
         return qtc.KTwoFingerSwipe_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1215,8 +1235,8 @@ pub const ktwofingerswipe = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KTwoFingerSwipe_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KTwoFingerSwipe_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1251,6 +1271,10 @@ pub const ktwofingerswipe = struct {
         qtc.KTwoFingerSwipe_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1263,8 +1287,8 @@ pub const ktwofingerswipe = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTwoFingerSwipe_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KTwoFingerSwipe_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1299,6 +1323,10 @@ pub const ktwofingerswipe = struct {
         qtc.KTwoFingerSwipe_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1311,8 +1339,8 @@ pub const ktwofingerswipe = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTwoFingerSwipe_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KTwoFingerSwipe_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1347,6 +1375,10 @@ pub const ktwofingerswipe = struct {
         qtc.KTwoFingerSwipe_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1359,8 +1391,8 @@ pub const ktwofingerswipe = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTwoFingerSwipe_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KTwoFingerSwipe_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1395,6 +1427,10 @@ pub const ktwofingerswipe = struct {
         qtc.KTwoFingerSwipe_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1407,8 +1443,8 @@ pub const ktwofingerswipe = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KTwoFingerSwipe_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KTwoFingerSwipe_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1443,6 +1479,10 @@ pub const ktwofingerswipe = struct {
         qtc.KTwoFingerSwipe_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1455,8 +1495,8 @@ pub const ktwofingerswipe = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KTwoFingerSwipe_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KTwoFingerSwipe_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1489,6 +1529,10 @@ pub const ktwofingerswipe = struct {
         return qtc.KTwoFingerSwipe_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1499,8 +1543,8 @@ pub const ktwofingerswipe = struct {
     ///
     /// ` self: QtC.KTwoFingerSwipe `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KTwoFingerSwipe_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KTwoFingerSwipe_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1533,6 +1577,10 @@ pub const ktwofingerswipe = struct {
         return qtc.KTwoFingerSwipe_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1543,8 +1591,8 @@ pub const ktwofingerswipe = struct {
     ///
     /// ` self: QtC.KTwoFingerSwipe `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KTwoFingerSwipe_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KTwoFingerSwipe_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1580,6 +1628,10 @@ pub const ktwofingerswipe = struct {
         return qtc.KTwoFingerSwipe_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1592,9 +1644,9 @@ pub const ktwofingerswipe = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KTwoFingerSwipe_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KTwoFingerSwipe_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1629,6 +1681,10 @@ pub const ktwofingerswipe = struct {
         return qtc.KTwoFingerSwipe_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -1641,8 +1697,8 @@ pub const ktwofingerswipe = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KTwoFingerSwipe_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KTwoFingerSwipe_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1676,6 +1732,9 @@ pub const ktwofingerswipe = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/ktwofingerswipe.html#dtor.KTwoFingerSwipe)
     ///
@@ -1685,7 +1744,7 @@ pub const ktwofingerswipe = struct {
     ///
     /// ` self: QtC.KTwoFingerSwipe `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KTwoFingerSwipe_Delete(@ptrCast(self));
     }
 };
@@ -1724,6 +1783,10 @@ pub const ktwofingerswiperecognizer = struct {
         qtc.KTwoFingerSwipeRecognizer_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreate` instead
+    ///
+    pub const QBaseCreate = SuperCreate;
+
     /// ### [Upstream resources](https://api.kde.org/ktwofingerswiperecognizer.html#create)
     ///
     /// Base class method implementation
@@ -1734,8 +1797,8 @@ pub const ktwofingerswiperecognizer = struct {
     ///
     /// ` target: QtC.QObject `
     ///
-    pub fn QBaseCreate(self: ?*anyopaque, target: ?*anyopaque) QtC.QGesture {
-        return qtc.KTwoFingerSwipeRecognizer_QBaseCreate(@ptrCast(self), @ptrCast(target));
+    pub fn SuperCreate(self: ?*anyopaque, target: ?*anyopaque) QtC.QGesture {
+        return qtc.KTwoFingerSwipeRecognizer_SuperCreate(@ptrCast(self), @ptrCast(target));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktwofingerswiperecognizer.html#recognize)
@@ -1772,6 +1835,10 @@ pub const ktwofingerswiperecognizer = struct {
         qtc.KTwoFingerSwipeRecognizer_OnRecognize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRecognize` instead
+    ///
+    pub const QBaseRecognize = SuperRecognize;
+
     /// ### [Upstream resources](https://api.kde.org/ktwofingerswiperecognizer.html#recognize)
     ///
     /// Base class method implementation
@@ -1790,8 +1857,8 @@ pub const ktwofingerswiperecognizer = struct {
     ///
     /// ` flag of qgesturerecognizer_enums.ResultFlag `
     ///
-    pub fn QBaseRecognize(self: ?*anyopaque, gesture: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i32 {
-        return qtc.KTwoFingerSwipeRecognizer_QBaseRecognize(@ptrCast(self), @ptrCast(gesture), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperRecognize(self: ?*anyopaque, gesture: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i32 {
+        return qtc.KTwoFingerSwipeRecognizer_SuperRecognize(@ptrCast(self), @ptrCast(gesture), @ptrCast(watched), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktwofingerswiperecognizer.html#maxSwipeTime)
@@ -1896,6 +1963,10 @@ pub const ktwofingerswiperecognizer = struct {
         qtc.KTwoFingerSwipeRecognizer_Reset(@ptrCast(self), @ptrCast(state));
     }
 
+    /// ### DEPRECATED: Use `SuperReset` instead
+    ///
+    pub const QBaseReset = SuperReset;
+
     /// Inherited from QGestureRecognizer
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
@@ -1908,8 +1979,8 @@ pub const ktwofingerswiperecognizer = struct {
     ///
     /// ` state: QtC.QGesture `
     ///
-    pub fn QBaseReset(self: ?*anyopaque, state: ?*anyopaque) void {
-        qtc.KTwoFingerSwipeRecognizer_QBaseReset(@ptrCast(self), @ptrCast(state));
+    pub fn SuperReset(self: ?*anyopaque, state: ?*anyopaque) void {
+        qtc.KTwoFingerSwipeRecognizer_SuperReset(@ptrCast(self), @ptrCast(state));
     }
 
     /// Inherited from QGestureRecognizer
@@ -1927,6 +1998,9 @@ pub const ktwofingerswiperecognizer = struct {
     pub fn OnReset(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KTwoFingerSwipeRecognizer_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/ktwofingerswiperecognizer.html#dtor.KTwoFingerSwipeRecognizer)
     ///
@@ -1936,7 +2010,7 @@ pub const ktwofingerswiperecognizer = struct {
     ///
     /// ` self: QtC.KTwoFingerSwipeRecognizer `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KTwoFingerSwipeRecognizer_Delete(@ptrCast(self));
     }
 };

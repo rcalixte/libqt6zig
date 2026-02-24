@@ -583,29 +583,29 @@ class VirtualKCompletion final : public KCompletion {
 
     // Friend functions
     friend void KCompletion_PostProcessMatches(const KCompletion* self, libqt_list /* of libqt_string */ matchList);
-    friend void KCompletion_QBasePostProcessMatches(const KCompletion* self, libqt_list /* of libqt_string */ matchList);
+    friend void KCompletion_SuperPostProcessMatches(const KCompletion* self, libqt_list /* of libqt_string */ matchList);
     friend void KCompletion_PostProcessMatches2(const KCompletion* self, KCompletionMatches* matches);
-    friend void KCompletion_QBasePostProcessMatches2(const KCompletion* self, KCompletionMatches* matches);
+    friend void KCompletion_SuperPostProcessMatches2(const KCompletion* self, KCompletionMatches* matches);
     friend void KCompletion_TimerEvent(KCompletion* self, QTimerEvent* event);
-    friend void KCompletion_QBaseTimerEvent(KCompletion* self, QTimerEvent* event);
+    friend void KCompletion_SuperTimerEvent(KCompletion* self, QTimerEvent* event);
     friend void KCompletion_ChildEvent(KCompletion* self, QChildEvent* event);
-    friend void KCompletion_QBaseChildEvent(KCompletion* self, QChildEvent* event);
+    friend void KCompletion_SuperChildEvent(KCompletion* self, QChildEvent* event);
     friend void KCompletion_CustomEvent(KCompletion* self, QEvent* event);
-    friend void KCompletion_QBaseCustomEvent(KCompletion* self, QEvent* event);
+    friend void KCompletion_SuperCustomEvent(KCompletion* self, QEvent* event);
     friend void KCompletion_ConnectNotify(KCompletion* self, const QMetaMethod* signal);
-    friend void KCompletion_QBaseConnectNotify(KCompletion* self, const QMetaMethod* signal);
+    friend void KCompletion_SuperConnectNotify(KCompletion* self, const QMetaMethod* signal);
     friend void KCompletion_DisconnectNotify(KCompletion* self, const QMetaMethod* signal);
-    friend void KCompletion_QBaseDisconnectNotify(KCompletion* self, const QMetaMethod* signal);
+    friend void KCompletion_SuperDisconnectNotify(KCompletion* self, const QMetaMethod* signal);
     friend void KCompletion_SetShouldAutoSuggest(KCompletion* self, bool shouldAutosuggest);
-    friend void KCompletion_QBaseSetShouldAutoSuggest(KCompletion* self, bool shouldAutosuggest);
+    friend void KCompletion_SuperSetShouldAutoSuggest(KCompletion* self, bool shouldAutosuggest);
     friend QObject* KCompletion_Sender(const KCompletion* self);
-    friend QObject* KCompletion_QBaseSender(const KCompletion* self);
+    friend QObject* KCompletion_SuperSender(const KCompletion* self);
     friend int KCompletion_SenderSignalIndex(const KCompletion* self);
-    friend int KCompletion_QBaseSenderSignalIndex(const KCompletion* self);
+    friend int KCompletion_SuperSenderSignalIndex(const KCompletion* self);
     friend int KCompletion_Receivers(const KCompletion* self, const char* signal);
-    friend int KCompletion_QBaseReceivers(const KCompletion* self, const char* signal);
+    friend int KCompletion_SuperReceivers(const KCompletion* self, const char* signal);
     friend bool KCompletion_IsSignalConnected(const KCompletion* self, const QMetaMethod* signal);
-    friend bool KCompletion_QBaseIsSignalConnected(const KCompletion* self, const QMetaMethod* signal);
+    friend bool KCompletion_SuperIsSignalConnected(const KCompletion* self, const QMetaMethod* signal);
 };
 
 #endif

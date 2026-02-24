@@ -359,6 +359,10 @@ pub const qnetworkproxyquery = struct {
         qtc.QNetworkProxyQuery_SetUrl(@ptrCast(self), @ptrCast(url));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyquery.html#dtor.QNetworkProxyQuery)
     ///
     /// Delete this object from C++ memory.
@@ -367,7 +371,7 @@ pub const qnetworkproxyquery = struct {
     ///
     /// ` self: QtC.QNetworkProxyQuery `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QNetworkProxyQuery_Delete(@ptrCast(self));
     }
 };
@@ -881,6 +885,10 @@ pub const qnetworkproxy = struct {
         qtc.QNetworkProxy_SetRawHeader(@ptrCast(self), headerName_str, value_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#dtor.QNetworkProxy)
     ///
     /// Delete this object from C++ memory.
@@ -889,7 +897,7 @@ pub const qnetworkproxy = struct {
     ///
     /// ` self: QtC.QNetworkProxy `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QNetworkProxy_Delete(@ptrCast(self));
     }
 };
@@ -941,6 +949,10 @@ pub const qnetworkproxyfactory = struct {
         qtc.QNetworkProxyFactory_OnQueryProxy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperQueryProxy` instead
+    ///
+    pub const QBaseQueryProxy = SuperQueryProxy;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#queryProxy)
     ///
     /// Base class method implementation
@@ -953,8 +965,8 @@ pub const qnetworkproxyfactory = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseQueryProxy(self: ?*anyopaque, query: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QNetworkProxy {
-        const _arr: qtc.libqt_list = qtc.QNetworkProxyFactory_QBaseQueryProxy(@ptrCast(self), @ptrCast(query));
+    pub fn SuperQueryProxy(self: ?*anyopaque, query: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QNetworkProxy {
+        const _arr: qtc.libqt_list = qtc.QNetworkProxyFactory_SuperQueryProxy(@ptrCast(self), @ptrCast(query));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QNetworkProxy, _arr.len) catch @panic("qnetworkproxyfactory.QueryProxy: Memory allocation failed");
         const _data: [*]QtC.QNetworkProxy = @ptrCast(@alignCast(_arr.data));
@@ -1049,6 +1061,10 @@ pub const qnetworkproxyfactory = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#dtor.QNetworkProxyFactory)
     ///
     /// Delete this object from C++ memory.
@@ -1057,7 +1073,7 @@ pub const qnetworkproxyfactory = struct {
     ///
     /// ` self: QtC.QNetworkProxyFactory `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QNetworkProxyFactory_Delete(@ptrCast(self));
     }
 };

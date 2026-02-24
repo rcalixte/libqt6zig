@@ -117,6 +117,10 @@ pub const qflag = struct {
         return qtc.QFlag_ToUnsignedInt(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qflag.html#dtor.QFlag)
     ///
     /// Delete this object from C++ memory.
@@ -125,7 +129,7 @@ pub const qflag = struct {
     ///
     /// ` self: QtC.QFlag `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QFlag_Delete(@ptrCast(self));
     }
 };
@@ -206,6 +210,10 @@ pub const qincompatibleflag = struct {
         return qtc.QIncompatibleFlag_ToInt(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qincompatibleflag.html#dtor.QIncompatibleFlag)
     ///
     /// Delete this object from C++ memory.
@@ -214,7 +222,7 @@ pub const qincompatibleflag = struct {
     ///
     /// ` self: QtC.QIncompatibleFlag `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QIncompatibleFlag_Delete(@ptrCast(self));
     }
 };

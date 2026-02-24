@@ -369,23 +369,23 @@ class VirtualKFileMetaDataWriterPlugin : public KFileMetaData::WriterPlugin {
 
     // Friend functions
     friend void KFileMetaData__WriterPlugin_TimerEvent(KFileMetaData::WriterPlugin* self, QTimerEvent* event);
-    friend void KFileMetaData__WriterPlugin_QBaseTimerEvent(KFileMetaData::WriterPlugin* self, QTimerEvent* event);
+    friend void KFileMetaData__WriterPlugin_SuperTimerEvent(KFileMetaData::WriterPlugin* self, QTimerEvent* event);
     friend void KFileMetaData__WriterPlugin_ChildEvent(KFileMetaData::WriterPlugin* self, QChildEvent* event);
-    friend void KFileMetaData__WriterPlugin_QBaseChildEvent(KFileMetaData::WriterPlugin* self, QChildEvent* event);
+    friend void KFileMetaData__WriterPlugin_SuperChildEvent(KFileMetaData::WriterPlugin* self, QChildEvent* event);
     friend void KFileMetaData__WriterPlugin_CustomEvent(KFileMetaData::WriterPlugin* self, QEvent* event);
-    friend void KFileMetaData__WriterPlugin_QBaseCustomEvent(KFileMetaData::WriterPlugin* self, QEvent* event);
+    friend void KFileMetaData__WriterPlugin_SuperCustomEvent(KFileMetaData::WriterPlugin* self, QEvent* event);
     friend void KFileMetaData__WriterPlugin_ConnectNotify(KFileMetaData::WriterPlugin* self, const QMetaMethod* signal);
-    friend void KFileMetaData__WriterPlugin_QBaseConnectNotify(KFileMetaData::WriterPlugin* self, const QMetaMethod* signal);
+    friend void KFileMetaData__WriterPlugin_SuperConnectNotify(KFileMetaData::WriterPlugin* self, const QMetaMethod* signal);
     friend void KFileMetaData__WriterPlugin_DisconnectNotify(KFileMetaData::WriterPlugin* self, const QMetaMethod* signal);
-    friend void KFileMetaData__WriterPlugin_QBaseDisconnectNotify(KFileMetaData::WriterPlugin* self, const QMetaMethod* signal);
+    friend void KFileMetaData__WriterPlugin_SuperDisconnectNotify(KFileMetaData::WriterPlugin* self, const QMetaMethod* signal);
     friend QObject* KFileMetaData__WriterPlugin_Sender(const KFileMetaData::WriterPlugin* self);
-    friend QObject* KFileMetaData__WriterPlugin_QBaseSender(const KFileMetaData::WriterPlugin* self);
+    friend QObject* KFileMetaData__WriterPlugin_SuperSender(const KFileMetaData::WriterPlugin* self);
     friend int KFileMetaData__WriterPlugin_SenderSignalIndex(const KFileMetaData::WriterPlugin* self);
-    friend int KFileMetaData__WriterPlugin_QBaseSenderSignalIndex(const KFileMetaData::WriterPlugin* self);
+    friend int KFileMetaData__WriterPlugin_SuperSenderSignalIndex(const KFileMetaData::WriterPlugin* self);
     friend int KFileMetaData__WriterPlugin_Receivers(const KFileMetaData::WriterPlugin* self, const char* signal);
-    friend int KFileMetaData__WriterPlugin_QBaseReceivers(const KFileMetaData::WriterPlugin* self, const char* signal);
+    friend int KFileMetaData__WriterPlugin_SuperReceivers(const KFileMetaData::WriterPlugin* self, const char* signal);
     friend bool KFileMetaData__WriterPlugin_IsSignalConnected(const KFileMetaData::WriterPlugin* self, const QMetaMethod* signal);
-    friend bool KFileMetaData__WriterPlugin_QBaseIsSignalConnected(const KFileMetaData::WriterPlugin* self, const QMetaMethod* signal);
+    friend bool KFileMetaData__WriterPlugin_SuperIsSignalConnected(const KFileMetaData::WriterPlugin* self, const QMetaMethod* signal);
 };
 
 #endif

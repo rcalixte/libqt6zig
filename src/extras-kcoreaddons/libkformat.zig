@@ -500,6 +500,10 @@ pub const kformat = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kformat.html#dtor.KFormat)
     ///
     /// Delete this object from C++ memory.
@@ -508,7 +512,7 @@ pub const kformat = struct {
     ///
     /// ` self: QtC.KFormat `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KFormat_Delete(@ptrCast(self));
     }
 };

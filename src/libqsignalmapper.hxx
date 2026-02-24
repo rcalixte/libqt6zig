@@ -328,23 +328,23 @@ class VirtualQSignalMapper final : public QSignalMapper {
 
     // Friend functions
     friend void QSignalMapper_TimerEvent(QSignalMapper* self, QTimerEvent* event);
-    friend void QSignalMapper_QBaseTimerEvent(QSignalMapper* self, QTimerEvent* event);
+    friend void QSignalMapper_SuperTimerEvent(QSignalMapper* self, QTimerEvent* event);
     friend void QSignalMapper_ChildEvent(QSignalMapper* self, QChildEvent* event);
-    friend void QSignalMapper_QBaseChildEvent(QSignalMapper* self, QChildEvent* event);
+    friend void QSignalMapper_SuperChildEvent(QSignalMapper* self, QChildEvent* event);
     friend void QSignalMapper_CustomEvent(QSignalMapper* self, QEvent* event);
-    friend void QSignalMapper_QBaseCustomEvent(QSignalMapper* self, QEvent* event);
+    friend void QSignalMapper_SuperCustomEvent(QSignalMapper* self, QEvent* event);
     friend void QSignalMapper_ConnectNotify(QSignalMapper* self, const QMetaMethod* signal);
-    friend void QSignalMapper_QBaseConnectNotify(QSignalMapper* self, const QMetaMethod* signal);
+    friend void QSignalMapper_SuperConnectNotify(QSignalMapper* self, const QMetaMethod* signal);
     friend void QSignalMapper_DisconnectNotify(QSignalMapper* self, const QMetaMethod* signal);
-    friend void QSignalMapper_QBaseDisconnectNotify(QSignalMapper* self, const QMetaMethod* signal);
+    friend void QSignalMapper_SuperDisconnectNotify(QSignalMapper* self, const QMetaMethod* signal);
     friend QObject* QSignalMapper_Sender(const QSignalMapper* self);
-    friend QObject* QSignalMapper_QBaseSender(const QSignalMapper* self);
+    friend QObject* QSignalMapper_SuperSender(const QSignalMapper* self);
     friend int QSignalMapper_SenderSignalIndex(const QSignalMapper* self);
-    friend int QSignalMapper_QBaseSenderSignalIndex(const QSignalMapper* self);
+    friend int QSignalMapper_SuperSenderSignalIndex(const QSignalMapper* self);
     friend int QSignalMapper_Receivers(const QSignalMapper* self, const char* signal);
-    friend int QSignalMapper_QBaseReceivers(const QSignalMapper* self, const char* signal);
+    friend int QSignalMapper_SuperReceivers(const QSignalMapper* self, const char* signal);
     friend bool QSignalMapper_IsSignalConnected(const QSignalMapper* self, const QMetaMethod* signal);
-    friend bool QSignalMapper_QBaseIsSignalConnected(const QSignalMapper* self, const QMetaMethod* signal);
+    friend bool QSignalMapper_SuperIsSignalConnected(const QSignalMapper* self, const QMetaMethod* signal);
 };
 
 #endif

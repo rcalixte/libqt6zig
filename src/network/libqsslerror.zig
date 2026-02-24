@@ -131,6 +131,10 @@ pub const qsslerror = struct {
         return qtc.QSslError_Certificate(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#dtor.QSslError)
     ///
     /// Delete this object from C++ memory.
@@ -139,7 +143,7 @@ pub const qsslerror = struct {
     ///
     /// ` self: QtC.QSslError `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSslError_Delete(@ptrCast(self));
     }
 };

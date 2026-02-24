@@ -126,7 +126,7 @@ libqt_list /* of libqt_string */ KFileMetaData__ExtractorPlugin_ContactsFromStri
 }
 
 // Base class handler implementation
-QMetaObject* KFileMetaData__ExtractorPlugin_QBaseMetaObject(const KFileMetaData__ExtractorPlugin* self) {
+QMetaObject* KFileMetaData__ExtractorPlugin_SuperMetaObject(const KFileMetaData__ExtractorPlugin* self) {
     auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
     if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
         vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_MetaObject_IsBase(true);
@@ -145,7 +145,7 @@ void KFileMetaData__ExtractorPlugin_OnMetaObject(const KFileMetaData__ExtractorP
 }
 
 // Base class handler implementation
-void* KFileMetaData__ExtractorPlugin_QBaseMetacast(KFileMetaData__ExtractorPlugin* self, const char* param1) {
+void* KFileMetaData__ExtractorPlugin_SuperMetacast(KFileMetaData__ExtractorPlugin* self, const char* param1) {
     auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
     if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
         vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_Metacast_IsBase(true);
@@ -164,7 +164,7 @@ void KFileMetaData__ExtractorPlugin_OnMetacast(KFileMetaData__ExtractorPlugin* s
 }
 
 // Base class handler implementation
-int KFileMetaData__ExtractorPlugin_QBaseMetacall(KFileMetaData__ExtractorPlugin* self, int param1, int param2, void** param3) {
+int KFileMetaData__ExtractorPlugin_SuperMetacall(KFileMetaData__ExtractorPlugin* self, int param1, int param2, void** param3) {
     auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
     if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
         vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_Metacall_IsBase(true);
@@ -183,7 +183,7 @@ void KFileMetaData__ExtractorPlugin_OnMetacall(KFileMetaData__ExtractorPlugin* s
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KFileMetaData__ExtractorPlugin_QBaseMimetypes(const KFileMetaData__ExtractorPlugin* self) {
+libqt_list /* of libqt_string */ KFileMetaData__ExtractorPlugin_SuperMimetypes(const KFileMetaData__ExtractorPlugin* self) {
     auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
     if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
         vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_Mimetypes_IsBase(true);
@@ -236,7 +236,7 @@ void KFileMetaData__ExtractorPlugin_OnMimetypes(const KFileMetaData__ExtractorPl
 }
 
 // Base class handler implementation
-void KFileMetaData__ExtractorPlugin_QBaseExtract(KFileMetaData__ExtractorPlugin* self, KFileMetaData__ExtractionResult* result) {
+void KFileMetaData__ExtractorPlugin_SuperExtract(KFileMetaData__ExtractorPlugin* self, KFileMetaData__ExtractionResult* result) {
     auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
     if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
         vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_Extract_IsBase(true);
@@ -265,7 +265,7 @@ bool KFileMetaData__ExtractorPlugin_Event(KFileMetaData__ExtractorPlugin* self, 
 }
 
 // Base class handler implementation
-bool KFileMetaData__ExtractorPlugin_QBaseEvent(KFileMetaData__ExtractorPlugin* self, QEvent* event) {
+bool KFileMetaData__ExtractorPlugin_SuperEvent(KFileMetaData__ExtractorPlugin* self, QEvent* event) {
     auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
     if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
         vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_Event_IsBase(true);
@@ -294,7 +294,7 @@ bool KFileMetaData__ExtractorPlugin_EventFilter(KFileMetaData__ExtractorPlugin* 
 }
 
 // Base class handler implementation
-bool KFileMetaData__ExtractorPlugin_QBaseEventFilter(KFileMetaData__ExtractorPlugin* self, QObject* watched, QEvent* event) {
+bool KFileMetaData__ExtractorPlugin_SuperEventFilter(KFileMetaData__ExtractorPlugin* self, QObject* watched, QEvent* event) {
     auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
     if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
         vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_EventFilter_IsBase(true);
@@ -323,7 +323,7 @@ void KFileMetaData__ExtractorPlugin_TimerEvent(KFileMetaData__ExtractorPlugin* s
 }
 
 // Base class handler implementation
-void KFileMetaData__ExtractorPlugin_QBaseTimerEvent(KFileMetaData__ExtractorPlugin* self, QTimerEvent* event) {
+void KFileMetaData__ExtractorPlugin_SuperTimerEvent(KFileMetaData__ExtractorPlugin* self, QTimerEvent* event) {
     auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
     if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
         vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_TimerEvent_IsBase(true);
@@ -352,7 +352,7 @@ void KFileMetaData__ExtractorPlugin_ChildEvent(KFileMetaData__ExtractorPlugin* s
 }
 
 // Base class handler implementation
-void KFileMetaData__ExtractorPlugin_QBaseChildEvent(KFileMetaData__ExtractorPlugin* self, QChildEvent* event) {
+void KFileMetaData__ExtractorPlugin_SuperChildEvent(KFileMetaData__ExtractorPlugin* self, QChildEvent* event) {
     auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
     if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
         vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_ChildEvent_IsBase(true);
@@ -381,7 +381,7 @@ void KFileMetaData__ExtractorPlugin_CustomEvent(KFileMetaData__ExtractorPlugin* 
 }
 
 // Base class handler implementation
-void KFileMetaData__ExtractorPlugin_QBaseCustomEvent(KFileMetaData__ExtractorPlugin* self, QEvent* event) {
+void KFileMetaData__ExtractorPlugin_SuperCustomEvent(KFileMetaData__ExtractorPlugin* self, QEvent* event) {
     auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
     if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
         vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_CustomEvent_IsBase(true);
@@ -410,7 +410,7 @@ void KFileMetaData__ExtractorPlugin_ConnectNotify(KFileMetaData__ExtractorPlugin
 }
 
 // Base class handler implementation
-void KFileMetaData__ExtractorPlugin_QBaseConnectNotify(KFileMetaData__ExtractorPlugin* self, const QMetaMethod* signal) {
+void KFileMetaData__ExtractorPlugin_SuperConnectNotify(KFileMetaData__ExtractorPlugin* self, const QMetaMethod* signal) {
     auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
     if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
         vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_ConnectNotify_IsBase(true);
@@ -439,7 +439,7 @@ void KFileMetaData__ExtractorPlugin_DisconnectNotify(KFileMetaData__ExtractorPlu
 }
 
 // Base class handler implementation
-void KFileMetaData__ExtractorPlugin_QBaseDisconnectNotify(KFileMetaData__ExtractorPlugin* self, const QMetaMethod* signal) {
+void KFileMetaData__ExtractorPlugin_SuperDisconnectNotify(KFileMetaData__ExtractorPlugin* self, const QMetaMethod* signal) {
     auto* vkfilemetadataextractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
     if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
         vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_DisconnectNotify_IsBase(true);
@@ -485,7 +485,7 @@ libqt_string KFileMetaData__ExtractorPlugin_GetSupportedMimeType(const KFileMeta
 }
 
 // Base class handler implementation
-libqt_string KFileMetaData__ExtractorPlugin_QBaseGetSupportedMimeType(const KFileMetaData__ExtractorPlugin* self, const libqt_string mimetype) {
+libqt_string KFileMetaData__ExtractorPlugin_SuperGetSupportedMimeType(const KFileMetaData__ExtractorPlugin* self, const libqt_string mimetype) {
     auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
     QString mimetype_QString = QString::fromUtf8(mimetype.data, mimetype.len);
     if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
@@ -531,7 +531,7 @@ QObject* KFileMetaData__ExtractorPlugin_Sender(const KFileMetaData__ExtractorPlu
 }
 
 // Base class handler implementation
-QObject* KFileMetaData__ExtractorPlugin_QBaseSender(const KFileMetaData__ExtractorPlugin* self) {
+QObject* KFileMetaData__ExtractorPlugin_SuperSender(const KFileMetaData__ExtractorPlugin* self) {
     auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
     if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
         vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_Sender_IsBase(true);
@@ -560,7 +560,7 @@ int KFileMetaData__ExtractorPlugin_SenderSignalIndex(const KFileMetaData__Extrac
 }
 
 // Base class handler implementation
-int KFileMetaData__ExtractorPlugin_QBaseSenderSignalIndex(const KFileMetaData__ExtractorPlugin* self) {
+int KFileMetaData__ExtractorPlugin_SuperSenderSignalIndex(const KFileMetaData__ExtractorPlugin* self) {
     auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
     if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
         vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_SenderSignalIndex_IsBase(true);
@@ -589,7 +589,7 @@ int KFileMetaData__ExtractorPlugin_Receivers(const KFileMetaData__ExtractorPlugi
 }
 
 // Base class handler implementation
-int KFileMetaData__ExtractorPlugin_QBaseReceivers(const KFileMetaData__ExtractorPlugin* self, const char* signal) {
+int KFileMetaData__ExtractorPlugin_SuperReceivers(const KFileMetaData__ExtractorPlugin* self, const char* signal) {
     auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
     if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
         vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_Receivers_IsBase(true);
@@ -618,7 +618,7 @@ bool KFileMetaData__ExtractorPlugin_IsSignalConnected(const KFileMetaData__Extra
 }
 
 // Base class handler implementation
-bool KFileMetaData__ExtractorPlugin_QBaseIsSignalConnected(const KFileMetaData__ExtractorPlugin* self, const QMetaMethod* signal) {
+bool KFileMetaData__ExtractorPlugin_SuperIsSignalConnected(const KFileMetaData__ExtractorPlugin* self, const QMetaMethod* signal) {
     auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
     if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
         vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_IsSignalConnected_IsBase(true);

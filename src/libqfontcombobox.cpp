@@ -175,7 +175,7 @@ bool QFontComboBox_Event(QFontComboBox* self, QEvent* e) {
 }
 
 // Base class handler implementation
-QMetaObject* QFontComboBox_QBaseMetaObject(const QFontComboBox* self) {
+QMetaObject* QFontComboBox_SuperMetaObject(const QFontComboBox* self) {
     auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_MetaObject_IsBase(true);
@@ -194,7 +194,7 @@ void QFontComboBox_OnMetaObject(const QFontComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QFontComboBox_QBaseMetacast(QFontComboBox* self, const char* param1) {
+void* QFontComboBox_SuperMetacast(QFontComboBox* self, const char* param1) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_Metacast_IsBase(true);
@@ -213,7 +213,7 @@ void QFontComboBox_OnMetacast(QFontComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QFontComboBox_QBaseMetacall(QFontComboBox* self, int param1, int param2, void** param3) {
+int QFontComboBox_SuperMetacall(QFontComboBox* self, int param1, int param2, void** param3) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_Metacall_IsBase(true);
@@ -232,7 +232,7 @@ void QFontComboBox_OnMetacall(QFontComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QFontComboBox_QBaseSizeHint(const QFontComboBox* self) {
+QSize* QFontComboBox_SuperSizeHint(const QFontComboBox* self) {
     auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_SizeHint_IsBase(true);
@@ -251,7 +251,7 @@ void QFontComboBox_OnSizeHint(const QFontComboBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QFontComboBox_QBaseEvent(QFontComboBox* self, QEvent* e) {
+bool QFontComboBox_SuperEvent(QFontComboBox* self, QEvent* e) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_Event_IsBase(true);
@@ -280,7 +280,7 @@ void QFontComboBox_SetModel(QFontComboBox* self, QAbstractItemModel* model) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseSetModel(QFontComboBox* self, QAbstractItemModel* model) {
+void QFontComboBox_SuperSetModel(QFontComboBox* self, QAbstractItemModel* model) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_SetModel_IsBase(true);
@@ -309,7 +309,7 @@ QSize* QFontComboBox_MinimumSizeHint(const QFontComboBox* self) {
 }
 
 // Base class handler implementation
-QSize* QFontComboBox_QBaseMinimumSizeHint(const QFontComboBox* self) {
+QSize* QFontComboBox_SuperMinimumSizeHint(const QFontComboBox* self) {
     auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_MinimumSizeHint_IsBase(true);
@@ -338,7 +338,7 @@ void QFontComboBox_ShowPopup(QFontComboBox* self) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseShowPopup(QFontComboBox* self) {
+void QFontComboBox_SuperShowPopup(QFontComboBox* self) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_ShowPopup_IsBase(true);
@@ -367,7 +367,7 @@ void QFontComboBox_HidePopup(QFontComboBox* self) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseHidePopup(QFontComboBox* self) {
+void QFontComboBox_SuperHidePopup(QFontComboBox* self) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_HidePopup_IsBase(true);
@@ -396,7 +396,7 @@ QVariant* QFontComboBox_InputMethodQuery(const QFontComboBox* self, int param1) 
 }
 
 // Base class handler implementation
-QVariant* QFontComboBox_QBaseInputMethodQuery(const QFontComboBox* self, int param1) {
+QVariant* QFontComboBox_SuperInputMethodQuery(const QFontComboBox* self, int param1) {
     auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_InputMethodQuery_IsBase(true);
@@ -425,7 +425,7 @@ void QFontComboBox_FocusInEvent(QFontComboBox* self, QFocusEvent* e) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseFocusInEvent(QFontComboBox* self, QFocusEvent* e) {
+void QFontComboBox_SuperFocusInEvent(QFontComboBox* self, QFocusEvent* e) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_FocusInEvent_IsBase(true);
@@ -454,7 +454,7 @@ void QFontComboBox_FocusOutEvent(QFontComboBox* self, QFocusEvent* e) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseFocusOutEvent(QFontComboBox* self, QFocusEvent* e) {
+void QFontComboBox_SuperFocusOutEvent(QFontComboBox* self, QFocusEvent* e) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_FocusOutEvent_IsBase(true);
@@ -483,7 +483,7 @@ void QFontComboBox_ChangeEvent(QFontComboBox* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseChangeEvent(QFontComboBox* self, QEvent* e) {
+void QFontComboBox_SuperChangeEvent(QFontComboBox* self, QEvent* e) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_ChangeEvent_IsBase(true);
@@ -512,7 +512,7 @@ void QFontComboBox_ResizeEvent(QFontComboBox* self, QResizeEvent* e) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseResizeEvent(QFontComboBox* self, QResizeEvent* e) {
+void QFontComboBox_SuperResizeEvent(QFontComboBox* self, QResizeEvent* e) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_ResizeEvent_IsBase(true);
@@ -541,7 +541,7 @@ void QFontComboBox_PaintEvent(QFontComboBox* self, QPaintEvent* e) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBasePaintEvent(QFontComboBox* self, QPaintEvent* e) {
+void QFontComboBox_SuperPaintEvent(QFontComboBox* self, QPaintEvent* e) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_PaintEvent_IsBase(true);
@@ -570,7 +570,7 @@ void QFontComboBox_ShowEvent(QFontComboBox* self, QShowEvent* e) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseShowEvent(QFontComboBox* self, QShowEvent* e) {
+void QFontComboBox_SuperShowEvent(QFontComboBox* self, QShowEvent* e) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_ShowEvent_IsBase(true);
@@ -599,7 +599,7 @@ void QFontComboBox_HideEvent(QFontComboBox* self, QHideEvent* e) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseHideEvent(QFontComboBox* self, QHideEvent* e) {
+void QFontComboBox_SuperHideEvent(QFontComboBox* self, QHideEvent* e) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_HideEvent_IsBase(true);
@@ -628,7 +628,7 @@ void QFontComboBox_MousePressEvent(QFontComboBox* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseMousePressEvent(QFontComboBox* self, QMouseEvent* e) {
+void QFontComboBox_SuperMousePressEvent(QFontComboBox* self, QMouseEvent* e) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_MousePressEvent_IsBase(true);
@@ -657,7 +657,7 @@ void QFontComboBox_MouseReleaseEvent(QFontComboBox* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseMouseReleaseEvent(QFontComboBox* self, QMouseEvent* e) {
+void QFontComboBox_SuperMouseReleaseEvent(QFontComboBox* self, QMouseEvent* e) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_MouseReleaseEvent_IsBase(true);
@@ -686,7 +686,7 @@ void QFontComboBox_KeyPressEvent(QFontComboBox* self, QKeyEvent* e) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseKeyPressEvent(QFontComboBox* self, QKeyEvent* e) {
+void QFontComboBox_SuperKeyPressEvent(QFontComboBox* self, QKeyEvent* e) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_KeyPressEvent_IsBase(true);
@@ -715,7 +715,7 @@ void QFontComboBox_KeyReleaseEvent(QFontComboBox* self, QKeyEvent* e) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseKeyReleaseEvent(QFontComboBox* self, QKeyEvent* e) {
+void QFontComboBox_SuperKeyReleaseEvent(QFontComboBox* self, QKeyEvent* e) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_KeyReleaseEvent_IsBase(true);
@@ -744,7 +744,7 @@ void QFontComboBox_WheelEvent(QFontComboBox* self, QWheelEvent* e) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseWheelEvent(QFontComboBox* self, QWheelEvent* e) {
+void QFontComboBox_SuperWheelEvent(QFontComboBox* self, QWheelEvent* e) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_WheelEvent_IsBase(true);
@@ -773,7 +773,7 @@ void QFontComboBox_ContextMenuEvent(QFontComboBox* self, QContextMenuEvent* e) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseContextMenuEvent(QFontComboBox* self, QContextMenuEvent* e) {
+void QFontComboBox_SuperContextMenuEvent(QFontComboBox* self, QContextMenuEvent* e) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_ContextMenuEvent_IsBase(true);
@@ -802,7 +802,7 @@ void QFontComboBox_InputMethodEvent(QFontComboBox* self, QInputMethodEvent* para
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseInputMethodEvent(QFontComboBox* self, QInputMethodEvent* param1) {
+void QFontComboBox_SuperInputMethodEvent(QFontComboBox* self, QInputMethodEvent* param1) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_InputMethodEvent_IsBase(true);
@@ -831,7 +831,7 @@ void QFontComboBox_InitStyleOption(const QFontComboBox* self, QStyleOptionComboB
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseInitStyleOption(const QFontComboBox* self, QStyleOptionComboBox* option) {
+void QFontComboBox_SuperInitStyleOption(const QFontComboBox* self, QStyleOptionComboBox* option) {
     auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_InitStyleOption_IsBase(true);
@@ -860,7 +860,7 @@ int QFontComboBox_DevType(const QFontComboBox* self) {
 }
 
 // Base class handler implementation
-int QFontComboBox_QBaseDevType(const QFontComboBox* self) {
+int QFontComboBox_SuperDevType(const QFontComboBox* self) {
     auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_DevType_IsBase(true);
@@ -889,7 +889,7 @@ void QFontComboBox_SetVisible(QFontComboBox* self, bool visible) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseSetVisible(QFontComboBox* self, bool visible) {
+void QFontComboBox_SuperSetVisible(QFontComboBox* self, bool visible) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_SetVisible_IsBase(true);
@@ -918,7 +918,7 @@ int QFontComboBox_HeightForWidth(const QFontComboBox* self, int param1) {
 }
 
 // Base class handler implementation
-int QFontComboBox_QBaseHeightForWidth(const QFontComboBox* self, int param1) {
+int QFontComboBox_SuperHeightForWidth(const QFontComboBox* self, int param1) {
     auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_HeightForWidth_IsBase(true);
@@ -947,7 +947,7 @@ bool QFontComboBox_HasHeightForWidth(const QFontComboBox* self) {
 }
 
 // Base class handler implementation
-bool QFontComboBox_QBaseHasHeightForWidth(const QFontComboBox* self) {
+bool QFontComboBox_SuperHasHeightForWidth(const QFontComboBox* self) {
     auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_HasHeightForWidth_IsBase(true);
@@ -976,7 +976,7 @@ QPaintEngine* QFontComboBox_PaintEngine(const QFontComboBox* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QFontComboBox_QBasePaintEngine(const QFontComboBox* self) {
+QPaintEngine* QFontComboBox_SuperPaintEngine(const QFontComboBox* self) {
     auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_PaintEngine_IsBase(true);
@@ -1005,7 +1005,7 @@ void QFontComboBox_MouseDoubleClickEvent(QFontComboBox* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseMouseDoubleClickEvent(QFontComboBox* self, QMouseEvent* event) {
+void QFontComboBox_SuperMouseDoubleClickEvent(QFontComboBox* self, QMouseEvent* event) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_MouseDoubleClickEvent_IsBase(true);
@@ -1034,7 +1034,7 @@ void QFontComboBox_MouseMoveEvent(QFontComboBox* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseMouseMoveEvent(QFontComboBox* self, QMouseEvent* event) {
+void QFontComboBox_SuperMouseMoveEvent(QFontComboBox* self, QMouseEvent* event) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_MouseMoveEvent_IsBase(true);
@@ -1063,7 +1063,7 @@ void QFontComboBox_EnterEvent(QFontComboBox* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseEnterEvent(QFontComboBox* self, QEnterEvent* event) {
+void QFontComboBox_SuperEnterEvent(QFontComboBox* self, QEnterEvent* event) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_EnterEvent_IsBase(true);
@@ -1092,7 +1092,7 @@ void QFontComboBox_LeaveEvent(QFontComboBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseLeaveEvent(QFontComboBox* self, QEvent* event) {
+void QFontComboBox_SuperLeaveEvent(QFontComboBox* self, QEvent* event) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_LeaveEvent_IsBase(true);
@@ -1121,7 +1121,7 @@ void QFontComboBox_MoveEvent(QFontComboBox* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseMoveEvent(QFontComboBox* self, QMoveEvent* event) {
+void QFontComboBox_SuperMoveEvent(QFontComboBox* self, QMoveEvent* event) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_MoveEvent_IsBase(true);
@@ -1150,7 +1150,7 @@ void QFontComboBox_CloseEvent(QFontComboBox* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseCloseEvent(QFontComboBox* self, QCloseEvent* event) {
+void QFontComboBox_SuperCloseEvent(QFontComboBox* self, QCloseEvent* event) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_CloseEvent_IsBase(true);
@@ -1179,7 +1179,7 @@ void QFontComboBox_TabletEvent(QFontComboBox* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseTabletEvent(QFontComboBox* self, QTabletEvent* event) {
+void QFontComboBox_SuperTabletEvent(QFontComboBox* self, QTabletEvent* event) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_TabletEvent_IsBase(true);
@@ -1208,7 +1208,7 @@ void QFontComboBox_ActionEvent(QFontComboBox* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseActionEvent(QFontComboBox* self, QActionEvent* event) {
+void QFontComboBox_SuperActionEvent(QFontComboBox* self, QActionEvent* event) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_ActionEvent_IsBase(true);
@@ -1237,7 +1237,7 @@ void QFontComboBox_DragEnterEvent(QFontComboBox* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseDragEnterEvent(QFontComboBox* self, QDragEnterEvent* event) {
+void QFontComboBox_SuperDragEnterEvent(QFontComboBox* self, QDragEnterEvent* event) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_DragEnterEvent_IsBase(true);
@@ -1266,7 +1266,7 @@ void QFontComboBox_DragMoveEvent(QFontComboBox* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseDragMoveEvent(QFontComboBox* self, QDragMoveEvent* event) {
+void QFontComboBox_SuperDragMoveEvent(QFontComboBox* self, QDragMoveEvent* event) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_DragMoveEvent_IsBase(true);
@@ -1295,7 +1295,7 @@ void QFontComboBox_DragLeaveEvent(QFontComboBox* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseDragLeaveEvent(QFontComboBox* self, QDragLeaveEvent* event) {
+void QFontComboBox_SuperDragLeaveEvent(QFontComboBox* self, QDragLeaveEvent* event) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_DragLeaveEvent_IsBase(true);
@@ -1324,7 +1324,7 @@ void QFontComboBox_DropEvent(QFontComboBox* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseDropEvent(QFontComboBox* self, QDropEvent* event) {
+void QFontComboBox_SuperDropEvent(QFontComboBox* self, QDropEvent* event) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_DropEvent_IsBase(true);
@@ -1354,7 +1354,7 @@ bool QFontComboBox_NativeEvent(QFontComboBox* self, const libqt_string eventType
 }
 
 // Base class handler implementation
-bool QFontComboBox_QBaseNativeEvent(QFontComboBox* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QFontComboBox_SuperNativeEvent(QFontComboBox* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
@@ -1384,7 +1384,7 @@ int QFontComboBox_Metric(const QFontComboBox* self, int param1) {
 }
 
 // Base class handler implementation
-int QFontComboBox_QBaseMetric(const QFontComboBox* self, int param1) {
+int QFontComboBox_SuperMetric(const QFontComboBox* self, int param1) {
     auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_Metric_IsBase(true);
@@ -1413,7 +1413,7 @@ void QFontComboBox_InitPainter(const QFontComboBox* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseInitPainter(const QFontComboBox* self, QPainter* painter) {
+void QFontComboBox_SuperInitPainter(const QFontComboBox* self, QPainter* painter) {
     auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_InitPainter_IsBase(true);
@@ -1442,7 +1442,7 @@ QPaintDevice* QFontComboBox_Redirected(const QFontComboBox* self, QPoint* offset
 }
 
 // Base class handler implementation
-QPaintDevice* QFontComboBox_QBaseRedirected(const QFontComboBox* self, QPoint* offset) {
+QPaintDevice* QFontComboBox_SuperRedirected(const QFontComboBox* self, QPoint* offset) {
     auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_Redirected_IsBase(true);
@@ -1471,7 +1471,7 @@ QPainter* QFontComboBox_SharedPainter(const QFontComboBox* self) {
 }
 
 // Base class handler implementation
-QPainter* QFontComboBox_QBaseSharedPainter(const QFontComboBox* self) {
+QPainter* QFontComboBox_SuperSharedPainter(const QFontComboBox* self) {
     auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_SharedPainter_IsBase(true);
@@ -1500,7 +1500,7 @@ bool QFontComboBox_FocusNextPrevChild(QFontComboBox* self, bool next) {
 }
 
 // Base class handler implementation
-bool QFontComboBox_QBaseFocusNextPrevChild(QFontComboBox* self, bool next) {
+bool QFontComboBox_SuperFocusNextPrevChild(QFontComboBox* self, bool next) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_FocusNextPrevChild_IsBase(true);
@@ -1529,7 +1529,7 @@ bool QFontComboBox_EventFilter(QFontComboBox* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QFontComboBox_QBaseEventFilter(QFontComboBox* self, QObject* watched, QEvent* event) {
+bool QFontComboBox_SuperEventFilter(QFontComboBox* self, QObject* watched, QEvent* event) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_EventFilter_IsBase(true);
@@ -1558,7 +1558,7 @@ void QFontComboBox_TimerEvent(QFontComboBox* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseTimerEvent(QFontComboBox* self, QTimerEvent* event) {
+void QFontComboBox_SuperTimerEvent(QFontComboBox* self, QTimerEvent* event) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_TimerEvent_IsBase(true);
@@ -1587,7 +1587,7 @@ void QFontComboBox_ChildEvent(QFontComboBox* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseChildEvent(QFontComboBox* self, QChildEvent* event) {
+void QFontComboBox_SuperChildEvent(QFontComboBox* self, QChildEvent* event) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_ChildEvent_IsBase(true);
@@ -1616,7 +1616,7 @@ void QFontComboBox_CustomEvent(QFontComboBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseCustomEvent(QFontComboBox* self, QEvent* event) {
+void QFontComboBox_SuperCustomEvent(QFontComboBox* self, QEvent* event) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_CustomEvent_IsBase(true);
@@ -1645,7 +1645,7 @@ void QFontComboBox_ConnectNotify(QFontComboBox* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseConnectNotify(QFontComboBox* self, const QMetaMethod* signal) {
+void QFontComboBox_SuperConnectNotify(QFontComboBox* self, const QMetaMethod* signal) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_ConnectNotify_IsBase(true);
@@ -1674,7 +1674,7 @@ void QFontComboBox_DisconnectNotify(QFontComboBox* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseDisconnectNotify(QFontComboBox* self, const QMetaMethod* signal) {
+void QFontComboBox_SuperDisconnectNotify(QFontComboBox* self, const QMetaMethod* signal) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_DisconnectNotify_IsBase(true);
@@ -1703,7 +1703,7 @@ void QFontComboBox_UpdateMicroFocus(QFontComboBox* self) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseUpdateMicroFocus(QFontComboBox* self) {
+void QFontComboBox_SuperUpdateMicroFocus(QFontComboBox* self) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_UpdateMicroFocus_IsBase(true);
@@ -1732,7 +1732,7 @@ void QFontComboBox_Create(QFontComboBox* self) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseCreate(QFontComboBox* self) {
+void QFontComboBox_SuperCreate(QFontComboBox* self) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_Create_IsBase(true);
@@ -1761,7 +1761,7 @@ void QFontComboBox_Destroy(QFontComboBox* self) {
 }
 
 // Base class handler implementation
-void QFontComboBox_QBaseDestroy(QFontComboBox* self) {
+void QFontComboBox_SuperDestroy(QFontComboBox* self) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_Destroy_IsBase(true);
@@ -1790,7 +1790,7 @@ bool QFontComboBox_FocusNextChild(QFontComboBox* self) {
 }
 
 // Base class handler implementation
-bool QFontComboBox_QBaseFocusNextChild(QFontComboBox* self) {
+bool QFontComboBox_SuperFocusNextChild(QFontComboBox* self) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_FocusNextChild_IsBase(true);
@@ -1819,7 +1819,7 @@ bool QFontComboBox_FocusPreviousChild(QFontComboBox* self) {
 }
 
 // Base class handler implementation
-bool QFontComboBox_QBaseFocusPreviousChild(QFontComboBox* self) {
+bool QFontComboBox_SuperFocusPreviousChild(QFontComboBox* self) {
     auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_FocusPreviousChild_IsBase(true);
@@ -1848,7 +1848,7 @@ QObject* QFontComboBox_Sender(const QFontComboBox* self) {
 }
 
 // Base class handler implementation
-QObject* QFontComboBox_QBaseSender(const QFontComboBox* self) {
+QObject* QFontComboBox_SuperSender(const QFontComboBox* self) {
     auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_Sender_IsBase(true);
@@ -1877,7 +1877,7 @@ int QFontComboBox_SenderSignalIndex(const QFontComboBox* self) {
 }
 
 // Base class handler implementation
-int QFontComboBox_QBaseSenderSignalIndex(const QFontComboBox* self) {
+int QFontComboBox_SuperSenderSignalIndex(const QFontComboBox* self) {
     auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_SenderSignalIndex_IsBase(true);
@@ -1906,7 +1906,7 @@ int QFontComboBox_Receivers(const QFontComboBox* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QFontComboBox_QBaseReceivers(const QFontComboBox* self, const char* signal) {
+int QFontComboBox_SuperReceivers(const QFontComboBox* self, const char* signal) {
     auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_Receivers_IsBase(true);
@@ -1935,7 +1935,7 @@ bool QFontComboBox_IsSignalConnected(const QFontComboBox* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QFontComboBox_QBaseIsSignalConnected(const QFontComboBox* self, const QMetaMethod* signal) {
+bool QFontComboBox_SuperIsSignalConnected(const QFontComboBox* self, const QMetaMethod* signal) {
     auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_IsSignalConnected_IsBase(true);
@@ -1964,7 +1964,7 @@ double QFontComboBox_GetDecodedMetricF(const QFontComboBox* self, int metricA, i
 }
 
 // Base class handler implementation
-double QFontComboBox_QBaseGetDecodedMetricF(const QFontComboBox* self, int metricA, int metricB) {
+double QFontComboBox_SuperGetDecodedMetricF(const QFontComboBox* self, int metricA, int metricB) {
     auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
     if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
         vqfontcombobox->setQFontComboBox_GetDecodedMetricF_IsBase(true);

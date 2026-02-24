@@ -296,6 +296,10 @@ pub const qcryptographichash = struct {
         return qtc.QCryptographicHash_SupportsAlgorithm(@bitCast(method));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#dtor.QCryptographicHash)
     ///
     /// Delete this object from C++ memory.
@@ -304,7 +308,7 @@ pub const qcryptographichash = struct {
     ///
     /// ` self: QtC.QCryptographicHash `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCryptographicHash_Delete(@ptrCast(self));
     }
 };

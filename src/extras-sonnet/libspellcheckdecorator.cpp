@@ -76,7 +76,7 @@ bool Sonnet__SpellCheckDecorator_IsSpellCheckingEnabledForBlock(const Sonnet__Sp
 }
 
 // Base class handler implementation
-QMetaObject* Sonnet__SpellCheckDecorator_QBaseMetaObject(const Sonnet__SpellCheckDecorator* self) {
+QMetaObject* Sonnet__SpellCheckDecorator_SuperMetaObject(const Sonnet__SpellCheckDecorator* self) {
     auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
     if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_MetaObject_IsBase(true);
@@ -95,7 +95,7 @@ void Sonnet__SpellCheckDecorator_OnMetaObject(const Sonnet__SpellCheckDecorator*
 }
 
 // Base class handler implementation
-void* Sonnet__SpellCheckDecorator_QBaseMetacast(Sonnet__SpellCheckDecorator* self, const char* param1) {
+void* Sonnet__SpellCheckDecorator_SuperMetacast(Sonnet__SpellCheckDecorator* self, const char* param1) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
     if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Metacast_IsBase(true);
@@ -114,7 +114,7 @@ void Sonnet__SpellCheckDecorator_OnMetacast(Sonnet__SpellCheckDecorator* self, i
 }
 
 // Base class handler implementation
-int Sonnet__SpellCheckDecorator_QBaseMetacall(Sonnet__SpellCheckDecorator* self, int param1, int param2, void** param3) {
+int Sonnet__SpellCheckDecorator_SuperMetacall(Sonnet__SpellCheckDecorator* self, int param1, int param2, void** param3) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
     if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Metacall_IsBase(true);
@@ -133,7 +133,7 @@ void Sonnet__SpellCheckDecorator_OnMetacall(Sonnet__SpellCheckDecorator* self, i
 }
 
 // Base class handler implementation
-bool Sonnet__SpellCheckDecorator_QBaseEventFilter(Sonnet__SpellCheckDecorator* self, QObject* obj, QEvent* event) {
+bool Sonnet__SpellCheckDecorator_SuperEventFilter(Sonnet__SpellCheckDecorator* self, QObject* obj, QEvent* event) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
     if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_EventFilter_IsBase(true);
@@ -152,7 +152,7 @@ void Sonnet__SpellCheckDecorator_OnEventFilter(Sonnet__SpellCheckDecorator* self
 }
 
 // Base class handler implementation
-bool Sonnet__SpellCheckDecorator_QBaseIsSpellCheckingEnabledForBlock(const Sonnet__SpellCheckDecorator* self, const libqt_string textBlock) {
+bool Sonnet__SpellCheckDecorator_SuperIsSpellCheckingEnabledForBlock(const Sonnet__SpellCheckDecorator* self, const libqt_string textBlock) {
     auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
     QString textBlock_QString = QString::fromUtf8(textBlock.data, textBlock.len);
     if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
@@ -182,7 +182,7 @@ bool Sonnet__SpellCheckDecorator_Event(Sonnet__SpellCheckDecorator* self, QEvent
 }
 
 // Base class handler implementation
-bool Sonnet__SpellCheckDecorator_QBaseEvent(Sonnet__SpellCheckDecorator* self, QEvent* event) {
+bool Sonnet__SpellCheckDecorator_SuperEvent(Sonnet__SpellCheckDecorator* self, QEvent* event) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
     if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Event_IsBase(true);
@@ -211,7 +211,7 @@ void Sonnet__SpellCheckDecorator_TimerEvent(Sonnet__SpellCheckDecorator* self, Q
 }
 
 // Base class handler implementation
-void Sonnet__SpellCheckDecorator_QBaseTimerEvent(Sonnet__SpellCheckDecorator* self, QTimerEvent* event) {
+void Sonnet__SpellCheckDecorator_SuperTimerEvent(Sonnet__SpellCheckDecorator* self, QTimerEvent* event) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
     if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_TimerEvent_IsBase(true);
@@ -240,7 +240,7 @@ void Sonnet__SpellCheckDecorator_ChildEvent(Sonnet__SpellCheckDecorator* self, Q
 }
 
 // Base class handler implementation
-void Sonnet__SpellCheckDecorator_QBaseChildEvent(Sonnet__SpellCheckDecorator* self, QChildEvent* event) {
+void Sonnet__SpellCheckDecorator_SuperChildEvent(Sonnet__SpellCheckDecorator* self, QChildEvent* event) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
     if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_ChildEvent_IsBase(true);
@@ -269,7 +269,7 @@ void Sonnet__SpellCheckDecorator_CustomEvent(Sonnet__SpellCheckDecorator* self, 
 }
 
 // Base class handler implementation
-void Sonnet__SpellCheckDecorator_QBaseCustomEvent(Sonnet__SpellCheckDecorator* self, QEvent* event) {
+void Sonnet__SpellCheckDecorator_SuperCustomEvent(Sonnet__SpellCheckDecorator* self, QEvent* event) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
     if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_CustomEvent_IsBase(true);
@@ -298,7 +298,7 @@ void Sonnet__SpellCheckDecorator_ConnectNotify(Sonnet__SpellCheckDecorator* self
 }
 
 // Base class handler implementation
-void Sonnet__SpellCheckDecorator_QBaseConnectNotify(Sonnet__SpellCheckDecorator* self, const QMetaMethod* signal) {
+void Sonnet__SpellCheckDecorator_SuperConnectNotify(Sonnet__SpellCheckDecorator* self, const QMetaMethod* signal) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
     if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_ConnectNotify_IsBase(true);
@@ -327,7 +327,7 @@ void Sonnet__SpellCheckDecorator_DisconnectNotify(Sonnet__SpellCheckDecorator* s
 }
 
 // Base class handler implementation
-void Sonnet__SpellCheckDecorator_QBaseDisconnectNotify(Sonnet__SpellCheckDecorator* self, const QMetaMethod* signal) {
+void Sonnet__SpellCheckDecorator_SuperDisconnectNotify(Sonnet__SpellCheckDecorator* self, const QMetaMethod* signal) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
     if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_DisconnectNotify_IsBase(true);
@@ -356,7 +356,7 @@ QObject* Sonnet__SpellCheckDecorator_Sender(const Sonnet__SpellCheckDecorator* s
 }
 
 // Base class handler implementation
-QObject* Sonnet__SpellCheckDecorator_QBaseSender(const Sonnet__SpellCheckDecorator* self) {
+QObject* Sonnet__SpellCheckDecorator_SuperSender(const Sonnet__SpellCheckDecorator* self) {
     auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
     if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Sender_IsBase(true);
@@ -385,7 +385,7 @@ int Sonnet__SpellCheckDecorator_SenderSignalIndex(const Sonnet__SpellCheckDecora
 }
 
 // Base class handler implementation
-int Sonnet__SpellCheckDecorator_QBaseSenderSignalIndex(const Sonnet__SpellCheckDecorator* self) {
+int Sonnet__SpellCheckDecorator_SuperSenderSignalIndex(const Sonnet__SpellCheckDecorator* self) {
     auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
     if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_SenderSignalIndex_IsBase(true);
@@ -414,7 +414,7 @@ int Sonnet__SpellCheckDecorator_Receivers(const Sonnet__SpellCheckDecorator* sel
 }
 
 // Base class handler implementation
-int Sonnet__SpellCheckDecorator_QBaseReceivers(const Sonnet__SpellCheckDecorator* self, const char* signal) {
+int Sonnet__SpellCheckDecorator_SuperReceivers(const Sonnet__SpellCheckDecorator* self, const char* signal) {
     auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
     if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Receivers_IsBase(true);
@@ -443,7 +443,7 @@ bool Sonnet__SpellCheckDecorator_IsSignalConnected(const Sonnet__SpellCheckDecor
 }
 
 // Base class handler implementation
-bool Sonnet__SpellCheckDecorator_QBaseIsSignalConnected(const Sonnet__SpellCheckDecorator* self, const QMetaMethod* signal) {
+bool Sonnet__SpellCheckDecorator_SuperIsSignalConnected(const Sonnet__SpellCheckDecorator* self, const QMetaMethod* signal) {
     auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
     if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_IsSignalConnected_IsBase(true);

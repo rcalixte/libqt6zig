@@ -253,7 +253,7 @@ QPaintEngine* QOpenGLWidget_PaintEngine(const QOpenGLWidget* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QOpenGLWidget_QBaseMetaObject(const QOpenGLWidget* self) {
+QMetaObject* QOpenGLWidget_SuperMetaObject(const QOpenGLWidget* self) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_MetaObject_IsBase(true);
@@ -272,7 +272,7 @@ void QOpenGLWidget_OnMetaObject(const QOpenGLWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QOpenGLWidget_QBaseMetacast(QOpenGLWidget* self, const char* param1) {
+void* QOpenGLWidget_SuperMetacast(QOpenGLWidget* self, const char* param1) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_Metacast_IsBase(true);
@@ -291,7 +291,7 @@ void QOpenGLWidget_OnMetacast(QOpenGLWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QOpenGLWidget_QBaseMetacall(QOpenGLWidget* self, int param1, int param2, void** param3) {
+int QOpenGLWidget_SuperMetacall(QOpenGLWidget* self, int param1, int param2, void** param3) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_Metacall_IsBase(true);
@@ -310,7 +310,7 @@ void QOpenGLWidget_OnMetacall(QOpenGLWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseInitializeGL(QOpenGLWidget* self) {
+void QOpenGLWidget_SuperInitializeGL(QOpenGLWidget* self) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_InitializeGL_IsBase(true);
@@ -329,7 +329,7 @@ void QOpenGLWidget_OnInitializeGL(QOpenGLWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseResizeGL(QOpenGLWidget* self, int w, int h) {
+void QOpenGLWidget_SuperResizeGL(QOpenGLWidget* self, int w, int h) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_ResizeGL_IsBase(true);
@@ -348,7 +348,7 @@ void QOpenGLWidget_OnResizeGL(QOpenGLWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBasePaintGL(QOpenGLWidget* self) {
+void QOpenGLWidget_SuperPaintGL(QOpenGLWidget* self) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_PaintGL_IsBase(true);
@@ -367,7 +367,7 @@ void QOpenGLWidget_OnPaintGL(QOpenGLWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBasePaintEvent(QOpenGLWidget* self, QPaintEvent* e) {
+void QOpenGLWidget_SuperPaintEvent(QOpenGLWidget* self, QPaintEvent* e) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_PaintEvent_IsBase(true);
@@ -386,7 +386,7 @@ void QOpenGLWidget_OnPaintEvent(QOpenGLWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseResizeEvent(QOpenGLWidget* self, QResizeEvent* e) {
+void QOpenGLWidget_SuperResizeEvent(QOpenGLWidget* self, QResizeEvent* e) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_ResizeEvent_IsBase(true);
@@ -405,7 +405,7 @@ void QOpenGLWidget_OnResizeEvent(QOpenGLWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QOpenGLWidget_QBaseEvent(QOpenGLWidget* self, QEvent* e) {
+bool QOpenGLWidget_SuperEvent(QOpenGLWidget* self, QEvent* e) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_Event_IsBase(true);
@@ -424,7 +424,7 @@ void QOpenGLWidget_OnEvent(QOpenGLWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QOpenGLWidget_QBaseMetric(const QOpenGLWidget* self, int metric) {
+int QOpenGLWidget_SuperMetric(const QOpenGLWidget* self, int metric) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_Metric_IsBase(true);
@@ -443,7 +443,7 @@ void QOpenGLWidget_OnMetric(const QOpenGLWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPaintDevice* QOpenGLWidget_QBaseRedirected(const QOpenGLWidget* self, QPoint* p) {
+QPaintDevice* QOpenGLWidget_SuperRedirected(const QOpenGLWidget* self, QPoint* p) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_Redirected_IsBase(true);
@@ -462,7 +462,7 @@ void QOpenGLWidget_OnRedirected(const QOpenGLWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPaintEngine* QOpenGLWidget_QBasePaintEngine(const QOpenGLWidget* self) {
+QPaintEngine* QOpenGLWidget_SuperPaintEngine(const QOpenGLWidget* self) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_PaintEngine_IsBase(true);
@@ -491,7 +491,7 @@ int QOpenGLWidget_DevType(const QOpenGLWidget* self) {
 }
 
 // Base class handler implementation
-int QOpenGLWidget_QBaseDevType(const QOpenGLWidget* self) {
+int QOpenGLWidget_SuperDevType(const QOpenGLWidget* self) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_DevType_IsBase(true);
@@ -520,7 +520,7 @@ void QOpenGLWidget_SetVisible(QOpenGLWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseSetVisible(QOpenGLWidget* self, bool visible) {
+void QOpenGLWidget_SuperSetVisible(QOpenGLWidget* self, bool visible) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_SetVisible_IsBase(true);
@@ -549,7 +549,7 @@ QSize* QOpenGLWidget_SizeHint(const QOpenGLWidget* self) {
 }
 
 // Base class handler implementation
-QSize* QOpenGLWidget_QBaseSizeHint(const QOpenGLWidget* self) {
+QSize* QOpenGLWidget_SuperSizeHint(const QOpenGLWidget* self) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_SizeHint_IsBase(true);
@@ -578,7 +578,7 @@ QSize* QOpenGLWidget_MinimumSizeHint(const QOpenGLWidget* self) {
 }
 
 // Base class handler implementation
-QSize* QOpenGLWidget_QBaseMinimumSizeHint(const QOpenGLWidget* self) {
+QSize* QOpenGLWidget_SuperMinimumSizeHint(const QOpenGLWidget* self) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_MinimumSizeHint_IsBase(true);
@@ -607,7 +607,7 @@ int QOpenGLWidget_HeightForWidth(const QOpenGLWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int QOpenGLWidget_QBaseHeightForWidth(const QOpenGLWidget* self, int param1) {
+int QOpenGLWidget_SuperHeightForWidth(const QOpenGLWidget* self, int param1) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_HeightForWidth_IsBase(true);
@@ -636,7 +636,7 @@ bool QOpenGLWidget_HasHeightForWidth(const QOpenGLWidget* self) {
 }
 
 // Base class handler implementation
-bool QOpenGLWidget_QBaseHasHeightForWidth(const QOpenGLWidget* self) {
+bool QOpenGLWidget_SuperHasHeightForWidth(const QOpenGLWidget* self) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_HasHeightForWidth_IsBase(true);
@@ -665,7 +665,7 @@ void QOpenGLWidget_MousePressEvent(QOpenGLWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseMousePressEvent(QOpenGLWidget* self, QMouseEvent* event) {
+void QOpenGLWidget_SuperMousePressEvent(QOpenGLWidget* self, QMouseEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_MousePressEvent_IsBase(true);
@@ -694,7 +694,7 @@ void QOpenGLWidget_MouseReleaseEvent(QOpenGLWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseMouseReleaseEvent(QOpenGLWidget* self, QMouseEvent* event) {
+void QOpenGLWidget_SuperMouseReleaseEvent(QOpenGLWidget* self, QMouseEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_MouseReleaseEvent_IsBase(true);
@@ -723,7 +723,7 @@ void QOpenGLWidget_MouseDoubleClickEvent(QOpenGLWidget* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseMouseDoubleClickEvent(QOpenGLWidget* self, QMouseEvent* event) {
+void QOpenGLWidget_SuperMouseDoubleClickEvent(QOpenGLWidget* self, QMouseEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_MouseDoubleClickEvent_IsBase(true);
@@ -752,7 +752,7 @@ void QOpenGLWidget_MouseMoveEvent(QOpenGLWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseMouseMoveEvent(QOpenGLWidget* self, QMouseEvent* event) {
+void QOpenGLWidget_SuperMouseMoveEvent(QOpenGLWidget* self, QMouseEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_MouseMoveEvent_IsBase(true);
@@ -781,7 +781,7 @@ void QOpenGLWidget_WheelEvent(QOpenGLWidget* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseWheelEvent(QOpenGLWidget* self, QWheelEvent* event) {
+void QOpenGLWidget_SuperWheelEvent(QOpenGLWidget* self, QWheelEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_WheelEvent_IsBase(true);
@@ -810,7 +810,7 @@ void QOpenGLWidget_KeyPressEvent(QOpenGLWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseKeyPressEvent(QOpenGLWidget* self, QKeyEvent* event) {
+void QOpenGLWidget_SuperKeyPressEvent(QOpenGLWidget* self, QKeyEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_KeyPressEvent_IsBase(true);
@@ -839,7 +839,7 @@ void QOpenGLWidget_KeyReleaseEvent(QOpenGLWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseKeyReleaseEvent(QOpenGLWidget* self, QKeyEvent* event) {
+void QOpenGLWidget_SuperKeyReleaseEvent(QOpenGLWidget* self, QKeyEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_KeyReleaseEvent_IsBase(true);
@@ -868,7 +868,7 @@ void QOpenGLWidget_FocusInEvent(QOpenGLWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseFocusInEvent(QOpenGLWidget* self, QFocusEvent* event) {
+void QOpenGLWidget_SuperFocusInEvent(QOpenGLWidget* self, QFocusEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_FocusInEvent_IsBase(true);
@@ -897,7 +897,7 @@ void QOpenGLWidget_FocusOutEvent(QOpenGLWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseFocusOutEvent(QOpenGLWidget* self, QFocusEvent* event) {
+void QOpenGLWidget_SuperFocusOutEvent(QOpenGLWidget* self, QFocusEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_FocusOutEvent_IsBase(true);
@@ -926,7 +926,7 @@ void QOpenGLWidget_EnterEvent(QOpenGLWidget* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseEnterEvent(QOpenGLWidget* self, QEnterEvent* event) {
+void QOpenGLWidget_SuperEnterEvent(QOpenGLWidget* self, QEnterEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_EnterEvent_IsBase(true);
@@ -955,7 +955,7 @@ void QOpenGLWidget_LeaveEvent(QOpenGLWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseLeaveEvent(QOpenGLWidget* self, QEvent* event) {
+void QOpenGLWidget_SuperLeaveEvent(QOpenGLWidget* self, QEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_LeaveEvent_IsBase(true);
@@ -984,7 +984,7 @@ void QOpenGLWidget_MoveEvent(QOpenGLWidget* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseMoveEvent(QOpenGLWidget* self, QMoveEvent* event) {
+void QOpenGLWidget_SuperMoveEvent(QOpenGLWidget* self, QMoveEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_MoveEvent_IsBase(true);
@@ -1013,7 +1013,7 @@ void QOpenGLWidget_CloseEvent(QOpenGLWidget* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseCloseEvent(QOpenGLWidget* self, QCloseEvent* event) {
+void QOpenGLWidget_SuperCloseEvent(QOpenGLWidget* self, QCloseEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_CloseEvent_IsBase(true);
@@ -1042,7 +1042,7 @@ void QOpenGLWidget_ContextMenuEvent(QOpenGLWidget* self, QContextMenuEvent* even
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseContextMenuEvent(QOpenGLWidget* self, QContextMenuEvent* event) {
+void QOpenGLWidget_SuperContextMenuEvent(QOpenGLWidget* self, QContextMenuEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_ContextMenuEvent_IsBase(true);
@@ -1071,7 +1071,7 @@ void QOpenGLWidget_TabletEvent(QOpenGLWidget* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseTabletEvent(QOpenGLWidget* self, QTabletEvent* event) {
+void QOpenGLWidget_SuperTabletEvent(QOpenGLWidget* self, QTabletEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_TabletEvent_IsBase(true);
@@ -1100,7 +1100,7 @@ void QOpenGLWidget_ActionEvent(QOpenGLWidget* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseActionEvent(QOpenGLWidget* self, QActionEvent* event) {
+void QOpenGLWidget_SuperActionEvent(QOpenGLWidget* self, QActionEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_ActionEvent_IsBase(true);
@@ -1129,7 +1129,7 @@ void QOpenGLWidget_DragEnterEvent(QOpenGLWidget* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseDragEnterEvent(QOpenGLWidget* self, QDragEnterEvent* event) {
+void QOpenGLWidget_SuperDragEnterEvent(QOpenGLWidget* self, QDragEnterEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_DragEnterEvent_IsBase(true);
@@ -1158,7 +1158,7 @@ void QOpenGLWidget_DragMoveEvent(QOpenGLWidget* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseDragMoveEvent(QOpenGLWidget* self, QDragMoveEvent* event) {
+void QOpenGLWidget_SuperDragMoveEvent(QOpenGLWidget* self, QDragMoveEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_DragMoveEvent_IsBase(true);
@@ -1187,7 +1187,7 @@ void QOpenGLWidget_DragLeaveEvent(QOpenGLWidget* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseDragLeaveEvent(QOpenGLWidget* self, QDragLeaveEvent* event) {
+void QOpenGLWidget_SuperDragLeaveEvent(QOpenGLWidget* self, QDragLeaveEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_DragLeaveEvent_IsBase(true);
@@ -1216,7 +1216,7 @@ void QOpenGLWidget_DropEvent(QOpenGLWidget* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseDropEvent(QOpenGLWidget* self, QDropEvent* event) {
+void QOpenGLWidget_SuperDropEvent(QOpenGLWidget* self, QDropEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_DropEvent_IsBase(true);
@@ -1245,7 +1245,7 @@ void QOpenGLWidget_ShowEvent(QOpenGLWidget* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseShowEvent(QOpenGLWidget* self, QShowEvent* event) {
+void QOpenGLWidget_SuperShowEvent(QOpenGLWidget* self, QShowEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_ShowEvent_IsBase(true);
@@ -1274,7 +1274,7 @@ void QOpenGLWidget_HideEvent(QOpenGLWidget* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseHideEvent(QOpenGLWidget* self, QHideEvent* event) {
+void QOpenGLWidget_SuperHideEvent(QOpenGLWidget* self, QHideEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_HideEvent_IsBase(true);
@@ -1304,7 +1304,7 @@ bool QOpenGLWidget_NativeEvent(QOpenGLWidget* self, const libqt_string eventType
 }
 
 // Base class handler implementation
-bool QOpenGLWidget_QBaseNativeEvent(QOpenGLWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QOpenGLWidget_SuperNativeEvent(QOpenGLWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
@@ -1334,7 +1334,7 @@ void QOpenGLWidget_ChangeEvent(QOpenGLWidget* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseChangeEvent(QOpenGLWidget* self, QEvent* param1) {
+void QOpenGLWidget_SuperChangeEvent(QOpenGLWidget* self, QEvent* param1) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_ChangeEvent_IsBase(true);
@@ -1363,7 +1363,7 @@ void QOpenGLWidget_InitPainter(const QOpenGLWidget* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseInitPainter(const QOpenGLWidget* self, QPainter* painter) {
+void QOpenGLWidget_SuperInitPainter(const QOpenGLWidget* self, QPainter* painter) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_InitPainter_IsBase(true);
@@ -1392,7 +1392,7 @@ QPainter* QOpenGLWidget_SharedPainter(const QOpenGLWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* QOpenGLWidget_QBaseSharedPainter(const QOpenGLWidget* self) {
+QPainter* QOpenGLWidget_SuperSharedPainter(const QOpenGLWidget* self) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_SharedPainter_IsBase(true);
@@ -1421,7 +1421,7 @@ void QOpenGLWidget_InputMethodEvent(QOpenGLWidget* self, QInputMethodEvent* para
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseInputMethodEvent(QOpenGLWidget* self, QInputMethodEvent* param1) {
+void QOpenGLWidget_SuperInputMethodEvent(QOpenGLWidget* self, QInputMethodEvent* param1) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_InputMethodEvent_IsBase(true);
@@ -1450,7 +1450,7 @@ QVariant* QOpenGLWidget_InputMethodQuery(const QOpenGLWidget* self, int param1) 
 }
 
 // Base class handler implementation
-QVariant* QOpenGLWidget_QBaseInputMethodQuery(const QOpenGLWidget* self, int param1) {
+QVariant* QOpenGLWidget_SuperInputMethodQuery(const QOpenGLWidget* self, int param1) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_InputMethodQuery_IsBase(true);
@@ -1479,7 +1479,7 @@ bool QOpenGLWidget_FocusNextPrevChild(QOpenGLWidget* self, bool next) {
 }
 
 // Base class handler implementation
-bool QOpenGLWidget_QBaseFocusNextPrevChild(QOpenGLWidget* self, bool next) {
+bool QOpenGLWidget_SuperFocusNextPrevChild(QOpenGLWidget* self, bool next) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_FocusNextPrevChild_IsBase(true);
@@ -1508,7 +1508,7 @@ bool QOpenGLWidget_EventFilter(QOpenGLWidget* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QOpenGLWidget_QBaseEventFilter(QOpenGLWidget* self, QObject* watched, QEvent* event) {
+bool QOpenGLWidget_SuperEventFilter(QOpenGLWidget* self, QObject* watched, QEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_EventFilter_IsBase(true);
@@ -1537,7 +1537,7 @@ void QOpenGLWidget_TimerEvent(QOpenGLWidget* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseTimerEvent(QOpenGLWidget* self, QTimerEvent* event) {
+void QOpenGLWidget_SuperTimerEvent(QOpenGLWidget* self, QTimerEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_TimerEvent_IsBase(true);
@@ -1566,7 +1566,7 @@ void QOpenGLWidget_ChildEvent(QOpenGLWidget* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseChildEvent(QOpenGLWidget* self, QChildEvent* event) {
+void QOpenGLWidget_SuperChildEvent(QOpenGLWidget* self, QChildEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_ChildEvent_IsBase(true);
@@ -1595,7 +1595,7 @@ void QOpenGLWidget_CustomEvent(QOpenGLWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseCustomEvent(QOpenGLWidget* self, QEvent* event) {
+void QOpenGLWidget_SuperCustomEvent(QOpenGLWidget* self, QEvent* event) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_CustomEvent_IsBase(true);
@@ -1624,7 +1624,7 @@ void QOpenGLWidget_ConnectNotify(QOpenGLWidget* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseConnectNotify(QOpenGLWidget* self, const QMetaMethod* signal) {
+void QOpenGLWidget_SuperConnectNotify(QOpenGLWidget* self, const QMetaMethod* signal) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_ConnectNotify_IsBase(true);
@@ -1653,7 +1653,7 @@ void QOpenGLWidget_DisconnectNotify(QOpenGLWidget* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseDisconnectNotify(QOpenGLWidget* self, const QMetaMethod* signal) {
+void QOpenGLWidget_SuperDisconnectNotify(QOpenGLWidget* self, const QMetaMethod* signal) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_DisconnectNotify_IsBase(true);
@@ -1682,7 +1682,7 @@ void QOpenGLWidget_UpdateMicroFocus(QOpenGLWidget* self) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseUpdateMicroFocus(QOpenGLWidget* self) {
+void QOpenGLWidget_SuperUpdateMicroFocus(QOpenGLWidget* self) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_UpdateMicroFocus_IsBase(true);
@@ -1711,7 +1711,7 @@ void QOpenGLWidget_Create(QOpenGLWidget* self) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseCreate(QOpenGLWidget* self) {
+void QOpenGLWidget_SuperCreate(QOpenGLWidget* self) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_Create_IsBase(true);
@@ -1740,7 +1740,7 @@ void QOpenGLWidget_Destroy(QOpenGLWidget* self) {
 }
 
 // Base class handler implementation
-void QOpenGLWidget_QBaseDestroy(QOpenGLWidget* self) {
+void QOpenGLWidget_SuperDestroy(QOpenGLWidget* self) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_Destroy_IsBase(true);
@@ -1769,7 +1769,7 @@ bool QOpenGLWidget_FocusNextChild(QOpenGLWidget* self) {
 }
 
 // Base class handler implementation
-bool QOpenGLWidget_QBaseFocusNextChild(QOpenGLWidget* self) {
+bool QOpenGLWidget_SuperFocusNextChild(QOpenGLWidget* self) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_FocusNextChild_IsBase(true);
@@ -1798,7 +1798,7 @@ bool QOpenGLWidget_FocusPreviousChild(QOpenGLWidget* self) {
 }
 
 // Base class handler implementation
-bool QOpenGLWidget_QBaseFocusPreviousChild(QOpenGLWidget* self) {
+bool QOpenGLWidget_SuperFocusPreviousChild(QOpenGLWidget* self) {
     auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_FocusPreviousChild_IsBase(true);
@@ -1827,7 +1827,7 @@ QObject* QOpenGLWidget_Sender(const QOpenGLWidget* self) {
 }
 
 // Base class handler implementation
-QObject* QOpenGLWidget_QBaseSender(const QOpenGLWidget* self) {
+QObject* QOpenGLWidget_SuperSender(const QOpenGLWidget* self) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_Sender_IsBase(true);
@@ -1856,7 +1856,7 @@ int QOpenGLWidget_SenderSignalIndex(const QOpenGLWidget* self) {
 }
 
 // Base class handler implementation
-int QOpenGLWidget_QBaseSenderSignalIndex(const QOpenGLWidget* self) {
+int QOpenGLWidget_SuperSenderSignalIndex(const QOpenGLWidget* self) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_SenderSignalIndex_IsBase(true);
@@ -1885,7 +1885,7 @@ int QOpenGLWidget_Receivers(const QOpenGLWidget* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QOpenGLWidget_QBaseReceivers(const QOpenGLWidget* self, const char* signal) {
+int QOpenGLWidget_SuperReceivers(const QOpenGLWidget* self, const char* signal) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_Receivers_IsBase(true);
@@ -1914,7 +1914,7 @@ bool QOpenGLWidget_IsSignalConnected(const QOpenGLWidget* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QOpenGLWidget_QBaseIsSignalConnected(const QOpenGLWidget* self, const QMetaMethod* signal) {
+bool QOpenGLWidget_SuperIsSignalConnected(const QOpenGLWidget* self, const QMetaMethod* signal) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_IsSignalConnected_IsBase(true);
@@ -1943,7 +1943,7 @@ double QOpenGLWidget_GetDecodedMetricF(const QOpenGLWidget* self, int metricA, i
 }
 
 // Base class handler implementation
-double QOpenGLWidget_QBaseGetDecodedMetricF(const QOpenGLWidget* self, int metricA, int metricB) {
+double QOpenGLWidget_SuperGetDecodedMetricF(const QOpenGLWidget* self, int metricA, int metricB) {
     auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
     if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
         vqopenglwidget->setQOpenGLWidget_GetDecodedMetricF_IsBase(true);

@@ -98,6 +98,10 @@ pub const qscrollerproperties = struct {
         qtc.QScrollerProperties_SetScrollMetric(@ptrCast(self), @bitCast(metric), @ptrCast(value));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#dtor.QScrollerProperties)
     ///
     /// Delete this object from C++ memory.
@@ -106,7 +110,7 @@ pub const qscrollerproperties = struct {
     ///
     /// ` self: QtC.QScrollerProperties `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QScrollerProperties_Delete(@ptrCast(self));
     }
 };

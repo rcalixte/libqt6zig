@@ -368,29 +368,29 @@ class VirtualQFinalState final : public QFinalState {
 
     // Friend functions
     friend void QFinalState_OnEntry(QFinalState* self, QEvent* event);
-    friend void QFinalState_QBaseOnEntry(QFinalState* self, QEvent* event);
+    friend void QFinalState_SuperOnEntry(QFinalState* self, QEvent* event);
     friend void QFinalState_OnExit(QFinalState* self, QEvent* event);
-    friend void QFinalState_QBaseOnExit(QFinalState* self, QEvent* event);
+    friend void QFinalState_SuperOnExit(QFinalState* self, QEvent* event);
     friend bool QFinalState_Event(QFinalState* self, QEvent* e);
-    friend bool QFinalState_QBaseEvent(QFinalState* self, QEvent* e);
+    friend bool QFinalState_SuperEvent(QFinalState* self, QEvent* e);
     friend void QFinalState_TimerEvent(QFinalState* self, QTimerEvent* event);
-    friend void QFinalState_QBaseTimerEvent(QFinalState* self, QTimerEvent* event);
+    friend void QFinalState_SuperTimerEvent(QFinalState* self, QTimerEvent* event);
     friend void QFinalState_ChildEvent(QFinalState* self, QChildEvent* event);
-    friend void QFinalState_QBaseChildEvent(QFinalState* self, QChildEvent* event);
+    friend void QFinalState_SuperChildEvent(QFinalState* self, QChildEvent* event);
     friend void QFinalState_CustomEvent(QFinalState* self, QEvent* event);
-    friend void QFinalState_QBaseCustomEvent(QFinalState* self, QEvent* event);
+    friend void QFinalState_SuperCustomEvent(QFinalState* self, QEvent* event);
     friend void QFinalState_ConnectNotify(QFinalState* self, const QMetaMethod* signal);
-    friend void QFinalState_QBaseConnectNotify(QFinalState* self, const QMetaMethod* signal);
+    friend void QFinalState_SuperConnectNotify(QFinalState* self, const QMetaMethod* signal);
     friend void QFinalState_DisconnectNotify(QFinalState* self, const QMetaMethod* signal);
-    friend void QFinalState_QBaseDisconnectNotify(QFinalState* self, const QMetaMethod* signal);
+    friend void QFinalState_SuperDisconnectNotify(QFinalState* self, const QMetaMethod* signal);
     friend QObject* QFinalState_Sender(const QFinalState* self);
-    friend QObject* QFinalState_QBaseSender(const QFinalState* self);
+    friend QObject* QFinalState_SuperSender(const QFinalState* self);
     friend int QFinalState_SenderSignalIndex(const QFinalState* self);
-    friend int QFinalState_QBaseSenderSignalIndex(const QFinalState* self);
+    friend int QFinalState_SuperSenderSignalIndex(const QFinalState* self);
     friend int QFinalState_Receivers(const QFinalState* self, const char* signal);
-    friend int QFinalState_QBaseReceivers(const QFinalState* self, const char* signal);
+    friend int QFinalState_SuperReceivers(const QFinalState* self, const char* signal);
     friend bool QFinalState_IsSignalConnected(const QFinalState* self, const QMetaMethod* signal);
-    friend bool QFinalState_QBaseIsSignalConnected(const QFinalState* self, const QMetaMethod* signal);
+    friend bool QFinalState_SuperIsSignalConnected(const QFinalState* self, const QMetaMethod* signal);
 };
 
 #endif

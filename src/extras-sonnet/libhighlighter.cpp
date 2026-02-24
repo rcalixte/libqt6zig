@@ -285,7 +285,7 @@ libqt_list /* of libqt_string */ Sonnet__Highlighter_SuggestionsForWord3(Sonnet_
 }
 
 // Base class handler implementation
-QMetaObject* Sonnet__Highlighter_QBaseMetaObject(const Sonnet__Highlighter* self) {
+QMetaObject* Sonnet__Highlighter_SuperMetaObject(const Sonnet__Highlighter* self) {
     auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_MetaObject_IsBase(true);
@@ -304,7 +304,7 @@ void Sonnet__Highlighter_OnMetaObject(const Sonnet__Highlighter* self, intptr_t 
 }
 
 // Base class handler implementation
-void* Sonnet__Highlighter_QBaseMetacast(Sonnet__Highlighter* self, const char* param1) {
+void* Sonnet__Highlighter_SuperMetacast(Sonnet__Highlighter* self, const char* param1) {
     auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_Metacast_IsBase(true);
@@ -323,7 +323,7 @@ void Sonnet__Highlighter_OnMetacast(Sonnet__Highlighter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int Sonnet__Highlighter_QBaseMetacall(Sonnet__Highlighter* self, int param1, int param2, void** param3) {
+int Sonnet__Highlighter_SuperMetacall(Sonnet__Highlighter* self, int param1, int param2, void** param3) {
     auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_Metacall_IsBase(true);
@@ -342,7 +342,7 @@ void Sonnet__Highlighter_OnMetacall(Sonnet__Highlighter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void Sonnet__Highlighter_QBaseHighlightBlock(Sonnet__Highlighter* self, const libqt_string text) {
+void Sonnet__Highlighter_SuperHighlightBlock(Sonnet__Highlighter* self, const libqt_string text) {
     auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
@@ -362,7 +362,7 @@ void Sonnet__Highlighter_OnHighlightBlock(Sonnet__Highlighter* self, intptr_t sl
 }
 
 // Base class handler implementation
-void Sonnet__Highlighter_QBaseSetMisspelled(Sonnet__Highlighter* self, int start, int count) {
+void Sonnet__Highlighter_SuperSetMisspelled(Sonnet__Highlighter* self, int start, int count) {
     auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_SetMisspelled_IsBase(true);
@@ -381,7 +381,7 @@ void Sonnet__Highlighter_OnSetMisspelled(Sonnet__Highlighter* self, intptr_t slo
 }
 
 // Base class handler implementation
-void Sonnet__Highlighter_QBaseUnsetMisspelled(Sonnet__Highlighter* self, int start, int count) {
+void Sonnet__Highlighter_SuperUnsetMisspelled(Sonnet__Highlighter* self, int start, int count) {
     auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_UnsetMisspelled_IsBase(true);
@@ -400,7 +400,7 @@ void Sonnet__Highlighter_OnUnsetMisspelled(Sonnet__Highlighter* self, intptr_t s
 }
 
 // Base class handler implementation
-bool Sonnet__Highlighter_QBaseEventFilter(Sonnet__Highlighter* self, QObject* o, QEvent* e) {
+bool Sonnet__Highlighter_SuperEventFilter(Sonnet__Highlighter* self, QObject* o, QEvent* e) {
     auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_EventFilter_IsBase(true);
@@ -429,7 +429,7 @@ bool Sonnet__Highlighter_Event(Sonnet__Highlighter* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool Sonnet__Highlighter_QBaseEvent(Sonnet__Highlighter* self, QEvent* event) {
+bool Sonnet__Highlighter_SuperEvent(Sonnet__Highlighter* self, QEvent* event) {
     auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_Event_IsBase(true);
@@ -458,7 +458,7 @@ void Sonnet__Highlighter_TimerEvent(Sonnet__Highlighter* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void Sonnet__Highlighter_QBaseTimerEvent(Sonnet__Highlighter* self, QTimerEvent* event) {
+void Sonnet__Highlighter_SuperTimerEvent(Sonnet__Highlighter* self, QTimerEvent* event) {
     auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_TimerEvent_IsBase(true);
@@ -487,7 +487,7 @@ void Sonnet__Highlighter_ChildEvent(Sonnet__Highlighter* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void Sonnet__Highlighter_QBaseChildEvent(Sonnet__Highlighter* self, QChildEvent* event) {
+void Sonnet__Highlighter_SuperChildEvent(Sonnet__Highlighter* self, QChildEvent* event) {
     auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_ChildEvent_IsBase(true);
@@ -516,7 +516,7 @@ void Sonnet__Highlighter_CustomEvent(Sonnet__Highlighter* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void Sonnet__Highlighter_QBaseCustomEvent(Sonnet__Highlighter* self, QEvent* event) {
+void Sonnet__Highlighter_SuperCustomEvent(Sonnet__Highlighter* self, QEvent* event) {
     auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_CustomEvent_IsBase(true);
@@ -545,7 +545,7 @@ void Sonnet__Highlighter_ConnectNotify(Sonnet__Highlighter* self, const QMetaMet
 }
 
 // Base class handler implementation
-void Sonnet__Highlighter_QBaseConnectNotify(Sonnet__Highlighter* self, const QMetaMethod* signal) {
+void Sonnet__Highlighter_SuperConnectNotify(Sonnet__Highlighter* self, const QMetaMethod* signal) {
     auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_ConnectNotify_IsBase(true);
@@ -574,7 +574,7 @@ void Sonnet__Highlighter_DisconnectNotify(Sonnet__Highlighter* self, const QMeta
 }
 
 // Base class handler implementation
-void Sonnet__Highlighter_QBaseDisconnectNotify(Sonnet__Highlighter* self, const QMetaMethod* signal) {
+void Sonnet__Highlighter_SuperDisconnectNotify(Sonnet__Highlighter* self, const QMetaMethod* signal) {
     auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_DisconnectNotify_IsBase(true);
@@ -603,7 +603,7 @@ bool Sonnet__Highlighter_IntraWordEditing(const Sonnet__Highlighter* self) {
 }
 
 // Base class handler implementation
-bool Sonnet__Highlighter_QBaseIntraWordEditing(const Sonnet__Highlighter* self) {
+bool Sonnet__Highlighter_SuperIntraWordEditing(const Sonnet__Highlighter* self) {
     auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_IntraWordEditing_IsBase(true);
@@ -632,7 +632,7 @@ void Sonnet__Highlighter_SetIntraWordEditing(Sonnet__Highlighter* self, bool edi
 }
 
 // Base class handler implementation
-void Sonnet__Highlighter_QBaseSetIntraWordEditing(Sonnet__Highlighter* self, bool editing) {
+void Sonnet__Highlighter_SuperSetIntraWordEditing(Sonnet__Highlighter* self, bool editing) {
     auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_SetIntraWordEditing_IsBase(true);
@@ -661,7 +661,7 @@ void Sonnet__Highlighter_SetFormat(Sonnet__Highlighter* self, int start, int cou
 }
 
 // Base class handler implementation
-void Sonnet__Highlighter_QBaseSetFormat(Sonnet__Highlighter* self, int start, int count, const QTextCharFormat* format) {
+void Sonnet__Highlighter_SuperSetFormat(Sonnet__Highlighter* self, int start, int count, const QTextCharFormat* format) {
     auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_SetFormat_IsBase(true);
@@ -689,7 +689,7 @@ QTextCharFormat* Sonnet__Highlighter_Format(const Sonnet__Highlighter* self, int
 }
 
 // Base class handler implementation
-QTextCharFormat* Sonnet__Highlighter_QBaseFormat(const Sonnet__Highlighter* self, int pos) {
+QTextCharFormat* Sonnet__Highlighter_SuperFormat(const Sonnet__Highlighter* self, int pos) {
     auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_Format_IsBase(true);
@@ -717,7 +717,7 @@ int Sonnet__Highlighter_PreviousBlockState(const Sonnet__Highlighter* self) {
 }
 
 // Base class handler implementation
-int Sonnet__Highlighter_QBasePreviousBlockState(const Sonnet__Highlighter* self) {
+int Sonnet__Highlighter_SuperPreviousBlockState(const Sonnet__Highlighter* self) {
     auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_PreviousBlockState_IsBase(true);
@@ -746,7 +746,7 @@ int Sonnet__Highlighter_CurrentBlockState(const Sonnet__Highlighter* self) {
 }
 
 // Base class handler implementation
-int Sonnet__Highlighter_QBaseCurrentBlockState(const Sonnet__Highlighter* self) {
+int Sonnet__Highlighter_SuperCurrentBlockState(const Sonnet__Highlighter* self) {
     auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_CurrentBlockState_IsBase(true);
@@ -775,7 +775,7 @@ void Sonnet__Highlighter_SetCurrentBlockState(Sonnet__Highlighter* self, int new
 }
 
 // Base class handler implementation
-void Sonnet__Highlighter_QBaseSetCurrentBlockState(Sonnet__Highlighter* self, int newState) {
+void Sonnet__Highlighter_SuperSetCurrentBlockState(Sonnet__Highlighter* self, int newState) {
     auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_SetCurrentBlockState_IsBase(true);
@@ -804,7 +804,7 @@ void Sonnet__Highlighter_SetCurrentBlockUserData(Sonnet__Highlighter* self, QTex
 }
 
 // Base class handler implementation
-void Sonnet__Highlighter_QBaseSetCurrentBlockUserData(Sonnet__Highlighter* self, QTextBlockUserData* data) {
+void Sonnet__Highlighter_SuperSetCurrentBlockUserData(Sonnet__Highlighter* self, QTextBlockUserData* data) {
     auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_SetCurrentBlockUserData_IsBase(true);
@@ -833,7 +833,7 @@ QTextBlockUserData* Sonnet__Highlighter_CurrentBlockUserData(const Sonnet__Highl
 }
 
 // Base class handler implementation
-QTextBlockUserData* Sonnet__Highlighter_QBaseCurrentBlockUserData(const Sonnet__Highlighter* self) {
+QTextBlockUserData* Sonnet__Highlighter_SuperCurrentBlockUserData(const Sonnet__Highlighter* self) {
     auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_CurrentBlockUserData_IsBase(true);
@@ -861,7 +861,7 @@ QTextBlock* Sonnet__Highlighter_CurrentBlock(const Sonnet__Highlighter* self) {
 }
 
 // Base class handler implementation
-QTextBlock* Sonnet__Highlighter_QBaseCurrentBlock(const Sonnet__Highlighter* self) {
+QTextBlock* Sonnet__Highlighter_SuperCurrentBlock(const Sonnet__Highlighter* self) {
     auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_CurrentBlock_IsBase(true);
@@ -889,7 +889,7 @@ QObject* Sonnet__Highlighter_Sender(const Sonnet__Highlighter* self) {
 }
 
 // Base class handler implementation
-QObject* Sonnet__Highlighter_QBaseSender(const Sonnet__Highlighter* self) {
+QObject* Sonnet__Highlighter_SuperSender(const Sonnet__Highlighter* self) {
     auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_Sender_IsBase(true);
@@ -918,7 +918,7 @@ int Sonnet__Highlighter_SenderSignalIndex(const Sonnet__Highlighter* self) {
 }
 
 // Base class handler implementation
-int Sonnet__Highlighter_QBaseSenderSignalIndex(const Sonnet__Highlighter* self) {
+int Sonnet__Highlighter_SuperSenderSignalIndex(const Sonnet__Highlighter* self) {
     auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_SenderSignalIndex_IsBase(true);
@@ -947,7 +947,7 @@ int Sonnet__Highlighter_Receivers(const Sonnet__Highlighter* self, const char* s
 }
 
 // Base class handler implementation
-int Sonnet__Highlighter_QBaseReceivers(const Sonnet__Highlighter* self, const char* signal) {
+int Sonnet__Highlighter_SuperReceivers(const Sonnet__Highlighter* self, const char* signal) {
     auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_Receivers_IsBase(true);
@@ -976,7 +976,7 @@ bool Sonnet__Highlighter_IsSignalConnected(const Sonnet__Highlighter* self, cons
 }
 
 // Base class handler implementation
-bool Sonnet__Highlighter_QBaseIsSignalConnected(const Sonnet__Highlighter* self, const QMetaMethod* signal) {
+bool Sonnet__Highlighter_SuperIsSignalConnected(const Sonnet__Highlighter* self, const QMetaMethod* signal) {
     auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
     if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
         vsonnethighlighter->setSonnet__Highlighter_IsSignalConnected_IsBase(true);

@@ -438,23 +438,23 @@ class VirtualQDesignerFormWindowToolInterface : public QDesignerFormWindowToolIn
 
     // Friend functions
     friend void QDesignerFormWindowToolInterface_TimerEvent(QDesignerFormWindowToolInterface* self, QTimerEvent* event);
-    friend void QDesignerFormWindowToolInterface_QBaseTimerEvent(QDesignerFormWindowToolInterface* self, QTimerEvent* event);
+    friend void QDesignerFormWindowToolInterface_SuperTimerEvent(QDesignerFormWindowToolInterface* self, QTimerEvent* event);
     friend void QDesignerFormWindowToolInterface_ChildEvent(QDesignerFormWindowToolInterface* self, QChildEvent* event);
-    friend void QDesignerFormWindowToolInterface_QBaseChildEvent(QDesignerFormWindowToolInterface* self, QChildEvent* event);
+    friend void QDesignerFormWindowToolInterface_SuperChildEvent(QDesignerFormWindowToolInterface* self, QChildEvent* event);
     friend void QDesignerFormWindowToolInterface_CustomEvent(QDesignerFormWindowToolInterface* self, QEvent* event);
-    friend void QDesignerFormWindowToolInterface_QBaseCustomEvent(QDesignerFormWindowToolInterface* self, QEvent* event);
+    friend void QDesignerFormWindowToolInterface_SuperCustomEvent(QDesignerFormWindowToolInterface* self, QEvent* event);
     friend void QDesignerFormWindowToolInterface_ConnectNotify(QDesignerFormWindowToolInterface* self, const QMetaMethod* signal);
-    friend void QDesignerFormWindowToolInterface_QBaseConnectNotify(QDesignerFormWindowToolInterface* self, const QMetaMethod* signal);
+    friend void QDesignerFormWindowToolInterface_SuperConnectNotify(QDesignerFormWindowToolInterface* self, const QMetaMethod* signal);
     friend void QDesignerFormWindowToolInterface_DisconnectNotify(QDesignerFormWindowToolInterface* self, const QMetaMethod* signal);
-    friend void QDesignerFormWindowToolInterface_QBaseDisconnectNotify(QDesignerFormWindowToolInterface* self, const QMetaMethod* signal);
+    friend void QDesignerFormWindowToolInterface_SuperDisconnectNotify(QDesignerFormWindowToolInterface* self, const QMetaMethod* signal);
     friend QObject* QDesignerFormWindowToolInterface_Sender(const QDesignerFormWindowToolInterface* self);
-    friend QObject* QDesignerFormWindowToolInterface_QBaseSender(const QDesignerFormWindowToolInterface* self);
+    friend QObject* QDesignerFormWindowToolInterface_SuperSender(const QDesignerFormWindowToolInterface* self);
     friend int QDesignerFormWindowToolInterface_SenderSignalIndex(const QDesignerFormWindowToolInterface* self);
-    friend int QDesignerFormWindowToolInterface_QBaseSenderSignalIndex(const QDesignerFormWindowToolInterface* self);
+    friend int QDesignerFormWindowToolInterface_SuperSenderSignalIndex(const QDesignerFormWindowToolInterface* self);
     friend int QDesignerFormWindowToolInterface_Receivers(const QDesignerFormWindowToolInterface* self, const char* signal);
-    friend int QDesignerFormWindowToolInterface_QBaseReceivers(const QDesignerFormWindowToolInterface* self, const char* signal);
+    friend int QDesignerFormWindowToolInterface_SuperReceivers(const QDesignerFormWindowToolInterface* self, const char* signal);
     friend bool QDesignerFormWindowToolInterface_IsSignalConnected(const QDesignerFormWindowToolInterface* self, const QMetaMethod* signal);
-    friend bool QDesignerFormWindowToolInterface_QBaseIsSignalConnected(const QDesignerFormWindowToolInterface* self, const QMetaMethod* signal);
+    friend bool QDesignerFormWindowToolInterface_SuperIsSignalConnected(const QDesignerFormWindowToolInterface* self, const QMetaMethod* signal);
 };
 
 #endif

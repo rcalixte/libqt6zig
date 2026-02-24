@@ -296,7 +296,7 @@ void KRichTextEdit_KeyPressEvent(KRichTextEdit* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-QMetaObject* KRichTextEdit_QBaseMetaObject(const KRichTextEdit* self) {
+QMetaObject* KRichTextEdit_SuperMetaObject(const KRichTextEdit* self) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_MetaObject_IsBase(true);
@@ -315,7 +315,7 @@ void KRichTextEdit_OnMetaObject(const KRichTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KRichTextEdit_QBaseMetacast(KRichTextEdit* self, const char* param1) {
+void* KRichTextEdit_SuperMetacast(KRichTextEdit* self, const char* param1) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_Metacast_IsBase(true);
@@ -334,7 +334,7 @@ void KRichTextEdit_OnMetacast(KRichTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KRichTextEdit_QBaseMetacall(KRichTextEdit* self, int param1, int param2, void** param3) {
+int KRichTextEdit_SuperMetacall(KRichTextEdit* self, int param1, int param2, void** param3) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_Metacall_IsBase(true);
@@ -353,7 +353,7 @@ void KRichTextEdit_OnMetacall(KRichTextEdit* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseKeyPressEvent(KRichTextEdit* self, QKeyEvent* event) {
+void KRichTextEdit_SuperKeyPressEvent(KRichTextEdit* self, QKeyEvent* event) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_KeyPressEvent_IsBase(true);
@@ -382,7 +382,7 @@ void KRichTextEdit_SetReadOnly(KRichTextEdit* self, bool readOnly) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseSetReadOnly(KRichTextEdit* self, bool readOnly) {
+void KRichTextEdit_SuperSetReadOnly(KRichTextEdit* self, bool readOnly) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_SetReadOnly_IsBase(true);
@@ -411,7 +411,7 @@ void KRichTextEdit_SetCheckSpellingEnabled(KRichTextEdit* self, bool check) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseSetCheckSpellingEnabled(KRichTextEdit* self, bool check) {
+void KRichTextEdit_SuperSetCheckSpellingEnabled(KRichTextEdit* self, bool check) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_SetCheckSpellingEnabled_IsBase(true);
@@ -440,7 +440,7 @@ bool KRichTextEdit_CheckSpellingEnabled(const KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-bool KRichTextEdit_QBaseCheckSpellingEnabled(const KRichTextEdit* self) {
+bool KRichTextEdit_SuperCheckSpellingEnabled(const KRichTextEdit* self) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_CheckSpellingEnabled_IsBase(true);
@@ -470,7 +470,7 @@ bool KRichTextEdit_ShouldBlockBeSpellChecked(const KRichTextEdit* self, const li
 }
 
 // Base class handler implementation
-bool KRichTextEdit_QBaseShouldBlockBeSpellChecked(const KRichTextEdit* self, const libqt_string block) {
+bool KRichTextEdit_SuperShouldBlockBeSpellChecked(const KRichTextEdit* self, const libqt_string block) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     QString block_QString = QString::fromUtf8(block.data, block.len);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
@@ -500,7 +500,7 @@ void KRichTextEdit_CreateHighlighter(KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseCreateHighlighter(KRichTextEdit* self) {
+void KRichTextEdit_SuperCreateHighlighter(KRichTextEdit* self) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_CreateHighlighter_IsBase(true);
@@ -529,7 +529,7 @@ QMenu* KRichTextEdit_MousePopupMenu(KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-QMenu* KRichTextEdit_QBaseMousePopupMenu(KRichTextEdit* self) {
+QMenu* KRichTextEdit_SuperMousePopupMenu(KRichTextEdit* self) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_MousePopupMenu_IsBase(true);
@@ -558,7 +558,7 @@ bool KRichTextEdit_Event(KRichTextEdit* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool KRichTextEdit_QBaseEvent(KRichTextEdit* self, QEvent* param1) {
+bool KRichTextEdit_SuperEvent(KRichTextEdit* self, QEvent* param1) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_Event_IsBase(true);
@@ -587,7 +587,7 @@ void KRichTextEdit_FocusInEvent(KRichTextEdit* self, QFocusEvent* param1) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseFocusInEvent(KRichTextEdit* self, QFocusEvent* param1) {
+void KRichTextEdit_SuperFocusInEvent(KRichTextEdit* self, QFocusEvent* param1) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_FocusInEvent_IsBase(true);
@@ -616,7 +616,7 @@ void KRichTextEdit_DeleteWordBack(KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseDeleteWordBack(KRichTextEdit* self) {
+void KRichTextEdit_SuperDeleteWordBack(KRichTextEdit* self) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_DeleteWordBack_IsBase(true);
@@ -645,7 +645,7 @@ void KRichTextEdit_DeleteWordForward(KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseDeleteWordForward(KRichTextEdit* self) {
+void KRichTextEdit_SuperDeleteWordForward(KRichTextEdit* self) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_DeleteWordForward_IsBase(true);
@@ -674,7 +674,7 @@ void KRichTextEdit_ContextMenuEvent(KRichTextEdit* self, QContextMenuEvent* para
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseContextMenuEvent(KRichTextEdit* self, QContextMenuEvent* param1) {
+void KRichTextEdit_SuperContextMenuEvent(KRichTextEdit* self, QContextMenuEvent* param1) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_ContextMenuEvent_IsBase(true);
@@ -703,7 +703,7 @@ QVariant* KRichTextEdit_LoadResource(KRichTextEdit* self, int typeVal, const QUr
 }
 
 // Base class handler implementation
-QVariant* KRichTextEdit_QBaseLoadResource(KRichTextEdit* self, int typeVal, const QUrl* name) {
+QVariant* KRichTextEdit_SuperLoadResource(KRichTextEdit* self, int typeVal, const QUrl* name) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_LoadResource_IsBase(true);
@@ -732,7 +732,7 @@ QVariant* KRichTextEdit_InputMethodQuery(const KRichTextEdit* self, int property
 }
 
 // Base class handler implementation
-QVariant* KRichTextEdit_QBaseInputMethodQuery(const KRichTextEdit* self, int property) {
+QVariant* KRichTextEdit_SuperInputMethodQuery(const KRichTextEdit* self, int property) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_InputMethodQuery_IsBase(true);
@@ -761,7 +761,7 @@ void KRichTextEdit_TimerEvent(KRichTextEdit* self, QTimerEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseTimerEvent(KRichTextEdit* self, QTimerEvent* e) {
+void KRichTextEdit_SuperTimerEvent(KRichTextEdit* self, QTimerEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_TimerEvent_IsBase(true);
@@ -790,7 +790,7 @@ void KRichTextEdit_KeyReleaseEvent(KRichTextEdit* self, QKeyEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseKeyReleaseEvent(KRichTextEdit* self, QKeyEvent* e) {
+void KRichTextEdit_SuperKeyReleaseEvent(KRichTextEdit* self, QKeyEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_KeyReleaseEvent_IsBase(true);
@@ -819,7 +819,7 @@ void KRichTextEdit_ResizeEvent(KRichTextEdit* self, QResizeEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseResizeEvent(KRichTextEdit* self, QResizeEvent* e) {
+void KRichTextEdit_SuperResizeEvent(KRichTextEdit* self, QResizeEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_ResizeEvent_IsBase(true);
@@ -848,7 +848,7 @@ void KRichTextEdit_PaintEvent(KRichTextEdit* self, QPaintEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBasePaintEvent(KRichTextEdit* self, QPaintEvent* e) {
+void KRichTextEdit_SuperPaintEvent(KRichTextEdit* self, QPaintEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_PaintEvent_IsBase(true);
@@ -877,7 +877,7 @@ void KRichTextEdit_MousePressEvent(KRichTextEdit* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseMousePressEvent(KRichTextEdit* self, QMouseEvent* e) {
+void KRichTextEdit_SuperMousePressEvent(KRichTextEdit* self, QMouseEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_MousePressEvent_IsBase(true);
@@ -906,7 +906,7 @@ void KRichTextEdit_MouseMoveEvent(KRichTextEdit* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseMouseMoveEvent(KRichTextEdit* self, QMouseEvent* e) {
+void KRichTextEdit_SuperMouseMoveEvent(KRichTextEdit* self, QMouseEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_MouseMoveEvent_IsBase(true);
@@ -935,7 +935,7 @@ void KRichTextEdit_MouseReleaseEvent(KRichTextEdit* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseMouseReleaseEvent(KRichTextEdit* self, QMouseEvent* e) {
+void KRichTextEdit_SuperMouseReleaseEvent(KRichTextEdit* self, QMouseEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_MouseReleaseEvent_IsBase(true);
@@ -964,7 +964,7 @@ void KRichTextEdit_MouseDoubleClickEvent(KRichTextEdit* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseMouseDoubleClickEvent(KRichTextEdit* self, QMouseEvent* e) {
+void KRichTextEdit_SuperMouseDoubleClickEvent(KRichTextEdit* self, QMouseEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_MouseDoubleClickEvent_IsBase(true);
@@ -993,7 +993,7 @@ bool KRichTextEdit_FocusNextPrevChild(KRichTextEdit* self, bool next) {
 }
 
 // Base class handler implementation
-bool KRichTextEdit_QBaseFocusNextPrevChild(KRichTextEdit* self, bool next) {
+bool KRichTextEdit_SuperFocusNextPrevChild(KRichTextEdit* self, bool next) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_FocusNextPrevChild_IsBase(true);
@@ -1022,7 +1022,7 @@ void KRichTextEdit_DragEnterEvent(KRichTextEdit* self, QDragEnterEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseDragEnterEvent(KRichTextEdit* self, QDragEnterEvent* e) {
+void KRichTextEdit_SuperDragEnterEvent(KRichTextEdit* self, QDragEnterEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_DragEnterEvent_IsBase(true);
@@ -1051,7 +1051,7 @@ void KRichTextEdit_DragLeaveEvent(KRichTextEdit* self, QDragLeaveEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseDragLeaveEvent(KRichTextEdit* self, QDragLeaveEvent* e) {
+void KRichTextEdit_SuperDragLeaveEvent(KRichTextEdit* self, QDragLeaveEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_DragLeaveEvent_IsBase(true);
@@ -1080,7 +1080,7 @@ void KRichTextEdit_DragMoveEvent(KRichTextEdit* self, QDragMoveEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseDragMoveEvent(KRichTextEdit* self, QDragMoveEvent* e) {
+void KRichTextEdit_SuperDragMoveEvent(KRichTextEdit* self, QDragMoveEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_DragMoveEvent_IsBase(true);
@@ -1109,7 +1109,7 @@ void KRichTextEdit_DropEvent(KRichTextEdit* self, QDropEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseDropEvent(KRichTextEdit* self, QDropEvent* e) {
+void KRichTextEdit_SuperDropEvent(KRichTextEdit* self, QDropEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_DropEvent_IsBase(true);
@@ -1138,7 +1138,7 @@ void KRichTextEdit_FocusOutEvent(KRichTextEdit* self, QFocusEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseFocusOutEvent(KRichTextEdit* self, QFocusEvent* e) {
+void KRichTextEdit_SuperFocusOutEvent(KRichTextEdit* self, QFocusEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_FocusOutEvent_IsBase(true);
@@ -1167,7 +1167,7 @@ void KRichTextEdit_ShowEvent(KRichTextEdit* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseShowEvent(KRichTextEdit* self, QShowEvent* param1) {
+void KRichTextEdit_SuperShowEvent(KRichTextEdit* self, QShowEvent* param1) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_ShowEvent_IsBase(true);
@@ -1196,7 +1196,7 @@ void KRichTextEdit_ChangeEvent(KRichTextEdit* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseChangeEvent(KRichTextEdit* self, QEvent* e) {
+void KRichTextEdit_SuperChangeEvent(KRichTextEdit* self, QEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_ChangeEvent_IsBase(true);
@@ -1225,7 +1225,7 @@ void KRichTextEdit_WheelEvent(KRichTextEdit* self, QWheelEvent* e) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseWheelEvent(KRichTextEdit* self, QWheelEvent* e) {
+void KRichTextEdit_SuperWheelEvent(KRichTextEdit* self, QWheelEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_WheelEvent_IsBase(true);
@@ -1254,7 +1254,7 @@ QMimeData* KRichTextEdit_CreateMimeDataFromSelection(const KRichTextEdit* self) 
 }
 
 // Base class handler implementation
-QMimeData* KRichTextEdit_QBaseCreateMimeDataFromSelection(const KRichTextEdit* self) {
+QMimeData* KRichTextEdit_SuperCreateMimeDataFromSelection(const KRichTextEdit* self) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_CreateMimeDataFromSelection_IsBase(true);
@@ -1283,7 +1283,7 @@ bool KRichTextEdit_CanInsertFromMimeData(const KRichTextEdit* self, const QMimeD
 }
 
 // Base class handler implementation
-bool KRichTextEdit_QBaseCanInsertFromMimeData(const KRichTextEdit* self, const QMimeData* source) {
+bool KRichTextEdit_SuperCanInsertFromMimeData(const KRichTextEdit* self, const QMimeData* source) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_CanInsertFromMimeData_IsBase(true);
@@ -1312,7 +1312,7 @@ void KRichTextEdit_InsertFromMimeData(KRichTextEdit* self, const QMimeData* sour
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseInsertFromMimeData(KRichTextEdit* self, const QMimeData* source) {
+void KRichTextEdit_SuperInsertFromMimeData(KRichTextEdit* self, const QMimeData* source) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_InsertFromMimeData_IsBase(true);
@@ -1341,7 +1341,7 @@ void KRichTextEdit_InputMethodEvent(KRichTextEdit* self, QInputMethodEvent* para
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseInputMethodEvent(KRichTextEdit* self, QInputMethodEvent* param1) {
+void KRichTextEdit_SuperInputMethodEvent(KRichTextEdit* self, QInputMethodEvent* param1) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_InputMethodEvent_IsBase(true);
@@ -1370,7 +1370,7 @@ void KRichTextEdit_ScrollContentsBy(KRichTextEdit* self, int dx, int dy) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseScrollContentsBy(KRichTextEdit* self, int dx, int dy) {
+void KRichTextEdit_SuperScrollContentsBy(KRichTextEdit* self, int dx, int dy) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_ScrollContentsBy_IsBase(true);
@@ -1399,7 +1399,7 @@ void KRichTextEdit_DoSetTextCursor(KRichTextEdit* self, const QTextCursor* curso
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseDoSetTextCursor(KRichTextEdit* self, const QTextCursor* cursor) {
+void KRichTextEdit_SuperDoSetTextCursor(KRichTextEdit* self, const QTextCursor* cursor) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_DoSetTextCursor_IsBase(true);
@@ -1428,7 +1428,7 @@ QSize* KRichTextEdit_MinimumSizeHint(const KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-QSize* KRichTextEdit_QBaseMinimumSizeHint(const KRichTextEdit* self) {
+QSize* KRichTextEdit_SuperMinimumSizeHint(const KRichTextEdit* self) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_MinimumSizeHint_IsBase(true);
@@ -1457,7 +1457,7 @@ QSize* KRichTextEdit_SizeHint(const KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-QSize* KRichTextEdit_QBaseSizeHint(const KRichTextEdit* self) {
+QSize* KRichTextEdit_SuperSizeHint(const KRichTextEdit* self) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_SizeHint_IsBase(true);
@@ -1486,7 +1486,7 @@ void KRichTextEdit_SetupViewport(KRichTextEdit* self, QWidget* viewport) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseSetupViewport(KRichTextEdit* self, QWidget* viewport) {
+void KRichTextEdit_SuperSetupViewport(KRichTextEdit* self, QWidget* viewport) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_SetupViewport_IsBase(true);
@@ -1515,7 +1515,7 @@ bool KRichTextEdit_EventFilter(KRichTextEdit* self, QObject* param1, QEvent* par
 }
 
 // Base class handler implementation
-bool KRichTextEdit_QBaseEventFilter(KRichTextEdit* self, QObject* param1, QEvent* param2) {
+bool KRichTextEdit_SuperEventFilter(KRichTextEdit* self, QObject* param1, QEvent* param2) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_EventFilter_IsBase(true);
@@ -1544,7 +1544,7 @@ bool KRichTextEdit_ViewportEvent(KRichTextEdit* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool KRichTextEdit_QBaseViewportEvent(KRichTextEdit* self, QEvent* param1) {
+bool KRichTextEdit_SuperViewportEvent(KRichTextEdit* self, QEvent* param1) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_ViewportEvent_IsBase(true);
@@ -1572,7 +1572,7 @@ QSize* KRichTextEdit_ViewportSizeHint(const KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-QSize* KRichTextEdit_QBaseViewportSizeHint(const KRichTextEdit* self) {
+QSize* KRichTextEdit_SuperViewportSizeHint(const KRichTextEdit* self) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_ViewportSizeHint_IsBase(true);
@@ -1600,7 +1600,7 @@ void KRichTextEdit_InitStyleOption(const KRichTextEdit* self, QStyleOptionFrame*
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseInitStyleOption(const KRichTextEdit* self, QStyleOptionFrame* option) {
+void KRichTextEdit_SuperInitStyleOption(const KRichTextEdit* self, QStyleOptionFrame* option) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_InitStyleOption_IsBase(true);
@@ -1629,7 +1629,7 @@ int KRichTextEdit_DevType(const KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-int KRichTextEdit_QBaseDevType(const KRichTextEdit* self) {
+int KRichTextEdit_SuperDevType(const KRichTextEdit* self) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_DevType_IsBase(true);
@@ -1658,7 +1658,7 @@ void KRichTextEdit_SetVisible(KRichTextEdit* self, bool visible) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseSetVisible(KRichTextEdit* self, bool visible) {
+void KRichTextEdit_SuperSetVisible(KRichTextEdit* self, bool visible) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_SetVisible_IsBase(true);
@@ -1687,7 +1687,7 @@ int KRichTextEdit_HeightForWidth(const KRichTextEdit* self, int param1) {
 }
 
 // Base class handler implementation
-int KRichTextEdit_QBaseHeightForWidth(const KRichTextEdit* self, int param1) {
+int KRichTextEdit_SuperHeightForWidth(const KRichTextEdit* self, int param1) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_HeightForWidth_IsBase(true);
@@ -1716,7 +1716,7 @@ bool KRichTextEdit_HasHeightForWidth(const KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-bool KRichTextEdit_QBaseHasHeightForWidth(const KRichTextEdit* self) {
+bool KRichTextEdit_SuperHasHeightForWidth(const KRichTextEdit* self) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_HasHeightForWidth_IsBase(true);
@@ -1745,7 +1745,7 @@ QPaintEngine* KRichTextEdit_PaintEngine(const KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KRichTextEdit_QBasePaintEngine(const KRichTextEdit* self) {
+QPaintEngine* KRichTextEdit_SuperPaintEngine(const KRichTextEdit* self) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_PaintEngine_IsBase(true);
@@ -1774,7 +1774,7 @@ void KRichTextEdit_EnterEvent(KRichTextEdit* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseEnterEvent(KRichTextEdit* self, QEnterEvent* event) {
+void KRichTextEdit_SuperEnterEvent(KRichTextEdit* self, QEnterEvent* event) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_EnterEvent_IsBase(true);
@@ -1803,7 +1803,7 @@ void KRichTextEdit_LeaveEvent(KRichTextEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseLeaveEvent(KRichTextEdit* self, QEvent* event) {
+void KRichTextEdit_SuperLeaveEvent(KRichTextEdit* self, QEvent* event) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_LeaveEvent_IsBase(true);
@@ -1832,7 +1832,7 @@ void KRichTextEdit_MoveEvent(KRichTextEdit* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseMoveEvent(KRichTextEdit* self, QMoveEvent* event) {
+void KRichTextEdit_SuperMoveEvent(KRichTextEdit* self, QMoveEvent* event) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_MoveEvent_IsBase(true);
@@ -1861,7 +1861,7 @@ void KRichTextEdit_CloseEvent(KRichTextEdit* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseCloseEvent(KRichTextEdit* self, QCloseEvent* event) {
+void KRichTextEdit_SuperCloseEvent(KRichTextEdit* self, QCloseEvent* event) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_CloseEvent_IsBase(true);
@@ -1890,7 +1890,7 @@ void KRichTextEdit_TabletEvent(KRichTextEdit* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseTabletEvent(KRichTextEdit* self, QTabletEvent* event) {
+void KRichTextEdit_SuperTabletEvent(KRichTextEdit* self, QTabletEvent* event) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_TabletEvent_IsBase(true);
@@ -1919,7 +1919,7 @@ void KRichTextEdit_ActionEvent(KRichTextEdit* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseActionEvent(KRichTextEdit* self, QActionEvent* event) {
+void KRichTextEdit_SuperActionEvent(KRichTextEdit* self, QActionEvent* event) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_ActionEvent_IsBase(true);
@@ -1948,7 +1948,7 @@ void KRichTextEdit_HideEvent(KRichTextEdit* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseHideEvent(KRichTextEdit* self, QHideEvent* event) {
+void KRichTextEdit_SuperHideEvent(KRichTextEdit* self, QHideEvent* event) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_HideEvent_IsBase(true);
@@ -1978,7 +1978,7 @@ bool KRichTextEdit_NativeEvent(KRichTextEdit* self, const libqt_string eventType
 }
 
 // Base class handler implementation
-bool KRichTextEdit_QBaseNativeEvent(KRichTextEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KRichTextEdit_SuperNativeEvent(KRichTextEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
@@ -2008,7 +2008,7 @@ int KRichTextEdit_Metric(const KRichTextEdit* self, int param1) {
 }
 
 // Base class handler implementation
-int KRichTextEdit_QBaseMetric(const KRichTextEdit* self, int param1) {
+int KRichTextEdit_SuperMetric(const KRichTextEdit* self, int param1) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_Metric_IsBase(true);
@@ -2037,7 +2037,7 @@ void KRichTextEdit_InitPainter(const KRichTextEdit* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseInitPainter(const KRichTextEdit* self, QPainter* painter) {
+void KRichTextEdit_SuperInitPainter(const KRichTextEdit* self, QPainter* painter) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_InitPainter_IsBase(true);
@@ -2066,7 +2066,7 @@ QPaintDevice* KRichTextEdit_Redirected(const KRichTextEdit* self, QPoint* offset
 }
 
 // Base class handler implementation
-QPaintDevice* KRichTextEdit_QBaseRedirected(const KRichTextEdit* self, QPoint* offset) {
+QPaintDevice* KRichTextEdit_SuperRedirected(const KRichTextEdit* self, QPoint* offset) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_Redirected_IsBase(true);
@@ -2095,7 +2095,7 @@ QPainter* KRichTextEdit_SharedPainter(const KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-QPainter* KRichTextEdit_QBaseSharedPainter(const KRichTextEdit* self) {
+QPainter* KRichTextEdit_SuperSharedPainter(const KRichTextEdit* self) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_SharedPainter_IsBase(true);
@@ -2124,7 +2124,7 @@ void KRichTextEdit_ChildEvent(KRichTextEdit* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseChildEvent(KRichTextEdit* self, QChildEvent* event) {
+void KRichTextEdit_SuperChildEvent(KRichTextEdit* self, QChildEvent* event) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_ChildEvent_IsBase(true);
@@ -2153,7 +2153,7 @@ void KRichTextEdit_CustomEvent(KRichTextEdit* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseCustomEvent(KRichTextEdit* self, QEvent* event) {
+void KRichTextEdit_SuperCustomEvent(KRichTextEdit* self, QEvent* event) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_CustomEvent_IsBase(true);
@@ -2182,7 +2182,7 @@ void KRichTextEdit_ConnectNotify(KRichTextEdit* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseConnectNotify(KRichTextEdit* self, const QMetaMethod* signal) {
+void KRichTextEdit_SuperConnectNotify(KRichTextEdit* self, const QMetaMethod* signal) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_ConnectNotify_IsBase(true);
@@ -2211,7 +2211,7 @@ void KRichTextEdit_DisconnectNotify(KRichTextEdit* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseDisconnectNotify(KRichTextEdit* self, const QMetaMethod* signal) {
+void KRichTextEdit_SuperDisconnectNotify(KRichTextEdit* self, const QMetaMethod* signal) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_DisconnectNotify_IsBase(true);
@@ -2240,7 +2240,7 @@ void KRichTextEdit_SlotDoReplace(KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseSlotDoReplace(KRichTextEdit* self) {
+void KRichTextEdit_SuperSlotDoReplace(KRichTextEdit* self) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_SlotDoReplace_IsBase(true);
@@ -2269,7 +2269,7 @@ void KRichTextEdit_SlotReplaceNext(KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseSlotReplaceNext(KRichTextEdit* self) {
+void KRichTextEdit_SuperSlotReplaceNext(KRichTextEdit* self) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_SlotReplaceNext_IsBase(true);
@@ -2298,7 +2298,7 @@ void KRichTextEdit_SlotDoFind(KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseSlotDoFind(KRichTextEdit* self) {
+void KRichTextEdit_SuperSlotDoFind(KRichTextEdit* self) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_SlotDoFind_IsBase(true);
@@ -2327,7 +2327,7 @@ void KRichTextEdit_SlotFind(KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseSlotFind(KRichTextEdit* self) {
+void KRichTextEdit_SuperSlotFind(KRichTextEdit* self) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_SlotFind_IsBase(true);
@@ -2356,7 +2356,7 @@ void KRichTextEdit_SlotFindNext(KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseSlotFindNext(KRichTextEdit* self) {
+void KRichTextEdit_SuperSlotFindNext(KRichTextEdit* self) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_SlotFindNext_IsBase(true);
@@ -2385,7 +2385,7 @@ void KRichTextEdit_SlotFindPrevious(KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseSlotFindPrevious(KRichTextEdit* self) {
+void KRichTextEdit_SuperSlotFindPrevious(KRichTextEdit* self) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_SlotFindPrevious_IsBase(true);
@@ -2414,7 +2414,7 @@ void KRichTextEdit_SlotReplace(KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseSlotReplace(KRichTextEdit* self) {
+void KRichTextEdit_SuperSlotReplace(KRichTextEdit* self) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_SlotReplace_IsBase(true);
@@ -2443,7 +2443,7 @@ void KRichTextEdit_SlotSpeakText(KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseSlotSpeakText(KRichTextEdit* self) {
+void KRichTextEdit_SuperSlotSpeakText(KRichTextEdit* self) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_SlotSpeakText_IsBase(true);
@@ -2472,7 +2472,7 @@ void KRichTextEdit_ZoomInF(KRichTextEdit* self, float range) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseZoomInF(KRichTextEdit* self, float range) {
+void KRichTextEdit_SuperZoomInF(KRichTextEdit* self, float range) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_ZoomInF_IsBase(true);
@@ -2501,7 +2501,7 @@ void KRichTextEdit_SetViewportMargins(KRichTextEdit* self, int left, int top, in
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseSetViewportMargins(KRichTextEdit* self, int left, int top, int right, int bottom) {
+void KRichTextEdit_SuperSetViewportMargins(KRichTextEdit* self, int left, int top, int right, int bottom) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_SetViewportMargins_IsBase(true);
@@ -2529,7 +2529,7 @@ QMargins* KRichTextEdit_ViewportMargins(const KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-QMargins* KRichTextEdit_QBaseViewportMargins(const KRichTextEdit* self) {
+QMargins* KRichTextEdit_SuperViewportMargins(const KRichTextEdit* self) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_ViewportMargins_IsBase(true);
@@ -2557,7 +2557,7 @@ void KRichTextEdit_DrawFrame(KRichTextEdit* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseDrawFrame(KRichTextEdit* self, QPainter* param1) {
+void KRichTextEdit_SuperDrawFrame(KRichTextEdit* self, QPainter* param1) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_DrawFrame_IsBase(true);
@@ -2586,7 +2586,7 @@ void KRichTextEdit_UpdateMicroFocus(KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseUpdateMicroFocus(KRichTextEdit* self) {
+void KRichTextEdit_SuperUpdateMicroFocus(KRichTextEdit* self) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_UpdateMicroFocus_IsBase(true);
@@ -2615,7 +2615,7 @@ void KRichTextEdit_Create(KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseCreate(KRichTextEdit* self) {
+void KRichTextEdit_SuperCreate(KRichTextEdit* self) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_Create_IsBase(true);
@@ -2644,7 +2644,7 @@ void KRichTextEdit_Destroy(KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-void KRichTextEdit_QBaseDestroy(KRichTextEdit* self) {
+void KRichTextEdit_SuperDestroy(KRichTextEdit* self) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_Destroy_IsBase(true);
@@ -2673,7 +2673,7 @@ bool KRichTextEdit_FocusNextChild(KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-bool KRichTextEdit_QBaseFocusNextChild(KRichTextEdit* self) {
+bool KRichTextEdit_SuperFocusNextChild(KRichTextEdit* self) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_FocusNextChild_IsBase(true);
@@ -2702,7 +2702,7 @@ bool KRichTextEdit_FocusPreviousChild(KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-bool KRichTextEdit_QBaseFocusPreviousChild(KRichTextEdit* self) {
+bool KRichTextEdit_SuperFocusPreviousChild(KRichTextEdit* self) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_FocusPreviousChild_IsBase(true);
@@ -2731,7 +2731,7 @@ QObject* KRichTextEdit_Sender(const KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-QObject* KRichTextEdit_QBaseSender(const KRichTextEdit* self) {
+QObject* KRichTextEdit_SuperSender(const KRichTextEdit* self) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_Sender_IsBase(true);
@@ -2760,7 +2760,7 @@ int KRichTextEdit_SenderSignalIndex(const KRichTextEdit* self) {
 }
 
 // Base class handler implementation
-int KRichTextEdit_QBaseSenderSignalIndex(const KRichTextEdit* self) {
+int KRichTextEdit_SuperSenderSignalIndex(const KRichTextEdit* self) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_SenderSignalIndex_IsBase(true);
@@ -2789,7 +2789,7 @@ int KRichTextEdit_Receivers(const KRichTextEdit* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KRichTextEdit_QBaseReceivers(const KRichTextEdit* self, const char* signal) {
+int KRichTextEdit_SuperReceivers(const KRichTextEdit* self, const char* signal) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_Receivers_IsBase(true);
@@ -2818,7 +2818,7 @@ bool KRichTextEdit_IsSignalConnected(const KRichTextEdit* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool KRichTextEdit_QBaseIsSignalConnected(const KRichTextEdit* self, const QMetaMethod* signal) {
+bool KRichTextEdit_SuperIsSignalConnected(const KRichTextEdit* self, const QMetaMethod* signal) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_IsSignalConnected_IsBase(true);
@@ -2847,7 +2847,7 @@ double KRichTextEdit_GetDecodedMetricF(const KRichTextEdit* self, int metricA, i
 }
 
 // Base class handler implementation
-double KRichTextEdit_QBaseGetDecodedMetricF(const KRichTextEdit* self, int metricA, int metricB) {
+double KRichTextEdit_SuperGetDecodedMetricF(const KRichTextEdit* self, int metricA, int metricB) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->setKRichTextEdit_GetDecodedMetricF_IsBase(true);

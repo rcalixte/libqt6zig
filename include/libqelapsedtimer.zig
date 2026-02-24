@@ -176,6 +176,10 @@ pub const qelapsedtimer = struct {
         return qtc.QElapsedTimer_SecsTo(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#dtor.QElapsedTimer)
     ///
     /// Delete this object from C++ memory.
@@ -184,7 +188,7 @@ pub const qelapsedtimer = struct {
     ///
     /// ` self: QtC.QElapsedTimer `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QElapsedTimer_Delete(@ptrCast(self));
     }
 };

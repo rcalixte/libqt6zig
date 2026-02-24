@@ -487,7 +487,7 @@ void QBarSet_Remove2(QBarSet* self, const int index, const int count) {
 }
 
 // Base class handler implementation
-QMetaObject* QBarSet_QBaseMetaObject(const QBarSet* self) {
+QMetaObject* QBarSet_SuperMetaObject(const QBarSet* self) {
     auto* vqbarset = const_cast<VirtualQBarSet*>(dynamic_cast<const VirtualQBarSet*>(self));
     if (vqbarset && vqbarset->isVirtualQBarSet) {
         vqbarset->setQBarSet_MetaObject_IsBase(true);
@@ -506,7 +506,7 @@ void QBarSet_OnMetaObject(const QBarSet* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QBarSet_QBaseMetacast(QBarSet* self, const char* param1) {
+void* QBarSet_SuperMetacast(QBarSet* self, const char* param1) {
     auto* vqbarset = dynamic_cast<VirtualQBarSet*>(self);
     if (vqbarset && vqbarset->isVirtualQBarSet) {
         vqbarset->setQBarSet_Metacast_IsBase(true);
@@ -525,7 +525,7 @@ void QBarSet_OnMetacast(QBarSet* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QBarSet_QBaseMetacall(QBarSet* self, int param1, int param2, void** param3) {
+int QBarSet_SuperMetacall(QBarSet* self, int param1, int param2, void** param3) {
     auto* vqbarset = dynamic_cast<VirtualQBarSet*>(self);
     if (vqbarset && vqbarset->isVirtualQBarSet) {
         vqbarset->setQBarSet_Metacall_IsBase(true);
@@ -554,7 +554,7 @@ bool QBarSet_Event(QBarSet* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QBarSet_QBaseEvent(QBarSet* self, QEvent* event) {
+bool QBarSet_SuperEvent(QBarSet* self, QEvent* event) {
     auto* vqbarset = dynamic_cast<VirtualQBarSet*>(self);
     if (vqbarset && vqbarset->isVirtualQBarSet) {
         vqbarset->setQBarSet_Event_IsBase(true);
@@ -583,7 +583,7 @@ bool QBarSet_EventFilter(QBarSet* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QBarSet_QBaseEventFilter(QBarSet* self, QObject* watched, QEvent* event) {
+bool QBarSet_SuperEventFilter(QBarSet* self, QObject* watched, QEvent* event) {
     auto* vqbarset = dynamic_cast<VirtualQBarSet*>(self);
     if (vqbarset && vqbarset->isVirtualQBarSet) {
         vqbarset->setQBarSet_EventFilter_IsBase(true);
@@ -612,7 +612,7 @@ void QBarSet_TimerEvent(QBarSet* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QBarSet_QBaseTimerEvent(QBarSet* self, QTimerEvent* event) {
+void QBarSet_SuperTimerEvent(QBarSet* self, QTimerEvent* event) {
     auto* vqbarset = dynamic_cast<VirtualQBarSet*>(self);
     if (vqbarset && vqbarset->isVirtualQBarSet) {
         vqbarset->setQBarSet_TimerEvent_IsBase(true);
@@ -641,7 +641,7 @@ void QBarSet_ChildEvent(QBarSet* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QBarSet_QBaseChildEvent(QBarSet* self, QChildEvent* event) {
+void QBarSet_SuperChildEvent(QBarSet* self, QChildEvent* event) {
     auto* vqbarset = dynamic_cast<VirtualQBarSet*>(self);
     if (vqbarset && vqbarset->isVirtualQBarSet) {
         vqbarset->setQBarSet_ChildEvent_IsBase(true);
@@ -670,7 +670,7 @@ void QBarSet_CustomEvent(QBarSet* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QBarSet_QBaseCustomEvent(QBarSet* self, QEvent* event) {
+void QBarSet_SuperCustomEvent(QBarSet* self, QEvent* event) {
     auto* vqbarset = dynamic_cast<VirtualQBarSet*>(self);
     if (vqbarset && vqbarset->isVirtualQBarSet) {
         vqbarset->setQBarSet_CustomEvent_IsBase(true);
@@ -699,7 +699,7 @@ void QBarSet_ConnectNotify(QBarSet* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QBarSet_QBaseConnectNotify(QBarSet* self, const QMetaMethod* signal) {
+void QBarSet_SuperConnectNotify(QBarSet* self, const QMetaMethod* signal) {
     auto* vqbarset = dynamic_cast<VirtualQBarSet*>(self);
     if (vqbarset && vqbarset->isVirtualQBarSet) {
         vqbarset->setQBarSet_ConnectNotify_IsBase(true);
@@ -728,7 +728,7 @@ void QBarSet_DisconnectNotify(QBarSet* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QBarSet_QBaseDisconnectNotify(QBarSet* self, const QMetaMethod* signal) {
+void QBarSet_SuperDisconnectNotify(QBarSet* self, const QMetaMethod* signal) {
     auto* vqbarset = dynamic_cast<VirtualQBarSet*>(self);
     if (vqbarset && vqbarset->isVirtualQBarSet) {
         vqbarset->setQBarSet_DisconnectNotify_IsBase(true);
@@ -757,7 +757,7 @@ QObject* QBarSet_Sender(const QBarSet* self) {
 }
 
 // Base class handler implementation
-QObject* QBarSet_QBaseSender(const QBarSet* self) {
+QObject* QBarSet_SuperSender(const QBarSet* self) {
     auto* vqbarset = const_cast<VirtualQBarSet*>(dynamic_cast<const VirtualQBarSet*>(self));
     if (vqbarset && vqbarset->isVirtualQBarSet) {
         vqbarset->setQBarSet_Sender_IsBase(true);
@@ -786,7 +786,7 @@ int QBarSet_SenderSignalIndex(const QBarSet* self) {
 }
 
 // Base class handler implementation
-int QBarSet_QBaseSenderSignalIndex(const QBarSet* self) {
+int QBarSet_SuperSenderSignalIndex(const QBarSet* self) {
     auto* vqbarset = const_cast<VirtualQBarSet*>(dynamic_cast<const VirtualQBarSet*>(self));
     if (vqbarset && vqbarset->isVirtualQBarSet) {
         vqbarset->setQBarSet_SenderSignalIndex_IsBase(true);
@@ -815,7 +815,7 @@ int QBarSet_Receivers(const QBarSet* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QBarSet_QBaseReceivers(const QBarSet* self, const char* signal) {
+int QBarSet_SuperReceivers(const QBarSet* self, const char* signal) {
     auto* vqbarset = const_cast<VirtualQBarSet*>(dynamic_cast<const VirtualQBarSet*>(self));
     if (vqbarset && vqbarset->isVirtualQBarSet) {
         vqbarset->setQBarSet_Receivers_IsBase(true);
@@ -844,7 +844,7 @@ bool QBarSet_IsSignalConnected(const QBarSet* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QBarSet_QBaseIsSignalConnected(const QBarSet* self, const QMetaMethod* signal) {
+bool QBarSet_SuperIsSignalConnected(const QBarSet* self, const QMetaMethod* signal) {
     auto* vqbarset = const_cast<VirtualQBarSet*>(dynamic_cast<const VirtualQBarSet*>(self));
     if (vqbarset && vqbarset->isVirtualQBarSet) {
         vqbarset->setQBarSet_IsSignalConnected_IsBase(true);

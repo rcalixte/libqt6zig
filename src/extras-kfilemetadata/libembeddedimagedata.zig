@@ -9,13 +9,17 @@ pub const kfilemetadata__embeddedimagedata = struct {
         return qtc.KFileMetaData__EmbeddedImageData_new();
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KFileMetaData__EmbeddedImageData `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KFileMetaData__EmbeddedImageData_Delete(@ptrCast(self));
     }
 };

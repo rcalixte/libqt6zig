@@ -559,35 +559,35 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
 
     // Friend functions
     friend QWebEnginePage* QWebEnginePage_CreateWindow(QWebEnginePage* self, int typeVal);
-    friend QWebEnginePage* QWebEnginePage_QBaseCreateWindow(QWebEnginePage* self, int typeVal);
+    friend QWebEnginePage* QWebEnginePage_SuperCreateWindow(QWebEnginePage* self, int typeVal);
     friend libqt_list /* of libqt_string */ QWebEnginePage_ChooseFiles(QWebEnginePage* self, int mode, const libqt_list /* of libqt_string */ oldFiles, const libqt_list /* of libqt_string */ acceptedMimeTypes);
-    friend libqt_list /* of libqt_string */ QWebEnginePage_QBaseChooseFiles(QWebEnginePage* self, int mode, const libqt_list /* of libqt_string */ oldFiles, const libqt_list /* of libqt_string */ acceptedMimeTypes);
+    friend libqt_list /* of libqt_string */ QWebEnginePage_SuperChooseFiles(QWebEnginePage* self, int mode, const libqt_list /* of libqt_string */ oldFiles, const libqt_list /* of libqt_string */ acceptedMimeTypes);
     friend void QWebEnginePage_JavaScriptAlert(QWebEnginePage* self, const QUrl* securityOrigin, const libqt_string msg);
-    friend void QWebEnginePage_QBaseJavaScriptAlert(QWebEnginePage* self, const QUrl* securityOrigin, const libqt_string msg);
+    friend void QWebEnginePage_SuperJavaScriptAlert(QWebEnginePage* self, const QUrl* securityOrigin, const libqt_string msg);
     friend bool QWebEnginePage_JavaScriptConfirm(QWebEnginePage* self, const QUrl* securityOrigin, const libqt_string msg);
-    friend bool QWebEnginePage_QBaseJavaScriptConfirm(QWebEnginePage* self, const QUrl* securityOrigin, const libqt_string msg);
+    friend bool QWebEnginePage_SuperJavaScriptConfirm(QWebEnginePage* self, const QUrl* securityOrigin, const libqt_string msg);
     friend void QWebEnginePage_JavaScriptConsoleMessage(QWebEnginePage* self, int level, const libqt_string message, int lineNumber, const libqt_string sourceID);
-    friend void QWebEnginePage_QBaseJavaScriptConsoleMessage(QWebEnginePage* self, int level, const libqt_string message, int lineNumber, const libqt_string sourceID);
+    friend void QWebEnginePage_SuperJavaScriptConsoleMessage(QWebEnginePage* self, int level, const libqt_string message, int lineNumber, const libqt_string sourceID);
     friend bool QWebEnginePage_AcceptNavigationRequest(QWebEnginePage* self, const QUrl* url, int typeVal, bool isMainFrame);
-    friend bool QWebEnginePage_QBaseAcceptNavigationRequest(QWebEnginePage* self, const QUrl* url, int typeVal, bool isMainFrame);
+    friend bool QWebEnginePage_SuperAcceptNavigationRequest(QWebEnginePage* self, const QUrl* url, int typeVal, bool isMainFrame);
     friend void QWebEnginePage_TimerEvent(QWebEnginePage* self, QTimerEvent* event);
-    friend void QWebEnginePage_QBaseTimerEvent(QWebEnginePage* self, QTimerEvent* event);
+    friend void QWebEnginePage_SuperTimerEvent(QWebEnginePage* self, QTimerEvent* event);
     friend void QWebEnginePage_ChildEvent(QWebEnginePage* self, QChildEvent* event);
-    friend void QWebEnginePage_QBaseChildEvent(QWebEnginePage* self, QChildEvent* event);
+    friend void QWebEnginePage_SuperChildEvent(QWebEnginePage* self, QChildEvent* event);
     friend void QWebEnginePage_CustomEvent(QWebEnginePage* self, QEvent* event);
-    friend void QWebEnginePage_QBaseCustomEvent(QWebEnginePage* self, QEvent* event);
+    friend void QWebEnginePage_SuperCustomEvent(QWebEnginePage* self, QEvent* event);
     friend void QWebEnginePage_ConnectNotify(QWebEnginePage* self, const QMetaMethod* signal);
-    friend void QWebEnginePage_QBaseConnectNotify(QWebEnginePage* self, const QMetaMethod* signal);
+    friend void QWebEnginePage_SuperConnectNotify(QWebEnginePage* self, const QMetaMethod* signal);
     friend void QWebEnginePage_DisconnectNotify(QWebEnginePage* self, const QMetaMethod* signal);
-    friend void QWebEnginePage_QBaseDisconnectNotify(QWebEnginePage* self, const QMetaMethod* signal);
+    friend void QWebEnginePage_SuperDisconnectNotify(QWebEnginePage* self, const QMetaMethod* signal);
     friend QObject* QWebEnginePage_Sender(const QWebEnginePage* self);
-    friend QObject* QWebEnginePage_QBaseSender(const QWebEnginePage* self);
+    friend QObject* QWebEnginePage_SuperSender(const QWebEnginePage* self);
     friend int QWebEnginePage_SenderSignalIndex(const QWebEnginePage* self);
-    friend int QWebEnginePage_QBaseSenderSignalIndex(const QWebEnginePage* self);
+    friend int QWebEnginePage_SuperSenderSignalIndex(const QWebEnginePage* self);
     friend int QWebEnginePage_Receivers(const QWebEnginePage* self, const char* signal);
-    friend int QWebEnginePage_QBaseReceivers(const QWebEnginePage* self, const char* signal);
+    friend int QWebEnginePage_SuperReceivers(const QWebEnginePage* self, const char* signal);
     friend bool QWebEnginePage_IsSignalConnected(const QWebEnginePage* self, const QMetaMethod* signal);
-    friend bool QWebEnginePage_QBaseIsSignalConnected(const QWebEnginePage* self, const QMetaMethod* signal);
+    friend bool QWebEnginePage_SuperIsSignalConnected(const QWebEnginePage* self, const QMetaMethod* signal);
 };
 
 #endif

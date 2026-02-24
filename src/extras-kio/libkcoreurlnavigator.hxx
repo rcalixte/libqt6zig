@@ -329,23 +329,23 @@ class VirtualKCoreUrlNavigator final : public KCoreUrlNavigator {
 
     // Friend functions
     friend void KCoreUrlNavigator_TimerEvent(KCoreUrlNavigator* self, QTimerEvent* event);
-    friend void KCoreUrlNavigator_QBaseTimerEvent(KCoreUrlNavigator* self, QTimerEvent* event);
+    friend void KCoreUrlNavigator_SuperTimerEvent(KCoreUrlNavigator* self, QTimerEvent* event);
     friend void KCoreUrlNavigator_ChildEvent(KCoreUrlNavigator* self, QChildEvent* event);
-    friend void KCoreUrlNavigator_QBaseChildEvent(KCoreUrlNavigator* self, QChildEvent* event);
+    friend void KCoreUrlNavigator_SuperChildEvent(KCoreUrlNavigator* self, QChildEvent* event);
     friend void KCoreUrlNavigator_CustomEvent(KCoreUrlNavigator* self, QEvent* event);
-    friend void KCoreUrlNavigator_QBaseCustomEvent(KCoreUrlNavigator* self, QEvent* event);
+    friend void KCoreUrlNavigator_SuperCustomEvent(KCoreUrlNavigator* self, QEvent* event);
     friend void KCoreUrlNavigator_ConnectNotify(KCoreUrlNavigator* self, const QMetaMethod* signal);
-    friend void KCoreUrlNavigator_QBaseConnectNotify(KCoreUrlNavigator* self, const QMetaMethod* signal);
+    friend void KCoreUrlNavigator_SuperConnectNotify(KCoreUrlNavigator* self, const QMetaMethod* signal);
     friend void KCoreUrlNavigator_DisconnectNotify(KCoreUrlNavigator* self, const QMetaMethod* signal);
-    friend void KCoreUrlNavigator_QBaseDisconnectNotify(KCoreUrlNavigator* self, const QMetaMethod* signal);
+    friend void KCoreUrlNavigator_SuperDisconnectNotify(KCoreUrlNavigator* self, const QMetaMethod* signal);
     friend QObject* KCoreUrlNavigator_Sender(const KCoreUrlNavigator* self);
-    friend QObject* KCoreUrlNavigator_QBaseSender(const KCoreUrlNavigator* self);
+    friend QObject* KCoreUrlNavigator_SuperSender(const KCoreUrlNavigator* self);
     friend int KCoreUrlNavigator_SenderSignalIndex(const KCoreUrlNavigator* self);
-    friend int KCoreUrlNavigator_QBaseSenderSignalIndex(const KCoreUrlNavigator* self);
+    friend int KCoreUrlNavigator_SuperSenderSignalIndex(const KCoreUrlNavigator* self);
     friend int KCoreUrlNavigator_Receivers(const KCoreUrlNavigator* self, const char* signal);
-    friend int KCoreUrlNavigator_QBaseReceivers(const KCoreUrlNavigator* self, const char* signal);
+    friend int KCoreUrlNavigator_SuperReceivers(const KCoreUrlNavigator* self, const char* signal);
     friend bool KCoreUrlNavigator_IsSignalConnected(const KCoreUrlNavigator* self, const QMetaMethod* signal);
-    friend bool KCoreUrlNavigator_QBaseIsSignalConnected(const KCoreUrlNavigator* self, const QMetaMethod* signal);
+    friend bool KCoreUrlNavigator_SuperIsSignalConnected(const KCoreUrlNavigator* self, const QMetaMethod* signal);
 };
 
 #endif

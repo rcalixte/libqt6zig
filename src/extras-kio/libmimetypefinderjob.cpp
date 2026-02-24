@@ -117,7 +117,7 @@ void KIO__MimeTypeFinderJob_SlotResult(KIO__MimeTypeFinderJob* self, KJob* job) 
 }
 
 // Base class handler implementation
-QMetaObject* KIO__MimeTypeFinderJob_QBaseMetaObject(const KIO__MimeTypeFinderJob* self) {
+QMetaObject* KIO__MimeTypeFinderJob_SuperMetaObject(const KIO__MimeTypeFinderJob* self) {
     auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_MetaObject_IsBase(true);
@@ -136,7 +136,7 @@ void KIO__MimeTypeFinderJob_OnMetaObject(const KIO__MimeTypeFinderJob* self, int
 }
 
 // Base class handler implementation
-void* KIO__MimeTypeFinderJob_QBaseMetacast(KIO__MimeTypeFinderJob* self, const char* param1) {
+void* KIO__MimeTypeFinderJob_SuperMetacast(KIO__MimeTypeFinderJob* self, const char* param1) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_Metacast_IsBase(true);
@@ -155,7 +155,7 @@ void KIO__MimeTypeFinderJob_OnMetacast(KIO__MimeTypeFinderJob* self, intptr_t sl
 }
 
 // Base class handler implementation
-int KIO__MimeTypeFinderJob_QBaseMetacall(KIO__MimeTypeFinderJob* self, int param1, int param2, void** param3) {
+int KIO__MimeTypeFinderJob_SuperMetacall(KIO__MimeTypeFinderJob* self, int param1, int param2, void** param3) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_Metacall_IsBase(true);
@@ -174,7 +174,7 @@ void KIO__MimeTypeFinderJob_OnMetacall(KIO__MimeTypeFinderJob* self, intptr_t sl
 }
 
 // Base class handler implementation
-void KIO__MimeTypeFinderJob_QBaseStart(KIO__MimeTypeFinderJob* self) {
+void KIO__MimeTypeFinderJob_SuperStart(KIO__MimeTypeFinderJob* self) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_Start_IsBase(true);
@@ -193,7 +193,7 @@ void KIO__MimeTypeFinderJob_OnStart(KIO__MimeTypeFinderJob* self, intptr_t slot)
 }
 
 // Base class handler implementation
-bool KIO__MimeTypeFinderJob_QBaseDoKill(KIO__MimeTypeFinderJob* self) {
+bool KIO__MimeTypeFinderJob_SuperDoKill(KIO__MimeTypeFinderJob* self) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_DoKill_IsBase(true);
@@ -212,7 +212,7 @@ void KIO__MimeTypeFinderJob_OnDoKill(KIO__MimeTypeFinderJob* self, intptr_t slot
 }
 
 // Base class handler implementation
-void KIO__MimeTypeFinderJob_QBaseSlotResult(KIO__MimeTypeFinderJob* self, KJob* job) {
+void KIO__MimeTypeFinderJob_SuperSlotResult(KIO__MimeTypeFinderJob* self, KJob* job) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_SlotResult_IsBase(true);
@@ -241,7 +241,7 @@ bool KIO__MimeTypeFinderJob_AddSubjob(KIO__MimeTypeFinderJob* self, KJob* job) {
 }
 
 // Base class handler implementation
-bool KIO__MimeTypeFinderJob_QBaseAddSubjob(KIO__MimeTypeFinderJob* self, KJob* job) {
+bool KIO__MimeTypeFinderJob_SuperAddSubjob(KIO__MimeTypeFinderJob* self, KJob* job) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_AddSubjob_IsBase(true);
@@ -270,7 +270,7 @@ bool KIO__MimeTypeFinderJob_RemoveSubjob(KIO__MimeTypeFinderJob* self, KJob* job
 }
 
 // Base class handler implementation
-bool KIO__MimeTypeFinderJob_QBaseRemoveSubjob(KIO__MimeTypeFinderJob* self, KJob* job) {
+bool KIO__MimeTypeFinderJob_SuperRemoveSubjob(KIO__MimeTypeFinderJob* self, KJob* job) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_RemoveSubjob_IsBase(true);
@@ -300,7 +300,7 @@ void KIO__MimeTypeFinderJob_SlotInfoMessage(KIO__MimeTypeFinderJob* self, KJob* 
 }
 
 // Base class handler implementation
-void KIO__MimeTypeFinderJob_QBaseSlotInfoMessage(KIO__MimeTypeFinderJob* self, KJob* job, const libqt_string message) {
+void KIO__MimeTypeFinderJob_SuperSlotInfoMessage(KIO__MimeTypeFinderJob* self, KJob* job, const libqt_string message) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     QString message_QString = QString::fromUtf8(message.data, message.len);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
@@ -330,7 +330,7 @@ bool KIO__MimeTypeFinderJob_DoSuspend(KIO__MimeTypeFinderJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__MimeTypeFinderJob_QBaseDoSuspend(KIO__MimeTypeFinderJob* self) {
+bool KIO__MimeTypeFinderJob_SuperDoSuspend(KIO__MimeTypeFinderJob* self) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_DoSuspend_IsBase(true);
@@ -359,7 +359,7 @@ bool KIO__MimeTypeFinderJob_DoResume(KIO__MimeTypeFinderJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__MimeTypeFinderJob_QBaseDoResume(KIO__MimeTypeFinderJob* self) {
+bool KIO__MimeTypeFinderJob_SuperDoResume(KIO__MimeTypeFinderJob* self) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_DoResume_IsBase(true);
@@ -404,7 +404,7 @@ libqt_string KIO__MimeTypeFinderJob_ErrorString(const KIO__MimeTypeFinderJob* se
 }
 
 // Base class handler implementation
-libqt_string KIO__MimeTypeFinderJob_QBaseErrorString(const KIO__MimeTypeFinderJob* self) {
+libqt_string KIO__MimeTypeFinderJob_SuperErrorString(const KIO__MimeTypeFinderJob* self) {
     auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_ErrorString_IsBase(true);
@@ -449,7 +449,7 @@ bool KIO__MimeTypeFinderJob_Event(KIO__MimeTypeFinderJob* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KIO__MimeTypeFinderJob_QBaseEvent(KIO__MimeTypeFinderJob* self, QEvent* event) {
+bool KIO__MimeTypeFinderJob_SuperEvent(KIO__MimeTypeFinderJob* self, QEvent* event) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_Event_IsBase(true);
@@ -478,7 +478,7 @@ bool KIO__MimeTypeFinderJob_EventFilter(KIO__MimeTypeFinderJob* self, QObject* w
 }
 
 // Base class handler implementation
-bool KIO__MimeTypeFinderJob_QBaseEventFilter(KIO__MimeTypeFinderJob* self, QObject* watched, QEvent* event) {
+bool KIO__MimeTypeFinderJob_SuperEventFilter(KIO__MimeTypeFinderJob* self, QObject* watched, QEvent* event) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_EventFilter_IsBase(true);
@@ -507,7 +507,7 @@ void KIO__MimeTypeFinderJob_TimerEvent(KIO__MimeTypeFinderJob* self, QTimerEvent
 }
 
 // Base class handler implementation
-void KIO__MimeTypeFinderJob_QBaseTimerEvent(KIO__MimeTypeFinderJob* self, QTimerEvent* event) {
+void KIO__MimeTypeFinderJob_SuperTimerEvent(KIO__MimeTypeFinderJob* self, QTimerEvent* event) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_TimerEvent_IsBase(true);
@@ -536,7 +536,7 @@ void KIO__MimeTypeFinderJob_ChildEvent(KIO__MimeTypeFinderJob* self, QChildEvent
 }
 
 // Base class handler implementation
-void KIO__MimeTypeFinderJob_QBaseChildEvent(KIO__MimeTypeFinderJob* self, QChildEvent* event) {
+void KIO__MimeTypeFinderJob_SuperChildEvent(KIO__MimeTypeFinderJob* self, QChildEvent* event) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_ChildEvent_IsBase(true);
@@ -565,7 +565,7 @@ void KIO__MimeTypeFinderJob_CustomEvent(KIO__MimeTypeFinderJob* self, QEvent* ev
 }
 
 // Base class handler implementation
-void KIO__MimeTypeFinderJob_QBaseCustomEvent(KIO__MimeTypeFinderJob* self, QEvent* event) {
+void KIO__MimeTypeFinderJob_SuperCustomEvent(KIO__MimeTypeFinderJob* self, QEvent* event) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_CustomEvent_IsBase(true);
@@ -594,7 +594,7 @@ void KIO__MimeTypeFinderJob_ConnectNotify(KIO__MimeTypeFinderJob* self, const QM
 }
 
 // Base class handler implementation
-void KIO__MimeTypeFinderJob_QBaseConnectNotify(KIO__MimeTypeFinderJob* self, const QMetaMethod* signal) {
+void KIO__MimeTypeFinderJob_SuperConnectNotify(KIO__MimeTypeFinderJob* self, const QMetaMethod* signal) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_ConnectNotify_IsBase(true);
@@ -623,7 +623,7 @@ void KIO__MimeTypeFinderJob_DisconnectNotify(KIO__MimeTypeFinderJob* self, const
 }
 
 // Base class handler implementation
-void KIO__MimeTypeFinderJob_QBaseDisconnectNotify(KIO__MimeTypeFinderJob* self, const QMetaMethod* signal) {
+void KIO__MimeTypeFinderJob_SuperDisconnectNotify(KIO__MimeTypeFinderJob* self, const QMetaMethod* signal) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_DisconnectNotify_IsBase(true);
@@ -652,7 +652,7 @@ bool KIO__MimeTypeFinderJob_HasSubjobs(const KIO__MimeTypeFinderJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__MimeTypeFinderJob_QBaseHasSubjobs(const KIO__MimeTypeFinderJob* self) {
+bool KIO__MimeTypeFinderJob_SuperHasSubjobs(const KIO__MimeTypeFinderJob* self) {
     auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_HasSubjobs_IsBase(true);
@@ -699,7 +699,7 @@ libqt_list /* of KJob* */ KIO__MimeTypeFinderJob_Subjobs(const KIO__MimeTypeFind
 }
 
 // Base class handler implementation
-libqt_list /* of KJob* */ KIO__MimeTypeFinderJob_QBaseSubjobs(const KIO__MimeTypeFinderJob* self) {
+libqt_list /* of KJob* */ KIO__MimeTypeFinderJob_SuperSubjobs(const KIO__MimeTypeFinderJob* self) {
     auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_Subjobs_IsBase(true);
@@ -746,7 +746,7 @@ void KIO__MimeTypeFinderJob_ClearSubjobs(KIO__MimeTypeFinderJob* self) {
 }
 
 // Base class handler implementation
-void KIO__MimeTypeFinderJob_QBaseClearSubjobs(KIO__MimeTypeFinderJob* self) {
+void KIO__MimeTypeFinderJob_SuperClearSubjobs(KIO__MimeTypeFinderJob* self) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_ClearSubjobs_IsBase(true);
@@ -775,7 +775,7 @@ void KIO__MimeTypeFinderJob_SetCapabilities(KIO__MimeTypeFinderJob* self, int ca
 }
 
 // Base class handler implementation
-void KIO__MimeTypeFinderJob_QBaseSetCapabilities(KIO__MimeTypeFinderJob* self, int capabilities) {
+void KIO__MimeTypeFinderJob_SuperSetCapabilities(KIO__MimeTypeFinderJob* self, int capabilities) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_SetCapabilities_IsBase(true);
@@ -804,7 +804,7 @@ bool KIO__MimeTypeFinderJob_IsFinished(const KIO__MimeTypeFinderJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__MimeTypeFinderJob_QBaseIsFinished(const KIO__MimeTypeFinderJob* self) {
+bool KIO__MimeTypeFinderJob_SuperIsFinished(const KIO__MimeTypeFinderJob* self) {
     auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_IsFinished_IsBase(true);
@@ -833,7 +833,7 @@ void KIO__MimeTypeFinderJob_SetError(KIO__MimeTypeFinderJob* self, int errorCode
 }
 
 // Base class handler implementation
-void KIO__MimeTypeFinderJob_QBaseSetError(KIO__MimeTypeFinderJob* self, int errorCode) {
+void KIO__MimeTypeFinderJob_SuperSetError(KIO__MimeTypeFinderJob* self, int errorCode) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_SetError_IsBase(true);
@@ -863,7 +863,7 @@ void KIO__MimeTypeFinderJob_SetErrorText(KIO__MimeTypeFinderJob* self, const lib
 }
 
 // Base class handler implementation
-void KIO__MimeTypeFinderJob_QBaseSetErrorText(KIO__MimeTypeFinderJob* self, const libqt_string errorText) {
+void KIO__MimeTypeFinderJob_SuperSetErrorText(KIO__MimeTypeFinderJob* self, const libqt_string errorText) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
@@ -893,7 +893,7 @@ void KIO__MimeTypeFinderJob_SetProcessedAmount(KIO__MimeTypeFinderJob* self, int
 }
 
 // Base class handler implementation
-void KIO__MimeTypeFinderJob_QBaseSetProcessedAmount(KIO__MimeTypeFinderJob* self, int unit, unsigned long long amount) {
+void KIO__MimeTypeFinderJob_SuperSetProcessedAmount(KIO__MimeTypeFinderJob* self, int unit, unsigned long long amount) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_SetProcessedAmount_IsBase(true);
@@ -922,7 +922,7 @@ void KIO__MimeTypeFinderJob_SetTotalAmount(KIO__MimeTypeFinderJob* self, int uni
 }
 
 // Base class handler implementation
-void KIO__MimeTypeFinderJob_QBaseSetTotalAmount(KIO__MimeTypeFinderJob* self, int unit, unsigned long long amount) {
+void KIO__MimeTypeFinderJob_SuperSetTotalAmount(KIO__MimeTypeFinderJob* self, int unit, unsigned long long amount) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_SetTotalAmount_IsBase(true);
@@ -951,7 +951,7 @@ void KIO__MimeTypeFinderJob_SetProgressUnit(KIO__MimeTypeFinderJob* self, int un
 }
 
 // Base class handler implementation
-void KIO__MimeTypeFinderJob_QBaseSetProgressUnit(KIO__MimeTypeFinderJob* self, int unit) {
+void KIO__MimeTypeFinderJob_SuperSetProgressUnit(KIO__MimeTypeFinderJob* self, int unit) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_SetProgressUnit_IsBase(true);
@@ -980,7 +980,7 @@ void KIO__MimeTypeFinderJob_SetPercent(KIO__MimeTypeFinderJob* self, unsigned lo
 }
 
 // Base class handler implementation
-void KIO__MimeTypeFinderJob_QBaseSetPercent(KIO__MimeTypeFinderJob* self, unsigned long percentage) {
+void KIO__MimeTypeFinderJob_SuperSetPercent(KIO__MimeTypeFinderJob* self, unsigned long percentage) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_SetPercent_IsBase(true);
@@ -1009,7 +1009,7 @@ void KIO__MimeTypeFinderJob_EmitResult(KIO__MimeTypeFinderJob* self) {
 }
 
 // Base class handler implementation
-void KIO__MimeTypeFinderJob_QBaseEmitResult(KIO__MimeTypeFinderJob* self) {
+void KIO__MimeTypeFinderJob_SuperEmitResult(KIO__MimeTypeFinderJob* self) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_EmitResult_IsBase(true);
@@ -1038,7 +1038,7 @@ void KIO__MimeTypeFinderJob_EmitPercent(KIO__MimeTypeFinderJob* self, unsigned l
 }
 
 // Base class handler implementation
-void KIO__MimeTypeFinderJob_QBaseEmitPercent(KIO__MimeTypeFinderJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
+void KIO__MimeTypeFinderJob_SuperEmitPercent(KIO__MimeTypeFinderJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_EmitPercent_IsBase(true);
@@ -1067,7 +1067,7 @@ void KIO__MimeTypeFinderJob_EmitSpeed(KIO__MimeTypeFinderJob* self, unsigned lon
 }
 
 // Base class handler implementation
-void KIO__MimeTypeFinderJob_QBaseEmitSpeed(KIO__MimeTypeFinderJob* self, unsigned long speed) {
+void KIO__MimeTypeFinderJob_SuperEmitSpeed(KIO__MimeTypeFinderJob* self, unsigned long speed) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_EmitSpeed_IsBase(true);
@@ -1096,7 +1096,7 @@ void KIO__MimeTypeFinderJob_StartElapsedTimer(KIO__MimeTypeFinderJob* self) {
 }
 
 // Base class handler implementation
-void KIO__MimeTypeFinderJob_QBaseStartElapsedTimer(KIO__MimeTypeFinderJob* self) {
+void KIO__MimeTypeFinderJob_SuperStartElapsedTimer(KIO__MimeTypeFinderJob* self) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_StartElapsedTimer_IsBase(true);
@@ -1125,7 +1125,7 @@ QObject* KIO__MimeTypeFinderJob_Sender(const KIO__MimeTypeFinderJob* self) {
 }
 
 // Base class handler implementation
-QObject* KIO__MimeTypeFinderJob_QBaseSender(const KIO__MimeTypeFinderJob* self) {
+QObject* KIO__MimeTypeFinderJob_SuperSender(const KIO__MimeTypeFinderJob* self) {
     auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_Sender_IsBase(true);
@@ -1154,7 +1154,7 @@ int KIO__MimeTypeFinderJob_SenderSignalIndex(const KIO__MimeTypeFinderJob* self)
 }
 
 // Base class handler implementation
-int KIO__MimeTypeFinderJob_QBaseSenderSignalIndex(const KIO__MimeTypeFinderJob* self) {
+int KIO__MimeTypeFinderJob_SuperSenderSignalIndex(const KIO__MimeTypeFinderJob* self) {
     auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_SenderSignalIndex_IsBase(true);
@@ -1183,7 +1183,7 @@ int KIO__MimeTypeFinderJob_Receivers(const KIO__MimeTypeFinderJob* self, const c
 }
 
 // Base class handler implementation
-int KIO__MimeTypeFinderJob_QBaseReceivers(const KIO__MimeTypeFinderJob* self, const char* signal) {
+int KIO__MimeTypeFinderJob_SuperReceivers(const KIO__MimeTypeFinderJob* self, const char* signal) {
     auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_Receivers_IsBase(true);
@@ -1212,7 +1212,7 @@ bool KIO__MimeTypeFinderJob_IsSignalConnected(const KIO__MimeTypeFinderJob* self
 }
 
 // Base class handler implementation
-bool KIO__MimeTypeFinderJob_QBaseIsSignalConnected(const KIO__MimeTypeFinderJob* self, const QMetaMethod* signal) {
+bool KIO__MimeTypeFinderJob_SuperIsSignalConnected(const KIO__MimeTypeFinderJob* self, const QMetaMethod* signal) {
     auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_IsSignalConnected_IsBase(true);

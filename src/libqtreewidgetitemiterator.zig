@@ -148,6 +148,10 @@ pub const qtreewidgetitemiterator = struct {
         return qtc.QTreeWidgetItemIterator_OperatorMultiply(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#dtor.QTreeWidgetItemIterator)
     ///
     /// Delete this object from C++ memory.
@@ -156,7 +160,7 @@ pub const qtreewidgetitemiterator = struct {
     ///
     /// ` self: QtC.QTreeWidgetItemIterator `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTreeWidgetItemIterator_Delete(@ptrCast(self));
     }
 };

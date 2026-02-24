@@ -156,6 +156,10 @@ pub const qstringencoder = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringencoder.html#dtor.QStringEncoder)
     ///
     /// Delete this object from C++ memory.
@@ -164,7 +168,7 @@ pub const qstringencoder = struct {
     ///
     /// ` self: QtC.QStringEncoder `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStringEncoder_Delete(@ptrCast(self));
     }
 };
@@ -354,6 +358,10 @@ pub const qstringdecoder = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringdecoder.html#dtor.QStringDecoder)
     ///
     /// Delete this object from C++ memory.
@@ -362,7 +370,7 @@ pub const qstringdecoder = struct {
     ///
     /// ` self: QtC.QStringDecoder `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStringDecoder_Delete(@ptrCast(self));
     }
 };

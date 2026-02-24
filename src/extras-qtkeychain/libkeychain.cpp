@@ -186,7 +186,7 @@ libqt_string QKeychain__ReadPasswordJob_TextData(const QKeychain__ReadPasswordJo
 }
 
 // Base class handler implementation
-QMetaObject* QKeychain__ReadPasswordJob_QBaseMetaObject(const QKeychain__ReadPasswordJob* self) {
+QMetaObject* QKeychain__ReadPasswordJob_SuperMetaObject(const QKeychain__ReadPasswordJob* self) {
     auto* vqkeychainreadpasswordjob = const_cast<VirtualQKeychainReadPasswordJob*>(dynamic_cast<const VirtualQKeychainReadPasswordJob*>(self));
     if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_MetaObject_IsBase(true);
@@ -205,7 +205,7 @@ void QKeychain__ReadPasswordJob_OnMetaObject(const QKeychain__ReadPasswordJob* s
 }
 
 // Base class handler implementation
-void* QKeychain__ReadPasswordJob_QBaseMetacast(QKeychain__ReadPasswordJob* self, const char* param1) {
+void* QKeychain__ReadPasswordJob_SuperMetacast(QKeychain__ReadPasswordJob* self, const char* param1) {
     auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
     if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_Metacast_IsBase(true);
@@ -224,7 +224,7 @@ void QKeychain__ReadPasswordJob_OnMetacast(QKeychain__ReadPasswordJob* self, int
 }
 
 // Base class handler implementation
-int QKeychain__ReadPasswordJob_QBaseMetacall(QKeychain__ReadPasswordJob* self, int param1, int param2, void** param3) {
+int QKeychain__ReadPasswordJob_SuperMetacall(QKeychain__ReadPasswordJob* self, int param1, int param2, void** param3) {
     auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
     if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_Metacall_IsBase(true);
@@ -253,7 +253,7 @@ bool QKeychain__ReadPasswordJob_Event(QKeychain__ReadPasswordJob* self, QEvent* 
 }
 
 // Base class handler implementation
-bool QKeychain__ReadPasswordJob_QBaseEvent(QKeychain__ReadPasswordJob* self, QEvent* event) {
+bool QKeychain__ReadPasswordJob_SuperEvent(QKeychain__ReadPasswordJob* self, QEvent* event) {
     auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
     if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_Event_IsBase(true);
@@ -282,7 +282,7 @@ bool QKeychain__ReadPasswordJob_EventFilter(QKeychain__ReadPasswordJob* self, QO
 }
 
 // Base class handler implementation
-bool QKeychain__ReadPasswordJob_QBaseEventFilter(QKeychain__ReadPasswordJob* self, QObject* watched, QEvent* event) {
+bool QKeychain__ReadPasswordJob_SuperEventFilter(QKeychain__ReadPasswordJob* self, QObject* watched, QEvent* event) {
     auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
     if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_EventFilter_IsBase(true);
@@ -311,7 +311,7 @@ void QKeychain__ReadPasswordJob_TimerEvent(QKeychain__ReadPasswordJob* self, QTi
 }
 
 // Base class handler implementation
-void QKeychain__ReadPasswordJob_QBaseTimerEvent(QKeychain__ReadPasswordJob* self, QTimerEvent* event) {
+void QKeychain__ReadPasswordJob_SuperTimerEvent(QKeychain__ReadPasswordJob* self, QTimerEvent* event) {
     auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
     if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_TimerEvent_IsBase(true);
@@ -340,7 +340,7 @@ void QKeychain__ReadPasswordJob_ChildEvent(QKeychain__ReadPasswordJob* self, QCh
 }
 
 // Base class handler implementation
-void QKeychain__ReadPasswordJob_QBaseChildEvent(QKeychain__ReadPasswordJob* self, QChildEvent* event) {
+void QKeychain__ReadPasswordJob_SuperChildEvent(QKeychain__ReadPasswordJob* self, QChildEvent* event) {
     auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
     if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_ChildEvent_IsBase(true);
@@ -369,7 +369,7 @@ void QKeychain__ReadPasswordJob_CustomEvent(QKeychain__ReadPasswordJob* self, QE
 }
 
 // Base class handler implementation
-void QKeychain__ReadPasswordJob_QBaseCustomEvent(QKeychain__ReadPasswordJob* self, QEvent* event) {
+void QKeychain__ReadPasswordJob_SuperCustomEvent(QKeychain__ReadPasswordJob* self, QEvent* event) {
     auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
     if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_CustomEvent_IsBase(true);
@@ -398,7 +398,7 @@ void QKeychain__ReadPasswordJob_ConnectNotify(QKeychain__ReadPasswordJob* self, 
 }
 
 // Base class handler implementation
-void QKeychain__ReadPasswordJob_QBaseConnectNotify(QKeychain__ReadPasswordJob* self, const QMetaMethod* signal) {
+void QKeychain__ReadPasswordJob_SuperConnectNotify(QKeychain__ReadPasswordJob* self, const QMetaMethod* signal) {
     auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
     if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_ConnectNotify_IsBase(true);
@@ -427,7 +427,7 @@ void QKeychain__ReadPasswordJob_DisconnectNotify(QKeychain__ReadPasswordJob* sel
 }
 
 // Base class handler implementation
-void QKeychain__ReadPasswordJob_QBaseDisconnectNotify(QKeychain__ReadPasswordJob* self, const QMetaMethod* signal) {
+void QKeychain__ReadPasswordJob_SuperDisconnectNotify(QKeychain__ReadPasswordJob* self, const QMetaMethod* signal) {
     auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
     if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_DisconnectNotify_IsBase(true);
@@ -456,7 +456,7 @@ void QKeychain__ReadPasswordJob_DoStart(QKeychain__ReadPasswordJob* self) {
 }
 
 // Base class handler implementation
-void QKeychain__ReadPasswordJob_QBaseDoStart(QKeychain__ReadPasswordJob* self) {
+void QKeychain__ReadPasswordJob_SuperDoStart(QKeychain__ReadPasswordJob* self) {
     auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
     if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_DoStart_IsBase(true);
@@ -485,7 +485,7 @@ QObject* QKeychain__ReadPasswordJob_Sender(const QKeychain__ReadPasswordJob* sel
 }
 
 // Base class handler implementation
-QObject* QKeychain__ReadPasswordJob_QBaseSender(const QKeychain__ReadPasswordJob* self) {
+QObject* QKeychain__ReadPasswordJob_SuperSender(const QKeychain__ReadPasswordJob* self) {
     auto* vqkeychainreadpasswordjob = const_cast<VirtualQKeychainReadPasswordJob*>(dynamic_cast<const VirtualQKeychainReadPasswordJob*>(self));
     if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_Sender_IsBase(true);
@@ -514,7 +514,7 @@ int QKeychain__ReadPasswordJob_SenderSignalIndex(const QKeychain__ReadPasswordJo
 }
 
 // Base class handler implementation
-int QKeychain__ReadPasswordJob_QBaseSenderSignalIndex(const QKeychain__ReadPasswordJob* self) {
+int QKeychain__ReadPasswordJob_SuperSenderSignalIndex(const QKeychain__ReadPasswordJob* self) {
     auto* vqkeychainreadpasswordjob = const_cast<VirtualQKeychainReadPasswordJob*>(dynamic_cast<const VirtualQKeychainReadPasswordJob*>(self));
     if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_SenderSignalIndex_IsBase(true);
@@ -543,7 +543,7 @@ int QKeychain__ReadPasswordJob_Receivers(const QKeychain__ReadPasswordJob* self,
 }
 
 // Base class handler implementation
-int QKeychain__ReadPasswordJob_QBaseReceivers(const QKeychain__ReadPasswordJob* self, const char* signal) {
+int QKeychain__ReadPasswordJob_SuperReceivers(const QKeychain__ReadPasswordJob* self, const char* signal) {
     auto* vqkeychainreadpasswordjob = const_cast<VirtualQKeychainReadPasswordJob*>(dynamic_cast<const VirtualQKeychainReadPasswordJob*>(self));
     if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_Receivers_IsBase(true);
@@ -572,7 +572,7 @@ bool QKeychain__ReadPasswordJob_IsSignalConnected(const QKeychain__ReadPasswordJ
 }
 
 // Base class handler implementation
-bool QKeychain__ReadPasswordJob_QBaseIsSignalConnected(const QKeychain__ReadPasswordJob* self, const QMetaMethod* signal) {
+bool QKeychain__ReadPasswordJob_SuperIsSignalConnected(const QKeychain__ReadPasswordJob* self, const QMetaMethod* signal) {
     auto* vqkeychainreadpasswordjob = const_cast<VirtualQKeychainReadPasswordJob*>(dynamic_cast<const VirtualQKeychainReadPasswordJob*>(self));
     if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
         vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_IsSignalConnected_IsBase(true);
@@ -642,7 +642,7 @@ void QKeychain__WritePasswordJob_SetTextData(QKeychain__WritePasswordJob* self, 
 }
 
 // Base class handler implementation
-QMetaObject* QKeychain__WritePasswordJob_QBaseMetaObject(const QKeychain__WritePasswordJob* self) {
+QMetaObject* QKeychain__WritePasswordJob_SuperMetaObject(const QKeychain__WritePasswordJob* self) {
     auto* vqkeychainwritepasswordjob = const_cast<VirtualQKeychainWritePasswordJob*>(dynamic_cast<const VirtualQKeychainWritePasswordJob*>(self));
     if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_MetaObject_IsBase(true);
@@ -661,7 +661,7 @@ void QKeychain__WritePasswordJob_OnMetaObject(const QKeychain__WritePasswordJob*
 }
 
 // Base class handler implementation
-void* QKeychain__WritePasswordJob_QBaseMetacast(QKeychain__WritePasswordJob* self, const char* param1) {
+void* QKeychain__WritePasswordJob_SuperMetacast(QKeychain__WritePasswordJob* self, const char* param1) {
     auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
     if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_Metacast_IsBase(true);
@@ -680,7 +680,7 @@ void QKeychain__WritePasswordJob_OnMetacast(QKeychain__WritePasswordJob* self, i
 }
 
 // Base class handler implementation
-int QKeychain__WritePasswordJob_QBaseMetacall(QKeychain__WritePasswordJob* self, int param1, int param2, void** param3) {
+int QKeychain__WritePasswordJob_SuperMetacall(QKeychain__WritePasswordJob* self, int param1, int param2, void** param3) {
     auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
     if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_Metacall_IsBase(true);
@@ -709,7 +709,7 @@ bool QKeychain__WritePasswordJob_Event(QKeychain__WritePasswordJob* self, QEvent
 }
 
 // Base class handler implementation
-bool QKeychain__WritePasswordJob_QBaseEvent(QKeychain__WritePasswordJob* self, QEvent* event) {
+bool QKeychain__WritePasswordJob_SuperEvent(QKeychain__WritePasswordJob* self, QEvent* event) {
     auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
     if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_Event_IsBase(true);
@@ -738,7 +738,7 @@ bool QKeychain__WritePasswordJob_EventFilter(QKeychain__WritePasswordJob* self, 
 }
 
 // Base class handler implementation
-bool QKeychain__WritePasswordJob_QBaseEventFilter(QKeychain__WritePasswordJob* self, QObject* watched, QEvent* event) {
+bool QKeychain__WritePasswordJob_SuperEventFilter(QKeychain__WritePasswordJob* self, QObject* watched, QEvent* event) {
     auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
     if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_EventFilter_IsBase(true);
@@ -767,7 +767,7 @@ void QKeychain__WritePasswordJob_TimerEvent(QKeychain__WritePasswordJob* self, Q
 }
 
 // Base class handler implementation
-void QKeychain__WritePasswordJob_QBaseTimerEvent(QKeychain__WritePasswordJob* self, QTimerEvent* event) {
+void QKeychain__WritePasswordJob_SuperTimerEvent(QKeychain__WritePasswordJob* self, QTimerEvent* event) {
     auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
     if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_TimerEvent_IsBase(true);
@@ -796,7 +796,7 @@ void QKeychain__WritePasswordJob_ChildEvent(QKeychain__WritePasswordJob* self, Q
 }
 
 // Base class handler implementation
-void QKeychain__WritePasswordJob_QBaseChildEvent(QKeychain__WritePasswordJob* self, QChildEvent* event) {
+void QKeychain__WritePasswordJob_SuperChildEvent(QKeychain__WritePasswordJob* self, QChildEvent* event) {
     auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
     if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_ChildEvent_IsBase(true);
@@ -825,7 +825,7 @@ void QKeychain__WritePasswordJob_CustomEvent(QKeychain__WritePasswordJob* self, 
 }
 
 // Base class handler implementation
-void QKeychain__WritePasswordJob_QBaseCustomEvent(QKeychain__WritePasswordJob* self, QEvent* event) {
+void QKeychain__WritePasswordJob_SuperCustomEvent(QKeychain__WritePasswordJob* self, QEvent* event) {
     auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
     if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_CustomEvent_IsBase(true);
@@ -854,7 +854,7 @@ void QKeychain__WritePasswordJob_ConnectNotify(QKeychain__WritePasswordJob* self
 }
 
 // Base class handler implementation
-void QKeychain__WritePasswordJob_QBaseConnectNotify(QKeychain__WritePasswordJob* self, const QMetaMethod* signal) {
+void QKeychain__WritePasswordJob_SuperConnectNotify(QKeychain__WritePasswordJob* self, const QMetaMethod* signal) {
     auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
     if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_ConnectNotify_IsBase(true);
@@ -883,7 +883,7 @@ void QKeychain__WritePasswordJob_DisconnectNotify(QKeychain__WritePasswordJob* s
 }
 
 // Base class handler implementation
-void QKeychain__WritePasswordJob_QBaseDisconnectNotify(QKeychain__WritePasswordJob* self, const QMetaMethod* signal) {
+void QKeychain__WritePasswordJob_SuperDisconnectNotify(QKeychain__WritePasswordJob* self, const QMetaMethod* signal) {
     auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
     if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_DisconnectNotify_IsBase(true);
@@ -912,7 +912,7 @@ void QKeychain__WritePasswordJob_DoStart(QKeychain__WritePasswordJob* self) {
 }
 
 // Base class handler implementation
-void QKeychain__WritePasswordJob_QBaseDoStart(QKeychain__WritePasswordJob* self) {
+void QKeychain__WritePasswordJob_SuperDoStart(QKeychain__WritePasswordJob* self) {
     auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
     if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_DoStart_IsBase(true);
@@ -941,7 +941,7 @@ QObject* QKeychain__WritePasswordJob_Sender(const QKeychain__WritePasswordJob* s
 }
 
 // Base class handler implementation
-QObject* QKeychain__WritePasswordJob_QBaseSender(const QKeychain__WritePasswordJob* self) {
+QObject* QKeychain__WritePasswordJob_SuperSender(const QKeychain__WritePasswordJob* self) {
     auto* vqkeychainwritepasswordjob = const_cast<VirtualQKeychainWritePasswordJob*>(dynamic_cast<const VirtualQKeychainWritePasswordJob*>(self));
     if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_Sender_IsBase(true);
@@ -970,7 +970,7 @@ int QKeychain__WritePasswordJob_SenderSignalIndex(const QKeychain__WritePassword
 }
 
 // Base class handler implementation
-int QKeychain__WritePasswordJob_QBaseSenderSignalIndex(const QKeychain__WritePasswordJob* self) {
+int QKeychain__WritePasswordJob_SuperSenderSignalIndex(const QKeychain__WritePasswordJob* self) {
     auto* vqkeychainwritepasswordjob = const_cast<VirtualQKeychainWritePasswordJob*>(dynamic_cast<const VirtualQKeychainWritePasswordJob*>(self));
     if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_SenderSignalIndex_IsBase(true);
@@ -999,7 +999,7 @@ int QKeychain__WritePasswordJob_Receivers(const QKeychain__WritePasswordJob* sel
 }
 
 // Base class handler implementation
-int QKeychain__WritePasswordJob_QBaseReceivers(const QKeychain__WritePasswordJob* self, const char* signal) {
+int QKeychain__WritePasswordJob_SuperReceivers(const QKeychain__WritePasswordJob* self, const char* signal) {
     auto* vqkeychainwritepasswordjob = const_cast<VirtualQKeychainWritePasswordJob*>(dynamic_cast<const VirtualQKeychainWritePasswordJob*>(self));
     if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_Receivers_IsBase(true);
@@ -1028,7 +1028,7 @@ bool QKeychain__WritePasswordJob_IsSignalConnected(const QKeychain__WritePasswor
 }
 
 // Base class handler implementation
-bool QKeychain__WritePasswordJob_QBaseIsSignalConnected(const QKeychain__WritePasswordJob* self, const QMetaMethod* signal) {
+bool QKeychain__WritePasswordJob_SuperIsSignalConnected(const QKeychain__WritePasswordJob* self, const QMetaMethod* signal) {
     auto* vqkeychainwritepasswordjob = const_cast<VirtualQKeychainWritePasswordJob*>(dynamic_cast<const VirtualQKeychainWritePasswordJob*>(self));
     if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
         vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_IsSignalConnected_IsBase(true);
@@ -1088,7 +1088,7 @@ int QKeychain__DeletePasswordJob_Metacall(QKeychain__DeletePasswordJob* self, in
 }
 
 // Base class handler implementation
-QMetaObject* QKeychain__DeletePasswordJob_QBaseMetaObject(const QKeychain__DeletePasswordJob* self) {
+QMetaObject* QKeychain__DeletePasswordJob_SuperMetaObject(const QKeychain__DeletePasswordJob* self) {
     auto* vqkeychaindeletepasswordjob = const_cast<VirtualQKeychainDeletePasswordJob*>(dynamic_cast<const VirtualQKeychainDeletePasswordJob*>(self));
     if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_MetaObject_IsBase(true);
@@ -1107,7 +1107,7 @@ void QKeychain__DeletePasswordJob_OnMetaObject(const QKeychain__DeletePasswordJo
 }
 
 // Base class handler implementation
-void* QKeychain__DeletePasswordJob_QBaseMetacast(QKeychain__DeletePasswordJob* self, const char* param1) {
+void* QKeychain__DeletePasswordJob_SuperMetacast(QKeychain__DeletePasswordJob* self, const char* param1) {
     auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
     if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_Metacast_IsBase(true);
@@ -1126,7 +1126,7 @@ void QKeychain__DeletePasswordJob_OnMetacast(QKeychain__DeletePasswordJob* self,
 }
 
 // Base class handler implementation
-int QKeychain__DeletePasswordJob_QBaseMetacall(QKeychain__DeletePasswordJob* self, int param1, int param2, void** param3) {
+int QKeychain__DeletePasswordJob_SuperMetacall(QKeychain__DeletePasswordJob* self, int param1, int param2, void** param3) {
     auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
     if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_Metacall_IsBase(true);
@@ -1155,7 +1155,7 @@ bool QKeychain__DeletePasswordJob_Event(QKeychain__DeletePasswordJob* self, QEve
 }
 
 // Base class handler implementation
-bool QKeychain__DeletePasswordJob_QBaseEvent(QKeychain__DeletePasswordJob* self, QEvent* event) {
+bool QKeychain__DeletePasswordJob_SuperEvent(QKeychain__DeletePasswordJob* self, QEvent* event) {
     auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
     if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_Event_IsBase(true);
@@ -1184,7 +1184,7 @@ bool QKeychain__DeletePasswordJob_EventFilter(QKeychain__DeletePasswordJob* self
 }
 
 // Base class handler implementation
-bool QKeychain__DeletePasswordJob_QBaseEventFilter(QKeychain__DeletePasswordJob* self, QObject* watched, QEvent* event) {
+bool QKeychain__DeletePasswordJob_SuperEventFilter(QKeychain__DeletePasswordJob* self, QObject* watched, QEvent* event) {
     auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
     if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_EventFilter_IsBase(true);
@@ -1213,7 +1213,7 @@ void QKeychain__DeletePasswordJob_TimerEvent(QKeychain__DeletePasswordJob* self,
 }
 
 // Base class handler implementation
-void QKeychain__DeletePasswordJob_QBaseTimerEvent(QKeychain__DeletePasswordJob* self, QTimerEvent* event) {
+void QKeychain__DeletePasswordJob_SuperTimerEvent(QKeychain__DeletePasswordJob* self, QTimerEvent* event) {
     auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
     if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_TimerEvent_IsBase(true);
@@ -1242,7 +1242,7 @@ void QKeychain__DeletePasswordJob_ChildEvent(QKeychain__DeletePasswordJob* self,
 }
 
 // Base class handler implementation
-void QKeychain__DeletePasswordJob_QBaseChildEvent(QKeychain__DeletePasswordJob* self, QChildEvent* event) {
+void QKeychain__DeletePasswordJob_SuperChildEvent(QKeychain__DeletePasswordJob* self, QChildEvent* event) {
     auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
     if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_ChildEvent_IsBase(true);
@@ -1271,7 +1271,7 @@ void QKeychain__DeletePasswordJob_CustomEvent(QKeychain__DeletePasswordJob* self
 }
 
 // Base class handler implementation
-void QKeychain__DeletePasswordJob_QBaseCustomEvent(QKeychain__DeletePasswordJob* self, QEvent* event) {
+void QKeychain__DeletePasswordJob_SuperCustomEvent(QKeychain__DeletePasswordJob* self, QEvent* event) {
     auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
     if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_CustomEvent_IsBase(true);
@@ -1300,7 +1300,7 @@ void QKeychain__DeletePasswordJob_ConnectNotify(QKeychain__DeletePasswordJob* se
 }
 
 // Base class handler implementation
-void QKeychain__DeletePasswordJob_QBaseConnectNotify(QKeychain__DeletePasswordJob* self, const QMetaMethod* signal) {
+void QKeychain__DeletePasswordJob_SuperConnectNotify(QKeychain__DeletePasswordJob* self, const QMetaMethod* signal) {
     auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
     if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_ConnectNotify_IsBase(true);
@@ -1329,7 +1329,7 @@ void QKeychain__DeletePasswordJob_DisconnectNotify(QKeychain__DeletePasswordJob*
 }
 
 // Base class handler implementation
-void QKeychain__DeletePasswordJob_QBaseDisconnectNotify(QKeychain__DeletePasswordJob* self, const QMetaMethod* signal) {
+void QKeychain__DeletePasswordJob_SuperDisconnectNotify(QKeychain__DeletePasswordJob* self, const QMetaMethod* signal) {
     auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
     if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_DisconnectNotify_IsBase(true);
@@ -1358,7 +1358,7 @@ void QKeychain__DeletePasswordJob_DoStart(QKeychain__DeletePasswordJob* self) {
 }
 
 // Base class handler implementation
-void QKeychain__DeletePasswordJob_QBaseDoStart(QKeychain__DeletePasswordJob* self) {
+void QKeychain__DeletePasswordJob_SuperDoStart(QKeychain__DeletePasswordJob* self) {
     auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
     if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_DoStart_IsBase(true);
@@ -1387,7 +1387,7 @@ QObject* QKeychain__DeletePasswordJob_Sender(const QKeychain__DeletePasswordJob*
 }
 
 // Base class handler implementation
-QObject* QKeychain__DeletePasswordJob_QBaseSender(const QKeychain__DeletePasswordJob* self) {
+QObject* QKeychain__DeletePasswordJob_SuperSender(const QKeychain__DeletePasswordJob* self) {
     auto* vqkeychaindeletepasswordjob = const_cast<VirtualQKeychainDeletePasswordJob*>(dynamic_cast<const VirtualQKeychainDeletePasswordJob*>(self));
     if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_Sender_IsBase(true);
@@ -1416,7 +1416,7 @@ int QKeychain__DeletePasswordJob_SenderSignalIndex(const QKeychain__DeletePasswo
 }
 
 // Base class handler implementation
-int QKeychain__DeletePasswordJob_QBaseSenderSignalIndex(const QKeychain__DeletePasswordJob* self) {
+int QKeychain__DeletePasswordJob_SuperSenderSignalIndex(const QKeychain__DeletePasswordJob* self) {
     auto* vqkeychaindeletepasswordjob = const_cast<VirtualQKeychainDeletePasswordJob*>(dynamic_cast<const VirtualQKeychainDeletePasswordJob*>(self));
     if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_SenderSignalIndex_IsBase(true);
@@ -1445,7 +1445,7 @@ int QKeychain__DeletePasswordJob_Receivers(const QKeychain__DeletePasswordJob* s
 }
 
 // Base class handler implementation
-int QKeychain__DeletePasswordJob_QBaseReceivers(const QKeychain__DeletePasswordJob* self, const char* signal) {
+int QKeychain__DeletePasswordJob_SuperReceivers(const QKeychain__DeletePasswordJob* self, const char* signal) {
     auto* vqkeychaindeletepasswordjob = const_cast<VirtualQKeychainDeletePasswordJob*>(dynamic_cast<const VirtualQKeychainDeletePasswordJob*>(self));
     if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_Receivers_IsBase(true);
@@ -1474,7 +1474,7 @@ bool QKeychain__DeletePasswordJob_IsSignalConnected(const QKeychain__DeletePassw
 }
 
 // Base class handler implementation
-bool QKeychain__DeletePasswordJob_QBaseIsSignalConnected(const QKeychain__DeletePasswordJob* self, const QMetaMethod* signal) {
+bool QKeychain__DeletePasswordJob_SuperIsSignalConnected(const QKeychain__DeletePasswordJob* self, const QMetaMethod* signal) {
     auto* vqkeychaindeletepasswordjob = const_cast<VirtualQKeychainDeletePasswordJob*>(dynamic_cast<const VirtualQKeychainDeletePasswordJob*>(self));
     if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
         vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_IsSignalConnected_IsBase(true);

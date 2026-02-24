@@ -115,7 +115,7 @@ void KIO__RenameFileDialog_Connect_Error(KIO__RenameFileDialog* self, intptr_t s
 }
 
 // Base class handler implementation
-QMetaObject* KIO__RenameFileDialog_QBaseMetaObject(const KIO__RenameFileDialog* self) {
+QMetaObject* KIO__RenameFileDialog_SuperMetaObject(const KIO__RenameFileDialog* self) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_MetaObject_IsBase(true);
@@ -134,7 +134,7 @@ void KIO__RenameFileDialog_OnMetaObject(const KIO__RenameFileDialog* self, intpt
 }
 
 // Base class handler implementation
-void* KIO__RenameFileDialog_QBaseMetacast(KIO__RenameFileDialog* self, const char* param1) {
+void* KIO__RenameFileDialog_SuperMetacast(KIO__RenameFileDialog* self, const char* param1) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_Metacast_IsBase(true);
@@ -153,7 +153,7 @@ void KIO__RenameFileDialog_OnMetacast(KIO__RenameFileDialog* self, intptr_t slot
 }
 
 // Base class handler implementation
-int KIO__RenameFileDialog_QBaseMetacall(KIO__RenameFileDialog* self, int param1, int param2, void** param3) {
+int KIO__RenameFileDialog_SuperMetacall(KIO__RenameFileDialog* self, int param1, int param2, void** param3) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_Metacall_IsBase(true);
@@ -182,7 +182,7 @@ void KIO__RenameFileDialog_SetVisible(KIO__RenameFileDialog* self, bool visible)
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseSetVisible(KIO__RenameFileDialog* self, bool visible) {
+void KIO__RenameFileDialog_SuperSetVisible(KIO__RenameFileDialog* self, bool visible) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_SetVisible_IsBase(true);
@@ -211,7 +211,7 @@ QSize* KIO__RenameFileDialog_SizeHint(const KIO__RenameFileDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KIO__RenameFileDialog_QBaseSizeHint(const KIO__RenameFileDialog* self) {
+QSize* KIO__RenameFileDialog_SuperSizeHint(const KIO__RenameFileDialog* self) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_SizeHint_IsBase(true);
@@ -240,7 +240,7 @@ QSize* KIO__RenameFileDialog_MinimumSizeHint(const KIO__RenameFileDialog* self) 
 }
 
 // Base class handler implementation
-QSize* KIO__RenameFileDialog_QBaseMinimumSizeHint(const KIO__RenameFileDialog* self) {
+QSize* KIO__RenameFileDialog_SuperMinimumSizeHint(const KIO__RenameFileDialog* self) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_MinimumSizeHint_IsBase(true);
@@ -269,7 +269,7 @@ void KIO__RenameFileDialog_Open(KIO__RenameFileDialog* self) {
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseOpen(KIO__RenameFileDialog* self) {
+void KIO__RenameFileDialog_SuperOpen(KIO__RenameFileDialog* self) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_Open_IsBase(true);
@@ -298,7 +298,7 @@ int KIO__RenameFileDialog_Exec(KIO__RenameFileDialog* self) {
 }
 
 // Base class handler implementation
-int KIO__RenameFileDialog_QBaseExec(KIO__RenameFileDialog* self) {
+int KIO__RenameFileDialog_SuperExec(KIO__RenameFileDialog* self) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_Exec_IsBase(true);
@@ -327,7 +327,7 @@ void KIO__RenameFileDialog_Done(KIO__RenameFileDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseDone(KIO__RenameFileDialog* self, int param1) {
+void KIO__RenameFileDialog_SuperDone(KIO__RenameFileDialog* self, int param1) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_Done_IsBase(true);
@@ -356,7 +356,7 @@ void KIO__RenameFileDialog_Accept(KIO__RenameFileDialog* self) {
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseAccept(KIO__RenameFileDialog* self) {
+void KIO__RenameFileDialog_SuperAccept(KIO__RenameFileDialog* self) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_Accept_IsBase(true);
@@ -385,7 +385,7 @@ void KIO__RenameFileDialog_Reject(KIO__RenameFileDialog* self) {
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseReject(KIO__RenameFileDialog* self) {
+void KIO__RenameFileDialog_SuperReject(KIO__RenameFileDialog* self) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_Reject_IsBase(true);
@@ -414,7 +414,7 @@ void KIO__RenameFileDialog_KeyPressEvent(KIO__RenameFileDialog* self, QKeyEvent*
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseKeyPressEvent(KIO__RenameFileDialog* self, QKeyEvent* param1) {
+void KIO__RenameFileDialog_SuperKeyPressEvent(KIO__RenameFileDialog* self, QKeyEvent* param1) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_KeyPressEvent_IsBase(true);
@@ -443,7 +443,7 @@ void KIO__RenameFileDialog_CloseEvent(KIO__RenameFileDialog* self, QCloseEvent* 
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseCloseEvent(KIO__RenameFileDialog* self, QCloseEvent* param1) {
+void KIO__RenameFileDialog_SuperCloseEvent(KIO__RenameFileDialog* self, QCloseEvent* param1) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_CloseEvent_IsBase(true);
@@ -472,7 +472,7 @@ void KIO__RenameFileDialog_ShowEvent(KIO__RenameFileDialog* self, QShowEvent* pa
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseShowEvent(KIO__RenameFileDialog* self, QShowEvent* param1) {
+void KIO__RenameFileDialog_SuperShowEvent(KIO__RenameFileDialog* self, QShowEvent* param1) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_ShowEvent_IsBase(true);
@@ -501,7 +501,7 @@ void KIO__RenameFileDialog_ResizeEvent(KIO__RenameFileDialog* self, QResizeEvent
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseResizeEvent(KIO__RenameFileDialog* self, QResizeEvent* param1) {
+void KIO__RenameFileDialog_SuperResizeEvent(KIO__RenameFileDialog* self, QResizeEvent* param1) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_ResizeEvent_IsBase(true);
@@ -530,7 +530,7 @@ void KIO__RenameFileDialog_ContextMenuEvent(KIO__RenameFileDialog* self, QContex
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseContextMenuEvent(KIO__RenameFileDialog* self, QContextMenuEvent* param1) {
+void KIO__RenameFileDialog_SuperContextMenuEvent(KIO__RenameFileDialog* self, QContextMenuEvent* param1) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_ContextMenuEvent_IsBase(true);
@@ -559,7 +559,7 @@ bool KIO__RenameFileDialog_EventFilter(KIO__RenameFileDialog* self, QObject* par
 }
 
 // Base class handler implementation
-bool KIO__RenameFileDialog_QBaseEventFilter(KIO__RenameFileDialog* self, QObject* param1, QEvent* param2) {
+bool KIO__RenameFileDialog_SuperEventFilter(KIO__RenameFileDialog* self, QObject* param1, QEvent* param2) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_EventFilter_IsBase(true);
@@ -588,7 +588,7 @@ int KIO__RenameFileDialog_DevType(const KIO__RenameFileDialog* self) {
 }
 
 // Base class handler implementation
-int KIO__RenameFileDialog_QBaseDevType(const KIO__RenameFileDialog* self) {
+int KIO__RenameFileDialog_SuperDevType(const KIO__RenameFileDialog* self) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_DevType_IsBase(true);
@@ -617,7 +617,7 @@ int KIO__RenameFileDialog_HeightForWidth(const KIO__RenameFileDialog* self, int 
 }
 
 // Base class handler implementation
-int KIO__RenameFileDialog_QBaseHeightForWidth(const KIO__RenameFileDialog* self, int param1) {
+int KIO__RenameFileDialog_SuperHeightForWidth(const KIO__RenameFileDialog* self, int param1) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_HeightForWidth_IsBase(true);
@@ -646,7 +646,7 @@ bool KIO__RenameFileDialog_HasHeightForWidth(const KIO__RenameFileDialog* self) 
 }
 
 // Base class handler implementation
-bool KIO__RenameFileDialog_QBaseHasHeightForWidth(const KIO__RenameFileDialog* self) {
+bool KIO__RenameFileDialog_SuperHasHeightForWidth(const KIO__RenameFileDialog* self) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_HasHeightForWidth_IsBase(true);
@@ -675,7 +675,7 @@ QPaintEngine* KIO__RenameFileDialog_PaintEngine(const KIO__RenameFileDialog* sel
 }
 
 // Base class handler implementation
-QPaintEngine* KIO__RenameFileDialog_QBasePaintEngine(const KIO__RenameFileDialog* self) {
+QPaintEngine* KIO__RenameFileDialog_SuperPaintEngine(const KIO__RenameFileDialog* self) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_PaintEngine_IsBase(true);
@@ -704,7 +704,7 @@ bool KIO__RenameFileDialog_Event(KIO__RenameFileDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KIO__RenameFileDialog_QBaseEvent(KIO__RenameFileDialog* self, QEvent* event) {
+bool KIO__RenameFileDialog_SuperEvent(KIO__RenameFileDialog* self, QEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_Event_IsBase(true);
@@ -733,7 +733,7 @@ void KIO__RenameFileDialog_MousePressEvent(KIO__RenameFileDialog* self, QMouseEv
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseMousePressEvent(KIO__RenameFileDialog* self, QMouseEvent* event) {
+void KIO__RenameFileDialog_SuperMousePressEvent(KIO__RenameFileDialog* self, QMouseEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_MousePressEvent_IsBase(true);
@@ -762,7 +762,7 @@ void KIO__RenameFileDialog_MouseReleaseEvent(KIO__RenameFileDialog* self, QMouse
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseMouseReleaseEvent(KIO__RenameFileDialog* self, QMouseEvent* event) {
+void KIO__RenameFileDialog_SuperMouseReleaseEvent(KIO__RenameFileDialog* self, QMouseEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_MouseReleaseEvent_IsBase(true);
@@ -791,7 +791,7 @@ void KIO__RenameFileDialog_MouseDoubleClickEvent(KIO__RenameFileDialog* self, QM
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseMouseDoubleClickEvent(KIO__RenameFileDialog* self, QMouseEvent* event) {
+void KIO__RenameFileDialog_SuperMouseDoubleClickEvent(KIO__RenameFileDialog* self, QMouseEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_MouseDoubleClickEvent_IsBase(true);
@@ -820,7 +820,7 @@ void KIO__RenameFileDialog_MouseMoveEvent(KIO__RenameFileDialog* self, QMouseEve
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseMouseMoveEvent(KIO__RenameFileDialog* self, QMouseEvent* event) {
+void KIO__RenameFileDialog_SuperMouseMoveEvent(KIO__RenameFileDialog* self, QMouseEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_MouseMoveEvent_IsBase(true);
@@ -849,7 +849,7 @@ void KIO__RenameFileDialog_WheelEvent(KIO__RenameFileDialog* self, QWheelEvent* 
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseWheelEvent(KIO__RenameFileDialog* self, QWheelEvent* event) {
+void KIO__RenameFileDialog_SuperWheelEvent(KIO__RenameFileDialog* self, QWheelEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_WheelEvent_IsBase(true);
@@ -878,7 +878,7 @@ void KIO__RenameFileDialog_KeyReleaseEvent(KIO__RenameFileDialog* self, QKeyEven
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseKeyReleaseEvent(KIO__RenameFileDialog* self, QKeyEvent* event) {
+void KIO__RenameFileDialog_SuperKeyReleaseEvent(KIO__RenameFileDialog* self, QKeyEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_KeyReleaseEvent_IsBase(true);
@@ -907,7 +907,7 @@ void KIO__RenameFileDialog_FocusInEvent(KIO__RenameFileDialog* self, QFocusEvent
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseFocusInEvent(KIO__RenameFileDialog* self, QFocusEvent* event) {
+void KIO__RenameFileDialog_SuperFocusInEvent(KIO__RenameFileDialog* self, QFocusEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_FocusInEvent_IsBase(true);
@@ -936,7 +936,7 @@ void KIO__RenameFileDialog_FocusOutEvent(KIO__RenameFileDialog* self, QFocusEven
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseFocusOutEvent(KIO__RenameFileDialog* self, QFocusEvent* event) {
+void KIO__RenameFileDialog_SuperFocusOutEvent(KIO__RenameFileDialog* self, QFocusEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_FocusOutEvent_IsBase(true);
@@ -965,7 +965,7 @@ void KIO__RenameFileDialog_EnterEvent(KIO__RenameFileDialog* self, QEnterEvent* 
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseEnterEvent(KIO__RenameFileDialog* self, QEnterEvent* event) {
+void KIO__RenameFileDialog_SuperEnterEvent(KIO__RenameFileDialog* self, QEnterEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_EnterEvent_IsBase(true);
@@ -994,7 +994,7 @@ void KIO__RenameFileDialog_LeaveEvent(KIO__RenameFileDialog* self, QEvent* event
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseLeaveEvent(KIO__RenameFileDialog* self, QEvent* event) {
+void KIO__RenameFileDialog_SuperLeaveEvent(KIO__RenameFileDialog* self, QEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_LeaveEvent_IsBase(true);
@@ -1023,7 +1023,7 @@ void KIO__RenameFileDialog_PaintEvent(KIO__RenameFileDialog* self, QPaintEvent* 
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBasePaintEvent(KIO__RenameFileDialog* self, QPaintEvent* event) {
+void KIO__RenameFileDialog_SuperPaintEvent(KIO__RenameFileDialog* self, QPaintEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_PaintEvent_IsBase(true);
@@ -1052,7 +1052,7 @@ void KIO__RenameFileDialog_MoveEvent(KIO__RenameFileDialog* self, QMoveEvent* ev
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseMoveEvent(KIO__RenameFileDialog* self, QMoveEvent* event) {
+void KIO__RenameFileDialog_SuperMoveEvent(KIO__RenameFileDialog* self, QMoveEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_MoveEvent_IsBase(true);
@@ -1081,7 +1081,7 @@ void KIO__RenameFileDialog_TabletEvent(KIO__RenameFileDialog* self, QTabletEvent
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseTabletEvent(KIO__RenameFileDialog* self, QTabletEvent* event) {
+void KIO__RenameFileDialog_SuperTabletEvent(KIO__RenameFileDialog* self, QTabletEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_TabletEvent_IsBase(true);
@@ -1110,7 +1110,7 @@ void KIO__RenameFileDialog_ActionEvent(KIO__RenameFileDialog* self, QActionEvent
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseActionEvent(KIO__RenameFileDialog* self, QActionEvent* event) {
+void KIO__RenameFileDialog_SuperActionEvent(KIO__RenameFileDialog* self, QActionEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_ActionEvent_IsBase(true);
@@ -1139,7 +1139,7 @@ void KIO__RenameFileDialog_DragEnterEvent(KIO__RenameFileDialog* self, QDragEnte
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseDragEnterEvent(KIO__RenameFileDialog* self, QDragEnterEvent* event) {
+void KIO__RenameFileDialog_SuperDragEnterEvent(KIO__RenameFileDialog* self, QDragEnterEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_DragEnterEvent_IsBase(true);
@@ -1168,7 +1168,7 @@ void KIO__RenameFileDialog_DragMoveEvent(KIO__RenameFileDialog* self, QDragMoveE
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseDragMoveEvent(KIO__RenameFileDialog* self, QDragMoveEvent* event) {
+void KIO__RenameFileDialog_SuperDragMoveEvent(KIO__RenameFileDialog* self, QDragMoveEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_DragMoveEvent_IsBase(true);
@@ -1197,7 +1197,7 @@ void KIO__RenameFileDialog_DragLeaveEvent(KIO__RenameFileDialog* self, QDragLeav
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseDragLeaveEvent(KIO__RenameFileDialog* self, QDragLeaveEvent* event) {
+void KIO__RenameFileDialog_SuperDragLeaveEvent(KIO__RenameFileDialog* self, QDragLeaveEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_DragLeaveEvent_IsBase(true);
@@ -1226,7 +1226,7 @@ void KIO__RenameFileDialog_DropEvent(KIO__RenameFileDialog* self, QDropEvent* ev
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseDropEvent(KIO__RenameFileDialog* self, QDropEvent* event) {
+void KIO__RenameFileDialog_SuperDropEvent(KIO__RenameFileDialog* self, QDropEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_DropEvent_IsBase(true);
@@ -1255,7 +1255,7 @@ void KIO__RenameFileDialog_HideEvent(KIO__RenameFileDialog* self, QHideEvent* ev
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseHideEvent(KIO__RenameFileDialog* self, QHideEvent* event) {
+void KIO__RenameFileDialog_SuperHideEvent(KIO__RenameFileDialog* self, QHideEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_HideEvent_IsBase(true);
@@ -1285,7 +1285,7 @@ bool KIO__RenameFileDialog_NativeEvent(KIO__RenameFileDialog* self, const libqt_
 }
 
 // Base class handler implementation
-bool KIO__RenameFileDialog_QBaseNativeEvent(KIO__RenameFileDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KIO__RenameFileDialog_SuperNativeEvent(KIO__RenameFileDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
@@ -1315,7 +1315,7 @@ void KIO__RenameFileDialog_ChangeEvent(KIO__RenameFileDialog* self, QEvent* para
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseChangeEvent(KIO__RenameFileDialog* self, QEvent* param1) {
+void KIO__RenameFileDialog_SuperChangeEvent(KIO__RenameFileDialog* self, QEvent* param1) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_ChangeEvent_IsBase(true);
@@ -1344,7 +1344,7 @@ int KIO__RenameFileDialog_Metric(const KIO__RenameFileDialog* self, int param1) 
 }
 
 // Base class handler implementation
-int KIO__RenameFileDialog_QBaseMetric(const KIO__RenameFileDialog* self, int param1) {
+int KIO__RenameFileDialog_SuperMetric(const KIO__RenameFileDialog* self, int param1) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_Metric_IsBase(true);
@@ -1373,7 +1373,7 @@ void KIO__RenameFileDialog_InitPainter(const KIO__RenameFileDialog* self, QPaint
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseInitPainter(const KIO__RenameFileDialog* self, QPainter* painter) {
+void KIO__RenameFileDialog_SuperInitPainter(const KIO__RenameFileDialog* self, QPainter* painter) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_InitPainter_IsBase(true);
@@ -1402,7 +1402,7 @@ QPaintDevice* KIO__RenameFileDialog_Redirected(const KIO__RenameFileDialog* self
 }
 
 // Base class handler implementation
-QPaintDevice* KIO__RenameFileDialog_QBaseRedirected(const KIO__RenameFileDialog* self, QPoint* offset) {
+QPaintDevice* KIO__RenameFileDialog_SuperRedirected(const KIO__RenameFileDialog* self, QPoint* offset) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_Redirected_IsBase(true);
@@ -1431,7 +1431,7 @@ QPainter* KIO__RenameFileDialog_SharedPainter(const KIO__RenameFileDialog* self)
 }
 
 // Base class handler implementation
-QPainter* KIO__RenameFileDialog_QBaseSharedPainter(const KIO__RenameFileDialog* self) {
+QPainter* KIO__RenameFileDialog_SuperSharedPainter(const KIO__RenameFileDialog* self) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_SharedPainter_IsBase(true);
@@ -1460,7 +1460,7 @@ void KIO__RenameFileDialog_InputMethodEvent(KIO__RenameFileDialog* self, QInputM
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseInputMethodEvent(KIO__RenameFileDialog* self, QInputMethodEvent* param1) {
+void KIO__RenameFileDialog_SuperInputMethodEvent(KIO__RenameFileDialog* self, QInputMethodEvent* param1) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_InputMethodEvent_IsBase(true);
@@ -1489,7 +1489,7 @@ QVariant* KIO__RenameFileDialog_InputMethodQuery(const KIO__RenameFileDialog* se
 }
 
 // Base class handler implementation
-QVariant* KIO__RenameFileDialog_QBaseInputMethodQuery(const KIO__RenameFileDialog* self, int param1) {
+QVariant* KIO__RenameFileDialog_SuperInputMethodQuery(const KIO__RenameFileDialog* self, int param1) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_InputMethodQuery_IsBase(true);
@@ -1518,7 +1518,7 @@ bool KIO__RenameFileDialog_FocusNextPrevChild(KIO__RenameFileDialog* self, bool 
 }
 
 // Base class handler implementation
-bool KIO__RenameFileDialog_QBaseFocusNextPrevChild(KIO__RenameFileDialog* self, bool next) {
+bool KIO__RenameFileDialog_SuperFocusNextPrevChild(KIO__RenameFileDialog* self, bool next) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_FocusNextPrevChild_IsBase(true);
@@ -1547,7 +1547,7 @@ void KIO__RenameFileDialog_TimerEvent(KIO__RenameFileDialog* self, QTimerEvent* 
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseTimerEvent(KIO__RenameFileDialog* self, QTimerEvent* event) {
+void KIO__RenameFileDialog_SuperTimerEvent(KIO__RenameFileDialog* self, QTimerEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_TimerEvent_IsBase(true);
@@ -1576,7 +1576,7 @@ void KIO__RenameFileDialog_ChildEvent(KIO__RenameFileDialog* self, QChildEvent* 
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseChildEvent(KIO__RenameFileDialog* self, QChildEvent* event) {
+void KIO__RenameFileDialog_SuperChildEvent(KIO__RenameFileDialog* self, QChildEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_ChildEvent_IsBase(true);
@@ -1605,7 +1605,7 @@ void KIO__RenameFileDialog_CustomEvent(KIO__RenameFileDialog* self, QEvent* even
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseCustomEvent(KIO__RenameFileDialog* self, QEvent* event) {
+void KIO__RenameFileDialog_SuperCustomEvent(KIO__RenameFileDialog* self, QEvent* event) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_CustomEvent_IsBase(true);
@@ -1634,7 +1634,7 @@ void KIO__RenameFileDialog_ConnectNotify(KIO__RenameFileDialog* self, const QMet
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseConnectNotify(KIO__RenameFileDialog* self, const QMetaMethod* signal) {
+void KIO__RenameFileDialog_SuperConnectNotify(KIO__RenameFileDialog* self, const QMetaMethod* signal) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_ConnectNotify_IsBase(true);
@@ -1663,7 +1663,7 @@ void KIO__RenameFileDialog_DisconnectNotify(KIO__RenameFileDialog* self, const Q
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseDisconnectNotify(KIO__RenameFileDialog* self, const QMetaMethod* signal) {
+void KIO__RenameFileDialog_SuperDisconnectNotify(KIO__RenameFileDialog* self, const QMetaMethod* signal) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_DisconnectNotify_IsBase(true);
@@ -1692,7 +1692,7 @@ void KIO__RenameFileDialog_AdjustPosition(KIO__RenameFileDialog* self, QWidget* 
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseAdjustPosition(KIO__RenameFileDialog* self, QWidget* param1) {
+void KIO__RenameFileDialog_SuperAdjustPosition(KIO__RenameFileDialog* self, QWidget* param1) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_AdjustPosition_IsBase(true);
@@ -1721,7 +1721,7 @@ void KIO__RenameFileDialog_UpdateMicroFocus(KIO__RenameFileDialog* self) {
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseUpdateMicroFocus(KIO__RenameFileDialog* self) {
+void KIO__RenameFileDialog_SuperUpdateMicroFocus(KIO__RenameFileDialog* self) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_UpdateMicroFocus_IsBase(true);
@@ -1750,7 +1750,7 @@ void KIO__RenameFileDialog_Create(KIO__RenameFileDialog* self) {
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseCreate(KIO__RenameFileDialog* self) {
+void KIO__RenameFileDialog_SuperCreate(KIO__RenameFileDialog* self) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_Create_IsBase(true);
@@ -1779,7 +1779,7 @@ void KIO__RenameFileDialog_Destroy(KIO__RenameFileDialog* self) {
 }
 
 // Base class handler implementation
-void KIO__RenameFileDialog_QBaseDestroy(KIO__RenameFileDialog* self) {
+void KIO__RenameFileDialog_SuperDestroy(KIO__RenameFileDialog* self) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_Destroy_IsBase(true);
@@ -1808,7 +1808,7 @@ bool KIO__RenameFileDialog_FocusNextChild(KIO__RenameFileDialog* self) {
 }
 
 // Base class handler implementation
-bool KIO__RenameFileDialog_QBaseFocusNextChild(KIO__RenameFileDialog* self) {
+bool KIO__RenameFileDialog_SuperFocusNextChild(KIO__RenameFileDialog* self) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_FocusNextChild_IsBase(true);
@@ -1837,7 +1837,7 @@ bool KIO__RenameFileDialog_FocusPreviousChild(KIO__RenameFileDialog* self) {
 }
 
 // Base class handler implementation
-bool KIO__RenameFileDialog_QBaseFocusPreviousChild(KIO__RenameFileDialog* self) {
+bool KIO__RenameFileDialog_SuperFocusPreviousChild(KIO__RenameFileDialog* self) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_FocusPreviousChild_IsBase(true);
@@ -1866,7 +1866,7 @@ QObject* KIO__RenameFileDialog_Sender(const KIO__RenameFileDialog* self) {
 }
 
 // Base class handler implementation
-QObject* KIO__RenameFileDialog_QBaseSender(const KIO__RenameFileDialog* self) {
+QObject* KIO__RenameFileDialog_SuperSender(const KIO__RenameFileDialog* self) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_Sender_IsBase(true);
@@ -1895,7 +1895,7 @@ int KIO__RenameFileDialog_SenderSignalIndex(const KIO__RenameFileDialog* self) {
 }
 
 // Base class handler implementation
-int KIO__RenameFileDialog_QBaseSenderSignalIndex(const KIO__RenameFileDialog* self) {
+int KIO__RenameFileDialog_SuperSenderSignalIndex(const KIO__RenameFileDialog* self) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_SenderSignalIndex_IsBase(true);
@@ -1924,7 +1924,7 @@ int KIO__RenameFileDialog_Receivers(const KIO__RenameFileDialog* self, const cha
 }
 
 // Base class handler implementation
-int KIO__RenameFileDialog_QBaseReceivers(const KIO__RenameFileDialog* self, const char* signal) {
+int KIO__RenameFileDialog_SuperReceivers(const KIO__RenameFileDialog* self, const char* signal) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_Receivers_IsBase(true);
@@ -1953,7 +1953,7 @@ bool KIO__RenameFileDialog_IsSignalConnected(const KIO__RenameFileDialog* self, 
 }
 
 // Base class handler implementation
-bool KIO__RenameFileDialog_QBaseIsSignalConnected(const KIO__RenameFileDialog* self, const QMetaMethod* signal) {
+bool KIO__RenameFileDialog_SuperIsSignalConnected(const KIO__RenameFileDialog* self, const QMetaMethod* signal) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_IsSignalConnected_IsBase(true);
@@ -1982,7 +1982,7 @@ double KIO__RenameFileDialog_GetDecodedMetricF(const KIO__RenameFileDialog* self
 }
 
 // Base class handler implementation
-double KIO__RenameFileDialog_QBaseGetDecodedMetricF(const KIO__RenameFileDialog* self, int metricA, int metricB) {
+double KIO__RenameFileDialog_SuperGetDecodedMetricF(const KIO__RenameFileDialog* self, int metricA, int metricB) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
     if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
         vkiorenamefiledialog->setKIO__RenameFileDialog_GetDecodedMetricF_IsBase(true);

@@ -481,23 +481,23 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
 
     // Friend functions
     friend void QGeoSatelliteInfoSource_TimerEvent(QGeoSatelliteInfoSource* self, QTimerEvent* event);
-    friend void QGeoSatelliteInfoSource_QBaseTimerEvent(QGeoSatelliteInfoSource* self, QTimerEvent* event);
+    friend void QGeoSatelliteInfoSource_SuperTimerEvent(QGeoSatelliteInfoSource* self, QTimerEvent* event);
     friend void QGeoSatelliteInfoSource_ChildEvent(QGeoSatelliteInfoSource* self, QChildEvent* event);
-    friend void QGeoSatelliteInfoSource_QBaseChildEvent(QGeoSatelliteInfoSource* self, QChildEvent* event);
+    friend void QGeoSatelliteInfoSource_SuperChildEvent(QGeoSatelliteInfoSource* self, QChildEvent* event);
     friend void QGeoSatelliteInfoSource_CustomEvent(QGeoSatelliteInfoSource* self, QEvent* event);
-    friend void QGeoSatelliteInfoSource_QBaseCustomEvent(QGeoSatelliteInfoSource* self, QEvent* event);
+    friend void QGeoSatelliteInfoSource_SuperCustomEvent(QGeoSatelliteInfoSource* self, QEvent* event);
     friend void QGeoSatelliteInfoSource_ConnectNotify(QGeoSatelliteInfoSource* self, const QMetaMethod* signal);
-    friend void QGeoSatelliteInfoSource_QBaseConnectNotify(QGeoSatelliteInfoSource* self, const QMetaMethod* signal);
+    friend void QGeoSatelliteInfoSource_SuperConnectNotify(QGeoSatelliteInfoSource* self, const QMetaMethod* signal);
     friend void QGeoSatelliteInfoSource_DisconnectNotify(QGeoSatelliteInfoSource* self, const QMetaMethod* signal);
-    friend void QGeoSatelliteInfoSource_QBaseDisconnectNotify(QGeoSatelliteInfoSource* self, const QMetaMethod* signal);
+    friend void QGeoSatelliteInfoSource_SuperDisconnectNotify(QGeoSatelliteInfoSource* self, const QMetaMethod* signal);
     friend QObject* QGeoSatelliteInfoSource_Sender(const QGeoSatelliteInfoSource* self);
-    friend QObject* QGeoSatelliteInfoSource_QBaseSender(const QGeoSatelliteInfoSource* self);
+    friend QObject* QGeoSatelliteInfoSource_SuperSender(const QGeoSatelliteInfoSource* self);
     friend int QGeoSatelliteInfoSource_SenderSignalIndex(const QGeoSatelliteInfoSource* self);
-    friend int QGeoSatelliteInfoSource_QBaseSenderSignalIndex(const QGeoSatelliteInfoSource* self);
+    friend int QGeoSatelliteInfoSource_SuperSenderSignalIndex(const QGeoSatelliteInfoSource* self);
     friend int QGeoSatelliteInfoSource_Receivers(const QGeoSatelliteInfoSource* self, const char* signal);
-    friend int QGeoSatelliteInfoSource_QBaseReceivers(const QGeoSatelliteInfoSource* self, const char* signal);
+    friend int QGeoSatelliteInfoSource_SuperReceivers(const QGeoSatelliteInfoSource* self, const char* signal);
     friend bool QGeoSatelliteInfoSource_IsSignalConnected(const QGeoSatelliteInfoSource* self, const QMetaMethod* signal);
-    friend bool QGeoSatelliteInfoSource_QBaseIsSignalConnected(const QGeoSatelliteInfoSource* self, const QMetaMethod* signal);
+    friend bool QGeoSatelliteInfoSource_SuperIsSignalConnected(const QGeoSatelliteInfoSource* self, const QMetaMethod* signal);
 };
 
 #endif

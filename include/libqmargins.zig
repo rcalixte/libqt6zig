@@ -283,6 +283,10 @@ pub const qmargins = struct {
         return qtc.QMargins_ToMarginsF(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmargins.html#dtor.QMargins)
     ///
     /// Delete this object from C++ memory.
@@ -291,7 +295,7 @@ pub const qmargins = struct {
     ///
     /// ` self: QtC.QMargins `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMargins_Delete(@ptrCast(self));
     }
 };
@@ -564,6 +568,10 @@ pub const qmarginsf = struct {
         return qtc.QMarginsF_ToMargins(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmarginsf.html#dtor.QMarginsF)
     ///
     /// Delete this object from C++ memory.
@@ -572,7 +580,7 @@ pub const qmarginsf = struct {
     ///
     /// ` self: QtC.QMarginsF `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMarginsF_Delete(@ptrCast(self));
     }
 };

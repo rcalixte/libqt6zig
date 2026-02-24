@@ -175,7 +175,7 @@ void KNewPasswordWidget_Connect_PasswordStatusChanged(KNewPasswordWidget* self, 
 }
 
 // Base class handler implementation
-QMetaObject* KNewPasswordWidget_QBaseMetaObject(const KNewPasswordWidget* self) {
+QMetaObject* KNewPasswordWidget_SuperMetaObject(const KNewPasswordWidget* self) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_MetaObject_IsBase(true);
@@ -194,7 +194,7 @@ void KNewPasswordWidget_OnMetaObject(const KNewPasswordWidget* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* KNewPasswordWidget_QBaseMetacast(KNewPasswordWidget* self, const char* param1) {
+void* KNewPasswordWidget_SuperMetacast(KNewPasswordWidget* self, const char* param1) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_Metacast_IsBase(true);
@@ -213,7 +213,7 @@ void KNewPasswordWidget_OnMetacast(KNewPasswordWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KNewPasswordWidget_QBaseMetacall(KNewPasswordWidget* self, int param1, int param2, void** param3) {
+int KNewPasswordWidget_SuperMetacall(KNewPasswordWidget* self, int param1, int param2, void** param3) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_Metacall_IsBase(true);
@@ -242,7 +242,7 @@ int KNewPasswordWidget_DevType(const KNewPasswordWidget* self) {
 }
 
 // Base class handler implementation
-int KNewPasswordWidget_QBaseDevType(const KNewPasswordWidget* self) {
+int KNewPasswordWidget_SuperDevType(const KNewPasswordWidget* self) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_DevType_IsBase(true);
@@ -271,7 +271,7 @@ void KNewPasswordWidget_SetVisible(KNewPasswordWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseSetVisible(KNewPasswordWidget* self, bool visible) {
+void KNewPasswordWidget_SuperSetVisible(KNewPasswordWidget* self, bool visible) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_SetVisible_IsBase(true);
@@ -300,7 +300,7 @@ QSize* KNewPasswordWidget_SizeHint(const KNewPasswordWidget* self) {
 }
 
 // Base class handler implementation
-QSize* KNewPasswordWidget_QBaseSizeHint(const KNewPasswordWidget* self) {
+QSize* KNewPasswordWidget_SuperSizeHint(const KNewPasswordWidget* self) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_SizeHint_IsBase(true);
@@ -329,7 +329,7 @@ QSize* KNewPasswordWidget_MinimumSizeHint(const KNewPasswordWidget* self) {
 }
 
 // Base class handler implementation
-QSize* KNewPasswordWidget_QBaseMinimumSizeHint(const KNewPasswordWidget* self) {
+QSize* KNewPasswordWidget_SuperMinimumSizeHint(const KNewPasswordWidget* self) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_MinimumSizeHint_IsBase(true);
@@ -358,7 +358,7 @@ int KNewPasswordWidget_HeightForWidth(const KNewPasswordWidget* self, int param1
 }
 
 // Base class handler implementation
-int KNewPasswordWidget_QBaseHeightForWidth(const KNewPasswordWidget* self, int param1) {
+int KNewPasswordWidget_SuperHeightForWidth(const KNewPasswordWidget* self, int param1) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_HeightForWidth_IsBase(true);
@@ -387,7 +387,7 @@ bool KNewPasswordWidget_HasHeightForWidth(const KNewPasswordWidget* self) {
 }
 
 // Base class handler implementation
-bool KNewPasswordWidget_QBaseHasHeightForWidth(const KNewPasswordWidget* self) {
+bool KNewPasswordWidget_SuperHasHeightForWidth(const KNewPasswordWidget* self) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_HasHeightForWidth_IsBase(true);
@@ -416,7 +416,7 @@ QPaintEngine* KNewPasswordWidget_PaintEngine(const KNewPasswordWidget* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KNewPasswordWidget_QBasePaintEngine(const KNewPasswordWidget* self) {
+QPaintEngine* KNewPasswordWidget_SuperPaintEngine(const KNewPasswordWidget* self) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_PaintEngine_IsBase(true);
@@ -445,7 +445,7 @@ bool KNewPasswordWidget_Event(KNewPasswordWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KNewPasswordWidget_QBaseEvent(KNewPasswordWidget* self, QEvent* event) {
+bool KNewPasswordWidget_SuperEvent(KNewPasswordWidget* self, QEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_Event_IsBase(true);
@@ -474,7 +474,7 @@ void KNewPasswordWidget_MousePressEvent(KNewPasswordWidget* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseMousePressEvent(KNewPasswordWidget* self, QMouseEvent* event) {
+void KNewPasswordWidget_SuperMousePressEvent(KNewPasswordWidget* self, QMouseEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_MousePressEvent_IsBase(true);
@@ -503,7 +503,7 @@ void KNewPasswordWidget_MouseReleaseEvent(KNewPasswordWidget* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseMouseReleaseEvent(KNewPasswordWidget* self, QMouseEvent* event) {
+void KNewPasswordWidget_SuperMouseReleaseEvent(KNewPasswordWidget* self, QMouseEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_MouseReleaseEvent_IsBase(true);
@@ -532,7 +532,7 @@ void KNewPasswordWidget_MouseDoubleClickEvent(KNewPasswordWidget* self, QMouseEv
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseMouseDoubleClickEvent(KNewPasswordWidget* self, QMouseEvent* event) {
+void KNewPasswordWidget_SuperMouseDoubleClickEvent(KNewPasswordWidget* self, QMouseEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_MouseDoubleClickEvent_IsBase(true);
@@ -561,7 +561,7 @@ void KNewPasswordWidget_MouseMoveEvent(KNewPasswordWidget* self, QMouseEvent* ev
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseMouseMoveEvent(KNewPasswordWidget* self, QMouseEvent* event) {
+void KNewPasswordWidget_SuperMouseMoveEvent(KNewPasswordWidget* self, QMouseEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_MouseMoveEvent_IsBase(true);
@@ -590,7 +590,7 @@ void KNewPasswordWidget_WheelEvent(KNewPasswordWidget* self, QWheelEvent* event)
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseWheelEvent(KNewPasswordWidget* self, QWheelEvent* event) {
+void KNewPasswordWidget_SuperWheelEvent(KNewPasswordWidget* self, QWheelEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_WheelEvent_IsBase(true);
@@ -619,7 +619,7 @@ void KNewPasswordWidget_KeyPressEvent(KNewPasswordWidget* self, QKeyEvent* event
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseKeyPressEvent(KNewPasswordWidget* self, QKeyEvent* event) {
+void KNewPasswordWidget_SuperKeyPressEvent(KNewPasswordWidget* self, QKeyEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_KeyPressEvent_IsBase(true);
@@ -648,7 +648,7 @@ void KNewPasswordWidget_KeyReleaseEvent(KNewPasswordWidget* self, QKeyEvent* eve
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseKeyReleaseEvent(KNewPasswordWidget* self, QKeyEvent* event) {
+void KNewPasswordWidget_SuperKeyReleaseEvent(KNewPasswordWidget* self, QKeyEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_KeyReleaseEvent_IsBase(true);
@@ -677,7 +677,7 @@ void KNewPasswordWidget_FocusInEvent(KNewPasswordWidget* self, QFocusEvent* even
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseFocusInEvent(KNewPasswordWidget* self, QFocusEvent* event) {
+void KNewPasswordWidget_SuperFocusInEvent(KNewPasswordWidget* self, QFocusEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_FocusInEvent_IsBase(true);
@@ -706,7 +706,7 @@ void KNewPasswordWidget_FocusOutEvent(KNewPasswordWidget* self, QFocusEvent* eve
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseFocusOutEvent(KNewPasswordWidget* self, QFocusEvent* event) {
+void KNewPasswordWidget_SuperFocusOutEvent(KNewPasswordWidget* self, QFocusEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_FocusOutEvent_IsBase(true);
@@ -735,7 +735,7 @@ void KNewPasswordWidget_EnterEvent(KNewPasswordWidget* self, QEnterEvent* event)
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseEnterEvent(KNewPasswordWidget* self, QEnterEvent* event) {
+void KNewPasswordWidget_SuperEnterEvent(KNewPasswordWidget* self, QEnterEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_EnterEvent_IsBase(true);
@@ -764,7 +764,7 @@ void KNewPasswordWidget_LeaveEvent(KNewPasswordWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseLeaveEvent(KNewPasswordWidget* self, QEvent* event) {
+void KNewPasswordWidget_SuperLeaveEvent(KNewPasswordWidget* self, QEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_LeaveEvent_IsBase(true);
@@ -793,7 +793,7 @@ void KNewPasswordWidget_PaintEvent(KNewPasswordWidget* self, QPaintEvent* event)
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBasePaintEvent(KNewPasswordWidget* self, QPaintEvent* event) {
+void KNewPasswordWidget_SuperPaintEvent(KNewPasswordWidget* self, QPaintEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_PaintEvent_IsBase(true);
@@ -822,7 +822,7 @@ void KNewPasswordWidget_MoveEvent(KNewPasswordWidget* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseMoveEvent(KNewPasswordWidget* self, QMoveEvent* event) {
+void KNewPasswordWidget_SuperMoveEvent(KNewPasswordWidget* self, QMoveEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_MoveEvent_IsBase(true);
@@ -851,7 +851,7 @@ void KNewPasswordWidget_ResizeEvent(KNewPasswordWidget* self, QResizeEvent* even
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseResizeEvent(KNewPasswordWidget* self, QResizeEvent* event) {
+void KNewPasswordWidget_SuperResizeEvent(KNewPasswordWidget* self, QResizeEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_ResizeEvent_IsBase(true);
@@ -880,7 +880,7 @@ void KNewPasswordWidget_CloseEvent(KNewPasswordWidget* self, QCloseEvent* event)
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseCloseEvent(KNewPasswordWidget* self, QCloseEvent* event) {
+void KNewPasswordWidget_SuperCloseEvent(KNewPasswordWidget* self, QCloseEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_CloseEvent_IsBase(true);
@@ -909,7 +909,7 @@ void KNewPasswordWidget_ContextMenuEvent(KNewPasswordWidget* self, QContextMenuE
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseContextMenuEvent(KNewPasswordWidget* self, QContextMenuEvent* event) {
+void KNewPasswordWidget_SuperContextMenuEvent(KNewPasswordWidget* self, QContextMenuEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_ContextMenuEvent_IsBase(true);
@@ -938,7 +938,7 @@ void KNewPasswordWidget_TabletEvent(KNewPasswordWidget* self, QTabletEvent* even
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseTabletEvent(KNewPasswordWidget* self, QTabletEvent* event) {
+void KNewPasswordWidget_SuperTabletEvent(KNewPasswordWidget* self, QTabletEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_TabletEvent_IsBase(true);
@@ -967,7 +967,7 @@ void KNewPasswordWidget_ActionEvent(KNewPasswordWidget* self, QActionEvent* even
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseActionEvent(KNewPasswordWidget* self, QActionEvent* event) {
+void KNewPasswordWidget_SuperActionEvent(KNewPasswordWidget* self, QActionEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_ActionEvent_IsBase(true);
@@ -996,7 +996,7 @@ void KNewPasswordWidget_DragEnterEvent(KNewPasswordWidget* self, QDragEnterEvent
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseDragEnterEvent(KNewPasswordWidget* self, QDragEnterEvent* event) {
+void KNewPasswordWidget_SuperDragEnterEvent(KNewPasswordWidget* self, QDragEnterEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_DragEnterEvent_IsBase(true);
@@ -1025,7 +1025,7 @@ void KNewPasswordWidget_DragMoveEvent(KNewPasswordWidget* self, QDragMoveEvent* 
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseDragMoveEvent(KNewPasswordWidget* self, QDragMoveEvent* event) {
+void KNewPasswordWidget_SuperDragMoveEvent(KNewPasswordWidget* self, QDragMoveEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_DragMoveEvent_IsBase(true);
@@ -1054,7 +1054,7 @@ void KNewPasswordWidget_DragLeaveEvent(KNewPasswordWidget* self, QDragLeaveEvent
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseDragLeaveEvent(KNewPasswordWidget* self, QDragLeaveEvent* event) {
+void KNewPasswordWidget_SuperDragLeaveEvent(KNewPasswordWidget* self, QDragLeaveEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_DragLeaveEvent_IsBase(true);
@@ -1083,7 +1083,7 @@ void KNewPasswordWidget_DropEvent(KNewPasswordWidget* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseDropEvent(KNewPasswordWidget* self, QDropEvent* event) {
+void KNewPasswordWidget_SuperDropEvent(KNewPasswordWidget* self, QDropEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_DropEvent_IsBase(true);
@@ -1112,7 +1112,7 @@ void KNewPasswordWidget_ShowEvent(KNewPasswordWidget* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseShowEvent(KNewPasswordWidget* self, QShowEvent* event) {
+void KNewPasswordWidget_SuperShowEvent(KNewPasswordWidget* self, QShowEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_ShowEvent_IsBase(true);
@@ -1141,7 +1141,7 @@ void KNewPasswordWidget_HideEvent(KNewPasswordWidget* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseHideEvent(KNewPasswordWidget* self, QHideEvent* event) {
+void KNewPasswordWidget_SuperHideEvent(KNewPasswordWidget* self, QHideEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_HideEvent_IsBase(true);
@@ -1171,7 +1171,7 @@ bool KNewPasswordWidget_NativeEvent(KNewPasswordWidget* self, const libqt_string
 }
 
 // Base class handler implementation
-bool KNewPasswordWidget_QBaseNativeEvent(KNewPasswordWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KNewPasswordWidget_SuperNativeEvent(KNewPasswordWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
@@ -1201,7 +1201,7 @@ void KNewPasswordWidget_ChangeEvent(KNewPasswordWidget* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseChangeEvent(KNewPasswordWidget* self, QEvent* param1) {
+void KNewPasswordWidget_SuperChangeEvent(KNewPasswordWidget* self, QEvent* param1) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_ChangeEvent_IsBase(true);
@@ -1230,7 +1230,7 @@ int KNewPasswordWidget_Metric(const KNewPasswordWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int KNewPasswordWidget_QBaseMetric(const KNewPasswordWidget* self, int param1) {
+int KNewPasswordWidget_SuperMetric(const KNewPasswordWidget* self, int param1) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_Metric_IsBase(true);
@@ -1259,7 +1259,7 @@ void KNewPasswordWidget_InitPainter(const KNewPasswordWidget* self, QPainter* pa
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseInitPainter(const KNewPasswordWidget* self, QPainter* painter) {
+void KNewPasswordWidget_SuperInitPainter(const KNewPasswordWidget* self, QPainter* painter) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_InitPainter_IsBase(true);
@@ -1288,7 +1288,7 @@ QPaintDevice* KNewPasswordWidget_Redirected(const KNewPasswordWidget* self, QPoi
 }
 
 // Base class handler implementation
-QPaintDevice* KNewPasswordWidget_QBaseRedirected(const KNewPasswordWidget* self, QPoint* offset) {
+QPaintDevice* KNewPasswordWidget_SuperRedirected(const KNewPasswordWidget* self, QPoint* offset) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_Redirected_IsBase(true);
@@ -1317,7 +1317,7 @@ QPainter* KNewPasswordWidget_SharedPainter(const KNewPasswordWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* KNewPasswordWidget_QBaseSharedPainter(const KNewPasswordWidget* self) {
+QPainter* KNewPasswordWidget_SuperSharedPainter(const KNewPasswordWidget* self) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_SharedPainter_IsBase(true);
@@ -1346,7 +1346,7 @@ void KNewPasswordWidget_InputMethodEvent(KNewPasswordWidget* self, QInputMethodE
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseInputMethodEvent(KNewPasswordWidget* self, QInputMethodEvent* param1) {
+void KNewPasswordWidget_SuperInputMethodEvent(KNewPasswordWidget* self, QInputMethodEvent* param1) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_InputMethodEvent_IsBase(true);
@@ -1375,7 +1375,7 @@ QVariant* KNewPasswordWidget_InputMethodQuery(const KNewPasswordWidget* self, in
 }
 
 // Base class handler implementation
-QVariant* KNewPasswordWidget_QBaseInputMethodQuery(const KNewPasswordWidget* self, int param1) {
+QVariant* KNewPasswordWidget_SuperInputMethodQuery(const KNewPasswordWidget* self, int param1) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_InputMethodQuery_IsBase(true);
@@ -1404,7 +1404,7 @@ bool KNewPasswordWidget_FocusNextPrevChild(KNewPasswordWidget* self, bool next) 
 }
 
 // Base class handler implementation
-bool KNewPasswordWidget_QBaseFocusNextPrevChild(KNewPasswordWidget* self, bool next) {
+bool KNewPasswordWidget_SuperFocusNextPrevChild(KNewPasswordWidget* self, bool next) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_FocusNextPrevChild_IsBase(true);
@@ -1433,7 +1433,7 @@ bool KNewPasswordWidget_EventFilter(KNewPasswordWidget* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool KNewPasswordWidget_QBaseEventFilter(KNewPasswordWidget* self, QObject* watched, QEvent* event) {
+bool KNewPasswordWidget_SuperEventFilter(KNewPasswordWidget* self, QObject* watched, QEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_EventFilter_IsBase(true);
@@ -1462,7 +1462,7 @@ void KNewPasswordWidget_TimerEvent(KNewPasswordWidget* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseTimerEvent(KNewPasswordWidget* self, QTimerEvent* event) {
+void KNewPasswordWidget_SuperTimerEvent(KNewPasswordWidget* self, QTimerEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_TimerEvent_IsBase(true);
@@ -1491,7 +1491,7 @@ void KNewPasswordWidget_ChildEvent(KNewPasswordWidget* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseChildEvent(KNewPasswordWidget* self, QChildEvent* event) {
+void KNewPasswordWidget_SuperChildEvent(KNewPasswordWidget* self, QChildEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_ChildEvent_IsBase(true);
@@ -1520,7 +1520,7 @@ void KNewPasswordWidget_CustomEvent(KNewPasswordWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseCustomEvent(KNewPasswordWidget* self, QEvent* event) {
+void KNewPasswordWidget_SuperCustomEvent(KNewPasswordWidget* self, QEvent* event) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_CustomEvent_IsBase(true);
@@ -1549,7 +1549,7 @@ void KNewPasswordWidget_ConnectNotify(KNewPasswordWidget* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseConnectNotify(KNewPasswordWidget* self, const QMetaMethod* signal) {
+void KNewPasswordWidget_SuperConnectNotify(KNewPasswordWidget* self, const QMetaMethod* signal) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_ConnectNotify_IsBase(true);
@@ -1578,7 +1578,7 @@ void KNewPasswordWidget_DisconnectNotify(KNewPasswordWidget* self, const QMetaMe
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseDisconnectNotify(KNewPasswordWidget* self, const QMetaMethod* signal) {
+void KNewPasswordWidget_SuperDisconnectNotify(KNewPasswordWidget* self, const QMetaMethod* signal) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_DisconnectNotify_IsBase(true);
@@ -1607,7 +1607,7 @@ void KNewPasswordWidget_UpdateMicroFocus(KNewPasswordWidget* self) {
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseUpdateMicroFocus(KNewPasswordWidget* self) {
+void KNewPasswordWidget_SuperUpdateMicroFocus(KNewPasswordWidget* self) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_UpdateMicroFocus_IsBase(true);
@@ -1636,7 +1636,7 @@ void KNewPasswordWidget_Create(KNewPasswordWidget* self) {
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseCreate(KNewPasswordWidget* self) {
+void KNewPasswordWidget_SuperCreate(KNewPasswordWidget* self) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_Create_IsBase(true);
@@ -1665,7 +1665,7 @@ void KNewPasswordWidget_Destroy(KNewPasswordWidget* self) {
 }
 
 // Base class handler implementation
-void KNewPasswordWidget_QBaseDestroy(KNewPasswordWidget* self) {
+void KNewPasswordWidget_SuperDestroy(KNewPasswordWidget* self) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_Destroy_IsBase(true);
@@ -1694,7 +1694,7 @@ bool KNewPasswordWidget_FocusNextChild(KNewPasswordWidget* self) {
 }
 
 // Base class handler implementation
-bool KNewPasswordWidget_QBaseFocusNextChild(KNewPasswordWidget* self) {
+bool KNewPasswordWidget_SuperFocusNextChild(KNewPasswordWidget* self) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_FocusNextChild_IsBase(true);
@@ -1723,7 +1723,7 @@ bool KNewPasswordWidget_FocusPreviousChild(KNewPasswordWidget* self) {
 }
 
 // Base class handler implementation
-bool KNewPasswordWidget_QBaseFocusPreviousChild(KNewPasswordWidget* self) {
+bool KNewPasswordWidget_SuperFocusPreviousChild(KNewPasswordWidget* self) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_FocusPreviousChild_IsBase(true);
@@ -1752,7 +1752,7 @@ QObject* KNewPasswordWidget_Sender(const KNewPasswordWidget* self) {
 }
 
 // Base class handler implementation
-QObject* KNewPasswordWidget_QBaseSender(const KNewPasswordWidget* self) {
+QObject* KNewPasswordWidget_SuperSender(const KNewPasswordWidget* self) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_Sender_IsBase(true);
@@ -1781,7 +1781,7 @@ int KNewPasswordWidget_SenderSignalIndex(const KNewPasswordWidget* self) {
 }
 
 // Base class handler implementation
-int KNewPasswordWidget_QBaseSenderSignalIndex(const KNewPasswordWidget* self) {
+int KNewPasswordWidget_SuperSenderSignalIndex(const KNewPasswordWidget* self) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_SenderSignalIndex_IsBase(true);
@@ -1810,7 +1810,7 @@ int KNewPasswordWidget_Receivers(const KNewPasswordWidget* self, const char* sig
 }
 
 // Base class handler implementation
-int KNewPasswordWidget_QBaseReceivers(const KNewPasswordWidget* self, const char* signal) {
+int KNewPasswordWidget_SuperReceivers(const KNewPasswordWidget* self, const char* signal) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_Receivers_IsBase(true);
@@ -1839,7 +1839,7 @@ bool KNewPasswordWidget_IsSignalConnected(const KNewPasswordWidget* self, const 
 }
 
 // Base class handler implementation
-bool KNewPasswordWidget_QBaseIsSignalConnected(const KNewPasswordWidget* self, const QMetaMethod* signal) {
+bool KNewPasswordWidget_SuperIsSignalConnected(const KNewPasswordWidget* self, const QMetaMethod* signal) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_IsSignalConnected_IsBase(true);
@@ -1868,7 +1868,7 @@ double KNewPasswordWidget_GetDecodedMetricF(const KNewPasswordWidget* self, int 
 }
 
 // Base class handler implementation
-double KNewPasswordWidget_QBaseGetDecodedMetricF(const KNewPasswordWidget* self, int metricA, int metricB) {
+double KNewPasswordWidget_SuperGetDecodedMetricF(const KNewPasswordWidget* self, int metricA, int metricB) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
     if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
         vknewpasswordwidget->setKNewPasswordWidget_GetDecodedMetricF_IsBase(true);

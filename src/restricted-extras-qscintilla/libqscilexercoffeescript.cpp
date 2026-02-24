@@ -181,7 +181,7 @@ const char* QsciLexerCoffeeScript_BlockStartKeyword1(const QsciLexerCoffeeScript
 }
 
 // Base class handler implementation
-QMetaObject* QsciLexerCoffeeScript_QBaseMetaObject(const QsciLexerCoffeeScript* self) {
+QMetaObject* QsciLexerCoffeeScript_SuperMetaObject(const QsciLexerCoffeeScript* self) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_MetaObject_IsBase(true);
@@ -200,7 +200,7 @@ void QsciLexerCoffeeScript_OnMetaObject(const QsciLexerCoffeeScript* self, intpt
 }
 
 // Base class handler implementation
-void* QsciLexerCoffeeScript_QBaseMetacast(QsciLexerCoffeeScript* self, const char* param1) {
+void* QsciLexerCoffeeScript_SuperMetacast(QsciLexerCoffeeScript* self, const char* param1) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_Metacast_IsBase(true);
@@ -219,7 +219,7 @@ void QsciLexerCoffeeScript_OnMetacast(QsciLexerCoffeeScript* self, intptr_t slot
 }
 
 // Base class handler implementation
-int QsciLexerCoffeeScript_QBaseMetacall(QsciLexerCoffeeScript* self, int param1, int param2, void** param3) {
+int QsciLexerCoffeeScript_SuperMetacall(QsciLexerCoffeeScript* self, int param1, int param2, void** param3) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_Metacall_IsBase(true);
@@ -248,7 +248,7 @@ int QsciLexerCoffeeScript_LexerId(const QsciLexerCoffeeScript* self) {
 }
 
 // Base class handler implementation
-int QsciLexerCoffeeScript_QBaseLexerId(const QsciLexerCoffeeScript* self) {
+int QsciLexerCoffeeScript_SuperLexerId(const QsciLexerCoffeeScript* self) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_LexerId_IsBase(true);
@@ -277,7 +277,7 @@ const char* QsciLexerCoffeeScript_AutoCompletionFillups(const QsciLexerCoffeeScr
 }
 
 // Base class handler implementation
-const char* QsciLexerCoffeeScript_QBaseAutoCompletionFillups(const QsciLexerCoffeeScript* self) {
+const char* QsciLexerCoffeeScript_SuperAutoCompletionFillups(const QsciLexerCoffeeScript* self) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_AutoCompletionFillups_IsBase(true);
@@ -306,7 +306,7 @@ int QsciLexerCoffeeScript_BlockLookback(const QsciLexerCoffeeScript* self) {
 }
 
 // Base class handler implementation
-int QsciLexerCoffeeScript_QBaseBlockLookback(const QsciLexerCoffeeScript* self) {
+int QsciLexerCoffeeScript_SuperBlockLookback(const QsciLexerCoffeeScript* self) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_BlockLookback_IsBase(true);
@@ -335,7 +335,7 @@ bool QsciLexerCoffeeScript_CaseSensitive(const QsciLexerCoffeeScript* self) {
 }
 
 // Base class handler implementation
-bool QsciLexerCoffeeScript_QBaseCaseSensitive(const QsciLexerCoffeeScript* self) {
+bool QsciLexerCoffeeScript_SuperCaseSensitive(const QsciLexerCoffeeScript* self) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_CaseSensitive_IsBase(true);
@@ -364,7 +364,7 @@ QColor* QsciLexerCoffeeScript_Color(const QsciLexerCoffeeScript* self, int style
 }
 
 // Base class handler implementation
-QColor* QsciLexerCoffeeScript_QBaseColor(const QsciLexerCoffeeScript* self, int style) {
+QColor* QsciLexerCoffeeScript_SuperColor(const QsciLexerCoffeeScript* self, int style) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_Color_IsBase(true);
@@ -393,7 +393,7 @@ bool QsciLexerCoffeeScript_EolFill(const QsciLexerCoffeeScript* self, int style)
 }
 
 // Base class handler implementation
-bool QsciLexerCoffeeScript_QBaseEolFill(const QsciLexerCoffeeScript* self, int style) {
+bool QsciLexerCoffeeScript_SuperEolFill(const QsciLexerCoffeeScript* self, int style) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_EolFill_IsBase(true);
@@ -422,7 +422,7 @@ QFont* QsciLexerCoffeeScript_Font(const QsciLexerCoffeeScript* self, int style) 
 }
 
 // Base class handler implementation
-QFont* QsciLexerCoffeeScript_QBaseFont(const QsciLexerCoffeeScript* self, int style) {
+QFont* QsciLexerCoffeeScript_SuperFont(const QsciLexerCoffeeScript* self, int style) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_Font_IsBase(true);
@@ -451,7 +451,7 @@ int QsciLexerCoffeeScript_IndentationGuideView(const QsciLexerCoffeeScript* self
 }
 
 // Base class handler implementation
-int QsciLexerCoffeeScript_QBaseIndentationGuideView(const QsciLexerCoffeeScript* self) {
+int QsciLexerCoffeeScript_SuperIndentationGuideView(const QsciLexerCoffeeScript* self) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_IndentationGuideView_IsBase(true);
@@ -480,7 +480,7 @@ int QsciLexerCoffeeScript_DefaultStyle(const QsciLexerCoffeeScript* self) {
 }
 
 // Base class handler implementation
-int QsciLexerCoffeeScript_QBaseDefaultStyle(const QsciLexerCoffeeScript* self) {
+int QsciLexerCoffeeScript_SuperDefaultStyle(const QsciLexerCoffeeScript* self) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_DefaultStyle_IsBase(true);
@@ -509,7 +509,7 @@ QColor* QsciLexerCoffeeScript_Paper(const QsciLexerCoffeeScript* self, int style
 }
 
 // Base class handler implementation
-QColor* QsciLexerCoffeeScript_QBasePaper(const QsciLexerCoffeeScript* self, int style) {
+QColor* QsciLexerCoffeeScript_SuperPaper(const QsciLexerCoffeeScript* self, int style) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_Paper_IsBase(true);
@@ -538,7 +538,7 @@ QColor* QsciLexerCoffeeScript_DefaultColor2(const QsciLexerCoffeeScript* self, i
 }
 
 // Base class handler implementation
-QColor* QsciLexerCoffeeScript_QBaseDefaultColor2(const QsciLexerCoffeeScript* self, int style) {
+QColor* QsciLexerCoffeeScript_SuperDefaultColor2(const QsciLexerCoffeeScript* self, int style) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_DefaultColor2_IsBase(true);
@@ -567,7 +567,7 @@ QFont* QsciLexerCoffeeScript_DefaultFont2(const QsciLexerCoffeeScript* self, int
 }
 
 // Base class handler implementation
-QFont* QsciLexerCoffeeScript_QBaseDefaultFont2(const QsciLexerCoffeeScript* self, int style) {
+QFont* QsciLexerCoffeeScript_SuperDefaultFont2(const QsciLexerCoffeeScript* self, int style) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_DefaultFont2_IsBase(true);
@@ -596,7 +596,7 @@ QColor* QsciLexerCoffeeScript_DefaultPaper2(const QsciLexerCoffeeScript* self, i
 }
 
 // Base class handler implementation
-QColor* QsciLexerCoffeeScript_QBaseDefaultPaper2(const QsciLexerCoffeeScript* self, int style) {
+QColor* QsciLexerCoffeeScript_SuperDefaultPaper2(const QsciLexerCoffeeScript* self, int style) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_DefaultPaper2_IsBase(true);
@@ -625,7 +625,7 @@ void QsciLexerCoffeeScript_SetEditor(QsciLexerCoffeeScript* self, QsciScintilla*
 }
 
 // Base class handler implementation
-void QsciLexerCoffeeScript_QBaseSetEditor(QsciLexerCoffeeScript* self, QsciScintilla* editor) {
+void QsciLexerCoffeeScript_SuperSetEditor(QsciLexerCoffeeScript* self, QsciScintilla* editor) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_SetEditor_IsBase(true);
@@ -654,7 +654,7 @@ int QsciLexerCoffeeScript_StyleBitsNeeded(const QsciLexerCoffeeScript* self) {
 }
 
 // Base class handler implementation
-int QsciLexerCoffeeScript_QBaseStyleBitsNeeded(const QsciLexerCoffeeScript* self) {
+int QsciLexerCoffeeScript_SuperStyleBitsNeeded(const QsciLexerCoffeeScript* self) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_StyleBitsNeeded_IsBase(true);
@@ -683,7 +683,7 @@ void QsciLexerCoffeeScript_SetAutoIndentStyle(QsciLexerCoffeeScript* self, int a
 }
 
 // Base class handler implementation
-void QsciLexerCoffeeScript_QBaseSetAutoIndentStyle(QsciLexerCoffeeScript* self, int autoindentstyle) {
+void QsciLexerCoffeeScript_SuperSetAutoIndentStyle(QsciLexerCoffeeScript* self, int autoindentstyle) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_SetAutoIndentStyle_IsBase(true);
@@ -712,7 +712,7 @@ void QsciLexerCoffeeScript_SetColor(QsciLexerCoffeeScript* self, const QColor* c
 }
 
 // Base class handler implementation
-void QsciLexerCoffeeScript_QBaseSetColor(QsciLexerCoffeeScript* self, const QColor* c, int style) {
+void QsciLexerCoffeeScript_SuperSetColor(QsciLexerCoffeeScript* self, const QColor* c, int style) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_SetColor_IsBase(true);
@@ -741,7 +741,7 @@ void QsciLexerCoffeeScript_SetEolFill(QsciLexerCoffeeScript* self, bool eoffill,
 }
 
 // Base class handler implementation
-void QsciLexerCoffeeScript_QBaseSetEolFill(QsciLexerCoffeeScript* self, bool eoffill, int style) {
+void QsciLexerCoffeeScript_SuperSetEolFill(QsciLexerCoffeeScript* self, bool eoffill, int style) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_SetEolFill_IsBase(true);
@@ -770,7 +770,7 @@ void QsciLexerCoffeeScript_SetFont(QsciLexerCoffeeScript* self, const QFont* f, 
 }
 
 // Base class handler implementation
-void QsciLexerCoffeeScript_QBaseSetFont(QsciLexerCoffeeScript* self, const QFont* f, int style) {
+void QsciLexerCoffeeScript_SuperSetFont(QsciLexerCoffeeScript* self, const QFont* f, int style) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_SetFont_IsBase(true);
@@ -799,7 +799,7 @@ void QsciLexerCoffeeScript_SetPaper(QsciLexerCoffeeScript* self, const QColor* c
 }
 
 // Base class handler implementation
-void QsciLexerCoffeeScript_QBaseSetPaper(QsciLexerCoffeeScript* self, const QColor* c, int style) {
+void QsciLexerCoffeeScript_SuperSetPaper(QsciLexerCoffeeScript* self, const QColor* c, int style) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_SetPaper_IsBase(true);
@@ -829,7 +829,7 @@ bool QsciLexerCoffeeScript_ReadProperties(QsciLexerCoffeeScript* self, QSettings
 }
 
 // Base class handler implementation
-bool QsciLexerCoffeeScript_QBaseReadProperties(QsciLexerCoffeeScript* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerCoffeeScript_SuperReadProperties(QsciLexerCoffeeScript* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
@@ -860,7 +860,7 @@ bool QsciLexerCoffeeScript_WriteProperties(const QsciLexerCoffeeScript* self, QS
 }
 
 // Base class handler implementation
-bool QsciLexerCoffeeScript_QBaseWriteProperties(const QsciLexerCoffeeScript* self, QSettings* qs, const libqt_string prefix) {
+bool QsciLexerCoffeeScript_SuperWriteProperties(const QsciLexerCoffeeScript* self, QSettings* qs, const libqt_string prefix) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
@@ -890,7 +890,7 @@ bool QsciLexerCoffeeScript_Event(QsciLexerCoffeeScript* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QsciLexerCoffeeScript_QBaseEvent(QsciLexerCoffeeScript* self, QEvent* event) {
+bool QsciLexerCoffeeScript_SuperEvent(QsciLexerCoffeeScript* self, QEvent* event) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_Event_IsBase(true);
@@ -919,7 +919,7 @@ bool QsciLexerCoffeeScript_EventFilter(QsciLexerCoffeeScript* self, QObject* wat
 }
 
 // Base class handler implementation
-bool QsciLexerCoffeeScript_QBaseEventFilter(QsciLexerCoffeeScript* self, QObject* watched, QEvent* event) {
+bool QsciLexerCoffeeScript_SuperEventFilter(QsciLexerCoffeeScript* self, QObject* watched, QEvent* event) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_EventFilter_IsBase(true);
@@ -948,7 +948,7 @@ void QsciLexerCoffeeScript_TimerEvent(QsciLexerCoffeeScript* self, QTimerEvent* 
 }
 
 // Base class handler implementation
-void QsciLexerCoffeeScript_QBaseTimerEvent(QsciLexerCoffeeScript* self, QTimerEvent* event) {
+void QsciLexerCoffeeScript_SuperTimerEvent(QsciLexerCoffeeScript* self, QTimerEvent* event) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_TimerEvent_IsBase(true);
@@ -977,7 +977,7 @@ void QsciLexerCoffeeScript_ChildEvent(QsciLexerCoffeeScript* self, QChildEvent* 
 }
 
 // Base class handler implementation
-void QsciLexerCoffeeScript_QBaseChildEvent(QsciLexerCoffeeScript* self, QChildEvent* event) {
+void QsciLexerCoffeeScript_SuperChildEvent(QsciLexerCoffeeScript* self, QChildEvent* event) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_ChildEvent_IsBase(true);
@@ -1006,7 +1006,7 @@ void QsciLexerCoffeeScript_CustomEvent(QsciLexerCoffeeScript* self, QEvent* even
 }
 
 // Base class handler implementation
-void QsciLexerCoffeeScript_QBaseCustomEvent(QsciLexerCoffeeScript* self, QEvent* event) {
+void QsciLexerCoffeeScript_SuperCustomEvent(QsciLexerCoffeeScript* self, QEvent* event) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_CustomEvent_IsBase(true);
@@ -1035,7 +1035,7 @@ void QsciLexerCoffeeScript_ConnectNotify(QsciLexerCoffeeScript* self, const QMet
 }
 
 // Base class handler implementation
-void QsciLexerCoffeeScript_QBaseConnectNotify(QsciLexerCoffeeScript* self, const QMetaMethod* signal) {
+void QsciLexerCoffeeScript_SuperConnectNotify(QsciLexerCoffeeScript* self, const QMetaMethod* signal) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_ConnectNotify_IsBase(true);
@@ -1064,7 +1064,7 @@ void QsciLexerCoffeeScript_DisconnectNotify(QsciLexerCoffeeScript* self, const Q
 }
 
 // Base class handler implementation
-void QsciLexerCoffeeScript_QBaseDisconnectNotify(QsciLexerCoffeeScript* self, const QMetaMethod* signal) {
+void QsciLexerCoffeeScript_SuperDisconnectNotify(QsciLexerCoffeeScript* self, const QMetaMethod* signal) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_DisconnectNotify_IsBase(true);
@@ -1104,7 +1104,7 @@ libqt_string QsciLexerCoffeeScript_TextAsBytes(const QsciLexerCoffeeScript* self
 }
 
 // Base class handler implementation
-libqt_string QsciLexerCoffeeScript_QBaseTextAsBytes(const QsciLexerCoffeeScript* self, const libqt_string text) {
+libqt_string QsciLexerCoffeeScript_SuperTextAsBytes(const QsciLexerCoffeeScript* self, const libqt_string text) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
@@ -1160,7 +1160,7 @@ libqt_string QsciLexerCoffeeScript_BytesAsText(const QsciLexerCoffeeScript* self
 }
 
 // Base class handler implementation
-libqt_string QsciLexerCoffeeScript_QBaseBytesAsText(const QsciLexerCoffeeScript* self, const char* bytes, int size) {
+libqt_string QsciLexerCoffeeScript_SuperBytesAsText(const QsciLexerCoffeeScript* self, const char* bytes, int size) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_BytesAsText_IsBase(true);
@@ -1205,7 +1205,7 @@ QObject* QsciLexerCoffeeScript_Sender(const QsciLexerCoffeeScript* self) {
 }
 
 // Base class handler implementation
-QObject* QsciLexerCoffeeScript_QBaseSender(const QsciLexerCoffeeScript* self) {
+QObject* QsciLexerCoffeeScript_SuperSender(const QsciLexerCoffeeScript* self) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_Sender_IsBase(true);
@@ -1234,7 +1234,7 @@ int QsciLexerCoffeeScript_SenderSignalIndex(const QsciLexerCoffeeScript* self) {
 }
 
 // Base class handler implementation
-int QsciLexerCoffeeScript_QBaseSenderSignalIndex(const QsciLexerCoffeeScript* self) {
+int QsciLexerCoffeeScript_SuperSenderSignalIndex(const QsciLexerCoffeeScript* self) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_SenderSignalIndex_IsBase(true);
@@ -1263,7 +1263,7 @@ int QsciLexerCoffeeScript_Receivers(const QsciLexerCoffeeScript* self, const cha
 }
 
 // Base class handler implementation
-int QsciLexerCoffeeScript_QBaseReceivers(const QsciLexerCoffeeScript* self, const char* signal) {
+int QsciLexerCoffeeScript_SuperReceivers(const QsciLexerCoffeeScript* self, const char* signal) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_Receivers_IsBase(true);
@@ -1292,7 +1292,7 @@ bool QsciLexerCoffeeScript_IsSignalConnected(const QsciLexerCoffeeScript* self, 
 }
 
 // Base class handler implementation
-bool QsciLexerCoffeeScript_QBaseIsSignalConnected(const QsciLexerCoffeeScript* self, const QMetaMethod* signal) {
+bool QsciLexerCoffeeScript_SuperIsSignalConnected(const QsciLexerCoffeeScript* self, const QMetaMethod* signal) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         vqscilexercoffeescript->setQsciLexerCoffeeScript_IsSignalConnected_IsBase(true);

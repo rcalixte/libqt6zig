@@ -247,7 +247,7 @@ QRegion* KFileItemDelegate_Shape(KFileItemDelegate* self, const QStyleOptionView
 }
 
 // Base class handler implementation
-QMetaObject* KFileItemDelegate_QBaseMetaObject(const KFileItemDelegate* self) {
+QMetaObject* KFileItemDelegate_SuperMetaObject(const KFileItemDelegate* self) {
     auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_MetaObject_IsBase(true);
@@ -266,7 +266,7 @@ void KFileItemDelegate_OnMetaObject(const KFileItemDelegate* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* KFileItemDelegate_QBaseMetacast(KFileItemDelegate* self, const char* param1) {
+void* KFileItemDelegate_SuperMetacast(KFileItemDelegate* self, const char* param1) {
     auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_Metacast_IsBase(true);
@@ -285,7 +285,7 @@ void KFileItemDelegate_OnMetacast(KFileItemDelegate* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFileItemDelegate_QBaseMetacall(KFileItemDelegate* self, int param1, int param2, void** param3) {
+int KFileItemDelegate_SuperMetacall(KFileItemDelegate* self, int param1, int param2, void** param3) {
     auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_Metacall_IsBase(true);
@@ -304,7 +304,7 @@ void KFileItemDelegate_OnMetacall(KFileItemDelegate* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* KFileItemDelegate_QBaseSizeHint(const KFileItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
+QSize* KFileItemDelegate_SuperSizeHint(const KFileItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_SizeHint_IsBase(true);
@@ -323,7 +323,7 @@ void KFileItemDelegate_OnSizeHint(const KFileItemDelegate* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void KFileItemDelegate_QBasePaint(const KFileItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
+void KFileItemDelegate_SuperPaint(const KFileItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_Paint_IsBase(true);
@@ -342,7 +342,7 @@ void KFileItemDelegate_OnPaint(const KFileItemDelegate* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QWidget* KFileItemDelegate_QBaseCreateEditor(const KFileItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
+QWidget* KFileItemDelegate_SuperCreateEditor(const KFileItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_CreateEditor_IsBase(true);
@@ -361,7 +361,7 @@ void KFileItemDelegate_OnCreateEditor(const KFileItemDelegate* self, intptr_t sl
 }
 
 // Base class handler implementation
-bool KFileItemDelegate_QBaseEditorEvent(KFileItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
+bool KFileItemDelegate_SuperEditorEvent(KFileItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_EditorEvent_IsBase(true);
@@ -380,7 +380,7 @@ void KFileItemDelegate_OnEditorEvent(KFileItemDelegate* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFileItemDelegate_QBaseSetEditorData(const KFileItemDelegate* self, QWidget* editor, const QModelIndex* index) {
+void KFileItemDelegate_SuperSetEditorData(const KFileItemDelegate* self, QWidget* editor, const QModelIndex* index) {
     auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_SetEditorData_IsBase(true);
@@ -399,7 +399,7 @@ void KFileItemDelegate_OnSetEditorData(const KFileItemDelegate* self, intptr_t s
 }
 
 // Base class handler implementation
-void KFileItemDelegate_QBaseSetModelData(const KFileItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
+void KFileItemDelegate_SuperSetModelData(const KFileItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
     auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_SetModelData_IsBase(true);
@@ -418,7 +418,7 @@ void KFileItemDelegate_OnSetModelData(const KFileItemDelegate* self, intptr_t sl
 }
 
 // Base class handler implementation
-void KFileItemDelegate_QBaseUpdateEditorGeometry(const KFileItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
+void KFileItemDelegate_SuperUpdateEditorGeometry(const KFileItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_UpdateEditorGeometry_IsBase(true);
@@ -437,7 +437,7 @@ void KFileItemDelegate_OnUpdateEditorGeometry(const KFileItemDelegate* self, int
 }
 
 // Base class handler implementation
-bool KFileItemDelegate_QBaseEventFilter(KFileItemDelegate* self, QObject* object, QEvent* event) {
+bool KFileItemDelegate_SuperEventFilter(KFileItemDelegate* self, QObject* object, QEvent* event) {
     auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_EventFilter_IsBase(true);
@@ -456,7 +456,7 @@ void KFileItemDelegate_OnEventFilter(KFileItemDelegate* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KFileItemDelegate_QBaseHelpEvent(KFileItemDelegate* self, QHelpEvent* event, QAbstractItemView* view, const QStyleOptionViewItem* option, const QModelIndex* index) {
+bool KFileItemDelegate_SuperHelpEvent(KFileItemDelegate* self, QHelpEvent* event, QAbstractItemView* view, const QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_HelpEvent_IsBase(true);
@@ -485,7 +485,7 @@ void KFileItemDelegate_DestroyEditor(const KFileItemDelegate* self, QWidget* edi
 }
 
 // Base class handler implementation
-void KFileItemDelegate_QBaseDestroyEditor(const KFileItemDelegate* self, QWidget* editor, const QModelIndex* index) {
+void KFileItemDelegate_SuperDestroyEditor(const KFileItemDelegate* self, QWidget* editor, const QModelIndex* index) {
     auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_DestroyEditor_IsBase(true);
@@ -532,7 +532,7 @@ libqt_list /* of int */ KFileItemDelegate_PaintingRoles(const KFileItemDelegate*
 }
 
 // Base class handler implementation
-libqt_list /* of int */ KFileItemDelegate_QBasePaintingRoles(const KFileItemDelegate* self) {
+libqt_list /* of int */ KFileItemDelegate_SuperPaintingRoles(const KFileItemDelegate* self) {
     auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_PaintingRoles_IsBase(true);
@@ -579,7 +579,7 @@ bool KFileItemDelegate_Event(KFileItemDelegate* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KFileItemDelegate_QBaseEvent(KFileItemDelegate* self, QEvent* event) {
+bool KFileItemDelegate_SuperEvent(KFileItemDelegate* self, QEvent* event) {
     auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_Event_IsBase(true);
@@ -608,7 +608,7 @@ void KFileItemDelegate_TimerEvent(KFileItemDelegate* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KFileItemDelegate_QBaseTimerEvent(KFileItemDelegate* self, QTimerEvent* event) {
+void KFileItemDelegate_SuperTimerEvent(KFileItemDelegate* self, QTimerEvent* event) {
     auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_TimerEvent_IsBase(true);
@@ -637,7 +637,7 @@ void KFileItemDelegate_ChildEvent(KFileItemDelegate* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KFileItemDelegate_QBaseChildEvent(KFileItemDelegate* self, QChildEvent* event) {
+void KFileItemDelegate_SuperChildEvent(KFileItemDelegate* self, QChildEvent* event) {
     auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_ChildEvent_IsBase(true);
@@ -666,7 +666,7 @@ void KFileItemDelegate_CustomEvent(KFileItemDelegate* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFileItemDelegate_QBaseCustomEvent(KFileItemDelegate* self, QEvent* event) {
+void KFileItemDelegate_SuperCustomEvent(KFileItemDelegate* self, QEvent* event) {
     auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_CustomEvent_IsBase(true);
@@ -695,7 +695,7 @@ void KFileItemDelegate_ConnectNotify(KFileItemDelegate* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void KFileItemDelegate_QBaseConnectNotify(KFileItemDelegate* self, const QMetaMethod* signal) {
+void KFileItemDelegate_SuperConnectNotify(KFileItemDelegate* self, const QMetaMethod* signal) {
     auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_ConnectNotify_IsBase(true);
@@ -724,7 +724,7 @@ void KFileItemDelegate_DisconnectNotify(KFileItemDelegate* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void KFileItemDelegate_QBaseDisconnectNotify(KFileItemDelegate* self, const QMetaMethod* signal) {
+void KFileItemDelegate_SuperDisconnectNotify(KFileItemDelegate* self, const QMetaMethod* signal) {
     auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_DisconnectNotify_IsBase(true);
@@ -753,7 +753,7 @@ QObject* KFileItemDelegate_Sender(const KFileItemDelegate* self) {
 }
 
 // Base class handler implementation
-QObject* KFileItemDelegate_QBaseSender(const KFileItemDelegate* self) {
+QObject* KFileItemDelegate_SuperSender(const KFileItemDelegate* self) {
     auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_Sender_IsBase(true);
@@ -782,7 +782,7 @@ int KFileItemDelegate_SenderSignalIndex(const KFileItemDelegate* self) {
 }
 
 // Base class handler implementation
-int KFileItemDelegate_QBaseSenderSignalIndex(const KFileItemDelegate* self) {
+int KFileItemDelegate_SuperSenderSignalIndex(const KFileItemDelegate* self) {
     auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_SenderSignalIndex_IsBase(true);
@@ -811,7 +811,7 @@ int KFileItemDelegate_Receivers(const KFileItemDelegate* self, const char* signa
 }
 
 // Base class handler implementation
-int KFileItemDelegate_QBaseReceivers(const KFileItemDelegate* self, const char* signal) {
+int KFileItemDelegate_SuperReceivers(const KFileItemDelegate* self, const char* signal) {
     auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_Receivers_IsBase(true);
@@ -840,7 +840,7 @@ bool KFileItemDelegate_IsSignalConnected(const KFileItemDelegate* self, const QM
 }
 
 // Base class handler implementation
-bool KFileItemDelegate_QBaseIsSignalConnected(const KFileItemDelegate* self, const QMetaMethod* signal) {
+bool KFileItemDelegate_SuperIsSignalConnected(const KFileItemDelegate* self, const QMetaMethod* signal) {
     auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         vkfileitemdelegate->setKFileItemDelegate_IsSignalConnected_IsBase(true);

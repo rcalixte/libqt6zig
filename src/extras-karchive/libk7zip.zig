@@ -139,6 +139,10 @@ pub const k7zip = struct {
         qtc.K7Zip_OnDoWriteSymLink(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDoWriteSymLink` instead
+    ///
+    pub const QBaseDoWriteSymLink = SuperDoWriteSymLink;
+
     /// ### [Upstream resources](https://api.kde.org/k7zip.html#doWriteSymLink)
     ///
     /// Base class method implementation
@@ -163,7 +167,7 @@ pub const k7zip = struct {
     ///
     /// ` ctime: QtC.QDateTime `
     ///
-    pub fn QBaseDoWriteSymLink(self: ?*anyopaque, name: []const u8, target: []const u8, user: []const u8, group: []const u8, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
+    pub fn SuperDoWriteSymLink(self: ?*anyopaque, name: []const u8, target: []const u8, user: []const u8, group: []const u8, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -180,7 +184,7 @@ pub const k7zip = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.K7Zip_QBaseDoWriteSymLink(@ptrCast(self), name_str, target_str, user_str, group_str, perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
+        return qtc.K7Zip_SuperDoWriteSymLink(@ptrCast(self), name_str, target_str, user_str, group_str, perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
     }
 
     /// ### [Upstream resources](https://api.kde.org/k7zip.html#doWriteDir)
@@ -233,6 +237,10 @@ pub const k7zip = struct {
         qtc.K7Zip_OnDoWriteDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDoWriteDir` instead
+    ///
+    pub const QBaseDoWriteDir = SuperDoWriteDir;
+
     /// ### [Upstream resources](https://api.kde.org/k7zip.html#doWriteDir)
     ///
     /// Base class method implementation
@@ -255,7 +263,7 @@ pub const k7zip = struct {
     ///
     /// ` ctime: QtC.QDateTime `
     ///
-    pub fn QBaseDoWriteDir(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
+    pub fn SuperDoWriteDir(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -268,7 +276,7 @@ pub const k7zip = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.K7Zip_QBaseDoWriteDir(@ptrCast(self), name_str, user_str, group_str, perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
+        return qtc.K7Zip_SuperDoWriteDir(@ptrCast(self), name_str, user_str, group_str, perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
     }
 
     /// ### [Upstream resources](https://api.kde.org/k7zip.html#doPrepareWriting)
@@ -323,6 +331,10 @@ pub const k7zip = struct {
         qtc.K7Zip_OnDoPrepareWriting(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDoPrepareWriting` instead
+    ///
+    pub const QBaseDoPrepareWriting = SuperDoPrepareWriting;
+
     /// ### [Upstream resources](https://api.kde.org/k7zip.html#doPrepareWriting)
     ///
     /// Base class method implementation
@@ -347,7 +359,7 @@ pub const k7zip = struct {
     ///
     /// ` ctime: QtC.QDateTime `
     ///
-    pub fn QBaseDoPrepareWriting(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, size: i64, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
+    pub fn SuperDoPrepareWriting(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, size: i64, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -360,7 +372,7 @@ pub const k7zip = struct {
             .len = group.len,
             .data = group.ptr,
         };
-        return qtc.K7Zip_QBaseDoPrepareWriting(@ptrCast(self), name_str, user_str, group_str, @bitCast(size), perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
+        return qtc.K7Zip_SuperDoPrepareWriting(@ptrCast(self), name_str, user_str, group_str, @bitCast(size), perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
     }
 
     /// ### [Upstream resources](https://api.kde.org/k7zip.html#doFinishWriting)
@@ -389,6 +401,10 @@ pub const k7zip = struct {
         qtc.K7Zip_OnDoFinishWriting(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDoFinishWriting` instead
+    ///
+    pub const QBaseDoFinishWriting = SuperDoFinishWriting;
+
     /// ### [Upstream resources](https://api.kde.org/k7zip.html#doFinishWriting)
     ///
     /// Base class method implementation
@@ -399,8 +415,8 @@ pub const k7zip = struct {
     ///
     /// ` size: i64 `
     ///
-    pub fn QBaseDoFinishWriting(self: ?*anyopaque, size: i64) bool {
-        return qtc.K7Zip_QBaseDoFinishWriting(@ptrCast(self), @bitCast(size));
+    pub fn SuperDoFinishWriting(self: ?*anyopaque, size: i64) bool {
+        return qtc.K7Zip_SuperDoFinishWriting(@ptrCast(self), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/k7zip.html#doWriteData)
@@ -432,6 +448,10 @@ pub const k7zip = struct {
         qtc.K7Zip_OnDoWriteData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDoWriteData` instead
+    ///
+    pub const QBaseDoWriteData = SuperDoWriteData;
+
     /// ### [Upstream resources](https://api.kde.org/k7zip.html#doWriteData)
     ///
     /// Base class method implementation
@@ -444,9 +464,9 @@ pub const k7zip = struct {
     ///
     /// ` size: i64 `
     ///
-    pub fn QBaseDoWriteData(self: ?*anyopaque, data: [:0]const u8, size: i64) bool {
+    pub fn SuperDoWriteData(self: ?*anyopaque, data: [:0]const u8, size: i64) bool {
         const data_Cstring = data.ptr;
-        return qtc.K7Zip_QBaseDoWriteData(@ptrCast(self), data_Cstring, @bitCast(size));
+        return qtc.K7Zip_SuperDoWriteData(@ptrCast(self), data_Cstring, @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/k7zip.html#openArchive)
@@ -475,6 +495,10 @@ pub const k7zip = struct {
         qtc.K7Zip_OnOpenArchive(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperOpenArchive` instead
+    ///
+    pub const QBaseOpenArchive = SuperOpenArchive;
+
     /// ### [Upstream resources](https://api.kde.org/k7zip.html#openArchive)
     ///
     /// Base class method implementation
@@ -485,8 +509,8 @@ pub const k7zip = struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn QBaseOpenArchive(self: ?*anyopaque, mode: i32) bool {
-        return qtc.K7Zip_QBaseOpenArchive(@ptrCast(self), @bitCast(mode));
+    pub fn SuperOpenArchive(self: ?*anyopaque, mode: i32) bool {
+        return qtc.K7Zip_SuperOpenArchive(@ptrCast(self), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/k7zip.html#closeArchive)
@@ -513,6 +537,10 @@ pub const k7zip = struct {
         qtc.K7Zip_OnCloseArchive(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseArchive` instead
+    ///
+    pub const QBaseCloseArchive = SuperCloseArchive;
+
     /// ### [Upstream resources](https://api.kde.org/k7zip.html#closeArchive)
     ///
     /// Base class method implementation
@@ -521,8 +549,8 @@ pub const k7zip = struct {
     ///
     /// ` self: QtC.K7Zip `
     ///
-    pub fn QBaseCloseArchive(self: ?*anyopaque) bool {
-        return qtc.K7Zip_QBaseCloseArchive(@ptrCast(self));
+    pub fn SuperCloseArchive(self: ?*anyopaque) bool {
+        return qtc.K7Zip_SuperCloseArchive(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/k7zip.html#virtual_hook)
@@ -553,6 +581,10 @@ pub const k7zip = struct {
         qtc.K7Zip_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperVirtualHook` instead
+    ///
+    pub const QBaseVirtualHook = SuperVirtualHook;
+
     /// ### [Upstream resources](https://api.kde.org/k7zip.html#virtual_hook)
     ///
     /// Base class method implementation
@@ -565,8 +597,8 @@ pub const k7zip = struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.K7Zip_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
+    pub fn SuperVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
+        qtc.K7Zip_SuperVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1704,6 +1736,10 @@ pub const k7zip = struct {
         return qtc.K7Zip_Open(@ptrCast(self), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `SuperOpen` instead
+    ///
+    pub const QBaseOpen = SuperOpen;
+
     /// Inherited from KArchive
     ///
     /// ### [Upstream resources](https://api.kde.org/karchive.html#open)
@@ -1716,8 +1752,8 @@ pub const k7zip = struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn QBaseOpen(self: ?*anyopaque, mode: i32) bool {
-        return qtc.K7Zip_QBaseOpen(@ptrCast(self), @bitCast(mode));
+    pub fn SuperOpen(self: ?*anyopaque, mode: i32) bool {
+        return qtc.K7Zip_SuperOpen(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from KArchive
@@ -1750,6 +1786,10 @@ pub const k7zip = struct {
         return qtc.K7Zip_Close(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperClose` instead
+    ///
+    pub const QBaseClose = SuperClose;
+
     /// Inherited from KArchive
     ///
     /// ### [Upstream resources](https://api.kde.org/karchive.html#close)
@@ -1760,8 +1800,8 @@ pub const k7zip = struct {
     ///
     /// ` self: QtC.K7Zip `
     ///
-    pub fn QBaseClose(self: ?*anyopaque) bool {
-        return qtc.K7Zip_QBaseClose(@ptrCast(self));
+    pub fn SuperClose(self: ?*anyopaque) bool {
+        return qtc.K7Zip_SuperClose(@ptrCast(self));
     }
 
     /// Inherited from KArchive
@@ -1794,6 +1834,10 @@ pub const k7zip = struct {
         return qtc.K7Zip_RootDir(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperRootDir` instead
+    ///
+    pub const QBaseRootDir = SuperRootDir;
+
     /// Inherited from KArchive
     ///
     /// ### [Upstream resources](https://api.kde.org/karchive.html#rootDir)
@@ -1804,8 +1848,8 @@ pub const k7zip = struct {
     ///
     /// ` self: QtC.K7Zip `
     ///
-    pub fn QBaseRootDir(self: ?*anyopaque) QtC.KArchiveDirectory {
-        return qtc.K7Zip_QBaseRootDir(@ptrCast(self));
+    pub fn SuperRootDir(self: ?*anyopaque) QtC.KArchiveDirectory {
+        return qtc.K7Zip_SuperRootDir(@ptrCast(self));
     }
 
     /// Inherited from KArchive
@@ -1840,6 +1884,10 @@ pub const k7zip = struct {
         return qtc.K7Zip_CreateDevice(@ptrCast(self), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateDevice` instead
+    ///
+    pub const QBaseCreateDevice = SuperCreateDevice;
+
     /// Inherited from KArchive
     ///
     /// ### [Upstream resources](https://api.kde.org/karchive.html#createDevice)
@@ -1852,8 +1900,8 @@ pub const k7zip = struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn QBaseCreateDevice(self: ?*anyopaque, mode: i32) bool {
-        return qtc.K7Zip_QBaseCreateDevice(@ptrCast(self), @bitCast(mode));
+    pub fn SuperCreateDevice(self: ?*anyopaque, mode: i32) bool {
+        return qtc.K7Zip_SuperCreateDevice(@ptrCast(self), @bitCast(mode));
     }
 
     /// Inherited from KArchive
@@ -1892,6 +1940,10 @@ pub const k7zip = struct {
         qtc.K7Zip_SetErrorString(@ptrCast(self), errorStr_str);
     }
 
+    /// ### DEPRECATED: Use `SuperSetErrorString` instead
+    ///
+    pub const QBaseSetErrorString = SuperSetErrorString;
+
     /// Inherited from KArchive
     ///
     /// ### [Upstream resources](https://api.kde.org/karchive.html#setErrorString)
@@ -1904,12 +1956,12 @@ pub const k7zip = struct {
     ///
     /// ` errorStr: []const u8 `
     ///
-    pub fn QBaseSetErrorString(self: ?*anyopaque, errorStr: []const u8) void {
+    pub fn SuperSetErrorString(self: ?*anyopaque, errorStr: []const u8) void {
         const errorStr_str = qtc.libqt_string{
             .len = errorStr.len,
             .data = errorStr.ptr,
         };
-        qtc.K7Zip_QBaseSetErrorString(@ptrCast(self), errorStr_str);
+        qtc.K7Zip_SuperSetErrorString(@ptrCast(self), errorStr_str);
     }
 
     /// Inherited from KArchive
@@ -1948,6 +2000,10 @@ pub const k7zip = struct {
         return qtc.K7Zip_FindOrCreate(@ptrCast(self), path_str);
     }
 
+    /// ### DEPRECATED: Use `SuperFindOrCreate` instead
+    ///
+    pub const QBaseFindOrCreate = SuperFindOrCreate;
+
     /// Inherited from KArchive
     ///
     /// ### [Upstream resources](https://api.kde.org/karchive.html#findOrCreate)
@@ -1960,12 +2016,12 @@ pub const k7zip = struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn QBaseFindOrCreate(self: ?*anyopaque, path: []const u8) QtC.KArchiveDirectory {
+    pub fn SuperFindOrCreate(self: ?*anyopaque, path: []const u8) QtC.KArchiveDirectory {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        return qtc.K7Zip_QBaseFindOrCreate(@ptrCast(self), path_str);
+        return qtc.K7Zip_SuperFindOrCreate(@ptrCast(self), path_str);
     }
 
     /// Inherited from KArchive
@@ -2000,6 +2056,10 @@ pub const k7zip = struct {
         qtc.K7Zip_SetDevice(@ptrCast(self), @ptrCast(dev));
     }
 
+    /// ### DEPRECATED: Use `SuperSetDevice` instead
+    ///
+    pub const QBaseSetDevice = SuperSetDevice;
+
     /// Inherited from KArchive
     ///
     /// ### [Upstream resources](https://api.kde.org/karchive.html#setDevice)
@@ -2012,8 +2072,8 @@ pub const k7zip = struct {
     ///
     /// ` dev: QtC.QIODevice `
     ///
-    pub fn QBaseSetDevice(self: ?*anyopaque, dev: ?*anyopaque) void {
-        qtc.K7Zip_QBaseSetDevice(@ptrCast(self), @ptrCast(dev));
+    pub fn SuperSetDevice(self: ?*anyopaque, dev: ?*anyopaque) void {
+        qtc.K7Zip_SuperSetDevice(@ptrCast(self), @ptrCast(dev));
     }
 
     /// Inherited from KArchive
@@ -2048,6 +2108,10 @@ pub const k7zip = struct {
         qtc.K7Zip_SetRootDir(@ptrCast(self), @ptrCast(rootDir));
     }
 
+    /// ### DEPRECATED: Use `SuperSetRootDir` instead
+    ///
+    pub const QBaseSetRootDir = SuperSetRootDir;
+
     /// Inherited from KArchive
     ///
     /// ### [Upstream resources](https://api.kde.org/karchive.html#setRootDir)
@@ -2060,8 +2124,8 @@ pub const k7zip = struct {
     ///
     /// ` rootDir: QtC.KArchiveDirectory `
     ///
-    pub fn QBaseSetRootDir(self: ?*anyopaque, rootDir: ?*anyopaque) void {
-        qtc.K7Zip_QBaseSetRootDir(@ptrCast(self), @ptrCast(rootDir));
+    pub fn SuperSetRootDir(self: ?*anyopaque, rootDir: ?*anyopaque) void {
+        qtc.K7Zip_SuperSetRootDir(@ptrCast(self), @ptrCast(rootDir));
     }
 
     /// Inherited from KArchive
@@ -2079,6 +2143,9 @@ pub const k7zip = struct {
     pub fn OnSetRootDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.K7Zip_OnSetRootDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/k7zip.html#dtor.K7Zip)
     ///
@@ -2088,7 +2155,7 @@ pub const k7zip = struct {
     ///
     /// ` self: QtC.K7Zip `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.K7Zip_Delete(@ptrCast(self));
     }
 };

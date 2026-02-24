@@ -43,6 +43,10 @@ pub const qabstractnativeeventfilter = struct {
         qtc.QAbstractNativeEventFilter_OnNativeEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEventFilter` instead
+    ///
+    pub const QBaseNativeEventFilter = SuperNativeEventFilter;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#nativeEventFilter)
     ///
     /// Base class method implementation
@@ -57,13 +61,16 @@ pub const qabstractnativeeventfilter = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEventFilter(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEventFilter(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QAbstractNativeEventFilter_QBaseNativeEventFilter(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QAbstractNativeEventFilter_SuperNativeEventFilter(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#dtor.QAbstractNativeEventFilter)
     ///
@@ -73,7 +80,7 @@ pub const qabstractnativeeventfilter = struct {
     ///
     /// ` self: QtC.QAbstractNativeEventFilter `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAbstractNativeEventFilter_Delete(@ptrCast(self));
     }
 };

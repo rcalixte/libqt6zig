@@ -1184,6 +1184,9 @@ pub const qabstracteventdispatcher = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#dtor.QAbstractEventDispatcher)
     ///
@@ -1193,7 +1196,7 @@ pub const qabstracteventdispatcher = struct {
     ///
     /// ` self: QtC.QAbstractEventDispatcher `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAbstractEventDispatcher_Delete(@ptrCast(self));
     }
 };
@@ -2435,6 +2438,9 @@ pub const qabstracteventdispatcherv2 = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcherv2.html#dtor.QAbstractEventDispatcherV2)
     ///
@@ -2444,7 +2450,7 @@ pub const qabstracteventdispatcherv2 = struct {
     ///
     /// ` self: QtC.QAbstractEventDispatcherV2 `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAbstractEventDispatcherV2_Delete(@ptrCast(self));
     }
 };
@@ -2589,13 +2595,17 @@ pub const qabstracteventdispatcher__timerinfo = struct {
         qtc.QAbstractEventDispatcher__TimerInfo_SetTimerType(@ptrCast(self), @bitCast(timerType));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QAbstractEventDispatcher__TimerInfo `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAbstractEventDispatcher__TimerInfo_Delete(@ptrCast(self));
     }
 };
@@ -2682,13 +2692,17 @@ pub const qabstracteventdispatcher__timerinfov2 = struct {
         qtc.QAbstractEventDispatcher__TimerInfoV2_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QAbstractEventDispatcher__TimerInfoV2 `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAbstractEventDispatcher__TimerInfoV2_Delete(@ptrCast(self));
     }
 };

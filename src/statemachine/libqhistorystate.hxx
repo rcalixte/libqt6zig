@@ -370,29 +370,29 @@ class VirtualQHistoryState final : public QHistoryState {
 
     // Friend functions
     friend void QHistoryState_OnEntry(QHistoryState* self, QEvent* event);
-    friend void QHistoryState_QBaseOnEntry(QHistoryState* self, QEvent* event);
+    friend void QHistoryState_SuperOnEntry(QHistoryState* self, QEvent* event);
     friend void QHistoryState_OnExit(QHistoryState* self, QEvent* event);
-    friend void QHistoryState_QBaseOnExit(QHistoryState* self, QEvent* event);
+    friend void QHistoryState_SuperOnExit(QHistoryState* self, QEvent* event);
     friend bool QHistoryState_Event(QHistoryState* self, QEvent* e);
-    friend bool QHistoryState_QBaseEvent(QHistoryState* self, QEvent* e);
+    friend bool QHistoryState_SuperEvent(QHistoryState* self, QEvent* e);
     friend void QHistoryState_TimerEvent(QHistoryState* self, QTimerEvent* event);
-    friend void QHistoryState_QBaseTimerEvent(QHistoryState* self, QTimerEvent* event);
+    friend void QHistoryState_SuperTimerEvent(QHistoryState* self, QTimerEvent* event);
     friend void QHistoryState_ChildEvent(QHistoryState* self, QChildEvent* event);
-    friend void QHistoryState_QBaseChildEvent(QHistoryState* self, QChildEvent* event);
+    friend void QHistoryState_SuperChildEvent(QHistoryState* self, QChildEvent* event);
     friend void QHistoryState_CustomEvent(QHistoryState* self, QEvent* event);
-    friend void QHistoryState_QBaseCustomEvent(QHistoryState* self, QEvent* event);
+    friend void QHistoryState_SuperCustomEvent(QHistoryState* self, QEvent* event);
     friend void QHistoryState_ConnectNotify(QHistoryState* self, const QMetaMethod* signal);
-    friend void QHistoryState_QBaseConnectNotify(QHistoryState* self, const QMetaMethod* signal);
+    friend void QHistoryState_SuperConnectNotify(QHistoryState* self, const QMetaMethod* signal);
     friend void QHistoryState_DisconnectNotify(QHistoryState* self, const QMetaMethod* signal);
-    friend void QHistoryState_QBaseDisconnectNotify(QHistoryState* self, const QMetaMethod* signal);
+    friend void QHistoryState_SuperDisconnectNotify(QHistoryState* self, const QMetaMethod* signal);
     friend QObject* QHistoryState_Sender(const QHistoryState* self);
-    friend QObject* QHistoryState_QBaseSender(const QHistoryState* self);
+    friend QObject* QHistoryState_SuperSender(const QHistoryState* self);
     friend int QHistoryState_SenderSignalIndex(const QHistoryState* self);
-    friend int QHistoryState_QBaseSenderSignalIndex(const QHistoryState* self);
+    friend int QHistoryState_SuperSenderSignalIndex(const QHistoryState* self);
     friend int QHistoryState_Receivers(const QHistoryState* self, const char* signal);
-    friend int QHistoryState_QBaseReceivers(const QHistoryState* self, const char* signal);
+    friend int QHistoryState_SuperReceivers(const QHistoryState* self, const char* signal);
     friend bool QHistoryState_IsSignalConnected(const QHistoryState* self, const QMetaMethod* signal);
-    friend bool QHistoryState_QBaseIsSignalConnected(const QHistoryState* self, const QMetaMethod* signal);
+    friend bool QHistoryState_SuperIsSignalConnected(const QHistoryState* self, const QMetaMethod* signal);
 };
 
 #endif

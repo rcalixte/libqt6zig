@@ -85,7 +85,7 @@ void KIO__FavIconRequestJob_Start(KIO__FavIconRequestJob* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KIO__FavIconRequestJob_QBaseMetaObject(const KIO__FavIconRequestJob* self) {
+QMetaObject* KIO__FavIconRequestJob_SuperMetaObject(const KIO__FavIconRequestJob* self) {
     auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_MetaObject_IsBase(true);
@@ -104,7 +104,7 @@ void KIO__FavIconRequestJob_OnMetaObject(const KIO__FavIconRequestJob* self, int
 }
 
 // Base class handler implementation
-void* KIO__FavIconRequestJob_QBaseMetacast(KIO__FavIconRequestJob* self, const char* param1) {
+void* KIO__FavIconRequestJob_SuperMetacast(KIO__FavIconRequestJob* self, const char* param1) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_Metacast_IsBase(true);
@@ -123,7 +123,7 @@ void KIO__FavIconRequestJob_OnMetacast(KIO__FavIconRequestJob* self, intptr_t sl
 }
 
 // Base class handler implementation
-int KIO__FavIconRequestJob_QBaseMetacall(KIO__FavIconRequestJob* self, int param1, int param2, void** param3) {
+int KIO__FavIconRequestJob_SuperMetacall(KIO__FavIconRequestJob* self, int param1, int param2, void** param3) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_Metacall_IsBase(true);
@@ -142,7 +142,7 @@ void KIO__FavIconRequestJob_OnMetacall(KIO__FavIconRequestJob* self, intptr_t sl
 }
 
 // Base class handler implementation
-void KIO__FavIconRequestJob_QBaseStart(KIO__FavIconRequestJob* self) {
+void KIO__FavIconRequestJob_SuperStart(KIO__FavIconRequestJob* self) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_Start_IsBase(true);
@@ -171,7 +171,7 @@ bool KIO__FavIconRequestJob_AddSubjob(KIO__FavIconRequestJob* self, KJob* job) {
 }
 
 // Base class handler implementation
-bool KIO__FavIconRequestJob_QBaseAddSubjob(KIO__FavIconRequestJob* self, KJob* job) {
+bool KIO__FavIconRequestJob_SuperAddSubjob(KIO__FavIconRequestJob* self, KJob* job) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_AddSubjob_IsBase(true);
@@ -200,7 +200,7 @@ bool KIO__FavIconRequestJob_RemoveSubjob(KIO__FavIconRequestJob* self, KJob* job
 }
 
 // Base class handler implementation
-bool KIO__FavIconRequestJob_QBaseRemoveSubjob(KIO__FavIconRequestJob* self, KJob* job) {
+bool KIO__FavIconRequestJob_SuperRemoveSubjob(KIO__FavIconRequestJob* self, KJob* job) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_RemoveSubjob_IsBase(true);
@@ -230,7 +230,7 @@ void KIO__FavIconRequestJob_SlotInfoMessage(KIO__FavIconRequestJob* self, KJob* 
 }
 
 // Base class handler implementation
-void KIO__FavIconRequestJob_QBaseSlotInfoMessage(KIO__FavIconRequestJob* self, KJob* job, const libqt_string message) {
+void KIO__FavIconRequestJob_SuperSlotInfoMessage(KIO__FavIconRequestJob* self, KJob* job, const libqt_string message) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     QString message_QString = QString::fromUtf8(message.data, message.len);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
@@ -260,7 +260,7 @@ bool KIO__FavIconRequestJob_DoKill(KIO__FavIconRequestJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__FavIconRequestJob_QBaseDoKill(KIO__FavIconRequestJob* self) {
+bool KIO__FavIconRequestJob_SuperDoKill(KIO__FavIconRequestJob* self) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_DoKill_IsBase(true);
@@ -289,7 +289,7 @@ bool KIO__FavIconRequestJob_DoSuspend(KIO__FavIconRequestJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__FavIconRequestJob_QBaseDoSuspend(KIO__FavIconRequestJob* self) {
+bool KIO__FavIconRequestJob_SuperDoSuspend(KIO__FavIconRequestJob* self) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_DoSuspend_IsBase(true);
@@ -318,7 +318,7 @@ bool KIO__FavIconRequestJob_DoResume(KIO__FavIconRequestJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__FavIconRequestJob_QBaseDoResume(KIO__FavIconRequestJob* self) {
+bool KIO__FavIconRequestJob_SuperDoResume(KIO__FavIconRequestJob* self) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_DoResume_IsBase(true);
@@ -363,7 +363,7 @@ libqt_string KIO__FavIconRequestJob_ErrorString(const KIO__FavIconRequestJob* se
 }
 
 // Base class handler implementation
-libqt_string KIO__FavIconRequestJob_QBaseErrorString(const KIO__FavIconRequestJob* self) {
+libqt_string KIO__FavIconRequestJob_SuperErrorString(const KIO__FavIconRequestJob* self) {
     auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_ErrorString_IsBase(true);
@@ -408,7 +408,7 @@ bool KIO__FavIconRequestJob_Event(KIO__FavIconRequestJob* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KIO__FavIconRequestJob_QBaseEvent(KIO__FavIconRequestJob* self, QEvent* event) {
+bool KIO__FavIconRequestJob_SuperEvent(KIO__FavIconRequestJob* self, QEvent* event) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_Event_IsBase(true);
@@ -437,7 +437,7 @@ bool KIO__FavIconRequestJob_EventFilter(KIO__FavIconRequestJob* self, QObject* w
 }
 
 // Base class handler implementation
-bool KIO__FavIconRequestJob_QBaseEventFilter(KIO__FavIconRequestJob* self, QObject* watched, QEvent* event) {
+bool KIO__FavIconRequestJob_SuperEventFilter(KIO__FavIconRequestJob* self, QObject* watched, QEvent* event) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_EventFilter_IsBase(true);
@@ -466,7 +466,7 @@ void KIO__FavIconRequestJob_TimerEvent(KIO__FavIconRequestJob* self, QTimerEvent
 }
 
 // Base class handler implementation
-void KIO__FavIconRequestJob_QBaseTimerEvent(KIO__FavIconRequestJob* self, QTimerEvent* event) {
+void KIO__FavIconRequestJob_SuperTimerEvent(KIO__FavIconRequestJob* self, QTimerEvent* event) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_TimerEvent_IsBase(true);
@@ -495,7 +495,7 @@ void KIO__FavIconRequestJob_ChildEvent(KIO__FavIconRequestJob* self, QChildEvent
 }
 
 // Base class handler implementation
-void KIO__FavIconRequestJob_QBaseChildEvent(KIO__FavIconRequestJob* self, QChildEvent* event) {
+void KIO__FavIconRequestJob_SuperChildEvent(KIO__FavIconRequestJob* self, QChildEvent* event) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_ChildEvent_IsBase(true);
@@ -524,7 +524,7 @@ void KIO__FavIconRequestJob_CustomEvent(KIO__FavIconRequestJob* self, QEvent* ev
 }
 
 // Base class handler implementation
-void KIO__FavIconRequestJob_QBaseCustomEvent(KIO__FavIconRequestJob* self, QEvent* event) {
+void KIO__FavIconRequestJob_SuperCustomEvent(KIO__FavIconRequestJob* self, QEvent* event) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_CustomEvent_IsBase(true);
@@ -553,7 +553,7 @@ void KIO__FavIconRequestJob_ConnectNotify(KIO__FavIconRequestJob* self, const QM
 }
 
 // Base class handler implementation
-void KIO__FavIconRequestJob_QBaseConnectNotify(KIO__FavIconRequestJob* self, const QMetaMethod* signal) {
+void KIO__FavIconRequestJob_SuperConnectNotify(KIO__FavIconRequestJob* self, const QMetaMethod* signal) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_ConnectNotify_IsBase(true);
@@ -582,7 +582,7 @@ void KIO__FavIconRequestJob_DisconnectNotify(KIO__FavIconRequestJob* self, const
 }
 
 // Base class handler implementation
-void KIO__FavIconRequestJob_QBaseDisconnectNotify(KIO__FavIconRequestJob* self, const QMetaMethod* signal) {
+void KIO__FavIconRequestJob_SuperDisconnectNotify(KIO__FavIconRequestJob* self, const QMetaMethod* signal) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_DisconnectNotify_IsBase(true);
@@ -611,7 +611,7 @@ bool KIO__FavIconRequestJob_HasSubjobs(const KIO__FavIconRequestJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__FavIconRequestJob_QBaseHasSubjobs(const KIO__FavIconRequestJob* self) {
+bool KIO__FavIconRequestJob_SuperHasSubjobs(const KIO__FavIconRequestJob* self) {
     auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_HasSubjobs_IsBase(true);
@@ -658,7 +658,7 @@ libqt_list /* of KJob* */ KIO__FavIconRequestJob_Subjobs(const KIO__FavIconReque
 }
 
 // Base class handler implementation
-libqt_list /* of KJob* */ KIO__FavIconRequestJob_QBaseSubjobs(const KIO__FavIconRequestJob* self) {
+libqt_list /* of KJob* */ KIO__FavIconRequestJob_SuperSubjobs(const KIO__FavIconRequestJob* self) {
     auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_Subjobs_IsBase(true);
@@ -705,7 +705,7 @@ void KIO__FavIconRequestJob_ClearSubjobs(KIO__FavIconRequestJob* self) {
 }
 
 // Base class handler implementation
-void KIO__FavIconRequestJob_QBaseClearSubjobs(KIO__FavIconRequestJob* self) {
+void KIO__FavIconRequestJob_SuperClearSubjobs(KIO__FavIconRequestJob* self) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_ClearSubjobs_IsBase(true);
@@ -734,7 +734,7 @@ void KIO__FavIconRequestJob_SetCapabilities(KIO__FavIconRequestJob* self, int ca
 }
 
 // Base class handler implementation
-void KIO__FavIconRequestJob_QBaseSetCapabilities(KIO__FavIconRequestJob* self, int capabilities) {
+void KIO__FavIconRequestJob_SuperSetCapabilities(KIO__FavIconRequestJob* self, int capabilities) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_SetCapabilities_IsBase(true);
@@ -763,7 +763,7 @@ bool KIO__FavIconRequestJob_IsFinished(const KIO__FavIconRequestJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__FavIconRequestJob_QBaseIsFinished(const KIO__FavIconRequestJob* self) {
+bool KIO__FavIconRequestJob_SuperIsFinished(const KIO__FavIconRequestJob* self) {
     auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_IsFinished_IsBase(true);
@@ -792,7 +792,7 @@ void KIO__FavIconRequestJob_SetError(KIO__FavIconRequestJob* self, int errorCode
 }
 
 // Base class handler implementation
-void KIO__FavIconRequestJob_QBaseSetError(KIO__FavIconRequestJob* self, int errorCode) {
+void KIO__FavIconRequestJob_SuperSetError(KIO__FavIconRequestJob* self, int errorCode) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_SetError_IsBase(true);
@@ -822,7 +822,7 @@ void KIO__FavIconRequestJob_SetErrorText(KIO__FavIconRequestJob* self, const lib
 }
 
 // Base class handler implementation
-void KIO__FavIconRequestJob_QBaseSetErrorText(KIO__FavIconRequestJob* self, const libqt_string errorText) {
+void KIO__FavIconRequestJob_SuperSetErrorText(KIO__FavIconRequestJob* self, const libqt_string errorText) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
@@ -852,7 +852,7 @@ void KIO__FavIconRequestJob_SetProcessedAmount(KIO__FavIconRequestJob* self, int
 }
 
 // Base class handler implementation
-void KIO__FavIconRequestJob_QBaseSetProcessedAmount(KIO__FavIconRequestJob* self, int unit, unsigned long long amount) {
+void KIO__FavIconRequestJob_SuperSetProcessedAmount(KIO__FavIconRequestJob* self, int unit, unsigned long long amount) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_SetProcessedAmount_IsBase(true);
@@ -881,7 +881,7 @@ void KIO__FavIconRequestJob_SetTotalAmount(KIO__FavIconRequestJob* self, int uni
 }
 
 // Base class handler implementation
-void KIO__FavIconRequestJob_QBaseSetTotalAmount(KIO__FavIconRequestJob* self, int unit, unsigned long long amount) {
+void KIO__FavIconRequestJob_SuperSetTotalAmount(KIO__FavIconRequestJob* self, int unit, unsigned long long amount) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_SetTotalAmount_IsBase(true);
@@ -910,7 +910,7 @@ void KIO__FavIconRequestJob_SetProgressUnit(KIO__FavIconRequestJob* self, int un
 }
 
 // Base class handler implementation
-void KIO__FavIconRequestJob_QBaseSetProgressUnit(KIO__FavIconRequestJob* self, int unit) {
+void KIO__FavIconRequestJob_SuperSetProgressUnit(KIO__FavIconRequestJob* self, int unit) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_SetProgressUnit_IsBase(true);
@@ -939,7 +939,7 @@ void KIO__FavIconRequestJob_SetPercent(KIO__FavIconRequestJob* self, unsigned lo
 }
 
 // Base class handler implementation
-void KIO__FavIconRequestJob_QBaseSetPercent(KIO__FavIconRequestJob* self, unsigned long percentage) {
+void KIO__FavIconRequestJob_SuperSetPercent(KIO__FavIconRequestJob* self, unsigned long percentage) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_SetPercent_IsBase(true);
@@ -968,7 +968,7 @@ void KIO__FavIconRequestJob_EmitResult(KIO__FavIconRequestJob* self) {
 }
 
 // Base class handler implementation
-void KIO__FavIconRequestJob_QBaseEmitResult(KIO__FavIconRequestJob* self) {
+void KIO__FavIconRequestJob_SuperEmitResult(KIO__FavIconRequestJob* self) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_EmitResult_IsBase(true);
@@ -997,7 +997,7 @@ void KIO__FavIconRequestJob_EmitPercent(KIO__FavIconRequestJob* self, unsigned l
 }
 
 // Base class handler implementation
-void KIO__FavIconRequestJob_QBaseEmitPercent(KIO__FavIconRequestJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
+void KIO__FavIconRequestJob_SuperEmitPercent(KIO__FavIconRequestJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_EmitPercent_IsBase(true);
@@ -1026,7 +1026,7 @@ void KIO__FavIconRequestJob_EmitSpeed(KIO__FavIconRequestJob* self, unsigned lon
 }
 
 // Base class handler implementation
-void KIO__FavIconRequestJob_QBaseEmitSpeed(KIO__FavIconRequestJob* self, unsigned long speed) {
+void KIO__FavIconRequestJob_SuperEmitSpeed(KIO__FavIconRequestJob* self, unsigned long speed) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_EmitSpeed_IsBase(true);
@@ -1055,7 +1055,7 @@ void KIO__FavIconRequestJob_StartElapsedTimer(KIO__FavIconRequestJob* self) {
 }
 
 // Base class handler implementation
-void KIO__FavIconRequestJob_QBaseStartElapsedTimer(KIO__FavIconRequestJob* self) {
+void KIO__FavIconRequestJob_SuperStartElapsedTimer(KIO__FavIconRequestJob* self) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_StartElapsedTimer_IsBase(true);
@@ -1084,7 +1084,7 @@ QObject* KIO__FavIconRequestJob_Sender(const KIO__FavIconRequestJob* self) {
 }
 
 // Base class handler implementation
-QObject* KIO__FavIconRequestJob_QBaseSender(const KIO__FavIconRequestJob* self) {
+QObject* KIO__FavIconRequestJob_SuperSender(const KIO__FavIconRequestJob* self) {
     auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_Sender_IsBase(true);
@@ -1113,7 +1113,7 @@ int KIO__FavIconRequestJob_SenderSignalIndex(const KIO__FavIconRequestJob* self)
 }
 
 // Base class handler implementation
-int KIO__FavIconRequestJob_QBaseSenderSignalIndex(const KIO__FavIconRequestJob* self) {
+int KIO__FavIconRequestJob_SuperSenderSignalIndex(const KIO__FavIconRequestJob* self) {
     auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_SenderSignalIndex_IsBase(true);
@@ -1142,7 +1142,7 @@ int KIO__FavIconRequestJob_Receivers(const KIO__FavIconRequestJob* self, const c
 }
 
 // Base class handler implementation
-int KIO__FavIconRequestJob_QBaseReceivers(const KIO__FavIconRequestJob* self, const char* signal) {
+int KIO__FavIconRequestJob_SuperReceivers(const KIO__FavIconRequestJob* self, const char* signal) {
     auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_Receivers_IsBase(true);
@@ -1171,7 +1171,7 @@ bool KIO__FavIconRequestJob_IsSignalConnected(const KIO__FavIconRequestJob* self
 }
 
 // Base class handler implementation
-bool KIO__FavIconRequestJob_QBaseIsSignalConnected(const KIO__FavIconRequestJob* self, const QMetaMethod* signal) {
+bool KIO__FavIconRequestJob_SuperIsSignalConnected(const KIO__FavIconRequestJob* self, const QMetaMethod* signal) {
     auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_IsSignalConnected_IsBase(true);

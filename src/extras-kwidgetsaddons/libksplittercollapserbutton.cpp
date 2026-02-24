@@ -136,7 +136,7 @@ void KSplitterCollapserButton_ShowEvent(KSplitterCollapserButton* self, QShowEve
 }
 
 // Base class handler implementation
-QMetaObject* KSplitterCollapserButton_QBaseMetaObject(const KSplitterCollapserButton* self) {
+QMetaObject* KSplitterCollapserButton_SuperMetaObject(const KSplitterCollapserButton* self) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_MetaObject_IsBase(true);
@@ -155,7 +155,7 @@ void KSplitterCollapserButton_OnMetaObject(const KSplitterCollapserButton* self,
 }
 
 // Base class handler implementation
-void* KSplitterCollapserButton_QBaseMetacast(KSplitterCollapserButton* self, const char* param1) {
+void* KSplitterCollapserButton_SuperMetacast(KSplitterCollapserButton* self, const char* param1) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_Metacast_IsBase(true);
@@ -174,7 +174,7 @@ void KSplitterCollapserButton_OnMetacast(KSplitterCollapserButton* self, intptr_
 }
 
 // Base class handler implementation
-int KSplitterCollapserButton_QBaseMetacall(KSplitterCollapserButton* self, int param1, int param2, void** param3) {
+int KSplitterCollapserButton_SuperMetacall(KSplitterCollapserButton* self, int param1, int param2, void** param3) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_Metacall_IsBase(true);
@@ -193,7 +193,7 @@ void KSplitterCollapserButton_OnMetacall(KSplitterCollapserButton* self, intptr_
 }
 
 // Base class handler implementation
-QSize* KSplitterCollapserButton_QBaseSizeHint(const KSplitterCollapserButton* self) {
+QSize* KSplitterCollapserButton_SuperSizeHint(const KSplitterCollapserButton* self) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_SizeHint_IsBase(true);
@@ -212,7 +212,7 @@ void KSplitterCollapserButton_OnSizeHint(const KSplitterCollapserButton* self, i
 }
 
 // Base class handler implementation
-bool KSplitterCollapserButton_QBaseEventFilter(KSplitterCollapserButton* self, QObject* param1, QEvent* param2) {
+bool KSplitterCollapserButton_SuperEventFilter(KSplitterCollapserButton* self, QObject* param1, QEvent* param2) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_EventFilter_IsBase(true);
@@ -231,7 +231,7 @@ void KSplitterCollapserButton_OnEventFilter(KSplitterCollapserButton* self, intp
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBasePaintEvent(KSplitterCollapserButton* self, QPaintEvent* param1) {
+void KSplitterCollapserButton_SuperPaintEvent(KSplitterCollapserButton* self, QPaintEvent* param1) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_PaintEvent_IsBase(true);
@@ -250,7 +250,7 @@ void KSplitterCollapserButton_OnPaintEvent(KSplitterCollapserButton* self, intpt
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseEnterEvent(KSplitterCollapserButton* self, QEnterEvent* event) {
+void KSplitterCollapserButton_SuperEnterEvent(KSplitterCollapserButton* self, QEnterEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_EnterEvent_IsBase(true);
@@ -269,7 +269,7 @@ void KSplitterCollapserButton_OnEnterEvent(KSplitterCollapserButton* self, intpt
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseLeaveEvent(KSplitterCollapserButton* self, QEvent* event) {
+void KSplitterCollapserButton_SuperLeaveEvent(KSplitterCollapserButton* self, QEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_LeaveEvent_IsBase(true);
@@ -288,7 +288,7 @@ void KSplitterCollapserButton_OnLeaveEvent(KSplitterCollapserButton* self, intpt
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseShowEvent(KSplitterCollapserButton* self, QShowEvent* event) {
+void KSplitterCollapserButton_SuperShowEvent(KSplitterCollapserButton* self, QShowEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_ShowEvent_IsBase(true);
@@ -317,7 +317,7 @@ QSize* KSplitterCollapserButton_MinimumSizeHint(const KSplitterCollapserButton* 
 }
 
 // Base class handler implementation
-QSize* KSplitterCollapserButton_QBaseMinimumSizeHint(const KSplitterCollapserButton* self) {
+QSize* KSplitterCollapserButton_SuperMinimumSizeHint(const KSplitterCollapserButton* self) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_MinimumSizeHint_IsBase(true);
@@ -346,7 +346,7 @@ bool KSplitterCollapserButton_Event(KSplitterCollapserButton* self, QEvent* e) {
 }
 
 // Base class handler implementation
-bool KSplitterCollapserButton_QBaseEvent(KSplitterCollapserButton* self, QEvent* e) {
+bool KSplitterCollapserButton_SuperEvent(KSplitterCollapserButton* self, QEvent* e) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_Event_IsBase(true);
@@ -375,7 +375,7 @@ void KSplitterCollapserButton_MousePressEvent(KSplitterCollapserButton* self, QM
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseMousePressEvent(KSplitterCollapserButton* self, QMouseEvent* param1) {
+void KSplitterCollapserButton_SuperMousePressEvent(KSplitterCollapserButton* self, QMouseEvent* param1) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_MousePressEvent_IsBase(true);
@@ -404,7 +404,7 @@ void KSplitterCollapserButton_MouseReleaseEvent(KSplitterCollapserButton* self, 
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseMouseReleaseEvent(KSplitterCollapserButton* self, QMouseEvent* param1) {
+void KSplitterCollapserButton_SuperMouseReleaseEvent(KSplitterCollapserButton* self, QMouseEvent* param1) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_MouseReleaseEvent_IsBase(true);
@@ -433,7 +433,7 @@ void KSplitterCollapserButton_ActionEvent(KSplitterCollapserButton* self, QActio
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseActionEvent(KSplitterCollapserButton* self, QActionEvent* param1) {
+void KSplitterCollapserButton_SuperActionEvent(KSplitterCollapserButton* self, QActionEvent* param1) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_ActionEvent_IsBase(true);
@@ -462,7 +462,7 @@ void KSplitterCollapserButton_TimerEvent(KSplitterCollapserButton* self, QTimerE
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseTimerEvent(KSplitterCollapserButton* self, QTimerEvent* param1) {
+void KSplitterCollapserButton_SuperTimerEvent(KSplitterCollapserButton* self, QTimerEvent* param1) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_TimerEvent_IsBase(true);
@@ -491,7 +491,7 @@ void KSplitterCollapserButton_ChangeEvent(KSplitterCollapserButton* self, QEvent
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseChangeEvent(KSplitterCollapserButton* self, QEvent* param1) {
+void KSplitterCollapserButton_SuperChangeEvent(KSplitterCollapserButton* self, QEvent* param1) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_ChangeEvent_IsBase(true);
@@ -520,7 +520,7 @@ bool KSplitterCollapserButton_HitButton(const KSplitterCollapserButton* self, co
 }
 
 // Base class handler implementation
-bool KSplitterCollapserButton_QBaseHitButton(const KSplitterCollapserButton* self, const QPoint* pos) {
+bool KSplitterCollapserButton_SuperHitButton(const KSplitterCollapserButton* self, const QPoint* pos) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_HitButton_IsBase(true);
@@ -549,7 +549,7 @@ void KSplitterCollapserButton_CheckStateSet(KSplitterCollapserButton* self) {
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseCheckStateSet(KSplitterCollapserButton* self) {
+void KSplitterCollapserButton_SuperCheckStateSet(KSplitterCollapserButton* self) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_CheckStateSet_IsBase(true);
@@ -578,7 +578,7 @@ void KSplitterCollapserButton_NextCheckState(KSplitterCollapserButton* self) {
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseNextCheckState(KSplitterCollapserButton* self) {
+void KSplitterCollapserButton_SuperNextCheckState(KSplitterCollapserButton* self) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_NextCheckState_IsBase(true);
@@ -607,7 +607,7 @@ void KSplitterCollapserButton_InitStyleOption(const KSplitterCollapserButton* se
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseInitStyleOption(const KSplitterCollapserButton* self, QStyleOptionToolButton* option) {
+void KSplitterCollapserButton_SuperInitStyleOption(const KSplitterCollapserButton* self, QStyleOptionToolButton* option) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_InitStyleOption_IsBase(true);
@@ -636,7 +636,7 @@ void KSplitterCollapserButton_KeyPressEvent(KSplitterCollapserButton* self, QKey
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseKeyPressEvent(KSplitterCollapserButton* self, QKeyEvent* e) {
+void KSplitterCollapserButton_SuperKeyPressEvent(KSplitterCollapserButton* self, QKeyEvent* e) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_KeyPressEvent_IsBase(true);
@@ -665,7 +665,7 @@ void KSplitterCollapserButton_KeyReleaseEvent(KSplitterCollapserButton* self, QK
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseKeyReleaseEvent(KSplitterCollapserButton* self, QKeyEvent* e) {
+void KSplitterCollapserButton_SuperKeyReleaseEvent(KSplitterCollapserButton* self, QKeyEvent* e) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_KeyReleaseEvent_IsBase(true);
@@ -694,7 +694,7 @@ void KSplitterCollapserButton_MouseMoveEvent(KSplitterCollapserButton* self, QMo
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseMouseMoveEvent(KSplitterCollapserButton* self, QMouseEvent* e) {
+void KSplitterCollapserButton_SuperMouseMoveEvent(KSplitterCollapserButton* self, QMouseEvent* e) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_MouseMoveEvent_IsBase(true);
@@ -723,7 +723,7 @@ void KSplitterCollapserButton_FocusInEvent(KSplitterCollapserButton* self, QFocu
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseFocusInEvent(KSplitterCollapserButton* self, QFocusEvent* e) {
+void KSplitterCollapserButton_SuperFocusInEvent(KSplitterCollapserButton* self, QFocusEvent* e) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_FocusInEvent_IsBase(true);
@@ -752,7 +752,7 @@ void KSplitterCollapserButton_FocusOutEvent(KSplitterCollapserButton* self, QFoc
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseFocusOutEvent(KSplitterCollapserButton* self, QFocusEvent* e) {
+void KSplitterCollapserButton_SuperFocusOutEvent(KSplitterCollapserButton* self, QFocusEvent* e) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_FocusOutEvent_IsBase(true);
@@ -781,7 +781,7 @@ int KSplitterCollapserButton_DevType(const KSplitterCollapserButton* self) {
 }
 
 // Base class handler implementation
-int KSplitterCollapserButton_QBaseDevType(const KSplitterCollapserButton* self) {
+int KSplitterCollapserButton_SuperDevType(const KSplitterCollapserButton* self) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_DevType_IsBase(true);
@@ -810,7 +810,7 @@ void KSplitterCollapserButton_SetVisible(KSplitterCollapserButton* self, bool vi
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseSetVisible(KSplitterCollapserButton* self, bool visible) {
+void KSplitterCollapserButton_SuperSetVisible(KSplitterCollapserButton* self, bool visible) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_SetVisible_IsBase(true);
@@ -839,7 +839,7 @@ int KSplitterCollapserButton_HeightForWidth(const KSplitterCollapserButton* self
 }
 
 // Base class handler implementation
-int KSplitterCollapserButton_QBaseHeightForWidth(const KSplitterCollapserButton* self, int param1) {
+int KSplitterCollapserButton_SuperHeightForWidth(const KSplitterCollapserButton* self, int param1) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_HeightForWidth_IsBase(true);
@@ -868,7 +868,7 @@ bool KSplitterCollapserButton_HasHeightForWidth(const KSplitterCollapserButton* 
 }
 
 // Base class handler implementation
-bool KSplitterCollapserButton_QBaseHasHeightForWidth(const KSplitterCollapserButton* self) {
+bool KSplitterCollapserButton_SuperHasHeightForWidth(const KSplitterCollapserButton* self) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_HasHeightForWidth_IsBase(true);
@@ -897,7 +897,7 @@ QPaintEngine* KSplitterCollapserButton_PaintEngine(const KSplitterCollapserButto
 }
 
 // Base class handler implementation
-QPaintEngine* KSplitterCollapserButton_QBasePaintEngine(const KSplitterCollapserButton* self) {
+QPaintEngine* KSplitterCollapserButton_SuperPaintEngine(const KSplitterCollapserButton* self) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_PaintEngine_IsBase(true);
@@ -926,7 +926,7 @@ void KSplitterCollapserButton_MouseDoubleClickEvent(KSplitterCollapserButton* se
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseMouseDoubleClickEvent(KSplitterCollapserButton* self, QMouseEvent* event) {
+void KSplitterCollapserButton_SuperMouseDoubleClickEvent(KSplitterCollapserButton* self, QMouseEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_MouseDoubleClickEvent_IsBase(true);
@@ -955,7 +955,7 @@ void KSplitterCollapserButton_WheelEvent(KSplitterCollapserButton* self, QWheelE
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseWheelEvent(KSplitterCollapserButton* self, QWheelEvent* event) {
+void KSplitterCollapserButton_SuperWheelEvent(KSplitterCollapserButton* self, QWheelEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_WheelEvent_IsBase(true);
@@ -984,7 +984,7 @@ void KSplitterCollapserButton_MoveEvent(KSplitterCollapserButton* self, QMoveEve
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseMoveEvent(KSplitterCollapserButton* self, QMoveEvent* event) {
+void KSplitterCollapserButton_SuperMoveEvent(KSplitterCollapserButton* self, QMoveEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_MoveEvent_IsBase(true);
@@ -1013,7 +1013,7 @@ void KSplitterCollapserButton_ResizeEvent(KSplitterCollapserButton* self, QResiz
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseResizeEvent(KSplitterCollapserButton* self, QResizeEvent* event) {
+void KSplitterCollapserButton_SuperResizeEvent(KSplitterCollapserButton* self, QResizeEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_ResizeEvent_IsBase(true);
@@ -1042,7 +1042,7 @@ void KSplitterCollapserButton_CloseEvent(KSplitterCollapserButton* self, QCloseE
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseCloseEvent(KSplitterCollapserButton* self, QCloseEvent* event) {
+void KSplitterCollapserButton_SuperCloseEvent(KSplitterCollapserButton* self, QCloseEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_CloseEvent_IsBase(true);
@@ -1071,7 +1071,7 @@ void KSplitterCollapserButton_ContextMenuEvent(KSplitterCollapserButton* self, Q
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseContextMenuEvent(KSplitterCollapserButton* self, QContextMenuEvent* event) {
+void KSplitterCollapserButton_SuperContextMenuEvent(KSplitterCollapserButton* self, QContextMenuEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_ContextMenuEvent_IsBase(true);
@@ -1100,7 +1100,7 @@ void KSplitterCollapserButton_TabletEvent(KSplitterCollapserButton* self, QTable
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseTabletEvent(KSplitterCollapserButton* self, QTabletEvent* event) {
+void KSplitterCollapserButton_SuperTabletEvent(KSplitterCollapserButton* self, QTabletEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_TabletEvent_IsBase(true);
@@ -1129,7 +1129,7 @@ void KSplitterCollapserButton_DragEnterEvent(KSplitterCollapserButton* self, QDr
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseDragEnterEvent(KSplitterCollapserButton* self, QDragEnterEvent* event) {
+void KSplitterCollapserButton_SuperDragEnterEvent(KSplitterCollapserButton* self, QDragEnterEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_DragEnterEvent_IsBase(true);
@@ -1158,7 +1158,7 @@ void KSplitterCollapserButton_DragMoveEvent(KSplitterCollapserButton* self, QDra
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseDragMoveEvent(KSplitterCollapserButton* self, QDragMoveEvent* event) {
+void KSplitterCollapserButton_SuperDragMoveEvent(KSplitterCollapserButton* self, QDragMoveEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_DragMoveEvent_IsBase(true);
@@ -1187,7 +1187,7 @@ void KSplitterCollapserButton_DragLeaveEvent(KSplitterCollapserButton* self, QDr
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseDragLeaveEvent(KSplitterCollapserButton* self, QDragLeaveEvent* event) {
+void KSplitterCollapserButton_SuperDragLeaveEvent(KSplitterCollapserButton* self, QDragLeaveEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_DragLeaveEvent_IsBase(true);
@@ -1216,7 +1216,7 @@ void KSplitterCollapserButton_DropEvent(KSplitterCollapserButton* self, QDropEve
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseDropEvent(KSplitterCollapserButton* self, QDropEvent* event) {
+void KSplitterCollapserButton_SuperDropEvent(KSplitterCollapserButton* self, QDropEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_DropEvent_IsBase(true);
@@ -1245,7 +1245,7 @@ void KSplitterCollapserButton_HideEvent(KSplitterCollapserButton* self, QHideEve
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseHideEvent(KSplitterCollapserButton* self, QHideEvent* event) {
+void KSplitterCollapserButton_SuperHideEvent(KSplitterCollapserButton* self, QHideEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_HideEvent_IsBase(true);
@@ -1275,7 +1275,7 @@ bool KSplitterCollapserButton_NativeEvent(KSplitterCollapserButton* self, const 
 }
 
 // Base class handler implementation
-bool KSplitterCollapserButton_QBaseNativeEvent(KSplitterCollapserButton* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KSplitterCollapserButton_SuperNativeEvent(KSplitterCollapserButton* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
@@ -1305,7 +1305,7 @@ int KSplitterCollapserButton_Metric(const KSplitterCollapserButton* self, int pa
 }
 
 // Base class handler implementation
-int KSplitterCollapserButton_QBaseMetric(const KSplitterCollapserButton* self, int param1) {
+int KSplitterCollapserButton_SuperMetric(const KSplitterCollapserButton* self, int param1) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_Metric_IsBase(true);
@@ -1334,7 +1334,7 @@ void KSplitterCollapserButton_InitPainter(const KSplitterCollapserButton* self, 
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseInitPainter(const KSplitterCollapserButton* self, QPainter* painter) {
+void KSplitterCollapserButton_SuperInitPainter(const KSplitterCollapserButton* self, QPainter* painter) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_InitPainter_IsBase(true);
@@ -1363,7 +1363,7 @@ QPaintDevice* KSplitterCollapserButton_Redirected(const KSplitterCollapserButton
 }
 
 // Base class handler implementation
-QPaintDevice* KSplitterCollapserButton_QBaseRedirected(const KSplitterCollapserButton* self, QPoint* offset) {
+QPaintDevice* KSplitterCollapserButton_SuperRedirected(const KSplitterCollapserButton* self, QPoint* offset) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_Redirected_IsBase(true);
@@ -1392,7 +1392,7 @@ QPainter* KSplitterCollapserButton_SharedPainter(const KSplitterCollapserButton*
 }
 
 // Base class handler implementation
-QPainter* KSplitterCollapserButton_QBaseSharedPainter(const KSplitterCollapserButton* self) {
+QPainter* KSplitterCollapserButton_SuperSharedPainter(const KSplitterCollapserButton* self) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_SharedPainter_IsBase(true);
@@ -1421,7 +1421,7 @@ void KSplitterCollapserButton_InputMethodEvent(KSplitterCollapserButton* self, Q
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseInputMethodEvent(KSplitterCollapserButton* self, QInputMethodEvent* param1) {
+void KSplitterCollapserButton_SuperInputMethodEvent(KSplitterCollapserButton* self, QInputMethodEvent* param1) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_InputMethodEvent_IsBase(true);
@@ -1450,7 +1450,7 @@ QVariant* KSplitterCollapserButton_InputMethodQuery(const KSplitterCollapserButt
 }
 
 // Base class handler implementation
-QVariant* KSplitterCollapserButton_QBaseInputMethodQuery(const KSplitterCollapserButton* self, int param1) {
+QVariant* KSplitterCollapserButton_SuperInputMethodQuery(const KSplitterCollapserButton* self, int param1) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_InputMethodQuery_IsBase(true);
@@ -1479,7 +1479,7 @@ bool KSplitterCollapserButton_FocusNextPrevChild(KSplitterCollapserButton* self,
 }
 
 // Base class handler implementation
-bool KSplitterCollapserButton_QBaseFocusNextPrevChild(KSplitterCollapserButton* self, bool next) {
+bool KSplitterCollapserButton_SuperFocusNextPrevChild(KSplitterCollapserButton* self, bool next) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_FocusNextPrevChild_IsBase(true);
@@ -1508,7 +1508,7 @@ void KSplitterCollapserButton_ChildEvent(KSplitterCollapserButton* self, QChildE
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseChildEvent(KSplitterCollapserButton* self, QChildEvent* event) {
+void KSplitterCollapserButton_SuperChildEvent(KSplitterCollapserButton* self, QChildEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_ChildEvent_IsBase(true);
@@ -1537,7 +1537,7 @@ void KSplitterCollapserButton_CustomEvent(KSplitterCollapserButton* self, QEvent
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseCustomEvent(KSplitterCollapserButton* self, QEvent* event) {
+void KSplitterCollapserButton_SuperCustomEvent(KSplitterCollapserButton* self, QEvent* event) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_CustomEvent_IsBase(true);
@@ -1566,7 +1566,7 @@ void KSplitterCollapserButton_ConnectNotify(KSplitterCollapserButton* self, cons
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseConnectNotify(KSplitterCollapserButton* self, const QMetaMethod* signal) {
+void KSplitterCollapserButton_SuperConnectNotify(KSplitterCollapserButton* self, const QMetaMethod* signal) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_ConnectNotify_IsBase(true);
@@ -1595,7 +1595,7 @@ void KSplitterCollapserButton_DisconnectNotify(KSplitterCollapserButton* self, c
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseDisconnectNotify(KSplitterCollapserButton* self, const QMetaMethod* signal) {
+void KSplitterCollapserButton_SuperDisconnectNotify(KSplitterCollapserButton* self, const QMetaMethod* signal) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_DisconnectNotify_IsBase(true);
@@ -1624,7 +1624,7 @@ void KSplitterCollapserButton_UpdateMicroFocus(KSplitterCollapserButton* self) {
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseUpdateMicroFocus(KSplitterCollapserButton* self) {
+void KSplitterCollapserButton_SuperUpdateMicroFocus(KSplitterCollapserButton* self) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_UpdateMicroFocus_IsBase(true);
@@ -1653,7 +1653,7 @@ void KSplitterCollapserButton_Create(KSplitterCollapserButton* self) {
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseCreate(KSplitterCollapserButton* self) {
+void KSplitterCollapserButton_SuperCreate(KSplitterCollapserButton* self) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_Create_IsBase(true);
@@ -1682,7 +1682,7 @@ void KSplitterCollapserButton_Destroy(KSplitterCollapserButton* self) {
 }
 
 // Base class handler implementation
-void KSplitterCollapserButton_QBaseDestroy(KSplitterCollapserButton* self) {
+void KSplitterCollapserButton_SuperDestroy(KSplitterCollapserButton* self) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_Destroy_IsBase(true);
@@ -1711,7 +1711,7 @@ bool KSplitterCollapserButton_FocusNextChild(KSplitterCollapserButton* self) {
 }
 
 // Base class handler implementation
-bool KSplitterCollapserButton_QBaseFocusNextChild(KSplitterCollapserButton* self) {
+bool KSplitterCollapserButton_SuperFocusNextChild(KSplitterCollapserButton* self) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_FocusNextChild_IsBase(true);
@@ -1740,7 +1740,7 @@ bool KSplitterCollapserButton_FocusPreviousChild(KSplitterCollapserButton* self)
 }
 
 // Base class handler implementation
-bool KSplitterCollapserButton_QBaseFocusPreviousChild(KSplitterCollapserButton* self) {
+bool KSplitterCollapserButton_SuperFocusPreviousChild(KSplitterCollapserButton* self) {
     auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_FocusPreviousChild_IsBase(true);
@@ -1769,7 +1769,7 @@ QObject* KSplitterCollapserButton_Sender(const KSplitterCollapserButton* self) {
 }
 
 // Base class handler implementation
-QObject* KSplitterCollapserButton_QBaseSender(const KSplitterCollapserButton* self) {
+QObject* KSplitterCollapserButton_SuperSender(const KSplitterCollapserButton* self) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_Sender_IsBase(true);
@@ -1798,7 +1798,7 @@ int KSplitterCollapserButton_SenderSignalIndex(const KSplitterCollapserButton* s
 }
 
 // Base class handler implementation
-int KSplitterCollapserButton_QBaseSenderSignalIndex(const KSplitterCollapserButton* self) {
+int KSplitterCollapserButton_SuperSenderSignalIndex(const KSplitterCollapserButton* self) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_SenderSignalIndex_IsBase(true);
@@ -1827,7 +1827,7 @@ int KSplitterCollapserButton_Receivers(const KSplitterCollapserButton* self, con
 }
 
 // Base class handler implementation
-int KSplitterCollapserButton_QBaseReceivers(const KSplitterCollapserButton* self, const char* signal) {
+int KSplitterCollapserButton_SuperReceivers(const KSplitterCollapserButton* self, const char* signal) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_Receivers_IsBase(true);
@@ -1856,7 +1856,7 @@ bool KSplitterCollapserButton_IsSignalConnected(const KSplitterCollapserButton* 
 }
 
 // Base class handler implementation
-bool KSplitterCollapserButton_QBaseIsSignalConnected(const KSplitterCollapserButton* self, const QMetaMethod* signal) {
+bool KSplitterCollapserButton_SuperIsSignalConnected(const KSplitterCollapserButton* self, const QMetaMethod* signal) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_IsSignalConnected_IsBase(true);
@@ -1885,7 +1885,7 @@ double KSplitterCollapserButton_GetDecodedMetricF(const KSplitterCollapserButton
 }
 
 // Base class handler implementation
-double KSplitterCollapserButton_QBaseGetDecodedMetricF(const KSplitterCollapserButton* self, int metricA, int metricB) {
+double KSplitterCollapserButton_SuperGetDecodedMetricF(const KSplitterCollapserButton* self, int metricA, int metricB) {
     auto* vksplittercollapserbutton = const_cast<VirtualKSplitterCollapserButton*>(dynamic_cast<const VirtualKSplitterCollapserButton*>(self));
     if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
         vksplittercollapserbutton->setKSplitterCollapserButton_GetDecodedMetricF_IsBase(true);

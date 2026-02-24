@@ -47,6 +47,10 @@ pub const qanimationgroup = struct {
         qtc.QAnimationGroup_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -55,8 +59,8 @@ pub const qanimationgroup = struct {
     ///
     /// ` self: QtC.QAnimationGroup `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QAnimationGroup_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QAnimationGroup_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -82,6 +86,10 @@ pub const qanimationgroup = struct {
         qtc.QAnimationGroup_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -90,9 +98,9 @@ pub const qanimationgroup = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QAnimationGroup_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QAnimationGroup_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -121,6 +129,10 @@ pub const qanimationgroup = struct {
         qtc.QAnimationGroup_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -133,8 +145,8 @@ pub const qanimationgroup = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAnimationGroup_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QAnimationGroup_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -274,6 +286,10 @@ pub const qanimationgroup = struct {
         qtc.QAnimationGroup_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#event)
     ///
     /// Base class method implementation
@@ -284,8 +300,8 @@ pub const qanimationgroup = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QAnimationGroup_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QAnimationGroup_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1416,6 +1432,10 @@ pub const qanimationgroup = struct {
         return qtc.QAnimationGroup_Duration(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDuration` instead
+    ///
+    pub const QBaseDuration = SuperDuration;
+
     /// Inherited from QAbstractAnimation
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#duration)
@@ -1426,8 +1446,8 @@ pub const qanimationgroup = struct {
     ///
     /// ` self: QtC.QAnimationGroup `
     ///
-    pub fn QBaseDuration(self: ?*anyopaque) i32 {
-        return qtc.QAnimationGroup_QBaseDuration(@ptrCast(self));
+    pub fn SuperDuration(self: ?*anyopaque) i32 {
+        return qtc.QAnimationGroup_SuperDuration(@ptrCast(self));
     }
 
     /// Inherited from QAbstractAnimation
@@ -1462,6 +1482,10 @@ pub const qanimationgroup = struct {
         qtc.QAnimationGroup_UpdateCurrentTime(@ptrCast(self), @bitCast(currentTime));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateCurrentTime` instead
+    ///
+    pub const QBaseUpdateCurrentTime = SuperUpdateCurrentTime;
+
     /// Inherited from QAbstractAnimation
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#updateCurrentTime)
@@ -1474,8 +1498,8 @@ pub const qanimationgroup = struct {
     ///
     /// ` currentTime: i32 `
     ///
-    pub fn QBaseUpdateCurrentTime(self: ?*anyopaque, currentTime: i32) void {
-        qtc.QAnimationGroup_QBaseUpdateCurrentTime(@ptrCast(self), @bitCast(currentTime));
+    pub fn SuperUpdateCurrentTime(self: ?*anyopaque, currentTime: i32) void {
+        qtc.QAnimationGroup_SuperUpdateCurrentTime(@ptrCast(self), @bitCast(currentTime));
     }
 
     /// Inherited from QAbstractAnimation
@@ -1512,6 +1536,10 @@ pub const qanimationgroup = struct {
         qtc.QAnimationGroup_UpdateState(@ptrCast(self), @bitCast(newState), @bitCast(oldState));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateState` instead
+    ///
+    pub const QBaseUpdateState = SuperUpdateState;
+
     /// Inherited from QAbstractAnimation
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#updateState)
@@ -1526,8 +1554,8 @@ pub const qanimationgroup = struct {
     ///
     /// ` oldState: qabstractanimation_enums.State `
     ///
-    pub fn QBaseUpdateState(self: ?*anyopaque, newState: i32, oldState: i32) void {
-        qtc.QAnimationGroup_QBaseUpdateState(@ptrCast(self), @bitCast(newState), @bitCast(oldState));
+    pub fn SuperUpdateState(self: ?*anyopaque, newState: i32, oldState: i32) void {
+        qtc.QAnimationGroup_SuperUpdateState(@ptrCast(self), @bitCast(newState), @bitCast(oldState));
     }
 
     /// Inherited from QAbstractAnimation
@@ -1562,6 +1590,10 @@ pub const qanimationgroup = struct {
         qtc.QAnimationGroup_UpdateDirection(@ptrCast(self), @bitCast(direction));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateDirection` instead
+    ///
+    pub const QBaseUpdateDirection = SuperUpdateDirection;
+
     /// Inherited from QAbstractAnimation
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#updateDirection)
@@ -1574,8 +1606,8 @@ pub const qanimationgroup = struct {
     ///
     /// ` direction: qabstractanimation_enums.Direction `
     ///
-    pub fn QBaseUpdateDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QAnimationGroup_QBaseUpdateDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SuperUpdateDirection(self: ?*anyopaque, direction: i32) void {
+        qtc.QAnimationGroup_SuperUpdateDirection(@ptrCast(self), @bitCast(direction));
     }
 
     /// Inherited from QAbstractAnimation
@@ -1612,6 +1644,10 @@ pub const qanimationgroup = struct {
         return qtc.QAnimationGroup_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1626,8 +1662,8 @@ pub const qanimationgroup = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QAnimationGroup_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QAnimationGroup_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1662,6 +1698,10 @@ pub const qanimationgroup = struct {
         qtc.QAnimationGroup_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1674,8 +1714,8 @@ pub const qanimationgroup = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAnimationGroup_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAnimationGroup_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1710,6 +1750,10 @@ pub const qanimationgroup = struct {
         qtc.QAnimationGroup_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1722,8 +1766,8 @@ pub const qanimationgroup = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAnimationGroup_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAnimationGroup_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1758,6 +1802,10 @@ pub const qanimationgroup = struct {
         qtc.QAnimationGroup_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1770,8 +1818,8 @@ pub const qanimationgroup = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAnimationGroup_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAnimationGroup_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1806,6 +1854,10 @@ pub const qanimationgroup = struct {
         qtc.QAnimationGroup_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1818,8 +1870,8 @@ pub const qanimationgroup = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QAnimationGroup_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QAnimationGroup_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1854,6 +1906,10 @@ pub const qanimationgroup = struct {
         qtc.QAnimationGroup_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1866,8 +1922,8 @@ pub const qanimationgroup = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QAnimationGroup_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QAnimationGroup_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1900,6 +1956,10 @@ pub const qanimationgroup = struct {
         return qtc.QAnimationGroup_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1910,8 +1970,8 @@ pub const qanimationgroup = struct {
     ///
     /// ` self: QtC.QAnimationGroup `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QAnimationGroup_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QAnimationGroup_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1944,6 +2004,10 @@ pub const qanimationgroup = struct {
         return qtc.QAnimationGroup_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1954,8 +2018,8 @@ pub const qanimationgroup = struct {
     ///
     /// ` self: QtC.QAnimationGroup `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QAnimationGroup_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QAnimationGroup_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1991,6 +2055,10 @@ pub const qanimationgroup = struct {
         return qtc.QAnimationGroup_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2003,9 +2071,9 @@ pub const qanimationgroup = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QAnimationGroup_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QAnimationGroup_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2040,6 +2108,10 @@ pub const qanimationgroup = struct {
         return qtc.QAnimationGroup_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2052,8 +2124,8 @@ pub const qanimationgroup = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QAnimationGroup_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QAnimationGroup_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2087,6 +2159,9 @@ pub const qanimationgroup = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanimationgroup.html#dtor.QAnimationGroup)
     ///
@@ -2096,7 +2171,7 @@ pub const qanimationgroup = struct {
     ///
     /// ` self: QtC.QAnimationGroup `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAnimationGroup_Delete(@ptrCast(self));
     }
 };

@@ -384,6 +384,10 @@ pub const qsslkey = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslkey.html#dtor.QSslKey)
     ///
     /// Delete this object from C++ memory.
@@ -392,7 +396,7 @@ pub const qsslkey = struct {
     ///
     /// ` self: QtC.QSslKey `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSslKey_Delete(@ptrCast(self));
     }
 };

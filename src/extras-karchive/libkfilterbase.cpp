@@ -164,7 +164,7 @@ void KFilterBase_SetDevice2(KFilterBase* self, QIODevice* dev, bool autodelete) 
 }
 
 // Base class handler implementation
-bool KFilterBase_QBaseInit(KFilterBase* self, int mode) {
+bool KFilterBase_SuperInit(KFilterBase* self, int mode) {
     auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
     if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
         vkfilterbase->setKFilterBase_Init_IsBase(true);
@@ -183,7 +183,7 @@ void KFilterBase_OnInit(KFilterBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFilterBase_QBaseMode(const KFilterBase* self) {
+int KFilterBase_SuperMode(const KFilterBase* self) {
     auto* vkfilterbase = const_cast<VirtualKFilterBase*>(dynamic_cast<const VirtualKFilterBase*>(self));
     if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
         vkfilterbase->setKFilterBase_Mode_IsBase(true);
@@ -202,7 +202,7 @@ void KFilterBase_OnMode(const KFilterBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KFilterBase_QBaseTerminate(KFilterBase* self) {
+bool KFilterBase_SuperTerminate(KFilterBase* self) {
     auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
     if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
         vkfilterbase->setKFilterBase_Terminate_IsBase(true);
@@ -221,7 +221,7 @@ void KFilterBase_OnTerminate(KFilterBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFilterBase_QBaseReset(KFilterBase* self) {
+void KFilterBase_SuperReset(KFilterBase* self) {
     auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
     if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
         vkfilterbase->setKFilterBase_Reset_IsBase(true);
@@ -240,7 +240,7 @@ void KFilterBase_OnReset(KFilterBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KFilterBase_QBaseReadHeader(KFilterBase* self) {
+bool KFilterBase_SuperReadHeader(KFilterBase* self) {
     auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
     if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
         vkfilterbase->setKFilterBase_ReadHeader_IsBase(true);
@@ -259,7 +259,7 @@ void KFilterBase_OnReadHeader(KFilterBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KFilterBase_QBaseWriteHeader(KFilterBase* self, const libqt_string filename) {
+bool KFilterBase_SuperWriteHeader(KFilterBase* self, const libqt_string filename) {
     auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
     QByteArray filename_QByteArray(filename.data, filename.len);
     if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
@@ -279,7 +279,7 @@ void KFilterBase_OnWriteHeader(KFilterBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFilterBase_QBaseSetOutBuffer(KFilterBase* self, char* data, unsigned int maxlen) {
+void KFilterBase_SuperSetOutBuffer(KFilterBase* self, char* data, unsigned int maxlen) {
     auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
     if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
         vkfilterbase->setKFilterBase_SetOutBuffer_IsBase(true);
@@ -298,7 +298,7 @@ void KFilterBase_OnSetOutBuffer(KFilterBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFilterBase_QBaseSetInBuffer(KFilterBase* self, const char* data, unsigned int size) {
+void KFilterBase_SuperSetInBuffer(KFilterBase* self, const char* data, unsigned int size) {
     auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
     if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
         vkfilterbase->setKFilterBase_SetInBuffer_IsBase(true);
@@ -317,7 +317,7 @@ void KFilterBase_OnSetInBuffer(KFilterBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KFilterBase_QBaseInBufferEmpty(const KFilterBase* self) {
+bool KFilterBase_SuperInBufferEmpty(const KFilterBase* self) {
     auto* vkfilterbase = const_cast<VirtualKFilterBase*>(dynamic_cast<const VirtualKFilterBase*>(self));
     if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
         vkfilterbase->setKFilterBase_InBufferEmpty_IsBase(true);
@@ -336,7 +336,7 @@ void KFilterBase_OnInBufferEmpty(const KFilterBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFilterBase_QBaseInBufferAvailable(const KFilterBase* self) {
+int KFilterBase_SuperInBufferAvailable(const KFilterBase* self) {
     auto* vkfilterbase = const_cast<VirtualKFilterBase*>(dynamic_cast<const VirtualKFilterBase*>(self));
     if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
         vkfilterbase->setKFilterBase_InBufferAvailable_IsBase(true);
@@ -355,7 +355,7 @@ void KFilterBase_OnInBufferAvailable(const KFilterBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KFilterBase_QBaseOutBufferFull(const KFilterBase* self) {
+bool KFilterBase_SuperOutBufferFull(const KFilterBase* self) {
     auto* vkfilterbase = const_cast<VirtualKFilterBase*>(dynamic_cast<const VirtualKFilterBase*>(self));
     if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
         vkfilterbase->setKFilterBase_OutBufferFull_IsBase(true);
@@ -374,7 +374,7 @@ void KFilterBase_OnOutBufferFull(const KFilterBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFilterBase_QBaseOutBufferAvailable(const KFilterBase* self) {
+int KFilterBase_SuperOutBufferAvailable(const KFilterBase* self) {
     auto* vkfilterbase = const_cast<VirtualKFilterBase*>(dynamic_cast<const VirtualKFilterBase*>(self));
     if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
         vkfilterbase->setKFilterBase_OutBufferAvailable_IsBase(true);
@@ -393,7 +393,7 @@ void KFilterBase_OnOutBufferAvailable(const KFilterBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFilterBase_QBaseUncompress(KFilterBase* self) {
+int KFilterBase_SuperUncompress(KFilterBase* self) {
     auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
     if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
         vkfilterbase->setKFilterBase_Uncompress_IsBase(true);
@@ -412,7 +412,7 @@ void KFilterBase_OnUncompress(KFilterBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFilterBase_QBaseCompress(KFilterBase* self, bool finish) {
+int KFilterBase_SuperCompress(KFilterBase* self, bool finish) {
     auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
     if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
         vkfilterbase->setKFilterBase_Compress_IsBase(true);
@@ -431,7 +431,7 @@ void KFilterBase_OnCompress(KFilterBase* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KFilterBase_QBaseVirtualHook(KFilterBase* self, int id, void* data) {
+void KFilterBase_SuperVirtualHook(KFilterBase* self, int id, void* data) {
     auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
     if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
         vkfilterbase->setKFilterBase_VirtualHook_IsBase(true);

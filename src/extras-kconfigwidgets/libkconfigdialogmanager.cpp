@@ -130,7 +130,7 @@ void KConfigDialogManager_SetDefaultsIndicatorsVisible(KConfigDialogManager* sel
 }
 
 // Base class handler implementation
-QMetaObject* KConfigDialogManager_QBaseMetaObject(const KConfigDialogManager* self) {
+QMetaObject* KConfigDialogManager_SuperMetaObject(const KConfigDialogManager* self) {
     auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_MetaObject_IsBase(true);
@@ -149,7 +149,7 @@ void KConfigDialogManager_OnMetaObject(const KConfigDialogManager* self, intptr_
 }
 
 // Base class handler implementation
-void* KConfigDialogManager_QBaseMetacast(KConfigDialogManager* self, const char* param1) {
+void* KConfigDialogManager_SuperMetacast(KConfigDialogManager* self, const char* param1) {
     auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_Metacast_IsBase(true);
@@ -168,7 +168,7 @@ void KConfigDialogManager_OnMetacast(KConfigDialogManager* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int KConfigDialogManager_QBaseMetacall(KConfigDialogManager* self, int param1, int param2, void** param3) {
+int KConfigDialogManager_SuperMetacall(KConfigDialogManager* self, int param1, int param2, void** param3) {
     auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_Metacall_IsBase(true);
@@ -197,7 +197,7 @@ bool KConfigDialogManager_Event(KConfigDialogManager* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KConfigDialogManager_QBaseEvent(KConfigDialogManager* self, QEvent* event) {
+bool KConfigDialogManager_SuperEvent(KConfigDialogManager* self, QEvent* event) {
     auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_Event_IsBase(true);
@@ -226,7 +226,7 @@ bool KConfigDialogManager_EventFilter(KConfigDialogManager* self, QObject* watch
 }
 
 // Base class handler implementation
-bool KConfigDialogManager_QBaseEventFilter(KConfigDialogManager* self, QObject* watched, QEvent* event) {
+bool KConfigDialogManager_SuperEventFilter(KConfigDialogManager* self, QObject* watched, QEvent* event) {
     auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_EventFilter_IsBase(true);
@@ -255,7 +255,7 @@ void KConfigDialogManager_TimerEvent(KConfigDialogManager* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void KConfigDialogManager_QBaseTimerEvent(KConfigDialogManager* self, QTimerEvent* event) {
+void KConfigDialogManager_SuperTimerEvent(KConfigDialogManager* self, QTimerEvent* event) {
     auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_TimerEvent_IsBase(true);
@@ -284,7 +284,7 @@ void KConfigDialogManager_ChildEvent(KConfigDialogManager* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void KConfigDialogManager_QBaseChildEvent(KConfigDialogManager* self, QChildEvent* event) {
+void KConfigDialogManager_SuperChildEvent(KConfigDialogManager* self, QChildEvent* event) {
     auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_ChildEvent_IsBase(true);
@@ -313,7 +313,7 @@ void KConfigDialogManager_CustomEvent(KConfigDialogManager* self, QEvent* event)
 }
 
 // Base class handler implementation
-void KConfigDialogManager_QBaseCustomEvent(KConfigDialogManager* self, QEvent* event) {
+void KConfigDialogManager_SuperCustomEvent(KConfigDialogManager* self, QEvent* event) {
     auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_CustomEvent_IsBase(true);
@@ -342,7 +342,7 @@ void KConfigDialogManager_ConnectNotify(KConfigDialogManager* self, const QMetaM
 }
 
 // Base class handler implementation
-void KConfigDialogManager_QBaseConnectNotify(KConfigDialogManager* self, const QMetaMethod* signal) {
+void KConfigDialogManager_SuperConnectNotify(KConfigDialogManager* self, const QMetaMethod* signal) {
     auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_ConnectNotify_IsBase(true);
@@ -371,7 +371,7 @@ void KConfigDialogManager_DisconnectNotify(KConfigDialogManager* self, const QMe
 }
 
 // Base class handler implementation
-void KConfigDialogManager_QBaseDisconnectNotify(KConfigDialogManager* self, const QMetaMethod* signal) {
+void KConfigDialogManager_SuperDisconnectNotify(KConfigDialogManager* self, const QMetaMethod* signal) {
     auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_DisconnectNotify_IsBase(true);
@@ -400,7 +400,7 @@ void KConfigDialogManager_Init(KConfigDialogManager* self, bool trackChanges) {
 }
 
 // Base class handler implementation
-void KConfigDialogManager_QBaseInit(KConfigDialogManager* self, bool trackChanges) {
+void KConfigDialogManager_SuperInit(KConfigDialogManager* self, bool trackChanges) {
     auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_Init_IsBase(true);
@@ -429,7 +429,7 @@ bool KConfigDialogManager_ParseChildren(KConfigDialogManager* self, const QWidge
 }
 
 // Base class handler implementation
-bool KConfigDialogManager_QBaseParseChildren(KConfigDialogManager* self, const QWidget* widget, bool trackChanges) {
+bool KConfigDialogManager_SuperParseChildren(KConfigDialogManager* self, const QWidget* widget, bool trackChanges) {
     auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_ParseChildren_IsBase(true);
@@ -468,7 +468,7 @@ libqt_string KConfigDialogManager_GetUserProperty(const KConfigDialogManager* se
 }
 
 // Base class handler implementation
-libqt_string KConfigDialogManager_QBaseGetUserProperty(const KConfigDialogManager* self, const QWidget* widget) {
+libqt_string KConfigDialogManager_SuperGetUserProperty(const KConfigDialogManager* self, const QWidget* widget) {
     auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_GetUserProperty_IsBase(true);
@@ -517,7 +517,7 @@ libqt_string KConfigDialogManager_GetCustomProperty(const KConfigDialogManager* 
 }
 
 // Base class handler implementation
-libqt_string KConfigDialogManager_QBaseGetCustomProperty(const KConfigDialogManager* self, const QWidget* widget) {
+libqt_string KConfigDialogManager_SuperGetCustomProperty(const KConfigDialogManager* self, const QWidget* widget) {
     auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_GetCustomProperty_IsBase(true);
@@ -566,7 +566,7 @@ libqt_string KConfigDialogManager_GetUserPropertyChangedSignal(const KConfigDial
 }
 
 // Base class handler implementation
-libqt_string KConfigDialogManager_QBaseGetUserPropertyChangedSignal(const KConfigDialogManager* self, const QWidget* widget) {
+libqt_string KConfigDialogManager_SuperGetUserPropertyChangedSignal(const KConfigDialogManager* self, const QWidget* widget) {
     auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_GetUserPropertyChangedSignal_IsBase(true);
@@ -615,7 +615,7 @@ libqt_string KConfigDialogManager_GetCustomPropertyChangedSignal(const KConfigDi
 }
 
 // Base class handler implementation
-libqt_string KConfigDialogManager_QBaseGetCustomPropertyChangedSignal(const KConfigDialogManager* self, const QWidget* widget) {
+libqt_string KConfigDialogManager_SuperGetCustomPropertyChangedSignal(const KConfigDialogManager* self, const QWidget* widget) {
     auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_GetCustomPropertyChangedSignal_IsBase(true);
@@ -654,7 +654,7 @@ void KConfigDialogManager_SetProperty(KConfigDialogManager* self, QWidget* w, co
 }
 
 // Base class handler implementation
-void KConfigDialogManager_QBaseSetProperty(KConfigDialogManager* self, QWidget* w, const QVariant* v) {
+void KConfigDialogManager_SuperSetProperty(KConfigDialogManager* self, QWidget* w, const QVariant* v) {
     auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_SetProperty_IsBase(true);
@@ -682,7 +682,7 @@ QVariant* KConfigDialogManager_Property(const KConfigDialogManager* self, QWidge
 }
 
 // Base class handler implementation
-QVariant* KConfigDialogManager_QBaseProperty(const KConfigDialogManager* self, QWidget* w) {
+QVariant* KConfigDialogManager_SuperProperty(const KConfigDialogManager* self, QWidget* w) {
     auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_Property_IsBase(true);
@@ -710,7 +710,7 @@ void KConfigDialogManager_SetupWidget(KConfigDialogManager* self, QWidget* widge
 }
 
 // Base class handler implementation
-void KConfigDialogManager_QBaseSetupWidget(KConfigDialogManager* self, QWidget* widget, KConfigSkeletonItem* item) {
+void KConfigDialogManager_SuperSetupWidget(KConfigDialogManager* self, QWidget* widget, KConfigSkeletonItem* item) {
     auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_SetupWidget_IsBase(true);
@@ -739,7 +739,7 @@ void KConfigDialogManager_InitMaps(KConfigDialogManager* self) {
 }
 
 // Base class handler implementation
-void KConfigDialogManager_QBaseInitMaps(KConfigDialogManager* self) {
+void KConfigDialogManager_SuperInitMaps(KConfigDialogManager* self) {
     auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_InitMaps_IsBase(true);
@@ -768,7 +768,7 @@ QObject* KConfigDialogManager_Sender(const KConfigDialogManager* self) {
 }
 
 // Base class handler implementation
-QObject* KConfigDialogManager_QBaseSender(const KConfigDialogManager* self) {
+QObject* KConfigDialogManager_SuperSender(const KConfigDialogManager* self) {
     auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_Sender_IsBase(true);
@@ -797,7 +797,7 @@ int KConfigDialogManager_SenderSignalIndex(const KConfigDialogManager* self) {
 }
 
 // Base class handler implementation
-int KConfigDialogManager_QBaseSenderSignalIndex(const KConfigDialogManager* self) {
+int KConfigDialogManager_SuperSenderSignalIndex(const KConfigDialogManager* self) {
     auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_SenderSignalIndex_IsBase(true);
@@ -826,7 +826,7 @@ int KConfigDialogManager_Receivers(const KConfigDialogManager* self, const char*
 }
 
 // Base class handler implementation
-int KConfigDialogManager_QBaseReceivers(const KConfigDialogManager* self, const char* signal) {
+int KConfigDialogManager_SuperReceivers(const KConfigDialogManager* self, const char* signal) {
     auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_Receivers_IsBase(true);
@@ -855,7 +855,7 @@ bool KConfigDialogManager_IsSignalConnected(const KConfigDialogManager* self, co
 }
 
 // Base class handler implementation
-bool KConfigDialogManager_QBaseIsSignalConnected(const KConfigDialogManager* self, const QMetaMethod* signal) {
+bool KConfigDialogManager_SuperIsSignalConnected(const KConfigDialogManager* self, const QMetaMethod* signal) {
     auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
     if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
         vkconfigdialogmanager->setKConfigDialogManager_IsSignalConnected_IsBase(true);

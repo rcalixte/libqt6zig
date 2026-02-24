@@ -957,6 +957,10 @@ pub const qmatrix4x4 = struct {
         qtc.QMatrix4x4_Viewport6(@ptrCast(self), @bitCast(left), @bitCast(bottom), @bitCast(width), @bitCast(height), @bitCast(nearPlane), @bitCast(farPlane));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#dtor.QMatrix4x4)
     ///
     /// Delete this object from C++ memory.
@@ -965,7 +969,7 @@ pub const qmatrix4x4 = struct {
     ///
     /// ` self: QtC.QMatrix4x4 `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMatrix4x4_Delete(@ptrCast(self));
     }
 };

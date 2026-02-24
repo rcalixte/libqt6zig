@@ -328,23 +328,23 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
 
     // Friend functions
     friend void KModifierKeyInfo_TimerEvent(KModifierKeyInfo* self, QTimerEvent* event);
-    friend void KModifierKeyInfo_QBaseTimerEvent(KModifierKeyInfo* self, QTimerEvent* event);
+    friend void KModifierKeyInfo_SuperTimerEvent(KModifierKeyInfo* self, QTimerEvent* event);
     friend void KModifierKeyInfo_ChildEvent(KModifierKeyInfo* self, QChildEvent* event);
-    friend void KModifierKeyInfo_QBaseChildEvent(KModifierKeyInfo* self, QChildEvent* event);
+    friend void KModifierKeyInfo_SuperChildEvent(KModifierKeyInfo* self, QChildEvent* event);
     friend void KModifierKeyInfo_CustomEvent(KModifierKeyInfo* self, QEvent* event);
-    friend void KModifierKeyInfo_QBaseCustomEvent(KModifierKeyInfo* self, QEvent* event);
+    friend void KModifierKeyInfo_SuperCustomEvent(KModifierKeyInfo* self, QEvent* event);
     friend void KModifierKeyInfo_ConnectNotify(KModifierKeyInfo* self, const QMetaMethod* signal);
-    friend void KModifierKeyInfo_QBaseConnectNotify(KModifierKeyInfo* self, const QMetaMethod* signal);
+    friend void KModifierKeyInfo_SuperConnectNotify(KModifierKeyInfo* self, const QMetaMethod* signal);
     friend void KModifierKeyInfo_DisconnectNotify(KModifierKeyInfo* self, const QMetaMethod* signal);
-    friend void KModifierKeyInfo_QBaseDisconnectNotify(KModifierKeyInfo* self, const QMetaMethod* signal);
+    friend void KModifierKeyInfo_SuperDisconnectNotify(KModifierKeyInfo* self, const QMetaMethod* signal);
     friend QObject* KModifierKeyInfo_Sender(const KModifierKeyInfo* self);
-    friend QObject* KModifierKeyInfo_QBaseSender(const KModifierKeyInfo* self);
+    friend QObject* KModifierKeyInfo_SuperSender(const KModifierKeyInfo* self);
     friend int KModifierKeyInfo_SenderSignalIndex(const KModifierKeyInfo* self);
-    friend int KModifierKeyInfo_QBaseSenderSignalIndex(const KModifierKeyInfo* self);
+    friend int KModifierKeyInfo_SuperSenderSignalIndex(const KModifierKeyInfo* self);
     friend int KModifierKeyInfo_Receivers(const KModifierKeyInfo* self, const char* signal);
-    friend int KModifierKeyInfo_QBaseReceivers(const KModifierKeyInfo* self, const char* signal);
+    friend int KModifierKeyInfo_SuperReceivers(const KModifierKeyInfo* self, const char* signal);
     friend bool KModifierKeyInfo_IsSignalConnected(const KModifierKeyInfo* self, const QMetaMethod* signal);
-    friend bool KModifierKeyInfo_QBaseIsSignalConnected(const KModifierKeyInfo* self, const QMetaMethod* signal);
+    friend bool KModifierKeyInfo_SuperIsSignalConnected(const KModifierKeyInfo* self, const QMetaMethod* signal);
 };
 
 #endif

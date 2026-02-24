@@ -91,7 +91,7 @@ libqt_string KRemoteEncoding_Directory2(const KRemoteEncoding* self, const QUrl*
 }
 
 // Base class handler implementation
-void KRemoteEncoding_QBaseVirtualHook(KRemoteEncoding* self, int id, void* data) {
+void KRemoteEncoding_SuperVirtualHook(KRemoteEncoding* self, int id, void* data) {
     auto* vkremoteencoding = dynamic_cast<VirtualKRemoteEncoding*>(self);
     if (vkremoteencoding && vkremoteencoding->isVirtualKRemoteEncoding) {
         vkremoteencoding->setKRemoteEncoding_VirtualHook_IsBase(true);

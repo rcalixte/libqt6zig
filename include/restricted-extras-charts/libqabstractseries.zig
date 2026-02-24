@@ -1175,6 +1175,9 @@ pub const qabstractseries = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#dtor.QAbstractSeries)
     ///
@@ -1184,7 +1187,7 @@ pub const qabstractseries = struct {
     ///
     /// ` self: QtC.QAbstractSeries `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAbstractSeries_Delete(@ptrCast(self));
     }
 };

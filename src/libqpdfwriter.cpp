@@ -188,7 +188,7 @@ void QPdfWriter_AddFileAttachment3(QPdfWriter* self, const libqt_string fileName
 }
 
 // Base class handler implementation
-QMetaObject* QPdfWriter_QBaseMetaObject(const QPdfWriter* self) {
+QMetaObject* QPdfWriter_SuperMetaObject(const QPdfWriter* self) {
     auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_MetaObject_IsBase(true);
@@ -207,7 +207,7 @@ void QPdfWriter_OnMetaObject(const QPdfWriter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QPdfWriter_QBaseMetacast(QPdfWriter* self, const char* param1) {
+void* QPdfWriter_SuperMetacast(QPdfWriter* self, const char* param1) {
     auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_Metacast_IsBase(true);
@@ -226,7 +226,7 @@ void QPdfWriter_OnMetacast(QPdfWriter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPdfWriter_QBaseMetacall(QPdfWriter* self, int param1, int param2, void** param3) {
+int QPdfWriter_SuperMetacall(QPdfWriter* self, int param1, int param2, void** param3) {
     auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_Metacall_IsBase(true);
@@ -245,7 +245,7 @@ void QPdfWriter_OnMetacall(QPdfWriter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QPdfWriter_QBaseNewPage(QPdfWriter* self) {
+bool QPdfWriter_SuperNewPage(QPdfWriter* self) {
     auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_NewPage_IsBase(true);
@@ -264,7 +264,7 @@ void QPdfWriter_OnNewPage(QPdfWriter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPaintEngine* QPdfWriter_QBasePaintEngine(const QPdfWriter* self) {
+QPaintEngine* QPdfWriter_SuperPaintEngine(const QPdfWriter* self) {
     auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_PaintEngine_IsBase(true);
@@ -283,7 +283,7 @@ void QPdfWriter_OnPaintEngine(const QPdfWriter* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPdfWriter_QBaseMetric(const QPdfWriter* self, int id) {
+int QPdfWriter_SuperMetric(const QPdfWriter* self, int id) {
     auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_Metric_IsBase(true);
@@ -312,7 +312,7 @@ bool QPdfWriter_Event(QPdfWriter* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPdfWriter_QBaseEvent(QPdfWriter* self, QEvent* event) {
+bool QPdfWriter_SuperEvent(QPdfWriter* self, QEvent* event) {
     auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_Event_IsBase(true);
@@ -341,7 +341,7 @@ bool QPdfWriter_EventFilter(QPdfWriter* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPdfWriter_QBaseEventFilter(QPdfWriter* self, QObject* watched, QEvent* event) {
+bool QPdfWriter_SuperEventFilter(QPdfWriter* self, QObject* watched, QEvent* event) {
     auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_EventFilter_IsBase(true);
@@ -370,7 +370,7 @@ void QPdfWriter_TimerEvent(QPdfWriter* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfWriter_QBaseTimerEvent(QPdfWriter* self, QTimerEvent* event) {
+void QPdfWriter_SuperTimerEvent(QPdfWriter* self, QTimerEvent* event) {
     auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_TimerEvent_IsBase(true);
@@ -399,7 +399,7 @@ void QPdfWriter_ChildEvent(QPdfWriter* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfWriter_QBaseChildEvent(QPdfWriter* self, QChildEvent* event) {
+void QPdfWriter_SuperChildEvent(QPdfWriter* self, QChildEvent* event) {
     auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_ChildEvent_IsBase(true);
@@ -428,7 +428,7 @@ void QPdfWriter_CustomEvent(QPdfWriter* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPdfWriter_QBaseCustomEvent(QPdfWriter* self, QEvent* event) {
+void QPdfWriter_SuperCustomEvent(QPdfWriter* self, QEvent* event) {
     auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_CustomEvent_IsBase(true);
@@ -457,7 +457,7 @@ void QPdfWriter_ConnectNotify(QPdfWriter* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QPdfWriter_QBaseConnectNotify(QPdfWriter* self, const QMetaMethod* signal) {
+void QPdfWriter_SuperConnectNotify(QPdfWriter* self, const QMetaMethod* signal) {
     auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_ConnectNotify_IsBase(true);
@@ -486,7 +486,7 @@ void QPdfWriter_DisconnectNotify(QPdfWriter* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QPdfWriter_QBaseDisconnectNotify(QPdfWriter* self, const QMetaMethod* signal) {
+void QPdfWriter_SuperDisconnectNotify(QPdfWriter* self, const QMetaMethod* signal) {
     auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_DisconnectNotify_IsBase(true);
@@ -515,7 +515,7 @@ bool QPdfWriter_SetPageLayout(QPdfWriter* self, const QPageLayout* pageLayout) {
 }
 
 // Base class handler implementation
-bool QPdfWriter_QBaseSetPageLayout(QPdfWriter* self, const QPageLayout* pageLayout) {
+bool QPdfWriter_SuperSetPageLayout(QPdfWriter* self, const QPageLayout* pageLayout) {
     auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_SetPageLayout_IsBase(true);
@@ -544,7 +544,7 @@ bool QPdfWriter_SetPageSize(QPdfWriter* self, const QPageSize* pageSize) {
 }
 
 // Base class handler implementation
-bool QPdfWriter_QBaseSetPageSize(QPdfWriter* self, const QPageSize* pageSize) {
+bool QPdfWriter_SuperSetPageSize(QPdfWriter* self, const QPageSize* pageSize) {
     auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_SetPageSize_IsBase(true);
@@ -573,7 +573,7 @@ bool QPdfWriter_SetPageOrientation(QPdfWriter* self, int orientation) {
 }
 
 // Base class handler implementation
-bool QPdfWriter_QBaseSetPageOrientation(QPdfWriter* self, int orientation) {
+bool QPdfWriter_SuperSetPageOrientation(QPdfWriter* self, int orientation) {
     auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_SetPageOrientation_IsBase(true);
@@ -602,7 +602,7 @@ bool QPdfWriter_SetPageMargins(QPdfWriter* self, const QMarginsF* margins, int u
 }
 
 // Base class handler implementation
-bool QPdfWriter_QBaseSetPageMargins(QPdfWriter* self, const QMarginsF* margins, int units) {
+bool QPdfWriter_SuperSetPageMargins(QPdfWriter* self, const QMarginsF* margins, int units) {
     auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_SetPageMargins_IsBase(true);
@@ -631,7 +631,7 @@ void QPdfWriter_SetPageRanges(QPdfWriter* self, const QPageRanges* ranges) {
 }
 
 // Base class handler implementation
-void QPdfWriter_QBaseSetPageRanges(QPdfWriter* self, const QPageRanges* ranges) {
+void QPdfWriter_SuperSetPageRanges(QPdfWriter* self, const QPageRanges* ranges) {
     auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_SetPageRanges_IsBase(true);
@@ -660,7 +660,7 @@ int QPdfWriter_DevType(const QPdfWriter* self) {
 }
 
 // Base class handler implementation
-int QPdfWriter_QBaseDevType(const QPdfWriter* self) {
+int QPdfWriter_SuperDevType(const QPdfWriter* self) {
     auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_DevType_IsBase(true);
@@ -689,7 +689,7 @@ void QPdfWriter_InitPainter(const QPdfWriter* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QPdfWriter_QBaseInitPainter(const QPdfWriter* self, QPainter* painter) {
+void QPdfWriter_SuperInitPainter(const QPdfWriter* self, QPainter* painter) {
     auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_InitPainter_IsBase(true);
@@ -718,7 +718,7 @@ QPaintDevice* QPdfWriter_Redirected(const QPdfWriter* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QPdfWriter_QBaseRedirected(const QPdfWriter* self, QPoint* offset) {
+QPaintDevice* QPdfWriter_SuperRedirected(const QPdfWriter* self, QPoint* offset) {
     auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_Redirected_IsBase(true);
@@ -747,7 +747,7 @@ QPainter* QPdfWriter_SharedPainter(const QPdfWriter* self) {
 }
 
 // Base class handler implementation
-QPainter* QPdfWriter_QBaseSharedPainter(const QPdfWriter* self) {
+QPainter* QPdfWriter_SuperSharedPainter(const QPdfWriter* self) {
     auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_SharedPainter_IsBase(true);
@@ -776,7 +776,7 @@ QObject* QPdfWriter_Sender(const QPdfWriter* self) {
 }
 
 // Base class handler implementation
-QObject* QPdfWriter_QBaseSender(const QPdfWriter* self) {
+QObject* QPdfWriter_SuperSender(const QPdfWriter* self) {
     auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_Sender_IsBase(true);
@@ -805,7 +805,7 @@ int QPdfWriter_SenderSignalIndex(const QPdfWriter* self) {
 }
 
 // Base class handler implementation
-int QPdfWriter_QBaseSenderSignalIndex(const QPdfWriter* self) {
+int QPdfWriter_SuperSenderSignalIndex(const QPdfWriter* self) {
     auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_SenderSignalIndex_IsBase(true);
@@ -834,7 +834,7 @@ int QPdfWriter_Receivers(const QPdfWriter* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QPdfWriter_QBaseReceivers(const QPdfWriter* self, const char* signal) {
+int QPdfWriter_SuperReceivers(const QPdfWriter* self, const char* signal) {
     auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_Receivers_IsBase(true);
@@ -863,7 +863,7 @@ bool QPdfWriter_IsSignalConnected(const QPdfWriter* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QPdfWriter_QBaseIsSignalConnected(const QPdfWriter* self, const QMetaMethod* signal) {
+bool QPdfWriter_SuperIsSignalConnected(const QPdfWriter* self, const QMetaMethod* signal) {
     auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_IsSignalConnected_IsBase(true);
@@ -892,7 +892,7 @@ double QPdfWriter_GetDecodedMetricF(const QPdfWriter* self, int metricA, int met
 }
 
 // Base class handler implementation
-double QPdfWriter_QBaseGetDecodedMetricF(const QPdfWriter* self, int metricA, int metricB) {
+double QPdfWriter_SuperGetDecodedMetricF(const QPdfWriter* self, int metricA, int metricB) {
     auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
     if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
         vqpdfwriter->setQPdfWriter_GetDecodedMetricF_IsBase(true);

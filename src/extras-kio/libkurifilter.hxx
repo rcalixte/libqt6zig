@@ -174,13 +174,13 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
 
     // Friend functions
     friend void KUriFilterSearchProvider_SetDesktopEntryName(KUriFilterSearchProvider* self, const libqt_string desktopEntryName);
-    friend void KUriFilterSearchProvider_QBaseSetDesktopEntryName(KUriFilterSearchProvider* self, const libqt_string desktopEntryName);
+    friend void KUriFilterSearchProvider_SuperSetDesktopEntryName(KUriFilterSearchProvider* self, const libqt_string desktopEntryName);
     friend void KUriFilterSearchProvider_SetIconName(KUriFilterSearchProvider* self, const libqt_string iconName);
-    friend void KUriFilterSearchProvider_QBaseSetIconName(KUriFilterSearchProvider* self, const libqt_string iconName);
+    friend void KUriFilterSearchProvider_SuperSetIconName(KUriFilterSearchProvider* self, const libqt_string iconName);
     friend void KUriFilterSearchProvider_SetKeys(KUriFilterSearchProvider* self, const libqt_list /* of libqt_string */ keys);
-    friend void KUriFilterSearchProvider_QBaseSetKeys(KUriFilterSearchProvider* self, const libqt_list /* of libqt_string */ keys);
+    friend void KUriFilterSearchProvider_SuperSetKeys(KUriFilterSearchProvider* self, const libqt_list /* of libqt_string */ keys);
     friend void KUriFilterSearchProvider_SetName(KUriFilterSearchProvider* self, const libqt_string name);
-    friend void KUriFilterSearchProvider_QBaseSetName(KUriFilterSearchProvider* self, const libqt_string name);
+    friend void KUriFilterSearchProvider_SuperSetName(KUriFilterSearchProvider* self, const libqt_string name);
 };
 
 #endif

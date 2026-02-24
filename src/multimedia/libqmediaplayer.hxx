@@ -328,23 +328,23 @@ class VirtualQMediaPlayer final : public QMediaPlayer {
 
     // Friend functions
     friend void QMediaPlayer_TimerEvent(QMediaPlayer* self, QTimerEvent* event);
-    friend void QMediaPlayer_QBaseTimerEvent(QMediaPlayer* self, QTimerEvent* event);
+    friend void QMediaPlayer_SuperTimerEvent(QMediaPlayer* self, QTimerEvent* event);
     friend void QMediaPlayer_ChildEvent(QMediaPlayer* self, QChildEvent* event);
-    friend void QMediaPlayer_QBaseChildEvent(QMediaPlayer* self, QChildEvent* event);
+    friend void QMediaPlayer_SuperChildEvent(QMediaPlayer* self, QChildEvent* event);
     friend void QMediaPlayer_CustomEvent(QMediaPlayer* self, QEvent* event);
-    friend void QMediaPlayer_QBaseCustomEvent(QMediaPlayer* self, QEvent* event);
+    friend void QMediaPlayer_SuperCustomEvent(QMediaPlayer* self, QEvent* event);
     friend void QMediaPlayer_ConnectNotify(QMediaPlayer* self, const QMetaMethod* signal);
-    friend void QMediaPlayer_QBaseConnectNotify(QMediaPlayer* self, const QMetaMethod* signal);
+    friend void QMediaPlayer_SuperConnectNotify(QMediaPlayer* self, const QMetaMethod* signal);
     friend void QMediaPlayer_DisconnectNotify(QMediaPlayer* self, const QMetaMethod* signal);
-    friend void QMediaPlayer_QBaseDisconnectNotify(QMediaPlayer* self, const QMetaMethod* signal);
+    friend void QMediaPlayer_SuperDisconnectNotify(QMediaPlayer* self, const QMetaMethod* signal);
     friend QObject* QMediaPlayer_Sender(const QMediaPlayer* self);
-    friend QObject* QMediaPlayer_QBaseSender(const QMediaPlayer* self);
+    friend QObject* QMediaPlayer_SuperSender(const QMediaPlayer* self);
     friend int QMediaPlayer_SenderSignalIndex(const QMediaPlayer* self);
-    friend int QMediaPlayer_QBaseSenderSignalIndex(const QMediaPlayer* self);
+    friend int QMediaPlayer_SuperSenderSignalIndex(const QMediaPlayer* self);
     friend int QMediaPlayer_Receivers(const QMediaPlayer* self, const char* signal);
-    friend int QMediaPlayer_QBaseReceivers(const QMediaPlayer* self, const char* signal);
+    friend int QMediaPlayer_SuperReceivers(const QMediaPlayer* self, const char* signal);
     friend bool QMediaPlayer_IsSignalConnected(const QMediaPlayer* self, const QMetaMethod* signal);
-    friend bool QMediaPlayer_QBaseIsSignalConnected(const QMediaPlayer* self, const QMetaMethod* signal);
+    friend bool QMediaPlayer_SuperIsSignalConnected(const QMediaPlayer* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -451,13 +451,17 @@ pub const kcodecs__codec = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KCodecs__Codec `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KCodecs__Codec_Delete(@ptrCast(self));
     }
 };
@@ -502,13 +506,17 @@ pub const kcodecs__decoder = struct {
         return qtc.KCodecs__Decoder_Finish(@ptrCast(self), dcursor_Cstring, dend_Cstring);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KCodecs__Decoder `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KCodecs__Decoder_Delete(@ptrCast(self));
     }
 };
@@ -553,13 +561,17 @@ pub const kcodecs__encoder = struct {
         return qtc.KCodecs__Encoder_Finish(@ptrCast(self), dcursor_Cstring, dend_Cstring);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KCodecs__Encoder `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KCodecs__Encoder_Delete(@ptrCast(self));
     }
 };

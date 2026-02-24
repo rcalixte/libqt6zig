@@ -1847,6 +1847,10 @@ pub const qopengltexture = struct {
         qtc.QOpenGLTexture_GenerateMipMaps22(@ptrCast(self), @bitCast(baseLevel), resetBaseLevel);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#dtor.QOpenGLTexture)
     ///
     /// Delete this object from C++ memory.
@@ -1855,7 +1859,7 @@ pub const qopengltexture = struct {
     ///
     /// ` self: QtC.QOpenGLTexture `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QOpenGLTexture_Delete(@ptrCast(self));
     }
 };

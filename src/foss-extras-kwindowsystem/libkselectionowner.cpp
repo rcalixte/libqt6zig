@@ -117,7 +117,7 @@ void KSelectionOwner_Claim2(KSelectionOwner* self, bool force, bool force_kill) 
 }
 
 // Base class handler implementation
-QMetaObject* KSelectionOwner_QBaseMetaObject(const KSelectionOwner* self) {
+QMetaObject* KSelectionOwner_SuperMetaObject(const KSelectionOwner* self) {
     auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self));
     if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
         vkselectionowner->setKSelectionOwner_MetaObject_IsBase(true);
@@ -136,7 +136,7 @@ void KSelectionOwner_OnMetaObject(const KSelectionOwner* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KSelectionOwner_QBaseMetacast(KSelectionOwner* self, const char* param1) {
+void* KSelectionOwner_SuperMetacast(KSelectionOwner* self, const char* param1) {
     auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
     if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
         vkselectionowner->setKSelectionOwner_Metacast_IsBase(true);
@@ -155,7 +155,7 @@ void KSelectionOwner_OnMetacast(KSelectionOwner* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KSelectionOwner_QBaseMetacall(KSelectionOwner* self, int param1, int param2, void** param3) {
+int KSelectionOwner_SuperMetacall(KSelectionOwner* self, int param1, int param2, void** param3) {
     auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
     if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
         vkselectionowner->setKSelectionOwner_Metacall_IsBase(true);
@@ -174,7 +174,7 @@ void KSelectionOwner_OnMetacall(KSelectionOwner* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KSelectionOwner_QBaseTimerEvent(KSelectionOwner* self, QTimerEvent* event) {
+void KSelectionOwner_SuperTimerEvent(KSelectionOwner* self, QTimerEvent* event) {
     auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
     if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
         vkselectionowner->setKSelectionOwner_TimerEvent_IsBase(true);
@@ -193,7 +193,7 @@ void KSelectionOwner_OnTimerEvent(KSelectionOwner* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KSelectionOwner_QBaseGetAtoms(KSelectionOwner* self) {
+void KSelectionOwner_SuperGetAtoms(KSelectionOwner* self) {
     auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
     if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
         vkselectionowner->setKSelectionOwner_GetAtoms_IsBase(true);
@@ -222,7 +222,7 @@ bool KSelectionOwner_Event(KSelectionOwner* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KSelectionOwner_QBaseEvent(KSelectionOwner* self, QEvent* event) {
+bool KSelectionOwner_SuperEvent(KSelectionOwner* self, QEvent* event) {
     auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
     if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
         vkselectionowner->setKSelectionOwner_Event_IsBase(true);
@@ -251,7 +251,7 @@ bool KSelectionOwner_EventFilter(KSelectionOwner* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool KSelectionOwner_QBaseEventFilter(KSelectionOwner* self, QObject* watched, QEvent* event) {
+bool KSelectionOwner_SuperEventFilter(KSelectionOwner* self, QObject* watched, QEvent* event) {
     auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
     if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
         vkselectionowner->setKSelectionOwner_EventFilter_IsBase(true);
@@ -280,7 +280,7 @@ void KSelectionOwner_ChildEvent(KSelectionOwner* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KSelectionOwner_QBaseChildEvent(KSelectionOwner* self, QChildEvent* event) {
+void KSelectionOwner_SuperChildEvent(KSelectionOwner* self, QChildEvent* event) {
     auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
     if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
         vkselectionowner->setKSelectionOwner_ChildEvent_IsBase(true);
@@ -309,7 +309,7 @@ void KSelectionOwner_CustomEvent(KSelectionOwner* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KSelectionOwner_QBaseCustomEvent(KSelectionOwner* self, QEvent* event) {
+void KSelectionOwner_SuperCustomEvent(KSelectionOwner* self, QEvent* event) {
     auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
     if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
         vkselectionowner->setKSelectionOwner_CustomEvent_IsBase(true);
@@ -338,7 +338,7 @@ void KSelectionOwner_ConnectNotify(KSelectionOwner* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KSelectionOwner_QBaseConnectNotify(KSelectionOwner* self, const QMetaMethod* signal) {
+void KSelectionOwner_SuperConnectNotify(KSelectionOwner* self, const QMetaMethod* signal) {
     auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
     if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
         vkselectionowner->setKSelectionOwner_ConnectNotify_IsBase(true);
@@ -367,7 +367,7 @@ void KSelectionOwner_DisconnectNotify(KSelectionOwner* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KSelectionOwner_QBaseDisconnectNotify(KSelectionOwner* self, const QMetaMethod* signal) {
+void KSelectionOwner_SuperDisconnectNotify(KSelectionOwner* self, const QMetaMethod* signal) {
     auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
     if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
         vkselectionowner->setKSelectionOwner_DisconnectNotify_IsBase(true);
@@ -396,7 +396,7 @@ void KSelectionOwner_SetData(KSelectionOwner* self, uint32_t extra1, uint32_t ex
 }
 
 // Base class handler implementation
-void KSelectionOwner_QBaseSetData(KSelectionOwner* self, uint32_t extra1, uint32_t extra2) {
+void KSelectionOwner_SuperSetData(KSelectionOwner* self, uint32_t extra1, uint32_t extra2) {
     auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
     if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
         vkselectionowner->setKSelectionOwner_SetData_IsBase(true);
@@ -425,7 +425,7 @@ QObject* KSelectionOwner_Sender(const KSelectionOwner* self) {
 }
 
 // Base class handler implementation
-QObject* KSelectionOwner_QBaseSender(const KSelectionOwner* self) {
+QObject* KSelectionOwner_SuperSender(const KSelectionOwner* self) {
     auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self));
     if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
         vkselectionowner->setKSelectionOwner_Sender_IsBase(true);
@@ -454,7 +454,7 @@ int KSelectionOwner_SenderSignalIndex(const KSelectionOwner* self) {
 }
 
 // Base class handler implementation
-int KSelectionOwner_QBaseSenderSignalIndex(const KSelectionOwner* self) {
+int KSelectionOwner_SuperSenderSignalIndex(const KSelectionOwner* self) {
     auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self));
     if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
         vkselectionowner->setKSelectionOwner_SenderSignalIndex_IsBase(true);
@@ -483,7 +483,7 @@ int KSelectionOwner_Receivers(const KSelectionOwner* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KSelectionOwner_QBaseReceivers(const KSelectionOwner* self, const char* signal) {
+int KSelectionOwner_SuperReceivers(const KSelectionOwner* self, const char* signal) {
     auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self));
     if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
         vkselectionowner->setKSelectionOwner_Receivers_IsBase(true);
@@ -512,7 +512,7 @@ bool KSelectionOwner_IsSignalConnected(const KSelectionOwner* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KSelectionOwner_QBaseIsSignalConnected(const KSelectionOwner* self, const QMetaMethod* signal) {
+bool KSelectionOwner_SuperIsSignalConnected(const KSelectionOwner* self, const QMetaMethod* signal) {
     auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self));
     if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
         vkselectionowner->setKSelectionOwner_IsSignalConnected_IsBase(true);

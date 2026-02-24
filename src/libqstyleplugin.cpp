@@ -59,7 +59,7 @@ QStyle* QStylePlugin_Create(QStylePlugin* self, const libqt_string key) {
 }
 
 // Base class handler implementation
-QMetaObject* QStylePlugin_QBaseMetaObject(const QStylePlugin* self) {
+QMetaObject* QStylePlugin_SuperMetaObject(const QStylePlugin* self) {
     auto* vqstyleplugin = const_cast<VirtualQStylePlugin*>(dynamic_cast<const VirtualQStylePlugin*>(self));
     if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
         vqstyleplugin->setQStylePlugin_MetaObject_IsBase(true);
@@ -78,7 +78,7 @@ void QStylePlugin_OnMetaObject(const QStylePlugin* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QStylePlugin_QBaseMetacast(QStylePlugin* self, const char* param1) {
+void* QStylePlugin_SuperMetacast(QStylePlugin* self, const char* param1) {
     auto* vqstyleplugin = dynamic_cast<VirtualQStylePlugin*>(self);
     if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
         vqstyleplugin->setQStylePlugin_Metacast_IsBase(true);
@@ -97,7 +97,7 @@ void QStylePlugin_OnMetacast(QStylePlugin* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QStylePlugin_QBaseMetacall(QStylePlugin* self, int param1, int param2, void** param3) {
+int QStylePlugin_SuperMetacall(QStylePlugin* self, int param1, int param2, void** param3) {
     auto* vqstyleplugin = dynamic_cast<VirtualQStylePlugin*>(self);
     if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
         vqstyleplugin->setQStylePlugin_Metacall_IsBase(true);
@@ -116,7 +116,7 @@ void QStylePlugin_OnMetacall(QStylePlugin* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QStyle* QStylePlugin_QBaseCreate(QStylePlugin* self, const libqt_string key) {
+QStyle* QStylePlugin_SuperCreate(QStylePlugin* self, const libqt_string key) {
     auto* vqstyleplugin = dynamic_cast<VirtualQStylePlugin*>(self);
     QString key_QString = QString::fromUtf8(key.data, key.len);
     if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
@@ -146,7 +146,7 @@ bool QStylePlugin_Event(QStylePlugin* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QStylePlugin_QBaseEvent(QStylePlugin* self, QEvent* event) {
+bool QStylePlugin_SuperEvent(QStylePlugin* self, QEvent* event) {
     auto* vqstyleplugin = dynamic_cast<VirtualQStylePlugin*>(self);
     if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
         vqstyleplugin->setQStylePlugin_Event_IsBase(true);
@@ -175,7 +175,7 @@ bool QStylePlugin_EventFilter(QStylePlugin* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool QStylePlugin_QBaseEventFilter(QStylePlugin* self, QObject* watched, QEvent* event) {
+bool QStylePlugin_SuperEventFilter(QStylePlugin* self, QObject* watched, QEvent* event) {
     auto* vqstyleplugin = dynamic_cast<VirtualQStylePlugin*>(self);
     if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
         vqstyleplugin->setQStylePlugin_EventFilter_IsBase(true);
@@ -204,7 +204,7 @@ void QStylePlugin_TimerEvent(QStylePlugin* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QStylePlugin_QBaseTimerEvent(QStylePlugin* self, QTimerEvent* event) {
+void QStylePlugin_SuperTimerEvent(QStylePlugin* self, QTimerEvent* event) {
     auto* vqstyleplugin = dynamic_cast<VirtualQStylePlugin*>(self);
     if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
         vqstyleplugin->setQStylePlugin_TimerEvent_IsBase(true);
@@ -233,7 +233,7 @@ void QStylePlugin_ChildEvent(QStylePlugin* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QStylePlugin_QBaseChildEvent(QStylePlugin* self, QChildEvent* event) {
+void QStylePlugin_SuperChildEvent(QStylePlugin* self, QChildEvent* event) {
     auto* vqstyleplugin = dynamic_cast<VirtualQStylePlugin*>(self);
     if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
         vqstyleplugin->setQStylePlugin_ChildEvent_IsBase(true);
@@ -262,7 +262,7 @@ void QStylePlugin_CustomEvent(QStylePlugin* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QStylePlugin_QBaseCustomEvent(QStylePlugin* self, QEvent* event) {
+void QStylePlugin_SuperCustomEvent(QStylePlugin* self, QEvent* event) {
     auto* vqstyleplugin = dynamic_cast<VirtualQStylePlugin*>(self);
     if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
         vqstyleplugin->setQStylePlugin_CustomEvent_IsBase(true);
@@ -291,7 +291,7 @@ void QStylePlugin_ConnectNotify(QStylePlugin* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QStylePlugin_QBaseConnectNotify(QStylePlugin* self, const QMetaMethod* signal) {
+void QStylePlugin_SuperConnectNotify(QStylePlugin* self, const QMetaMethod* signal) {
     auto* vqstyleplugin = dynamic_cast<VirtualQStylePlugin*>(self);
     if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
         vqstyleplugin->setQStylePlugin_ConnectNotify_IsBase(true);
@@ -320,7 +320,7 @@ void QStylePlugin_DisconnectNotify(QStylePlugin* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QStylePlugin_QBaseDisconnectNotify(QStylePlugin* self, const QMetaMethod* signal) {
+void QStylePlugin_SuperDisconnectNotify(QStylePlugin* self, const QMetaMethod* signal) {
     auto* vqstyleplugin = dynamic_cast<VirtualQStylePlugin*>(self);
     if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
         vqstyleplugin->setQStylePlugin_DisconnectNotify_IsBase(true);
@@ -349,7 +349,7 @@ QObject* QStylePlugin_Sender(const QStylePlugin* self) {
 }
 
 // Base class handler implementation
-QObject* QStylePlugin_QBaseSender(const QStylePlugin* self) {
+QObject* QStylePlugin_SuperSender(const QStylePlugin* self) {
     auto* vqstyleplugin = const_cast<VirtualQStylePlugin*>(dynamic_cast<const VirtualQStylePlugin*>(self));
     if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
         vqstyleplugin->setQStylePlugin_Sender_IsBase(true);
@@ -378,7 +378,7 @@ int QStylePlugin_SenderSignalIndex(const QStylePlugin* self) {
 }
 
 // Base class handler implementation
-int QStylePlugin_QBaseSenderSignalIndex(const QStylePlugin* self) {
+int QStylePlugin_SuperSenderSignalIndex(const QStylePlugin* self) {
     auto* vqstyleplugin = const_cast<VirtualQStylePlugin*>(dynamic_cast<const VirtualQStylePlugin*>(self));
     if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
         vqstyleplugin->setQStylePlugin_SenderSignalIndex_IsBase(true);
@@ -407,7 +407,7 @@ int QStylePlugin_Receivers(const QStylePlugin* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QStylePlugin_QBaseReceivers(const QStylePlugin* self, const char* signal) {
+int QStylePlugin_SuperReceivers(const QStylePlugin* self, const char* signal) {
     auto* vqstyleplugin = const_cast<VirtualQStylePlugin*>(dynamic_cast<const VirtualQStylePlugin*>(self));
     if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
         vqstyleplugin->setQStylePlugin_Receivers_IsBase(true);
@@ -436,7 +436,7 @@ bool QStylePlugin_IsSignalConnected(const QStylePlugin* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QStylePlugin_QBaseIsSignalConnected(const QStylePlugin* self, const QMetaMethod* signal) {
+bool QStylePlugin_SuperIsSignalConnected(const QStylePlugin* self, const QMetaMethod* signal) {
     auto* vqstyleplugin = const_cast<VirtualQStylePlugin*>(dynamic_cast<const VirtualQStylePlugin*>(self));
     if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
         vqstyleplugin->setQStylePlugin_IsSignalConnected_IsBase(true);

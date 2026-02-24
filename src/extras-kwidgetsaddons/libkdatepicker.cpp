@@ -204,7 +204,7 @@ void KDatePicker_SetDateRange2(KDatePicker* self, const QDate* minDate, const QD
 }
 
 // Base class handler implementation
-QMetaObject* KDatePicker_QBaseMetaObject(const KDatePicker* self) {
+QMetaObject* KDatePicker_SuperMetaObject(const KDatePicker* self) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_MetaObject_IsBase(true);
@@ -223,7 +223,7 @@ void KDatePicker_OnMetaObject(const KDatePicker* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KDatePicker_QBaseMetacast(KDatePicker* self, const char* param1) {
+void* KDatePicker_SuperMetacast(KDatePicker* self, const char* param1) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_Metacast_IsBase(true);
@@ -242,7 +242,7 @@ void KDatePicker_OnMetacast(KDatePicker* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KDatePicker_QBaseMetacall(KDatePicker* self, int param1, int param2, void** param3) {
+int KDatePicker_SuperMetacall(KDatePicker* self, int param1, int param2, void** param3) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_Metacall_IsBase(true);
@@ -261,7 +261,7 @@ void KDatePicker_OnMetacall(KDatePicker* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* KDatePicker_QBaseSizeHint(const KDatePicker* self) {
+QSize* KDatePicker_SuperSizeHint(const KDatePicker* self) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_SizeHint_IsBase(true);
@@ -280,7 +280,7 @@ void KDatePicker_OnSizeHint(const KDatePicker* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KDatePicker_QBaseEventFilter(KDatePicker* self, QObject* o, QEvent* e) {
+bool KDatePicker_SuperEventFilter(KDatePicker* self, QObject* o, QEvent* e) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_EventFilter_IsBase(true);
@@ -299,7 +299,7 @@ void KDatePicker_OnEventFilter(KDatePicker* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseResizeEvent(KDatePicker* self, QResizeEvent* param1) {
+void KDatePicker_SuperResizeEvent(KDatePicker* self, QResizeEvent* param1) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_ResizeEvent_IsBase(true);
@@ -318,7 +318,7 @@ void KDatePicker_OnResizeEvent(KDatePicker* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseChangeEvent(KDatePicker* self, QEvent* event) {
+void KDatePicker_SuperChangeEvent(KDatePicker* self, QEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_ChangeEvent_IsBase(true);
@@ -347,7 +347,7 @@ bool KDatePicker_Event(KDatePicker* self, QEvent* e) {
 }
 
 // Base class handler implementation
-bool KDatePicker_QBaseEvent(KDatePicker* self, QEvent* e) {
+bool KDatePicker_SuperEvent(KDatePicker* self, QEvent* e) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_Event_IsBase(true);
@@ -376,7 +376,7 @@ void KDatePicker_PaintEvent(KDatePicker* self, QPaintEvent* param1) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBasePaintEvent(KDatePicker* self, QPaintEvent* param1) {
+void KDatePicker_SuperPaintEvent(KDatePicker* self, QPaintEvent* param1) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_PaintEvent_IsBase(true);
@@ -405,7 +405,7 @@ void KDatePicker_InitStyleOption(const KDatePicker* self, QStyleOptionFrame* opt
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseInitStyleOption(const KDatePicker* self, QStyleOptionFrame* option) {
+void KDatePicker_SuperInitStyleOption(const KDatePicker* self, QStyleOptionFrame* option) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_InitStyleOption_IsBase(true);
@@ -434,7 +434,7 @@ int KDatePicker_DevType(const KDatePicker* self) {
 }
 
 // Base class handler implementation
-int KDatePicker_QBaseDevType(const KDatePicker* self) {
+int KDatePicker_SuperDevType(const KDatePicker* self) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_DevType_IsBase(true);
@@ -463,7 +463,7 @@ void KDatePicker_SetVisible(KDatePicker* self, bool visible) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseSetVisible(KDatePicker* self, bool visible) {
+void KDatePicker_SuperSetVisible(KDatePicker* self, bool visible) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_SetVisible_IsBase(true);
@@ -492,7 +492,7 @@ QSize* KDatePicker_MinimumSizeHint(const KDatePicker* self) {
 }
 
 // Base class handler implementation
-QSize* KDatePicker_QBaseMinimumSizeHint(const KDatePicker* self) {
+QSize* KDatePicker_SuperMinimumSizeHint(const KDatePicker* self) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_MinimumSizeHint_IsBase(true);
@@ -521,7 +521,7 @@ int KDatePicker_HeightForWidth(const KDatePicker* self, int param1) {
 }
 
 // Base class handler implementation
-int KDatePicker_QBaseHeightForWidth(const KDatePicker* self, int param1) {
+int KDatePicker_SuperHeightForWidth(const KDatePicker* self, int param1) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_HeightForWidth_IsBase(true);
@@ -550,7 +550,7 @@ bool KDatePicker_HasHeightForWidth(const KDatePicker* self) {
 }
 
 // Base class handler implementation
-bool KDatePicker_QBaseHasHeightForWidth(const KDatePicker* self) {
+bool KDatePicker_SuperHasHeightForWidth(const KDatePicker* self) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_HasHeightForWidth_IsBase(true);
@@ -579,7 +579,7 @@ QPaintEngine* KDatePicker_PaintEngine(const KDatePicker* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KDatePicker_QBasePaintEngine(const KDatePicker* self) {
+QPaintEngine* KDatePicker_SuperPaintEngine(const KDatePicker* self) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_PaintEngine_IsBase(true);
@@ -608,7 +608,7 @@ void KDatePicker_MousePressEvent(KDatePicker* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseMousePressEvent(KDatePicker* self, QMouseEvent* event) {
+void KDatePicker_SuperMousePressEvent(KDatePicker* self, QMouseEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_MousePressEvent_IsBase(true);
@@ -637,7 +637,7 @@ void KDatePicker_MouseReleaseEvent(KDatePicker* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseMouseReleaseEvent(KDatePicker* self, QMouseEvent* event) {
+void KDatePicker_SuperMouseReleaseEvent(KDatePicker* self, QMouseEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_MouseReleaseEvent_IsBase(true);
@@ -666,7 +666,7 @@ void KDatePicker_MouseDoubleClickEvent(KDatePicker* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseMouseDoubleClickEvent(KDatePicker* self, QMouseEvent* event) {
+void KDatePicker_SuperMouseDoubleClickEvent(KDatePicker* self, QMouseEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_MouseDoubleClickEvent_IsBase(true);
@@ -695,7 +695,7 @@ void KDatePicker_MouseMoveEvent(KDatePicker* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseMouseMoveEvent(KDatePicker* self, QMouseEvent* event) {
+void KDatePicker_SuperMouseMoveEvent(KDatePicker* self, QMouseEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_MouseMoveEvent_IsBase(true);
@@ -724,7 +724,7 @@ void KDatePicker_WheelEvent(KDatePicker* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseWheelEvent(KDatePicker* self, QWheelEvent* event) {
+void KDatePicker_SuperWheelEvent(KDatePicker* self, QWheelEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_WheelEvent_IsBase(true);
@@ -753,7 +753,7 @@ void KDatePicker_KeyPressEvent(KDatePicker* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseKeyPressEvent(KDatePicker* self, QKeyEvent* event) {
+void KDatePicker_SuperKeyPressEvent(KDatePicker* self, QKeyEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_KeyPressEvent_IsBase(true);
@@ -782,7 +782,7 @@ void KDatePicker_KeyReleaseEvent(KDatePicker* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseKeyReleaseEvent(KDatePicker* self, QKeyEvent* event) {
+void KDatePicker_SuperKeyReleaseEvent(KDatePicker* self, QKeyEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_KeyReleaseEvent_IsBase(true);
@@ -811,7 +811,7 @@ void KDatePicker_FocusInEvent(KDatePicker* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseFocusInEvent(KDatePicker* self, QFocusEvent* event) {
+void KDatePicker_SuperFocusInEvent(KDatePicker* self, QFocusEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_FocusInEvent_IsBase(true);
@@ -840,7 +840,7 @@ void KDatePicker_FocusOutEvent(KDatePicker* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseFocusOutEvent(KDatePicker* self, QFocusEvent* event) {
+void KDatePicker_SuperFocusOutEvent(KDatePicker* self, QFocusEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_FocusOutEvent_IsBase(true);
@@ -869,7 +869,7 @@ void KDatePicker_EnterEvent(KDatePicker* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseEnterEvent(KDatePicker* self, QEnterEvent* event) {
+void KDatePicker_SuperEnterEvent(KDatePicker* self, QEnterEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_EnterEvent_IsBase(true);
@@ -898,7 +898,7 @@ void KDatePicker_LeaveEvent(KDatePicker* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseLeaveEvent(KDatePicker* self, QEvent* event) {
+void KDatePicker_SuperLeaveEvent(KDatePicker* self, QEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_LeaveEvent_IsBase(true);
@@ -927,7 +927,7 @@ void KDatePicker_MoveEvent(KDatePicker* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseMoveEvent(KDatePicker* self, QMoveEvent* event) {
+void KDatePicker_SuperMoveEvent(KDatePicker* self, QMoveEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_MoveEvent_IsBase(true);
@@ -956,7 +956,7 @@ void KDatePicker_CloseEvent(KDatePicker* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseCloseEvent(KDatePicker* self, QCloseEvent* event) {
+void KDatePicker_SuperCloseEvent(KDatePicker* self, QCloseEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_CloseEvent_IsBase(true);
@@ -985,7 +985,7 @@ void KDatePicker_ContextMenuEvent(KDatePicker* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseContextMenuEvent(KDatePicker* self, QContextMenuEvent* event) {
+void KDatePicker_SuperContextMenuEvent(KDatePicker* self, QContextMenuEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_ContextMenuEvent_IsBase(true);
@@ -1014,7 +1014,7 @@ void KDatePicker_TabletEvent(KDatePicker* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseTabletEvent(KDatePicker* self, QTabletEvent* event) {
+void KDatePicker_SuperTabletEvent(KDatePicker* self, QTabletEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_TabletEvent_IsBase(true);
@@ -1043,7 +1043,7 @@ void KDatePicker_ActionEvent(KDatePicker* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseActionEvent(KDatePicker* self, QActionEvent* event) {
+void KDatePicker_SuperActionEvent(KDatePicker* self, QActionEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_ActionEvent_IsBase(true);
@@ -1072,7 +1072,7 @@ void KDatePicker_DragEnterEvent(KDatePicker* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseDragEnterEvent(KDatePicker* self, QDragEnterEvent* event) {
+void KDatePicker_SuperDragEnterEvent(KDatePicker* self, QDragEnterEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_DragEnterEvent_IsBase(true);
@@ -1101,7 +1101,7 @@ void KDatePicker_DragMoveEvent(KDatePicker* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseDragMoveEvent(KDatePicker* self, QDragMoveEvent* event) {
+void KDatePicker_SuperDragMoveEvent(KDatePicker* self, QDragMoveEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_DragMoveEvent_IsBase(true);
@@ -1130,7 +1130,7 @@ void KDatePicker_DragLeaveEvent(KDatePicker* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseDragLeaveEvent(KDatePicker* self, QDragLeaveEvent* event) {
+void KDatePicker_SuperDragLeaveEvent(KDatePicker* self, QDragLeaveEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_DragLeaveEvent_IsBase(true);
@@ -1159,7 +1159,7 @@ void KDatePicker_DropEvent(KDatePicker* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseDropEvent(KDatePicker* self, QDropEvent* event) {
+void KDatePicker_SuperDropEvent(KDatePicker* self, QDropEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_DropEvent_IsBase(true);
@@ -1188,7 +1188,7 @@ void KDatePicker_ShowEvent(KDatePicker* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseShowEvent(KDatePicker* self, QShowEvent* event) {
+void KDatePicker_SuperShowEvent(KDatePicker* self, QShowEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_ShowEvent_IsBase(true);
@@ -1217,7 +1217,7 @@ void KDatePicker_HideEvent(KDatePicker* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseHideEvent(KDatePicker* self, QHideEvent* event) {
+void KDatePicker_SuperHideEvent(KDatePicker* self, QHideEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_HideEvent_IsBase(true);
@@ -1247,7 +1247,7 @@ bool KDatePicker_NativeEvent(KDatePicker* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool KDatePicker_QBaseNativeEvent(KDatePicker* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KDatePicker_SuperNativeEvent(KDatePicker* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
@@ -1277,7 +1277,7 @@ int KDatePicker_Metric(const KDatePicker* self, int param1) {
 }
 
 // Base class handler implementation
-int KDatePicker_QBaseMetric(const KDatePicker* self, int param1) {
+int KDatePicker_SuperMetric(const KDatePicker* self, int param1) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_Metric_IsBase(true);
@@ -1306,7 +1306,7 @@ void KDatePicker_InitPainter(const KDatePicker* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseInitPainter(const KDatePicker* self, QPainter* painter) {
+void KDatePicker_SuperInitPainter(const KDatePicker* self, QPainter* painter) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_InitPainter_IsBase(true);
@@ -1335,7 +1335,7 @@ QPaintDevice* KDatePicker_Redirected(const KDatePicker* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KDatePicker_QBaseRedirected(const KDatePicker* self, QPoint* offset) {
+QPaintDevice* KDatePicker_SuperRedirected(const KDatePicker* self, QPoint* offset) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_Redirected_IsBase(true);
@@ -1364,7 +1364,7 @@ QPainter* KDatePicker_SharedPainter(const KDatePicker* self) {
 }
 
 // Base class handler implementation
-QPainter* KDatePicker_QBaseSharedPainter(const KDatePicker* self) {
+QPainter* KDatePicker_SuperSharedPainter(const KDatePicker* self) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_SharedPainter_IsBase(true);
@@ -1393,7 +1393,7 @@ void KDatePicker_InputMethodEvent(KDatePicker* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseInputMethodEvent(KDatePicker* self, QInputMethodEvent* param1) {
+void KDatePicker_SuperInputMethodEvent(KDatePicker* self, QInputMethodEvent* param1) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_InputMethodEvent_IsBase(true);
@@ -1422,7 +1422,7 @@ QVariant* KDatePicker_InputMethodQuery(const KDatePicker* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KDatePicker_QBaseInputMethodQuery(const KDatePicker* self, int param1) {
+QVariant* KDatePicker_SuperInputMethodQuery(const KDatePicker* self, int param1) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_InputMethodQuery_IsBase(true);
@@ -1451,7 +1451,7 @@ bool KDatePicker_FocusNextPrevChild(KDatePicker* self, bool next) {
 }
 
 // Base class handler implementation
-bool KDatePicker_QBaseFocusNextPrevChild(KDatePicker* self, bool next) {
+bool KDatePicker_SuperFocusNextPrevChild(KDatePicker* self, bool next) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_FocusNextPrevChild_IsBase(true);
@@ -1480,7 +1480,7 @@ void KDatePicker_TimerEvent(KDatePicker* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseTimerEvent(KDatePicker* self, QTimerEvent* event) {
+void KDatePicker_SuperTimerEvent(KDatePicker* self, QTimerEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_TimerEvent_IsBase(true);
@@ -1509,7 +1509,7 @@ void KDatePicker_ChildEvent(KDatePicker* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseChildEvent(KDatePicker* self, QChildEvent* event) {
+void KDatePicker_SuperChildEvent(KDatePicker* self, QChildEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_ChildEvent_IsBase(true);
@@ -1538,7 +1538,7 @@ void KDatePicker_CustomEvent(KDatePicker* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseCustomEvent(KDatePicker* self, QEvent* event) {
+void KDatePicker_SuperCustomEvent(KDatePicker* self, QEvent* event) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_CustomEvent_IsBase(true);
@@ -1567,7 +1567,7 @@ void KDatePicker_ConnectNotify(KDatePicker* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseConnectNotify(KDatePicker* self, const QMetaMethod* signal) {
+void KDatePicker_SuperConnectNotify(KDatePicker* self, const QMetaMethod* signal) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_ConnectNotify_IsBase(true);
@@ -1596,7 +1596,7 @@ void KDatePicker_DisconnectNotify(KDatePicker* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseDisconnectNotify(KDatePicker* self, const QMetaMethod* signal) {
+void KDatePicker_SuperDisconnectNotify(KDatePicker* self, const QMetaMethod* signal) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_DisconnectNotify_IsBase(true);
@@ -1625,7 +1625,7 @@ void KDatePicker_DateChangedSlot(KDatePicker* self, const QDate* date) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseDateChangedSlot(KDatePicker* self, const QDate* date) {
+void KDatePicker_SuperDateChangedSlot(KDatePicker* self, const QDate* date) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_DateChangedSlot_IsBase(true);
@@ -1654,7 +1654,7 @@ void KDatePicker_TableClickedSlot(KDatePicker* self) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseTableClickedSlot(KDatePicker* self) {
+void KDatePicker_SuperTableClickedSlot(KDatePicker* self) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_TableClickedSlot_IsBase(true);
@@ -1683,7 +1683,7 @@ void KDatePicker_MonthForwardClicked(KDatePicker* self) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseMonthForwardClicked(KDatePicker* self) {
+void KDatePicker_SuperMonthForwardClicked(KDatePicker* self) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_MonthForwardClicked_IsBase(true);
@@ -1712,7 +1712,7 @@ void KDatePicker_MonthBackwardClicked(KDatePicker* self) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseMonthBackwardClicked(KDatePicker* self) {
+void KDatePicker_SuperMonthBackwardClicked(KDatePicker* self) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_MonthBackwardClicked_IsBase(true);
@@ -1741,7 +1741,7 @@ void KDatePicker_YearForwardClicked(KDatePicker* self) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseYearForwardClicked(KDatePicker* self) {
+void KDatePicker_SuperYearForwardClicked(KDatePicker* self) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_YearForwardClicked_IsBase(true);
@@ -1770,7 +1770,7 @@ void KDatePicker_YearBackwardClicked(KDatePicker* self) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseYearBackwardClicked(KDatePicker* self) {
+void KDatePicker_SuperYearBackwardClicked(KDatePicker* self) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_YearBackwardClicked_IsBase(true);
@@ -1799,7 +1799,7 @@ void KDatePicker_SelectMonthClicked(KDatePicker* self) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseSelectMonthClicked(KDatePicker* self) {
+void KDatePicker_SuperSelectMonthClicked(KDatePicker* self) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_SelectMonthClicked_IsBase(true);
@@ -1828,7 +1828,7 @@ void KDatePicker_SelectYearClicked(KDatePicker* self) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseSelectYearClicked(KDatePicker* self) {
+void KDatePicker_SuperSelectYearClicked(KDatePicker* self) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_SelectYearClicked_IsBase(true);
@@ -1857,7 +1857,7 @@ void KDatePicker_UncheckYearSelector(KDatePicker* self) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseUncheckYearSelector(KDatePicker* self) {
+void KDatePicker_SuperUncheckYearSelector(KDatePicker* self) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_UncheckYearSelector_IsBase(true);
@@ -1886,7 +1886,7 @@ void KDatePicker_LineEnterPressed(KDatePicker* self) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseLineEnterPressed(KDatePicker* self) {
+void KDatePicker_SuperLineEnterPressed(KDatePicker* self) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_LineEnterPressed_IsBase(true);
@@ -1915,7 +1915,7 @@ void KDatePicker_TodayButtonClicked(KDatePicker* self) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseTodayButtonClicked(KDatePicker* self) {
+void KDatePicker_SuperTodayButtonClicked(KDatePicker* self) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_TodayButtonClicked_IsBase(true);
@@ -1944,7 +1944,7 @@ void KDatePicker_WeekSelected(KDatePicker* self, int param1) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseWeekSelected(KDatePicker* self, int param1) {
+void KDatePicker_SuperWeekSelected(KDatePicker* self, int param1) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_WeekSelected_IsBase(true);
@@ -1973,7 +1973,7 @@ void KDatePicker_DrawFrame(KDatePicker* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseDrawFrame(KDatePicker* self, QPainter* param1) {
+void KDatePicker_SuperDrawFrame(KDatePicker* self, QPainter* param1) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_DrawFrame_IsBase(true);
@@ -2002,7 +2002,7 @@ void KDatePicker_UpdateMicroFocus(KDatePicker* self) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseUpdateMicroFocus(KDatePicker* self) {
+void KDatePicker_SuperUpdateMicroFocus(KDatePicker* self) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_UpdateMicroFocus_IsBase(true);
@@ -2031,7 +2031,7 @@ void KDatePicker_Create(KDatePicker* self) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseCreate(KDatePicker* self) {
+void KDatePicker_SuperCreate(KDatePicker* self) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_Create_IsBase(true);
@@ -2060,7 +2060,7 @@ void KDatePicker_Destroy(KDatePicker* self) {
 }
 
 // Base class handler implementation
-void KDatePicker_QBaseDestroy(KDatePicker* self) {
+void KDatePicker_SuperDestroy(KDatePicker* self) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_Destroy_IsBase(true);
@@ -2089,7 +2089,7 @@ bool KDatePicker_FocusNextChild(KDatePicker* self) {
 }
 
 // Base class handler implementation
-bool KDatePicker_QBaseFocusNextChild(KDatePicker* self) {
+bool KDatePicker_SuperFocusNextChild(KDatePicker* self) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_FocusNextChild_IsBase(true);
@@ -2118,7 +2118,7 @@ bool KDatePicker_FocusPreviousChild(KDatePicker* self) {
 }
 
 // Base class handler implementation
-bool KDatePicker_QBaseFocusPreviousChild(KDatePicker* self) {
+bool KDatePicker_SuperFocusPreviousChild(KDatePicker* self) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_FocusPreviousChild_IsBase(true);
@@ -2147,7 +2147,7 @@ QObject* KDatePicker_Sender(const KDatePicker* self) {
 }
 
 // Base class handler implementation
-QObject* KDatePicker_QBaseSender(const KDatePicker* self) {
+QObject* KDatePicker_SuperSender(const KDatePicker* self) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_Sender_IsBase(true);
@@ -2176,7 +2176,7 @@ int KDatePicker_SenderSignalIndex(const KDatePicker* self) {
 }
 
 // Base class handler implementation
-int KDatePicker_QBaseSenderSignalIndex(const KDatePicker* self) {
+int KDatePicker_SuperSenderSignalIndex(const KDatePicker* self) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_SenderSignalIndex_IsBase(true);
@@ -2205,7 +2205,7 @@ int KDatePicker_Receivers(const KDatePicker* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KDatePicker_QBaseReceivers(const KDatePicker* self, const char* signal) {
+int KDatePicker_SuperReceivers(const KDatePicker* self, const char* signal) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_Receivers_IsBase(true);
@@ -2234,7 +2234,7 @@ bool KDatePicker_IsSignalConnected(const KDatePicker* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool KDatePicker_QBaseIsSignalConnected(const KDatePicker* self, const QMetaMethod* signal) {
+bool KDatePicker_SuperIsSignalConnected(const KDatePicker* self, const QMetaMethod* signal) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_IsSignalConnected_IsBase(true);
@@ -2263,7 +2263,7 @@ double KDatePicker_GetDecodedMetricF(const KDatePicker* self, int metricA, int m
 }
 
 // Base class handler implementation
-double KDatePicker_QBaseGetDecodedMetricF(const KDatePicker* self, int metricA, int metricB) {
+double KDatePicker_SuperGetDecodedMetricF(const KDatePicker* self, int metricA, int metricB) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
     if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
         vkdatepicker->setKDatePicker_GetDecodedMetricF_IsBase(true);

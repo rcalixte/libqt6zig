@@ -196,7 +196,7 @@ void KStartupInfo_CustomEvent(KStartupInfo* self, QEvent* e_P) {
 }
 
 // Base class handler implementation
-QMetaObject* KStartupInfo_QBaseMetaObject(const KStartupInfo* self) {
+QMetaObject* KStartupInfo_SuperMetaObject(const KStartupInfo* self) {
     auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
     if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
         vkstartupinfo->setKStartupInfo_MetaObject_IsBase(true);
@@ -215,7 +215,7 @@ void KStartupInfo_OnMetaObject(const KStartupInfo* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KStartupInfo_QBaseMetacast(KStartupInfo* self, const char* param1) {
+void* KStartupInfo_SuperMetacast(KStartupInfo* self, const char* param1) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
     if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
         vkstartupinfo->setKStartupInfo_Metacast_IsBase(true);
@@ -234,7 +234,7 @@ void KStartupInfo_OnMetacast(KStartupInfo* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KStartupInfo_QBaseMetacall(KStartupInfo* self, int param1, int param2, void** param3) {
+int KStartupInfo_SuperMetacall(KStartupInfo* self, int param1, int param2, void** param3) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
     if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
         vkstartupinfo->setKStartupInfo_Metacall_IsBase(true);
@@ -253,7 +253,7 @@ void KStartupInfo_OnMetacall(KStartupInfo* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KStartupInfo_QBaseCustomEvent(KStartupInfo* self, QEvent* e_P) {
+void KStartupInfo_SuperCustomEvent(KStartupInfo* self, QEvent* e_P) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
     if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
         vkstartupinfo->setKStartupInfo_CustomEvent_IsBase(true);
@@ -282,7 +282,7 @@ bool KStartupInfo_Event(KStartupInfo* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KStartupInfo_QBaseEvent(KStartupInfo* self, QEvent* event) {
+bool KStartupInfo_SuperEvent(KStartupInfo* self, QEvent* event) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
     if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
         vkstartupinfo->setKStartupInfo_Event_IsBase(true);
@@ -311,7 +311,7 @@ bool KStartupInfo_EventFilter(KStartupInfo* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool KStartupInfo_QBaseEventFilter(KStartupInfo* self, QObject* watched, QEvent* event) {
+bool KStartupInfo_SuperEventFilter(KStartupInfo* self, QObject* watched, QEvent* event) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
     if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
         vkstartupinfo->setKStartupInfo_EventFilter_IsBase(true);
@@ -340,7 +340,7 @@ void KStartupInfo_TimerEvent(KStartupInfo* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KStartupInfo_QBaseTimerEvent(KStartupInfo* self, QTimerEvent* event) {
+void KStartupInfo_SuperTimerEvent(KStartupInfo* self, QTimerEvent* event) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
     if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
         vkstartupinfo->setKStartupInfo_TimerEvent_IsBase(true);
@@ -369,7 +369,7 @@ void KStartupInfo_ChildEvent(KStartupInfo* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KStartupInfo_QBaseChildEvent(KStartupInfo* self, QChildEvent* event) {
+void KStartupInfo_SuperChildEvent(KStartupInfo* self, QChildEvent* event) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
     if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
         vkstartupinfo->setKStartupInfo_ChildEvent_IsBase(true);
@@ -398,7 +398,7 @@ void KStartupInfo_ConnectNotify(KStartupInfo* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KStartupInfo_QBaseConnectNotify(KStartupInfo* self, const QMetaMethod* signal) {
+void KStartupInfo_SuperConnectNotify(KStartupInfo* self, const QMetaMethod* signal) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
     if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
         vkstartupinfo->setKStartupInfo_ConnectNotify_IsBase(true);
@@ -427,7 +427,7 @@ void KStartupInfo_DisconnectNotify(KStartupInfo* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void KStartupInfo_QBaseDisconnectNotify(KStartupInfo* self, const QMetaMethod* signal) {
+void KStartupInfo_SuperDisconnectNotify(KStartupInfo* self, const QMetaMethod* signal) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
     if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
         vkstartupinfo->setKStartupInfo_DisconnectNotify_IsBase(true);
@@ -456,7 +456,7 @@ QObject* KStartupInfo_Sender(const KStartupInfo* self) {
 }
 
 // Base class handler implementation
-QObject* KStartupInfo_QBaseSender(const KStartupInfo* self) {
+QObject* KStartupInfo_SuperSender(const KStartupInfo* self) {
     auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
     if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
         vkstartupinfo->setKStartupInfo_Sender_IsBase(true);
@@ -485,7 +485,7 @@ int KStartupInfo_SenderSignalIndex(const KStartupInfo* self) {
 }
 
 // Base class handler implementation
-int KStartupInfo_QBaseSenderSignalIndex(const KStartupInfo* self) {
+int KStartupInfo_SuperSenderSignalIndex(const KStartupInfo* self) {
     auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
     if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
         vkstartupinfo->setKStartupInfo_SenderSignalIndex_IsBase(true);
@@ -514,7 +514,7 @@ int KStartupInfo_Receivers(const KStartupInfo* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KStartupInfo_QBaseReceivers(const KStartupInfo* self, const char* signal) {
+int KStartupInfo_SuperReceivers(const KStartupInfo* self, const char* signal) {
     auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
     if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
         vkstartupinfo->setKStartupInfo_Receivers_IsBase(true);
@@ -543,7 +543,7 @@ bool KStartupInfo_IsSignalConnected(const KStartupInfo* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool KStartupInfo_QBaseIsSignalConnected(const KStartupInfo* self, const QMetaMethod* signal) {
+bool KStartupInfo_SuperIsSignalConnected(const KStartupInfo* self, const QMetaMethod* signal) {
     auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
     if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
         vkstartupinfo->setKStartupInfo_IsSignalConnected_IsBase(true);

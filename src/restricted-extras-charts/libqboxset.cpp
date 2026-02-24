@@ -256,7 +256,7 @@ void QBoxSet_Connect_Cleared(QBoxSet* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QBoxSet_QBaseMetaObject(const QBoxSet* self) {
+QMetaObject* QBoxSet_SuperMetaObject(const QBoxSet* self) {
     auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
     if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_MetaObject_IsBase(true);
@@ -275,7 +275,7 @@ void QBoxSet_OnMetaObject(const QBoxSet* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QBoxSet_QBaseMetacast(QBoxSet* self, const char* param1) {
+void* QBoxSet_SuperMetacast(QBoxSet* self, const char* param1) {
     auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
     if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_Metacast_IsBase(true);
@@ -294,7 +294,7 @@ void QBoxSet_OnMetacast(QBoxSet* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QBoxSet_QBaseMetacall(QBoxSet* self, int param1, int param2, void** param3) {
+int QBoxSet_SuperMetacall(QBoxSet* self, int param1, int param2, void** param3) {
     auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
     if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_Metacall_IsBase(true);
@@ -323,7 +323,7 @@ bool QBoxSet_Event(QBoxSet* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QBoxSet_QBaseEvent(QBoxSet* self, QEvent* event) {
+bool QBoxSet_SuperEvent(QBoxSet* self, QEvent* event) {
     auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
     if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_Event_IsBase(true);
@@ -352,7 +352,7 @@ bool QBoxSet_EventFilter(QBoxSet* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QBoxSet_QBaseEventFilter(QBoxSet* self, QObject* watched, QEvent* event) {
+bool QBoxSet_SuperEventFilter(QBoxSet* self, QObject* watched, QEvent* event) {
     auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
     if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_EventFilter_IsBase(true);
@@ -381,7 +381,7 @@ void QBoxSet_TimerEvent(QBoxSet* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QBoxSet_QBaseTimerEvent(QBoxSet* self, QTimerEvent* event) {
+void QBoxSet_SuperTimerEvent(QBoxSet* self, QTimerEvent* event) {
     auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
     if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_TimerEvent_IsBase(true);
@@ -410,7 +410,7 @@ void QBoxSet_ChildEvent(QBoxSet* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QBoxSet_QBaseChildEvent(QBoxSet* self, QChildEvent* event) {
+void QBoxSet_SuperChildEvent(QBoxSet* self, QChildEvent* event) {
     auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
     if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_ChildEvent_IsBase(true);
@@ -439,7 +439,7 @@ void QBoxSet_CustomEvent(QBoxSet* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QBoxSet_QBaseCustomEvent(QBoxSet* self, QEvent* event) {
+void QBoxSet_SuperCustomEvent(QBoxSet* self, QEvent* event) {
     auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
     if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_CustomEvent_IsBase(true);
@@ -468,7 +468,7 @@ void QBoxSet_ConnectNotify(QBoxSet* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QBoxSet_QBaseConnectNotify(QBoxSet* self, const QMetaMethod* signal) {
+void QBoxSet_SuperConnectNotify(QBoxSet* self, const QMetaMethod* signal) {
     auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
     if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_ConnectNotify_IsBase(true);
@@ -497,7 +497,7 @@ void QBoxSet_DisconnectNotify(QBoxSet* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QBoxSet_QBaseDisconnectNotify(QBoxSet* self, const QMetaMethod* signal) {
+void QBoxSet_SuperDisconnectNotify(QBoxSet* self, const QMetaMethod* signal) {
     auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
     if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_DisconnectNotify_IsBase(true);
@@ -526,7 +526,7 @@ QObject* QBoxSet_Sender(const QBoxSet* self) {
 }
 
 // Base class handler implementation
-QObject* QBoxSet_QBaseSender(const QBoxSet* self) {
+QObject* QBoxSet_SuperSender(const QBoxSet* self) {
     auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
     if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_Sender_IsBase(true);
@@ -555,7 +555,7 @@ int QBoxSet_SenderSignalIndex(const QBoxSet* self) {
 }
 
 // Base class handler implementation
-int QBoxSet_QBaseSenderSignalIndex(const QBoxSet* self) {
+int QBoxSet_SuperSenderSignalIndex(const QBoxSet* self) {
     auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
     if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_SenderSignalIndex_IsBase(true);
@@ -584,7 +584,7 @@ int QBoxSet_Receivers(const QBoxSet* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QBoxSet_QBaseReceivers(const QBoxSet* self, const char* signal) {
+int QBoxSet_SuperReceivers(const QBoxSet* self, const char* signal) {
     auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
     if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_Receivers_IsBase(true);
@@ -613,7 +613,7 @@ bool QBoxSet_IsSignalConnected(const QBoxSet* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QBoxSet_QBaseIsSignalConnected(const QBoxSet* self, const QMetaMethod* signal) {
+bool QBoxSet_SuperIsSignalConnected(const QBoxSet* self, const QMetaMethod* signal) {
     auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
     if (vqboxset && vqboxset->isVirtualQBoxSet) {
         vqboxset->setQBoxSet_IsSignalConnected_IsBase(true);

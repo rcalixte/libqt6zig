@@ -79,6 +79,10 @@ pub const qlatin1char = struct {
         return qtc.QLatin1Char_ToLatin1(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1char.html#dtor.QLatin1Char)
     ///
     /// Delete this object from C++ memory.
@@ -87,7 +91,7 @@ pub const qlatin1char = struct {
     ///
     /// ` self: QtC.QLatin1Char `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QLatin1Char_Delete(@ptrCast(self));
     }
 };
@@ -670,6 +674,10 @@ pub const qchar = struct {
         return qtc.QChar_CurrentUnicodeVersion();
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchar.html#dtor.QChar)
     ///
     /// Delete this object from C++ memory.
@@ -678,7 +686,7 @@ pub const qchar = struct {
     ///
     /// ` self: QtC.QChar `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QChar_Delete(@ptrCast(self));
     }
 };

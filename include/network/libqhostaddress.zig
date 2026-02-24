@@ -47,6 +47,10 @@ pub const qipv6address = struct {
         return qtc.QIPv6Address_OperatorSubscript2(@ptrCast(self), @bitCast(index));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qipv6address.html#dtor.QIPv6Address)
     ///
     /// Delete this object from C++ memory.
@@ -55,7 +59,7 @@ pub const qipv6address = struct {
     ///
     /// ` self: QtC.QIPv6Address `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QIPv6Address_Delete(@ptrCast(self));
     }
 };
@@ -530,6 +534,10 @@ pub const qhostaddress = struct {
         return qtc.QHostAddress_IsEqual2(@ptrCast(self), @ptrCast(address), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#dtor.QHostAddress)
     ///
     /// Delete this object from C++ memory.
@@ -538,7 +546,7 @@ pub const qhostaddress = struct {
     ///
     /// ` self: QtC.QHostAddress `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QHostAddress_Delete(@ptrCast(self));
     }
 };

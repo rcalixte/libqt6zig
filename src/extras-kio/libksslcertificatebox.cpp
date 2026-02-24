@@ -84,7 +84,7 @@ void KSslCertificateBox_Clear(KSslCertificateBox* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KSslCertificateBox_QBaseMetaObject(const KSslCertificateBox* self) {
+QMetaObject* KSslCertificateBox_SuperMetaObject(const KSslCertificateBox* self) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_MetaObject_IsBase(true);
@@ -103,7 +103,7 @@ void KSslCertificateBox_OnMetaObject(const KSslCertificateBox* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* KSslCertificateBox_QBaseMetacast(KSslCertificateBox* self, const char* param1) {
+void* KSslCertificateBox_SuperMetacast(KSslCertificateBox* self, const char* param1) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_Metacast_IsBase(true);
@@ -122,7 +122,7 @@ void KSslCertificateBox_OnMetacast(KSslCertificateBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KSslCertificateBox_QBaseMetacall(KSslCertificateBox* self, int param1, int param2, void** param3) {
+int KSslCertificateBox_SuperMetacall(KSslCertificateBox* self, int param1, int param2, void** param3) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_Metacall_IsBase(true);
@@ -151,7 +151,7 @@ int KSslCertificateBox_DevType(const KSslCertificateBox* self) {
 }
 
 // Base class handler implementation
-int KSslCertificateBox_QBaseDevType(const KSslCertificateBox* self) {
+int KSslCertificateBox_SuperDevType(const KSslCertificateBox* self) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_DevType_IsBase(true);
@@ -180,7 +180,7 @@ void KSslCertificateBox_SetVisible(KSslCertificateBox* self, bool visible) {
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseSetVisible(KSslCertificateBox* self, bool visible) {
+void KSslCertificateBox_SuperSetVisible(KSslCertificateBox* self, bool visible) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_SetVisible_IsBase(true);
@@ -209,7 +209,7 @@ QSize* KSslCertificateBox_SizeHint(const KSslCertificateBox* self) {
 }
 
 // Base class handler implementation
-QSize* KSslCertificateBox_QBaseSizeHint(const KSslCertificateBox* self) {
+QSize* KSslCertificateBox_SuperSizeHint(const KSslCertificateBox* self) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_SizeHint_IsBase(true);
@@ -238,7 +238,7 @@ QSize* KSslCertificateBox_MinimumSizeHint(const KSslCertificateBox* self) {
 }
 
 // Base class handler implementation
-QSize* KSslCertificateBox_QBaseMinimumSizeHint(const KSslCertificateBox* self) {
+QSize* KSslCertificateBox_SuperMinimumSizeHint(const KSslCertificateBox* self) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_MinimumSizeHint_IsBase(true);
@@ -267,7 +267,7 @@ int KSslCertificateBox_HeightForWidth(const KSslCertificateBox* self, int param1
 }
 
 // Base class handler implementation
-int KSslCertificateBox_QBaseHeightForWidth(const KSslCertificateBox* self, int param1) {
+int KSslCertificateBox_SuperHeightForWidth(const KSslCertificateBox* self, int param1) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_HeightForWidth_IsBase(true);
@@ -296,7 +296,7 @@ bool KSslCertificateBox_HasHeightForWidth(const KSslCertificateBox* self) {
 }
 
 // Base class handler implementation
-bool KSslCertificateBox_QBaseHasHeightForWidth(const KSslCertificateBox* self) {
+bool KSslCertificateBox_SuperHasHeightForWidth(const KSslCertificateBox* self) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_HasHeightForWidth_IsBase(true);
@@ -325,7 +325,7 @@ QPaintEngine* KSslCertificateBox_PaintEngine(const KSslCertificateBox* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KSslCertificateBox_QBasePaintEngine(const KSslCertificateBox* self) {
+QPaintEngine* KSslCertificateBox_SuperPaintEngine(const KSslCertificateBox* self) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_PaintEngine_IsBase(true);
@@ -354,7 +354,7 @@ bool KSslCertificateBox_Event(KSslCertificateBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KSslCertificateBox_QBaseEvent(KSslCertificateBox* self, QEvent* event) {
+bool KSslCertificateBox_SuperEvent(KSslCertificateBox* self, QEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_Event_IsBase(true);
@@ -383,7 +383,7 @@ void KSslCertificateBox_MousePressEvent(KSslCertificateBox* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseMousePressEvent(KSslCertificateBox* self, QMouseEvent* event) {
+void KSslCertificateBox_SuperMousePressEvent(KSslCertificateBox* self, QMouseEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_MousePressEvent_IsBase(true);
@@ -412,7 +412,7 @@ void KSslCertificateBox_MouseReleaseEvent(KSslCertificateBox* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseMouseReleaseEvent(KSslCertificateBox* self, QMouseEvent* event) {
+void KSslCertificateBox_SuperMouseReleaseEvent(KSslCertificateBox* self, QMouseEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_MouseReleaseEvent_IsBase(true);
@@ -441,7 +441,7 @@ void KSslCertificateBox_MouseDoubleClickEvent(KSslCertificateBox* self, QMouseEv
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseMouseDoubleClickEvent(KSslCertificateBox* self, QMouseEvent* event) {
+void KSslCertificateBox_SuperMouseDoubleClickEvent(KSslCertificateBox* self, QMouseEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_MouseDoubleClickEvent_IsBase(true);
@@ -470,7 +470,7 @@ void KSslCertificateBox_MouseMoveEvent(KSslCertificateBox* self, QMouseEvent* ev
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseMouseMoveEvent(KSslCertificateBox* self, QMouseEvent* event) {
+void KSslCertificateBox_SuperMouseMoveEvent(KSslCertificateBox* self, QMouseEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_MouseMoveEvent_IsBase(true);
@@ -499,7 +499,7 @@ void KSslCertificateBox_WheelEvent(KSslCertificateBox* self, QWheelEvent* event)
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseWheelEvent(KSslCertificateBox* self, QWheelEvent* event) {
+void KSslCertificateBox_SuperWheelEvent(KSslCertificateBox* self, QWheelEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_WheelEvent_IsBase(true);
@@ -528,7 +528,7 @@ void KSslCertificateBox_KeyPressEvent(KSslCertificateBox* self, QKeyEvent* event
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseKeyPressEvent(KSslCertificateBox* self, QKeyEvent* event) {
+void KSslCertificateBox_SuperKeyPressEvent(KSslCertificateBox* self, QKeyEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_KeyPressEvent_IsBase(true);
@@ -557,7 +557,7 @@ void KSslCertificateBox_KeyReleaseEvent(KSslCertificateBox* self, QKeyEvent* eve
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseKeyReleaseEvent(KSslCertificateBox* self, QKeyEvent* event) {
+void KSslCertificateBox_SuperKeyReleaseEvent(KSslCertificateBox* self, QKeyEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_KeyReleaseEvent_IsBase(true);
@@ -586,7 +586,7 @@ void KSslCertificateBox_FocusInEvent(KSslCertificateBox* self, QFocusEvent* even
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseFocusInEvent(KSslCertificateBox* self, QFocusEvent* event) {
+void KSslCertificateBox_SuperFocusInEvent(KSslCertificateBox* self, QFocusEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_FocusInEvent_IsBase(true);
@@ -615,7 +615,7 @@ void KSslCertificateBox_FocusOutEvent(KSslCertificateBox* self, QFocusEvent* eve
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseFocusOutEvent(KSslCertificateBox* self, QFocusEvent* event) {
+void KSslCertificateBox_SuperFocusOutEvent(KSslCertificateBox* self, QFocusEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_FocusOutEvent_IsBase(true);
@@ -644,7 +644,7 @@ void KSslCertificateBox_EnterEvent(KSslCertificateBox* self, QEnterEvent* event)
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseEnterEvent(KSslCertificateBox* self, QEnterEvent* event) {
+void KSslCertificateBox_SuperEnterEvent(KSslCertificateBox* self, QEnterEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_EnterEvent_IsBase(true);
@@ -673,7 +673,7 @@ void KSslCertificateBox_LeaveEvent(KSslCertificateBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseLeaveEvent(KSslCertificateBox* self, QEvent* event) {
+void KSslCertificateBox_SuperLeaveEvent(KSslCertificateBox* self, QEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_LeaveEvent_IsBase(true);
@@ -702,7 +702,7 @@ void KSslCertificateBox_PaintEvent(KSslCertificateBox* self, QPaintEvent* event)
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBasePaintEvent(KSslCertificateBox* self, QPaintEvent* event) {
+void KSslCertificateBox_SuperPaintEvent(KSslCertificateBox* self, QPaintEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_PaintEvent_IsBase(true);
@@ -731,7 +731,7 @@ void KSslCertificateBox_MoveEvent(KSslCertificateBox* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseMoveEvent(KSslCertificateBox* self, QMoveEvent* event) {
+void KSslCertificateBox_SuperMoveEvent(KSslCertificateBox* self, QMoveEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_MoveEvent_IsBase(true);
@@ -760,7 +760,7 @@ void KSslCertificateBox_ResizeEvent(KSslCertificateBox* self, QResizeEvent* even
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseResizeEvent(KSslCertificateBox* self, QResizeEvent* event) {
+void KSslCertificateBox_SuperResizeEvent(KSslCertificateBox* self, QResizeEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_ResizeEvent_IsBase(true);
@@ -789,7 +789,7 @@ void KSslCertificateBox_CloseEvent(KSslCertificateBox* self, QCloseEvent* event)
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseCloseEvent(KSslCertificateBox* self, QCloseEvent* event) {
+void KSslCertificateBox_SuperCloseEvent(KSslCertificateBox* self, QCloseEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_CloseEvent_IsBase(true);
@@ -818,7 +818,7 @@ void KSslCertificateBox_ContextMenuEvent(KSslCertificateBox* self, QContextMenuE
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseContextMenuEvent(KSslCertificateBox* self, QContextMenuEvent* event) {
+void KSslCertificateBox_SuperContextMenuEvent(KSslCertificateBox* self, QContextMenuEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_ContextMenuEvent_IsBase(true);
@@ -847,7 +847,7 @@ void KSslCertificateBox_TabletEvent(KSslCertificateBox* self, QTabletEvent* even
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseTabletEvent(KSslCertificateBox* self, QTabletEvent* event) {
+void KSslCertificateBox_SuperTabletEvent(KSslCertificateBox* self, QTabletEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_TabletEvent_IsBase(true);
@@ -876,7 +876,7 @@ void KSslCertificateBox_ActionEvent(KSslCertificateBox* self, QActionEvent* even
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseActionEvent(KSslCertificateBox* self, QActionEvent* event) {
+void KSslCertificateBox_SuperActionEvent(KSslCertificateBox* self, QActionEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_ActionEvent_IsBase(true);
@@ -905,7 +905,7 @@ void KSslCertificateBox_DragEnterEvent(KSslCertificateBox* self, QDragEnterEvent
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseDragEnterEvent(KSslCertificateBox* self, QDragEnterEvent* event) {
+void KSslCertificateBox_SuperDragEnterEvent(KSslCertificateBox* self, QDragEnterEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_DragEnterEvent_IsBase(true);
@@ -934,7 +934,7 @@ void KSslCertificateBox_DragMoveEvent(KSslCertificateBox* self, QDragMoveEvent* 
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseDragMoveEvent(KSslCertificateBox* self, QDragMoveEvent* event) {
+void KSslCertificateBox_SuperDragMoveEvent(KSslCertificateBox* self, QDragMoveEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_DragMoveEvent_IsBase(true);
@@ -963,7 +963,7 @@ void KSslCertificateBox_DragLeaveEvent(KSslCertificateBox* self, QDragLeaveEvent
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseDragLeaveEvent(KSslCertificateBox* self, QDragLeaveEvent* event) {
+void KSslCertificateBox_SuperDragLeaveEvent(KSslCertificateBox* self, QDragLeaveEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_DragLeaveEvent_IsBase(true);
@@ -992,7 +992,7 @@ void KSslCertificateBox_DropEvent(KSslCertificateBox* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseDropEvent(KSslCertificateBox* self, QDropEvent* event) {
+void KSslCertificateBox_SuperDropEvent(KSslCertificateBox* self, QDropEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_DropEvent_IsBase(true);
@@ -1021,7 +1021,7 @@ void KSslCertificateBox_ShowEvent(KSslCertificateBox* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseShowEvent(KSslCertificateBox* self, QShowEvent* event) {
+void KSslCertificateBox_SuperShowEvent(KSslCertificateBox* self, QShowEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_ShowEvent_IsBase(true);
@@ -1050,7 +1050,7 @@ void KSslCertificateBox_HideEvent(KSslCertificateBox* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseHideEvent(KSslCertificateBox* self, QHideEvent* event) {
+void KSslCertificateBox_SuperHideEvent(KSslCertificateBox* self, QHideEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_HideEvent_IsBase(true);
@@ -1080,7 +1080,7 @@ bool KSslCertificateBox_NativeEvent(KSslCertificateBox* self, const libqt_string
 }
 
 // Base class handler implementation
-bool KSslCertificateBox_QBaseNativeEvent(KSslCertificateBox* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KSslCertificateBox_SuperNativeEvent(KSslCertificateBox* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
@@ -1110,7 +1110,7 @@ void KSslCertificateBox_ChangeEvent(KSslCertificateBox* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseChangeEvent(KSslCertificateBox* self, QEvent* param1) {
+void KSslCertificateBox_SuperChangeEvent(KSslCertificateBox* self, QEvent* param1) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_ChangeEvent_IsBase(true);
@@ -1139,7 +1139,7 @@ int KSslCertificateBox_Metric(const KSslCertificateBox* self, int param1) {
 }
 
 // Base class handler implementation
-int KSslCertificateBox_QBaseMetric(const KSslCertificateBox* self, int param1) {
+int KSslCertificateBox_SuperMetric(const KSslCertificateBox* self, int param1) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_Metric_IsBase(true);
@@ -1168,7 +1168,7 @@ void KSslCertificateBox_InitPainter(const KSslCertificateBox* self, QPainter* pa
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseInitPainter(const KSslCertificateBox* self, QPainter* painter) {
+void KSslCertificateBox_SuperInitPainter(const KSslCertificateBox* self, QPainter* painter) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_InitPainter_IsBase(true);
@@ -1197,7 +1197,7 @@ QPaintDevice* KSslCertificateBox_Redirected(const KSslCertificateBox* self, QPoi
 }
 
 // Base class handler implementation
-QPaintDevice* KSslCertificateBox_QBaseRedirected(const KSslCertificateBox* self, QPoint* offset) {
+QPaintDevice* KSslCertificateBox_SuperRedirected(const KSslCertificateBox* self, QPoint* offset) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_Redirected_IsBase(true);
@@ -1226,7 +1226,7 @@ QPainter* KSslCertificateBox_SharedPainter(const KSslCertificateBox* self) {
 }
 
 // Base class handler implementation
-QPainter* KSslCertificateBox_QBaseSharedPainter(const KSslCertificateBox* self) {
+QPainter* KSslCertificateBox_SuperSharedPainter(const KSslCertificateBox* self) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_SharedPainter_IsBase(true);
@@ -1255,7 +1255,7 @@ void KSslCertificateBox_InputMethodEvent(KSslCertificateBox* self, QInputMethodE
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseInputMethodEvent(KSslCertificateBox* self, QInputMethodEvent* param1) {
+void KSslCertificateBox_SuperInputMethodEvent(KSslCertificateBox* self, QInputMethodEvent* param1) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_InputMethodEvent_IsBase(true);
@@ -1284,7 +1284,7 @@ QVariant* KSslCertificateBox_InputMethodQuery(const KSslCertificateBox* self, in
 }
 
 // Base class handler implementation
-QVariant* KSslCertificateBox_QBaseInputMethodQuery(const KSslCertificateBox* self, int param1) {
+QVariant* KSslCertificateBox_SuperInputMethodQuery(const KSslCertificateBox* self, int param1) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_InputMethodQuery_IsBase(true);
@@ -1313,7 +1313,7 @@ bool KSslCertificateBox_FocusNextPrevChild(KSslCertificateBox* self, bool next) 
 }
 
 // Base class handler implementation
-bool KSslCertificateBox_QBaseFocusNextPrevChild(KSslCertificateBox* self, bool next) {
+bool KSslCertificateBox_SuperFocusNextPrevChild(KSslCertificateBox* self, bool next) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_FocusNextPrevChild_IsBase(true);
@@ -1342,7 +1342,7 @@ bool KSslCertificateBox_EventFilter(KSslCertificateBox* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool KSslCertificateBox_QBaseEventFilter(KSslCertificateBox* self, QObject* watched, QEvent* event) {
+bool KSslCertificateBox_SuperEventFilter(KSslCertificateBox* self, QObject* watched, QEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_EventFilter_IsBase(true);
@@ -1371,7 +1371,7 @@ void KSslCertificateBox_TimerEvent(KSslCertificateBox* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseTimerEvent(KSslCertificateBox* self, QTimerEvent* event) {
+void KSslCertificateBox_SuperTimerEvent(KSslCertificateBox* self, QTimerEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_TimerEvent_IsBase(true);
@@ -1400,7 +1400,7 @@ void KSslCertificateBox_ChildEvent(KSslCertificateBox* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseChildEvent(KSslCertificateBox* self, QChildEvent* event) {
+void KSslCertificateBox_SuperChildEvent(KSslCertificateBox* self, QChildEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_ChildEvent_IsBase(true);
@@ -1429,7 +1429,7 @@ void KSslCertificateBox_CustomEvent(KSslCertificateBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseCustomEvent(KSslCertificateBox* self, QEvent* event) {
+void KSslCertificateBox_SuperCustomEvent(KSslCertificateBox* self, QEvent* event) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_CustomEvent_IsBase(true);
@@ -1458,7 +1458,7 @@ void KSslCertificateBox_ConnectNotify(KSslCertificateBox* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseConnectNotify(KSslCertificateBox* self, const QMetaMethod* signal) {
+void KSslCertificateBox_SuperConnectNotify(KSslCertificateBox* self, const QMetaMethod* signal) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_ConnectNotify_IsBase(true);
@@ -1487,7 +1487,7 @@ void KSslCertificateBox_DisconnectNotify(KSslCertificateBox* self, const QMetaMe
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseDisconnectNotify(KSslCertificateBox* self, const QMetaMethod* signal) {
+void KSslCertificateBox_SuperDisconnectNotify(KSslCertificateBox* self, const QMetaMethod* signal) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_DisconnectNotify_IsBase(true);
@@ -1516,7 +1516,7 @@ void KSslCertificateBox_UpdateMicroFocus(KSslCertificateBox* self) {
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseUpdateMicroFocus(KSslCertificateBox* self) {
+void KSslCertificateBox_SuperUpdateMicroFocus(KSslCertificateBox* self) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_UpdateMicroFocus_IsBase(true);
@@ -1545,7 +1545,7 @@ void KSslCertificateBox_Create(KSslCertificateBox* self) {
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseCreate(KSslCertificateBox* self) {
+void KSslCertificateBox_SuperCreate(KSslCertificateBox* self) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_Create_IsBase(true);
@@ -1574,7 +1574,7 @@ void KSslCertificateBox_Destroy(KSslCertificateBox* self) {
 }
 
 // Base class handler implementation
-void KSslCertificateBox_QBaseDestroy(KSslCertificateBox* self) {
+void KSslCertificateBox_SuperDestroy(KSslCertificateBox* self) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_Destroy_IsBase(true);
@@ -1603,7 +1603,7 @@ bool KSslCertificateBox_FocusNextChild(KSslCertificateBox* self) {
 }
 
 // Base class handler implementation
-bool KSslCertificateBox_QBaseFocusNextChild(KSslCertificateBox* self) {
+bool KSslCertificateBox_SuperFocusNextChild(KSslCertificateBox* self) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_FocusNextChild_IsBase(true);
@@ -1632,7 +1632,7 @@ bool KSslCertificateBox_FocusPreviousChild(KSslCertificateBox* self) {
 }
 
 // Base class handler implementation
-bool KSslCertificateBox_QBaseFocusPreviousChild(KSslCertificateBox* self) {
+bool KSslCertificateBox_SuperFocusPreviousChild(KSslCertificateBox* self) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_FocusPreviousChild_IsBase(true);
@@ -1661,7 +1661,7 @@ QObject* KSslCertificateBox_Sender(const KSslCertificateBox* self) {
 }
 
 // Base class handler implementation
-QObject* KSslCertificateBox_QBaseSender(const KSslCertificateBox* self) {
+QObject* KSslCertificateBox_SuperSender(const KSslCertificateBox* self) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_Sender_IsBase(true);
@@ -1690,7 +1690,7 @@ int KSslCertificateBox_SenderSignalIndex(const KSslCertificateBox* self) {
 }
 
 // Base class handler implementation
-int KSslCertificateBox_QBaseSenderSignalIndex(const KSslCertificateBox* self) {
+int KSslCertificateBox_SuperSenderSignalIndex(const KSslCertificateBox* self) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_SenderSignalIndex_IsBase(true);
@@ -1719,7 +1719,7 @@ int KSslCertificateBox_Receivers(const KSslCertificateBox* self, const char* sig
 }
 
 // Base class handler implementation
-int KSslCertificateBox_QBaseReceivers(const KSslCertificateBox* self, const char* signal) {
+int KSslCertificateBox_SuperReceivers(const KSslCertificateBox* self, const char* signal) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_Receivers_IsBase(true);
@@ -1748,7 +1748,7 @@ bool KSslCertificateBox_IsSignalConnected(const KSslCertificateBox* self, const 
 }
 
 // Base class handler implementation
-bool KSslCertificateBox_QBaseIsSignalConnected(const KSslCertificateBox* self, const QMetaMethod* signal) {
+bool KSslCertificateBox_SuperIsSignalConnected(const KSslCertificateBox* self, const QMetaMethod* signal) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_IsSignalConnected_IsBase(true);
@@ -1777,7 +1777,7 @@ double KSslCertificateBox_GetDecodedMetricF(const KSslCertificateBox* self, int 
 }
 
 // Base class handler implementation
-double KSslCertificateBox_QBaseGetDecodedMetricF(const KSslCertificateBox* self, int metricA, int metricB) {
+double KSslCertificateBox_SuperGetDecodedMetricF(const KSslCertificateBox* self, int metricA, int metricB) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
     if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
         vksslcertificatebox->setKSslCertificateBox_GetDecodedMetricF_IsBase(true);

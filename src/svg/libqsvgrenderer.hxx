@@ -334,23 +334,23 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
 
     // Friend functions
     friend void QSvgRenderer_TimerEvent(QSvgRenderer* self, QTimerEvent* event);
-    friend void QSvgRenderer_QBaseTimerEvent(QSvgRenderer* self, QTimerEvent* event);
+    friend void QSvgRenderer_SuperTimerEvent(QSvgRenderer* self, QTimerEvent* event);
     friend void QSvgRenderer_ChildEvent(QSvgRenderer* self, QChildEvent* event);
-    friend void QSvgRenderer_QBaseChildEvent(QSvgRenderer* self, QChildEvent* event);
+    friend void QSvgRenderer_SuperChildEvent(QSvgRenderer* self, QChildEvent* event);
     friend void QSvgRenderer_CustomEvent(QSvgRenderer* self, QEvent* event);
-    friend void QSvgRenderer_QBaseCustomEvent(QSvgRenderer* self, QEvent* event);
+    friend void QSvgRenderer_SuperCustomEvent(QSvgRenderer* self, QEvent* event);
     friend void QSvgRenderer_ConnectNotify(QSvgRenderer* self, const QMetaMethod* signal);
-    friend void QSvgRenderer_QBaseConnectNotify(QSvgRenderer* self, const QMetaMethod* signal);
+    friend void QSvgRenderer_SuperConnectNotify(QSvgRenderer* self, const QMetaMethod* signal);
     friend void QSvgRenderer_DisconnectNotify(QSvgRenderer* self, const QMetaMethod* signal);
-    friend void QSvgRenderer_QBaseDisconnectNotify(QSvgRenderer* self, const QMetaMethod* signal);
+    friend void QSvgRenderer_SuperDisconnectNotify(QSvgRenderer* self, const QMetaMethod* signal);
     friend QObject* QSvgRenderer_Sender(const QSvgRenderer* self);
-    friend QObject* QSvgRenderer_QBaseSender(const QSvgRenderer* self);
+    friend QObject* QSvgRenderer_SuperSender(const QSvgRenderer* self);
     friend int QSvgRenderer_SenderSignalIndex(const QSvgRenderer* self);
-    friend int QSvgRenderer_QBaseSenderSignalIndex(const QSvgRenderer* self);
+    friend int QSvgRenderer_SuperSenderSignalIndex(const QSvgRenderer* self);
     friend int QSvgRenderer_Receivers(const QSvgRenderer* self, const char* signal);
-    friend int QSvgRenderer_QBaseReceivers(const QSvgRenderer* self, const char* signal);
+    friend int QSvgRenderer_SuperReceivers(const QSvgRenderer* self, const char* signal);
     friend bool QSvgRenderer_IsSignalConnected(const QSvgRenderer* self, const QMetaMethod* signal);
-    friend bool QSvgRenderer_QBaseIsSignalConnected(const QSvgRenderer* self, const QMetaMethod* signal);
+    friend bool QSvgRenderer_SuperIsSignalConnected(const QSvgRenderer* self, const QMetaMethod* signal);
 };
 
 #endif

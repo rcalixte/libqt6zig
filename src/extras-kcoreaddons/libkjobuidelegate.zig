@@ -47,6 +47,10 @@ pub const kjobuidelegate = struct {
         qtc.KJobUiDelegate_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -55,8 +59,8 @@ pub const kjobuidelegate = struct {
     ///
     /// ` self: QtC.KJobUiDelegate `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KJobUiDelegate_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KJobUiDelegate_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -82,6 +86,10 @@ pub const kjobuidelegate = struct {
         qtc.KJobUiDelegate_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -90,9 +98,9 @@ pub const kjobuidelegate = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KJobUiDelegate_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KJobUiDelegate_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -121,6 +129,10 @@ pub const kjobuidelegate = struct {
         qtc.KJobUiDelegate_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -133,8 +145,8 @@ pub const kjobuidelegate = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KJobUiDelegate_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KJobUiDelegate_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -180,6 +192,10 @@ pub const kjobuidelegate = struct {
         qtc.KJobUiDelegate_OnSetJob(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetJob` instead
+    ///
+    pub const QBaseSetJob = SuperSetJob;
+
     /// ### [Upstream resources](https://api.kde.org/kjobuidelegate.html#setJob)
     ///
     /// Base class method implementation
@@ -190,8 +206,8 @@ pub const kjobuidelegate = struct {
     ///
     /// ` job: QtC.KJob `
     ///
-    pub fn QBaseSetJob(self: ?*anyopaque, job: ?*anyopaque) bool {
-        return qtc.KJobUiDelegate_QBaseSetJob(@ptrCast(self), @ptrCast(job));
+    pub fn SuperSetJob(self: ?*anyopaque, job: ?*anyopaque) bool {
+        return qtc.KJobUiDelegate_SuperSetJob(@ptrCast(self), @ptrCast(job));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjobuidelegate.html#job)
@@ -218,6 +234,10 @@ pub const kjobuidelegate = struct {
         qtc.KJobUiDelegate_OnJob(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperJob` instead
+    ///
+    pub const QBaseJob = SuperJob;
+
     /// ### [Upstream resources](https://api.kde.org/kjobuidelegate.html#job)
     ///
     /// Base class method implementation
@@ -226,8 +246,8 @@ pub const kjobuidelegate = struct {
     ///
     /// ` self: QtC.KJobUiDelegate `
     ///
-    pub fn QBaseJob(self: ?*anyopaque) QtC.KJob {
-        return qtc.KJobUiDelegate_QBaseJob(@ptrCast(self));
+    pub fn SuperJob(self: ?*anyopaque) QtC.KJob {
+        return qtc.KJobUiDelegate_SuperJob(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjobuidelegate.html#showErrorMessage)
@@ -254,6 +274,10 @@ pub const kjobuidelegate = struct {
         qtc.KJobUiDelegate_OnShowErrorMessage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperShowErrorMessage` instead
+    ///
+    pub const QBaseShowErrorMessage = SuperShowErrorMessage;
+
     /// ### [Upstream resources](https://api.kde.org/kjobuidelegate.html#showErrorMessage)
     ///
     /// Base class method implementation
@@ -262,8 +286,8 @@ pub const kjobuidelegate = struct {
     ///
     /// ` self: QtC.KJobUiDelegate `
     ///
-    pub fn QBaseShowErrorMessage(self: ?*anyopaque) void {
-        qtc.KJobUiDelegate_QBaseShowErrorMessage(@ptrCast(self));
+    pub fn SuperShowErrorMessage(self: ?*anyopaque) void {
+        qtc.KJobUiDelegate_SuperShowErrorMessage(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjobuidelegate.html#setAutoErrorHandlingEnabled)
@@ -342,6 +366,10 @@ pub const kjobuidelegate = struct {
         qtc.KJobUiDelegate_OnSlotWarning(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSlotWarning` instead
+    ///
+    pub const QBaseSlotWarning = SuperSlotWarning;
+
     /// ### [Upstream resources](https://api.kde.org/kjobuidelegate.html#slotWarning)
     ///
     /// Base class method implementation
@@ -354,12 +382,12 @@ pub const kjobuidelegate = struct {
     ///
     /// ` message: []const u8 `
     ///
-    pub fn QBaseSlotWarning(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
+    pub fn SuperSlotWarning(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-        qtc.KJobUiDelegate_QBaseSlotWarning(@ptrCast(self), @ptrCast(job), message_str);
+        qtc.KJobUiDelegate_SuperSlotWarning(@ptrCast(self), @ptrCast(job), message_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1158,6 +1186,10 @@ pub const kjobuidelegate = struct {
         return qtc.KJobUiDelegate_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1170,8 +1202,8 @@ pub const kjobuidelegate = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KJobUiDelegate_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KJobUiDelegate_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1208,6 +1240,10 @@ pub const kjobuidelegate = struct {
         return qtc.KJobUiDelegate_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1222,8 +1258,8 @@ pub const kjobuidelegate = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KJobUiDelegate_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KJobUiDelegate_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1258,6 +1294,10 @@ pub const kjobuidelegate = struct {
         qtc.KJobUiDelegate_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1270,8 +1310,8 @@ pub const kjobuidelegate = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KJobUiDelegate_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KJobUiDelegate_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1306,6 +1346,10 @@ pub const kjobuidelegate = struct {
         qtc.KJobUiDelegate_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1318,8 +1362,8 @@ pub const kjobuidelegate = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KJobUiDelegate_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KJobUiDelegate_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1354,6 +1398,10 @@ pub const kjobuidelegate = struct {
         qtc.KJobUiDelegate_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1366,8 +1414,8 @@ pub const kjobuidelegate = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KJobUiDelegate_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KJobUiDelegate_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1402,6 +1450,10 @@ pub const kjobuidelegate = struct {
         qtc.KJobUiDelegate_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1414,8 +1466,8 @@ pub const kjobuidelegate = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KJobUiDelegate_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KJobUiDelegate_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1450,6 +1502,10 @@ pub const kjobuidelegate = struct {
         qtc.KJobUiDelegate_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1462,8 +1518,8 @@ pub const kjobuidelegate = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KJobUiDelegate_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KJobUiDelegate_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1496,6 +1552,10 @@ pub const kjobuidelegate = struct {
         return qtc.KJobUiDelegate_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1506,8 +1566,8 @@ pub const kjobuidelegate = struct {
     ///
     /// ` self: QtC.KJobUiDelegate `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KJobUiDelegate_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KJobUiDelegate_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1540,6 +1600,10 @@ pub const kjobuidelegate = struct {
         return qtc.KJobUiDelegate_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1550,8 +1614,8 @@ pub const kjobuidelegate = struct {
     ///
     /// ` self: QtC.KJobUiDelegate `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KJobUiDelegate_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KJobUiDelegate_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1587,6 +1651,10 @@ pub const kjobuidelegate = struct {
         return qtc.KJobUiDelegate_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1599,9 +1667,9 @@ pub const kjobuidelegate = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KJobUiDelegate_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KJobUiDelegate_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1636,6 +1704,10 @@ pub const kjobuidelegate = struct {
         return qtc.KJobUiDelegate_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -1648,8 +1720,8 @@ pub const kjobuidelegate = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KJobUiDelegate_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KJobUiDelegate_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1683,6 +1755,9 @@ pub const kjobuidelegate = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kjobuidelegate.html#dtor.KJobUiDelegate)
     ///
@@ -1692,7 +1767,7 @@ pub const kjobuidelegate = struct {
     ///
     /// ` self: QtC.KJobUiDelegate `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KJobUiDelegate_Delete(@ptrCast(self));
     }
 };

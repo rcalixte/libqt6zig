@@ -88,6 +88,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -96,8 +100,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` self: QtC.QPlainTextEdit `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QPlainTextEdit_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QPlainTextEdit_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -123,6 +127,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -131,9 +139,9 @@ pub const qplaintextedit = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QPlainTextEdit_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QPlainTextEdit_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -162,6 +170,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -174,8 +186,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QPlainTextEdit_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QPlainTextEdit_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -629,6 +641,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnLoadResource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperLoadResource` instead
+    ///
+    pub const QBaseLoadResource = SuperLoadResource;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#loadResource)
     ///
     /// Base class method implementation
@@ -641,8 +657,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` name: QtC.QUrl `
     ///
-    pub fn QBaseLoadResource(self: ?*anyopaque, typeVal: i32, name: ?*anyopaque) QtC.QVariant {
-        return qtc.QPlainTextEdit_QBaseLoadResource(@ptrCast(self), @bitCast(typeVal), @ptrCast(name));
+    pub fn SuperLoadResource(self: ?*anyopaque, typeVal: i32, name: ?*anyopaque) QtC.QVariant {
+        return qtc.QPlainTextEdit_SuperLoadResource(@ptrCast(self), @bitCast(typeVal), @ptrCast(name));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#createStandardContextMenu)
@@ -888,6 +904,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#inputMethodQuery)
     ///
     /// Base class method implementation
@@ -898,8 +918,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` property: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, property: i32) QtC.QVariant {
-        return qtc.QPlainTextEdit_QBaseInputMethodQuery(@ptrCast(self), @bitCast(property));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, property: i32) QtC.QVariant {
+        return qtc.QPlainTextEdit_SuperInputMethodQuery(@ptrCast(self), @bitCast(property));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#inputMethodQuery)
@@ -1318,6 +1338,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#event)
     ///
     /// Base class method implementation
@@ -1328,8 +1352,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` e: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QPlainTextEdit_QBaseEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
+        return qtc.QPlainTextEdit_SuperEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#timerEvent)
@@ -1358,6 +1382,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#timerEvent)
     ///
     /// Base class method implementation
@@ -1368,8 +1396,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` e: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseTimerEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperTimerEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperTimerEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#keyPressEvent)
@@ -1398,6 +1426,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#keyPressEvent)
     ///
     /// Base class method implementation
@@ -1408,8 +1440,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` e: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperKeyPressEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#keyReleaseEvent)
@@ -1438,6 +1470,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#keyReleaseEvent)
     ///
     /// Base class method implementation
@@ -1448,8 +1484,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` e: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#resizeEvent)
@@ -1478,6 +1514,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#resizeEvent)
     ///
     /// Base class method implementation
@@ -1488,8 +1528,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` e: QtC.QResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseResizeEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperResizeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperResizeEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#paintEvent)
@@ -1518,6 +1558,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    ///
+    pub const QBasePaintEvent = SuperPaintEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#paintEvent)
     ///
     /// Base class method implementation
@@ -1528,8 +1572,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` e: QtC.QPaintEvent `
     ///
-    pub fn QBasePaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBasePaintEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperPaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperPaintEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mousePressEvent)
@@ -1558,6 +1602,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mousePressEvent)
     ///
     /// Base class method implementation
@@ -1568,8 +1616,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` e: QtC.QMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseMousePressEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperMousePressEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mouseMoveEvent)
@@ -1598,6 +1646,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mouseMoveEvent)
     ///
     /// Base class method implementation
@@ -1608,8 +1660,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` e: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mouseReleaseEvent)
@@ -1638,6 +1690,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
@@ -1648,8 +1704,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` e: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mouseDoubleClickEvent)
@@ -1678,6 +1734,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mouseDoubleClickEvent)
     ///
     /// Base class method implementation
@@ -1688,8 +1748,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` e: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#focusNextPrevChild)
@@ -1718,6 +1778,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    ///
+    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#focusNextPrevChild)
     ///
     /// Base class method implementation
@@ -1728,8 +1792,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` next: bool `
     ///
-    pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QPlainTextEdit_QBaseFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
+        return qtc.QPlainTextEdit_SuperFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#contextMenuEvent)
@@ -1758,6 +1822,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#contextMenuEvent)
     ///
     /// Base class method implementation
@@ -1768,8 +1836,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` e: QtC.QContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperContextMenuEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dragEnterEvent)
@@ -1798,6 +1866,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dragEnterEvent)
     ///
     /// Base class method implementation
@@ -1808,8 +1880,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` e: QtC.QDragEnterEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperDragEnterEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dragLeaveEvent)
@@ -1838,6 +1910,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dragLeaveEvent)
     ///
     /// Base class method implementation
@@ -1848,8 +1924,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` e: QtC.QDragLeaveEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dragMoveEvent)
@@ -1878,6 +1954,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dragMoveEvent)
     ///
     /// Base class method implementation
@@ -1888,8 +1968,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` e: QtC.QDragMoveEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperDragMoveEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dropEvent)
@@ -1918,6 +1998,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dropEvent)
     ///
     /// Base class method implementation
@@ -1928,8 +2012,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` e: QtC.QDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseDropEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDropEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperDropEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#focusInEvent)
@@ -1958,6 +2042,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#focusInEvent)
     ///
     /// Base class method implementation
@@ -1968,8 +2056,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` e: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseFocusInEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperFocusInEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#focusOutEvent)
@@ -1998,6 +2086,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#focusOutEvent)
     ///
     /// Base class method implementation
@@ -2008,8 +2100,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` e: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperFocusOutEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#showEvent)
@@ -2038,6 +2130,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#showEvent)
     ///
     /// Base class method implementation
@@ -2048,8 +2144,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` param1: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseShowEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperShowEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#changeEvent)
@@ -2078,6 +2174,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    ///
+    pub const QBaseChangeEvent = SuperChangeEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#changeEvent)
     ///
     /// Base class method implementation
@@ -2088,8 +2188,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` e: QtC.QEvent `
     ///
-    pub fn QBaseChangeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseChangeEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperChangeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperChangeEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#wheelEvent)
@@ -2118,6 +2218,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#wheelEvent)
     ///
     /// Base class method implementation
@@ -2128,8 +2232,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` e: QtC.QWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseWheelEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperWheelEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperWheelEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#createMimeDataFromSelection)
@@ -2156,6 +2260,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnCreateMimeDataFromSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateMimeDataFromSelection` instead
+    ///
+    pub const QBaseCreateMimeDataFromSelection = SuperCreateMimeDataFromSelection;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#createMimeDataFromSelection)
     ///
     /// Base class method implementation
@@ -2164,8 +2272,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` self: QtC.QPlainTextEdit `
     ///
-    pub fn QBaseCreateMimeDataFromSelection(self: ?*anyopaque) QtC.QMimeData {
-        return qtc.QPlainTextEdit_QBaseCreateMimeDataFromSelection(@ptrCast(self));
+    pub fn SuperCreateMimeDataFromSelection(self: ?*anyopaque) QtC.QMimeData {
+        return qtc.QPlainTextEdit_SuperCreateMimeDataFromSelection(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#canInsertFromMimeData)
@@ -2194,6 +2302,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnCanInsertFromMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCanInsertFromMimeData` instead
+    ///
+    pub const QBaseCanInsertFromMimeData = SuperCanInsertFromMimeData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#canInsertFromMimeData)
     ///
     /// Base class method implementation
@@ -2204,8 +2316,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` source: QtC.QMimeData `
     ///
-    pub fn QBaseCanInsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) bool {
-        return qtc.QPlainTextEdit_QBaseCanInsertFromMimeData(@ptrCast(self), @ptrCast(source));
+    pub fn SuperCanInsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) bool {
+        return qtc.QPlainTextEdit_SuperCanInsertFromMimeData(@ptrCast(self), @ptrCast(source));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#insertFromMimeData)
@@ -2234,6 +2346,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnInsertFromMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInsertFromMimeData` instead
+    ///
+    pub const QBaseInsertFromMimeData = SuperInsertFromMimeData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#insertFromMimeData)
     ///
     /// Base class method implementation
@@ -2244,8 +2360,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` source: QtC.QMimeData `
     ///
-    pub fn QBaseInsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseInsertFromMimeData(@ptrCast(self), @ptrCast(source));
+    pub fn SuperInsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperInsertFromMimeData(@ptrCast(self), @ptrCast(source));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#inputMethodEvent)
@@ -2274,6 +2390,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#inputMethodEvent)
     ///
     /// Base class method implementation
@@ -2284,8 +2404,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` param1: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#scrollContentsBy)
@@ -2316,6 +2436,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnScrollContentsBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
+    ///
+    pub const QBaseScrollContentsBy = SuperScrollContentsBy;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#scrollContentsBy)
     ///
     /// Base class method implementation
@@ -2328,8 +2452,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn QBaseScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QPlainTextEdit_QBaseScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn SuperScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
+        qtc.QPlainTextEdit_SuperScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#doSetTextCursor)
@@ -2358,6 +2482,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnDoSetTextCursor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDoSetTextCursor` instead
+    ///
+    pub const QBaseDoSetTextCursor = SuperDoSetTextCursor;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#doSetTextCursor)
     ///
     /// Base class method implementation
@@ -2368,8 +2496,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` cursor: QtC.QTextCursor `
     ///
-    pub fn QBaseDoSetTextCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseDoSetTextCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SuperDoSetTextCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperDoSetTextCursor(@ptrCast(self), @ptrCast(cursor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#firstVisibleBlock)
@@ -2396,6 +2524,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnFirstVisibleBlock(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFirstVisibleBlock` instead
+    ///
+    pub const QBaseFirstVisibleBlock = SuperFirstVisibleBlock;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#firstVisibleBlock)
     ///
     /// Base class method implementation
@@ -2404,8 +2536,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` self: QtC.QPlainTextEdit `
     ///
-    pub fn QBaseFirstVisibleBlock(self: ?*anyopaque) QtC.QTextBlock {
-        return qtc.QPlainTextEdit_QBaseFirstVisibleBlock(@ptrCast(self));
+    pub fn SuperFirstVisibleBlock(self: ?*anyopaque) QtC.QTextBlock {
+        return qtc.QPlainTextEdit_SuperFirstVisibleBlock(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#contentOffset)
@@ -2432,6 +2564,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnContentOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperContentOffset` instead
+    ///
+    pub const QBaseContentOffset = SuperContentOffset;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#contentOffset)
     ///
     /// Base class method implementation
@@ -2440,8 +2576,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` self: QtC.QPlainTextEdit `
     ///
-    pub fn QBaseContentOffset(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QPlainTextEdit_QBaseContentOffset(@ptrCast(self));
+    pub fn SuperContentOffset(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QPlainTextEdit_SuperContentOffset(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockBoundingRect)
@@ -2470,6 +2606,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnBlockBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBlockBoundingRect` instead
+    ///
+    pub const QBaseBlockBoundingRect = SuperBlockBoundingRect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockBoundingRect)
     ///
     /// Base class method implementation
@@ -2480,8 +2620,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` block: QtC.QTextBlock `
     ///
-    pub fn QBaseBlockBoundingRect(self: ?*anyopaque, block: ?*anyopaque) QtC.QRectF {
-        return qtc.QPlainTextEdit_QBaseBlockBoundingRect(@ptrCast(self), @ptrCast(block));
+    pub fn SuperBlockBoundingRect(self: ?*anyopaque, block: ?*anyopaque) QtC.QRectF {
+        return qtc.QPlainTextEdit_SuperBlockBoundingRect(@ptrCast(self), @ptrCast(block));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockBoundingGeometry)
@@ -2510,6 +2650,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnBlockBoundingGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBlockBoundingGeometry` instead
+    ///
+    pub const QBaseBlockBoundingGeometry = SuperBlockBoundingGeometry;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockBoundingGeometry)
     ///
     /// Base class method implementation
@@ -2520,8 +2664,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` block: QtC.QTextBlock `
     ///
-    pub fn QBaseBlockBoundingGeometry(self: ?*anyopaque, block: ?*anyopaque) QtC.QRectF {
-        return qtc.QPlainTextEdit_QBaseBlockBoundingGeometry(@ptrCast(self), @ptrCast(block));
+    pub fn SuperBlockBoundingGeometry(self: ?*anyopaque, block: ?*anyopaque) QtC.QRectF {
+        return qtc.QPlainTextEdit_SuperBlockBoundingGeometry(@ptrCast(self), @ptrCast(block));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#getPaintContext)
@@ -2548,6 +2692,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnGetPaintContext(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGetPaintContext` instead
+    ///
+    pub const QBaseGetPaintContext = SuperGetPaintContext;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#getPaintContext)
     ///
     /// Base class method implementation
@@ -2556,8 +2704,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` self: QtC.QPlainTextEdit `
     ///
-    pub fn QBaseGetPaintContext(self: ?*anyopaque) QtC.QAbstractTextDocumentLayout__PaintContext {
-        return qtc.QPlainTextEdit_QBaseGetPaintContext(@ptrCast(self));
+    pub fn SuperGetPaintContext(self: ?*anyopaque) QtC.QAbstractTextDocumentLayout__PaintContext {
+        return qtc.QPlainTextEdit_SuperGetPaintContext(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#zoomInF)
@@ -2586,6 +2734,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_OnZoomInF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperZoomInF` instead
+    ///
+    pub const QBaseZoomInF = SuperZoomInF;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#zoomInF)
     ///
     /// Base class method implementation
@@ -2596,8 +2748,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` range: f32 `
     ///
-    pub fn QBaseZoomInF(self: ?*anyopaque, range: f32) void {
-        qtc.QPlainTextEdit_QBaseZoomInF(@ptrCast(self), @bitCast(range));
+    pub fn SuperZoomInF(self: ?*anyopaque, range: f32) void {
+        qtc.QPlainTextEdit_SuperZoomInF(@ptrCast(self), @bitCast(range));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -7856,6 +8008,10 @@ pub const qplaintextedit = struct {
         return qtc.QPlainTextEdit_MinimumSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    ///
+    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
@@ -7866,8 +8022,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` self: QtC.QPlainTextEdit `
     ///
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QPlainTextEdit_QBaseMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QPlainTextEdit_SuperMinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -7900,6 +8056,10 @@ pub const qplaintextedit = struct {
         return qtc.QPlainTextEdit_SizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
@@ -7910,8 +8070,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` self: QtC.QPlainTextEdit `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QPlainTextEdit_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QPlainTextEdit_SuperSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -7946,6 +8106,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_SetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
+    /// ### DEPRECATED: Use `SuperSetupViewport` instead
+    ///
+    pub const QBaseSetupViewport = SuperSetupViewport;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
@@ -7958,8 +8122,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` viewport: QtC.QWidget `
     ///
-    pub fn QBaseSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseSetupViewport(@ptrCast(self), @ptrCast(viewport));
+    pub fn SuperSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperSetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -7996,6 +8160,10 @@ pub const qplaintextedit = struct {
         return qtc.QPlainTextEdit_EventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#eventFilter)
@@ -8010,8 +8178,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` param2: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.QPlainTextEdit_QBaseEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn SuperEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
+        return qtc.QPlainTextEdit_SuperEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8046,6 +8214,10 @@ pub const qplaintextedit = struct {
         return qtc.QPlainTextEdit_ViewportEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperViewportEvent` instead
+    ///
+    pub const QBaseViewportEvent = SuperViewportEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
@@ -8058,8 +8230,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseViewportEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QPlainTextEdit_QBaseViewportEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperViewportEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
+        return qtc.QPlainTextEdit_SuperViewportEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8092,6 +8264,10 @@ pub const qplaintextedit = struct {
         return qtc.QPlainTextEdit_ViewportSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
+    ///
+    pub const QBaseViewportSizeHint = SuperViewportSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportSizeHint)
@@ -8102,8 +8278,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` self: QtC.QPlainTextEdit `
     ///
-    pub fn QBaseViewportSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QPlainTextEdit_QBaseViewportSizeHint(@ptrCast(self));
+    pub fn SuperViewportSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QPlainTextEdit_SuperViewportSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8138,6 +8314,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_InitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
+    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    ///
+    pub const QBaseInitStyleOption = SuperInitStyleOption;
+
     /// Inherited from QFrame
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
@@ -8150,8 +8330,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` option: QtC.QStyleOptionFrame `
     ///
-    pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// Inherited from QFrame
@@ -8184,6 +8364,10 @@ pub const qplaintextedit = struct {
         return qtc.QPlainTextEdit_DevType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
@@ -8194,8 +8378,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` self: QtC.QPlainTextEdit `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.QPlainTextEdit_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.QPlainTextEdit_SuperDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8230,6 +8414,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_SetVisible(@ptrCast(self), visible);
     }
 
+    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    ///
+    pub const QBaseSetVisible = SuperSetVisible;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
@@ -8242,8 +8430,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QPlainTextEdit_QBaseSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
+        qtc.QPlainTextEdit_SuperSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
@@ -8278,6 +8466,10 @@ pub const qplaintextedit = struct {
         return qtc.QPlainTextEdit_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
@@ -8290,8 +8482,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QPlainTextEdit_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QPlainTextEdit_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -8324,6 +8516,10 @@ pub const qplaintextedit = struct {
         return qtc.QPlainTextEdit_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
@@ -8334,8 +8530,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` self: QtC.QPlainTextEdit `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QPlainTextEdit_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.QPlainTextEdit_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8368,6 +8564,10 @@ pub const qplaintextedit = struct {
         return qtc.QPlainTextEdit_PaintEngine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
@@ -8378,8 +8578,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` self: QtC.QPlainTextEdit `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QPlainTextEdit_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.QPlainTextEdit_SuperPaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8414,6 +8614,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    ///
+    pub const QBaseEnterEvent = SuperEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
@@ -8426,8 +8630,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` event: QtC.QEnterEvent `
     ///
-    pub fn QBaseEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8462,6 +8666,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    ///
+    pub const QBaseLeaveEvent = SuperLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
@@ -8474,8 +8682,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8510,6 +8718,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
@@ -8522,8 +8734,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` event: QtC.QMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8558,6 +8770,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
@@ -8570,8 +8786,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` event: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8606,6 +8822,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    ///
+    pub const QBaseTabletEvent = SuperTabletEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
@@ -8618,8 +8838,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` event: QtC.QTabletEvent `
     ///
-    pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8654,6 +8874,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_ActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    ///
+    pub const QBaseActionEvent = SuperActionEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
@@ -8666,8 +8890,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` event: QtC.QActionEvent `
     ///
-    pub fn QBaseActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8702,6 +8926,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
@@ -8714,8 +8942,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` event: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -8758,6 +8986,10 @@ pub const qplaintextedit = struct {
         return qtc.QPlainTextEdit_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    ///
+    pub const QBaseNativeEvent = SuperNativeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
@@ -8774,12 +9006,12 @@ pub const qplaintextedit = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QPlainTextEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QPlainTextEdit_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -8814,6 +9046,10 @@ pub const qplaintextedit = struct {
         return qtc.QPlainTextEdit_Metric(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
@@ -8826,8 +9062,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QPlainTextEdit_QBaseMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QPlainTextEdit_SuperMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -8862,6 +9098,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
@@ -8874,8 +9114,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
@@ -8910,6 +9150,10 @@ pub const qplaintextedit = struct {
         return qtc.QPlainTextEdit_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
@@ -8922,8 +9166,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QPlainTextEdit_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.QPlainTextEdit_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
@@ -8956,6 +9200,10 @@ pub const qplaintextedit = struct {
         return qtc.QPlainTextEdit_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
@@ -8966,8 +9214,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` self: QtC.QPlainTextEdit `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QPlainTextEdit_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.QPlainTextEdit_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9002,6 +9250,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -9014,8 +9266,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -9050,6 +9302,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -9062,8 +9318,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -9098,6 +9354,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -9110,8 +9370,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -9146,6 +9406,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -9158,8 +9422,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -9200,6 +9464,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_SetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
+    /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
+    ///
+    pub const QBaseSetViewportMargins = SuperSetViewportMargins;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
@@ -9218,8 +9486,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn QBaseSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QPlainTextEdit_QBaseSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SuperSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QPlainTextEdit_SuperSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9252,6 +9520,10 @@ pub const qplaintextedit = struct {
         return qtc.QPlainTextEdit_ViewportMargins(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperViewportMargins` instead
+    ///
+    pub const QBaseViewportMargins = SuperViewportMargins;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
@@ -9262,8 +9534,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` self: QtC.QPlainTextEdit `
     ///
-    pub fn QBaseViewportMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QPlainTextEdit_QBaseViewportMargins(@ptrCast(self));
+    pub fn SuperViewportMargins(self: ?*anyopaque) QtC.QMargins {
+        return qtc.QPlainTextEdit_SuperViewportMargins(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9298,6 +9570,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_DrawFrame(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    ///
+    pub const QBaseDrawFrame = SuperDrawFrame;
+
     /// Inherited from QFrame
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
@@ -9310,8 +9586,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` param1: QtC.QPainter `
     ///
-    pub fn QBaseDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseDrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperDrawFrame(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QFrame
@@ -9344,6 +9620,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -9354,8 +9634,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` self: QtC.QPlainTextEdit `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9388,6 +9668,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_Create(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreate` instead
+    ///
+    pub const QBaseCreate = SuperCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -9398,8 +9682,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` self: QtC.QPlainTextEdit `
     ///
-    pub fn QBaseCreate(self: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseCreate(@ptrCast(self));
+    pub fn SuperCreate(self: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9432,6 +9716,10 @@ pub const qplaintextedit = struct {
         qtc.QPlainTextEdit_Destroy(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroy` instead
+    ///
+    pub const QBaseDestroy = SuperDestroy;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
@@ -9442,8 +9730,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` self: QtC.QPlainTextEdit `
     ///
-    pub fn QBaseDestroy(self: ?*anyopaque) void {
-        qtc.QPlainTextEdit_QBaseDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: ?*anyopaque) void {
+        qtc.QPlainTextEdit_SuperDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9476,6 +9764,10 @@ pub const qplaintextedit = struct {
         return qtc.QPlainTextEdit_FocusNextChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    ///
+    pub const QBaseFocusNextChild = SuperFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -9486,8 +9778,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` self: QtC.QPlainTextEdit `
     ///
-    pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QPlainTextEdit_QBaseFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
+        return qtc.QPlainTextEdit_SuperFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9520,6 +9812,10 @@ pub const qplaintextedit = struct {
         return qtc.QPlainTextEdit_FocusPreviousChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    ///
+    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
@@ -9530,8 +9826,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` self: QtC.QPlainTextEdit `
     ///
-    pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QPlainTextEdit_QBaseFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
+        return qtc.QPlainTextEdit_SuperFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9564,6 +9860,10 @@ pub const qplaintextedit = struct {
         return qtc.QPlainTextEdit_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -9574,8 +9874,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` self: QtC.QPlainTextEdit `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QPlainTextEdit_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QPlainTextEdit_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -9608,6 +9908,10 @@ pub const qplaintextedit = struct {
         return qtc.QPlainTextEdit_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -9618,8 +9922,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` self: QtC.QPlainTextEdit `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QPlainTextEdit_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QPlainTextEdit_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -9655,6 +9959,10 @@ pub const qplaintextedit = struct {
         return qtc.QPlainTextEdit_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -9667,9 +9975,9 @@ pub const qplaintextedit = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QPlainTextEdit_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QPlainTextEdit_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -9704,6 +10012,10 @@ pub const qplaintextedit = struct {
         return qtc.QPlainTextEdit_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -9716,8 +10028,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QPlainTextEdit_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QPlainTextEdit_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -9754,6 +10066,10 @@ pub const qplaintextedit = struct {
         return qtc.QPlainTextEdit_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -9768,8 +10084,8 @@ pub const qplaintextedit = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QPlainTextEdit_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.QPlainTextEdit_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -9803,6 +10119,9 @@ pub const qplaintextedit = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dtor.QPlainTextEdit)
     ///
@@ -9812,7 +10131,7 @@ pub const qplaintextedit = struct {
     ///
     /// ` self: QtC.QPlainTextEdit `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPlainTextEdit_Delete(@ptrCast(self));
     }
 };
@@ -9853,6 +10172,10 @@ pub const qplaintextdocumentlayout = struct {
         qtc.QPlainTextDocumentLayout_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -9861,8 +10184,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` self: QtC.QPlainTextDocumentLayout `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QPlainTextDocumentLayout_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QPlainTextDocumentLayout_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -9888,6 +10211,10 @@ pub const qplaintextdocumentlayout = struct {
         qtc.QPlainTextDocumentLayout_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -9896,9 +10223,9 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QPlainTextDocumentLayout_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QPlainTextDocumentLayout_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -9927,6 +10254,10 @@ pub const qplaintextdocumentlayout = struct {
         qtc.QPlainTextDocumentLayout_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -9939,8 +10270,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QPlainTextDocumentLayout_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QPlainTextDocumentLayout_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -9988,6 +10319,10 @@ pub const qplaintextdocumentlayout = struct {
         qtc.QPlainTextDocumentLayout_OnDraw(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDraw` instead
+    ///
+    pub const QBaseDraw = SuperDraw;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#draw)
     ///
     /// Base class method implementation
@@ -10000,8 +10335,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` param2: QtC.QAbstractTextDocumentLayout__PaintContext `
     ///
-    pub fn QBaseDraw(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QPlainTextDocumentLayout_QBaseDraw(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn SuperDraw(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) void {
+        qtc.QPlainTextDocumentLayout_SuperDraw(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#hitTest)
@@ -10032,6 +10367,10 @@ pub const qplaintextdocumentlayout = struct {
         qtc.QPlainTextDocumentLayout_OnHitTest(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHitTest` instead
+    ///
+    pub const QBaseHitTest = SuperHitTest;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#hitTest)
     ///
     /// Base class method implementation
@@ -10044,8 +10383,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` param2: qnamespace_enums.HitTestAccuracy `
     ///
-    pub fn QBaseHitTest(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) i32 {
-        return qtc.QPlainTextDocumentLayout_QBaseHitTest(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
+    pub fn SuperHitTest(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) i32 {
+        return qtc.QPlainTextDocumentLayout_SuperHitTest(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#pageCount)
@@ -10072,6 +10411,10 @@ pub const qplaintextdocumentlayout = struct {
         qtc.QPlainTextDocumentLayout_OnPageCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPageCount` instead
+    ///
+    pub const QBasePageCount = SuperPageCount;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#pageCount)
     ///
     /// Base class method implementation
@@ -10080,8 +10423,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` self: QtC.QPlainTextDocumentLayout `
     ///
-    pub fn QBasePageCount(self: ?*anyopaque) i32 {
-        return qtc.QPlainTextDocumentLayout_QBasePageCount(@ptrCast(self));
+    pub fn SuperPageCount(self: ?*anyopaque) i32 {
+        return qtc.QPlainTextDocumentLayout_SuperPageCount(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#documentSize)
@@ -10108,6 +10451,10 @@ pub const qplaintextdocumentlayout = struct {
         qtc.QPlainTextDocumentLayout_OnDocumentSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDocumentSize` instead
+    ///
+    pub const QBaseDocumentSize = SuperDocumentSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#documentSize)
     ///
     /// Base class method implementation
@@ -10116,8 +10463,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` self: QtC.QPlainTextDocumentLayout `
     ///
-    pub fn QBaseDocumentSize(self: ?*anyopaque) QtC.QSizeF {
-        return qtc.QPlainTextDocumentLayout_QBaseDocumentSize(@ptrCast(self));
+    pub fn SuperDocumentSize(self: ?*anyopaque) QtC.QSizeF {
+        return qtc.QPlainTextDocumentLayout_SuperDocumentSize(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#frameBoundingRect)
@@ -10146,6 +10493,10 @@ pub const qplaintextdocumentlayout = struct {
         qtc.QPlainTextDocumentLayout_OnFrameBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFrameBoundingRect` instead
+    ///
+    pub const QBaseFrameBoundingRect = SuperFrameBoundingRect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#frameBoundingRect)
     ///
     /// Base class method implementation
@@ -10156,8 +10507,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` param1: QtC.QTextFrame `
     ///
-    pub fn QBaseFrameBoundingRect(self: ?*anyopaque, param1: ?*anyopaque) QtC.QRectF {
-        return qtc.QPlainTextDocumentLayout_QBaseFrameBoundingRect(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperFrameBoundingRect(self: ?*anyopaque, param1: ?*anyopaque) QtC.QRectF {
+        return qtc.QPlainTextDocumentLayout_SuperFrameBoundingRect(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#blockBoundingRect)
@@ -10186,6 +10537,10 @@ pub const qplaintextdocumentlayout = struct {
         qtc.QPlainTextDocumentLayout_OnBlockBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBlockBoundingRect` instead
+    ///
+    pub const QBaseBlockBoundingRect = SuperBlockBoundingRect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#blockBoundingRect)
     ///
     /// Base class method implementation
@@ -10196,8 +10551,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` block: QtC.QTextBlock `
     ///
-    pub fn QBaseBlockBoundingRect(self: ?*anyopaque, block: ?*anyopaque) QtC.QRectF {
-        return qtc.QPlainTextDocumentLayout_QBaseBlockBoundingRect(@ptrCast(self), @ptrCast(block));
+    pub fn SuperBlockBoundingRect(self: ?*anyopaque, block: ?*anyopaque) QtC.QRectF {
+        return qtc.QPlainTextDocumentLayout_SuperBlockBoundingRect(@ptrCast(self), @ptrCast(block));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#ensureBlockLayout)
@@ -10274,6 +10629,10 @@ pub const qplaintextdocumentlayout = struct {
         qtc.QPlainTextDocumentLayout_OnDocumentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDocumentChanged` instead
+    ///
+    pub const QBaseDocumentChanged = SuperDocumentChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#documentChanged)
     ///
     /// Base class method implementation
@@ -10288,8 +10647,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` charsAdded: i32 `
     ///
-    pub fn QBaseDocumentChanged(self: ?*anyopaque, from: i32, param2: i32, charsAdded: i32) void {
-        qtc.QPlainTextDocumentLayout_QBaseDocumentChanged(@ptrCast(self), @bitCast(from), @bitCast(param2), @bitCast(charsAdded));
+    pub fn SuperDocumentChanged(self: ?*anyopaque, from: i32, param2: i32, charsAdded: i32) void {
+        qtc.QPlainTextDocumentLayout_SuperDocumentChanged(@ptrCast(self), @bitCast(from), @bitCast(param2), @bitCast(charsAdded));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -11396,6 +11755,10 @@ pub const qplaintextdocumentlayout = struct {
         qtc.QPlainTextDocumentLayout_ResizeInlineObject(@ptrCast(self), @ptrCast(item), @bitCast(posInDocument), @ptrCast(format));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeInlineObject` instead
+    ///
+    pub const QBaseResizeInlineObject = SuperResizeInlineObject;
+
     /// Inherited from QAbstractTextDocumentLayout
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#resizeInlineObject)
@@ -11412,8 +11775,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` format: QtC.QTextFormat `
     ///
-    pub fn QBaseResizeInlineObject(self: ?*anyopaque, item: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
-        qtc.QPlainTextDocumentLayout_QBaseResizeInlineObject(@ptrCast(self), @ptrCast(item), @bitCast(posInDocument), @ptrCast(format));
+    pub fn SuperResizeInlineObject(self: ?*anyopaque, item: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
+        qtc.QPlainTextDocumentLayout_SuperResizeInlineObject(@ptrCast(self), @ptrCast(item), @bitCast(posInDocument), @ptrCast(format));
     }
 
     /// Inherited from QAbstractTextDocumentLayout
@@ -11452,6 +11815,10 @@ pub const qplaintextdocumentlayout = struct {
         qtc.QPlainTextDocumentLayout_PositionInlineObject(@ptrCast(self), @ptrCast(item), @bitCast(posInDocument), @ptrCast(format));
     }
 
+    /// ### DEPRECATED: Use `SuperPositionInlineObject` instead
+    ///
+    pub const QBasePositionInlineObject = SuperPositionInlineObject;
+
     /// Inherited from QAbstractTextDocumentLayout
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#positionInlineObject)
@@ -11468,8 +11835,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` format: QtC.QTextFormat `
     ///
-    pub fn QBasePositionInlineObject(self: ?*anyopaque, item: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
-        qtc.QPlainTextDocumentLayout_QBasePositionInlineObject(@ptrCast(self), @ptrCast(item), @bitCast(posInDocument), @ptrCast(format));
+    pub fn SuperPositionInlineObject(self: ?*anyopaque, item: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
+        qtc.QPlainTextDocumentLayout_SuperPositionInlineObject(@ptrCast(self), @ptrCast(item), @bitCast(posInDocument), @ptrCast(format));
     }
 
     /// Inherited from QAbstractTextDocumentLayout
@@ -11512,6 +11879,10 @@ pub const qplaintextdocumentlayout = struct {
         qtc.QPlainTextDocumentLayout_DrawInlineObject(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(object), @bitCast(posInDocument), @ptrCast(format));
     }
 
+    /// ### DEPRECATED: Use `SuperDrawInlineObject` instead
+    ///
+    pub const QBaseDrawInlineObject = SuperDrawInlineObject;
+
     /// Inherited from QAbstractTextDocumentLayout
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#drawInlineObject)
@@ -11532,8 +11903,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` format: QtC.QTextFormat `
     ///
-    pub fn QBaseDrawInlineObject(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, object: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
-        qtc.QPlainTextDocumentLayout_QBaseDrawInlineObject(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(object), @bitCast(posInDocument), @ptrCast(format));
+    pub fn SuperDrawInlineObject(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, object: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
+        qtc.QPlainTextDocumentLayout_SuperDrawInlineObject(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(object), @bitCast(posInDocument), @ptrCast(format));
     }
 
     /// Inherited from QAbstractTextDocumentLayout
@@ -11568,6 +11939,10 @@ pub const qplaintextdocumentlayout = struct {
         return qtc.QPlainTextDocumentLayout_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -11580,8 +11955,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QPlainTextDocumentLayout_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QPlainTextDocumentLayout_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -11618,6 +11993,10 @@ pub const qplaintextdocumentlayout = struct {
         return qtc.QPlainTextDocumentLayout_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -11632,8 +12011,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QPlainTextDocumentLayout_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QPlainTextDocumentLayout_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -11668,6 +12047,10 @@ pub const qplaintextdocumentlayout = struct {
         qtc.QPlainTextDocumentLayout_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -11680,8 +12063,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPlainTextDocumentLayout_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPlainTextDocumentLayout_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -11716,6 +12099,10 @@ pub const qplaintextdocumentlayout = struct {
         qtc.QPlainTextDocumentLayout_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -11728,8 +12115,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPlainTextDocumentLayout_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPlainTextDocumentLayout_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -11764,6 +12151,10 @@ pub const qplaintextdocumentlayout = struct {
         qtc.QPlainTextDocumentLayout_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -11776,8 +12167,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPlainTextDocumentLayout_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPlainTextDocumentLayout_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -11812,6 +12203,10 @@ pub const qplaintextdocumentlayout = struct {
         qtc.QPlainTextDocumentLayout_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -11824,8 +12219,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QPlainTextDocumentLayout_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QPlainTextDocumentLayout_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -11860,6 +12255,10 @@ pub const qplaintextdocumentlayout = struct {
         qtc.QPlainTextDocumentLayout_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -11872,8 +12271,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QPlainTextDocumentLayout_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QPlainTextDocumentLayout_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -11908,6 +12307,10 @@ pub const qplaintextdocumentlayout = struct {
         return qtc.QPlainTextDocumentLayout_FormatIndex(@ptrCast(self), @bitCast(pos));
     }
 
+    /// ### DEPRECATED: Use `SuperFormatIndex` instead
+    ///
+    pub const QBaseFormatIndex = SuperFormatIndex;
+
     /// Inherited from QAbstractTextDocumentLayout
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#formatIndex)
@@ -11920,8 +12323,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` pos: i32 `
     ///
-    pub fn QBaseFormatIndex(self: ?*anyopaque, pos: i32) i32 {
-        return qtc.QPlainTextDocumentLayout_QBaseFormatIndex(@ptrCast(self), @bitCast(pos));
+    pub fn SuperFormatIndex(self: ?*anyopaque, pos: i32) i32 {
+        return qtc.QPlainTextDocumentLayout_SuperFormatIndex(@ptrCast(self), @bitCast(pos));
     }
 
     /// Inherited from QAbstractTextDocumentLayout
@@ -11956,6 +12359,10 @@ pub const qplaintextdocumentlayout = struct {
         return qtc.QPlainTextDocumentLayout_Format(@ptrCast(self), @bitCast(pos));
     }
 
+    /// ### DEPRECATED: Use `SuperFormat` instead
+    ///
+    pub const QBaseFormat = SuperFormat;
+
     /// Inherited from QAbstractTextDocumentLayout
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#format)
@@ -11968,8 +12375,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` pos: i32 `
     ///
-    pub fn QBaseFormat(self: ?*anyopaque, pos: i32) QtC.QTextCharFormat {
-        return qtc.QPlainTextDocumentLayout_QBaseFormat(@ptrCast(self), @bitCast(pos));
+    pub fn SuperFormat(self: ?*anyopaque, pos: i32) QtC.QTextCharFormat {
+        return qtc.QPlainTextDocumentLayout_SuperFormat(@ptrCast(self), @bitCast(pos));
     }
 
     /// Inherited from QAbstractTextDocumentLayout
@@ -12002,6 +12409,10 @@ pub const qplaintextdocumentlayout = struct {
         return qtc.QPlainTextDocumentLayout_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -12012,8 +12423,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` self: QtC.QPlainTextDocumentLayout `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QPlainTextDocumentLayout_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QPlainTextDocumentLayout_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -12046,6 +12457,10 @@ pub const qplaintextdocumentlayout = struct {
         return qtc.QPlainTextDocumentLayout_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -12056,8 +12471,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` self: QtC.QPlainTextDocumentLayout `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QPlainTextDocumentLayout_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QPlainTextDocumentLayout_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -12093,6 +12508,10 @@ pub const qplaintextdocumentlayout = struct {
         return qtc.QPlainTextDocumentLayout_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -12105,9 +12524,9 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QPlainTextDocumentLayout_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QPlainTextDocumentLayout_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -12142,6 +12561,10 @@ pub const qplaintextdocumentlayout = struct {
         return qtc.QPlainTextDocumentLayout_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -12154,8 +12577,8 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QPlainTextDocumentLayout_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QPlainTextDocumentLayout_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -12189,6 +12612,9 @@ pub const qplaintextdocumentlayout = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#dtor.QPlainTextDocumentLayout)
     ///
@@ -12198,7 +12624,7 @@ pub const qplaintextdocumentlayout = struct {
     ///
     /// ` self: QtC.QPlainTextDocumentLayout `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPlainTextDocumentLayout_Delete(@ptrCast(self));
     }
 };

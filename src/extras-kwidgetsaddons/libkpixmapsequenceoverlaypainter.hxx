@@ -330,25 +330,25 @@ class VirtualKPixmapSequenceOverlayPainter final : public KPixmapSequenceOverlay
 
     // Friend functions
     friend bool KPixmapSequenceOverlayPainter_EventFilter(KPixmapSequenceOverlayPainter* self, QObject* obj, QEvent* event);
-    friend bool KPixmapSequenceOverlayPainter_QBaseEventFilter(KPixmapSequenceOverlayPainter* self, QObject* obj, QEvent* event);
+    friend bool KPixmapSequenceOverlayPainter_SuperEventFilter(KPixmapSequenceOverlayPainter* self, QObject* obj, QEvent* event);
     friend void KPixmapSequenceOverlayPainter_TimerEvent(KPixmapSequenceOverlayPainter* self, QTimerEvent* event);
-    friend void KPixmapSequenceOverlayPainter_QBaseTimerEvent(KPixmapSequenceOverlayPainter* self, QTimerEvent* event);
+    friend void KPixmapSequenceOverlayPainter_SuperTimerEvent(KPixmapSequenceOverlayPainter* self, QTimerEvent* event);
     friend void KPixmapSequenceOverlayPainter_ChildEvent(KPixmapSequenceOverlayPainter* self, QChildEvent* event);
-    friend void KPixmapSequenceOverlayPainter_QBaseChildEvent(KPixmapSequenceOverlayPainter* self, QChildEvent* event);
+    friend void KPixmapSequenceOverlayPainter_SuperChildEvent(KPixmapSequenceOverlayPainter* self, QChildEvent* event);
     friend void KPixmapSequenceOverlayPainter_CustomEvent(KPixmapSequenceOverlayPainter* self, QEvent* event);
-    friend void KPixmapSequenceOverlayPainter_QBaseCustomEvent(KPixmapSequenceOverlayPainter* self, QEvent* event);
+    friend void KPixmapSequenceOverlayPainter_SuperCustomEvent(KPixmapSequenceOverlayPainter* self, QEvent* event);
     friend void KPixmapSequenceOverlayPainter_ConnectNotify(KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal);
-    friend void KPixmapSequenceOverlayPainter_QBaseConnectNotify(KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal);
+    friend void KPixmapSequenceOverlayPainter_SuperConnectNotify(KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal);
     friend void KPixmapSequenceOverlayPainter_DisconnectNotify(KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal);
-    friend void KPixmapSequenceOverlayPainter_QBaseDisconnectNotify(KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal);
+    friend void KPixmapSequenceOverlayPainter_SuperDisconnectNotify(KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal);
     friend QObject* KPixmapSequenceOverlayPainter_Sender(const KPixmapSequenceOverlayPainter* self);
-    friend QObject* KPixmapSequenceOverlayPainter_QBaseSender(const KPixmapSequenceOverlayPainter* self);
+    friend QObject* KPixmapSequenceOverlayPainter_SuperSender(const KPixmapSequenceOverlayPainter* self);
     friend int KPixmapSequenceOverlayPainter_SenderSignalIndex(const KPixmapSequenceOverlayPainter* self);
-    friend int KPixmapSequenceOverlayPainter_QBaseSenderSignalIndex(const KPixmapSequenceOverlayPainter* self);
+    friend int KPixmapSequenceOverlayPainter_SuperSenderSignalIndex(const KPixmapSequenceOverlayPainter* self);
     friend int KPixmapSequenceOverlayPainter_Receivers(const KPixmapSequenceOverlayPainter* self, const char* signal);
-    friend int KPixmapSequenceOverlayPainter_QBaseReceivers(const KPixmapSequenceOverlayPainter* self, const char* signal);
+    friend int KPixmapSequenceOverlayPainter_SuperReceivers(const KPixmapSequenceOverlayPainter* self, const char* signal);
     friend bool KPixmapSequenceOverlayPainter_IsSignalConnected(const KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal);
-    friend bool KPixmapSequenceOverlayPainter_QBaseIsSignalConnected(const KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal);
+    friend bool KPixmapSequenceOverlayPainter_SuperIsSignalConnected(const KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal);
 };
 
 #endif

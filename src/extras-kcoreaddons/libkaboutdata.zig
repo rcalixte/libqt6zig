@@ -261,6 +261,10 @@ pub const kaboutperson = struct {
         return qtc.KAboutPerson_FromJSON(@ptrCast(obj));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kaboutperson.html#dtor.KAboutPerson)
     ///
     /// Delete this object from C++ memory.
@@ -269,7 +273,7 @@ pub const kaboutperson = struct {
     ///
     /// ` self: QtC.KAboutPerson `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KAboutPerson_Delete(@ptrCast(self));
     }
 };
@@ -398,6 +402,10 @@ pub const kaboutlicense = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kaboutlicense.html#dtor.KAboutLicense)
     ///
     /// Delete this object from C++ memory.
@@ -406,7 +414,7 @@ pub const kaboutlicense = struct {
     ///
     /// ` self: QtC.KAboutLicense `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KAboutLicense_Delete(@ptrCast(self));
     }
 };
@@ -685,6 +693,10 @@ pub const kaboutcomponent = struct {
         return qtc.KAboutComponent_License(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kaboutcomponent.html#dtor.KAboutComponent)
     ///
     /// Delete this object from C++ memory.
@@ -693,7 +705,7 @@ pub const kaboutcomponent = struct {
     ///
     /// ` self: QtC.KAboutComponent `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KAboutComponent_Delete(@ptrCast(self));
     }
 };
@@ -2359,6 +2371,10 @@ pub const kaboutdata = struct {
         return qtc.KAboutData_AddComponent5(@ptrCast(self), name_str, description_str, version_str, webAddress_str, @bitCast(licenseKey));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#dtor.KAboutData)
     ///
     /// Delete this object from C++ memory.
@@ -2367,7 +2383,7 @@ pub const kaboutdata = struct {
     ///
     /// ` self: QtC.KAboutData `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KAboutData_Delete(@ptrCast(self));
     }
 };

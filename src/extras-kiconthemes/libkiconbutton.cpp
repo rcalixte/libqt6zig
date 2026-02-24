@@ -157,7 +157,7 @@ void KIconButton_SetIconType3(KIconButton* self, int group, int context, bool us
 }
 
 // Base class handler implementation
-QMetaObject* KIconButton_QBaseMetaObject(const KIconButton* self) {
+QMetaObject* KIconButton_SuperMetaObject(const KIconButton* self) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_MetaObject_IsBase(true);
@@ -176,7 +176,7 @@ void KIconButton_OnMetaObject(const KIconButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KIconButton_QBaseMetacast(KIconButton* self, const char* param1) {
+void* KIconButton_SuperMetacast(KIconButton* self, const char* param1) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_Metacast_IsBase(true);
@@ -195,7 +195,7 @@ void KIconButton_OnMetacast(KIconButton* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KIconButton_QBaseMetacall(KIconButton* self, int param1, int param2, void** param3) {
+int KIconButton_SuperMetacall(KIconButton* self, int param1, int param2, void** param3) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_Metacall_IsBase(true);
@@ -224,7 +224,7 @@ QSize* KIconButton_SizeHint(const KIconButton* self) {
 }
 
 // Base class handler implementation
-QSize* KIconButton_QBaseSizeHint(const KIconButton* self) {
+QSize* KIconButton_SuperSizeHint(const KIconButton* self) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_SizeHint_IsBase(true);
@@ -253,7 +253,7 @@ QSize* KIconButton_MinimumSizeHint(const KIconButton* self) {
 }
 
 // Base class handler implementation
-QSize* KIconButton_QBaseMinimumSizeHint(const KIconButton* self) {
+QSize* KIconButton_SuperMinimumSizeHint(const KIconButton* self) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_MinimumSizeHint_IsBase(true);
@@ -282,7 +282,7 @@ bool KIconButton_Event(KIconButton* self, QEvent* e) {
 }
 
 // Base class handler implementation
-bool KIconButton_QBaseEvent(KIconButton* self, QEvent* e) {
+bool KIconButton_SuperEvent(KIconButton* self, QEvent* e) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_Event_IsBase(true);
@@ -311,7 +311,7 @@ void KIconButton_PaintEvent(KIconButton* self, QPaintEvent* param1) {
 }
 
 // Base class handler implementation
-void KIconButton_QBasePaintEvent(KIconButton* self, QPaintEvent* param1) {
+void KIconButton_SuperPaintEvent(KIconButton* self, QPaintEvent* param1) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_PaintEvent_IsBase(true);
@@ -340,7 +340,7 @@ void KIconButton_KeyPressEvent(KIconButton* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseKeyPressEvent(KIconButton* self, QKeyEvent* param1) {
+void KIconButton_SuperKeyPressEvent(KIconButton* self, QKeyEvent* param1) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_KeyPressEvent_IsBase(true);
@@ -369,7 +369,7 @@ void KIconButton_FocusInEvent(KIconButton* self, QFocusEvent* param1) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseFocusInEvent(KIconButton* self, QFocusEvent* param1) {
+void KIconButton_SuperFocusInEvent(KIconButton* self, QFocusEvent* param1) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_FocusInEvent_IsBase(true);
@@ -398,7 +398,7 @@ void KIconButton_FocusOutEvent(KIconButton* self, QFocusEvent* param1) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseFocusOutEvent(KIconButton* self, QFocusEvent* param1) {
+void KIconButton_SuperFocusOutEvent(KIconButton* self, QFocusEvent* param1) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_FocusOutEvent_IsBase(true);
@@ -427,7 +427,7 @@ void KIconButton_MouseMoveEvent(KIconButton* self, QMouseEvent* param1) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseMouseMoveEvent(KIconButton* self, QMouseEvent* param1) {
+void KIconButton_SuperMouseMoveEvent(KIconButton* self, QMouseEvent* param1) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_MouseMoveEvent_IsBase(true);
@@ -456,7 +456,7 @@ void KIconButton_InitStyleOption(const KIconButton* self, QStyleOptionButton* op
 }
 
 // Base class handler implementation
-void KIconButton_QBaseInitStyleOption(const KIconButton* self, QStyleOptionButton* option) {
+void KIconButton_SuperInitStyleOption(const KIconButton* self, QStyleOptionButton* option) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_InitStyleOption_IsBase(true);
@@ -485,7 +485,7 @@ bool KIconButton_HitButton(const KIconButton* self, const QPoint* pos) {
 }
 
 // Base class handler implementation
-bool KIconButton_QBaseHitButton(const KIconButton* self, const QPoint* pos) {
+bool KIconButton_SuperHitButton(const KIconButton* self, const QPoint* pos) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_HitButton_IsBase(true);
@@ -514,7 +514,7 @@ void KIconButton_CheckStateSet(KIconButton* self) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseCheckStateSet(KIconButton* self) {
+void KIconButton_SuperCheckStateSet(KIconButton* self) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_CheckStateSet_IsBase(true);
@@ -543,7 +543,7 @@ void KIconButton_NextCheckState(KIconButton* self) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseNextCheckState(KIconButton* self) {
+void KIconButton_SuperNextCheckState(KIconButton* self) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_NextCheckState_IsBase(true);
@@ -572,7 +572,7 @@ void KIconButton_KeyReleaseEvent(KIconButton* self, QKeyEvent* e) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseKeyReleaseEvent(KIconButton* self, QKeyEvent* e) {
+void KIconButton_SuperKeyReleaseEvent(KIconButton* self, QKeyEvent* e) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_KeyReleaseEvent_IsBase(true);
@@ -601,7 +601,7 @@ void KIconButton_MousePressEvent(KIconButton* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseMousePressEvent(KIconButton* self, QMouseEvent* e) {
+void KIconButton_SuperMousePressEvent(KIconButton* self, QMouseEvent* e) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_MousePressEvent_IsBase(true);
@@ -630,7 +630,7 @@ void KIconButton_MouseReleaseEvent(KIconButton* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseMouseReleaseEvent(KIconButton* self, QMouseEvent* e) {
+void KIconButton_SuperMouseReleaseEvent(KIconButton* self, QMouseEvent* e) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_MouseReleaseEvent_IsBase(true);
@@ -659,7 +659,7 @@ void KIconButton_ChangeEvent(KIconButton* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseChangeEvent(KIconButton* self, QEvent* e) {
+void KIconButton_SuperChangeEvent(KIconButton* self, QEvent* e) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_ChangeEvent_IsBase(true);
@@ -688,7 +688,7 @@ void KIconButton_TimerEvent(KIconButton* self, QTimerEvent* e) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseTimerEvent(KIconButton* self, QTimerEvent* e) {
+void KIconButton_SuperTimerEvent(KIconButton* self, QTimerEvent* e) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_TimerEvent_IsBase(true);
@@ -717,7 +717,7 @@ int KIconButton_DevType(const KIconButton* self) {
 }
 
 // Base class handler implementation
-int KIconButton_QBaseDevType(const KIconButton* self) {
+int KIconButton_SuperDevType(const KIconButton* self) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_DevType_IsBase(true);
@@ -746,7 +746,7 @@ void KIconButton_SetVisible(KIconButton* self, bool visible) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseSetVisible(KIconButton* self, bool visible) {
+void KIconButton_SuperSetVisible(KIconButton* self, bool visible) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_SetVisible_IsBase(true);
@@ -775,7 +775,7 @@ int KIconButton_HeightForWidth(const KIconButton* self, int param1) {
 }
 
 // Base class handler implementation
-int KIconButton_QBaseHeightForWidth(const KIconButton* self, int param1) {
+int KIconButton_SuperHeightForWidth(const KIconButton* self, int param1) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_HeightForWidth_IsBase(true);
@@ -804,7 +804,7 @@ bool KIconButton_HasHeightForWidth(const KIconButton* self) {
 }
 
 // Base class handler implementation
-bool KIconButton_QBaseHasHeightForWidth(const KIconButton* self) {
+bool KIconButton_SuperHasHeightForWidth(const KIconButton* self) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_HasHeightForWidth_IsBase(true);
@@ -833,7 +833,7 @@ QPaintEngine* KIconButton_PaintEngine(const KIconButton* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KIconButton_QBasePaintEngine(const KIconButton* self) {
+QPaintEngine* KIconButton_SuperPaintEngine(const KIconButton* self) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_PaintEngine_IsBase(true);
@@ -862,7 +862,7 @@ void KIconButton_MouseDoubleClickEvent(KIconButton* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseMouseDoubleClickEvent(KIconButton* self, QMouseEvent* event) {
+void KIconButton_SuperMouseDoubleClickEvent(KIconButton* self, QMouseEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_MouseDoubleClickEvent_IsBase(true);
@@ -891,7 +891,7 @@ void KIconButton_WheelEvent(KIconButton* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseWheelEvent(KIconButton* self, QWheelEvent* event) {
+void KIconButton_SuperWheelEvent(KIconButton* self, QWheelEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_WheelEvent_IsBase(true);
@@ -920,7 +920,7 @@ void KIconButton_EnterEvent(KIconButton* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseEnterEvent(KIconButton* self, QEnterEvent* event) {
+void KIconButton_SuperEnterEvent(KIconButton* self, QEnterEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_EnterEvent_IsBase(true);
@@ -949,7 +949,7 @@ void KIconButton_LeaveEvent(KIconButton* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseLeaveEvent(KIconButton* self, QEvent* event) {
+void KIconButton_SuperLeaveEvent(KIconButton* self, QEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_LeaveEvent_IsBase(true);
@@ -978,7 +978,7 @@ void KIconButton_MoveEvent(KIconButton* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseMoveEvent(KIconButton* self, QMoveEvent* event) {
+void KIconButton_SuperMoveEvent(KIconButton* self, QMoveEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_MoveEvent_IsBase(true);
@@ -1007,7 +1007,7 @@ void KIconButton_ResizeEvent(KIconButton* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseResizeEvent(KIconButton* self, QResizeEvent* event) {
+void KIconButton_SuperResizeEvent(KIconButton* self, QResizeEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_ResizeEvent_IsBase(true);
@@ -1036,7 +1036,7 @@ void KIconButton_CloseEvent(KIconButton* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseCloseEvent(KIconButton* self, QCloseEvent* event) {
+void KIconButton_SuperCloseEvent(KIconButton* self, QCloseEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_CloseEvent_IsBase(true);
@@ -1065,7 +1065,7 @@ void KIconButton_ContextMenuEvent(KIconButton* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseContextMenuEvent(KIconButton* self, QContextMenuEvent* event) {
+void KIconButton_SuperContextMenuEvent(KIconButton* self, QContextMenuEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_ContextMenuEvent_IsBase(true);
@@ -1094,7 +1094,7 @@ void KIconButton_TabletEvent(KIconButton* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseTabletEvent(KIconButton* self, QTabletEvent* event) {
+void KIconButton_SuperTabletEvent(KIconButton* self, QTabletEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_TabletEvent_IsBase(true);
@@ -1123,7 +1123,7 @@ void KIconButton_ActionEvent(KIconButton* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseActionEvent(KIconButton* self, QActionEvent* event) {
+void KIconButton_SuperActionEvent(KIconButton* self, QActionEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_ActionEvent_IsBase(true);
@@ -1152,7 +1152,7 @@ void KIconButton_DragEnterEvent(KIconButton* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseDragEnterEvent(KIconButton* self, QDragEnterEvent* event) {
+void KIconButton_SuperDragEnterEvent(KIconButton* self, QDragEnterEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_DragEnterEvent_IsBase(true);
@@ -1181,7 +1181,7 @@ void KIconButton_DragMoveEvent(KIconButton* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseDragMoveEvent(KIconButton* self, QDragMoveEvent* event) {
+void KIconButton_SuperDragMoveEvent(KIconButton* self, QDragMoveEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_DragMoveEvent_IsBase(true);
@@ -1210,7 +1210,7 @@ void KIconButton_DragLeaveEvent(KIconButton* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseDragLeaveEvent(KIconButton* self, QDragLeaveEvent* event) {
+void KIconButton_SuperDragLeaveEvent(KIconButton* self, QDragLeaveEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_DragLeaveEvent_IsBase(true);
@@ -1239,7 +1239,7 @@ void KIconButton_DropEvent(KIconButton* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseDropEvent(KIconButton* self, QDropEvent* event) {
+void KIconButton_SuperDropEvent(KIconButton* self, QDropEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_DropEvent_IsBase(true);
@@ -1268,7 +1268,7 @@ void KIconButton_ShowEvent(KIconButton* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseShowEvent(KIconButton* self, QShowEvent* event) {
+void KIconButton_SuperShowEvent(KIconButton* self, QShowEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_ShowEvent_IsBase(true);
@@ -1297,7 +1297,7 @@ void KIconButton_HideEvent(KIconButton* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseHideEvent(KIconButton* self, QHideEvent* event) {
+void KIconButton_SuperHideEvent(KIconButton* self, QHideEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_HideEvent_IsBase(true);
@@ -1327,7 +1327,7 @@ bool KIconButton_NativeEvent(KIconButton* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool KIconButton_QBaseNativeEvent(KIconButton* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KIconButton_SuperNativeEvent(KIconButton* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
@@ -1357,7 +1357,7 @@ int KIconButton_Metric(const KIconButton* self, int param1) {
 }
 
 // Base class handler implementation
-int KIconButton_QBaseMetric(const KIconButton* self, int param1) {
+int KIconButton_SuperMetric(const KIconButton* self, int param1) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_Metric_IsBase(true);
@@ -1386,7 +1386,7 @@ void KIconButton_InitPainter(const KIconButton* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseInitPainter(const KIconButton* self, QPainter* painter) {
+void KIconButton_SuperInitPainter(const KIconButton* self, QPainter* painter) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_InitPainter_IsBase(true);
@@ -1415,7 +1415,7 @@ QPaintDevice* KIconButton_Redirected(const KIconButton* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KIconButton_QBaseRedirected(const KIconButton* self, QPoint* offset) {
+QPaintDevice* KIconButton_SuperRedirected(const KIconButton* self, QPoint* offset) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_Redirected_IsBase(true);
@@ -1444,7 +1444,7 @@ QPainter* KIconButton_SharedPainter(const KIconButton* self) {
 }
 
 // Base class handler implementation
-QPainter* KIconButton_QBaseSharedPainter(const KIconButton* self) {
+QPainter* KIconButton_SuperSharedPainter(const KIconButton* self) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_SharedPainter_IsBase(true);
@@ -1473,7 +1473,7 @@ void KIconButton_InputMethodEvent(KIconButton* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void KIconButton_QBaseInputMethodEvent(KIconButton* self, QInputMethodEvent* param1) {
+void KIconButton_SuperInputMethodEvent(KIconButton* self, QInputMethodEvent* param1) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_InputMethodEvent_IsBase(true);
@@ -1502,7 +1502,7 @@ QVariant* KIconButton_InputMethodQuery(const KIconButton* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KIconButton_QBaseInputMethodQuery(const KIconButton* self, int param1) {
+QVariant* KIconButton_SuperInputMethodQuery(const KIconButton* self, int param1) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_InputMethodQuery_IsBase(true);
@@ -1531,7 +1531,7 @@ bool KIconButton_FocusNextPrevChild(KIconButton* self, bool next) {
 }
 
 // Base class handler implementation
-bool KIconButton_QBaseFocusNextPrevChild(KIconButton* self, bool next) {
+bool KIconButton_SuperFocusNextPrevChild(KIconButton* self, bool next) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_FocusNextPrevChild_IsBase(true);
@@ -1560,7 +1560,7 @@ bool KIconButton_EventFilter(KIconButton* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool KIconButton_QBaseEventFilter(KIconButton* self, QObject* watched, QEvent* event) {
+bool KIconButton_SuperEventFilter(KIconButton* self, QObject* watched, QEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_EventFilter_IsBase(true);
@@ -1589,7 +1589,7 @@ void KIconButton_ChildEvent(KIconButton* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseChildEvent(KIconButton* self, QChildEvent* event) {
+void KIconButton_SuperChildEvent(KIconButton* self, QChildEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_ChildEvent_IsBase(true);
@@ -1618,7 +1618,7 @@ void KIconButton_CustomEvent(KIconButton* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseCustomEvent(KIconButton* self, QEvent* event) {
+void KIconButton_SuperCustomEvent(KIconButton* self, QEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_CustomEvent_IsBase(true);
@@ -1647,7 +1647,7 @@ void KIconButton_ConnectNotify(KIconButton* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseConnectNotify(KIconButton* self, const QMetaMethod* signal) {
+void KIconButton_SuperConnectNotify(KIconButton* self, const QMetaMethod* signal) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_ConnectNotify_IsBase(true);
@@ -1676,7 +1676,7 @@ void KIconButton_DisconnectNotify(KIconButton* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void KIconButton_QBaseDisconnectNotify(KIconButton* self, const QMetaMethod* signal) {
+void KIconButton_SuperDisconnectNotify(KIconButton* self, const QMetaMethod* signal) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_DisconnectNotify_IsBase(true);
@@ -1705,7 +1705,7 @@ void KIconButton_UpdateMicroFocus(KIconButton* self) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseUpdateMicroFocus(KIconButton* self) {
+void KIconButton_SuperUpdateMicroFocus(KIconButton* self) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_UpdateMicroFocus_IsBase(true);
@@ -1734,7 +1734,7 @@ void KIconButton_Create(KIconButton* self) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseCreate(KIconButton* self) {
+void KIconButton_SuperCreate(KIconButton* self) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_Create_IsBase(true);
@@ -1763,7 +1763,7 @@ void KIconButton_Destroy(KIconButton* self) {
 }
 
 // Base class handler implementation
-void KIconButton_QBaseDestroy(KIconButton* self) {
+void KIconButton_SuperDestroy(KIconButton* self) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_Destroy_IsBase(true);
@@ -1792,7 +1792,7 @@ bool KIconButton_FocusNextChild(KIconButton* self) {
 }
 
 // Base class handler implementation
-bool KIconButton_QBaseFocusNextChild(KIconButton* self) {
+bool KIconButton_SuperFocusNextChild(KIconButton* self) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_FocusNextChild_IsBase(true);
@@ -1821,7 +1821,7 @@ bool KIconButton_FocusPreviousChild(KIconButton* self) {
 }
 
 // Base class handler implementation
-bool KIconButton_QBaseFocusPreviousChild(KIconButton* self) {
+bool KIconButton_SuperFocusPreviousChild(KIconButton* self) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_FocusPreviousChild_IsBase(true);
@@ -1850,7 +1850,7 @@ QObject* KIconButton_Sender(const KIconButton* self) {
 }
 
 // Base class handler implementation
-QObject* KIconButton_QBaseSender(const KIconButton* self) {
+QObject* KIconButton_SuperSender(const KIconButton* self) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_Sender_IsBase(true);
@@ -1879,7 +1879,7 @@ int KIconButton_SenderSignalIndex(const KIconButton* self) {
 }
 
 // Base class handler implementation
-int KIconButton_QBaseSenderSignalIndex(const KIconButton* self) {
+int KIconButton_SuperSenderSignalIndex(const KIconButton* self) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_SenderSignalIndex_IsBase(true);
@@ -1908,7 +1908,7 @@ int KIconButton_Receivers(const KIconButton* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KIconButton_QBaseReceivers(const KIconButton* self, const char* signal) {
+int KIconButton_SuperReceivers(const KIconButton* self, const char* signal) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_Receivers_IsBase(true);
@@ -1937,7 +1937,7 @@ bool KIconButton_IsSignalConnected(const KIconButton* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool KIconButton_QBaseIsSignalConnected(const KIconButton* self, const QMetaMethod* signal) {
+bool KIconButton_SuperIsSignalConnected(const KIconButton* self, const QMetaMethod* signal) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_IsSignalConnected_IsBase(true);
@@ -1966,7 +1966,7 @@ double KIconButton_GetDecodedMetricF(const KIconButton* self, int metricA, int m
 }
 
 // Base class handler implementation
-double KIconButton_QBaseGetDecodedMetricF(const KIconButton* self, int metricA, int metricB) {
+double KIconButton_SuperGetDecodedMetricF(const KIconButton* self, int metricA, int metricB) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
     if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
         vkiconbutton->setKIconButton_GetDecodedMetricF_IsBase(true);

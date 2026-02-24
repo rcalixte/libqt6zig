@@ -180,11 +180,11 @@ class VirtualQGraphicsLayoutItem : public QGraphicsLayoutItem {
 
     // Friend functions
     friend QSizeF* QGraphicsLayoutItem_SizeHint(const QGraphicsLayoutItem* self, int which, const QSizeF* constraint);
-    friend QSizeF* QGraphicsLayoutItem_QBaseSizeHint(const QGraphicsLayoutItem* self, int which, const QSizeF* constraint);
+    friend QSizeF* QGraphicsLayoutItem_SuperSizeHint(const QGraphicsLayoutItem* self, int which, const QSizeF* constraint);
     friend void QGraphicsLayoutItem_SetGraphicsItem(QGraphicsLayoutItem* self, QGraphicsItem* item);
-    friend void QGraphicsLayoutItem_QBaseSetGraphicsItem(QGraphicsLayoutItem* self, QGraphicsItem* item);
+    friend void QGraphicsLayoutItem_SuperSetGraphicsItem(QGraphicsLayoutItem* self, QGraphicsItem* item);
     friend void QGraphicsLayoutItem_SetOwnedByLayout(QGraphicsLayoutItem* self, bool ownedByLayout);
-    friend void QGraphicsLayoutItem_QBaseSetOwnedByLayout(QGraphicsLayoutItem* self, bool ownedByLayout);
+    friend void QGraphicsLayoutItem_SuperSetOwnedByLayout(QGraphicsLayoutItem* self, bool ownedByLayout);
 };
 
 #endif

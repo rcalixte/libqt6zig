@@ -341,25 +341,25 @@ class VirtualQSettings final : public QSettings {
 
     // Friend functions
     friend bool QSettings_Event(QSettings* self, QEvent* event);
-    friend bool QSettings_QBaseEvent(QSettings* self, QEvent* event);
+    friend bool QSettings_SuperEvent(QSettings* self, QEvent* event);
     friend void QSettings_TimerEvent(QSettings* self, QTimerEvent* event);
-    friend void QSettings_QBaseTimerEvent(QSettings* self, QTimerEvent* event);
+    friend void QSettings_SuperTimerEvent(QSettings* self, QTimerEvent* event);
     friend void QSettings_ChildEvent(QSettings* self, QChildEvent* event);
-    friend void QSettings_QBaseChildEvent(QSettings* self, QChildEvent* event);
+    friend void QSettings_SuperChildEvent(QSettings* self, QChildEvent* event);
     friend void QSettings_CustomEvent(QSettings* self, QEvent* event);
-    friend void QSettings_QBaseCustomEvent(QSettings* self, QEvent* event);
+    friend void QSettings_SuperCustomEvent(QSettings* self, QEvent* event);
     friend void QSettings_ConnectNotify(QSettings* self, const QMetaMethod* signal);
-    friend void QSettings_QBaseConnectNotify(QSettings* self, const QMetaMethod* signal);
+    friend void QSettings_SuperConnectNotify(QSettings* self, const QMetaMethod* signal);
     friend void QSettings_DisconnectNotify(QSettings* self, const QMetaMethod* signal);
-    friend void QSettings_QBaseDisconnectNotify(QSettings* self, const QMetaMethod* signal);
+    friend void QSettings_SuperDisconnectNotify(QSettings* self, const QMetaMethod* signal);
     friend QObject* QSettings_Sender(const QSettings* self);
-    friend QObject* QSettings_QBaseSender(const QSettings* self);
+    friend QObject* QSettings_SuperSender(const QSettings* self);
     friend int QSettings_SenderSignalIndex(const QSettings* self);
-    friend int QSettings_QBaseSenderSignalIndex(const QSettings* self);
+    friend int QSettings_SuperSenderSignalIndex(const QSettings* self);
     friend int QSettings_Receivers(const QSettings* self, const char* signal);
-    friend int QSettings_QBaseReceivers(const QSettings* self, const char* signal);
+    friend int QSettings_SuperReceivers(const QSettings* self, const char* signal);
     friend bool QSettings_IsSignalConnected(const QSettings* self, const QMetaMethod* signal);
-    friend bool QSettings_QBaseIsSignalConnected(const QSettings* self, const QMetaMethod* signal);
+    friend bool QSettings_SuperIsSignalConnected(const QSettings* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -226,6 +226,10 @@ pub const qimage = struct {
         qtc.QImage_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#devType)
     ///
     /// Base class method implementation
@@ -234,8 +238,8 @@ pub const qimage = struct {
     ///
     /// ` self: QtC.QImage `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.QImage_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.QImage_SuperDevType(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#operator-eq-eq)
@@ -1364,6 +1368,10 @@ pub const qimage = struct {
         qtc.QImage_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#paintEngine)
     ///
     /// Base class method implementation
@@ -1372,8 +1380,8 @@ pub const qimage = struct {
     ///
     /// ` self: QtC.QImage `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QImage_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.QImage_SuperPaintEngine(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#dotsPerMeterX)
@@ -1567,6 +1575,10 @@ pub const qimage = struct {
         qtc.QImage_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#metric)
     ///
     /// Base class method implementation
@@ -1577,8 +1589,8 @@ pub const qimage = struct {
     ///
     /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, metric: i32) i32 {
-        return qtc.QImage_QBaseMetric(@ptrCast(self), @bitCast(metric));
+    pub fn SuperMetric(self: ?*anyopaque, metric: i32) i32 {
+        return qtc.QImage_SuperMetric(@ptrCast(self), @bitCast(metric));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#mirrored_helper)
@@ -1609,6 +1621,10 @@ pub const qimage = struct {
         qtc.QImage_OnMirroredHelper(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMirroredHelper` instead
+    ///
+    pub const QBaseMirroredHelper = SuperMirroredHelper;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#mirrored_helper)
     ///
     /// Base class method implementation
@@ -1621,8 +1637,8 @@ pub const qimage = struct {
     ///
     /// ` vertical: bool `
     ///
-    pub fn QBaseMirroredHelper(self: ?*anyopaque, horizontal: bool, vertical: bool) QtC.QImage {
-        return qtc.QImage_QBaseMirroredHelper(@ptrCast(self), horizontal, vertical);
+    pub fn SuperMirroredHelper(self: ?*anyopaque, horizontal: bool, vertical: bool) QtC.QImage {
+        return qtc.QImage_SuperMirroredHelper(@ptrCast(self), horizontal, vertical);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#rgbSwapped_helper)
@@ -1649,6 +1665,10 @@ pub const qimage = struct {
         qtc.QImage_OnRgbSwappedHelper(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRgbSwappedHelper` instead
+    ///
+    pub const QBaseRgbSwappedHelper = SuperRgbSwappedHelper;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#rgbSwapped_helper)
     ///
     /// Base class method implementation
@@ -1657,8 +1677,8 @@ pub const qimage = struct {
     ///
     /// ` self: QtC.QImage `
     ///
-    pub fn QBaseRgbSwappedHelper(self: ?*anyopaque) QtC.QImage {
-        return qtc.QImage_QBaseRgbSwappedHelper(@ptrCast(self));
+    pub fn SuperRgbSwappedHelper(self: ?*anyopaque) QtC.QImage {
+        return qtc.QImage_SuperRgbSwappedHelper(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#mirrored_inplace)
@@ -1689,6 +1709,10 @@ pub const qimage = struct {
         qtc.QImage_OnMirroredInplace(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMirroredInplace` instead
+    ///
+    pub const QBaseMirroredInplace = SuperMirroredInplace;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#mirrored_inplace)
     ///
     /// Base class method implementation
@@ -1701,8 +1725,8 @@ pub const qimage = struct {
     ///
     /// ` vertical: bool `
     ///
-    pub fn QBaseMirroredInplace(self: ?*anyopaque, horizontal: bool, vertical: bool) void {
-        qtc.QImage_QBaseMirroredInplace(@ptrCast(self), horizontal, vertical);
+    pub fn SuperMirroredInplace(self: ?*anyopaque, horizontal: bool, vertical: bool) void {
+        qtc.QImage_SuperMirroredInplace(@ptrCast(self), horizontal, vertical);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#rgbSwapped_inplace)
@@ -1729,6 +1753,10 @@ pub const qimage = struct {
         qtc.QImage_OnRgbSwappedInplace(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRgbSwappedInplace` instead
+    ///
+    pub const QBaseRgbSwappedInplace = SuperRgbSwappedInplace;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#rgbSwapped_inplace)
     ///
     /// Base class method implementation
@@ -1737,8 +1765,8 @@ pub const qimage = struct {
     ///
     /// ` self: QtC.QImage `
     ///
-    pub fn QBaseRgbSwappedInplace(self: ?*anyopaque) void {
-        qtc.QImage_QBaseRgbSwappedInplace(@ptrCast(self));
+    pub fn SuperRgbSwappedInplace(self: ?*anyopaque) void {
+        qtc.QImage_SuperRgbSwappedInplace(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#convertToFormat_helper)
@@ -1769,6 +1797,10 @@ pub const qimage = struct {
         qtc.QImage_OnConvertToFormatHelper(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperConvertToFormatHelper` instead
+    ///
+    pub const QBaseConvertToFormatHelper = SuperConvertToFormatHelper;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#convertToFormat_helper)
     ///
     /// Base class method implementation
@@ -1781,8 +1813,8 @@ pub const qimage = struct {
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn QBaseConvertToFormatHelper(self: ?*anyopaque, format: i32, flags: i32) QtC.QImage {
-        return qtc.QImage_QBaseConvertToFormatHelper(@ptrCast(self), @bitCast(format), @bitCast(flags));
+    pub fn SuperConvertToFormatHelper(self: ?*anyopaque, format: i32, flags: i32) QtC.QImage {
+        return qtc.QImage_SuperConvertToFormatHelper(@ptrCast(self), @bitCast(format), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#convertToFormat_inplace)
@@ -1813,6 +1845,10 @@ pub const qimage = struct {
         qtc.QImage_OnConvertToFormatInplace(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperConvertToFormatInplace` instead
+    ///
+    pub const QBaseConvertToFormatInplace = SuperConvertToFormatInplace;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#convertToFormat_inplace)
     ///
     /// Base class method implementation
@@ -1825,8 +1861,8 @@ pub const qimage = struct {
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn QBaseConvertToFormatInplace(self: ?*anyopaque, format: i32, flags: i32) bool {
-        return qtc.QImage_QBaseConvertToFormatInplace(@ptrCast(self), @bitCast(format), @bitCast(flags));
+    pub fn SuperConvertToFormatInplace(self: ?*anyopaque, format: i32, flags: i32) bool {
+        return qtc.QImage_SuperConvertToFormatInplace(@ptrCast(self), @bitCast(format), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#smoothScaled)
@@ -1857,6 +1893,10 @@ pub const qimage = struct {
         qtc.QImage_OnSmoothScaled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSmoothScaled` instead
+    ///
+    pub const QBaseSmoothScaled = SuperSmoothScaled;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#smoothScaled)
     ///
     /// Base class method implementation
@@ -1869,8 +1909,8 @@ pub const qimage = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn QBaseSmoothScaled(self: ?*anyopaque, w: i32, h: i32) QtC.QImage {
-        return qtc.QImage_QBaseSmoothScaled(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SuperSmoothScaled(self: ?*anyopaque, w: i32, h: i32) QtC.QImage {
+        return qtc.QImage_SuperSmoothScaled(@ptrCast(self), @bitCast(w), @bitCast(h));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#detachMetadata)
@@ -1897,6 +1937,10 @@ pub const qimage = struct {
         qtc.QImage_OnDetachMetadata(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDetachMetadata` instead
+    ///
+    pub const QBaseDetachMetadata = SuperDetachMetadata;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#detachMetadata)
     ///
     /// Base class method implementation
@@ -1905,8 +1949,8 @@ pub const qimage = struct {
     ///
     /// ` self: QtC.QImage `
     ///
-    pub fn QBaseDetachMetadata(self: ?*anyopaque) void {
-        qtc.QImage_QBaseDetachMetadata(@ptrCast(self));
+    pub fn SuperDetachMetadata(self: ?*anyopaque) void {
+        qtc.QImage_SuperDetachMetadata(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#copy)
@@ -2498,6 +2542,10 @@ pub const qimage = struct {
         qtc.QImage_OnDetachMetadata1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDetachMetadata1` instead
+    ///
+    pub const QBaseDetachMetadata1 = SuperDetachMetadata1;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#detachMetadata)
     ///
     /// Base class method implementation
@@ -2508,8 +2556,8 @@ pub const qimage = struct {
     ///
     /// ` invalidateCache: bool `
     ///
-    pub fn QBaseDetachMetadata1(self: ?*anyopaque, invalidateCache: bool) void {
-        qtc.QImage_QBaseDetachMetadata1(@ptrCast(self), invalidateCache);
+    pub fn SuperDetachMetadata1(self: ?*anyopaque, invalidateCache: bool) void {
+        qtc.QImage_SuperDetachMetadata1(@ptrCast(self), invalidateCache);
     }
 
     /// Inherited from QPaintDevice
@@ -2646,6 +2694,10 @@ pub const qimage = struct {
         qtc.QImage_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
@@ -2658,8 +2710,8 @@ pub const qimage = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QImage_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QImage_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QPaintDevice
@@ -2694,6 +2746,10 @@ pub const qimage = struct {
         return qtc.QImage_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#redirected)
@@ -2706,8 +2762,8 @@ pub const qimage = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QImage_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.QImage_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QPaintDevice
@@ -2740,6 +2796,10 @@ pub const qimage = struct {
         return qtc.QImage_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#sharedPainter)
@@ -2750,8 +2810,8 @@ pub const qimage = struct {
     ///
     /// ` self: QtC.QImage `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QImage_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.QImage_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QPaintDevice
@@ -2788,6 +2848,10 @@ pub const qimage = struct {
         return qtc.QImage_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -2802,8 +2866,8 @@ pub const qimage = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QImage_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.QImage_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -2821,6 +2885,9 @@ pub const qimage = struct {
     pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
         qtc.QImage_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#dtor.QImage)
     ///
@@ -2830,7 +2897,7 @@ pub const qimage = struct {
     ///
     /// ` self: QtC.QImage `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QImage_Delete(@ptrCast(self));
     }
 };

@@ -408,25 +408,25 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
 
     // Friend functions
     friend void QOffscreenSurface_TimerEvent(QOffscreenSurface* self, QTimerEvent* event);
-    friend void QOffscreenSurface_QBaseTimerEvent(QOffscreenSurface* self, QTimerEvent* event);
+    friend void QOffscreenSurface_SuperTimerEvent(QOffscreenSurface* self, QTimerEvent* event);
     friend void QOffscreenSurface_ChildEvent(QOffscreenSurface* self, QChildEvent* event);
-    friend void QOffscreenSurface_QBaseChildEvent(QOffscreenSurface* self, QChildEvent* event);
+    friend void QOffscreenSurface_SuperChildEvent(QOffscreenSurface* self, QChildEvent* event);
     friend void QOffscreenSurface_CustomEvent(QOffscreenSurface* self, QEvent* event);
-    friend void QOffscreenSurface_QBaseCustomEvent(QOffscreenSurface* self, QEvent* event);
+    friend void QOffscreenSurface_SuperCustomEvent(QOffscreenSurface* self, QEvent* event);
     friend void QOffscreenSurface_ConnectNotify(QOffscreenSurface* self, const QMetaMethod* signal);
-    friend void QOffscreenSurface_QBaseConnectNotify(QOffscreenSurface* self, const QMetaMethod* signal);
+    friend void QOffscreenSurface_SuperConnectNotify(QOffscreenSurface* self, const QMetaMethod* signal);
     friend void QOffscreenSurface_DisconnectNotify(QOffscreenSurface* self, const QMetaMethod* signal);
-    friend void QOffscreenSurface_QBaseDisconnectNotify(QOffscreenSurface* self, const QMetaMethod* signal);
+    friend void QOffscreenSurface_SuperDisconnectNotify(QOffscreenSurface* self, const QMetaMethod* signal);
     friend void* QOffscreenSurface_ResolveInterface(const QOffscreenSurface* self, const char* name, int revision);
-    friend void* QOffscreenSurface_QBaseResolveInterface(const QOffscreenSurface* self, const char* name, int revision);
+    friend void* QOffscreenSurface_SuperResolveInterface(const QOffscreenSurface* self, const char* name, int revision);
     friend QObject* QOffscreenSurface_Sender(const QOffscreenSurface* self);
-    friend QObject* QOffscreenSurface_QBaseSender(const QOffscreenSurface* self);
+    friend QObject* QOffscreenSurface_SuperSender(const QOffscreenSurface* self);
     friend int QOffscreenSurface_SenderSignalIndex(const QOffscreenSurface* self);
-    friend int QOffscreenSurface_QBaseSenderSignalIndex(const QOffscreenSurface* self);
+    friend int QOffscreenSurface_SuperSenderSignalIndex(const QOffscreenSurface* self);
     friend int QOffscreenSurface_Receivers(const QOffscreenSurface* self, const char* signal);
-    friend int QOffscreenSurface_QBaseReceivers(const QOffscreenSurface* self, const char* signal);
+    friend int QOffscreenSurface_SuperReceivers(const QOffscreenSurface* self, const char* signal);
     friend bool QOffscreenSurface_IsSignalConnected(const QOffscreenSurface* self, const QMetaMethod* signal);
-    friend bool QOffscreenSurface_QBaseIsSignalConnected(const QOffscreenSurface* self, const QMetaMethod* signal);
+    friend bool QOffscreenSurface_SuperIsSignalConnected(const QOffscreenSurface* self, const QMetaMethod* signal);
 };
 
 #endif

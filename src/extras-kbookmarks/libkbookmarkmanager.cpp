@@ -154,7 +154,7 @@ bool KBookmarkManager_Save1(const KBookmarkManager* self, bool toolbarCache) {
 }
 
 // Base class handler implementation
-QMetaObject* KBookmarkManager_QBaseMetaObject(const KBookmarkManager* self) {
+QMetaObject* KBookmarkManager_SuperMetaObject(const KBookmarkManager* self) {
     auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
     if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
         vkbookmarkmanager->setKBookmarkManager_MetaObject_IsBase(true);
@@ -173,7 +173,7 @@ void KBookmarkManager_OnMetaObject(const KBookmarkManager* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* KBookmarkManager_QBaseMetacast(KBookmarkManager* self, const char* param1) {
+void* KBookmarkManager_SuperMetacast(KBookmarkManager* self, const char* param1) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
     if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
         vkbookmarkmanager->setKBookmarkManager_Metacast_IsBase(true);
@@ -192,7 +192,7 @@ void KBookmarkManager_OnMetacast(KBookmarkManager* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KBookmarkManager_QBaseMetacall(KBookmarkManager* self, int param1, int param2, void** param3) {
+int KBookmarkManager_SuperMetacall(KBookmarkManager* self, int param1, int param2, void** param3) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
     if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
         vkbookmarkmanager->setKBookmarkManager_Metacall_IsBase(true);
@@ -221,7 +221,7 @@ bool KBookmarkManager_Event(KBookmarkManager* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KBookmarkManager_QBaseEvent(KBookmarkManager* self, QEvent* event) {
+bool KBookmarkManager_SuperEvent(KBookmarkManager* self, QEvent* event) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
     if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
         vkbookmarkmanager->setKBookmarkManager_Event_IsBase(true);
@@ -250,7 +250,7 @@ bool KBookmarkManager_EventFilter(KBookmarkManager* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool KBookmarkManager_QBaseEventFilter(KBookmarkManager* self, QObject* watched, QEvent* event) {
+bool KBookmarkManager_SuperEventFilter(KBookmarkManager* self, QObject* watched, QEvent* event) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
     if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
         vkbookmarkmanager->setKBookmarkManager_EventFilter_IsBase(true);
@@ -279,7 +279,7 @@ void KBookmarkManager_TimerEvent(KBookmarkManager* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkManager_QBaseTimerEvent(KBookmarkManager* self, QTimerEvent* event) {
+void KBookmarkManager_SuperTimerEvent(KBookmarkManager* self, QTimerEvent* event) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
     if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
         vkbookmarkmanager->setKBookmarkManager_TimerEvent_IsBase(true);
@@ -308,7 +308,7 @@ void KBookmarkManager_ChildEvent(KBookmarkManager* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkManager_QBaseChildEvent(KBookmarkManager* self, QChildEvent* event) {
+void KBookmarkManager_SuperChildEvent(KBookmarkManager* self, QChildEvent* event) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
     if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
         vkbookmarkmanager->setKBookmarkManager_ChildEvent_IsBase(true);
@@ -337,7 +337,7 @@ void KBookmarkManager_CustomEvent(KBookmarkManager* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkManager_QBaseCustomEvent(KBookmarkManager* self, QEvent* event) {
+void KBookmarkManager_SuperCustomEvent(KBookmarkManager* self, QEvent* event) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
     if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
         vkbookmarkmanager->setKBookmarkManager_CustomEvent_IsBase(true);
@@ -366,7 +366,7 @@ void KBookmarkManager_ConnectNotify(KBookmarkManager* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void KBookmarkManager_QBaseConnectNotify(KBookmarkManager* self, const QMetaMethod* signal) {
+void KBookmarkManager_SuperConnectNotify(KBookmarkManager* self, const QMetaMethod* signal) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
     if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
         vkbookmarkmanager->setKBookmarkManager_ConnectNotify_IsBase(true);
@@ -395,7 +395,7 @@ void KBookmarkManager_DisconnectNotify(KBookmarkManager* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void KBookmarkManager_QBaseDisconnectNotify(KBookmarkManager* self, const QMetaMethod* signal) {
+void KBookmarkManager_SuperDisconnectNotify(KBookmarkManager* self, const QMetaMethod* signal) {
     auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
     if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
         vkbookmarkmanager->setKBookmarkManager_DisconnectNotify_IsBase(true);
@@ -424,7 +424,7 @@ QObject* KBookmarkManager_Sender(const KBookmarkManager* self) {
 }
 
 // Base class handler implementation
-QObject* KBookmarkManager_QBaseSender(const KBookmarkManager* self) {
+QObject* KBookmarkManager_SuperSender(const KBookmarkManager* self) {
     auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
     if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
         vkbookmarkmanager->setKBookmarkManager_Sender_IsBase(true);
@@ -453,7 +453,7 @@ int KBookmarkManager_SenderSignalIndex(const KBookmarkManager* self) {
 }
 
 // Base class handler implementation
-int KBookmarkManager_QBaseSenderSignalIndex(const KBookmarkManager* self) {
+int KBookmarkManager_SuperSenderSignalIndex(const KBookmarkManager* self) {
     auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
     if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
         vkbookmarkmanager->setKBookmarkManager_SenderSignalIndex_IsBase(true);
@@ -482,7 +482,7 @@ int KBookmarkManager_Receivers(const KBookmarkManager* self, const char* signal)
 }
 
 // Base class handler implementation
-int KBookmarkManager_QBaseReceivers(const KBookmarkManager* self, const char* signal) {
+int KBookmarkManager_SuperReceivers(const KBookmarkManager* self, const char* signal) {
     auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
     if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
         vkbookmarkmanager->setKBookmarkManager_Receivers_IsBase(true);
@@ -511,7 +511,7 @@ bool KBookmarkManager_IsSignalConnected(const KBookmarkManager* self, const QMet
 }
 
 // Base class handler implementation
-bool KBookmarkManager_QBaseIsSignalConnected(const KBookmarkManager* self, const QMetaMethod* signal) {
+bool KBookmarkManager_SuperIsSignalConnected(const KBookmarkManager* self, const QMetaMethod* signal) {
     auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
     if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
         vkbookmarkmanager->setKBookmarkManager_IsSignalConnected_IsBase(true);

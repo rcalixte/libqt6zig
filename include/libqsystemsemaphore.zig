@@ -482,6 +482,10 @@ pub const qsystemsemaphore = struct {
         return qtc.QSystemSemaphore_LegacyNativeKey2(key_str, @bitCast(typeVal));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#dtor.QSystemSemaphore)
     ///
     /// Delete this object from C++ memory.
@@ -490,7 +494,7 @@ pub const qsystemsemaphore = struct {
     ///
     /// ` self: QtC.QSystemSemaphore `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSystemSemaphore_Delete(@ptrCast(self));
     }
 };

@@ -371,29 +371,29 @@ class VirtualQSignalTransition final : public QSignalTransition {
 
     // Friend functions
     friend bool QSignalTransition_EventTest(QSignalTransition* self, QEvent* event);
-    friend bool QSignalTransition_QBaseEventTest(QSignalTransition* self, QEvent* event);
+    friend bool QSignalTransition_SuperEventTest(QSignalTransition* self, QEvent* event);
     friend void QSignalTransition_OnTransition(QSignalTransition* self, QEvent* event);
-    friend void QSignalTransition_QBaseOnTransition(QSignalTransition* self, QEvent* event);
+    friend void QSignalTransition_SuperOnTransition(QSignalTransition* self, QEvent* event);
     friend bool QSignalTransition_Event(QSignalTransition* self, QEvent* e);
-    friend bool QSignalTransition_QBaseEvent(QSignalTransition* self, QEvent* e);
+    friend bool QSignalTransition_SuperEvent(QSignalTransition* self, QEvent* e);
     friend void QSignalTransition_TimerEvent(QSignalTransition* self, QTimerEvent* event);
-    friend void QSignalTransition_QBaseTimerEvent(QSignalTransition* self, QTimerEvent* event);
+    friend void QSignalTransition_SuperTimerEvent(QSignalTransition* self, QTimerEvent* event);
     friend void QSignalTransition_ChildEvent(QSignalTransition* self, QChildEvent* event);
-    friend void QSignalTransition_QBaseChildEvent(QSignalTransition* self, QChildEvent* event);
+    friend void QSignalTransition_SuperChildEvent(QSignalTransition* self, QChildEvent* event);
     friend void QSignalTransition_CustomEvent(QSignalTransition* self, QEvent* event);
-    friend void QSignalTransition_QBaseCustomEvent(QSignalTransition* self, QEvent* event);
+    friend void QSignalTransition_SuperCustomEvent(QSignalTransition* self, QEvent* event);
     friend void QSignalTransition_ConnectNotify(QSignalTransition* self, const QMetaMethod* signal);
-    friend void QSignalTransition_QBaseConnectNotify(QSignalTransition* self, const QMetaMethod* signal);
+    friend void QSignalTransition_SuperConnectNotify(QSignalTransition* self, const QMetaMethod* signal);
     friend void QSignalTransition_DisconnectNotify(QSignalTransition* self, const QMetaMethod* signal);
-    friend void QSignalTransition_QBaseDisconnectNotify(QSignalTransition* self, const QMetaMethod* signal);
+    friend void QSignalTransition_SuperDisconnectNotify(QSignalTransition* self, const QMetaMethod* signal);
     friend QObject* QSignalTransition_Sender(const QSignalTransition* self);
-    friend QObject* QSignalTransition_QBaseSender(const QSignalTransition* self);
+    friend QObject* QSignalTransition_SuperSender(const QSignalTransition* self);
     friend int QSignalTransition_SenderSignalIndex(const QSignalTransition* self);
-    friend int QSignalTransition_QBaseSenderSignalIndex(const QSignalTransition* self);
+    friend int QSignalTransition_SuperSenderSignalIndex(const QSignalTransition* self);
     friend int QSignalTransition_Receivers(const QSignalTransition* self, const char* signal);
-    friend int QSignalTransition_QBaseReceivers(const QSignalTransition* self, const char* signal);
+    friend int QSignalTransition_SuperReceivers(const QSignalTransition* self, const char* signal);
     friend bool QSignalTransition_IsSignalConnected(const QSignalTransition* self, const QMetaMethod* signal);
-    friend bool QSignalTransition_QBaseIsSignalConnected(const QSignalTransition* self, const QMetaMethod* signal);
+    friend bool QSignalTransition_SuperIsSignalConnected(const QSignalTransition* self, const QMetaMethod* signal);
 };
 
 #endif

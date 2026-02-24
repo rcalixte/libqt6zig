@@ -525,6 +525,10 @@ pub const qvideoframeformat = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframeformat.html#dtor.QVideoFrameFormat)
     ///
     /// Delete this object from C++ memory.
@@ -533,7 +537,7 @@ pub const qvideoframeformat = struct {
     ///
     /// ` self: QtC.QVideoFrameFormat `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QVideoFrameFormat_Delete(@ptrCast(self));
     }
 };

@@ -405,7 +405,7 @@ void Sonnet__Settings_Connect_ModifiedChanged(Sonnet__Settings* self, intptr_t s
 }
 
 // Base class handler implementation
-QMetaObject* Sonnet__Settings_QBaseMetaObject(const Sonnet__Settings* self) {
+QMetaObject* Sonnet__Settings_SuperMetaObject(const Sonnet__Settings* self) {
     auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
     if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
         vsonnetsettings->setSonnet__Settings_MetaObject_IsBase(true);
@@ -424,7 +424,7 @@ void Sonnet__Settings_OnMetaObject(const Sonnet__Settings* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* Sonnet__Settings_QBaseMetacast(Sonnet__Settings* self, const char* param1) {
+void* Sonnet__Settings_SuperMetacast(Sonnet__Settings* self, const char* param1) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
     if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
         vsonnetsettings->setSonnet__Settings_Metacast_IsBase(true);
@@ -443,7 +443,7 @@ void Sonnet__Settings_OnMetacast(Sonnet__Settings* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int Sonnet__Settings_QBaseMetacall(Sonnet__Settings* self, int param1, int param2, void** param3) {
+int Sonnet__Settings_SuperMetacall(Sonnet__Settings* self, int param1, int param2, void** param3) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
     if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
         vsonnetsettings->setSonnet__Settings_Metacall_IsBase(true);
@@ -472,7 +472,7 @@ bool Sonnet__Settings_Event(Sonnet__Settings* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool Sonnet__Settings_QBaseEvent(Sonnet__Settings* self, QEvent* event) {
+bool Sonnet__Settings_SuperEvent(Sonnet__Settings* self, QEvent* event) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
     if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
         vsonnetsettings->setSonnet__Settings_Event_IsBase(true);
@@ -501,7 +501,7 @@ bool Sonnet__Settings_EventFilter(Sonnet__Settings* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool Sonnet__Settings_QBaseEventFilter(Sonnet__Settings* self, QObject* watched, QEvent* event) {
+bool Sonnet__Settings_SuperEventFilter(Sonnet__Settings* self, QObject* watched, QEvent* event) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
     if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
         vsonnetsettings->setSonnet__Settings_EventFilter_IsBase(true);
@@ -530,7 +530,7 @@ void Sonnet__Settings_TimerEvent(Sonnet__Settings* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void Sonnet__Settings_QBaseTimerEvent(Sonnet__Settings* self, QTimerEvent* event) {
+void Sonnet__Settings_SuperTimerEvent(Sonnet__Settings* self, QTimerEvent* event) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
     if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
         vsonnetsettings->setSonnet__Settings_TimerEvent_IsBase(true);
@@ -559,7 +559,7 @@ void Sonnet__Settings_ChildEvent(Sonnet__Settings* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void Sonnet__Settings_QBaseChildEvent(Sonnet__Settings* self, QChildEvent* event) {
+void Sonnet__Settings_SuperChildEvent(Sonnet__Settings* self, QChildEvent* event) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
     if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
         vsonnetsettings->setSonnet__Settings_ChildEvent_IsBase(true);
@@ -588,7 +588,7 @@ void Sonnet__Settings_CustomEvent(Sonnet__Settings* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void Sonnet__Settings_QBaseCustomEvent(Sonnet__Settings* self, QEvent* event) {
+void Sonnet__Settings_SuperCustomEvent(Sonnet__Settings* self, QEvent* event) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
     if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
         vsonnetsettings->setSonnet__Settings_CustomEvent_IsBase(true);
@@ -617,7 +617,7 @@ void Sonnet__Settings_ConnectNotify(Sonnet__Settings* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void Sonnet__Settings_QBaseConnectNotify(Sonnet__Settings* self, const QMetaMethod* signal) {
+void Sonnet__Settings_SuperConnectNotify(Sonnet__Settings* self, const QMetaMethod* signal) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
     if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
         vsonnetsettings->setSonnet__Settings_ConnectNotify_IsBase(true);
@@ -646,7 +646,7 @@ void Sonnet__Settings_DisconnectNotify(Sonnet__Settings* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void Sonnet__Settings_QBaseDisconnectNotify(Sonnet__Settings* self, const QMetaMethod* signal) {
+void Sonnet__Settings_SuperDisconnectNotify(Sonnet__Settings* self, const QMetaMethod* signal) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
     if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
         vsonnetsettings->setSonnet__Settings_DisconnectNotify_IsBase(true);
@@ -675,7 +675,7 @@ QObject* Sonnet__Settings_Sender(const Sonnet__Settings* self) {
 }
 
 // Base class handler implementation
-QObject* Sonnet__Settings_QBaseSender(const Sonnet__Settings* self) {
+QObject* Sonnet__Settings_SuperSender(const Sonnet__Settings* self) {
     auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
     if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
         vsonnetsettings->setSonnet__Settings_Sender_IsBase(true);
@@ -704,7 +704,7 @@ int Sonnet__Settings_SenderSignalIndex(const Sonnet__Settings* self) {
 }
 
 // Base class handler implementation
-int Sonnet__Settings_QBaseSenderSignalIndex(const Sonnet__Settings* self) {
+int Sonnet__Settings_SuperSenderSignalIndex(const Sonnet__Settings* self) {
     auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
     if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
         vsonnetsettings->setSonnet__Settings_SenderSignalIndex_IsBase(true);
@@ -733,7 +733,7 @@ int Sonnet__Settings_Receivers(const Sonnet__Settings* self, const char* signal)
 }
 
 // Base class handler implementation
-int Sonnet__Settings_QBaseReceivers(const Sonnet__Settings* self, const char* signal) {
+int Sonnet__Settings_SuperReceivers(const Sonnet__Settings* self, const char* signal) {
     auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
     if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
         vsonnetsettings->setSonnet__Settings_Receivers_IsBase(true);
@@ -762,7 +762,7 @@ bool Sonnet__Settings_IsSignalConnected(const Sonnet__Settings* self, const QMet
 }
 
 // Base class handler implementation
-bool Sonnet__Settings_QBaseIsSignalConnected(const Sonnet__Settings* self, const QMetaMethod* signal) {
+bool Sonnet__Settings_SuperIsSignalConnected(const Sonnet__Settings* self, const QMetaMethod* signal) {
     auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
     if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
         vsonnetsettings->setSonnet__Settings_IsSignalConnected_IsBase(true);

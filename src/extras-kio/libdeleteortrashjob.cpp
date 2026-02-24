@@ -74,7 +74,7 @@ void KIO__DeleteOrTrashJob_Connect_Started(KIO__DeleteOrTrashJob* self, intptr_t
 }
 
 // Base class handler implementation
-QMetaObject* KIO__DeleteOrTrashJob_QBaseMetaObject(const KIO__DeleteOrTrashJob* self) {
+QMetaObject* KIO__DeleteOrTrashJob_SuperMetaObject(const KIO__DeleteOrTrashJob* self) {
     auto* vkiodeleteortrashjob = const_cast<VirtualKIODeleteOrTrashJob*>(dynamic_cast<const VirtualKIODeleteOrTrashJob*>(self));
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_MetaObject_IsBase(true);
@@ -93,7 +93,7 @@ void KIO__DeleteOrTrashJob_OnMetaObject(const KIO__DeleteOrTrashJob* self, intpt
 }
 
 // Base class handler implementation
-void* KIO__DeleteOrTrashJob_QBaseMetacast(KIO__DeleteOrTrashJob* self, const char* param1) {
+void* KIO__DeleteOrTrashJob_SuperMetacast(KIO__DeleteOrTrashJob* self, const char* param1) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_Metacast_IsBase(true);
@@ -112,7 +112,7 @@ void KIO__DeleteOrTrashJob_OnMetacast(KIO__DeleteOrTrashJob* self, intptr_t slot
 }
 
 // Base class handler implementation
-int KIO__DeleteOrTrashJob_QBaseMetacall(KIO__DeleteOrTrashJob* self, int param1, int param2, void** param3) {
+int KIO__DeleteOrTrashJob_SuperMetacall(KIO__DeleteOrTrashJob* self, int param1, int param2, void** param3) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_Metacall_IsBase(true);
@@ -131,7 +131,7 @@ void KIO__DeleteOrTrashJob_OnMetacall(KIO__DeleteOrTrashJob* self, intptr_t slot
 }
 
 // Base class handler implementation
-void KIO__DeleteOrTrashJob_QBaseStart(KIO__DeleteOrTrashJob* self) {
+void KIO__DeleteOrTrashJob_SuperStart(KIO__DeleteOrTrashJob* self) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_Start_IsBase(true);
@@ -160,7 +160,7 @@ bool KIO__DeleteOrTrashJob_AddSubjob(KIO__DeleteOrTrashJob* self, KJob* job) {
 }
 
 // Base class handler implementation
-bool KIO__DeleteOrTrashJob_QBaseAddSubjob(KIO__DeleteOrTrashJob* self, KJob* job) {
+bool KIO__DeleteOrTrashJob_SuperAddSubjob(KIO__DeleteOrTrashJob* self, KJob* job) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_AddSubjob_IsBase(true);
@@ -189,7 +189,7 @@ bool KIO__DeleteOrTrashJob_RemoveSubjob(KIO__DeleteOrTrashJob* self, KJob* job) 
 }
 
 // Base class handler implementation
-bool KIO__DeleteOrTrashJob_QBaseRemoveSubjob(KIO__DeleteOrTrashJob* self, KJob* job) {
+bool KIO__DeleteOrTrashJob_SuperRemoveSubjob(KIO__DeleteOrTrashJob* self, KJob* job) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_RemoveSubjob_IsBase(true);
@@ -219,7 +219,7 @@ void KIO__DeleteOrTrashJob_SlotInfoMessage(KIO__DeleteOrTrashJob* self, KJob* jo
 }
 
 // Base class handler implementation
-void KIO__DeleteOrTrashJob_QBaseSlotInfoMessage(KIO__DeleteOrTrashJob* self, KJob* job, const libqt_string message) {
+void KIO__DeleteOrTrashJob_SuperSlotInfoMessage(KIO__DeleteOrTrashJob* self, KJob* job, const libqt_string message) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     QString message_QString = QString::fromUtf8(message.data, message.len);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
@@ -249,7 +249,7 @@ bool KIO__DeleteOrTrashJob_DoKill(KIO__DeleteOrTrashJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__DeleteOrTrashJob_QBaseDoKill(KIO__DeleteOrTrashJob* self) {
+bool KIO__DeleteOrTrashJob_SuperDoKill(KIO__DeleteOrTrashJob* self) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_DoKill_IsBase(true);
@@ -278,7 +278,7 @@ bool KIO__DeleteOrTrashJob_DoSuspend(KIO__DeleteOrTrashJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__DeleteOrTrashJob_QBaseDoSuspend(KIO__DeleteOrTrashJob* self) {
+bool KIO__DeleteOrTrashJob_SuperDoSuspend(KIO__DeleteOrTrashJob* self) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_DoSuspend_IsBase(true);
@@ -307,7 +307,7 @@ bool KIO__DeleteOrTrashJob_DoResume(KIO__DeleteOrTrashJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__DeleteOrTrashJob_QBaseDoResume(KIO__DeleteOrTrashJob* self) {
+bool KIO__DeleteOrTrashJob_SuperDoResume(KIO__DeleteOrTrashJob* self) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_DoResume_IsBase(true);
@@ -352,7 +352,7 @@ libqt_string KIO__DeleteOrTrashJob_ErrorString(const KIO__DeleteOrTrashJob* self
 }
 
 // Base class handler implementation
-libqt_string KIO__DeleteOrTrashJob_QBaseErrorString(const KIO__DeleteOrTrashJob* self) {
+libqt_string KIO__DeleteOrTrashJob_SuperErrorString(const KIO__DeleteOrTrashJob* self) {
     auto* vkiodeleteortrashjob = const_cast<VirtualKIODeleteOrTrashJob*>(dynamic_cast<const VirtualKIODeleteOrTrashJob*>(self));
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_ErrorString_IsBase(true);
@@ -397,7 +397,7 @@ bool KIO__DeleteOrTrashJob_Event(KIO__DeleteOrTrashJob* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KIO__DeleteOrTrashJob_QBaseEvent(KIO__DeleteOrTrashJob* self, QEvent* event) {
+bool KIO__DeleteOrTrashJob_SuperEvent(KIO__DeleteOrTrashJob* self, QEvent* event) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_Event_IsBase(true);
@@ -426,7 +426,7 @@ bool KIO__DeleteOrTrashJob_EventFilter(KIO__DeleteOrTrashJob* self, QObject* wat
 }
 
 // Base class handler implementation
-bool KIO__DeleteOrTrashJob_QBaseEventFilter(KIO__DeleteOrTrashJob* self, QObject* watched, QEvent* event) {
+bool KIO__DeleteOrTrashJob_SuperEventFilter(KIO__DeleteOrTrashJob* self, QObject* watched, QEvent* event) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_EventFilter_IsBase(true);
@@ -455,7 +455,7 @@ void KIO__DeleteOrTrashJob_TimerEvent(KIO__DeleteOrTrashJob* self, QTimerEvent* 
 }
 
 // Base class handler implementation
-void KIO__DeleteOrTrashJob_QBaseTimerEvent(KIO__DeleteOrTrashJob* self, QTimerEvent* event) {
+void KIO__DeleteOrTrashJob_SuperTimerEvent(KIO__DeleteOrTrashJob* self, QTimerEvent* event) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_TimerEvent_IsBase(true);
@@ -484,7 +484,7 @@ void KIO__DeleteOrTrashJob_ChildEvent(KIO__DeleteOrTrashJob* self, QChildEvent* 
 }
 
 // Base class handler implementation
-void KIO__DeleteOrTrashJob_QBaseChildEvent(KIO__DeleteOrTrashJob* self, QChildEvent* event) {
+void KIO__DeleteOrTrashJob_SuperChildEvent(KIO__DeleteOrTrashJob* self, QChildEvent* event) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_ChildEvent_IsBase(true);
@@ -513,7 +513,7 @@ void KIO__DeleteOrTrashJob_CustomEvent(KIO__DeleteOrTrashJob* self, QEvent* even
 }
 
 // Base class handler implementation
-void KIO__DeleteOrTrashJob_QBaseCustomEvent(KIO__DeleteOrTrashJob* self, QEvent* event) {
+void KIO__DeleteOrTrashJob_SuperCustomEvent(KIO__DeleteOrTrashJob* self, QEvent* event) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_CustomEvent_IsBase(true);
@@ -542,7 +542,7 @@ void KIO__DeleteOrTrashJob_ConnectNotify(KIO__DeleteOrTrashJob* self, const QMet
 }
 
 // Base class handler implementation
-void KIO__DeleteOrTrashJob_QBaseConnectNotify(KIO__DeleteOrTrashJob* self, const QMetaMethod* signal) {
+void KIO__DeleteOrTrashJob_SuperConnectNotify(KIO__DeleteOrTrashJob* self, const QMetaMethod* signal) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_ConnectNotify_IsBase(true);
@@ -571,7 +571,7 @@ void KIO__DeleteOrTrashJob_DisconnectNotify(KIO__DeleteOrTrashJob* self, const Q
 }
 
 // Base class handler implementation
-void KIO__DeleteOrTrashJob_QBaseDisconnectNotify(KIO__DeleteOrTrashJob* self, const QMetaMethod* signal) {
+void KIO__DeleteOrTrashJob_SuperDisconnectNotify(KIO__DeleteOrTrashJob* self, const QMetaMethod* signal) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_DisconnectNotify_IsBase(true);
@@ -600,7 +600,7 @@ bool KIO__DeleteOrTrashJob_HasSubjobs(const KIO__DeleteOrTrashJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__DeleteOrTrashJob_QBaseHasSubjobs(const KIO__DeleteOrTrashJob* self) {
+bool KIO__DeleteOrTrashJob_SuperHasSubjobs(const KIO__DeleteOrTrashJob* self) {
     auto* vkiodeleteortrashjob = const_cast<VirtualKIODeleteOrTrashJob*>(dynamic_cast<const VirtualKIODeleteOrTrashJob*>(self));
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_HasSubjobs_IsBase(true);
@@ -647,7 +647,7 @@ libqt_list /* of KJob* */ KIO__DeleteOrTrashJob_Subjobs(const KIO__DeleteOrTrash
 }
 
 // Base class handler implementation
-libqt_list /* of KJob* */ KIO__DeleteOrTrashJob_QBaseSubjobs(const KIO__DeleteOrTrashJob* self) {
+libqt_list /* of KJob* */ KIO__DeleteOrTrashJob_SuperSubjobs(const KIO__DeleteOrTrashJob* self) {
     auto* vkiodeleteortrashjob = const_cast<VirtualKIODeleteOrTrashJob*>(dynamic_cast<const VirtualKIODeleteOrTrashJob*>(self));
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_Subjobs_IsBase(true);
@@ -694,7 +694,7 @@ void KIO__DeleteOrTrashJob_ClearSubjobs(KIO__DeleteOrTrashJob* self) {
 }
 
 // Base class handler implementation
-void KIO__DeleteOrTrashJob_QBaseClearSubjobs(KIO__DeleteOrTrashJob* self) {
+void KIO__DeleteOrTrashJob_SuperClearSubjobs(KIO__DeleteOrTrashJob* self) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_ClearSubjobs_IsBase(true);
@@ -723,7 +723,7 @@ void KIO__DeleteOrTrashJob_SetCapabilities(KIO__DeleteOrTrashJob* self, int capa
 }
 
 // Base class handler implementation
-void KIO__DeleteOrTrashJob_QBaseSetCapabilities(KIO__DeleteOrTrashJob* self, int capabilities) {
+void KIO__DeleteOrTrashJob_SuperSetCapabilities(KIO__DeleteOrTrashJob* self, int capabilities) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_SetCapabilities_IsBase(true);
@@ -752,7 +752,7 @@ bool KIO__DeleteOrTrashJob_IsFinished(const KIO__DeleteOrTrashJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__DeleteOrTrashJob_QBaseIsFinished(const KIO__DeleteOrTrashJob* self) {
+bool KIO__DeleteOrTrashJob_SuperIsFinished(const KIO__DeleteOrTrashJob* self) {
     auto* vkiodeleteortrashjob = const_cast<VirtualKIODeleteOrTrashJob*>(dynamic_cast<const VirtualKIODeleteOrTrashJob*>(self));
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_IsFinished_IsBase(true);
@@ -781,7 +781,7 @@ void KIO__DeleteOrTrashJob_SetError(KIO__DeleteOrTrashJob* self, int errorCode) 
 }
 
 // Base class handler implementation
-void KIO__DeleteOrTrashJob_QBaseSetError(KIO__DeleteOrTrashJob* self, int errorCode) {
+void KIO__DeleteOrTrashJob_SuperSetError(KIO__DeleteOrTrashJob* self, int errorCode) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_SetError_IsBase(true);
@@ -811,7 +811,7 @@ void KIO__DeleteOrTrashJob_SetErrorText(KIO__DeleteOrTrashJob* self, const libqt
 }
 
 // Base class handler implementation
-void KIO__DeleteOrTrashJob_QBaseSetErrorText(KIO__DeleteOrTrashJob* self, const libqt_string errorText) {
+void KIO__DeleteOrTrashJob_SuperSetErrorText(KIO__DeleteOrTrashJob* self, const libqt_string errorText) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
@@ -841,7 +841,7 @@ void KIO__DeleteOrTrashJob_SetProcessedAmount(KIO__DeleteOrTrashJob* self, int u
 }
 
 // Base class handler implementation
-void KIO__DeleteOrTrashJob_QBaseSetProcessedAmount(KIO__DeleteOrTrashJob* self, int unit, unsigned long long amount) {
+void KIO__DeleteOrTrashJob_SuperSetProcessedAmount(KIO__DeleteOrTrashJob* self, int unit, unsigned long long amount) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_SetProcessedAmount_IsBase(true);
@@ -870,7 +870,7 @@ void KIO__DeleteOrTrashJob_SetTotalAmount(KIO__DeleteOrTrashJob* self, int unit,
 }
 
 // Base class handler implementation
-void KIO__DeleteOrTrashJob_QBaseSetTotalAmount(KIO__DeleteOrTrashJob* self, int unit, unsigned long long amount) {
+void KIO__DeleteOrTrashJob_SuperSetTotalAmount(KIO__DeleteOrTrashJob* self, int unit, unsigned long long amount) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_SetTotalAmount_IsBase(true);
@@ -899,7 +899,7 @@ void KIO__DeleteOrTrashJob_SetProgressUnit(KIO__DeleteOrTrashJob* self, int unit
 }
 
 // Base class handler implementation
-void KIO__DeleteOrTrashJob_QBaseSetProgressUnit(KIO__DeleteOrTrashJob* self, int unit) {
+void KIO__DeleteOrTrashJob_SuperSetProgressUnit(KIO__DeleteOrTrashJob* self, int unit) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_SetProgressUnit_IsBase(true);
@@ -928,7 +928,7 @@ void KIO__DeleteOrTrashJob_SetPercent(KIO__DeleteOrTrashJob* self, unsigned long
 }
 
 // Base class handler implementation
-void KIO__DeleteOrTrashJob_QBaseSetPercent(KIO__DeleteOrTrashJob* self, unsigned long percentage) {
+void KIO__DeleteOrTrashJob_SuperSetPercent(KIO__DeleteOrTrashJob* self, unsigned long percentage) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_SetPercent_IsBase(true);
@@ -957,7 +957,7 @@ void KIO__DeleteOrTrashJob_EmitResult(KIO__DeleteOrTrashJob* self) {
 }
 
 // Base class handler implementation
-void KIO__DeleteOrTrashJob_QBaseEmitResult(KIO__DeleteOrTrashJob* self) {
+void KIO__DeleteOrTrashJob_SuperEmitResult(KIO__DeleteOrTrashJob* self) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_EmitResult_IsBase(true);
@@ -986,7 +986,7 @@ void KIO__DeleteOrTrashJob_EmitPercent(KIO__DeleteOrTrashJob* self, unsigned lon
 }
 
 // Base class handler implementation
-void KIO__DeleteOrTrashJob_QBaseEmitPercent(KIO__DeleteOrTrashJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
+void KIO__DeleteOrTrashJob_SuperEmitPercent(KIO__DeleteOrTrashJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_EmitPercent_IsBase(true);
@@ -1015,7 +1015,7 @@ void KIO__DeleteOrTrashJob_EmitSpeed(KIO__DeleteOrTrashJob* self, unsigned long 
 }
 
 // Base class handler implementation
-void KIO__DeleteOrTrashJob_QBaseEmitSpeed(KIO__DeleteOrTrashJob* self, unsigned long speed) {
+void KIO__DeleteOrTrashJob_SuperEmitSpeed(KIO__DeleteOrTrashJob* self, unsigned long speed) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_EmitSpeed_IsBase(true);
@@ -1044,7 +1044,7 @@ void KIO__DeleteOrTrashJob_StartElapsedTimer(KIO__DeleteOrTrashJob* self) {
 }
 
 // Base class handler implementation
-void KIO__DeleteOrTrashJob_QBaseStartElapsedTimer(KIO__DeleteOrTrashJob* self) {
+void KIO__DeleteOrTrashJob_SuperStartElapsedTimer(KIO__DeleteOrTrashJob* self) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_StartElapsedTimer_IsBase(true);
@@ -1073,7 +1073,7 @@ QObject* KIO__DeleteOrTrashJob_Sender(const KIO__DeleteOrTrashJob* self) {
 }
 
 // Base class handler implementation
-QObject* KIO__DeleteOrTrashJob_QBaseSender(const KIO__DeleteOrTrashJob* self) {
+QObject* KIO__DeleteOrTrashJob_SuperSender(const KIO__DeleteOrTrashJob* self) {
     auto* vkiodeleteortrashjob = const_cast<VirtualKIODeleteOrTrashJob*>(dynamic_cast<const VirtualKIODeleteOrTrashJob*>(self));
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_Sender_IsBase(true);
@@ -1102,7 +1102,7 @@ int KIO__DeleteOrTrashJob_SenderSignalIndex(const KIO__DeleteOrTrashJob* self) {
 }
 
 // Base class handler implementation
-int KIO__DeleteOrTrashJob_QBaseSenderSignalIndex(const KIO__DeleteOrTrashJob* self) {
+int KIO__DeleteOrTrashJob_SuperSenderSignalIndex(const KIO__DeleteOrTrashJob* self) {
     auto* vkiodeleteortrashjob = const_cast<VirtualKIODeleteOrTrashJob*>(dynamic_cast<const VirtualKIODeleteOrTrashJob*>(self));
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_SenderSignalIndex_IsBase(true);
@@ -1131,7 +1131,7 @@ int KIO__DeleteOrTrashJob_Receivers(const KIO__DeleteOrTrashJob* self, const cha
 }
 
 // Base class handler implementation
-int KIO__DeleteOrTrashJob_QBaseReceivers(const KIO__DeleteOrTrashJob* self, const char* signal) {
+int KIO__DeleteOrTrashJob_SuperReceivers(const KIO__DeleteOrTrashJob* self, const char* signal) {
     auto* vkiodeleteortrashjob = const_cast<VirtualKIODeleteOrTrashJob*>(dynamic_cast<const VirtualKIODeleteOrTrashJob*>(self));
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_Receivers_IsBase(true);
@@ -1160,7 +1160,7 @@ bool KIO__DeleteOrTrashJob_IsSignalConnected(const KIO__DeleteOrTrashJob* self, 
 }
 
 // Base class handler implementation
-bool KIO__DeleteOrTrashJob_QBaseIsSignalConnected(const KIO__DeleteOrTrashJob* self, const QMetaMethod* signal) {
+bool KIO__DeleteOrTrashJob_SuperIsSignalConnected(const KIO__DeleteOrTrashJob* self, const QMetaMethod* signal) {
     auto* vkiodeleteortrashjob = const_cast<VirtualKIODeleteOrTrashJob*>(dynamic_cast<const VirtualKIODeleteOrTrashJob*>(self));
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_IsSignalConnected_IsBase(true);

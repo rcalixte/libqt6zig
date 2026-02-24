@@ -328,23 +328,23 @@ class VirtualQButtonGroup final : public QButtonGroup {
 
     // Friend functions
     friend void QButtonGroup_TimerEvent(QButtonGroup* self, QTimerEvent* event);
-    friend void QButtonGroup_QBaseTimerEvent(QButtonGroup* self, QTimerEvent* event);
+    friend void QButtonGroup_SuperTimerEvent(QButtonGroup* self, QTimerEvent* event);
     friend void QButtonGroup_ChildEvent(QButtonGroup* self, QChildEvent* event);
-    friend void QButtonGroup_QBaseChildEvent(QButtonGroup* self, QChildEvent* event);
+    friend void QButtonGroup_SuperChildEvent(QButtonGroup* self, QChildEvent* event);
     friend void QButtonGroup_CustomEvent(QButtonGroup* self, QEvent* event);
-    friend void QButtonGroup_QBaseCustomEvent(QButtonGroup* self, QEvent* event);
+    friend void QButtonGroup_SuperCustomEvent(QButtonGroup* self, QEvent* event);
     friend void QButtonGroup_ConnectNotify(QButtonGroup* self, const QMetaMethod* signal);
-    friend void QButtonGroup_QBaseConnectNotify(QButtonGroup* self, const QMetaMethod* signal);
+    friend void QButtonGroup_SuperConnectNotify(QButtonGroup* self, const QMetaMethod* signal);
     friend void QButtonGroup_DisconnectNotify(QButtonGroup* self, const QMetaMethod* signal);
-    friend void QButtonGroup_QBaseDisconnectNotify(QButtonGroup* self, const QMetaMethod* signal);
+    friend void QButtonGroup_SuperDisconnectNotify(QButtonGroup* self, const QMetaMethod* signal);
     friend QObject* QButtonGroup_Sender(const QButtonGroup* self);
-    friend QObject* QButtonGroup_QBaseSender(const QButtonGroup* self);
+    friend QObject* QButtonGroup_SuperSender(const QButtonGroup* self);
     friend int QButtonGroup_SenderSignalIndex(const QButtonGroup* self);
-    friend int QButtonGroup_QBaseSenderSignalIndex(const QButtonGroup* self);
+    friend int QButtonGroup_SuperSenderSignalIndex(const QButtonGroup* self);
     friend int QButtonGroup_Receivers(const QButtonGroup* self, const char* signal);
-    friend int QButtonGroup_QBaseReceivers(const QButtonGroup* self, const char* signal);
+    friend int QButtonGroup_SuperReceivers(const QButtonGroup* self, const char* signal);
     friend bool QButtonGroup_IsSignalConnected(const QButtonGroup* self, const QMetaMethod* signal);
-    friend bool QButtonGroup_QBaseIsSignalConnected(const QButtonGroup* self, const QMetaMethod* signal);
+    friend bool QButtonGroup_SuperIsSignalConnected(const QButtonGroup* self, const QMetaMethod* signal);
 };
 
 #endif

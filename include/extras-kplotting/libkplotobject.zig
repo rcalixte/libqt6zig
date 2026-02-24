@@ -464,6 +464,10 @@ pub const kplotobject = struct {
         qtc.KPlotObject_AddPoint4(@ptrCast(self), @bitCast(x), @bitCast(y), label_str, @bitCast(barWidth));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#dtor.KPlotObject)
     ///
     /// Delete this object from C++ memory.
@@ -472,7 +476,7 @@ pub const kplotobject = struct {
     ///
     /// ` self: QtC.KPlotObject `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KPlotObject_Delete(@ptrCast(self));
     }
 };

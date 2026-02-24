@@ -113,7 +113,7 @@ void KZip_VirtualHook(KZip* self, int id, void* data) {
 }
 
 // Base class handler implementation
-bool KZip_QBaseDoWriteSymLink(KZip* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
+bool KZip_SuperDoWriteSymLink(KZip* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString target_QString = QString::fromUtf8(target.data, target.len);
@@ -136,7 +136,7 @@ void KZip_OnDoWriteSymLink(KZip* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KZip_QBaseDoPrepareWriting(KZip* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* creationTime) {
+bool KZip_SuperDoPrepareWriting(KZip* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* creationTime) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString user_QString = QString::fromUtf8(user.data, user.len);
@@ -158,7 +158,7 @@ void KZip_OnDoPrepareWriting(KZip* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KZip_QBaseDoFinishWriting(KZip* self, long long size) {
+bool KZip_SuperDoFinishWriting(KZip* self, long long size) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
     if (vkzip && vkzip->isVirtualKZip) {
         vkzip->setKZip_DoFinishWriting_IsBase(true);
@@ -177,7 +177,7 @@ void KZip_OnDoFinishWriting(KZip* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KZip_QBaseDoWriteData(KZip* self, const char* data, long long size) {
+bool KZip_SuperDoWriteData(KZip* self, const char* data, long long size) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
     if (vkzip && vkzip->isVirtualKZip) {
         vkzip->setKZip_DoWriteData_IsBase(true);
@@ -196,7 +196,7 @@ void KZip_OnDoWriteData(KZip* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KZip_QBaseOpenArchive(KZip* self, int mode) {
+bool KZip_SuperOpenArchive(KZip* self, int mode) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
     if (vkzip && vkzip->isVirtualKZip) {
         vkzip->setKZip_OpenArchive_IsBase(true);
@@ -215,7 +215,7 @@ void KZip_OnOpenArchive(KZip* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KZip_QBaseCloseArchive(KZip* self) {
+bool KZip_SuperCloseArchive(KZip* self) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
     if (vkzip && vkzip->isVirtualKZip) {
         vkzip->setKZip_CloseArchive_IsBase(true);
@@ -234,7 +234,7 @@ void KZip_OnCloseArchive(KZip* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KZip_QBaseDoWriteDir(KZip* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
+bool KZip_SuperDoWriteDir(KZip* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString user_QString = QString::fromUtf8(user.data, user.len);
@@ -256,7 +256,7 @@ void KZip_OnDoWriteDir(KZip* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KZip_QBaseVirtualHook(KZip* self, int id, void* data) {
+void KZip_SuperVirtualHook(KZip* self, int id, void* data) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
     if (vkzip && vkzip->isVirtualKZip) {
         vkzip->setKZip_VirtualHook_IsBase(true);
@@ -285,7 +285,7 @@ bool KZip_Open(KZip* self, int mode) {
 }
 
 // Base class handler implementation
-bool KZip_QBaseOpen(KZip* self, int mode) {
+bool KZip_SuperOpen(KZip* self, int mode) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
     if (vkzip && vkzip->isVirtualKZip) {
         vkzip->setKZip_Open_IsBase(true);
@@ -314,7 +314,7 @@ bool KZip_Close(KZip* self) {
 }
 
 // Base class handler implementation
-bool KZip_QBaseClose(KZip* self) {
+bool KZip_SuperClose(KZip* self) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
     if (vkzip && vkzip->isVirtualKZip) {
         vkzip->setKZip_Close_IsBase(true);
@@ -343,7 +343,7 @@ KArchiveDirectory* KZip_RootDir(KZip* self) {
 }
 
 // Base class handler implementation
-KArchiveDirectory* KZip_QBaseRootDir(KZip* self) {
+KArchiveDirectory* KZip_SuperRootDir(KZip* self) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
     if (vkzip && vkzip->isVirtualKZip) {
         vkzip->setKZip_RootDir_IsBase(true);
@@ -372,7 +372,7 @@ bool KZip_CreateDevice(KZip* self, int mode) {
 }
 
 // Base class handler implementation
-bool KZip_QBaseCreateDevice(KZip* self, int mode) {
+bool KZip_SuperCreateDevice(KZip* self, int mode) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
     if (vkzip && vkzip->isVirtualKZip) {
         vkzip->setKZip_CreateDevice_IsBase(true);
@@ -402,7 +402,7 @@ void KZip_SetErrorString(KZip* self, const libqt_string errorStr) {
 }
 
 // Base class handler implementation
-void KZip_QBaseSetErrorString(KZip* self, const libqt_string errorStr) {
+void KZip_SuperSetErrorString(KZip* self, const libqt_string errorStr) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
     QString errorStr_QString = QString::fromUtf8(errorStr.data, errorStr.len);
     if (vkzip && vkzip->isVirtualKZip) {
@@ -433,7 +433,7 @@ KArchiveDirectory* KZip_FindOrCreate(KZip* self, const libqt_string path) {
 }
 
 // Base class handler implementation
-KArchiveDirectory* KZip_QBaseFindOrCreate(KZip* self, const libqt_string path) {
+KArchiveDirectory* KZip_SuperFindOrCreate(KZip* self, const libqt_string path) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
     QString path_QString = QString::fromUtf8(path.data, path.len);
     if (vkzip && vkzip->isVirtualKZip) {
@@ -463,7 +463,7 @@ void KZip_SetDevice(KZip* self, QIODevice* dev) {
 }
 
 // Base class handler implementation
-void KZip_QBaseSetDevice(KZip* self, QIODevice* dev) {
+void KZip_SuperSetDevice(KZip* self, QIODevice* dev) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
     if (vkzip && vkzip->isVirtualKZip) {
         vkzip->setKZip_SetDevice_IsBase(true);
@@ -492,7 +492,7 @@ void KZip_SetRootDir(KZip* self, KArchiveDirectory* rootDir) {
 }
 
 // Base class handler implementation
-void KZip_QBaseSetRootDir(KZip* self, KArchiveDirectory* rootDir) {
+void KZip_SuperSetRootDir(KZip* self, KArchiveDirectory* rootDir) {
     auto* vkzip = dynamic_cast<VirtualKZip*>(self);
     if (vkzip && vkzip->isVirtualKZip) {
         vkzip->setKZip_SetRootDir_IsBase(true);

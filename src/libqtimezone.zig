@@ -847,6 +847,10 @@ pub const qtimezone = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#dtor.QTimeZone)
     ///
     /// Delete this object from C++ memory.
@@ -855,7 +859,7 @@ pub const qtimezone = struct {
     ///
     /// ` self: QtC.QTimeZone `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTimeZone_Delete(@ptrCast(self));
     }
 };
@@ -1010,13 +1014,17 @@ pub const qtimezone__offsetdata = struct {
         qtc.QTimeZone__OffsetData_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QTimeZone__OffsetData `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTimeZone__OffsetData_Delete(@ptrCast(self));
     }
 };

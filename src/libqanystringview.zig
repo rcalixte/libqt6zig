@@ -422,6 +422,10 @@ pub const qanystringview = struct {
         return qtc.QAnyStringView_Compare3(lhs.ptr, rhs.ptr, @bitCast(cs));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#dtor.QAnyStringView)
     ///
     /// Delete this object from C++ memory.
@@ -430,7 +434,7 @@ pub const qanystringview = struct {
     ///
     /// ` self: QtC.QAnyStringView `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAnyStringView_Delete(@ptrCast(self));
     }
 };

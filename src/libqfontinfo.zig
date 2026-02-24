@@ -229,6 +229,10 @@ pub const qfontinfo = struct {
         return qtc.QFontInfo_ExactMatch(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontinfo.html#dtor.QFontInfo)
     ///
     /// Delete this object from C++ memory.
@@ -237,7 +241,7 @@ pub const qfontinfo = struct {
     ///
     /// ` self: QtC.QFontInfo `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QFontInfo_Delete(@ptrCast(self));
     }
 };

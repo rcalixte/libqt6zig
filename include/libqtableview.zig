@@ -55,6 +55,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -63,8 +67,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QTableView_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QTableView_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -90,6 +94,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -98,9 +106,9 @@ pub const qtableview = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QTableView_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QTableView_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -129,6 +137,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -141,8 +153,8 @@ pub const qtableview = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTableView_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QTableView_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -188,6 +200,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnSetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetModel` instead
+    ///
+    pub const QBaseSetModel = SuperSetModel;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setModel)
     ///
     /// Base class method implementation
@@ -198,8 +214,8 @@ pub const qtableview = struct {
     ///
     /// ` model: QtC.QAbstractItemModel `
     ///
-    pub fn QBaseSetModel(self: ?*anyopaque, model: ?*anyopaque) void {
-        qtc.QTableView_QBaseSetModel(@ptrCast(self), @ptrCast(model));
+    pub fn SuperSetModel(self: ?*anyopaque, model: ?*anyopaque) void {
+        qtc.QTableView_SuperSetModel(@ptrCast(self), @ptrCast(model));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setRootIndex)
@@ -228,6 +244,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnSetRootIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetRootIndex` instead
+    ///
+    pub const QBaseSetRootIndex = SuperSetRootIndex;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setRootIndex)
     ///
     /// Base class method implementation
@@ -238,8 +258,8 @@ pub const qtableview = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseSetRootIndex(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QTableView_QBaseSetRootIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SuperSetRootIndex(self: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.QTableView_SuperSetRootIndex(@ptrCast(self), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setSelectionModel)
@@ -268,6 +288,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnSetSelectionModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetSelectionModel` instead
+    ///
+    pub const QBaseSetSelectionModel = SuperSetSelectionModel;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setSelectionModel)
     ///
     /// Base class method implementation
@@ -278,8 +302,8 @@ pub const qtableview = struct {
     ///
     /// ` selectionModel: QtC.QItemSelectionModel `
     ///
-    pub fn QBaseSetSelectionModel(self: ?*anyopaque, selectionModel: ?*anyopaque) void {
-        qtc.QTableView_QBaseSetSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
+    pub fn SuperSetSelectionModel(self: ?*anyopaque, selectionModel: ?*anyopaque) void {
+        qtc.QTableView_SuperSetSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#doItemsLayout)
@@ -306,6 +330,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnDoItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDoItemsLayout` instead
+    ///
+    pub const QBaseDoItemsLayout = SuperDoItemsLayout;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#doItemsLayout)
     ///
     /// Base class method implementation
@@ -314,8 +342,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseDoItemsLayout(self: ?*anyopaque) void {
-        qtc.QTableView_QBaseDoItemsLayout(@ptrCast(self));
+    pub fn SuperDoItemsLayout(self: ?*anyopaque) void {
+        qtc.QTableView_SuperDoItemsLayout(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#horizontalHeader)
@@ -642,6 +670,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnVisualRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperVisualRect` instead
+    ///
+    pub const QBaseVisualRect = SuperVisualRect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#visualRect)
     ///
     /// Base class method implementation
@@ -652,8 +684,8 @@ pub const qtableview = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseVisualRect(self: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
-        return qtc.QTableView_QBaseVisualRect(@ptrCast(self), @ptrCast(index));
+    pub fn SuperVisualRect(self: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
+        return qtc.QTableView_SuperVisualRect(@ptrCast(self), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#scrollTo)
@@ -684,6 +716,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnScrollTo(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperScrollTo` instead
+    ///
+    pub const QBaseScrollTo = SuperScrollTo;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#scrollTo)
     ///
     /// Base class method implementation
@@ -696,8 +732,8 @@ pub const qtableview = struct {
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn QBaseScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
-        qtc.QTableView_QBaseScrollTo(@ptrCast(self), @ptrCast(index), @bitCast(hint));
+    pub fn SuperScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
+        qtc.QTableView_SuperScrollTo(@ptrCast(self), @ptrCast(index), @bitCast(hint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#indexAt)
@@ -726,6 +762,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnIndexAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIndexAt` instead
+    ///
+    pub const QBaseIndexAt = SuperIndexAt;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#indexAt)
     ///
     /// Base class method implementation
@@ -736,8 +776,8 @@ pub const qtableview = struct {
     ///
     /// ` p: QtC.QPoint `
     ///
-    pub fn QBaseIndexAt(self: ?*anyopaque, p: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QTableView_QBaseIndexAt(@ptrCast(self), @ptrCast(p));
+    pub fn SuperIndexAt(self: ?*anyopaque, p: ?*anyopaque) QtC.QModelIndex {
+        return qtc.QTableView_SuperIndexAt(@ptrCast(self), @ptrCast(p));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setSpan)
@@ -968,6 +1008,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnRowMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRowMoved` instead
+    ///
+    pub const QBaseRowMoved = SuperRowMoved;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowMoved)
     ///
     /// Base class method implementation
@@ -982,8 +1026,8 @@ pub const qtableview = struct {
     ///
     /// ` newIndex: i32 `
     ///
-    pub fn QBaseRowMoved(self: ?*anyopaque, row: i32, oldIndex: i32, newIndex: i32) void {
-        qtc.QTableView_QBaseRowMoved(@ptrCast(self), @bitCast(row), @bitCast(oldIndex), @bitCast(newIndex));
+    pub fn SuperRowMoved(self: ?*anyopaque, row: i32, oldIndex: i32, newIndex: i32) void {
+        qtc.QTableView_SuperRowMoved(@ptrCast(self), @bitCast(row), @bitCast(oldIndex), @bitCast(newIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnMoved)
@@ -1016,6 +1060,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnColumnMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperColumnMoved` instead
+    ///
+    pub const QBaseColumnMoved = SuperColumnMoved;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnMoved)
     ///
     /// Base class method implementation
@@ -1030,8 +1078,8 @@ pub const qtableview = struct {
     ///
     /// ` newIndex: i32 `
     ///
-    pub fn QBaseColumnMoved(self: ?*anyopaque, column: i32, oldIndex: i32, newIndex: i32) void {
-        qtc.QTableView_QBaseColumnMoved(@ptrCast(self), @bitCast(column), @bitCast(oldIndex), @bitCast(newIndex));
+    pub fn SuperColumnMoved(self: ?*anyopaque, column: i32, oldIndex: i32, newIndex: i32) void {
+        qtc.QTableView_SuperColumnMoved(@ptrCast(self), @bitCast(column), @bitCast(oldIndex), @bitCast(newIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowResized)
@@ -1064,6 +1112,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnRowResized(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRowResized` instead
+    ///
+    pub const QBaseRowResized = SuperRowResized;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowResized)
     ///
     /// Base class method implementation
@@ -1078,8 +1130,8 @@ pub const qtableview = struct {
     ///
     /// ` newHeight: i32 `
     ///
-    pub fn QBaseRowResized(self: ?*anyopaque, row: i32, oldHeight: i32, newHeight: i32) void {
-        qtc.QTableView_QBaseRowResized(@ptrCast(self), @bitCast(row), @bitCast(oldHeight), @bitCast(newHeight));
+    pub fn SuperRowResized(self: ?*anyopaque, row: i32, oldHeight: i32, newHeight: i32) void {
+        qtc.QTableView_SuperRowResized(@ptrCast(self), @bitCast(row), @bitCast(oldHeight), @bitCast(newHeight));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnResized)
@@ -1112,6 +1164,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnColumnResized(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperColumnResized` instead
+    ///
+    pub const QBaseColumnResized = SuperColumnResized;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnResized)
     ///
     /// Base class method implementation
@@ -1126,8 +1182,8 @@ pub const qtableview = struct {
     ///
     /// ` newWidth: i32 `
     ///
-    pub fn QBaseColumnResized(self: ?*anyopaque, column: i32, oldWidth: i32, newWidth: i32) void {
-        qtc.QTableView_QBaseColumnResized(@ptrCast(self), @bitCast(column), @bitCast(oldWidth), @bitCast(newWidth));
+    pub fn SuperColumnResized(self: ?*anyopaque, column: i32, oldWidth: i32, newWidth: i32) void {
+        qtc.QTableView_SuperColumnResized(@ptrCast(self), @bitCast(column), @bitCast(oldWidth), @bitCast(newWidth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowCountChanged)
@@ -1158,6 +1214,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnRowCountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRowCountChanged` instead
+    ///
+    pub const QBaseRowCountChanged = SuperRowCountChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowCountChanged)
     ///
     /// Base class method implementation
@@ -1170,8 +1230,8 @@ pub const qtableview = struct {
     ///
     /// ` newCount: i32 `
     ///
-    pub fn QBaseRowCountChanged(self: ?*anyopaque, oldCount: i32, newCount: i32) void {
-        qtc.QTableView_QBaseRowCountChanged(@ptrCast(self), @bitCast(oldCount), @bitCast(newCount));
+    pub fn SuperRowCountChanged(self: ?*anyopaque, oldCount: i32, newCount: i32) void {
+        qtc.QTableView_SuperRowCountChanged(@ptrCast(self), @bitCast(oldCount), @bitCast(newCount));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnCountChanged)
@@ -1202,6 +1262,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnColumnCountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperColumnCountChanged` instead
+    ///
+    pub const QBaseColumnCountChanged = SuperColumnCountChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnCountChanged)
     ///
     /// Base class method implementation
@@ -1214,8 +1278,8 @@ pub const qtableview = struct {
     ///
     /// ` newCount: i32 `
     ///
-    pub fn QBaseColumnCountChanged(self: ?*anyopaque, oldCount: i32, newCount: i32) void {
-        qtc.QTableView_QBaseColumnCountChanged(@ptrCast(self), @bitCast(oldCount), @bitCast(newCount));
+    pub fn SuperColumnCountChanged(self: ?*anyopaque, oldCount: i32, newCount: i32) void {
+        qtc.QTableView_SuperColumnCountChanged(@ptrCast(self), @bitCast(oldCount), @bitCast(newCount));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#scrollContentsBy)
@@ -1246,6 +1310,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnScrollContentsBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
+    ///
+    pub const QBaseScrollContentsBy = SuperScrollContentsBy;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#scrollContentsBy)
     ///
     /// Base class method implementation
@@ -1258,8 +1326,8 @@ pub const qtableview = struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn QBaseScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QTableView_QBaseScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn SuperScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
+        qtc.QTableView_SuperScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#initViewItemOption)
@@ -1288,6 +1356,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnInitViewItemOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInitViewItemOption` instead
+    ///
+    pub const QBaseInitViewItemOption = SuperInitViewItemOption;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#initViewItemOption)
     ///
     /// Base class method implementation
@@ -1298,8 +1370,8 @@ pub const qtableview = struct {
     ///
     /// ` option: QtC.QStyleOptionViewItem `
     ///
-    pub fn QBaseInitViewItemOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QTableView_QBaseInitViewItemOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitViewItemOption(self: ?*anyopaque, option: ?*anyopaque) void {
+        qtc.QTableView_SuperInitViewItemOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#paintEvent)
@@ -1328,6 +1400,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    ///
+    pub const QBasePaintEvent = SuperPaintEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#paintEvent)
     ///
     /// Base class method implementation
@@ -1338,8 +1414,8 @@ pub const qtableview = struct {
     ///
     /// ` e: QtC.QPaintEvent `
     ///
-    pub fn QBasePaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTableView_QBasePaintEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperPaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QTableView_SuperPaintEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#timerEvent)
@@ -1368,6 +1444,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#timerEvent)
     ///
     /// Base class method implementation
@@ -1378,8 +1458,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#dropEvent)
@@ -1408,6 +1488,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#dropEvent)
     ///
     /// Base class method implementation
@@ -1418,8 +1502,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#horizontalOffset)
@@ -1446,6 +1530,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnHorizontalOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHorizontalOffset` instead
+    ///
+    pub const QBaseHorizontalOffset = SuperHorizontalOffset;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#horizontalOffset)
     ///
     /// Base class method implementation
@@ -1454,8 +1542,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseHorizontalOffset(self: ?*anyopaque) i32 {
-        return qtc.QTableView_QBaseHorizontalOffset(@ptrCast(self));
+    pub fn SuperHorizontalOffset(self: ?*anyopaque) i32 {
+        return qtc.QTableView_SuperHorizontalOffset(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#verticalOffset)
@@ -1482,6 +1570,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnVerticalOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperVerticalOffset` instead
+    ///
+    pub const QBaseVerticalOffset = SuperVerticalOffset;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#verticalOffset)
     ///
     /// Base class method implementation
@@ -1490,8 +1582,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseVerticalOffset(self: ?*anyopaque) i32 {
-        return qtc.QTableView_QBaseVerticalOffset(@ptrCast(self));
+    pub fn SuperVerticalOffset(self: ?*anyopaque) i32 {
+        return qtc.QTableView_SuperVerticalOffset(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#moveCursor)
@@ -1522,6 +1614,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnMoveCursor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveCursor` instead
+    ///
+    pub const QBaseMoveCursor = SuperMoveCursor;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#moveCursor)
     ///
     /// Base class method implementation
@@ -1534,8 +1630,8 @@ pub const qtableview = struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn QBaseMoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i32) QtC.QModelIndex {
-        return qtc.QTableView_QBaseMoveCursor(@ptrCast(self), @bitCast(cursorAction), @bitCast(modifiers));
+    pub fn SuperMoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i32) QtC.QModelIndex {
+        return qtc.QTableView_SuperMoveCursor(@ptrCast(self), @bitCast(cursorAction), @bitCast(modifiers));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setSelection)
@@ -1566,6 +1662,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnSetSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetSelection` instead
+    ///
+    pub const QBaseSetSelection = SuperSetSelection;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#setSelection)
     ///
     /// Base class method implementation
@@ -1578,8 +1678,8 @@ pub const qtableview = struct {
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn QBaseSetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i32) void {
-        qtc.QTableView_QBaseSetSelection(@ptrCast(self), @ptrCast(rect), @bitCast(command));
+    pub fn SuperSetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i32) void {
+        qtc.QTableView_SuperSetSelection(@ptrCast(self), @ptrCast(rect), @bitCast(command));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#visualRegionForSelection)
@@ -1608,6 +1708,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnVisualRegionForSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperVisualRegionForSelection` instead
+    ///
+    pub const QBaseVisualRegionForSelection = SuperVisualRegionForSelection;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#visualRegionForSelection)
     ///
     /// Base class method implementation
@@ -1618,8 +1722,8 @@ pub const qtableview = struct {
     ///
     /// ` selection: QtC.QItemSelection `
     ///
-    pub fn QBaseVisualRegionForSelection(self: ?*anyopaque, selection: ?*anyopaque) QtC.QRegion {
-        return qtc.QTableView_QBaseVisualRegionForSelection(@ptrCast(self), @ptrCast(selection));
+    pub fn SuperVisualRegionForSelection(self: ?*anyopaque, selection: ?*anyopaque) QtC.QRegion {
+        return qtc.QTableView_SuperVisualRegionForSelection(@ptrCast(self), @ptrCast(selection));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#selectedIndexes)
@@ -1659,6 +1763,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnSelectedIndexes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSelectedIndexes` instead
+    ///
+    pub const QBaseSelectedIndexes = SuperSelectedIndexes;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#selectedIndexes)
     ///
     /// Base class method implementation
@@ -1669,8 +1777,8 @@ pub const qtableview = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QTableView_QBaseSelectedIndexes(@ptrCast(self));
+    pub fn SuperSelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
+        const _arr: qtc.libqt_list = qtc.QTableView_SuperSelectedIndexes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qtableview.SelectedIndexes: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -1702,6 +1810,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnUpdateGeometries(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateGeometries` instead
+    ///
+    pub const QBaseUpdateGeometries = SuperUpdateGeometries;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#updateGeometries)
     ///
     /// Base class method implementation
@@ -1710,8 +1822,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseUpdateGeometries(self: ?*anyopaque) void {
-        qtc.QTableView_QBaseUpdateGeometries(@ptrCast(self));
+    pub fn SuperUpdateGeometries(self: ?*anyopaque) void {
+        qtc.QTableView_SuperUpdateGeometries(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#viewportSizeHint)
@@ -1738,6 +1850,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnViewportSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
+    ///
+    pub const QBaseViewportSizeHint = SuperViewportSizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#viewportSizeHint)
     ///
     /// Base class method implementation
@@ -1746,8 +1862,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseViewportSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTableView_QBaseViewportSizeHint(@ptrCast(self));
+    pub fn SuperViewportSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QTableView_SuperViewportSizeHint(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#sizeHintForRow)
@@ -1776,6 +1892,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnSizeHintForRow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHintForRow` instead
+    ///
+    pub const QBaseSizeHintForRow = SuperSizeHintForRow;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#sizeHintForRow)
     ///
     /// Base class method implementation
@@ -1786,8 +1906,8 @@ pub const qtableview = struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn QBaseSizeHintForRow(self: ?*anyopaque, row: i32) i32 {
-        return qtc.QTableView_QBaseSizeHintForRow(@ptrCast(self), @bitCast(row));
+    pub fn SuperSizeHintForRow(self: ?*anyopaque, row: i32) i32 {
+        return qtc.QTableView_SuperSizeHintForRow(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#sizeHintForColumn)
@@ -1816,6 +1936,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnSizeHintForColumn(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHintForColumn` instead
+    ///
+    pub const QBaseSizeHintForColumn = SuperSizeHintForColumn;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#sizeHintForColumn)
     ///
     /// Base class method implementation
@@ -1826,8 +1950,8 @@ pub const qtableview = struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn QBaseSizeHintForColumn(self: ?*anyopaque, column: i32) i32 {
-        return qtc.QTableView_QBaseSizeHintForColumn(@ptrCast(self), @bitCast(column));
+    pub fn SuperSizeHintForColumn(self: ?*anyopaque, column: i32) i32 {
+        return qtc.QTableView_SuperSizeHintForColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#verticalScrollbarAction)
@@ -1856,6 +1980,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnVerticalScrollbarAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperVerticalScrollbarAction` instead
+    ///
+    pub const QBaseVerticalScrollbarAction = SuperVerticalScrollbarAction;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#verticalScrollbarAction)
     ///
     /// Base class method implementation
@@ -1866,8 +1994,8 @@ pub const qtableview = struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn QBaseVerticalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QTableView_QBaseVerticalScrollbarAction(@ptrCast(self), @bitCast(action));
+    pub fn SuperVerticalScrollbarAction(self: ?*anyopaque, action: i32) void {
+        qtc.QTableView_SuperVerticalScrollbarAction(@ptrCast(self), @bitCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#horizontalScrollbarAction)
@@ -1896,6 +2024,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnHorizontalScrollbarAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHorizontalScrollbarAction` instead
+    ///
+    pub const QBaseHorizontalScrollbarAction = SuperHorizontalScrollbarAction;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#horizontalScrollbarAction)
     ///
     /// Base class method implementation
@@ -1906,8 +2038,8 @@ pub const qtableview = struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn QBaseHorizontalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QTableView_QBaseHorizontalScrollbarAction(@ptrCast(self), @bitCast(action));
+    pub fn SuperHorizontalScrollbarAction(self: ?*anyopaque, action: i32) void {
+        qtc.QTableView_SuperHorizontalScrollbarAction(@ptrCast(self), @bitCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#isIndexHidden)
@@ -1936,6 +2068,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnIsIndexHidden(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsIndexHidden` instead
+    ///
+    pub const QBaseIsIndexHidden = SuperIsIndexHidden;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#isIndexHidden)
     ///
     /// Base class method implementation
@@ -1946,8 +2082,8 @@ pub const qtableview = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseIsIndexHidden(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QTableView_QBaseIsIndexHidden(@ptrCast(self), @ptrCast(index));
+    pub fn SuperIsIndexHidden(self: ?*anyopaque, index: ?*anyopaque) bool {
+        return qtc.QTableView_SuperIsIndexHidden(@ptrCast(self), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#selectionChanged)
@@ -1978,6 +2114,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnSelectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSelectionChanged` instead
+    ///
+    pub const QBaseSelectionChanged = SuperSelectionChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#selectionChanged)
     ///
     /// Base class method implementation
@@ -1990,8 +2130,8 @@ pub const qtableview = struct {
     ///
     /// ` deselected: QtC.QItemSelection `
     ///
-    pub fn QBaseSelectionChanged(self: ?*anyopaque, selected: ?*anyopaque, deselected: ?*anyopaque) void {
-        qtc.QTableView_QBaseSelectionChanged(@ptrCast(self), @ptrCast(selected), @ptrCast(deselected));
+    pub fn SuperSelectionChanged(self: ?*anyopaque, selected: ?*anyopaque, deselected: ?*anyopaque) void {
+        qtc.QTableView_SuperSelectionChanged(@ptrCast(self), @ptrCast(selected), @ptrCast(deselected));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#currentChanged)
@@ -2022,6 +2162,10 @@ pub const qtableview = struct {
         qtc.QTableView_OnCurrentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCurrentChanged` instead
+    ///
+    pub const QBaseCurrentChanged = SuperCurrentChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#currentChanged)
     ///
     /// Base class method implementation
@@ -2034,8 +2178,8 @@ pub const qtableview = struct {
     ///
     /// ` previous: QtC.QModelIndex `
     ///
-    pub fn QBaseCurrentChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
-        qtc.QTableView_QBaseCurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
+    pub fn SuperCurrentChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
+        qtc.QTableView_SuperCurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -8208,6 +8352,10 @@ pub const qtableview = struct {
         qtc.QTableView_KeyboardSearch(@ptrCast(self), search_str);
     }
 
+    /// ### DEPRECATED: Use `SuperKeyboardSearch` instead
+    ///
+    pub const QBaseKeyboardSearch = SuperKeyboardSearch;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
@@ -8220,12 +8368,12 @@ pub const qtableview = struct {
     ///
     /// ` search: []const u8 `
     ///
-    pub fn QBaseKeyboardSearch(self: ?*anyopaque, search: []const u8) void {
+    pub fn SuperKeyboardSearch(self: ?*anyopaque, search: []const u8) void {
         const search_str = qtc.libqt_string{
             .len = search.len,
             .data = search.ptr,
         };
-        qtc.QTableView_QBaseKeyboardSearch(@ptrCast(self), search_str);
+        qtc.QTableView_SuperKeyboardSearch(@ptrCast(self), search_str);
     }
 
     /// Inherited from QAbstractItemView
@@ -8260,6 +8408,10 @@ pub const qtableview = struct {
         return qtc.QTableView_ItemDelegateForIndex(@ptrCast(self), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperItemDelegateForIndex` instead
+    ///
+    pub const QBaseItemDelegateForIndex = SuperItemDelegateForIndex;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
@@ -8272,8 +8424,8 @@ pub const qtableview = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseItemDelegateForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
-        return qtc.QTableView_QBaseItemDelegateForIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SuperItemDelegateForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
+        return qtc.QTableView_SuperItemDelegateForIndex(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemView
@@ -8308,6 +8460,10 @@ pub const qtableview = struct {
         return qtc.QTableView_InputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
@@ -8320,8 +8476,8 @@ pub const qtableview = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QTableView_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
+        return qtc.QTableView_SuperInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QAbstractItemView
@@ -8354,6 +8510,10 @@ pub const qtableview = struct {
         qtc.QTableView_Reset(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperReset` instead
+    ///
+    pub const QBaseReset = SuperReset;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#reset)
@@ -8364,8 +8524,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseReset(self: ?*anyopaque) void {
-        qtc.QTableView_QBaseReset(@ptrCast(self));
+    pub fn SuperReset(self: ?*anyopaque) void {
+        qtc.QTableView_SuperReset(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -8398,6 +8558,10 @@ pub const qtableview = struct {
         qtc.QTableView_SelectAll(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSelectAll` instead
+    ///
+    pub const QBaseSelectAll = SuperSelectAll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
@@ -8408,8 +8572,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseSelectAll(self: ?*anyopaque) void {
-        qtc.QTableView_QBaseSelectAll(@ptrCast(self));
+    pub fn SuperSelectAll(self: ?*anyopaque) void {
+        qtc.QTableView_SuperSelectAll(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -8452,6 +8616,10 @@ pub const qtableview = struct {
         qtc.QTableView_DataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
     }
 
+    /// ### DEPRECATED: Use `SuperDataChanged` instead
+    ///
+    pub const QBaseDataChanged = SuperDataChanged;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dataChanged)
@@ -8468,12 +8636,12 @@ pub const qtableview = struct {
     ///
     /// ` roles: []i32 `
     ///
-    pub fn QBaseDataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
+    pub fn SuperDataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
         const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
-        qtc.QTableView_QBaseDataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
+        qtc.QTableView_SuperDataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
     }
 
     /// Inherited from QAbstractItemView
@@ -8512,6 +8680,10 @@ pub const qtableview = struct {
         qtc.QTableView_RowsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
+    /// ### DEPRECATED: Use `SuperRowsInserted` instead
+    ///
+    pub const QBaseRowsInserted = SuperRowsInserted;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsInserted)
@@ -8528,8 +8700,8 @@ pub const qtableview = struct {
     ///
     /// ` end: i32 `
     ///
-    pub fn QBaseRowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QTableView_QBaseRowsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
+    pub fn SuperRowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
+        qtc.QTableView_SuperRowsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
     /// Inherited from QAbstractItemView
@@ -8568,6 +8740,10 @@ pub const qtableview = struct {
         qtc.QTableView_RowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
+    /// ### DEPRECATED: Use `SuperRowsAboutToBeRemoved` instead
+    ///
+    pub const QBaseRowsAboutToBeRemoved = SuperRowsAboutToBeRemoved;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
@@ -8584,8 +8760,8 @@ pub const qtableview = struct {
     ///
     /// ` end: i32 `
     ///
-    pub fn QBaseRowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QTableView_QBaseRowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
+    pub fn SuperRowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
+        qtc.QTableView_SuperRowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
     /// Inherited from QAbstractItemView
@@ -8618,6 +8794,10 @@ pub const qtableview = struct {
         qtc.QTableView_UpdateEditorData(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateEditorData` instead
+    ///
+    pub const QBaseUpdateEditorData = SuperUpdateEditorData;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
@@ -8628,8 +8808,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseUpdateEditorData(self: ?*anyopaque) void {
-        qtc.QTableView_QBaseUpdateEditorData(@ptrCast(self));
+    pub fn SuperUpdateEditorData(self: ?*anyopaque) void {
+        qtc.QTableView_SuperUpdateEditorData(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -8662,6 +8842,10 @@ pub const qtableview = struct {
         qtc.QTableView_UpdateEditorGeometries(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateEditorGeometries` instead
+    ///
+    pub const QBaseUpdateEditorGeometries = SuperUpdateEditorGeometries;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
@@ -8672,8 +8856,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseUpdateEditorGeometries(self: ?*anyopaque) void {
-        qtc.QTableView_QBaseUpdateEditorGeometries(@ptrCast(self));
+    pub fn SuperUpdateEditorGeometries(self: ?*anyopaque) void {
+        qtc.QTableView_SuperUpdateEditorGeometries(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -8708,6 +8892,10 @@ pub const qtableview = struct {
         qtc.QTableView_VerticalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
+    /// ### DEPRECATED: Use `SuperVerticalScrollbarValueChanged` instead
+    ///
+    pub const QBaseVerticalScrollbarValueChanged = SuperVerticalScrollbarValueChanged;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
@@ -8720,8 +8908,8 @@ pub const qtableview = struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn QBaseVerticalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QTableView_QBaseVerticalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn SuperVerticalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
+        qtc.QTableView_SuperVerticalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
     /// Inherited from QAbstractItemView
@@ -8756,6 +8944,10 @@ pub const qtableview = struct {
         qtc.QTableView_HorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
+    /// ### DEPRECATED: Use `SuperHorizontalScrollbarValueChanged` instead
+    ///
+    pub const QBaseHorizontalScrollbarValueChanged = SuperHorizontalScrollbarValueChanged;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
@@ -8768,8 +8960,8 @@ pub const qtableview = struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn QBaseHorizontalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QTableView_QBaseHorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn SuperHorizontalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
+        qtc.QTableView_SuperHorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
     /// Inherited from QAbstractItemView
@@ -8806,6 +8998,10 @@ pub const qtableview = struct {
         qtc.QTableView_CloseEditor(@ptrCast(self), @ptrCast(editor), @bitCast(hint));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEditor` instead
+    ///
+    pub const QBaseCloseEditor = SuperCloseEditor;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
@@ -8820,8 +9016,8 @@ pub const qtableview = struct {
     ///
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
-    pub fn QBaseCloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
-        qtc.QTableView_QBaseCloseEditor(@ptrCast(self), @ptrCast(editor), @bitCast(hint));
+    pub fn SuperCloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
+        qtc.QTableView_SuperCloseEditor(@ptrCast(self), @ptrCast(editor), @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemView
@@ -8856,6 +9052,10 @@ pub const qtableview = struct {
         qtc.QTableView_CommitData(@ptrCast(self), @ptrCast(editor));
     }
 
+    /// ### DEPRECATED: Use `SuperCommitData` instead
+    ///
+    pub const QBaseCommitData = SuperCommitData;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
@@ -8868,8 +9068,8 @@ pub const qtableview = struct {
     ///
     /// ` editor: QtC.QWidget `
     ///
-    pub fn QBaseCommitData(self: ?*anyopaque, editor: ?*anyopaque) void {
-        qtc.QTableView_QBaseCommitData(@ptrCast(self), @ptrCast(editor));
+    pub fn SuperCommitData(self: ?*anyopaque, editor: ?*anyopaque) void {
+        qtc.QTableView_SuperCommitData(@ptrCast(self), @ptrCast(editor));
     }
 
     /// Inherited from QAbstractItemView
@@ -8904,6 +9104,10 @@ pub const qtableview = struct {
         qtc.QTableView_EditorDestroyed(@ptrCast(self), @ptrCast(editor));
     }
 
+    /// ### DEPRECATED: Use `SuperEditorDestroyed` instead
+    ///
+    pub const QBaseEditorDestroyed = SuperEditorDestroyed;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
@@ -8916,8 +9120,8 @@ pub const qtableview = struct {
     ///
     /// ` editor: QtC.QObject `
     ///
-    pub fn QBaseEditorDestroyed(self: ?*anyopaque, editor: ?*anyopaque) void {
-        qtc.QTableView_QBaseEditorDestroyed(@ptrCast(self), @ptrCast(editor));
+    pub fn SuperEditorDestroyed(self: ?*anyopaque, editor: ?*anyopaque) void {
+        qtc.QTableView_SuperEditorDestroyed(@ptrCast(self), @ptrCast(editor));
     }
 
     /// Inherited from QAbstractItemView
@@ -8956,6 +9160,10 @@ pub const qtableview = struct {
         return qtc.QTableView_Edit2(@ptrCast(self), @ptrCast(index), @bitCast(trigger), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEdit2` instead
+    ///
+    pub const QBaseEdit2 = SuperEdit2;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
@@ -8972,8 +9180,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEdit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
-        return qtc.QTableView_QBaseEdit2(@ptrCast(self), @ptrCast(index), @bitCast(trigger), @ptrCast(event));
+    pub fn SuperEdit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
+        return qtc.QTableView_SuperEdit2(@ptrCast(self), @ptrCast(index), @bitCast(trigger), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -9014,6 +9222,10 @@ pub const qtableview = struct {
         return qtc.QTableView_SelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperSelectionCommand` instead
+    ///
+    pub const QBaseSelectionCommand = SuperSelectionCommand;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
@@ -9032,8 +9244,8 @@ pub const qtableview = struct {
     ///
     /// ` flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn QBaseSelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i32 {
-        return qtc.QTableView_QBaseSelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
+    pub fn SuperSelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i32 {
+        return qtc.QTableView_SuperSelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -9068,6 +9280,10 @@ pub const qtableview = struct {
         qtc.QTableView_StartDrag(@ptrCast(self), @bitCast(supportedActions));
     }
 
+    /// ### DEPRECATED: Use `SuperStartDrag` instead
+    ///
+    pub const QBaseStartDrag = SuperStartDrag;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
@@ -9080,8 +9296,8 @@ pub const qtableview = struct {
     ///
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
-    pub fn QBaseStartDrag(self: ?*anyopaque, supportedActions: i32) void {
-        qtc.QTableView_QBaseStartDrag(@ptrCast(self), @bitCast(supportedActions));
+    pub fn SuperStartDrag(self: ?*anyopaque, supportedActions: i32) void {
+        qtc.QTableView_SuperStartDrag(@ptrCast(self), @bitCast(supportedActions));
     }
 
     /// Inherited from QAbstractItemView
@@ -9116,6 +9332,10 @@ pub const qtableview = struct {
         return qtc.QTableView_FocusNextPrevChild(@ptrCast(self), next);
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    ///
+    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
@@ -9128,8 +9348,8 @@ pub const qtableview = struct {
     ///
     /// ` next: bool `
     ///
-    pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QTableView_QBaseFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
+        return qtc.QTableView_SuperFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QAbstractItemView
@@ -9164,6 +9384,10 @@ pub const qtableview = struct {
         return qtc.QTableView_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#event)
@@ -9176,8 +9400,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTableView_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QTableView_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -9212,6 +9436,10 @@ pub const qtableview = struct {
         return qtc.QTableView_ViewportEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperViewportEvent` instead
+    ///
+    pub const QBaseViewportEvent = SuperViewportEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
@@ -9224,8 +9452,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseViewportEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTableView_QBaseViewportEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperViewportEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QTableView_SuperViewportEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -9260,6 +9488,10 @@ pub const qtableview = struct {
         qtc.QTableView_MousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
@@ -9272,8 +9504,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -9308,6 +9540,10 @@ pub const qtableview = struct {
         qtc.QTableView_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseMoveEvent)
@@ -9320,8 +9556,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -9356,6 +9592,10 @@ pub const qtableview = struct {
         qtc.QTableView_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseReleaseEvent)
@@ -9368,8 +9608,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -9404,6 +9644,10 @@ pub const qtableview = struct {
         qtc.QTableView_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
@@ -9416,8 +9660,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -9452,6 +9696,10 @@ pub const qtableview = struct {
         qtc.QTableView_DragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
@@ -9464,8 +9712,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QDragEnterEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -9500,6 +9748,10 @@ pub const qtableview = struct {
         qtc.QTableView_DragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
@@ -9512,8 +9764,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QDragMoveEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -9548,6 +9800,10 @@ pub const qtableview = struct {
         qtc.QTableView_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
@@ -9560,8 +9816,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QDragLeaveEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -9596,6 +9852,10 @@ pub const qtableview = struct {
         qtc.QTableView_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
@@ -9608,8 +9868,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -9644,6 +9904,10 @@ pub const qtableview = struct {
         qtc.QTableView_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
@@ -9656,8 +9920,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -9692,6 +9956,10 @@ pub const qtableview = struct {
         qtc.QTableView_KeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
@@ -9704,8 +9972,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperKeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -9740,6 +10008,10 @@ pub const qtableview = struct {
         qtc.QTableView_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
@@ -9752,8 +10024,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -9788,6 +10060,10 @@ pub const qtableview = struct {
         qtc.QTableView_InputMethodEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
@@ -9800,8 +10076,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperInputMethodEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -9838,6 +10114,10 @@ pub const qtableview = struct {
         return qtc.QTableView_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
@@ -9852,8 +10132,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTableView_QBaseEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QTableView_SuperEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -9886,6 +10166,10 @@ pub const qtableview = struct {
         return qtc.QTableView_MinimumSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    ///
+    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
@@ -9896,8 +10180,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTableView_QBaseMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QTableView_SuperMinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9930,6 +10214,10 @@ pub const qtableview = struct {
         return qtc.QTableView_SizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
@@ -9940,8 +10228,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTableView_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QTableView_SuperSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9976,6 +10264,10 @@ pub const qtableview = struct {
         qtc.QTableView_SetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
+    /// ### DEPRECATED: Use `SuperSetupViewport` instead
+    ///
+    pub const QBaseSetupViewport = SuperSetupViewport;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
@@ -9988,8 +10280,8 @@ pub const qtableview = struct {
     ///
     /// ` viewport: QtC.QWidget `
     ///
-    pub fn QBaseSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        qtc.QTableView_QBaseSetupViewport(@ptrCast(self), @ptrCast(viewport));
+    pub fn SuperSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
+        qtc.QTableView_SuperSetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10024,6 +10316,10 @@ pub const qtableview = struct {
         qtc.QTableView_WheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
@@ -10036,8 +10332,8 @@ pub const qtableview = struct {
     ///
     /// ` param1: QtC.QWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTableView_QBaseWheelEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QTableView_SuperWheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10072,6 +10368,10 @@ pub const qtableview = struct {
         qtc.QTableView_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
@@ -10084,8 +10384,8 @@ pub const qtableview = struct {
     ///
     /// ` param1: QtC.QContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTableView_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QTableView_SuperContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10120,6 +10420,10 @@ pub const qtableview = struct {
         qtc.QTableView_ChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    ///
+    pub const QBaseChangeEvent = SuperChangeEvent;
+
     /// Inherited from QFrame
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
@@ -10132,8 +10436,8 @@ pub const qtableview = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTableView_QBaseChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QTableView_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QFrame
@@ -10168,6 +10472,10 @@ pub const qtableview = struct {
         qtc.QTableView_InitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
+    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    ///
+    pub const QBaseInitStyleOption = SuperInitStyleOption;
+
     /// Inherited from QFrame
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
@@ -10180,8 +10488,8 @@ pub const qtableview = struct {
     ///
     /// ` option: QtC.QStyleOptionFrame `
     ///
-    pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QTableView_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
+        qtc.QTableView_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// Inherited from QFrame
@@ -10214,6 +10522,10 @@ pub const qtableview = struct {
         return qtc.QTableView_DevType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
@@ -10224,8 +10536,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.QTableView_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.QTableView_SuperDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10260,6 +10572,10 @@ pub const qtableview = struct {
         qtc.QTableView_SetVisible(@ptrCast(self), visible);
     }
 
+    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    ///
+    pub const QBaseSetVisible = SuperSetVisible;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
@@ -10272,8 +10588,8 @@ pub const qtableview = struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QTableView_QBaseSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
+        qtc.QTableView_SuperSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
@@ -10308,6 +10624,10 @@ pub const qtableview = struct {
         return qtc.QTableView_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
@@ -10320,8 +10640,8 @@ pub const qtableview = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTableView_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QTableView_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -10354,6 +10674,10 @@ pub const qtableview = struct {
         return qtc.QTableView_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
@@ -10364,8 +10688,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QTableView_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.QTableView_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10398,6 +10722,10 @@ pub const qtableview = struct {
         return qtc.QTableView_PaintEngine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
@@ -10408,8 +10736,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QTableView_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.QTableView_SuperPaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10444,6 +10772,10 @@ pub const qtableview = struct {
         qtc.QTableView_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -10456,8 +10788,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -10492,6 +10824,10 @@ pub const qtableview = struct {
         qtc.QTableView_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    ///
+    pub const QBaseEnterEvent = SuperEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
@@ -10504,8 +10840,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QEnterEvent `
     ///
-    pub fn QBaseEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -10540,6 +10876,10 @@ pub const qtableview = struct {
         qtc.QTableView_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    ///
+    pub const QBaseLeaveEvent = SuperLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
@@ -10552,8 +10892,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -10588,6 +10928,10 @@ pub const qtableview = struct {
         qtc.QTableView_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
@@ -10600,8 +10944,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -10636,6 +10980,10 @@ pub const qtableview = struct {
         qtc.QTableView_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
@@ -10648,8 +10996,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -10684,6 +11032,10 @@ pub const qtableview = struct {
         qtc.QTableView_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    ///
+    pub const QBaseTabletEvent = SuperTabletEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
@@ -10696,8 +11048,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QTabletEvent `
     ///
-    pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -10732,6 +11084,10 @@ pub const qtableview = struct {
         qtc.QTableView_ActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    ///
+    pub const QBaseActionEvent = SuperActionEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
@@ -10744,8 +11100,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QActionEvent `
     ///
-    pub fn QBaseActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -10780,6 +11136,10 @@ pub const qtableview = struct {
         qtc.QTableView_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
@@ -10792,8 +11152,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -10828,6 +11188,10 @@ pub const qtableview = struct {
         qtc.QTableView_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
@@ -10840,8 +11204,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -10884,6 +11248,10 @@ pub const qtableview = struct {
         return qtc.QTableView_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    ///
+    pub const QBaseNativeEvent = SuperNativeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
@@ -10900,12 +11268,12 @@ pub const qtableview = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QTableView_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QTableView_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -10940,6 +11308,10 @@ pub const qtableview = struct {
         return qtc.QTableView_Metric(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
@@ -10952,8 +11324,8 @@ pub const qtableview = struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTableView_QBaseMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QTableView_SuperMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -10988,6 +11360,10 @@ pub const qtableview = struct {
         qtc.QTableView_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
@@ -11000,8 +11376,8 @@ pub const qtableview = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QTableView_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QTableView_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
@@ -11036,6 +11412,10 @@ pub const qtableview = struct {
         return qtc.QTableView_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
@@ -11048,8 +11428,8 @@ pub const qtableview = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QTableView_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.QTableView_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
@@ -11082,6 +11462,10 @@ pub const qtableview = struct {
         return qtc.QTableView_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
@@ -11092,8 +11476,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QTableView_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.QTableView_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -11128,6 +11512,10 @@ pub const qtableview = struct {
         qtc.QTableView_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -11140,8 +11528,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -11176,6 +11564,10 @@ pub const qtableview = struct {
         qtc.QTableView_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -11188,8 +11580,8 @@ pub const qtableview = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -11224,6 +11616,10 @@ pub const qtableview = struct {
         qtc.QTableView_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -11236,8 +11632,8 @@ pub const qtableview = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTableView_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QTableView_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -11272,6 +11668,10 @@ pub const qtableview = struct {
         qtc.QTableView_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -11284,8 +11684,8 @@ pub const qtableview = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTableView_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QTableView_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -11322,6 +11722,10 @@ pub const qtableview = struct {
         return qtc.QTableView_State(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperState` instead
+    ///
+    pub const QBaseState = SuperState;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
@@ -11336,8 +11740,8 @@ pub const qtableview = struct {
     ///
     /// ` qabstractitemview_enums.State `
     ///
-    pub fn QBaseState(self: ?*anyopaque) i32 {
-        return qtc.QTableView_QBaseState(@ptrCast(self));
+    pub fn SuperState(self: ?*anyopaque) i32 {
+        return qtc.QTableView_SuperState(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -11372,6 +11776,10 @@ pub const qtableview = struct {
         qtc.QTableView_SetState(@ptrCast(self), @bitCast(state));
     }
 
+    /// ### DEPRECATED: Use `SuperSetState` instead
+    ///
+    pub const QBaseSetState = SuperSetState;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
@@ -11384,8 +11792,8 @@ pub const qtableview = struct {
     ///
     /// ` state: qabstractitemview_enums.State `
     ///
-    pub fn QBaseSetState(self: ?*anyopaque, state: i32) void {
-        qtc.QTableView_QBaseSetState(@ptrCast(self), @bitCast(state));
+    pub fn SuperSetState(self: ?*anyopaque, state: i32) void {
+        qtc.QTableView_SuperSetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QAbstractItemView
@@ -11418,6 +11826,10 @@ pub const qtableview = struct {
         qtc.QTableView_ScheduleDelayedItemsLayout(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperScheduleDelayedItemsLayout` instead
+    ///
+    pub const QBaseScheduleDelayedItemsLayout = SuperScheduleDelayedItemsLayout;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
@@ -11428,8 +11840,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseScheduleDelayedItemsLayout(self: ?*anyopaque) void {
-        qtc.QTableView_QBaseScheduleDelayedItemsLayout(@ptrCast(self));
+    pub fn SuperScheduleDelayedItemsLayout(self: ?*anyopaque) void {
+        qtc.QTableView_SuperScheduleDelayedItemsLayout(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -11462,6 +11874,10 @@ pub const qtableview = struct {
         qtc.QTableView_ExecuteDelayedItemsLayout(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperExecuteDelayedItemsLayout` instead
+    ///
+    pub const QBaseExecuteDelayedItemsLayout = SuperExecuteDelayedItemsLayout;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
@@ -11472,8 +11888,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseExecuteDelayedItemsLayout(self: ?*anyopaque) void {
-        qtc.QTableView_QBaseExecuteDelayedItemsLayout(@ptrCast(self));
+    pub fn SuperExecuteDelayedItemsLayout(self: ?*anyopaque) void {
+        qtc.QTableView_SuperExecuteDelayedItemsLayout(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -11508,6 +11924,10 @@ pub const qtableview = struct {
         qtc.QTableView_SetDirtyRegion(@ptrCast(self), @ptrCast(region));
     }
 
+    /// ### DEPRECATED: Use `SuperSetDirtyRegion` instead
+    ///
+    pub const QBaseSetDirtyRegion = SuperSetDirtyRegion;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
@@ -11520,8 +11940,8 @@ pub const qtableview = struct {
     ///
     /// ` region: QtC.QRegion `
     ///
-    pub fn QBaseSetDirtyRegion(self: ?*anyopaque, region: ?*anyopaque) void {
-        qtc.QTableView_QBaseSetDirtyRegion(@ptrCast(self), @ptrCast(region));
+    pub fn SuperSetDirtyRegion(self: ?*anyopaque, region: ?*anyopaque) void {
+        qtc.QTableView_SuperSetDirtyRegion(@ptrCast(self), @ptrCast(region));
     }
 
     /// Inherited from QAbstractItemView
@@ -11558,6 +11978,10 @@ pub const qtableview = struct {
         qtc.QTableView_ScrollDirtyRegion(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
+    /// ### DEPRECATED: Use `SuperScrollDirtyRegion` instead
+    ///
+    pub const QBaseScrollDirtyRegion = SuperScrollDirtyRegion;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
@@ -11572,8 +11996,8 @@ pub const qtableview = struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn QBaseScrollDirtyRegion(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QTableView_QBaseScrollDirtyRegion(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn SuperScrollDirtyRegion(self: ?*anyopaque, dx: i32, dy: i32) void {
+        qtc.QTableView_SuperScrollDirtyRegion(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QAbstractItemView
@@ -11606,6 +12030,10 @@ pub const qtableview = struct {
         return qtc.QTableView_DirtyRegionOffset(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDirtyRegionOffset` instead
+    ///
+    pub const QBaseDirtyRegionOffset = SuperDirtyRegionOffset;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
@@ -11616,8 +12044,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseDirtyRegionOffset(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QTableView_QBaseDirtyRegionOffset(@ptrCast(self));
+    pub fn SuperDirtyRegionOffset(self: ?*anyopaque) QtC.QPoint {
+        return qtc.QTableView_SuperDirtyRegionOffset(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -11650,6 +12078,10 @@ pub const qtableview = struct {
         qtc.QTableView_StartAutoScroll(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperStartAutoScroll` instead
+    ///
+    pub const QBaseStartAutoScroll = SuperStartAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
@@ -11660,8 +12092,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseStartAutoScroll(self: ?*anyopaque) void {
-        qtc.QTableView_QBaseStartAutoScroll(@ptrCast(self));
+    pub fn SuperStartAutoScroll(self: ?*anyopaque) void {
+        qtc.QTableView_SuperStartAutoScroll(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -11694,6 +12126,10 @@ pub const qtableview = struct {
         qtc.QTableView_StopAutoScroll(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperStopAutoScroll` instead
+    ///
+    pub const QBaseStopAutoScroll = SuperStopAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
@@ -11704,8 +12140,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseStopAutoScroll(self: ?*anyopaque) void {
-        qtc.QTableView_QBaseStopAutoScroll(@ptrCast(self));
+    pub fn SuperStopAutoScroll(self: ?*anyopaque) void {
+        qtc.QTableView_SuperStopAutoScroll(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -11738,6 +12174,10 @@ pub const qtableview = struct {
         qtc.QTableView_DoAutoScroll(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDoAutoScroll` instead
+    ///
+    pub const QBaseDoAutoScroll = SuperDoAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
@@ -11748,8 +12188,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseDoAutoScroll(self: ?*anyopaque) void {
-        qtc.QTableView_QBaseDoAutoScroll(@ptrCast(self));
+    pub fn SuperDoAutoScroll(self: ?*anyopaque) void {
+        qtc.QTableView_SuperDoAutoScroll(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -11786,6 +12226,10 @@ pub const qtableview = struct {
         return qtc.QTableView_DropIndicatorPosition(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDropIndicatorPosition` instead
+    ///
+    pub const QBaseDropIndicatorPosition = SuperDropIndicatorPosition;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
@@ -11800,8 +12244,8 @@ pub const qtableview = struct {
     ///
     /// ` qabstractitemview_enums.DropIndicatorPosition `
     ///
-    pub fn QBaseDropIndicatorPosition(self: ?*anyopaque) i32 {
-        return qtc.QTableView_QBaseDropIndicatorPosition(@ptrCast(self));
+    pub fn SuperDropIndicatorPosition(self: ?*anyopaque) i32 {
+        return qtc.QTableView_SuperDropIndicatorPosition(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -11842,6 +12286,10 @@ pub const qtableview = struct {
         qtc.QTableView_SetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
+    /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
+    ///
+    pub const QBaseSetViewportMargins = SuperSetViewportMargins;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
@@ -11860,8 +12308,8 @@ pub const qtableview = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn QBaseSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QTableView_QBaseSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SuperSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QTableView_SuperSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -11894,6 +12342,10 @@ pub const qtableview = struct {
         return qtc.QTableView_ViewportMargins(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperViewportMargins` instead
+    ///
+    pub const QBaseViewportMargins = SuperViewportMargins;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
@@ -11904,8 +12356,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseViewportMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QTableView_QBaseViewportMargins(@ptrCast(self));
+    pub fn SuperViewportMargins(self: ?*anyopaque) QtC.QMargins {
+        return qtc.QTableView_SuperViewportMargins(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -11940,6 +12392,10 @@ pub const qtableview = struct {
         qtc.QTableView_DrawFrame(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    ///
+    pub const QBaseDrawFrame = SuperDrawFrame;
+
     /// Inherited from QFrame
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
@@ -11952,8 +12408,8 @@ pub const qtableview = struct {
     ///
     /// ` param1: QtC.QPainter `
     ///
-    pub fn QBaseDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTableView_QBaseDrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QTableView_SuperDrawFrame(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QFrame
@@ -11986,6 +12442,10 @@ pub const qtableview = struct {
         qtc.QTableView_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -11996,8 +12456,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QTableView_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.QTableView_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -12030,6 +12490,10 @@ pub const qtableview = struct {
         qtc.QTableView_Create(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreate` instead
+    ///
+    pub const QBaseCreate = SuperCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -12040,8 +12504,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseCreate(self: ?*anyopaque) void {
-        qtc.QTableView_QBaseCreate(@ptrCast(self));
+    pub fn SuperCreate(self: ?*anyopaque) void {
+        qtc.QTableView_SuperCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -12074,6 +12538,10 @@ pub const qtableview = struct {
         qtc.QTableView_Destroy(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroy` instead
+    ///
+    pub const QBaseDestroy = SuperDestroy;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
@@ -12084,8 +12552,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseDestroy(self: ?*anyopaque) void {
-        qtc.QTableView_QBaseDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: ?*anyopaque) void {
+        qtc.QTableView_SuperDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -12118,6 +12586,10 @@ pub const qtableview = struct {
         return qtc.QTableView_FocusNextChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    ///
+    pub const QBaseFocusNextChild = SuperFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -12128,8 +12600,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QTableView_QBaseFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
+        return qtc.QTableView_SuperFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -12162,6 +12634,10 @@ pub const qtableview = struct {
         return qtc.QTableView_FocusPreviousChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    ///
+    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
@@ -12172,8 +12648,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QTableView_QBaseFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
+        return qtc.QTableView_SuperFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -12206,6 +12682,10 @@ pub const qtableview = struct {
         return qtc.QTableView_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -12216,8 +12696,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QTableView_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QTableView_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -12250,6 +12730,10 @@ pub const qtableview = struct {
         return qtc.QTableView_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -12260,8 +12744,8 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QTableView_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QTableView_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -12297,6 +12781,10 @@ pub const qtableview = struct {
         return qtc.QTableView_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -12309,9 +12797,9 @@ pub const qtableview = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QTableView_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTableView_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -12346,6 +12834,10 @@ pub const qtableview = struct {
         return qtc.QTableView_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -12358,8 +12850,8 @@ pub const qtableview = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QTableView_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QTableView_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -12396,6 +12888,10 @@ pub const qtableview = struct {
         return qtc.QTableView_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -12410,8 +12906,8 @@ pub const qtableview = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QTableView_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.QTableView_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -12445,6 +12941,9 @@ pub const qtableview = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#dtor.QTableView)
     ///
@@ -12454,7 +12953,7 @@ pub const qtableview = struct {
     ///
     /// ` self: QtC.QTableView `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTableView_Delete(@ptrCast(self));
     }
 };

@@ -60,7 +60,7 @@ void KConfigViewStateSaver_RestoreState(KConfigViewStateSaver* self, const KConf
 }
 
 // Base class handler implementation
-QMetaObject* KConfigViewStateSaver_QBaseMetaObject(const KConfigViewStateSaver* self) {
+QMetaObject* KConfigViewStateSaver_SuperMetaObject(const KConfigViewStateSaver* self) {
     auto* vkconfigviewstatesaver = const_cast<VirtualKConfigViewStateSaver*>(dynamic_cast<const VirtualKConfigViewStateSaver*>(self));
     if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
         vkconfigviewstatesaver->setKConfigViewStateSaver_MetaObject_IsBase(true);
@@ -79,7 +79,7 @@ void KConfigViewStateSaver_OnMetaObject(const KConfigViewStateSaver* self, intpt
 }
 
 // Base class handler implementation
-void* KConfigViewStateSaver_QBaseMetacast(KConfigViewStateSaver* self, const char* param1) {
+void* KConfigViewStateSaver_SuperMetacast(KConfigViewStateSaver* self, const char* param1) {
     auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
     if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
         vkconfigviewstatesaver->setKConfigViewStateSaver_Metacast_IsBase(true);
@@ -98,7 +98,7 @@ void KConfigViewStateSaver_OnMetacast(KConfigViewStateSaver* self, intptr_t slot
 }
 
 // Base class handler implementation
-int KConfigViewStateSaver_QBaseMetacall(KConfigViewStateSaver* self, int param1, int param2, void** param3) {
+int KConfigViewStateSaver_SuperMetacall(KConfigViewStateSaver* self, int param1, int param2, void** param3) {
     auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
     if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
         vkconfigviewstatesaver->setKConfigViewStateSaver_Metacall_IsBase(true);
@@ -127,7 +127,7 @@ QModelIndex* KConfigViewStateSaver_IndexFromConfigString(const KConfigViewStateS
 }
 
 // Base class handler implementation
-QModelIndex* KConfigViewStateSaver_QBaseIndexFromConfigString(const KConfigViewStateSaver* self, const QAbstractItemModel* model, const libqt_string key) {
+QModelIndex* KConfigViewStateSaver_SuperIndexFromConfigString(const KConfigViewStateSaver* self, const QAbstractItemModel* model, const libqt_string key) {
     auto* vkconfigviewstatesaver = const_cast<VirtualKConfigViewStateSaver*>(dynamic_cast<const VirtualKConfigViewStateSaver*>(self));
     QString key_QString = QString::fromUtf8(key.data, key.len);
     if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
@@ -172,7 +172,7 @@ libqt_string KConfigViewStateSaver_IndexToConfigString(const KConfigViewStateSav
 }
 
 // Base class handler implementation
-libqt_string KConfigViewStateSaver_QBaseIndexToConfigString(const KConfigViewStateSaver* self, const QModelIndex* index) {
+libqt_string KConfigViewStateSaver_SuperIndexToConfigString(const KConfigViewStateSaver* self, const QModelIndex* index) {
     auto* vkconfigviewstatesaver = const_cast<VirtualKConfigViewStateSaver*>(dynamic_cast<const VirtualKConfigViewStateSaver*>(self));
     if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
         vkconfigviewstatesaver->setKConfigViewStateSaver_IndexToConfigString_IsBase(true);
@@ -217,7 +217,7 @@ bool KConfigViewStateSaver_Event(KConfigViewStateSaver* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KConfigViewStateSaver_QBaseEvent(KConfigViewStateSaver* self, QEvent* event) {
+bool KConfigViewStateSaver_SuperEvent(KConfigViewStateSaver* self, QEvent* event) {
     auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
     if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
         vkconfigviewstatesaver->setKConfigViewStateSaver_Event_IsBase(true);
@@ -246,7 +246,7 @@ bool KConfigViewStateSaver_EventFilter(KConfigViewStateSaver* self, QObject* wat
 }
 
 // Base class handler implementation
-bool KConfigViewStateSaver_QBaseEventFilter(KConfigViewStateSaver* self, QObject* watched, QEvent* event) {
+bool KConfigViewStateSaver_SuperEventFilter(KConfigViewStateSaver* self, QObject* watched, QEvent* event) {
     auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
     if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
         vkconfigviewstatesaver->setKConfigViewStateSaver_EventFilter_IsBase(true);
@@ -275,7 +275,7 @@ void KConfigViewStateSaver_TimerEvent(KConfigViewStateSaver* self, QTimerEvent* 
 }
 
 // Base class handler implementation
-void KConfigViewStateSaver_QBaseTimerEvent(KConfigViewStateSaver* self, QTimerEvent* event) {
+void KConfigViewStateSaver_SuperTimerEvent(KConfigViewStateSaver* self, QTimerEvent* event) {
     auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
     if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
         vkconfigviewstatesaver->setKConfigViewStateSaver_TimerEvent_IsBase(true);
@@ -304,7 +304,7 @@ void KConfigViewStateSaver_ChildEvent(KConfigViewStateSaver* self, QChildEvent* 
 }
 
 // Base class handler implementation
-void KConfigViewStateSaver_QBaseChildEvent(KConfigViewStateSaver* self, QChildEvent* event) {
+void KConfigViewStateSaver_SuperChildEvent(KConfigViewStateSaver* self, QChildEvent* event) {
     auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
     if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
         vkconfigviewstatesaver->setKConfigViewStateSaver_ChildEvent_IsBase(true);
@@ -333,7 +333,7 @@ void KConfigViewStateSaver_CustomEvent(KConfigViewStateSaver* self, QEvent* even
 }
 
 // Base class handler implementation
-void KConfigViewStateSaver_QBaseCustomEvent(KConfigViewStateSaver* self, QEvent* event) {
+void KConfigViewStateSaver_SuperCustomEvent(KConfigViewStateSaver* self, QEvent* event) {
     auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
     if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
         vkconfigviewstatesaver->setKConfigViewStateSaver_CustomEvent_IsBase(true);
@@ -362,7 +362,7 @@ void KConfigViewStateSaver_ConnectNotify(KConfigViewStateSaver* self, const QMet
 }
 
 // Base class handler implementation
-void KConfigViewStateSaver_QBaseConnectNotify(KConfigViewStateSaver* self, const QMetaMethod* signal) {
+void KConfigViewStateSaver_SuperConnectNotify(KConfigViewStateSaver* self, const QMetaMethod* signal) {
     auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
     if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
         vkconfigviewstatesaver->setKConfigViewStateSaver_ConnectNotify_IsBase(true);
@@ -391,7 +391,7 @@ void KConfigViewStateSaver_DisconnectNotify(KConfigViewStateSaver* self, const Q
 }
 
 // Base class handler implementation
-void KConfigViewStateSaver_QBaseDisconnectNotify(KConfigViewStateSaver* self, const QMetaMethod* signal) {
+void KConfigViewStateSaver_SuperDisconnectNotify(KConfigViewStateSaver* self, const QMetaMethod* signal) {
     auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
     if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
         vkconfigviewstatesaver->setKConfigViewStateSaver_DisconnectNotify_IsBase(true);
@@ -420,7 +420,7 @@ QObject* KConfigViewStateSaver_Sender(const KConfigViewStateSaver* self) {
 }
 
 // Base class handler implementation
-QObject* KConfigViewStateSaver_QBaseSender(const KConfigViewStateSaver* self) {
+QObject* KConfigViewStateSaver_SuperSender(const KConfigViewStateSaver* self) {
     auto* vkconfigviewstatesaver = const_cast<VirtualKConfigViewStateSaver*>(dynamic_cast<const VirtualKConfigViewStateSaver*>(self));
     if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
         vkconfigviewstatesaver->setKConfigViewStateSaver_Sender_IsBase(true);
@@ -449,7 +449,7 @@ int KConfigViewStateSaver_SenderSignalIndex(const KConfigViewStateSaver* self) {
 }
 
 // Base class handler implementation
-int KConfigViewStateSaver_QBaseSenderSignalIndex(const KConfigViewStateSaver* self) {
+int KConfigViewStateSaver_SuperSenderSignalIndex(const KConfigViewStateSaver* self) {
     auto* vkconfigviewstatesaver = const_cast<VirtualKConfigViewStateSaver*>(dynamic_cast<const VirtualKConfigViewStateSaver*>(self));
     if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
         vkconfigviewstatesaver->setKConfigViewStateSaver_SenderSignalIndex_IsBase(true);
@@ -478,7 +478,7 @@ int KConfigViewStateSaver_Receivers(const KConfigViewStateSaver* self, const cha
 }
 
 // Base class handler implementation
-int KConfigViewStateSaver_QBaseReceivers(const KConfigViewStateSaver* self, const char* signal) {
+int KConfigViewStateSaver_SuperReceivers(const KConfigViewStateSaver* self, const char* signal) {
     auto* vkconfigviewstatesaver = const_cast<VirtualKConfigViewStateSaver*>(dynamic_cast<const VirtualKConfigViewStateSaver*>(self));
     if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
         vkconfigviewstatesaver->setKConfigViewStateSaver_Receivers_IsBase(true);
@@ -507,7 +507,7 @@ bool KConfigViewStateSaver_IsSignalConnected(const KConfigViewStateSaver* self, 
 }
 
 // Base class handler implementation
-bool KConfigViewStateSaver_QBaseIsSignalConnected(const KConfigViewStateSaver* self, const QMetaMethod* signal) {
+bool KConfigViewStateSaver_SuperIsSignalConnected(const KConfigViewStateSaver* self, const QMetaMethod* signal) {
     auto* vkconfigviewstatesaver = const_cast<VirtualKConfigViewStateSaver*>(dynamic_cast<const VirtualKConfigViewStateSaver*>(self));
     if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
         vkconfigviewstatesaver->setKConfigViewStateSaver_IsSignalConnected_IsBase(true);

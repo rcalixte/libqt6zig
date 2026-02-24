@@ -1089,6 +1089,10 @@ pub const karchive = struct {
         return qtc.KArchive_PrepareWriting8(@ptrCast(self), name_str, user_str, group_str, @bitCast(size), perm, @ptrCast(atime), @ptrCast(mtime), @ptrCast(ctime));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/karchive.html#dtor.KArchive)
     ///
     /// Delete this object from C++ memory.
@@ -1097,7 +1101,7 @@ pub const karchive = struct {
     ///
     /// ` self: QtC.KArchive `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KArchive_Delete(@ptrCast(self));
     }
 };

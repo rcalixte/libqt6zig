@@ -512,6 +512,10 @@ pub const qeventpoint = struct {
         qtc.QEventPoint_SetAccepted1(@ptrCast(self), accepted);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#dtor.QEventPoint)
     ///
     /// Delete this object from C++ memory.
@@ -520,7 +524,7 @@ pub const qeventpoint = struct {
     ///
     /// ` self: QtC.QEventPoint `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QEventPoint_Delete(@ptrCast(self));
     }
 };

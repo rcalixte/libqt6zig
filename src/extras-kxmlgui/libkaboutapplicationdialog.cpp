@@ -85,7 +85,7 @@ int KAboutApplicationDialog_Metacall(KAboutApplicationDialog* self, int param1, 
 }
 
 // Base class handler implementation
-QMetaObject* KAboutApplicationDialog_QBaseMetaObject(const KAboutApplicationDialog* self) {
+QMetaObject* KAboutApplicationDialog_SuperMetaObject(const KAboutApplicationDialog* self) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_MetaObject_IsBase(true);
@@ -104,7 +104,7 @@ void KAboutApplicationDialog_OnMetaObject(const KAboutApplicationDialog* self, i
 }
 
 // Base class handler implementation
-void* KAboutApplicationDialog_QBaseMetacast(KAboutApplicationDialog* self, const char* param1) {
+void* KAboutApplicationDialog_SuperMetacast(KAboutApplicationDialog* self, const char* param1) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_Metacast_IsBase(true);
@@ -123,7 +123,7 @@ void KAboutApplicationDialog_OnMetacast(KAboutApplicationDialog* self, intptr_t 
 }
 
 // Base class handler implementation
-int KAboutApplicationDialog_QBaseMetacall(KAboutApplicationDialog* self, int param1, int param2, void** param3) {
+int KAboutApplicationDialog_SuperMetacall(KAboutApplicationDialog* self, int param1, int param2, void** param3) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_Metacall_IsBase(true);
@@ -152,7 +152,7 @@ void KAboutApplicationDialog_SetVisible(KAboutApplicationDialog* self, bool visi
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseSetVisible(KAboutApplicationDialog* self, bool visible) {
+void KAboutApplicationDialog_SuperSetVisible(KAboutApplicationDialog* self, bool visible) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_SetVisible_IsBase(true);
@@ -181,7 +181,7 @@ QSize* KAboutApplicationDialog_SizeHint(const KAboutApplicationDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KAboutApplicationDialog_QBaseSizeHint(const KAboutApplicationDialog* self) {
+QSize* KAboutApplicationDialog_SuperSizeHint(const KAboutApplicationDialog* self) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_SizeHint_IsBase(true);
@@ -210,7 +210,7 @@ QSize* KAboutApplicationDialog_MinimumSizeHint(const KAboutApplicationDialog* se
 }
 
 // Base class handler implementation
-QSize* KAboutApplicationDialog_QBaseMinimumSizeHint(const KAboutApplicationDialog* self) {
+QSize* KAboutApplicationDialog_SuperMinimumSizeHint(const KAboutApplicationDialog* self) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_MinimumSizeHint_IsBase(true);
@@ -239,7 +239,7 @@ void KAboutApplicationDialog_Open(KAboutApplicationDialog* self) {
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseOpen(KAboutApplicationDialog* self) {
+void KAboutApplicationDialog_SuperOpen(KAboutApplicationDialog* self) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_Open_IsBase(true);
@@ -268,7 +268,7 @@ int KAboutApplicationDialog_Exec(KAboutApplicationDialog* self) {
 }
 
 // Base class handler implementation
-int KAboutApplicationDialog_QBaseExec(KAboutApplicationDialog* self) {
+int KAboutApplicationDialog_SuperExec(KAboutApplicationDialog* self) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_Exec_IsBase(true);
@@ -297,7 +297,7 @@ void KAboutApplicationDialog_Done(KAboutApplicationDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseDone(KAboutApplicationDialog* self, int param1) {
+void KAboutApplicationDialog_SuperDone(KAboutApplicationDialog* self, int param1) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_Done_IsBase(true);
@@ -326,7 +326,7 @@ void KAboutApplicationDialog_Accept(KAboutApplicationDialog* self) {
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseAccept(KAboutApplicationDialog* self) {
+void KAboutApplicationDialog_SuperAccept(KAboutApplicationDialog* self) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_Accept_IsBase(true);
@@ -355,7 +355,7 @@ void KAboutApplicationDialog_Reject(KAboutApplicationDialog* self) {
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseReject(KAboutApplicationDialog* self) {
+void KAboutApplicationDialog_SuperReject(KAboutApplicationDialog* self) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_Reject_IsBase(true);
@@ -384,7 +384,7 @@ void KAboutApplicationDialog_KeyPressEvent(KAboutApplicationDialog* self, QKeyEv
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseKeyPressEvent(KAboutApplicationDialog* self, QKeyEvent* param1) {
+void KAboutApplicationDialog_SuperKeyPressEvent(KAboutApplicationDialog* self, QKeyEvent* param1) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_KeyPressEvent_IsBase(true);
@@ -413,7 +413,7 @@ void KAboutApplicationDialog_CloseEvent(KAboutApplicationDialog* self, QCloseEve
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseCloseEvent(KAboutApplicationDialog* self, QCloseEvent* param1) {
+void KAboutApplicationDialog_SuperCloseEvent(KAboutApplicationDialog* self, QCloseEvent* param1) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_CloseEvent_IsBase(true);
@@ -442,7 +442,7 @@ void KAboutApplicationDialog_ShowEvent(KAboutApplicationDialog* self, QShowEvent
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseShowEvent(KAboutApplicationDialog* self, QShowEvent* param1) {
+void KAboutApplicationDialog_SuperShowEvent(KAboutApplicationDialog* self, QShowEvent* param1) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_ShowEvent_IsBase(true);
@@ -471,7 +471,7 @@ void KAboutApplicationDialog_ResizeEvent(KAboutApplicationDialog* self, QResizeE
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseResizeEvent(KAboutApplicationDialog* self, QResizeEvent* param1) {
+void KAboutApplicationDialog_SuperResizeEvent(KAboutApplicationDialog* self, QResizeEvent* param1) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_ResizeEvent_IsBase(true);
@@ -500,7 +500,7 @@ void KAboutApplicationDialog_ContextMenuEvent(KAboutApplicationDialog* self, QCo
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseContextMenuEvent(KAboutApplicationDialog* self, QContextMenuEvent* param1) {
+void KAboutApplicationDialog_SuperContextMenuEvent(KAboutApplicationDialog* self, QContextMenuEvent* param1) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_ContextMenuEvent_IsBase(true);
@@ -529,7 +529,7 @@ bool KAboutApplicationDialog_EventFilter(KAboutApplicationDialog* self, QObject*
 }
 
 // Base class handler implementation
-bool KAboutApplicationDialog_QBaseEventFilter(KAboutApplicationDialog* self, QObject* param1, QEvent* param2) {
+bool KAboutApplicationDialog_SuperEventFilter(KAboutApplicationDialog* self, QObject* param1, QEvent* param2) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_EventFilter_IsBase(true);
@@ -558,7 +558,7 @@ int KAboutApplicationDialog_DevType(const KAboutApplicationDialog* self) {
 }
 
 // Base class handler implementation
-int KAboutApplicationDialog_QBaseDevType(const KAboutApplicationDialog* self) {
+int KAboutApplicationDialog_SuperDevType(const KAboutApplicationDialog* self) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_DevType_IsBase(true);
@@ -587,7 +587,7 @@ int KAboutApplicationDialog_HeightForWidth(const KAboutApplicationDialog* self, 
 }
 
 // Base class handler implementation
-int KAboutApplicationDialog_QBaseHeightForWidth(const KAboutApplicationDialog* self, int param1) {
+int KAboutApplicationDialog_SuperHeightForWidth(const KAboutApplicationDialog* self, int param1) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_HeightForWidth_IsBase(true);
@@ -616,7 +616,7 @@ bool KAboutApplicationDialog_HasHeightForWidth(const KAboutApplicationDialog* se
 }
 
 // Base class handler implementation
-bool KAboutApplicationDialog_QBaseHasHeightForWidth(const KAboutApplicationDialog* self) {
+bool KAboutApplicationDialog_SuperHasHeightForWidth(const KAboutApplicationDialog* self) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_HasHeightForWidth_IsBase(true);
@@ -645,7 +645,7 @@ QPaintEngine* KAboutApplicationDialog_PaintEngine(const KAboutApplicationDialog*
 }
 
 // Base class handler implementation
-QPaintEngine* KAboutApplicationDialog_QBasePaintEngine(const KAboutApplicationDialog* self) {
+QPaintEngine* KAboutApplicationDialog_SuperPaintEngine(const KAboutApplicationDialog* self) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_PaintEngine_IsBase(true);
@@ -674,7 +674,7 @@ bool KAboutApplicationDialog_Event(KAboutApplicationDialog* self, QEvent* event)
 }
 
 // Base class handler implementation
-bool KAboutApplicationDialog_QBaseEvent(KAboutApplicationDialog* self, QEvent* event) {
+bool KAboutApplicationDialog_SuperEvent(KAboutApplicationDialog* self, QEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_Event_IsBase(true);
@@ -703,7 +703,7 @@ void KAboutApplicationDialog_MousePressEvent(KAboutApplicationDialog* self, QMou
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseMousePressEvent(KAboutApplicationDialog* self, QMouseEvent* event) {
+void KAboutApplicationDialog_SuperMousePressEvent(KAboutApplicationDialog* self, QMouseEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_MousePressEvent_IsBase(true);
@@ -732,7 +732,7 @@ void KAboutApplicationDialog_MouseReleaseEvent(KAboutApplicationDialog* self, QM
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseMouseReleaseEvent(KAboutApplicationDialog* self, QMouseEvent* event) {
+void KAboutApplicationDialog_SuperMouseReleaseEvent(KAboutApplicationDialog* self, QMouseEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_MouseReleaseEvent_IsBase(true);
@@ -761,7 +761,7 @@ void KAboutApplicationDialog_MouseDoubleClickEvent(KAboutApplicationDialog* self
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseMouseDoubleClickEvent(KAboutApplicationDialog* self, QMouseEvent* event) {
+void KAboutApplicationDialog_SuperMouseDoubleClickEvent(KAboutApplicationDialog* self, QMouseEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_MouseDoubleClickEvent_IsBase(true);
@@ -790,7 +790,7 @@ void KAboutApplicationDialog_MouseMoveEvent(KAboutApplicationDialog* self, QMous
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseMouseMoveEvent(KAboutApplicationDialog* self, QMouseEvent* event) {
+void KAboutApplicationDialog_SuperMouseMoveEvent(KAboutApplicationDialog* self, QMouseEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_MouseMoveEvent_IsBase(true);
@@ -819,7 +819,7 @@ void KAboutApplicationDialog_WheelEvent(KAboutApplicationDialog* self, QWheelEve
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseWheelEvent(KAboutApplicationDialog* self, QWheelEvent* event) {
+void KAboutApplicationDialog_SuperWheelEvent(KAboutApplicationDialog* self, QWheelEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_WheelEvent_IsBase(true);
@@ -848,7 +848,7 @@ void KAboutApplicationDialog_KeyReleaseEvent(KAboutApplicationDialog* self, QKey
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseKeyReleaseEvent(KAboutApplicationDialog* self, QKeyEvent* event) {
+void KAboutApplicationDialog_SuperKeyReleaseEvent(KAboutApplicationDialog* self, QKeyEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_KeyReleaseEvent_IsBase(true);
@@ -877,7 +877,7 @@ void KAboutApplicationDialog_FocusInEvent(KAboutApplicationDialog* self, QFocusE
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseFocusInEvent(KAboutApplicationDialog* self, QFocusEvent* event) {
+void KAboutApplicationDialog_SuperFocusInEvent(KAboutApplicationDialog* self, QFocusEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_FocusInEvent_IsBase(true);
@@ -906,7 +906,7 @@ void KAboutApplicationDialog_FocusOutEvent(KAboutApplicationDialog* self, QFocus
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseFocusOutEvent(KAboutApplicationDialog* self, QFocusEvent* event) {
+void KAboutApplicationDialog_SuperFocusOutEvent(KAboutApplicationDialog* self, QFocusEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_FocusOutEvent_IsBase(true);
@@ -935,7 +935,7 @@ void KAboutApplicationDialog_EnterEvent(KAboutApplicationDialog* self, QEnterEve
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseEnterEvent(KAboutApplicationDialog* self, QEnterEvent* event) {
+void KAboutApplicationDialog_SuperEnterEvent(KAboutApplicationDialog* self, QEnterEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_EnterEvent_IsBase(true);
@@ -964,7 +964,7 @@ void KAboutApplicationDialog_LeaveEvent(KAboutApplicationDialog* self, QEvent* e
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseLeaveEvent(KAboutApplicationDialog* self, QEvent* event) {
+void KAboutApplicationDialog_SuperLeaveEvent(KAboutApplicationDialog* self, QEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_LeaveEvent_IsBase(true);
@@ -993,7 +993,7 @@ void KAboutApplicationDialog_PaintEvent(KAboutApplicationDialog* self, QPaintEve
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBasePaintEvent(KAboutApplicationDialog* self, QPaintEvent* event) {
+void KAboutApplicationDialog_SuperPaintEvent(KAboutApplicationDialog* self, QPaintEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_PaintEvent_IsBase(true);
@@ -1022,7 +1022,7 @@ void KAboutApplicationDialog_MoveEvent(KAboutApplicationDialog* self, QMoveEvent
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseMoveEvent(KAboutApplicationDialog* self, QMoveEvent* event) {
+void KAboutApplicationDialog_SuperMoveEvent(KAboutApplicationDialog* self, QMoveEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_MoveEvent_IsBase(true);
@@ -1051,7 +1051,7 @@ void KAboutApplicationDialog_TabletEvent(KAboutApplicationDialog* self, QTabletE
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseTabletEvent(KAboutApplicationDialog* self, QTabletEvent* event) {
+void KAboutApplicationDialog_SuperTabletEvent(KAboutApplicationDialog* self, QTabletEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_TabletEvent_IsBase(true);
@@ -1080,7 +1080,7 @@ void KAboutApplicationDialog_ActionEvent(KAboutApplicationDialog* self, QActionE
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseActionEvent(KAboutApplicationDialog* self, QActionEvent* event) {
+void KAboutApplicationDialog_SuperActionEvent(KAboutApplicationDialog* self, QActionEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_ActionEvent_IsBase(true);
@@ -1109,7 +1109,7 @@ void KAboutApplicationDialog_DragEnterEvent(KAboutApplicationDialog* self, QDrag
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseDragEnterEvent(KAboutApplicationDialog* self, QDragEnterEvent* event) {
+void KAboutApplicationDialog_SuperDragEnterEvent(KAboutApplicationDialog* self, QDragEnterEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_DragEnterEvent_IsBase(true);
@@ -1138,7 +1138,7 @@ void KAboutApplicationDialog_DragMoveEvent(KAboutApplicationDialog* self, QDragM
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseDragMoveEvent(KAboutApplicationDialog* self, QDragMoveEvent* event) {
+void KAboutApplicationDialog_SuperDragMoveEvent(KAboutApplicationDialog* self, QDragMoveEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_DragMoveEvent_IsBase(true);
@@ -1167,7 +1167,7 @@ void KAboutApplicationDialog_DragLeaveEvent(KAboutApplicationDialog* self, QDrag
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseDragLeaveEvent(KAboutApplicationDialog* self, QDragLeaveEvent* event) {
+void KAboutApplicationDialog_SuperDragLeaveEvent(KAboutApplicationDialog* self, QDragLeaveEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_DragLeaveEvent_IsBase(true);
@@ -1196,7 +1196,7 @@ void KAboutApplicationDialog_DropEvent(KAboutApplicationDialog* self, QDropEvent
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseDropEvent(KAboutApplicationDialog* self, QDropEvent* event) {
+void KAboutApplicationDialog_SuperDropEvent(KAboutApplicationDialog* self, QDropEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_DropEvent_IsBase(true);
@@ -1225,7 +1225,7 @@ void KAboutApplicationDialog_HideEvent(KAboutApplicationDialog* self, QHideEvent
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseHideEvent(KAboutApplicationDialog* self, QHideEvent* event) {
+void KAboutApplicationDialog_SuperHideEvent(KAboutApplicationDialog* self, QHideEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_HideEvent_IsBase(true);
@@ -1255,7 +1255,7 @@ bool KAboutApplicationDialog_NativeEvent(KAboutApplicationDialog* self, const li
 }
 
 // Base class handler implementation
-bool KAboutApplicationDialog_QBaseNativeEvent(KAboutApplicationDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KAboutApplicationDialog_SuperNativeEvent(KAboutApplicationDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
@@ -1285,7 +1285,7 @@ void KAboutApplicationDialog_ChangeEvent(KAboutApplicationDialog* self, QEvent* 
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseChangeEvent(KAboutApplicationDialog* self, QEvent* param1) {
+void KAboutApplicationDialog_SuperChangeEvent(KAboutApplicationDialog* self, QEvent* param1) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_ChangeEvent_IsBase(true);
@@ -1314,7 +1314,7 @@ int KAboutApplicationDialog_Metric(const KAboutApplicationDialog* self, int para
 }
 
 // Base class handler implementation
-int KAboutApplicationDialog_QBaseMetric(const KAboutApplicationDialog* self, int param1) {
+int KAboutApplicationDialog_SuperMetric(const KAboutApplicationDialog* self, int param1) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_Metric_IsBase(true);
@@ -1343,7 +1343,7 @@ void KAboutApplicationDialog_InitPainter(const KAboutApplicationDialog* self, QP
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseInitPainter(const KAboutApplicationDialog* self, QPainter* painter) {
+void KAboutApplicationDialog_SuperInitPainter(const KAboutApplicationDialog* self, QPainter* painter) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_InitPainter_IsBase(true);
@@ -1372,7 +1372,7 @@ QPaintDevice* KAboutApplicationDialog_Redirected(const KAboutApplicationDialog* 
 }
 
 // Base class handler implementation
-QPaintDevice* KAboutApplicationDialog_QBaseRedirected(const KAboutApplicationDialog* self, QPoint* offset) {
+QPaintDevice* KAboutApplicationDialog_SuperRedirected(const KAboutApplicationDialog* self, QPoint* offset) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_Redirected_IsBase(true);
@@ -1401,7 +1401,7 @@ QPainter* KAboutApplicationDialog_SharedPainter(const KAboutApplicationDialog* s
 }
 
 // Base class handler implementation
-QPainter* KAboutApplicationDialog_QBaseSharedPainter(const KAboutApplicationDialog* self) {
+QPainter* KAboutApplicationDialog_SuperSharedPainter(const KAboutApplicationDialog* self) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_SharedPainter_IsBase(true);
@@ -1430,7 +1430,7 @@ void KAboutApplicationDialog_InputMethodEvent(KAboutApplicationDialog* self, QIn
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseInputMethodEvent(KAboutApplicationDialog* self, QInputMethodEvent* param1) {
+void KAboutApplicationDialog_SuperInputMethodEvent(KAboutApplicationDialog* self, QInputMethodEvent* param1) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_InputMethodEvent_IsBase(true);
@@ -1459,7 +1459,7 @@ QVariant* KAboutApplicationDialog_InputMethodQuery(const KAboutApplicationDialog
 }
 
 // Base class handler implementation
-QVariant* KAboutApplicationDialog_QBaseInputMethodQuery(const KAboutApplicationDialog* self, int param1) {
+QVariant* KAboutApplicationDialog_SuperInputMethodQuery(const KAboutApplicationDialog* self, int param1) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_InputMethodQuery_IsBase(true);
@@ -1488,7 +1488,7 @@ bool KAboutApplicationDialog_FocusNextPrevChild(KAboutApplicationDialog* self, b
 }
 
 // Base class handler implementation
-bool KAboutApplicationDialog_QBaseFocusNextPrevChild(KAboutApplicationDialog* self, bool next) {
+bool KAboutApplicationDialog_SuperFocusNextPrevChild(KAboutApplicationDialog* self, bool next) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_FocusNextPrevChild_IsBase(true);
@@ -1517,7 +1517,7 @@ void KAboutApplicationDialog_TimerEvent(KAboutApplicationDialog* self, QTimerEve
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseTimerEvent(KAboutApplicationDialog* self, QTimerEvent* event) {
+void KAboutApplicationDialog_SuperTimerEvent(KAboutApplicationDialog* self, QTimerEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_TimerEvent_IsBase(true);
@@ -1546,7 +1546,7 @@ void KAboutApplicationDialog_ChildEvent(KAboutApplicationDialog* self, QChildEve
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseChildEvent(KAboutApplicationDialog* self, QChildEvent* event) {
+void KAboutApplicationDialog_SuperChildEvent(KAboutApplicationDialog* self, QChildEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_ChildEvent_IsBase(true);
@@ -1575,7 +1575,7 @@ void KAboutApplicationDialog_CustomEvent(KAboutApplicationDialog* self, QEvent* 
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseCustomEvent(KAboutApplicationDialog* self, QEvent* event) {
+void KAboutApplicationDialog_SuperCustomEvent(KAboutApplicationDialog* self, QEvent* event) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_CustomEvent_IsBase(true);
@@ -1604,7 +1604,7 @@ void KAboutApplicationDialog_ConnectNotify(KAboutApplicationDialog* self, const 
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseConnectNotify(KAboutApplicationDialog* self, const QMetaMethod* signal) {
+void KAboutApplicationDialog_SuperConnectNotify(KAboutApplicationDialog* self, const QMetaMethod* signal) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_ConnectNotify_IsBase(true);
@@ -1633,7 +1633,7 @@ void KAboutApplicationDialog_DisconnectNotify(KAboutApplicationDialog* self, con
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseDisconnectNotify(KAboutApplicationDialog* self, const QMetaMethod* signal) {
+void KAboutApplicationDialog_SuperDisconnectNotify(KAboutApplicationDialog* self, const QMetaMethod* signal) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_DisconnectNotify_IsBase(true);
@@ -1662,7 +1662,7 @@ void KAboutApplicationDialog_AdjustPosition(KAboutApplicationDialog* self, QWidg
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseAdjustPosition(KAboutApplicationDialog* self, QWidget* param1) {
+void KAboutApplicationDialog_SuperAdjustPosition(KAboutApplicationDialog* self, QWidget* param1) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_AdjustPosition_IsBase(true);
@@ -1691,7 +1691,7 @@ void KAboutApplicationDialog_UpdateMicroFocus(KAboutApplicationDialog* self) {
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseUpdateMicroFocus(KAboutApplicationDialog* self) {
+void KAboutApplicationDialog_SuperUpdateMicroFocus(KAboutApplicationDialog* self) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_UpdateMicroFocus_IsBase(true);
@@ -1720,7 +1720,7 @@ void KAboutApplicationDialog_Create(KAboutApplicationDialog* self) {
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseCreate(KAboutApplicationDialog* self) {
+void KAboutApplicationDialog_SuperCreate(KAboutApplicationDialog* self) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_Create_IsBase(true);
@@ -1749,7 +1749,7 @@ void KAboutApplicationDialog_Destroy(KAboutApplicationDialog* self) {
 }
 
 // Base class handler implementation
-void KAboutApplicationDialog_QBaseDestroy(KAboutApplicationDialog* self) {
+void KAboutApplicationDialog_SuperDestroy(KAboutApplicationDialog* self) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_Destroy_IsBase(true);
@@ -1778,7 +1778,7 @@ bool KAboutApplicationDialog_FocusNextChild(KAboutApplicationDialog* self) {
 }
 
 // Base class handler implementation
-bool KAboutApplicationDialog_QBaseFocusNextChild(KAboutApplicationDialog* self) {
+bool KAboutApplicationDialog_SuperFocusNextChild(KAboutApplicationDialog* self) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_FocusNextChild_IsBase(true);
@@ -1807,7 +1807,7 @@ bool KAboutApplicationDialog_FocusPreviousChild(KAboutApplicationDialog* self) {
 }
 
 // Base class handler implementation
-bool KAboutApplicationDialog_QBaseFocusPreviousChild(KAboutApplicationDialog* self) {
+bool KAboutApplicationDialog_SuperFocusPreviousChild(KAboutApplicationDialog* self) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_FocusPreviousChild_IsBase(true);
@@ -1836,7 +1836,7 @@ QObject* KAboutApplicationDialog_Sender(const KAboutApplicationDialog* self) {
 }
 
 // Base class handler implementation
-QObject* KAboutApplicationDialog_QBaseSender(const KAboutApplicationDialog* self) {
+QObject* KAboutApplicationDialog_SuperSender(const KAboutApplicationDialog* self) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_Sender_IsBase(true);
@@ -1865,7 +1865,7 @@ int KAboutApplicationDialog_SenderSignalIndex(const KAboutApplicationDialog* sel
 }
 
 // Base class handler implementation
-int KAboutApplicationDialog_QBaseSenderSignalIndex(const KAboutApplicationDialog* self) {
+int KAboutApplicationDialog_SuperSenderSignalIndex(const KAboutApplicationDialog* self) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_SenderSignalIndex_IsBase(true);
@@ -1894,7 +1894,7 @@ int KAboutApplicationDialog_Receivers(const KAboutApplicationDialog* self, const
 }
 
 // Base class handler implementation
-int KAboutApplicationDialog_QBaseReceivers(const KAboutApplicationDialog* self, const char* signal) {
+int KAboutApplicationDialog_SuperReceivers(const KAboutApplicationDialog* self, const char* signal) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_Receivers_IsBase(true);
@@ -1923,7 +1923,7 @@ bool KAboutApplicationDialog_IsSignalConnected(const KAboutApplicationDialog* se
 }
 
 // Base class handler implementation
-bool KAboutApplicationDialog_QBaseIsSignalConnected(const KAboutApplicationDialog* self, const QMetaMethod* signal) {
+bool KAboutApplicationDialog_SuperIsSignalConnected(const KAboutApplicationDialog* self, const QMetaMethod* signal) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_IsSignalConnected_IsBase(true);
@@ -1952,7 +1952,7 @@ double KAboutApplicationDialog_GetDecodedMetricF(const KAboutApplicationDialog* 
 }
 
 // Base class handler implementation
-double KAboutApplicationDialog_QBaseGetDecodedMetricF(const KAboutApplicationDialog* self, int metricA, int metricB) {
+double KAboutApplicationDialog_SuperGetDecodedMetricF(const KAboutApplicationDialog* self, int metricA, int metricB) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
     if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
         vkaboutapplicationdialog->setKAboutApplicationDialog_GetDecodedMetricF_IsBase(true);

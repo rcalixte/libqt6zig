@@ -220,7 +220,7 @@ void QCommonStyle_Unpolish2(QCommonStyle* self, QApplication* application) {
 }
 
 // Base class handler implementation
-QMetaObject* QCommonStyle_QBaseMetaObject(const QCommonStyle* self) {
+QMetaObject* QCommonStyle_SuperMetaObject(const QCommonStyle* self) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_MetaObject_IsBase(true);
@@ -239,7 +239,7 @@ void QCommonStyle_OnMetaObject(const QCommonStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCommonStyle_QBaseMetacast(QCommonStyle* self, const char* param1) {
+void* QCommonStyle_SuperMetacast(QCommonStyle* self, const char* param1) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_Metacast_IsBase(true);
@@ -258,7 +258,7 @@ void QCommonStyle_OnMetacast(QCommonStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCommonStyle_QBaseMetacall(QCommonStyle* self, int param1, int param2, void** param3) {
+int QCommonStyle_SuperMetacall(QCommonStyle* self, int param1, int param2, void** param3) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_Metacall_IsBase(true);
@@ -277,7 +277,7 @@ void QCommonStyle_OnMetacall(QCommonStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCommonStyle_QBaseDrawPrimitive(const QCommonStyle* self, int pe, const QStyleOption* opt, QPainter* p, const QWidget* w) {
+void QCommonStyle_SuperDrawPrimitive(const QCommonStyle* self, int pe, const QStyleOption* opt, QPainter* p, const QWidget* w) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_DrawPrimitive_IsBase(true);
@@ -296,7 +296,7 @@ void QCommonStyle_OnDrawPrimitive(const QCommonStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCommonStyle_QBaseDrawControl(const QCommonStyle* self, int element, const QStyleOption* opt, QPainter* p, const QWidget* w) {
+void QCommonStyle_SuperDrawControl(const QCommonStyle* self, int element, const QStyleOption* opt, QPainter* p, const QWidget* w) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_DrawControl_IsBase(true);
@@ -315,7 +315,7 @@ void QCommonStyle_OnDrawControl(const QCommonStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QRect* QCommonStyle_QBaseSubElementRect(const QCommonStyle* self, int r, const QStyleOption* opt, const QWidget* widget) {
+QRect* QCommonStyle_SuperSubElementRect(const QCommonStyle* self, int r, const QStyleOption* opt, const QWidget* widget) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_SubElementRect_IsBase(true);
@@ -334,7 +334,7 @@ void QCommonStyle_OnSubElementRect(const QCommonStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCommonStyle_QBaseDrawComplexControl(const QCommonStyle* self, int cc, const QStyleOptionComplex* opt, QPainter* p, const QWidget* w) {
+void QCommonStyle_SuperDrawComplexControl(const QCommonStyle* self, int cc, const QStyleOptionComplex* opt, QPainter* p, const QWidget* w) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_DrawComplexControl_IsBase(true);
@@ -353,7 +353,7 @@ void QCommonStyle_OnDrawComplexControl(const QCommonStyle* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int QCommonStyle_QBaseHitTestComplexControl(const QCommonStyle* self, int cc, const QStyleOptionComplex* opt, const QPoint* pt, const QWidget* w) {
+int QCommonStyle_SuperHitTestComplexControl(const QCommonStyle* self, int cc, const QStyleOptionComplex* opt, const QPoint* pt, const QWidget* w) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_HitTestComplexControl_IsBase(true);
@@ -372,7 +372,7 @@ void QCommonStyle_OnHitTestComplexControl(const QCommonStyle* self, intptr_t slo
 }
 
 // Base class handler implementation
-QRect* QCommonStyle_QBaseSubControlRect(const QCommonStyle* self, int cc, const QStyleOptionComplex* opt, int sc, const QWidget* w) {
+QRect* QCommonStyle_SuperSubControlRect(const QCommonStyle* self, int cc, const QStyleOptionComplex* opt, int sc, const QWidget* w) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_SubControlRect_IsBase(true);
@@ -391,7 +391,7 @@ void QCommonStyle_OnSubControlRect(const QCommonStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QCommonStyle_QBaseSizeFromContents(const QCommonStyle* self, int ct, const QStyleOption* opt, const QSize* contentsSize, const QWidget* widget) {
+QSize* QCommonStyle_SuperSizeFromContents(const QCommonStyle* self, int ct, const QStyleOption* opt, const QSize* contentsSize, const QWidget* widget) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_SizeFromContents_IsBase(true);
@@ -410,7 +410,7 @@ void QCommonStyle_OnSizeFromContents(const QCommonStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCommonStyle_QBasePixelMetric(const QCommonStyle* self, int m, const QStyleOption* opt, const QWidget* widget) {
+int QCommonStyle_SuperPixelMetric(const QCommonStyle* self, int m, const QStyleOption* opt, const QWidget* widget) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_PixelMetric_IsBase(true);
@@ -429,7 +429,7 @@ void QCommonStyle_OnPixelMetric(const QCommonStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCommonStyle_QBaseStyleHint(const QCommonStyle* self, int sh, const QStyleOption* opt, const QWidget* w, QStyleHintReturn* shret) {
+int QCommonStyle_SuperStyleHint(const QCommonStyle* self, int sh, const QStyleOption* opt, const QWidget* w, QStyleHintReturn* shret) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_StyleHint_IsBase(true);
@@ -448,7 +448,7 @@ void QCommonStyle_OnStyleHint(const QCommonStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QIcon* QCommonStyle_QBaseStandardIcon(const QCommonStyle* self, int standardIcon, const QStyleOption* opt, const QWidget* widget) {
+QIcon* QCommonStyle_SuperStandardIcon(const QCommonStyle* self, int standardIcon, const QStyleOption* opt, const QWidget* widget) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_StandardIcon_IsBase(true);
@@ -467,7 +467,7 @@ void QCommonStyle_OnStandardIcon(const QCommonStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPixmap* QCommonStyle_QBaseStandardPixmap(const QCommonStyle* self, int sp, const QStyleOption* opt, const QWidget* widget) {
+QPixmap* QCommonStyle_SuperStandardPixmap(const QCommonStyle* self, int sp, const QStyleOption* opt, const QWidget* widget) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_StandardPixmap_IsBase(true);
@@ -486,7 +486,7 @@ void QCommonStyle_OnStandardPixmap(const QCommonStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QPixmap* QCommonStyle_QBaseGeneratedIconPixmap(const QCommonStyle* self, int iconMode, const QPixmap* pixmap, const QStyleOption* opt) {
+QPixmap* QCommonStyle_SuperGeneratedIconPixmap(const QCommonStyle* self, int iconMode, const QPixmap* pixmap, const QStyleOption* opt) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_GeneratedIconPixmap_IsBase(true);
@@ -505,7 +505,7 @@ void QCommonStyle_OnGeneratedIconPixmap(const QCommonStyle* self, intptr_t slot)
 }
 
 // Base class handler implementation
-int QCommonStyle_QBaseLayoutSpacing(const QCommonStyle* self, int control1, int control2, int orientation, const QStyleOption* option, const QWidget* widget) {
+int QCommonStyle_SuperLayoutSpacing(const QCommonStyle* self, int control1, int control2, int orientation, const QStyleOption* option, const QWidget* widget) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_LayoutSpacing_IsBase(true);
@@ -524,7 +524,7 @@ void QCommonStyle_OnLayoutSpacing(const QCommonStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCommonStyle_QBasePolish(QCommonStyle* self, QPalette* param1) {
+void QCommonStyle_SuperPolish(QCommonStyle* self, QPalette* param1) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_Polish_IsBase(true);
@@ -543,7 +543,7 @@ void QCommonStyle_OnPolish(QCommonStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCommonStyle_QBasePolish2(QCommonStyle* self, QApplication* app) {
+void QCommonStyle_SuperPolish2(QCommonStyle* self, QApplication* app) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_Polish2_IsBase(true);
@@ -562,7 +562,7 @@ void QCommonStyle_OnPolish2(QCommonStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCommonStyle_QBasePolish3(QCommonStyle* self, QWidget* widget) {
+void QCommonStyle_SuperPolish3(QCommonStyle* self, QWidget* widget) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_Polish3_IsBase(true);
@@ -581,7 +581,7 @@ void QCommonStyle_OnPolish3(QCommonStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCommonStyle_QBaseUnpolish(QCommonStyle* self, QWidget* widget) {
+void QCommonStyle_SuperUnpolish(QCommonStyle* self, QWidget* widget) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_Unpolish_IsBase(true);
@@ -600,7 +600,7 @@ void QCommonStyle_OnUnpolish(QCommonStyle* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QCommonStyle_QBaseUnpolish2(QCommonStyle* self, QApplication* application) {
+void QCommonStyle_SuperUnpolish2(QCommonStyle* self, QApplication* application) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_Unpolish2_IsBase(true);
@@ -630,7 +630,7 @@ QRect* QCommonStyle_ItemTextRect(const QCommonStyle* self, const QFontMetrics* f
 }
 
 // Base class handler implementation
-QRect* QCommonStyle_QBaseItemTextRect(const QCommonStyle* self, const QFontMetrics* fm, const QRect* r, int flags, bool enabled, const libqt_string text) {
+QRect* QCommonStyle_SuperItemTextRect(const QCommonStyle* self, const QFontMetrics* fm, const QRect* r, int flags, bool enabled, const libqt_string text) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
@@ -660,7 +660,7 @@ QRect* QCommonStyle_ItemPixmapRect(const QCommonStyle* self, const QRect* r, int
 }
 
 // Base class handler implementation
-QRect* QCommonStyle_QBaseItemPixmapRect(const QCommonStyle* self, const QRect* r, int flags, const QPixmap* pixmap) {
+QRect* QCommonStyle_SuperItemPixmapRect(const QCommonStyle* self, const QRect* r, int flags, const QPixmap* pixmap) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_ItemPixmapRect_IsBase(true);
@@ -690,7 +690,7 @@ void QCommonStyle_DrawItemText(const QCommonStyle* self, QPainter* painter, cons
 }
 
 // Base class handler implementation
-void QCommonStyle_QBaseDrawItemText(const QCommonStyle* self, QPainter* painter, const QRect* rect, int flags, const QPalette* pal, bool enabled, const libqt_string text, int textRole) {
+void QCommonStyle_SuperDrawItemText(const QCommonStyle* self, QPainter* painter, const QRect* rect, int flags, const QPalette* pal, bool enabled, const libqt_string text, int textRole) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
@@ -720,7 +720,7 @@ void QCommonStyle_DrawItemPixmap(const QCommonStyle* self, QPainter* painter, co
 }
 
 // Base class handler implementation
-void QCommonStyle_QBaseDrawItemPixmap(const QCommonStyle* self, QPainter* painter, const QRect* rect, int alignment, const QPixmap* pixmap) {
+void QCommonStyle_SuperDrawItemPixmap(const QCommonStyle* self, QPainter* painter, const QRect* rect, int alignment, const QPixmap* pixmap) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_DrawItemPixmap_IsBase(true);
@@ -749,7 +749,7 @@ QPalette* QCommonStyle_StandardPalette(const QCommonStyle* self) {
 }
 
 // Base class handler implementation
-QPalette* QCommonStyle_QBaseStandardPalette(const QCommonStyle* self) {
+QPalette* QCommonStyle_SuperStandardPalette(const QCommonStyle* self) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_StandardPalette_IsBase(true);
@@ -778,7 +778,7 @@ bool QCommonStyle_Event(QCommonStyle* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCommonStyle_QBaseEvent(QCommonStyle* self, QEvent* event) {
+bool QCommonStyle_SuperEvent(QCommonStyle* self, QEvent* event) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_Event_IsBase(true);
@@ -807,7 +807,7 @@ bool QCommonStyle_EventFilter(QCommonStyle* self, QObject* watched, QEvent* even
 }
 
 // Base class handler implementation
-bool QCommonStyle_QBaseEventFilter(QCommonStyle* self, QObject* watched, QEvent* event) {
+bool QCommonStyle_SuperEventFilter(QCommonStyle* self, QObject* watched, QEvent* event) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_EventFilter_IsBase(true);
@@ -836,7 +836,7 @@ void QCommonStyle_TimerEvent(QCommonStyle* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCommonStyle_QBaseTimerEvent(QCommonStyle* self, QTimerEvent* event) {
+void QCommonStyle_SuperTimerEvent(QCommonStyle* self, QTimerEvent* event) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_TimerEvent_IsBase(true);
@@ -865,7 +865,7 @@ void QCommonStyle_ChildEvent(QCommonStyle* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCommonStyle_QBaseChildEvent(QCommonStyle* self, QChildEvent* event) {
+void QCommonStyle_SuperChildEvent(QCommonStyle* self, QChildEvent* event) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_ChildEvent_IsBase(true);
@@ -894,7 +894,7 @@ void QCommonStyle_CustomEvent(QCommonStyle* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCommonStyle_QBaseCustomEvent(QCommonStyle* self, QEvent* event) {
+void QCommonStyle_SuperCustomEvent(QCommonStyle* self, QEvent* event) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_CustomEvent_IsBase(true);
@@ -923,7 +923,7 @@ void QCommonStyle_ConnectNotify(QCommonStyle* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QCommonStyle_QBaseConnectNotify(QCommonStyle* self, const QMetaMethod* signal) {
+void QCommonStyle_SuperConnectNotify(QCommonStyle* self, const QMetaMethod* signal) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_ConnectNotify_IsBase(true);
@@ -952,7 +952,7 @@ void QCommonStyle_DisconnectNotify(QCommonStyle* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void QCommonStyle_QBaseDisconnectNotify(QCommonStyle* self, const QMetaMethod* signal) {
+void QCommonStyle_SuperDisconnectNotify(QCommonStyle* self, const QMetaMethod* signal) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_DisconnectNotify_IsBase(true);
@@ -981,7 +981,7 @@ QObject* QCommonStyle_Sender(const QCommonStyle* self) {
 }
 
 // Base class handler implementation
-QObject* QCommonStyle_QBaseSender(const QCommonStyle* self) {
+QObject* QCommonStyle_SuperSender(const QCommonStyle* self) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_Sender_IsBase(true);
@@ -1010,7 +1010,7 @@ int QCommonStyle_SenderSignalIndex(const QCommonStyle* self) {
 }
 
 // Base class handler implementation
-int QCommonStyle_QBaseSenderSignalIndex(const QCommonStyle* self) {
+int QCommonStyle_SuperSenderSignalIndex(const QCommonStyle* self) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_SenderSignalIndex_IsBase(true);
@@ -1039,7 +1039,7 @@ int QCommonStyle_Receivers(const QCommonStyle* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCommonStyle_QBaseReceivers(const QCommonStyle* self, const char* signal) {
+int QCommonStyle_SuperReceivers(const QCommonStyle* self, const char* signal) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_Receivers_IsBase(true);
@@ -1068,7 +1068,7 @@ bool QCommonStyle_IsSignalConnected(const QCommonStyle* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool QCommonStyle_QBaseIsSignalConnected(const QCommonStyle* self, const QMetaMethod* signal) {
+bool QCommonStyle_SuperIsSignalConnected(const QCommonStyle* self, const QMetaMethod* signal) {
     auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->setQCommonStyle_IsSignalConnected_IsBase(true);

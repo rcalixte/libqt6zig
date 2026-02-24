@@ -228,6 +228,10 @@ pub const kplotpoint = struct {
         qtc.KPlotPoint_SetBarWidth(@ptrCast(self), @bitCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kplotpoint.html#dtor.KPlotPoint)
     ///
     /// Delete this object from C++ memory.
@@ -236,7 +240,7 @@ pub const kplotpoint = struct {
     ///
     /// ` self: QtC.KPlotPoint `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KPlotPoint_Delete(@ptrCast(self));
     }
 };

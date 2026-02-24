@@ -255,7 +255,7 @@ void QCandlestickSet_Connect_PenChanged(QCandlestickSet* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QCandlestickSet_QBaseMetaObject(const QCandlestickSet* self) {
+QMetaObject* QCandlestickSet_SuperMetaObject(const QCandlestickSet* self) {
     auto* vqcandlestickset = const_cast<VirtualQCandlestickSet*>(dynamic_cast<const VirtualQCandlestickSet*>(self));
     if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
         vqcandlestickset->setQCandlestickSet_MetaObject_IsBase(true);
@@ -274,7 +274,7 @@ void QCandlestickSet_OnMetaObject(const QCandlestickSet* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QCandlestickSet_QBaseMetacast(QCandlestickSet* self, const char* param1) {
+void* QCandlestickSet_SuperMetacast(QCandlestickSet* self, const char* param1) {
     auto* vqcandlestickset = dynamic_cast<VirtualQCandlestickSet*>(self);
     if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
         vqcandlestickset->setQCandlestickSet_Metacast_IsBase(true);
@@ -293,7 +293,7 @@ void QCandlestickSet_OnMetacast(QCandlestickSet* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QCandlestickSet_QBaseMetacall(QCandlestickSet* self, int param1, int param2, void** param3) {
+int QCandlestickSet_SuperMetacall(QCandlestickSet* self, int param1, int param2, void** param3) {
     auto* vqcandlestickset = dynamic_cast<VirtualQCandlestickSet*>(self);
     if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
         vqcandlestickset->setQCandlestickSet_Metacall_IsBase(true);
@@ -322,7 +322,7 @@ bool QCandlestickSet_Event(QCandlestickSet* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QCandlestickSet_QBaseEvent(QCandlestickSet* self, QEvent* event) {
+bool QCandlestickSet_SuperEvent(QCandlestickSet* self, QEvent* event) {
     auto* vqcandlestickset = dynamic_cast<VirtualQCandlestickSet*>(self);
     if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
         vqcandlestickset->setQCandlestickSet_Event_IsBase(true);
@@ -351,7 +351,7 @@ bool QCandlestickSet_EventFilter(QCandlestickSet* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool QCandlestickSet_QBaseEventFilter(QCandlestickSet* self, QObject* watched, QEvent* event) {
+bool QCandlestickSet_SuperEventFilter(QCandlestickSet* self, QObject* watched, QEvent* event) {
     auto* vqcandlestickset = dynamic_cast<VirtualQCandlestickSet*>(self);
     if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
         vqcandlestickset->setQCandlestickSet_EventFilter_IsBase(true);
@@ -380,7 +380,7 @@ void QCandlestickSet_TimerEvent(QCandlestickSet* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QCandlestickSet_QBaseTimerEvent(QCandlestickSet* self, QTimerEvent* event) {
+void QCandlestickSet_SuperTimerEvent(QCandlestickSet* self, QTimerEvent* event) {
     auto* vqcandlestickset = dynamic_cast<VirtualQCandlestickSet*>(self);
     if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
         vqcandlestickset->setQCandlestickSet_TimerEvent_IsBase(true);
@@ -409,7 +409,7 @@ void QCandlestickSet_ChildEvent(QCandlestickSet* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QCandlestickSet_QBaseChildEvent(QCandlestickSet* self, QChildEvent* event) {
+void QCandlestickSet_SuperChildEvent(QCandlestickSet* self, QChildEvent* event) {
     auto* vqcandlestickset = dynamic_cast<VirtualQCandlestickSet*>(self);
     if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
         vqcandlestickset->setQCandlestickSet_ChildEvent_IsBase(true);
@@ -438,7 +438,7 @@ void QCandlestickSet_CustomEvent(QCandlestickSet* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QCandlestickSet_QBaseCustomEvent(QCandlestickSet* self, QEvent* event) {
+void QCandlestickSet_SuperCustomEvent(QCandlestickSet* self, QEvent* event) {
     auto* vqcandlestickset = dynamic_cast<VirtualQCandlestickSet*>(self);
     if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
         vqcandlestickset->setQCandlestickSet_CustomEvent_IsBase(true);
@@ -467,7 +467,7 @@ void QCandlestickSet_ConnectNotify(QCandlestickSet* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void QCandlestickSet_QBaseConnectNotify(QCandlestickSet* self, const QMetaMethod* signal) {
+void QCandlestickSet_SuperConnectNotify(QCandlestickSet* self, const QMetaMethod* signal) {
     auto* vqcandlestickset = dynamic_cast<VirtualQCandlestickSet*>(self);
     if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
         vqcandlestickset->setQCandlestickSet_ConnectNotify_IsBase(true);
@@ -496,7 +496,7 @@ void QCandlestickSet_DisconnectNotify(QCandlestickSet* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void QCandlestickSet_QBaseDisconnectNotify(QCandlestickSet* self, const QMetaMethod* signal) {
+void QCandlestickSet_SuperDisconnectNotify(QCandlestickSet* self, const QMetaMethod* signal) {
     auto* vqcandlestickset = dynamic_cast<VirtualQCandlestickSet*>(self);
     if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
         vqcandlestickset->setQCandlestickSet_DisconnectNotify_IsBase(true);
@@ -525,7 +525,7 @@ QObject* QCandlestickSet_Sender(const QCandlestickSet* self) {
 }
 
 // Base class handler implementation
-QObject* QCandlestickSet_QBaseSender(const QCandlestickSet* self) {
+QObject* QCandlestickSet_SuperSender(const QCandlestickSet* self) {
     auto* vqcandlestickset = const_cast<VirtualQCandlestickSet*>(dynamic_cast<const VirtualQCandlestickSet*>(self));
     if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
         vqcandlestickset->setQCandlestickSet_Sender_IsBase(true);
@@ -554,7 +554,7 @@ int QCandlestickSet_SenderSignalIndex(const QCandlestickSet* self) {
 }
 
 // Base class handler implementation
-int QCandlestickSet_QBaseSenderSignalIndex(const QCandlestickSet* self) {
+int QCandlestickSet_SuperSenderSignalIndex(const QCandlestickSet* self) {
     auto* vqcandlestickset = const_cast<VirtualQCandlestickSet*>(dynamic_cast<const VirtualQCandlestickSet*>(self));
     if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
         vqcandlestickset->setQCandlestickSet_SenderSignalIndex_IsBase(true);
@@ -583,7 +583,7 @@ int QCandlestickSet_Receivers(const QCandlestickSet* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QCandlestickSet_QBaseReceivers(const QCandlestickSet* self, const char* signal) {
+int QCandlestickSet_SuperReceivers(const QCandlestickSet* self, const char* signal) {
     auto* vqcandlestickset = const_cast<VirtualQCandlestickSet*>(dynamic_cast<const VirtualQCandlestickSet*>(self));
     if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
         vqcandlestickset->setQCandlestickSet_Receivers_IsBase(true);
@@ -612,7 +612,7 @@ bool QCandlestickSet_IsSignalConnected(const QCandlestickSet* self, const QMetaM
 }
 
 // Base class handler implementation
-bool QCandlestickSet_QBaseIsSignalConnected(const QCandlestickSet* self, const QMetaMethod* signal) {
+bool QCandlestickSet_SuperIsSignalConnected(const QCandlestickSet* self, const QMetaMethod* signal) {
     auto* vqcandlestickset = const_cast<VirtualQCandlestickSet*>(dynamic_cast<const VirtualQCandlestickSet*>(self));
     if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
         vqcandlestickset->setQCandlestickSet_IsSignalConnected_IsBase(true);

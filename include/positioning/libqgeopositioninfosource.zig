@@ -42,6 +42,10 @@ pub const qgeopositioninfosource = struct {
         qtc.QGeoPositionInfoSource_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -50,8 +54,8 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` self: QtC.QGeoPositionInfoSource `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QGeoPositionInfoSource_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QGeoPositionInfoSource_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -77,6 +81,10 @@ pub const qgeopositioninfosource = struct {
         qtc.QGeoPositionInfoSource_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -85,9 +93,9 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QGeoPositionInfoSource_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QGeoPositionInfoSource_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -116,6 +124,10 @@ pub const qgeopositioninfosource = struct {
         qtc.QGeoPositionInfoSource_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -128,8 +140,8 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGeoPositionInfoSource_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QGeoPositionInfoSource_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -175,6 +187,10 @@ pub const qgeopositioninfosource = struct {
         qtc.QGeoPositionInfoSource_OnSetUpdateInterval(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetUpdateInterval` instead
+    ///
+    pub const QBaseSetUpdateInterval = SuperSetUpdateInterval;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#setUpdateInterval)
     ///
     /// Base class method implementation
@@ -185,8 +201,8 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn QBaseSetUpdateInterval(self: ?*anyopaque, msec: i32) void {
-        qtc.QGeoPositionInfoSource_QBaseSetUpdateInterval(@ptrCast(self), @bitCast(msec));
+    pub fn SuperSetUpdateInterval(self: ?*anyopaque, msec: i32) void {
+        qtc.QGeoPositionInfoSource_SuperSetUpdateInterval(@ptrCast(self), @bitCast(msec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#updateInterval)
@@ -225,6 +241,10 @@ pub const qgeopositioninfosource = struct {
         qtc.QGeoPositionInfoSource_OnSetPreferredPositioningMethods(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPreferredPositioningMethods` instead
+    ///
+    pub const QBaseSetPreferredPositioningMethods = SuperSetPreferredPositioningMethods;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#setPreferredPositioningMethods)
     ///
     /// Base class method implementation
@@ -235,8 +255,8 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` methods: flag of qgeopositioninfosource_enums.PositioningMethod `
     ///
-    pub fn QBaseSetPreferredPositioningMethods(self: ?*anyopaque, methods: i32) void {
-        qtc.QGeoPositionInfoSource_QBaseSetPreferredPositioningMethods(@ptrCast(self), @bitCast(methods));
+    pub fn SuperSetPreferredPositioningMethods(self: ?*anyopaque, methods: i32) void {
+        qtc.QGeoPositionInfoSource_SuperSetPreferredPositioningMethods(@ptrCast(self), @bitCast(methods));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#preferredPositioningMethods)
@@ -279,6 +299,10 @@ pub const qgeopositioninfosource = struct {
         qtc.QGeoPositionInfoSource_OnLastKnownPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperLastKnownPosition` instead
+    ///
+    pub const QBaseLastKnownPosition = SuperLastKnownPosition;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#lastKnownPosition)
     ///
     /// Base class method implementation
@@ -289,8 +313,8 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` fromSatellitePositioningMethodsOnly: bool `
     ///
-    pub fn QBaseLastKnownPosition(self: ?*anyopaque, fromSatellitePositioningMethodsOnly: bool) QtC.QGeoPositionInfo {
-        return qtc.QGeoPositionInfoSource_QBaseLastKnownPosition(@ptrCast(self), fromSatellitePositioningMethodsOnly);
+    pub fn SuperLastKnownPosition(self: ?*anyopaque, fromSatellitePositioningMethodsOnly: bool) QtC.QGeoPositionInfo {
+        return qtc.QGeoPositionInfoSource_SuperLastKnownPosition(@ptrCast(self), fromSatellitePositioningMethodsOnly);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#supportedPositioningMethods)
@@ -321,6 +345,10 @@ pub const qgeopositioninfosource = struct {
         qtc.QGeoPositionInfoSource_OnSupportedPositioningMethods(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSupportedPositioningMethods` instead
+    ///
+    pub const QBaseSupportedPositioningMethods = SuperSupportedPositioningMethods;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#supportedPositioningMethods)
     ///
     /// Base class method implementation
@@ -333,8 +361,8 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` flag of qgeopositioninfosource_enums.PositioningMethod `
     ///
-    pub fn QBaseSupportedPositioningMethods(self: ?*anyopaque) i32 {
-        return qtc.QGeoPositionInfoSource_QBaseSupportedPositioningMethods(@ptrCast(self));
+    pub fn SuperSupportedPositioningMethods(self: ?*anyopaque) i32 {
+        return qtc.QGeoPositionInfoSource_SuperSupportedPositioningMethods(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#minimumUpdateInterval)
@@ -361,6 +389,10 @@ pub const qgeopositioninfosource = struct {
         qtc.QGeoPositionInfoSource_OnMinimumUpdateInterval(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumUpdateInterval` instead
+    ///
+    pub const QBaseMinimumUpdateInterval = SuperMinimumUpdateInterval;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#minimumUpdateInterval)
     ///
     /// Base class method implementation
@@ -369,8 +401,8 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` self: QtC.QGeoPositionInfoSource `
     ///
-    pub fn QBaseMinimumUpdateInterval(self: ?*anyopaque) i32 {
-        return qtc.QGeoPositionInfoSource_QBaseMinimumUpdateInterval(@ptrCast(self));
+    pub fn SuperMinimumUpdateInterval(self: ?*anyopaque) i32 {
+        return qtc.QGeoPositionInfoSource_SuperMinimumUpdateInterval(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#sourceName)
@@ -421,6 +453,10 @@ pub const qgeopositioninfosource = struct {
         qtc.QGeoPositionInfoSource_OnSetBackendProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetBackendProperty` instead
+    ///
+    pub const QBaseSetBackendProperty = SuperSetBackendProperty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#setBackendProperty)
     ///
     /// Base class method implementation
@@ -433,12 +469,12 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn QBaseSetBackendProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SuperSetBackendProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QGeoPositionInfoSource_QBaseSetBackendProperty(@ptrCast(self), name_str, @ptrCast(value));
+        return qtc.QGeoPositionInfoSource_SuperSetBackendProperty(@ptrCast(self), name_str, @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#backendProperty)
@@ -471,6 +507,10 @@ pub const qgeopositioninfosource = struct {
         qtc.QGeoPositionInfoSource_OnBackendProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBackendProperty` instead
+    ///
+    pub const QBaseBackendProperty = SuperBackendProperty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#backendProperty)
     ///
     /// Base class method implementation
@@ -481,12 +521,12 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn QBaseBackendProperty(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn SuperBackendProperty(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QGeoPositionInfoSource_QBaseBackendProperty(@ptrCast(self), name_str);
+        return qtc.QGeoPositionInfoSource_SuperBackendProperty(@ptrCast(self), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#createDefaultSource)
@@ -642,6 +682,10 @@ pub const qgeopositioninfosource = struct {
         qtc.QGeoPositionInfoSource_OnError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperError` instead
+    ///
+    pub const QBaseError = SuperError;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#error)
     ///
     /// Base class method implementation
@@ -654,8 +698,8 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` qgeopositioninfosource_enums.Error `
     ///
-    pub fn QBaseError(self: ?*anyopaque) i32 {
-        return qtc.QGeoPositionInfoSource_QBaseError(@ptrCast(self));
+    pub fn SuperError(self: ?*anyopaque) i32 {
+        return qtc.QGeoPositionInfoSource_SuperError(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#startUpdates)
@@ -682,6 +726,10 @@ pub const qgeopositioninfosource = struct {
         qtc.QGeoPositionInfoSource_OnStartUpdates(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperStartUpdates` instead
+    ///
+    pub const QBaseStartUpdates = SuperStartUpdates;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#startUpdates)
     ///
     /// Base class method implementation
@@ -690,8 +738,8 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` self: QtC.QGeoPositionInfoSource `
     ///
-    pub fn QBaseStartUpdates(self: ?*anyopaque) void {
-        qtc.QGeoPositionInfoSource_QBaseStartUpdates(@ptrCast(self));
+    pub fn SuperStartUpdates(self: ?*anyopaque) void {
+        qtc.QGeoPositionInfoSource_SuperStartUpdates(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#stopUpdates)
@@ -718,6 +766,10 @@ pub const qgeopositioninfosource = struct {
         qtc.QGeoPositionInfoSource_OnStopUpdates(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperStopUpdates` instead
+    ///
+    pub const QBaseStopUpdates = SuperStopUpdates;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#stopUpdates)
     ///
     /// Base class method implementation
@@ -726,8 +778,8 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` self: QtC.QGeoPositionInfoSource `
     ///
-    pub fn QBaseStopUpdates(self: ?*anyopaque) void {
-        qtc.QGeoPositionInfoSource_QBaseStopUpdates(@ptrCast(self));
+    pub fn SuperStopUpdates(self: ?*anyopaque) void {
+        qtc.QGeoPositionInfoSource_SuperStopUpdates(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#requestUpdate)
@@ -756,6 +808,10 @@ pub const qgeopositioninfosource = struct {
         qtc.QGeoPositionInfoSource_OnRequestUpdate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRequestUpdate` instead
+    ///
+    pub const QBaseRequestUpdate = SuperRequestUpdate;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#requestUpdate)
     ///
     /// Base class method implementation
@@ -766,8 +822,8 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` timeout: i32 `
     ///
-    pub fn QBaseRequestUpdate(self: ?*anyopaque, timeout: i32) void {
-        qtc.QGeoPositionInfoSource_QBaseRequestUpdate(@ptrCast(self), @bitCast(timeout));
+    pub fn SuperRequestUpdate(self: ?*anyopaque, timeout: i32) void {
+        qtc.QGeoPositionInfoSource_SuperRequestUpdate(@ptrCast(self), @bitCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#positionUpdated)
@@ -1636,6 +1692,10 @@ pub const qgeopositioninfosource = struct {
         return qtc.QGeoPositionInfoSource_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1648,8 +1708,8 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGeoPositionInfoSource_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGeoPositionInfoSource_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1686,6 +1746,10 @@ pub const qgeopositioninfosource = struct {
         return qtc.QGeoPositionInfoSource_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1700,8 +1764,8 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGeoPositionInfoSource_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGeoPositionInfoSource_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1736,6 +1800,10 @@ pub const qgeopositioninfosource = struct {
         qtc.QGeoPositionInfoSource_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1748,8 +1816,8 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGeoPositionInfoSource_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGeoPositionInfoSource_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1784,6 +1852,10 @@ pub const qgeopositioninfosource = struct {
         qtc.QGeoPositionInfoSource_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1796,8 +1868,8 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGeoPositionInfoSource_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGeoPositionInfoSource_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1832,6 +1904,10 @@ pub const qgeopositioninfosource = struct {
         qtc.QGeoPositionInfoSource_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1844,8 +1920,8 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGeoPositionInfoSource_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGeoPositionInfoSource_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1880,6 +1956,10 @@ pub const qgeopositioninfosource = struct {
         qtc.QGeoPositionInfoSource_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1892,8 +1972,8 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGeoPositionInfoSource_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGeoPositionInfoSource_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1928,6 +2008,10 @@ pub const qgeopositioninfosource = struct {
         qtc.QGeoPositionInfoSource_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1940,8 +2024,8 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGeoPositionInfoSource_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGeoPositionInfoSource_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1974,6 +2058,10 @@ pub const qgeopositioninfosource = struct {
         return qtc.QGeoPositionInfoSource_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1984,8 +2072,8 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` self: QtC.QGeoPositionInfoSource `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QGeoPositionInfoSource_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QGeoPositionInfoSource_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2018,6 +2106,10 @@ pub const qgeopositioninfosource = struct {
         return qtc.QGeoPositionInfoSource_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2028,8 +2120,8 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` self: QtC.QGeoPositionInfoSource `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QGeoPositionInfoSource_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QGeoPositionInfoSource_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2065,6 +2157,10 @@ pub const qgeopositioninfosource = struct {
         return qtc.QGeoPositionInfoSource_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2077,9 +2173,9 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QGeoPositionInfoSource_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QGeoPositionInfoSource_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2114,6 +2210,10 @@ pub const qgeopositioninfosource = struct {
         return qtc.QGeoPositionInfoSource_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2126,8 +2226,8 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QGeoPositionInfoSource_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QGeoPositionInfoSource_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2161,6 +2261,9 @@ pub const qgeopositioninfosource = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosource.html#dtor.QGeoPositionInfoSource)
     ///
@@ -2170,7 +2273,7 @@ pub const qgeopositioninfosource = struct {
     ///
     /// ` self: QtC.QGeoPositionInfoSource `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGeoPositionInfoSource_Delete(@ptrCast(self));
     }
 };

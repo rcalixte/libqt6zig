@@ -165,7 +165,7 @@ void QVPieModelMapper_Connect_RowCountChanged(QVPieModelMapper* self, intptr_t s
 }
 
 // Base class handler implementation
-QMetaObject* QVPieModelMapper_QBaseMetaObject(const QVPieModelMapper* self) {
+QMetaObject* QVPieModelMapper_SuperMetaObject(const QVPieModelMapper* self) {
     auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_MetaObject_IsBase(true);
@@ -184,7 +184,7 @@ void QVPieModelMapper_OnMetaObject(const QVPieModelMapper* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* QVPieModelMapper_QBaseMetacast(QVPieModelMapper* self, const char* param1) {
+void* QVPieModelMapper_SuperMetacast(QVPieModelMapper* self, const char* param1) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_Metacast_IsBase(true);
@@ -203,7 +203,7 @@ void QVPieModelMapper_OnMetacast(QVPieModelMapper* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QVPieModelMapper_QBaseMetacall(QVPieModelMapper* self, int param1, int param2, void** param3) {
+int QVPieModelMapper_SuperMetacall(QVPieModelMapper* self, int param1, int param2, void** param3) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_Metacall_IsBase(true);
@@ -232,7 +232,7 @@ bool QVPieModelMapper_Event(QVPieModelMapper* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QVPieModelMapper_QBaseEvent(QVPieModelMapper* self, QEvent* event) {
+bool QVPieModelMapper_SuperEvent(QVPieModelMapper* self, QEvent* event) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_Event_IsBase(true);
@@ -261,7 +261,7 @@ bool QVPieModelMapper_EventFilter(QVPieModelMapper* self, QObject* watched, QEve
 }
 
 // Base class handler implementation
-bool QVPieModelMapper_QBaseEventFilter(QVPieModelMapper* self, QObject* watched, QEvent* event) {
+bool QVPieModelMapper_SuperEventFilter(QVPieModelMapper* self, QObject* watched, QEvent* event) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_EventFilter_IsBase(true);
@@ -290,7 +290,7 @@ void QVPieModelMapper_TimerEvent(QVPieModelMapper* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QVPieModelMapper_QBaseTimerEvent(QVPieModelMapper* self, QTimerEvent* event) {
+void QVPieModelMapper_SuperTimerEvent(QVPieModelMapper* self, QTimerEvent* event) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_TimerEvent_IsBase(true);
@@ -319,7 +319,7 @@ void QVPieModelMapper_ChildEvent(QVPieModelMapper* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QVPieModelMapper_QBaseChildEvent(QVPieModelMapper* self, QChildEvent* event) {
+void QVPieModelMapper_SuperChildEvent(QVPieModelMapper* self, QChildEvent* event) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_ChildEvent_IsBase(true);
@@ -348,7 +348,7 @@ void QVPieModelMapper_CustomEvent(QVPieModelMapper* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QVPieModelMapper_QBaseCustomEvent(QVPieModelMapper* self, QEvent* event) {
+void QVPieModelMapper_SuperCustomEvent(QVPieModelMapper* self, QEvent* event) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_CustomEvent_IsBase(true);
@@ -377,7 +377,7 @@ void QVPieModelMapper_ConnectNotify(QVPieModelMapper* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void QVPieModelMapper_QBaseConnectNotify(QVPieModelMapper* self, const QMetaMethod* signal) {
+void QVPieModelMapper_SuperConnectNotify(QVPieModelMapper* self, const QMetaMethod* signal) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_ConnectNotify_IsBase(true);
@@ -406,7 +406,7 @@ void QVPieModelMapper_DisconnectNotify(QVPieModelMapper* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void QVPieModelMapper_QBaseDisconnectNotify(QVPieModelMapper* self, const QMetaMethod* signal) {
+void QVPieModelMapper_SuperDisconnectNotify(QVPieModelMapper* self, const QMetaMethod* signal) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_DisconnectNotify_IsBase(true);
@@ -435,7 +435,7 @@ int QVPieModelMapper_First(const QVPieModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVPieModelMapper_QBaseFirst(const QVPieModelMapper* self) {
+int QVPieModelMapper_SuperFirst(const QVPieModelMapper* self) {
     auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_First_IsBase(true);
@@ -464,7 +464,7 @@ void QVPieModelMapper_SetFirst(QVPieModelMapper* self, int first) {
 }
 
 // Base class handler implementation
-void QVPieModelMapper_QBaseSetFirst(QVPieModelMapper* self, int first) {
+void QVPieModelMapper_SuperSetFirst(QVPieModelMapper* self, int first) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_SetFirst_IsBase(true);
@@ -493,7 +493,7 @@ int QVPieModelMapper_Count(const QVPieModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVPieModelMapper_QBaseCount(const QVPieModelMapper* self) {
+int QVPieModelMapper_SuperCount(const QVPieModelMapper* self) {
     auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_Count_IsBase(true);
@@ -522,7 +522,7 @@ void QVPieModelMapper_SetCount(QVPieModelMapper* self, int count) {
 }
 
 // Base class handler implementation
-void QVPieModelMapper_QBaseSetCount(QVPieModelMapper* self, int count) {
+void QVPieModelMapper_SuperSetCount(QVPieModelMapper* self, int count) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_SetCount_IsBase(true);
@@ -551,7 +551,7 @@ int QVPieModelMapper_ValuesSection(const QVPieModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVPieModelMapper_QBaseValuesSection(const QVPieModelMapper* self) {
+int QVPieModelMapper_SuperValuesSection(const QVPieModelMapper* self) {
     auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_ValuesSection_IsBase(true);
@@ -580,7 +580,7 @@ void QVPieModelMapper_SetValuesSection(QVPieModelMapper* self, int valuesSection
 }
 
 // Base class handler implementation
-void QVPieModelMapper_QBaseSetValuesSection(QVPieModelMapper* self, int valuesSection) {
+void QVPieModelMapper_SuperSetValuesSection(QVPieModelMapper* self, int valuesSection) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_SetValuesSection_IsBase(true);
@@ -609,7 +609,7 @@ int QVPieModelMapper_LabelsSection(const QVPieModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVPieModelMapper_QBaseLabelsSection(const QVPieModelMapper* self) {
+int QVPieModelMapper_SuperLabelsSection(const QVPieModelMapper* self) {
     auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_LabelsSection_IsBase(true);
@@ -638,7 +638,7 @@ void QVPieModelMapper_SetLabelsSection(QVPieModelMapper* self, int labelsSection
 }
 
 // Base class handler implementation
-void QVPieModelMapper_QBaseSetLabelsSection(QVPieModelMapper* self, int labelsSection) {
+void QVPieModelMapper_SuperSetLabelsSection(QVPieModelMapper* self, int labelsSection) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_SetLabelsSection_IsBase(true);
@@ -667,7 +667,7 @@ int QVPieModelMapper_Orientation(const QVPieModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVPieModelMapper_QBaseOrientation(const QVPieModelMapper* self) {
+int QVPieModelMapper_SuperOrientation(const QVPieModelMapper* self) {
     auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_Orientation_IsBase(true);
@@ -696,7 +696,7 @@ void QVPieModelMapper_SetOrientation(QVPieModelMapper* self, int orientation) {
 }
 
 // Base class handler implementation
-void QVPieModelMapper_QBaseSetOrientation(QVPieModelMapper* self, int orientation) {
+void QVPieModelMapper_SuperSetOrientation(QVPieModelMapper* self, int orientation) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_SetOrientation_IsBase(true);
@@ -725,7 +725,7 @@ QObject* QVPieModelMapper_Sender(const QVPieModelMapper* self) {
 }
 
 // Base class handler implementation
-QObject* QVPieModelMapper_QBaseSender(const QVPieModelMapper* self) {
+QObject* QVPieModelMapper_SuperSender(const QVPieModelMapper* self) {
     auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_Sender_IsBase(true);
@@ -754,7 +754,7 @@ int QVPieModelMapper_SenderSignalIndex(const QVPieModelMapper* self) {
 }
 
 // Base class handler implementation
-int QVPieModelMapper_QBaseSenderSignalIndex(const QVPieModelMapper* self) {
+int QVPieModelMapper_SuperSenderSignalIndex(const QVPieModelMapper* self) {
     auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_SenderSignalIndex_IsBase(true);
@@ -783,7 +783,7 @@ int QVPieModelMapper_Receivers(const QVPieModelMapper* self, const char* signal)
 }
 
 // Base class handler implementation
-int QVPieModelMapper_QBaseReceivers(const QVPieModelMapper* self, const char* signal) {
+int QVPieModelMapper_SuperReceivers(const QVPieModelMapper* self, const char* signal) {
     auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_Receivers_IsBase(true);
@@ -812,7 +812,7 @@ bool QVPieModelMapper_IsSignalConnected(const QVPieModelMapper* self, const QMet
 }
 
 // Base class handler implementation
-bool QVPieModelMapper_QBaseIsSignalConnected(const QVPieModelMapper* self, const QMetaMethod* signal) {
+bool QVPieModelMapper_SuperIsSignalConnected(const QVPieModelMapper* self, const QMetaMethod* signal) {
     auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
     if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
         vqvpiemodelmapper->setQVPieModelMapper_IsSignalConnected_IsBase(true);

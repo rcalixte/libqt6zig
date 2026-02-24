@@ -326,6 +326,10 @@ pub const qtreewidgetitem = struct {
         qtc.QTreeWidgetItem_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitem.html#clone)
     ///
     /// Base class method implementation
@@ -334,8 +338,8 @@ pub const qtreewidgetitem = struct {
     ///
     /// ` self: QtC.QTreeWidgetItem `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QTreeWidgetItem {
-        return qtc.QTreeWidgetItem_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QTreeWidgetItem {
+        return qtc.QTreeWidgetItem_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitem.html#treeWidget)
@@ -896,6 +900,10 @@ pub const qtreewidgetitem = struct {
         qtc.QTreeWidgetItem_OnData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperData` instead
+    ///
+    pub const QBaseData = SuperData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitem.html#data)
     ///
     /// Base class method implementation
@@ -908,8 +916,8 @@ pub const qtreewidgetitem = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn QBaseData(self: ?*anyopaque, column: i32, role: i32) QtC.QVariant {
-        return qtc.QTreeWidgetItem_QBaseData(@ptrCast(self), @bitCast(column), @bitCast(role));
+    pub fn SuperData(self: ?*anyopaque, column: i32, role: i32) QtC.QVariant {
+        return qtc.QTreeWidgetItem_SuperData(@ptrCast(self), @bitCast(column), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitem.html#setData)
@@ -942,6 +950,10 @@ pub const qtreewidgetitem = struct {
         qtc.QTreeWidgetItem_OnSetData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetData` instead
+    ///
+    pub const QBaseSetData = SuperSetData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitem.html#setData)
     ///
     /// Base class method implementation
@@ -956,8 +968,8 @@ pub const qtreewidgetitem = struct {
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn QBaseSetData(self: ?*anyopaque, column: i32, role: i32, value: ?*anyopaque) void {
-        qtc.QTreeWidgetItem_QBaseSetData(@ptrCast(self), @bitCast(column), @bitCast(role), @ptrCast(value));
+    pub fn SuperSetData(self: ?*anyopaque, column: i32, role: i32, value: ?*anyopaque) void {
+        qtc.QTreeWidgetItem_SuperSetData(@ptrCast(self), @bitCast(column), @bitCast(role), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitem.html#operator-lt)
@@ -986,6 +998,10 @@ pub const qtreewidgetitem = struct {
         qtc.QTreeWidgetItem_OnOperatorLesser(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperOperatorLesser` instead
+    ///
+    pub const QBaseOperatorLesser = SuperOperatorLesser;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitem.html#operator-lt)
     ///
     /// Base class method implementation
@@ -996,8 +1012,8 @@ pub const qtreewidgetitem = struct {
     ///
     /// ` other: QtC.QTreeWidgetItem `
     ///
-    pub fn QBaseOperatorLesser(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QTreeWidgetItem_QBaseOperatorLesser(@ptrCast(self), @ptrCast(other));
+    pub fn SuperOperatorLesser(self: ?*anyopaque, other: ?*anyopaque) bool {
+        return qtc.QTreeWidgetItem_SuperOperatorLesser(@ptrCast(self), @ptrCast(other));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitem.html#read)
@@ -1026,6 +1042,10 @@ pub const qtreewidgetitem = struct {
         qtc.QTreeWidgetItem_OnRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRead` instead
+    ///
+    pub const QBaseRead = SuperRead;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitem.html#read)
     ///
     /// Base class method implementation
@@ -1036,8 +1056,8 @@ pub const qtreewidgetitem = struct {
     ///
     /// ` in: QtC.QDataStream `
     ///
-    pub fn QBaseRead(self: ?*anyopaque, in: ?*anyopaque) void {
-        qtc.QTreeWidgetItem_QBaseRead(@ptrCast(self), @ptrCast(in));
+    pub fn SuperRead(self: ?*anyopaque, in: ?*anyopaque) void {
+        qtc.QTreeWidgetItem_SuperRead(@ptrCast(self), @ptrCast(in));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitem.html#write)
@@ -1066,6 +1086,10 @@ pub const qtreewidgetitem = struct {
         qtc.QTreeWidgetItem_OnWrite(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWrite` instead
+    ///
+    pub const QBaseWrite = SuperWrite;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitem.html#write)
     ///
     /// Base class method implementation
@@ -1076,8 +1100,8 @@ pub const qtreewidgetitem = struct {
     ///
     /// ` out: QtC.QDataStream `
     ///
-    pub fn QBaseWrite(self: ?*anyopaque, out: ?*anyopaque) void {
-        qtc.QTreeWidgetItem_QBaseWrite(@ptrCast(self), @ptrCast(out));
+    pub fn SuperWrite(self: ?*anyopaque, out: ?*anyopaque) void {
+        qtc.QTreeWidgetItem_SuperWrite(@ptrCast(self), @ptrCast(out));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitem.html#operator-eq)
@@ -1295,6 +1319,10 @@ pub const qtreewidgetitem = struct {
         qtc.QTreeWidgetItem_OnEmitDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEmitDataChanged` instead
+    ///
+    pub const QBaseEmitDataChanged = SuperEmitDataChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitem.html#emitDataChanged)
     ///
     /// Base class method implementation
@@ -1303,9 +1331,12 @@ pub const qtreewidgetitem = struct {
     ///
     /// ` self: QtC.QTreeWidgetItem `
     ///
-    pub fn QBaseEmitDataChanged(self: ?*anyopaque) void {
-        qtc.QTreeWidgetItem_QBaseEmitDataChanged(@ptrCast(self));
+    pub fn SuperEmitDataChanged(self: ?*anyopaque) void {
+        qtc.QTreeWidgetItem_SuperEmitDataChanged(@ptrCast(self));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitem.html#dtor.QTreeWidgetItem)
     ///
@@ -1315,7 +1346,7 @@ pub const qtreewidgetitem = struct {
     ///
     /// ` self: QtC.QTreeWidgetItem `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTreeWidgetItem_Delete(@ptrCast(self));
     }
 };
@@ -1362,6 +1393,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -1370,8 +1405,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QTreeWidget_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QTreeWidget_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -1397,6 +1432,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -1405,9 +1444,9 @@ pub const qtreewidget = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QTreeWidget_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QTreeWidget_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -1436,6 +1475,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -1448,8 +1491,8 @@ pub const qtreewidget = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTreeWidget_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QTreeWidget_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2003,6 +2046,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_OnSetSelectionModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetSelectionModel` instead
+    ///
+    pub const QBaseSetSelectionModel = SuperSetSelectionModel;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidget.html#setSelectionModel)
     ///
     /// Base class method implementation
@@ -2013,8 +2060,8 @@ pub const qtreewidget = struct {
     ///
     /// ` selectionModel: QtC.QItemSelectionModel `
     ///
-    pub fn QBaseSetSelectionModel(self: ?*anyopaque, selectionModel: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseSetSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
+    pub fn SuperSetSelectionModel(self: ?*anyopaque, selectionModel: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperSetSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidget.html#scrollToItem)
@@ -2341,6 +2388,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidget.html#event)
     ///
     /// Base class method implementation
@@ -2351,8 +2402,8 @@ pub const qtreewidget = struct {
     ///
     /// ` e: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QTreeWidget_QBaseEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
+        return qtc.QTreeWidget_SuperEvent(@ptrCast(self), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidget.html#mimeTypes)
@@ -2398,6 +2449,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_OnMimeTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMimeTypes` instead
+    ///
+    pub const QBaseMimeTypes = SuperMimeTypes;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidget.html#mimeTypes)
     ///
     /// Base class method implementation
@@ -2408,8 +2463,8 @@ pub const qtreewidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QTreeWidget_QBaseMimeTypes(@ptrCast(self));
+    pub fn SuperMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QTreeWidget_SuperMimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -2457,6 +2512,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_OnMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMimeData` instead
+    ///
+    pub const QBaseMimeData = SuperMimeData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidget.html#mimeData)
     ///
     /// Base class method implementation
@@ -2467,12 +2526,12 @@ pub const qtreewidget = struct {
     ///
     /// ` items: []QtC.QTreeWidgetItem `
     ///
-    pub fn QBaseMimeData(self: ?*anyopaque, items: []?*anyopaque) QtC.QMimeData {
+    pub fn SuperMimeData(self: ?*anyopaque, items: []?*anyopaque) QtC.QMimeData {
         const items_list = qtc.libqt_list{
             .len = items.len,
             .data = @ptrCast(items.ptr),
         };
-        return qtc.QTreeWidget_QBaseMimeData(@ptrCast(self), items_list);
+        return qtc.QTreeWidget_SuperMimeData(@ptrCast(self), items_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidget.html#dropMimeData)
@@ -2507,6 +2566,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_OnDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDropMimeData` instead
+    ///
+    pub const QBaseDropMimeData = SuperDropMimeData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidget.html#dropMimeData)
     ///
     /// Base class method implementation
@@ -2523,8 +2586,8 @@ pub const qtreewidget = struct {
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
-    pub fn QBaseDropMimeData(self: ?*anyopaque, parent: ?*anyopaque, index: i32, data: ?*anyopaque, action: i32) bool {
-        return qtc.QTreeWidget_QBaseDropMimeData(@ptrCast(self), @ptrCast(parent), @bitCast(index), @ptrCast(data), @bitCast(action));
+    pub fn SuperDropMimeData(self: ?*anyopaque, parent: ?*anyopaque, index: i32, data: ?*anyopaque, action: i32) bool {
+        return qtc.QTreeWidget_SuperDropMimeData(@ptrCast(self), @ptrCast(parent), @bitCast(index), @ptrCast(data), @bitCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidget.html#supportedDropActions)
@@ -2555,6 +2618,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_OnSupportedDropActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSupportedDropActions` instead
+    ///
+    pub const QBaseSupportedDropActions = SuperSupportedDropActions;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidget.html#supportedDropActions)
     ///
     /// Base class method implementation
@@ -2567,8 +2634,8 @@ pub const qtreewidget = struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn QBaseSupportedDropActions(self: ?*anyopaque) i32 {
-        return qtc.QTreeWidget_QBaseSupportedDropActions(@ptrCast(self));
+    pub fn SuperSupportedDropActions(self: ?*anyopaque) i32 {
+        return qtc.QTreeWidget_SuperSupportedDropActions(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidget.html#dropEvent)
@@ -2597,6 +2664,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidget.html#dropEvent)
     ///
     /// Base class method implementation
@@ -2607,8 +2678,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2794,6 +2865,10 @@ pub const qtreewidget = struct {
         qtc.QTreeView_OnSetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetModel` instead
+    ///
+    pub const QBaseSetModel = SuperSetModel;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setModel)
@@ -2806,8 +2881,8 @@ pub const qtreewidget = struct {
     ///
     /// ` model: QtC.QAbstractItemModel `
     ///
-    pub fn QBaseSetModel(self: ?*anyopaque, model: ?*anyopaque) void {
-        qtc.QTreeView_QBaseSetModel(@ptrCast(self), @ptrCast(model));
+    pub fn SuperSetModel(self: ?*anyopaque, model: ?*anyopaque) void {
+        qtc.QTreeView_SuperSetModel(@ptrCast(self), @ptrCast(model));
     }
 
     /// Inherited from QTreeView
@@ -9666,6 +9741,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_SetRootIndex(@ptrCast(self), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperSetRootIndex` instead
+    ///
+    pub const QBaseSetRootIndex = SuperSetRootIndex;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setRootIndex)
@@ -9678,8 +9757,8 @@ pub const qtreewidget = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseSetRootIndex(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseSetRootIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SuperSetRootIndex(self: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperSetRootIndex(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QTreeView
@@ -9718,6 +9797,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_KeyboardSearch(@ptrCast(self), search_str);
     }
 
+    /// ### DEPRECATED: Use `SuperKeyboardSearch` instead
+    ///
+    pub const QBaseKeyboardSearch = SuperKeyboardSearch;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#keyboardSearch)
@@ -9730,12 +9813,12 @@ pub const qtreewidget = struct {
     ///
     /// ` search: []const u8 `
     ///
-    pub fn QBaseKeyboardSearch(self: ?*anyopaque, search: []const u8) void {
+    pub fn SuperKeyboardSearch(self: ?*anyopaque, search: []const u8) void {
         const search_str = qtc.libqt_string{
             .len = search.len,
             .data = search.ptr,
         };
-        qtc.QTreeWidget_QBaseKeyboardSearch(@ptrCast(self), search_str);
+        qtc.QTreeWidget_SuperKeyboardSearch(@ptrCast(self), search_str);
     }
 
     /// Inherited from QTreeView
@@ -9770,6 +9853,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_VisualRect(@ptrCast(self), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperVisualRect` instead
+    ///
+    pub const QBaseVisualRect = SuperVisualRect;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#visualRect)
@@ -9782,8 +9869,8 @@ pub const qtreewidget = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseVisualRect(self: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
-        return qtc.QTreeWidget_QBaseVisualRect(@ptrCast(self), @ptrCast(index));
+    pub fn SuperVisualRect(self: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
+        return qtc.QTreeWidget_SuperVisualRect(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QTreeView
@@ -9820,6 +9907,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_ScrollTo(@ptrCast(self), @ptrCast(index), @bitCast(hint));
     }
 
+    /// ### DEPRECATED: Use `SuperScrollTo` instead
+    ///
+    pub const QBaseScrollTo = SuperScrollTo;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#scrollTo)
@@ -9834,8 +9925,8 @@ pub const qtreewidget = struct {
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn QBaseScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
-        qtc.QTreeWidget_QBaseScrollTo(@ptrCast(self), @ptrCast(index), @bitCast(hint));
+    pub fn SuperScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
+        qtc.QTreeWidget_SuperScrollTo(@ptrCast(self), @ptrCast(index), @bitCast(hint));
     }
 
     /// Inherited from QTreeView
@@ -9870,6 +9961,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_IndexAt(@ptrCast(self), @ptrCast(p));
     }
 
+    /// ### DEPRECATED: Use `SuperIndexAt` instead
+    ///
+    pub const QBaseIndexAt = SuperIndexAt;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#indexAt)
@@ -9882,8 +9977,8 @@ pub const qtreewidget = struct {
     ///
     /// ` p: QtC.QPoint `
     ///
-    pub fn QBaseIndexAt(self: ?*anyopaque, p: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QTreeWidget_QBaseIndexAt(@ptrCast(self), @ptrCast(p));
+    pub fn SuperIndexAt(self: ?*anyopaque, p: ?*anyopaque) QtC.QModelIndex {
+        return qtc.QTreeWidget_SuperIndexAt(@ptrCast(self), @ptrCast(p));
     }
 
     /// Inherited from QTreeView
@@ -9916,6 +10011,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_DoItemsLayout(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDoItemsLayout` instead
+    ///
+    pub const QBaseDoItemsLayout = SuperDoItemsLayout;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#doItemsLayout)
@@ -9926,8 +10025,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseDoItemsLayout(self: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseDoItemsLayout(@ptrCast(self));
+    pub fn SuperDoItemsLayout(self: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperDoItemsLayout(@ptrCast(self));
     }
 
     /// Inherited from QTreeView
@@ -9960,6 +10059,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_Reset(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperReset` instead
+    ///
+    pub const QBaseReset = SuperReset;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#reset)
@@ -9970,8 +10073,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseReset(self: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseReset(@ptrCast(self));
+    pub fn SuperReset(self: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperReset(@ptrCast(self));
     }
 
     /// Inherited from QTreeView
@@ -10014,6 +10117,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_DataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
     }
 
+    /// ### DEPRECATED: Use `SuperDataChanged` instead
+    ///
+    pub const QBaseDataChanged = SuperDataChanged;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#dataChanged)
@@ -10030,12 +10137,12 @@ pub const qtreewidget = struct {
     ///
     /// ` roles: []i32 `
     ///
-    pub fn QBaseDataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
+    pub fn SuperDataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
         const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
-        qtc.QTreeWidget_QBaseDataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
+        qtc.QTreeWidget_SuperDataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
     }
 
     /// Inherited from QTreeView
@@ -10068,6 +10175,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_SelectAll(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSelectAll` instead
+    ///
+    pub const QBaseSelectAll = SuperSelectAll;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#selectAll)
@@ -10078,8 +10189,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseSelectAll(self: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseSelectAll(@ptrCast(self));
+    pub fn SuperSelectAll(self: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperSelectAll(@ptrCast(self));
     }
 
     /// Inherited from QTreeView
@@ -10114,6 +10225,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_VerticalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
+    /// ### DEPRECATED: Use `SuperVerticalScrollbarValueChanged` instead
+    ///
+    pub const QBaseVerticalScrollbarValueChanged = SuperVerticalScrollbarValueChanged;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#verticalScrollbarValueChanged)
@@ -10126,8 +10241,8 @@ pub const qtreewidget = struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn QBaseVerticalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QTreeWidget_QBaseVerticalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn SuperVerticalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
+        qtc.QTreeWidget_SuperVerticalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
     /// Inherited from QTreeView
@@ -10164,6 +10279,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_ScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
+    /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
+    ///
+    pub const QBaseScrollContentsBy = SuperScrollContentsBy;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#scrollContentsBy)
@@ -10178,8 +10297,8 @@ pub const qtreewidget = struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn QBaseScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QTreeWidget_QBaseScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn SuperScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
+        qtc.QTreeWidget_SuperScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QTreeView
@@ -10218,6 +10337,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_RowsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
+    /// ### DEPRECATED: Use `SuperRowsInserted` instead
+    ///
+    pub const QBaseRowsInserted = SuperRowsInserted;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#rowsInserted)
@@ -10234,8 +10357,8 @@ pub const qtreewidget = struct {
     ///
     /// ` end: i32 `
     ///
-    pub fn QBaseRowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QTreeWidget_QBaseRowsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
+    pub fn SuperRowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
+        qtc.QTreeWidget_SuperRowsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
     /// Inherited from QTreeView
@@ -10274,6 +10397,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_RowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
+    /// ### DEPRECATED: Use `SuperRowsAboutToBeRemoved` instead
+    ///
+    pub const QBaseRowsAboutToBeRemoved = SuperRowsAboutToBeRemoved;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#rowsAboutToBeRemoved)
@@ -10290,8 +10417,8 @@ pub const qtreewidget = struct {
     ///
     /// ` end: i32 `
     ///
-    pub fn QBaseRowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QTreeWidget_QBaseRowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
+    pub fn SuperRowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
+        qtc.QTreeWidget_SuperRowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
     /// Inherited from QTreeView
@@ -10328,6 +10455,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_MoveCursor(@ptrCast(self), @bitCast(cursorAction), @bitCast(modifiers));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveCursor` instead
+    ///
+    pub const QBaseMoveCursor = SuperMoveCursor;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#moveCursor)
@@ -10342,8 +10473,8 @@ pub const qtreewidget = struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn QBaseMoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i32) QtC.QModelIndex {
-        return qtc.QTreeWidget_QBaseMoveCursor(@ptrCast(self), @bitCast(cursorAction), @bitCast(modifiers));
+    pub fn SuperMoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i32) QtC.QModelIndex {
+        return qtc.QTreeWidget_SuperMoveCursor(@ptrCast(self), @bitCast(cursorAction), @bitCast(modifiers));
     }
 
     /// Inherited from QTreeView
@@ -10376,6 +10507,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_HorizontalOffset(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHorizontalOffset` instead
+    ///
+    pub const QBaseHorizontalOffset = SuperHorizontalOffset;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#horizontalOffset)
@@ -10386,8 +10521,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseHorizontalOffset(self: ?*anyopaque) i32 {
-        return qtc.QTreeWidget_QBaseHorizontalOffset(@ptrCast(self));
+    pub fn SuperHorizontalOffset(self: ?*anyopaque) i32 {
+        return qtc.QTreeWidget_SuperHorizontalOffset(@ptrCast(self));
     }
 
     /// Inherited from QTreeView
@@ -10420,6 +10555,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_VerticalOffset(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperVerticalOffset` instead
+    ///
+    pub const QBaseVerticalOffset = SuperVerticalOffset;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#verticalOffset)
@@ -10430,8 +10569,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseVerticalOffset(self: ?*anyopaque) i32 {
-        return qtc.QTreeWidget_QBaseVerticalOffset(@ptrCast(self));
+    pub fn SuperVerticalOffset(self: ?*anyopaque) i32 {
+        return qtc.QTreeWidget_SuperVerticalOffset(@ptrCast(self));
     }
 
     /// Inherited from QTreeView
@@ -10468,6 +10607,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_SetSelection(@ptrCast(self), @ptrCast(rect), @bitCast(command));
     }
 
+    /// ### DEPRECATED: Use `SuperSetSelection` instead
+    ///
+    pub const QBaseSetSelection = SuperSetSelection;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setSelection)
@@ -10482,8 +10625,8 @@ pub const qtreewidget = struct {
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn QBaseSetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i32) void {
-        qtc.QTreeWidget_QBaseSetSelection(@ptrCast(self), @ptrCast(rect), @bitCast(command));
+    pub fn SuperSetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i32) void {
+        qtc.QTreeWidget_SuperSetSelection(@ptrCast(self), @ptrCast(rect), @bitCast(command));
     }
 
     /// Inherited from QTreeView
@@ -10518,6 +10661,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_VisualRegionForSelection(@ptrCast(self), @ptrCast(selection));
     }
 
+    /// ### DEPRECATED: Use `SuperVisualRegionForSelection` instead
+    ///
+    pub const QBaseVisualRegionForSelection = SuperVisualRegionForSelection;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#visualRegionForSelection)
@@ -10530,8 +10677,8 @@ pub const qtreewidget = struct {
     ///
     /// ` selection: QtC.QItemSelection `
     ///
-    pub fn QBaseVisualRegionForSelection(self: ?*anyopaque, selection: ?*anyopaque) QtC.QRegion {
-        return qtc.QTreeWidget_QBaseVisualRegionForSelection(@ptrCast(self), @ptrCast(selection));
+    pub fn SuperVisualRegionForSelection(self: ?*anyopaque, selection: ?*anyopaque) QtC.QRegion {
+        return qtc.QTreeWidget_SuperVisualRegionForSelection(@ptrCast(self), @ptrCast(selection));
     }
 
     /// Inherited from QTreeView
@@ -10571,6 +10718,10 @@ pub const qtreewidget = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperSelectedIndexes` instead
+    ///
+    pub const QBaseSelectedIndexes = SuperSelectedIndexes;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#selectedIndexes)
@@ -10583,8 +10734,8 @@ pub const qtreewidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QTreeWidget_QBaseSelectedIndexes(@ptrCast(self));
+    pub fn SuperSelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
+        const _arr: qtc.libqt_list = qtc.QTreeWidget_SuperSelectedIndexes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qtreewidget.SelectedIndexes: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -10630,6 +10781,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_ChangeEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    ///
+    pub const QBaseChangeEvent = SuperChangeEvent;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#changeEvent)
@@ -10642,8 +10797,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseChangeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseChangeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChangeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperChangeEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QTreeView
@@ -10678,6 +10833,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#timerEvent)
@@ -10690,8 +10849,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QTreeView
@@ -10726,6 +10885,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_PaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    ///
+    pub const QBasePaintEvent = SuperPaintEvent;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#paintEvent)
@@ -10738,8 +10901,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QPaintEvent `
     ///
-    pub fn QBasePaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBasePaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperPaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperPaintEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QTreeView
@@ -10778,6 +10941,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_DrawRow(@ptrCast(self), @ptrCast(painter), @ptrCast(options), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperDrawRow` instead
+    ///
+    pub const QBaseDrawRow = SuperDrawRow;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#drawRow)
@@ -10794,8 +10961,8 @@ pub const qtreewidget = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseDrawRow(self: ?*anyopaque, painter: ?*anyopaque, options: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseDrawRow(@ptrCast(self), @ptrCast(painter), @ptrCast(options), @ptrCast(index));
+    pub fn SuperDrawRow(self: ?*anyopaque, painter: ?*anyopaque, options: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperDrawRow(@ptrCast(self), @ptrCast(painter), @ptrCast(options), @ptrCast(index));
     }
 
     /// Inherited from QTreeView
@@ -10834,6 +11001,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_DrawBranches(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperDrawBranches` instead
+    ///
+    pub const QBaseDrawBranches = SuperDrawBranches;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#drawBranches)
@@ -10850,8 +11021,8 @@ pub const qtreewidget = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseDrawBranches(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseDrawBranches(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(index));
+    pub fn SuperDrawBranches(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperDrawBranches(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(index));
     }
 
     /// Inherited from QTreeView
@@ -10886,6 +11057,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_MousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#mousePressEvent)
@@ -10898,8 +11073,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QTreeView
@@ -10934,6 +11109,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#mouseReleaseEvent)
@@ -10946,8 +11125,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QTreeView
@@ -10982,6 +11161,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#mouseDoubleClickEvent)
@@ -10994,8 +11177,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QTreeView
@@ -11030,6 +11213,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#mouseMoveEvent)
@@ -11042,8 +11229,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QTreeView
@@ -11078,6 +11265,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_KeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#keyPressEvent)
@@ -11090,8 +11281,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperKeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QTreeView
@@ -11126,6 +11317,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_DragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#dragMoveEvent)
@@ -11138,8 +11333,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QDragMoveEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QTreeView
@@ -11174,6 +11369,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_ViewportEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperViewportEvent` instead
+    ///
+    pub const QBaseViewportEvent = SuperViewportEvent;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#viewportEvent)
@@ -11186,8 +11385,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseViewportEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTreeWidget_QBaseViewportEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperViewportEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QTreeWidget_SuperViewportEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QTreeView
@@ -11220,6 +11419,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_UpdateGeometries(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateGeometries` instead
+    ///
+    pub const QBaseUpdateGeometries = SuperUpdateGeometries;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#updateGeometries)
@@ -11230,8 +11433,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseUpdateGeometries(self: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseUpdateGeometries(@ptrCast(self));
+    pub fn SuperUpdateGeometries(self: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperUpdateGeometries(@ptrCast(self));
     }
 
     /// Inherited from QTreeView
@@ -11264,6 +11467,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_ViewportSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
+    ///
+    pub const QBaseViewportSizeHint = SuperViewportSizeHint;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#viewportSizeHint)
@@ -11274,8 +11481,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseViewportSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTreeWidget_QBaseViewportSizeHint(@ptrCast(self));
+    pub fn SuperViewportSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QTreeWidget_SuperViewportSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QTreeView
@@ -11310,6 +11517,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_SizeHintForColumn(@ptrCast(self), @bitCast(column));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHintForColumn` instead
+    ///
+    pub const QBaseSizeHintForColumn = SuperSizeHintForColumn;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#sizeHintForColumn)
@@ -11322,8 +11533,8 @@ pub const qtreewidget = struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn QBaseSizeHintForColumn(self: ?*anyopaque, column: i32) i32 {
-        return qtc.QTreeWidget_QBaseSizeHintForColumn(@ptrCast(self), @bitCast(column));
+    pub fn SuperSizeHintForColumn(self: ?*anyopaque, column: i32) i32 {
+        return qtc.QTreeWidget_SuperSizeHintForColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// Inherited from QTreeView
@@ -11358,6 +11569,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_HorizontalScrollbarAction(@ptrCast(self), @bitCast(action));
     }
 
+    /// ### DEPRECATED: Use `SuperHorizontalScrollbarAction` instead
+    ///
+    pub const QBaseHorizontalScrollbarAction = SuperHorizontalScrollbarAction;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#horizontalScrollbarAction)
@@ -11370,8 +11585,8 @@ pub const qtreewidget = struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn QBaseHorizontalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QTreeWidget_QBaseHorizontalScrollbarAction(@ptrCast(self), @bitCast(action));
+    pub fn SuperHorizontalScrollbarAction(self: ?*anyopaque, action: i32) void {
+        qtc.QTreeWidget_SuperHorizontalScrollbarAction(@ptrCast(self), @bitCast(action));
     }
 
     /// Inherited from QTreeView
@@ -11406,6 +11621,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_IsIndexHidden(@ptrCast(self), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperIsIndexHidden` instead
+    ///
+    pub const QBaseIsIndexHidden = SuperIsIndexHidden;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#isIndexHidden)
@@ -11418,8 +11637,8 @@ pub const qtreewidget = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseIsIndexHidden(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QTreeWidget_QBaseIsIndexHidden(@ptrCast(self), @ptrCast(index));
+    pub fn SuperIsIndexHidden(self: ?*anyopaque, index: ?*anyopaque) bool {
+        return qtc.QTreeWidget_SuperIsIndexHidden(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QTreeView
@@ -11456,6 +11675,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_SelectionChanged(@ptrCast(self), @ptrCast(selected), @ptrCast(deselected));
     }
 
+    /// ### DEPRECATED: Use `SuperSelectionChanged` instead
+    ///
+    pub const QBaseSelectionChanged = SuperSelectionChanged;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#selectionChanged)
@@ -11470,8 +11693,8 @@ pub const qtreewidget = struct {
     ///
     /// ` deselected: QtC.QItemSelection `
     ///
-    pub fn QBaseSelectionChanged(self: ?*anyopaque, selected: ?*anyopaque, deselected: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseSelectionChanged(@ptrCast(self), @ptrCast(selected), @ptrCast(deselected));
+    pub fn SuperSelectionChanged(self: ?*anyopaque, selected: ?*anyopaque, deselected: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperSelectionChanged(@ptrCast(self), @ptrCast(selected), @ptrCast(deselected));
     }
 
     /// Inherited from QTreeView
@@ -11508,6 +11731,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_CurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
     }
 
+    /// ### DEPRECATED: Use `SuperCurrentChanged` instead
+    ///
+    pub const QBaseCurrentChanged = SuperCurrentChanged;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#currentChanged)
@@ -11522,8 +11749,8 @@ pub const qtreewidget = struct {
     ///
     /// ` previous: QtC.QModelIndex `
     ///
-    pub fn QBaseCurrentChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseCurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
+    pub fn SuperCurrentChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperCurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
     }
 
     /// Inherited from QTreeView
@@ -11558,6 +11785,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_SizeHintForRow(@ptrCast(self), @bitCast(row));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHintForRow` instead
+    ///
+    pub const QBaseSizeHintForRow = SuperSizeHintForRow;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
@@ -11570,8 +11801,8 @@ pub const qtreewidget = struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn QBaseSizeHintForRow(self: ?*anyopaque, row: i32) i32 {
-        return qtc.QTreeWidget_QBaseSizeHintForRow(@ptrCast(self), @bitCast(row));
+    pub fn SuperSizeHintForRow(self: ?*anyopaque, row: i32) i32 {
+        return qtc.QTreeWidget_SuperSizeHintForRow(@ptrCast(self), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemView
@@ -11606,6 +11837,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_ItemDelegateForIndex(@ptrCast(self), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperItemDelegateForIndex` instead
+    ///
+    pub const QBaseItemDelegateForIndex = SuperItemDelegateForIndex;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
@@ -11618,8 +11853,8 @@ pub const qtreewidget = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseItemDelegateForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
-        return qtc.QTreeWidget_QBaseItemDelegateForIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SuperItemDelegateForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
+        return qtc.QTreeWidget_SuperItemDelegateForIndex(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemView
@@ -11654,6 +11889,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_InputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
@@ -11666,8 +11905,8 @@ pub const qtreewidget = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QTreeWidget_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
+        return qtc.QTreeWidget_SuperInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QAbstractItemView
@@ -11700,6 +11939,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_UpdateEditorData(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateEditorData` instead
+    ///
+    pub const QBaseUpdateEditorData = SuperUpdateEditorData;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
@@ -11710,8 +11953,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseUpdateEditorData(self: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseUpdateEditorData(@ptrCast(self));
+    pub fn SuperUpdateEditorData(self: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperUpdateEditorData(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -11744,6 +11987,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_UpdateEditorGeometries(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateEditorGeometries` instead
+    ///
+    pub const QBaseUpdateEditorGeometries = SuperUpdateEditorGeometries;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
@@ -11754,8 +12001,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseUpdateEditorGeometries(self: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseUpdateEditorGeometries(@ptrCast(self));
+    pub fn SuperUpdateEditorGeometries(self: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperUpdateEditorGeometries(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -11790,6 +12037,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_VerticalScrollbarAction(@ptrCast(self), @bitCast(action));
     }
 
+    /// ### DEPRECATED: Use `SuperVerticalScrollbarAction` instead
+    ///
+    pub const QBaseVerticalScrollbarAction = SuperVerticalScrollbarAction;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
@@ -11802,8 +12053,8 @@ pub const qtreewidget = struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn QBaseVerticalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QTreeWidget_QBaseVerticalScrollbarAction(@ptrCast(self), @bitCast(action));
+    pub fn SuperVerticalScrollbarAction(self: ?*anyopaque, action: i32) void {
+        qtc.QTreeWidget_SuperVerticalScrollbarAction(@ptrCast(self), @bitCast(action));
     }
 
     /// Inherited from QAbstractItemView
@@ -11838,6 +12089,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_HorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
+    /// ### DEPRECATED: Use `SuperHorizontalScrollbarValueChanged` instead
+    ///
+    pub const QBaseHorizontalScrollbarValueChanged = SuperHorizontalScrollbarValueChanged;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
@@ -11850,8 +12105,8 @@ pub const qtreewidget = struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn QBaseHorizontalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QTreeWidget_QBaseHorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn SuperHorizontalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
+        qtc.QTreeWidget_SuperHorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
     /// Inherited from QAbstractItemView
@@ -11888,6 +12143,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_CloseEditor(@ptrCast(self), @ptrCast(editor), @bitCast(hint));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEditor` instead
+    ///
+    pub const QBaseCloseEditor = SuperCloseEditor;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
@@ -11902,8 +12161,8 @@ pub const qtreewidget = struct {
     ///
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
-    pub fn QBaseCloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
-        qtc.QTreeWidget_QBaseCloseEditor(@ptrCast(self), @ptrCast(editor), @bitCast(hint));
+    pub fn SuperCloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
+        qtc.QTreeWidget_SuperCloseEditor(@ptrCast(self), @ptrCast(editor), @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemView
@@ -11938,6 +12197,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_CommitData(@ptrCast(self), @ptrCast(editor));
     }
 
+    /// ### DEPRECATED: Use `SuperCommitData` instead
+    ///
+    pub const QBaseCommitData = SuperCommitData;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
@@ -11950,8 +12213,8 @@ pub const qtreewidget = struct {
     ///
     /// ` editor: QtC.QWidget `
     ///
-    pub fn QBaseCommitData(self: ?*anyopaque, editor: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseCommitData(@ptrCast(self), @ptrCast(editor));
+    pub fn SuperCommitData(self: ?*anyopaque, editor: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperCommitData(@ptrCast(self), @ptrCast(editor));
     }
 
     /// Inherited from QAbstractItemView
@@ -11986,6 +12249,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_EditorDestroyed(@ptrCast(self), @ptrCast(editor));
     }
 
+    /// ### DEPRECATED: Use `SuperEditorDestroyed` instead
+    ///
+    pub const QBaseEditorDestroyed = SuperEditorDestroyed;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
@@ -11998,8 +12265,8 @@ pub const qtreewidget = struct {
     ///
     /// ` editor: QtC.QObject `
     ///
-    pub fn QBaseEditorDestroyed(self: ?*anyopaque, editor: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseEditorDestroyed(@ptrCast(self), @ptrCast(editor));
+    pub fn SuperEditorDestroyed(self: ?*anyopaque, editor: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperEditorDestroyed(@ptrCast(self), @ptrCast(editor));
     }
 
     /// Inherited from QAbstractItemView
@@ -12038,6 +12305,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_Edit2(@ptrCast(self), @ptrCast(index), @bitCast(trigger), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEdit2` instead
+    ///
+    pub const QBaseEdit2 = SuperEdit2;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
@@ -12054,8 +12325,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEdit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
-        return qtc.QTreeWidget_QBaseEdit2(@ptrCast(self), @ptrCast(index), @bitCast(trigger), @ptrCast(event));
+    pub fn SuperEdit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
+        return qtc.QTreeWidget_SuperEdit2(@ptrCast(self), @ptrCast(index), @bitCast(trigger), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -12096,6 +12367,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_SelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperSelectionCommand` instead
+    ///
+    pub const QBaseSelectionCommand = SuperSelectionCommand;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
@@ -12114,8 +12389,8 @@ pub const qtreewidget = struct {
     ///
     /// ` flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn QBaseSelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i32 {
-        return qtc.QTreeWidget_QBaseSelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
+    pub fn SuperSelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i32 {
+        return qtc.QTreeWidget_SuperSelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -12150,6 +12425,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_StartDrag(@ptrCast(self), @bitCast(supportedActions));
     }
 
+    /// ### DEPRECATED: Use `SuperStartDrag` instead
+    ///
+    pub const QBaseStartDrag = SuperStartDrag;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
@@ -12162,8 +12441,8 @@ pub const qtreewidget = struct {
     ///
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
-    pub fn QBaseStartDrag(self: ?*anyopaque, supportedActions: i32) void {
-        qtc.QTreeWidget_QBaseStartDrag(@ptrCast(self), @bitCast(supportedActions));
+    pub fn SuperStartDrag(self: ?*anyopaque, supportedActions: i32) void {
+        qtc.QTreeWidget_SuperStartDrag(@ptrCast(self), @bitCast(supportedActions));
     }
 
     /// Inherited from QAbstractItemView
@@ -12198,6 +12477,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_InitViewItemOption(@ptrCast(self), @ptrCast(option));
     }
 
+    /// ### DEPRECATED: Use `SuperInitViewItemOption` instead
+    ///
+    pub const QBaseInitViewItemOption = SuperInitViewItemOption;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#initViewItemOption)
@@ -12210,8 +12493,8 @@ pub const qtreewidget = struct {
     ///
     /// ` option: QtC.QStyleOptionViewItem `
     ///
-    pub fn QBaseInitViewItemOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseInitViewItemOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitViewItemOption(self: ?*anyopaque, option: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperInitViewItemOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// Inherited from QAbstractItemView
@@ -12246,6 +12529,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_FocusNextPrevChild(@ptrCast(self), next);
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    ///
+    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
@@ -12258,8 +12545,8 @@ pub const qtreewidget = struct {
     ///
     /// ` next: bool `
     ///
-    pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QTreeWidget_QBaseFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
+        return qtc.QTreeWidget_SuperFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QAbstractItemView
@@ -12294,6 +12581,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_DragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
@@ -12306,8 +12597,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QDragEnterEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -12342,6 +12633,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
@@ -12354,8 +12649,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QDragLeaveEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -12390,6 +12685,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
@@ -12402,8 +12701,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -12438,6 +12737,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
@@ -12450,8 +12753,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -12486,6 +12789,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_ResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
@@ -12498,8 +12805,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -12534,6 +12841,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_InputMethodEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
@@ -12546,8 +12857,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperInputMethodEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -12584,6 +12895,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
@@ -12598,8 +12913,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTreeWidget_QBaseEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QTreeWidget_SuperEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
     /// Inherited from QAbstractItemView
@@ -12632,6 +12947,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_MinimumSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    ///
+    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
@@ -12642,8 +12961,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTreeWidget_QBaseMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QTreeWidget_SuperMinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12676,6 +12995,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_SizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
@@ -12686,8 +13009,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTreeWidget_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QTreeWidget_SuperSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12722,6 +13045,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_SetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
+    /// ### DEPRECATED: Use `SuperSetupViewport` instead
+    ///
+    pub const QBaseSetupViewport = SuperSetupViewport;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
@@ -12734,8 +13061,8 @@ pub const qtreewidget = struct {
     ///
     /// ` viewport: QtC.QWidget `
     ///
-    pub fn QBaseSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseSetupViewport(@ptrCast(self), @ptrCast(viewport));
+    pub fn SuperSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperSetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12770,6 +13097,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_WheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
@@ -12782,8 +13113,8 @@ pub const qtreewidget = struct {
     ///
     /// ` param1: QtC.QWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseWheelEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperWheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12818,6 +13149,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
@@ -12830,8 +13165,8 @@ pub const qtreewidget = struct {
     ///
     /// ` param1: QtC.QContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12866,6 +13201,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_InitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
+    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    ///
+    pub const QBaseInitStyleOption = SuperInitStyleOption;
+
     /// Inherited from QFrame
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
@@ -12878,8 +13217,8 @@ pub const qtreewidget = struct {
     ///
     /// ` option: QtC.QStyleOptionFrame `
     ///
-    pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// Inherited from QFrame
@@ -12912,6 +13251,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_DevType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
@@ -12922,8 +13265,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.QTreeWidget_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.QTreeWidget_SuperDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -12958,6 +13301,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_SetVisible(@ptrCast(self), visible);
     }
 
+    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    ///
+    pub const QBaseSetVisible = SuperSetVisible;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
@@ -12970,8 +13317,8 @@ pub const qtreewidget = struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QTreeWidget_QBaseSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
+        qtc.QTreeWidget_SuperSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
@@ -13006,6 +13353,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
@@ -13018,8 +13369,8 @@ pub const qtreewidget = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTreeWidget_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QTreeWidget_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -13052,6 +13403,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
@@ -13062,8 +13417,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QTreeWidget_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.QTreeWidget_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -13096,6 +13451,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_PaintEngine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
@@ -13106,8 +13465,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QTreeWidget_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.QTreeWidget_SuperPaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -13142,6 +13501,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -13154,8 +13517,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -13190,6 +13553,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    ///
+    pub const QBaseEnterEvent = SuperEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
@@ -13202,8 +13569,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QEnterEvent `
     ///
-    pub fn QBaseEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -13238,6 +13605,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    ///
+    pub const QBaseLeaveEvent = SuperLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
@@ -13250,8 +13621,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -13286,6 +13657,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
@@ -13298,8 +13673,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -13334,6 +13709,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
@@ -13346,8 +13725,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -13382,6 +13761,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    ///
+    pub const QBaseTabletEvent = SuperTabletEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
@@ -13394,8 +13777,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QTabletEvent `
     ///
-    pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -13430,6 +13813,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_ActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    ///
+    pub const QBaseActionEvent = SuperActionEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
@@ -13442,8 +13829,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QActionEvent `
     ///
-    pub fn QBaseActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -13478,6 +13865,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
@@ -13490,8 +13881,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -13526,6 +13917,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
@@ -13538,8 +13933,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -13582,6 +13977,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    ///
+    pub const QBaseNativeEvent = SuperNativeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
@@ -13598,12 +13997,12 @@ pub const qtreewidget = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QTreeWidget_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QTreeWidget_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -13638,6 +14037,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_Metric(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
@@ -13650,8 +14053,8 @@ pub const qtreewidget = struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTreeWidget_QBaseMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QTreeWidget_SuperMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -13686,6 +14089,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
@@ -13698,8 +14105,8 @@ pub const qtreewidget = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
@@ -13734,6 +14141,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
@@ -13746,8 +14157,8 @@ pub const qtreewidget = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QTreeWidget_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.QTreeWidget_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
@@ -13780,6 +14191,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
@@ -13790,8 +14205,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QTreeWidget_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.QTreeWidget_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -13826,6 +14241,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -13838,8 +14257,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -13874,6 +14293,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -13886,8 +14309,8 @@ pub const qtreewidget = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -13922,6 +14345,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -13934,8 +14361,8 @@ pub const qtreewidget = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -13970,6 +14397,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -13982,8 +14413,8 @@ pub const qtreewidget = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -14022,6 +14453,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_ColumnResized(@ptrCast(self), @bitCast(column), @bitCast(oldSize), @bitCast(newSize));
     }
 
+    /// ### DEPRECATED: Use `SuperColumnResized` instead
+    ///
+    pub const QBaseColumnResized = SuperColumnResized;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#columnResized)
@@ -14038,8 +14473,8 @@ pub const qtreewidget = struct {
     ///
     /// ` newSize: i32 `
     ///
-    pub fn QBaseColumnResized(self: ?*anyopaque, column: i32, oldSize: i32, newSize: i32) void {
-        qtc.QTreeWidget_QBaseColumnResized(@ptrCast(self), @bitCast(column), @bitCast(oldSize), @bitCast(newSize));
+    pub fn SuperColumnResized(self: ?*anyopaque, column: i32, oldSize: i32, newSize: i32) void {
+        qtc.QTreeWidget_SuperColumnResized(@ptrCast(self), @bitCast(column), @bitCast(oldSize), @bitCast(newSize));
     }
 
     /// Inherited from QTreeView
@@ -14076,6 +14511,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_ColumnCountChanged(@ptrCast(self), @bitCast(oldCount), @bitCast(newCount));
     }
 
+    /// ### DEPRECATED: Use `SuperColumnCountChanged` instead
+    ///
+    pub const QBaseColumnCountChanged = SuperColumnCountChanged;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#columnCountChanged)
@@ -14090,8 +14529,8 @@ pub const qtreewidget = struct {
     ///
     /// ` newCount: i32 `
     ///
-    pub fn QBaseColumnCountChanged(self: ?*anyopaque, oldCount: i32, newCount: i32) void {
-        qtc.QTreeWidget_QBaseColumnCountChanged(@ptrCast(self), @bitCast(oldCount), @bitCast(newCount));
+    pub fn SuperColumnCountChanged(self: ?*anyopaque, oldCount: i32, newCount: i32) void {
+        qtc.QTreeWidget_SuperColumnCountChanged(@ptrCast(self), @bitCast(oldCount), @bitCast(newCount));
     }
 
     /// Inherited from QTreeView
@@ -14124,6 +14563,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_ColumnMoved(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperColumnMoved` instead
+    ///
+    pub const QBaseColumnMoved = SuperColumnMoved;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#columnMoved)
@@ -14134,8 +14577,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseColumnMoved(self: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseColumnMoved(@ptrCast(self));
+    pub fn SuperColumnMoved(self: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperColumnMoved(@ptrCast(self));
     }
 
     /// Inherited from QTreeView
@@ -14168,6 +14611,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_Reexpand(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperReexpand` instead
+    ///
+    pub const QBaseReexpand = SuperReexpand;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#reexpand)
@@ -14178,8 +14625,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseReexpand(self: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseReexpand(@ptrCast(self));
+    pub fn SuperReexpand(self: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperReexpand(@ptrCast(self));
     }
 
     /// Inherited from QTreeView
@@ -14218,6 +14665,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_RowsRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
+    /// ### DEPRECATED: Use `SuperRowsRemoved` instead
+    ///
+    pub const QBaseRowsRemoved = SuperRowsRemoved;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#rowsRemoved)
@@ -14234,8 +14685,8 @@ pub const qtreewidget = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn QBaseRowsRemoved(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QTreeWidget_QBaseRowsRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperRowsRemoved(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
+        qtc.QTreeWidget_SuperRowsRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QTreeView
@@ -14272,6 +14723,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_DrawTree(@ptrCast(self), @ptrCast(painter), @ptrCast(region));
     }
 
+    /// ### DEPRECATED: Use `SuperDrawTree` instead
+    ///
+    pub const QBaseDrawTree = SuperDrawTree;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#drawTree)
@@ -14286,8 +14741,8 @@ pub const qtreewidget = struct {
     ///
     /// ` region: QtC.QRegion `
     ///
-    pub fn QBaseDrawTree(self: ?*anyopaque, painter: ?*anyopaque, region: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseDrawTree(@ptrCast(self), @ptrCast(painter), @ptrCast(region));
+    pub fn SuperDrawTree(self: ?*anyopaque, painter: ?*anyopaque, region: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperDrawTree(@ptrCast(self), @ptrCast(painter), @ptrCast(region));
     }
 
     /// Inherited from QTreeView
@@ -14322,6 +14777,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_IndexRowSizeHint(@ptrCast(self), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperIndexRowSizeHint` instead
+    ///
+    pub const QBaseIndexRowSizeHint = SuperIndexRowSizeHint;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#indexRowSizeHint)
@@ -14334,8 +14793,8 @@ pub const qtreewidget = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseIndexRowSizeHint(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.QTreeWidget_QBaseIndexRowSizeHint(@ptrCast(self), @ptrCast(index));
+    pub fn SuperIndexRowSizeHint(self: ?*anyopaque, index: ?*anyopaque) i32 {
+        return qtc.QTreeWidget_SuperIndexRowSizeHint(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QTreeView
@@ -14370,6 +14829,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_RowHeight(@ptrCast(self), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperRowHeight` instead
+    ///
+    pub const QBaseRowHeight = SuperRowHeight;
+
     /// Inherited from QTreeView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#rowHeight)
@@ -14382,8 +14845,8 @@ pub const qtreewidget = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseRowHeight(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.QTreeWidget_QBaseRowHeight(@ptrCast(self), @ptrCast(index));
+    pub fn SuperRowHeight(self: ?*anyopaque, index: ?*anyopaque) i32 {
+        return qtc.QTreeWidget_SuperRowHeight(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QTreeView
@@ -14420,6 +14883,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_State(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperState` instead
+    ///
+    pub const QBaseState = SuperState;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
@@ -14434,8 +14901,8 @@ pub const qtreewidget = struct {
     ///
     /// ` qabstractitemview_enums.State `
     ///
-    pub fn QBaseState(self: ?*anyopaque) i32 {
-        return qtc.QTreeWidget_QBaseState(@ptrCast(self));
+    pub fn SuperState(self: ?*anyopaque) i32 {
+        return qtc.QTreeWidget_SuperState(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -14470,6 +14937,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_SetState(@ptrCast(self), @bitCast(state));
     }
 
+    /// ### DEPRECATED: Use `SuperSetState` instead
+    ///
+    pub const QBaseSetState = SuperSetState;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
@@ -14482,8 +14953,8 @@ pub const qtreewidget = struct {
     ///
     /// ` state: qabstractitemview_enums.State `
     ///
-    pub fn QBaseSetState(self: ?*anyopaque, state: i32) void {
-        qtc.QTreeWidget_QBaseSetState(@ptrCast(self), @bitCast(state));
+    pub fn SuperSetState(self: ?*anyopaque, state: i32) void {
+        qtc.QTreeWidget_SuperSetState(@ptrCast(self), @bitCast(state));
     }
 
     /// Inherited from QAbstractItemView
@@ -14516,6 +14987,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_ScheduleDelayedItemsLayout(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperScheduleDelayedItemsLayout` instead
+    ///
+    pub const QBaseScheduleDelayedItemsLayout = SuperScheduleDelayedItemsLayout;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
@@ -14526,8 +15001,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseScheduleDelayedItemsLayout(self: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseScheduleDelayedItemsLayout(@ptrCast(self));
+    pub fn SuperScheduleDelayedItemsLayout(self: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperScheduleDelayedItemsLayout(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -14560,6 +15035,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_ExecuteDelayedItemsLayout(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperExecuteDelayedItemsLayout` instead
+    ///
+    pub const QBaseExecuteDelayedItemsLayout = SuperExecuteDelayedItemsLayout;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
@@ -14570,8 +15049,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseExecuteDelayedItemsLayout(self: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseExecuteDelayedItemsLayout(@ptrCast(self));
+    pub fn SuperExecuteDelayedItemsLayout(self: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperExecuteDelayedItemsLayout(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -14606,6 +15085,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_SetDirtyRegion(@ptrCast(self), @ptrCast(region));
     }
 
+    /// ### DEPRECATED: Use `SuperSetDirtyRegion` instead
+    ///
+    pub const QBaseSetDirtyRegion = SuperSetDirtyRegion;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
@@ -14618,8 +15101,8 @@ pub const qtreewidget = struct {
     ///
     /// ` region: QtC.QRegion `
     ///
-    pub fn QBaseSetDirtyRegion(self: ?*anyopaque, region: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseSetDirtyRegion(@ptrCast(self), @ptrCast(region));
+    pub fn SuperSetDirtyRegion(self: ?*anyopaque, region: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperSetDirtyRegion(@ptrCast(self), @ptrCast(region));
     }
 
     /// Inherited from QAbstractItemView
@@ -14656,6 +15139,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_ScrollDirtyRegion(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
+    /// ### DEPRECATED: Use `SuperScrollDirtyRegion` instead
+    ///
+    pub const QBaseScrollDirtyRegion = SuperScrollDirtyRegion;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
@@ -14670,8 +15157,8 @@ pub const qtreewidget = struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn QBaseScrollDirtyRegion(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QTreeWidget_QBaseScrollDirtyRegion(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn SuperScrollDirtyRegion(self: ?*anyopaque, dx: i32, dy: i32) void {
+        qtc.QTreeWidget_SuperScrollDirtyRegion(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QAbstractItemView
@@ -14704,6 +15191,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_DirtyRegionOffset(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDirtyRegionOffset` instead
+    ///
+    pub const QBaseDirtyRegionOffset = SuperDirtyRegionOffset;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
@@ -14714,8 +15205,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseDirtyRegionOffset(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QTreeWidget_QBaseDirtyRegionOffset(@ptrCast(self));
+    pub fn SuperDirtyRegionOffset(self: ?*anyopaque) QtC.QPoint {
+        return qtc.QTreeWidget_SuperDirtyRegionOffset(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -14748,6 +15239,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_StartAutoScroll(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperStartAutoScroll` instead
+    ///
+    pub const QBaseStartAutoScroll = SuperStartAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
@@ -14758,8 +15253,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseStartAutoScroll(self: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseStartAutoScroll(@ptrCast(self));
+    pub fn SuperStartAutoScroll(self: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperStartAutoScroll(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -14792,6 +15287,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_StopAutoScroll(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperStopAutoScroll` instead
+    ///
+    pub const QBaseStopAutoScroll = SuperStopAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
@@ -14802,8 +15301,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseStopAutoScroll(self: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseStopAutoScroll(@ptrCast(self));
+    pub fn SuperStopAutoScroll(self: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperStopAutoScroll(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -14836,6 +15335,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_DoAutoScroll(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDoAutoScroll` instead
+    ///
+    pub const QBaseDoAutoScroll = SuperDoAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
@@ -14846,8 +15349,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseDoAutoScroll(self: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseDoAutoScroll(@ptrCast(self));
+    pub fn SuperDoAutoScroll(self: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperDoAutoScroll(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -14884,6 +15387,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_DropIndicatorPosition(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDropIndicatorPosition` instead
+    ///
+    pub const QBaseDropIndicatorPosition = SuperDropIndicatorPosition;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
@@ -14898,8 +15405,8 @@ pub const qtreewidget = struct {
     ///
     /// ` qabstractitemview_enums.DropIndicatorPosition `
     ///
-    pub fn QBaseDropIndicatorPosition(self: ?*anyopaque) i32 {
-        return qtc.QTreeWidget_QBaseDropIndicatorPosition(@ptrCast(self));
+    pub fn SuperDropIndicatorPosition(self: ?*anyopaque) i32 {
+        return qtc.QTreeWidget_SuperDropIndicatorPosition(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemView
@@ -14940,6 +15447,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_SetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
+    /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
+    ///
+    pub const QBaseSetViewportMargins = SuperSetViewportMargins;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
@@ -14958,8 +15469,8 @@ pub const qtreewidget = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn QBaseSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QTreeWidget_QBaseSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SuperSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QTreeWidget_SuperSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -14992,6 +15503,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_ViewportMargins(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperViewportMargins` instead
+    ///
+    pub const QBaseViewportMargins = SuperViewportMargins;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
@@ -15002,8 +15517,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseViewportMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QTreeWidget_QBaseViewportMargins(@ptrCast(self));
+    pub fn SuperViewportMargins(self: ?*anyopaque) QtC.QMargins {
+        return qtc.QTreeWidget_SuperViewportMargins(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -15038,6 +15553,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_DrawFrame(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    ///
+    pub const QBaseDrawFrame = SuperDrawFrame;
+
     /// Inherited from QFrame
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
@@ -15050,8 +15569,8 @@ pub const qtreewidget = struct {
     ///
     /// ` param1: QtC.QPainter `
     ///
-    pub fn QBaseDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseDrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperDrawFrame(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QFrame
@@ -15084,6 +15603,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -15094,8 +15617,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -15128,6 +15651,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_Create(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreate` instead
+    ///
+    pub const QBaseCreate = SuperCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -15138,8 +15665,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseCreate(self: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseCreate(@ptrCast(self));
+    pub fn SuperCreate(self: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -15172,6 +15699,10 @@ pub const qtreewidget = struct {
         qtc.QTreeWidget_Destroy(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroy` instead
+    ///
+    pub const QBaseDestroy = SuperDestroy;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
@@ -15182,8 +15713,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseDestroy(self: ?*anyopaque) void {
-        qtc.QTreeWidget_QBaseDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: ?*anyopaque) void {
+        qtc.QTreeWidget_SuperDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -15216,6 +15747,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_FocusNextChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    ///
+    pub const QBaseFocusNextChild = SuperFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -15226,8 +15761,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QTreeWidget_QBaseFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
+        return qtc.QTreeWidget_SuperFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -15260,6 +15795,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_FocusPreviousChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    ///
+    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
@@ -15270,8 +15809,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QTreeWidget_QBaseFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
+        return qtc.QTreeWidget_SuperFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -15304,6 +15843,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -15314,8 +15857,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QTreeWidget_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QTreeWidget_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -15348,6 +15891,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -15358,8 +15905,8 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QTreeWidget_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QTreeWidget_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -15395,6 +15942,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -15407,9 +15958,9 @@ pub const qtreewidget = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QTreeWidget_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTreeWidget_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -15444,6 +15995,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -15456,8 +16011,8 @@ pub const qtreewidget = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QTreeWidget_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QTreeWidget_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -15494,6 +16049,10 @@ pub const qtreewidget = struct {
         return qtc.QTreeWidget_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -15508,8 +16067,8 @@ pub const qtreewidget = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QTreeWidget_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.QTreeWidget_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -15543,6 +16102,9 @@ pub const qtreewidget = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidget.html#dtor.QTreeWidget)
     ///
@@ -15552,7 +16114,7 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTreeWidget_Delete(@ptrCast(self));
     }
 };

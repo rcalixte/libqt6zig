@@ -827,7 +827,7 @@ bool QSslSocket_IsFeatureSupported2(int feat, const libqt_string backendName) {
 }
 
 // Base class handler implementation
-QMetaObject* QSslSocket_QBaseMetaObject(const QSslSocket* self) {
+QMetaObject* QSslSocket_SuperMetaObject(const QSslSocket* self) {
     auto* vqsslsocket = const_cast<VirtualQSslSocket*>(dynamic_cast<const VirtualQSslSocket*>(self));
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_MetaObject_IsBase(true);
@@ -846,7 +846,7 @@ void QSslSocket_OnMetaObject(const QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QSslSocket_QBaseMetacast(QSslSocket* self, const char* param1) {
+void* QSslSocket_SuperMetacast(QSslSocket* self, const char* param1) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_Metacast_IsBase(true);
@@ -865,7 +865,7 @@ void QSslSocket_OnMetacast(QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSslSocket_QBaseMetacall(QSslSocket* self, int param1, int param2, void** param3) {
+int QSslSocket_SuperMetacall(QSslSocket* self, int param1, int param2, void** param3) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_Metacall_IsBase(true);
@@ -884,7 +884,7 @@ void QSslSocket_OnMetacall(QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSslSocket_QBaseResume(QSslSocket* self) {
+void QSslSocket_SuperResume(QSslSocket* self) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_Resume_IsBase(true);
@@ -903,7 +903,7 @@ void QSslSocket_OnResume(QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSslSocket_QBaseSetSocketDescriptor(QSslSocket* self, intptr_t socketDescriptor, int state, int openMode) {
+bool QSslSocket_SuperSetSocketDescriptor(QSslSocket* self, intptr_t socketDescriptor, int state, int openMode) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_SetSocketDescriptor_IsBase(true);
@@ -922,7 +922,7 @@ void QSslSocket_OnSetSocketDescriptor(QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSslSocket_QBaseConnectToHost(QSslSocket* self, const libqt_string hostName, uint16_t port, int openMode, int protocol) {
+void QSslSocket_SuperConnectToHost(QSslSocket* self, const libqt_string hostName, uint16_t port, int openMode, int protocol) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     QString hostName_QString = QString::fromUtf8(hostName.data, hostName.len);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
@@ -942,7 +942,7 @@ void QSslSocket_OnConnectToHost(QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSslSocket_QBaseDisconnectFromHost(QSslSocket* self) {
+void QSslSocket_SuperDisconnectFromHost(QSslSocket* self) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_DisconnectFromHost_IsBase(true);
@@ -961,7 +961,7 @@ void QSslSocket_OnDisconnectFromHost(QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSslSocket_QBaseSetSocketOption(QSslSocket* self, int option, const QVariant* value) {
+void QSslSocket_SuperSetSocketOption(QSslSocket* self, int option, const QVariant* value) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_SetSocketOption_IsBase(true);
@@ -980,7 +980,7 @@ void QSslSocket_OnSetSocketOption(QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QSslSocket_QBaseSocketOption(QSslSocket* self, int option) {
+QVariant* QSslSocket_SuperSocketOption(QSslSocket* self, int option) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_SocketOption_IsBase(true);
@@ -999,7 +999,7 @@ void QSslSocket_OnSocketOption(QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QSslSocket_QBaseBytesAvailable(const QSslSocket* self) {
+long long QSslSocket_SuperBytesAvailable(const QSslSocket* self) {
     auto* vqsslsocket = const_cast<VirtualQSslSocket*>(dynamic_cast<const VirtualQSslSocket*>(self));
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_BytesAvailable_IsBase(true);
@@ -1018,7 +1018,7 @@ void QSslSocket_OnBytesAvailable(const QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QSslSocket_QBaseBytesToWrite(const QSslSocket* self) {
+long long QSslSocket_SuperBytesToWrite(const QSslSocket* self) {
     auto* vqsslsocket = const_cast<VirtualQSslSocket*>(dynamic_cast<const VirtualQSslSocket*>(self));
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_BytesToWrite_IsBase(true);
@@ -1037,7 +1037,7 @@ void QSslSocket_OnBytesToWrite(const QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSslSocket_QBaseCanReadLine(const QSslSocket* self) {
+bool QSslSocket_SuperCanReadLine(const QSslSocket* self) {
     auto* vqsslsocket = const_cast<VirtualQSslSocket*>(dynamic_cast<const VirtualQSslSocket*>(self));
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_CanReadLine_IsBase(true);
@@ -1056,7 +1056,7 @@ void QSslSocket_OnCanReadLine(const QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSslSocket_QBaseClose(QSslSocket* self) {
+void QSslSocket_SuperClose(QSslSocket* self) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_Close_IsBase(true);
@@ -1075,7 +1075,7 @@ void QSslSocket_OnClose(QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSslSocket_QBaseAtEnd(const QSslSocket* self) {
+bool QSslSocket_SuperAtEnd(const QSslSocket* self) {
     auto* vqsslsocket = const_cast<VirtualQSslSocket*>(dynamic_cast<const VirtualQSslSocket*>(self));
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_AtEnd_IsBase(true);
@@ -1094,7 +1094,7 @@ void QSslSocket_OnAtEnd(const QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSslSocket_QBaseSetReadBufferSize(QSslSocket* self, long long size) {
+void QSslSocket_SuperSetReadBufferSize(QSslSocket* self, long long size) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_SetReadBufferSize_IsBase(true);
@@ -1113,7 +1113,7 @@ void QSslSocket_OnSetReadBufferSize(QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSslSocket_QBaseWaitForConnected(QSslSocket* self, int msecs) {
+bool QSslSocket_SuperWaitForConnected(QSslSocket* self, int msecs) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_WaitForConnected_IsBase(true);
@@ -1132,7 +1132,7 @@ void QSslSocket_OnWaitForConnected(QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSslSocket_QBaseWaitForReadyRead(QSslSocket* self, int msecs) {
+bool QSslSocket_SuperWaitForReadyRead(QSslSocket* self, int msecs) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_WaitForReadyRead_IsBase(true);
@@ -1151,7 +1151,7 @@ void QSslSocket_OnWaitForReadyRead(QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSslSocket_QBaseWaitForBytesWritten(QSslSocket* self, int msecs) {
+bool QSslSocket_SuperWaitForBytesWritten(QSslSocket* self, int msecs) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_WaitForBytesWritten_IsBase(true);
@@ -1170,7 +1170,7 @@ void QSslSocket_OnWaitForBytesWritten(QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSslSocket_QBaseWaitForDisconnected(QSslSocket* self, int msecs) {
+bool QSslSocket_SuperWaitForDisconnected(QSslSocket* self, int msecs) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_WaitForDisconnected_IsBase(true);
@@ -1189,7 +1189,7 @@ void QSslSocket_OnWaitForDisconnected(QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QSslSocket_QBaseReadData(QSslSocket* self, char* data, long long maxlen) {
+long long QSslSocket_SuperReadData(QSslSocket* self, char* data, long long maxlen) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_ReadData_IsBase(true);
@@ -1208,7 +1208,7 @@ void QSslSocket_OnReadData(QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QSslSocket_QBaseSkipData(QSslSocket* self, long long maxSize) {
+long long QSslSocket_SuperSkipData(QSslSocket* self, long long maxSize) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_SkipData_IsBase(true);
@@ -1227,7 +1227,7 @@ void QSslSocket_OnSkipData(QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QSslSocket_QBaseWriteData(QSslSocket* self, const char* data, long long lenVal) {
+long long QSslSocket_SuperWriteData(QSslSocket* self, const char* data, long long lenVal) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_WriteData_IsBase(true);
@@ -1256,7 +1256,7 @@ bool QSslSocket_Bind(QSslSocket* self, const QHostAddress* address, uint16_t por
 }
 
 // Base class handler implementation
-bool QSslSocket_QBaseBind(QSslSocket* self, const QHostAddress* address, uint16_t port, int mode) {
+bool QSslSocket_SuperBind(QSslSocket* self, const QHostAddress* address, uint16_t port, int mode) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_Bind_IsBase(true);
@@ -1287,7 +1287,7 @@ intptr_t QSslSocket_SocketDescriptor(const QSslSocket* self) {
 }
 
 // Base class handler implementation
-intptr_t QSslSocket_QBaseSocketDescriptor(const QSslSocket* self) {
+intptr_t QSslSocket_SuperSocketDescriptor(const QSslSocket* self) {
     auto* vqsslsocket = const_cast<VirtualQSslSocket*>(dynamic_cast<const VirtualQSslSocket*>(self));
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_SocketDescriptor_IsBase(true);
@@ -1318,7 +1318,7 @@ bool QSslSocket_IsSequential(const QSslSocket* self) {
 }
 
 // Base class handler implementation
-bool QSslSocket_QBaseIsSequential(const QSslSocket* self) {
+bool QSslSocket_SuperIsSequential(const QSslSocket* self) {
     auto* vqsslsocket = const_cast<VirtualQSslSocket*>(dynamic_cast<const VirtualQSslSocket*>(self));
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_IsSequential_IsBase(true);
@@ -1347,7 +1347,7 @@ long long QSslSocket_ReadLineData(QSslSocket* self, char* data, long long maxlen
 }
 
 // Base class handler implementation
-long long QSslSocket_QBaseReadLineData(QSslSocket* self, char* data, long long maxlen) {
+long long QSslSocket_SuperReadLineData(QSslSocket* self, char* data, long long maxlen) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_ReadLineData_IsBase(true);
@@ -1376,7 +1376,7 @@ bool QSslSocket_Open(QSslSocket* self, int mode) {
 }
 
 // Base class handler implementation
-bool QSslSocket_QBaseOpen(QSslSocket* self, int mode) {
+bool QSslSocket_SuperOpen(QSslSocket* self, int mode) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_Open_IsBase(true);
@@ -1405,7 +1405,7 @@ long long QSslSocket_Pos(const QSslSocket* self) {
 }
 
 // Base class handler implementation
-long long QSslSocket_QBasePos(const QSslSocket* self) {
+long long QSslSocket_SuperPos(const QSslSocket* self) {
     auto* vqsslsocket = const_cast<VirtualQSslSocket*>(dynamic_cast<const VirtualQSslSocket*>(self));
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_Pos_IsBase(true);
@@ -1434,7 +1434,7 @@ long long QSslSocket_Size(const QSslSocket* self) {
 }
 
 // Base class handler implementation
-long long QSslSocket_QBaseSize(const QSslSocket* self) {
+long long QSslSocket_SuperSize(const QSslSocket* self) {
     auto* vqsslsocket = const_cast<VirtualQSslSocket*>(dynamic_cast<const VirtualQSslSocket*>(self));
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_Size_IsBase(true);
@@ -1463,7 +1463,7 @@ bool QSslSocket_Seek(QSslSocket* self, long long pos) {
 }
 
 // Base class handler implementation
-bool QSslSocket_QBaseSeek(QSslSocket* self, long long pos) {
+bool QSslSocket_SuperSeek(QSslSocket* self, long long pos) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_Seek_IsBase(true);
@@ -1492,7 +1492,7 @@ bool QSslSocket_Reset(QSslSocket* self) {
 }
 
 // Base class handler implementation
-bool QSslSocket_QBaseReset(QSslSocket* self) {
+bool QSslSocket_SuperReset(QSslSocket* self) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_Reset_IsBase(true);
@@ -1521,7 +1521,7 @@ bool QSslSocket_Event(QSslSocket* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSslSocket_QBaseEvent(QSslSocket* self, QEvent* event) {
+bool QSslSocket_SuperEvent(QSslSocket* self, QEvent* event) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_Event_IsBase(true);
@@ -1550,7 +1550,7 @@ bool QSslSocket_EventFilter(QSslSocket* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSslSocket_QBaseEventFilter(QSslSocket* self, QObject* watched, QEvent* event) {
+bool QSslSocket_SuperEventFilter(QSslSocket* self, QObject* watched, QEvent* event) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_EventFilter_IsBase(true);
@@ -1579,7 +1579,7 @@ void QSslSocket_TimerEvent(QSslSocket* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QSslSocket_QBaseTimerEvent(QSslSocket* self, QTimerEvent* event) {
+void QSslSocket_SuperTimerEvent(QSslSocket* self, QTimerEvent* event) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_TimerEvent_IsBase(true);
@@ -1608,7 +1608,7 @@ void QSslSocket_ChildEvent(QSslSocket* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QSslSocket_QBaseChildEvent(QSslSocket* self, QChildEvent* event) {
+void QSslSocket_SuperChildEvent(QSslSocket* self, QChildEvent* event) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_ChildEvent_IsBase(true);
@@ -1637,7 +1637,7 @@ void QSslSocket_CustomEvent(QSslSocket* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSslSocket_QBaseCustomEvent(QSslSocket* self, QEvent* event) {
+void QSslSocket_SuperCustomEvent(QSslSocket* self, QEvent* event) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_CustomEvent_IsBase(true);
@@ -1666,7 +1666,7 @@ void QSslSocket_ConnectNotify(QSslSocket* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSslSocket_QBaseConnectNotify(QSslSocket* self, const QMetaMethod* signal) {
+void QSslSocket_SuperConnectNotify(QSslSocket* self, const QMetaMethod* signal) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_ConnectNotify_IsBase(true);
@@ -1695,7 +1695,7 @@ void QSslSocket_DisconnectNotify(QSslSocket* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSslSocket_QBaseDisconnectNotify(QSslSocket* self, const QMetaMethod* signal) {
+void QSslSocket_SuperDisconnectNotify(QSslSocket* self, const QMetaMethod* signal) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_DisconnectNotify_IsBase(true);
@@ -1724,7 +1724,7 @@ void QSslSocket_SetSocketState(QSslSocket* self, int state) {
 }
 
 // Base class handler implementation
-void QSslSocket_QBaseSetSocketState(QSslSocket* self, int state) {
+void QSslSocket_SuperSetSocketState(QSslSocket* self, int state) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_SetSocketState_IsBase(true);
@@ -1753,7 +1753,7 @@ void QSslSocket_SetSocketError(QSslSocket* self, int socketError) {
 }
 
 // Base class handler implementation
-void QSslSocket_QBaseSetSocketError(QSslSocket* self, int socketError) {
+void QSslSocket_SuperSetSocketError(QSslSocket* self, int socketError) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_SetSocketError_IsBase(true);
@@ -1782,7 +1782,7 @@ void QSslSocket_SetLocalPort(QSslSocket* self, uint16_t port) {
 }
 
 // Base class handler implementation
-void QSslSocket_QBaseSetLocalPort(QSslSocket* self, uint16_t port) {
+void QSslSocket_SuperSetLocalPort(QSslSocket* self, uint16_t port) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_SetLocalPort_IsBase(true);
@@ -1811,7 +1811,7 @@ void QSslSocket_SetLocalAddress(QSslSocket* self, const QHostAddress* address) {
 }
 
 // Base class handler implementation
-void QSslSocket_QBaseSetLocalAddress(QSslSocket* self, const QHostAddress* address) {
+void QSslSocket_SuperSetLocalAddress(QSslSocket* self, const QHostAddress* address) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_SetLocalAddress_IsBase(true);
@@ -1840,7 +1840,7 @@ void QSslSocket_SetPeerPort(QSslSocket* self, uint16_t port) {
 }
 
 // Base class handler implementation
-void QSslSocket_QBaseSetPeerPort(QSslSocket* self, uint16_t port) {
+void QSslSocket_SuperSetPeerPort(QSslSocket* self, uint16_t port) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_SetPeerPort_IsBase(true);
@@ -1869,7 +1869,7 @@ void QSslSocket_SetPeerAddress(QSslSocket* self, const QHostAddress* address) {
 }
 
 // Base class handler implementation
-void QSslSocket_QBaseSetPeerAddress(QSslSocket* self, const QHostAddress* address) {
+void QSslSocket_SuperSetPeerAddress(QSslSocket* self, const QHostAddress* address) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_SetPeerAddress_IsBase(true);
@@ -1899,7 +1899,7 @@ void QSslSocket_SetPeerName(QSslSocket* self, const libqt_string name) {
 }
 
 // Base class handler implementation
-void QSslSocket_QBaseSetPeerName(QSslSocket* self, const libqt_string name) {
+void QSslSocket_SuperSetPeerName(QSslSocket* self, const libqt_string name) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
@@ -1929,7 +1929,7 @@ void QSslSocket_SetOpenMode(QSslSocket* self, int openMode) {
 }
 
 // Base class handler implementation
-void QSslSocket_QBaseSetOpenMode(QSslSocket* self, int openMode) {
+void QSslSocket_SuperSetOpenMode(QSslSocket* self, int openMode) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_SetOpenMode_IsBase(true);
@@ -1959,7 +1959,7 @@ void QSslSocket_SetErrorString(QSslSocket* self, const libqt_string errorString)
 }
 
 // Base class handler implementation
-void QSslSocket_QBaseSetErrorString(QSslSocket* self, const libqt_string errorString) {
+void QSslSocket_SuperSetErrorString(QSslSocket* self, const libqt_string errorString) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
@@ -1989,7 +1989,7 @@ QObject* QSslSocket_Sender(const QSslSocket* self) {
 }
 
 // Base class handler implementation
-QObject* QSslSocket_QBaseSender(const QSslSocket* self) {
+QObject* QSslSocket_SuperSender(const QSslSocket* self) {
     auto* vqsslsocket = const_cast<VirtualQSslSocket*>(dynamic_cast<const VirtualQSslSocket*>(self));
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_Sender_IsBase(true);
@@ -2018,7 +2018,7 @@ int QSslSocket_SenderSignalIndex(const QSslSocket* self) {
 }
 
 // Base class handler implementation
-int QSslSocket_QBaseSenderSignalIndex(const QSslSocket* self) {
+int QSslSocket_SuperSenderSignalIndex(const QSslSocket* self) {
     auto* vqsslsocket = const_cast<VirtualQSslSocket*>(dynamic_cast<const VirtualQSslSocket*>(self));
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_SenderSignalIndex_IsBase(true);
@@ -2047,7 +2047,7 @@ int QSslSocket_Receivers(const QSslSocket* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QSslSocket_QBaseReceivers(const QSslSocket* self, const char* signal) {
+int QSslSocket_SuperReceivers(const QSslSocket* self, const char* signal) {
     auto* vqsslsocket = const_cast<VirtualQSslSocket*>(dynamic_cast<const VirtualQSslSocket*>(self));
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_Receivers_IsBase(true);
@@ -2076,7 +2076,7 @@ bool QSslSocket_IsSignalConnected(const QSslSocket* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QSslSocket_QBaseIsSignalConnected(const QSslSocket* self, const QMetaMethod* signal) {
+bool QSslSocket_SuperIsSignalConnected(const QSslSocket* self, const QMetaMethod* signal) {
     auto* vqsslsocket = const_cast<VirtualQSslSocket*>(dynamic_cast<const VirtualQSslSocket*>(self));
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_IsSignalConnected_IsBase(true);

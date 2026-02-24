@@ -428,7 +428,7 @@ void QNetworkAccessManager_SetTransferTimeout1(QNetworkAccessManager* self, int6
 }
 
 // Base class handler implementation
-QMetaObject* QNetworkAccessManager_QBaseMetaObject(const QNetworkAccessManager* self) {
+QMetaObject* QNetworkAccessManager_SuperMetaObject(const QNetworkAccessManager* self) {
     auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
     if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
         vqnetworkaccessmanager->setQNetworkAccessManager_MetaObject_IsBase(true);
@@ -447,7 +447,7 @@ void QNetworkAccessManager_OnMetaObject(const QNetworkAccessManager* self, intpt
 }
 
 // Base class handler implementation
-void* QNetworkAccessManager_QBaseMetacast(QNetworkAccessManager* self, const char* param1) {
+void* QNetworkAccessManager_SuperMetacast(QNetworkAccessManager* self, const char* param1) {
     auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
     if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
         vqnetworkaccessmanager->setQNetworkAccessManager_Metacast_IsBase(true);
@@ -466,7 +466,7 @@ void QNetworkAccessManager_OnMetacast(QNetworkAccessManager* self, intptr_t slot
 }
 
 // Base class handler implementation
-int QNetworkAccessManager_QBaseMetacall(QNetworkAccessManager* self, int param1, int param2, void** param3) {
+int QNetworkAccessManager_SuperMetacall(QNetworkAccessManager* self, int param1, int param2, void** param3) {
     auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
     if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
         vqnetworkaccessmanager->setQNetworkAccessManager_Metacall_IsBase(true);
@@ -485,7 +485,7 @@ void QNetworkAccessManager_OnMetacall(QNetworkAccessManager* self, intptr_t slot
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QNetworkAccessManager_QBaseSupportedSchemes(const QNetworkAccessManager* self) {
+libqt_list /* of libqt_string */ QNetworkAccessManager_SuperSupportedSchemes(const QNetworkAccessManager* self) {
     auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
     if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
         vqnetworkaccessmanager->setQNetworkAccessManager_SupportedSchemes_IsBase(true);
@@ -538,7 +538,7 @@ void QNetworkAccessManager_OnSupportedSchemes(const QNetworkAccessManager* self,
 }
 
 // Base class handler implementation
-QNetworkReply* QNetworkAccessManager_QBaseCreateRequest(QNetworkAccessManager* self, int op, const QNetworkRequest* request, QIODevice* outgoingData) {
+QNetworkReply* QNetworkAccessManager_SuperCreateRequest(QNetworkAccessManager* self, int op, const QNetworkRequest* request, QIODevice* outgoingData) {
     auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
     if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
         vqnetworkaccessmanager->setQNetworkAccessManager_CreateRequest_IsBase(true);
@@ -567,7 +567,7 @@ bool QNetworkAccessManager_Event(QNetworkAccessManager* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QNetworkAccessManager_QBaseEvent(QNetworkAccessManager* self, QEvent* event) {
+bool QNetworkAccessManager_SuperEvent(QNetworkAccessManager* self, QEvent* event) {
     auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
     if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
         vqnetworkaccessmanager->setQNetworkAccessManager_Event_IsBase(true);
@@ -596,7 +596,7 @@ bool QNetworkAccessManager_EventFilter(QNetworkAccessManager* self, QObject* wat
 }
 
 // Base class handler implementation
-bool QNetworkAccessManager_QBaseEventFilter(QNetworkAccessManager* self, QObject* watched, QEvent* event) {
+bool QNetworkAccessManager_SuperEventFilter(QNetworkAccessManager* self, QObject* watched, QEvent* event) {
     auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
     if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
         vqnetworkaccessmanager->setQNetworkAccessManager_EventFilter_IsBase(true);
@@ -625,7 +625,7 @@ void QNetworkAccessManager_TimerEvent(QNetworkAccessManager* self, QTimerEvent* 
 }
 
 // Base class handler implementation
-void QNetworkAccessManager_QBaseTimerEvent(QNetworkAccessManager* self, QTimerEvent* event) {
+void QNetworkAccessManager_SuperTimerEvent(QNetworkAccessManager* self, QTimerEvent* event) {
     auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
     if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
         vqnetworkaccessmanager->setQNetworkAccessManager_TimerEvent_IsBase(true);
@@ -654,7 +654,7 @@ void QNetworkAccessManager_ChildEvent(QNetworkAccessManager* self, QChildEvent* 
 }
 
 // Base class handler implementation
-void QNetworkAccessManager_QBaseChildEvent(QNetworkAccessManager* self, QChildEvent* event) {
+void QNetworkAccessManager_SuperChildEvent(QNetworkAccessManager* self, QChildEvent* event) {
     auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
     if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
         vqnetworkaccessmanager->setQNetworkAccessManager_ChildEvent_IsBase(true);
@@ -683,7 +683,7 @@ void QNetworkAccessManager_CustomEvent(QNetworkAccessManager* self, QEvent* even
 }
 
 // Base class handler implementation
-void QNetworkAccessManager_QBaseCustomEvent(QNetworkAccessManager* self, QEvent* event) {
+void QNetworkAccessManager_SuperCustomEvent(QNetworkAccessManager* self, QEvent* event) {
     auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
     if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
         vqnetworkaccessmanager->setQNetworkAccessManager_CustomEvent_IsBase(true);
@@ -712,7 +712,7 @@ void QNetworkAccessManager_ConnectNotify(QNetworkAccessManager* self, const QMet
 }
 
 // Base class handler implementation
-void QNetworkAccessManager_QBaseConnectNotify(QNetworkAccessManager* self, const QMetaMethod* signal) {
+void QNetworkAccessManager_SuperConnectNotify(QNetworkAccessManager* self, const QMetaMethod* signal) {
     auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
     if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
         vqnetworkaccessmanager->setQNetworkAccessManager_ConnectNotify_IsBase(true);
@@ -741,7 +741,7 @@ void QNetworkAccessManager_DisconnectNotify(QNetworkAccessManager* self, const Q
 }
 
 // Base class handler implementation
-void QNetworkAccessManager_QBaseDisconnectNotify(QNetworkAccessManager* self, const QMetaMethod* signal) {
+void QNetworkAccessManager_SuperDisconnectNotify(QNetworkAccessManager* self, const QMetaMethod* signal) {
     auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
     if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
         vqnetworkaccessmanager->setQNetworkAccessManager_DisconnectNotify_IsBase(true);
@@ -804,7 +804,7 @@ libqt_list /* of libqt_string */ QNetworkAccessManager_SupportedSchemesImplement
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QNetworkAccessManager_QBaseSupportedSchemesImplementation(const QNetworkAccessManager* self) {
+libqt_list /* of libqt_string */ QNetworkAccessManager_SuperSupportedSchemesImplementation(const QNetworkAccessManager* self) {
     auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
     if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
         vqnetworkaccessmanager->setQNetworkAccessManager_SupportedSchemesImplementation_IsBase(true);
@@ -867,7 +867,7 @@ QObject* QNetworkAccessManager_Sender(const QNetworkAccessManager* self) {
 }
 
 // Base class handler implementation
-QObject* QNetworkAccessManager_QBaseSender(const QNetworkAccessManager* self) {
+QObject* QNetworkAccessManager_SuperSender(const QNetworkAccessManager* self) {
     auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
     if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
         vqnetworkaccessmanager->setQNetworkAccessManager_Sender_IsBase(true);
@@ -896,7 +896,7 @@ int QNetworkAccessManager_SenderSignalIndex(const QNetworkAccessManager* self) {
 }
 
 // Base class handler implementation
-int QNetworkAccessManager_QBaseSenderSignalIndex(const QNetworkAccessManager* self) {
+int QNetworkAccessManager_SuperSenderSignalIndex(const QNetworkAccessManager* self) {
     auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
     if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
         vqnetworkaccessmanager->setQNetworkAccessManager_SenderSignalIndex_IsBase(true);
@@ -925,7 +925,7 @@ int QNetworkAccessManager_Receivers(const QNetworkAccessManager* self, const cha
 }
 
 // Base class handler implementation
-int QNetworkAccessManager_QBaseReceivers(const QNetworkAccessManager* self, const char* signal) {
+int QNetworkAccessManager_SuperReceivers(const QNetworkAccessManager* self, const char* signal) {
     auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
     if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
         vqnetworkaccessmanager->setQNetworkAccessManager_Receivers_IsBase(true);
@@ -954,7 +954,7 @@ bool QNetworkAccessManager_IsSignalConnected(const QNetworkAccessManager* self, 
 }
 
 // Base class handler implementation
-bool QNetworkAccessManager_QBaseIsSignalConnected(const QNetworkAccessManager* self, const QMetaMethod* signal) {
+bool QNetworkAccessManager_SuperIsSignalConnected(const QNetworkAccessManager* self, const QMetaMethod* signal) {
     auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
     if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
         vqnetworkaccessmanager->setQNetworkAccessManager_IsSignalConnected_IsBase(true);

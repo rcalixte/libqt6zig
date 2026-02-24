@@ -366,23 +366,23 @@ class VirtualQXYLegendMarker final : public QXYLegendMarker {
 
     // Friend functions
     friend void QXYLegendMarker_TimerEvent(QXYLegendMarker* self, QTimerEvent* event);
-    friend void QXYLegendMarker_QBaseTimerEvent(QXYLegendMarker* self, QTimerEvent* event);
+    friend void QXYLegendMarker_SuperTimerEvent(QXYLegendMarker* self, QTimerEvent* event);
     friend void QXYLegendMarker_ChildEvent(QXYLegendMarker* self, QChildEvent* event);
-    friend void QXYLegendMarker_QBaseChildEvent(QXYLegendMarker* self, QChildEvent* event);
+    friend void QXYLegendMarker_SuperChildEvent(QXYLegendMarker* self, QChildEvent* event);
     friend void QXYLegendMarker_CustomEvent(QXYLegendMarker* self, QEvent* event);
-    friend void QXYLegendMarker_QBaseCustomEvent(QXYLegendMarker* self, QEvent* event);
+    friend void QXYLegendMarker_SuperCustomEvent(QXYLegendMarker* self, QEvent* event);
     friend void QXYLegendMarker_ConnectNotify(QXYLegendMarker* self, const QMetaMethod* signal);
-    friend void QXYLegendMarker_QBaseConnectNotify(QXYLegendMarker* self, const QMetaMethod* signal);
+    friend void QXYLegendMarker_SuperConnectNotify(QXYLegendMarker* self, const QMetaMethod* signal);
     friend void QXYLegendMarker_DisconnectNotify(QXYLegendMarker* self, const QMetaMethod* signal);
-    friend void QXYLegendMarker_QBaseDisconnectNotify(QXYLegendMarker* self, const QMetaMethod* signal);
+    friend void QXYLegendMarker_SuperDisconnectNotify(QXYLegendMarker* self, const QMetaMethod* signal);
     friend QObject* QXYLegendMarker_Sender(const QXYLegendMarker* self);
-    friend QObject* QXYLegendMarker_QBaseSender(const QXYLegendMarker* self);
+    friend QObject* QXYLegendMarker_SuperSender(const QXYLegendMarker* self);
     friend int QXYLegendMarker_SenderSignalIndex(const QXYLegendMarker* self);
-    friend int QXYLegendMarker_QBaseSenderSignalIndex(const QXYLegendMarker* self);
+    friend int QXYLegendMarker_SuperSenderSignalIndex(const QXYLegendMarker* self);
     friend int QXYLegendMarker_Receivers(const QXYLegendMarker* self, const char* signal);
-    friend int QXYLegendMarker_QBaseReceivers(const QXYLegendMarker* self, const char* signal);
+    friend int QXYLegendMarker_SuperReceivers(const QXYLegendMarker* self, const char* signal);
     friend bool QXYLegendMarker_IsSignalConnected(const QXYLegendMarker* self, const QMetaMethod* signal);
-    friend bool QXYLegendMarker_QBaseIsSignalConnected(const QXYLegendMarker* self, const QMetaMethod* signal);
+    friend bool QXYLegendMarker_SuperIsSignalConnected(const QXYLegendMarker* self, const QMetaMethod* signal);
 };
 
 #endif

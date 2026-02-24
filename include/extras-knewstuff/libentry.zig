@@ -1114,13 +1114,17 @@ pub const knscore__entry = struct {
         qtc.KNSCore__Entry_SetPreviewImage2(@ptrCast(self), @ptrCast(image), @bitCast(typeVal));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KNSCore__Entry `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KNSCore__Entry_Delete(@ptrCast(self));
     }
 };
@@ -1396,13 +1400,17 @@ pub const knscore__entry__downloadlinkinformation = struct {
         qtc.KNSCore__Entry__DownloadLinkInformation_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KNSCore__Entry__DownloadLinkInformation `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KNSCore__Entry__DownloadLinkInformation_Delete(@ptrCast(self));
     }
 };

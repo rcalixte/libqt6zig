@@ -737,37 +737,37 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
 
     // Friend functions
     friend long long KCompressionDevice_ReadData(KCompressionDevice* self, char* data, long long maxlen);
-    friend long long KCompressionDevice_QBaseReadData(KCompressionDevice* self, char* data, long long maxlen);
+    friend long long KCompressionDevice_SuperReadData(KCompressionDevice* self, char* data, long long maxlen);
     friend long long KCompressionDevice_WriteData(KCompressionDevice* self, const char* data, long long lenVal);
-    friend long long KCompressionDevice_QBaseWriteData(KCompressionDevice* self, const char* data, long long lenVal);
+    friend long long KCompressionDevice_SuperWriteData(KCompressionDevice* self, const char* data, long long lenVal);
     friend long long KCompressionDevice_ReadLineData(KCompressionDevice* self, char* data, long long maxlen);
-    friend long long KCompressionDevice_QBaseReadLineData(KCompressionDevice* self, char* data, long long maxlen);
+    friend long long KCompressionDevice_SuperReadLineData(KCompressionDevice* self, char* data, long long maxlen);
     friend long long KCompressionDevice_SkipData(KCompressionDevice* self, long long maxSize);
-    friend long long KCompressionDevice_QBaseSkipData(KCompressionDevice* self, long long maxSize);
+    friend long long KCompressionDevice_SuperSkipData(KCompressionDevice* self, long long maxSize);
     friend void KCompressionDevice_TimerEvent(KCompressionDevice* self, QTimerEvent* event);
-    friend void KCompressionDevice_QBaseTimerEvent(KCompressionDevice* self, QTimerEvent* event);
+    friend void KCompressionDevice_SuperTimerEvent(KCompressionDevice* self, QTimerEvent* event);
     friend void KCompressionDevice_ChildEvent(KCompressionDevice* self, QChildEvent* event);
-    friend void KCompressionDevice_QBaseChildEvent(KCompressionDevice* self, QChildEvent* event);
+    friend void KCompressionDevice_SuperChildEvent(KCompressionDevice* self, QChildEvent* event);
     friend void KCompressionDevice_CustomEvent(KCompressionDevice* self, QEvent* event);
-    friend void KCompressionDevice_QBaseCustomEvent(KCompressionDevice* self, QEvent* event);
+    friend void KCompressionDevice_SuperCustomEvent(KCompressionDevice* self, QEvent* event);
     friend void KCompressionDevice_ConnectNotify(KCompressionDevice* self, const QMetaMethod* signal);
-    friend void KCompressionDevice_QBaseConnectNotify(KCompressionDevice* self, const QMetaMethod* signal);
+    friend void KCompressionDevice_SuperConnectNotify(KCompressionDevice* self, const QMetaMethod* signal);
     friend void KCompressionDevice_DisconnectNotify(KCompressionDevice* self, const QMetaMethod* signal);
-    friend void KCompressionDevice_QBaseDisconnectNotify(KCompressionDevice* self, const QMetaMethod* signal);
+    friend void KCompressionDevice_SuperDisconnectNotify(KCompressionDevice* self, const QMetaMethod* signal);
     friend KFilterBase* KCompressionDevice_FilterBase(KCompressionDevice* self);
-    friend KFilterBase* KCompressionDevice_QBaseFilterBase(KCompressionDevice* self);
+    friend KFilterBase* KCompressionDevice_SuperFilterBase(KCompressionDevice* self);
     friend void KCompressionDevice_SetOpenMode(KCompressionDevice* self, int openMode);
-    friend void KCompressionDevice_QBaseSetOpenMode(KCompressionDevice* self, int openMode);
+    friend void KCompressionDevice_SuperSetOpenMode(KCompressionDevice* self, int openMode);
     friend void KCompressionDevice_SetErrorString(KCompressionDevice* self, const libqt_string errorString);
-    friend void KCompressionDevice_QBaseSetErrorString(KCompressionDevice* self, const libqt_string errorString);
+    friend void KCompressionDevice_SuperSetErrorString(KCompressionDevice* self, const libqt_string errorString);
     friend QObject* KCompressionDevice_Sender(const KCompressionDevice* self);
-    friend QObject* KCompressionDevice_QBaseSender(const KCompressionDevice* self);
+    friend QObject* KCompressionDevice_SuperSender(const KCompressionDevice* self);
     friend int KCompressionDevice_SenderSignalIndex(const KCompressionDevice* self);
-    friend int KCompressionDevice_QBaseSenderSignalIndex(const KCompressionDevice* self);
+    friend int KCompressionDevice_SuperSenderSignalIndex(const KCompressionDevice* self);
     friend int KCompressionDevice_Receivers(const KCompressionDevice* self, const char* signal);
-    friend int KCompressionDevice_QBaseReceivers(const KCompressionDevice* self, const char* signal);
+    friend int KCompressionDevice_SuperReceivers(const KCompressionDevice* self, const char* signal);
     friend bool KCompressionDevice_IsSignalConnected(const KCompressionDevice* self, const QMetaMethod* signal);
-    friend bool KCompressionDevice_QBaseIsSignalConnected(const KCompressionDevice* self, const QMetaMethod* signal);
+    friend bool KCompressionDevice_SuperIsSignalConnected(const KCompressionDevice* self, const QMetaMethod* signal);
 };
 
 #endif

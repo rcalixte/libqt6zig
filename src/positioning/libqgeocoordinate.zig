@@ -249,6 +249,10 @@ pub const qgeocoordinate = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#dtor.QGeoCoordinate)
     ///
     /// Delete this object from C++ memory.
@@ -257,7 +261,7 @@ pub const qgeocoordinate = struct {
     ///
     /// ` self: QtC.QGeoCoordinate `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGeoCoordinate_Delete(@ptrCast(self));
     }
 };

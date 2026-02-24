@@ -134,6 +134,10 @@ pub const qwebenginecertificateerror = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#dtor.QWebEngineCertificateError)
     ///
     /// Delete this object from C++ memory.
@@ -142,7 +146,7 @@ pub const qwebenginecertificateerror = struct {
     ///
     /// ` self: QtC.QWebEngineCertificateError `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebEngineCertificateError_Delete(@ptrCast(self));
     }
 };

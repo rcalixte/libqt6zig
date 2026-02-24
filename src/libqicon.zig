@@ -1052,6 +1052,10 @@ pub const qicon = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#dtor.QIcon)
     ///
     /// Delete this object from C++ memory.
@@ -1060,7 +1064,7 @@ pub const qicon = struct {
     ///
     /// ` self: QtC.QIcon `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QIcon_Delete(@ptrCast(self));
     }
 };

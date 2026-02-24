@@ -466,31 +466,31 @@ class VirtualQPlaceMatchReply final : public QPlaceMatchReply {
 
     // Friend functions
     friend void QPlaceMatchReply_TimerEvent(QPlaceMatchReply* self, QTimerEvent* event);
-    friend void QPlaceMatchReply_QBaseTimerEvent(QPlaceMatchReply* self, QTimerEvent* event);
+    friend void QPlaceMatchReply_SuperTimerEvent(QPlaceMatchReply* self, QTimerEvent* event);
     friend void QPlaceMatchReply_ChildEvent(QPlaceMatchReply* self, QChildEvent* event);
-    friend void QPlaceMatchReply_QBaseChildEvent(QPlaceMatchReply* self, QChildEvent* event);
+    friend void QPlaceMatchReply_SuperChildEvent(QPlaceMatchReply* self, QChildEvent* event);
     friend void QPlaceMatchReply_CustomEvent(QPlaceMatchReply* self, QEvent* event);
-    friend void QPlaceMatchReply_QBaseCustomEvent(QPlaceMatchReply* self, QEvent* event);
+    friend void QPlaceMatchReply_SuperCustomEvent(QPlaceMatchReply* self, QEvent* event);
     friend void QPlaceMatchReply_ConnectNotify(QPlaceMatchReply* self, const QMetaMethod* signal);
-    friend void QPlaceMatchReply_QBaseConnectNotify(QPlaceMatchReply* self, const QMetaMethod* signal);
+    friend void QPlaceMatchReply_SuperConnectNotify(QPlaceMatchReply* self, const QMetaMethod* signal);
     friend void QPlaceMatchReply_DisconnectNotify(QPlaceMatchReply* self, const QMetaMethod* signal);
-    friend void QPlaceMatchReply_QBaseDisconnectNotify(QPlaceMatchReply* self, const QMetaMethod* signal);
+    friend void QPlaceMatchReply_SuperDisconnectNotify(QPlaceMatchReply* self, const QMetaMethod* signal);
     friend void QPlaceMatchReply_SetPlaces(QPlaceMatchReply* self, const libqt_list /* of QPlace* */ results);
-    friend void QPlaceMatchReply_QBaseSetPlaces(QPlaceMatchReply* self, const libqt_list /* of QPlace* */ results);
+    friend void QPlaceMatchReply_SuperSetPlaces(QPlaceMatchReply* self, const libqt_list /* of QPlace* */ results);
     friend void QPlaceMatchReply_SetRequest(QPlaceMatchReply* self, const QPlaceMatchRequest* request);
-    friend void QPlaceMatchReply_QBaseSetRequest(QPlaceMatchReply* self, const QPlaceMatchRequest* request);
+    friend void QPlaceMatchReply_SuperSetRequest(QPlaceMatchReply* self, const QPlaceMatchRequest* request);
     friend void QPlaceMatchReply_SetFinished(QPlaceMatchReply* self, bool finished);
-    friend void QPlaceMatchReply_QBaseSetFinished(QPlaceMatchReply* self, bool finished);
+    friend void QPlaceMatchReply_SuperSetFinished(QPlaceMatchReply* self, bool finished);
     friend void QPlaceMatchReply_SetError(QPlaceMatchReply* self, int errorVal, const libqt_string errorString);
-    friend void QPlaceMatchReply_QBaseSetError(QPlaceMatchReply* self, int errorVal, const libqt_string errorString);
+    friend void QPlaceMatchReply_SuperSetError(QPlaceMatchReply* self, int errorVal, const libqt_string errorString);
     friend QObject* QPlaceMatchReply_Sender(const QPlaceMatchReply* self);
-    friend QObject* QPlaceMatchReply_QBaseSender(const QPlaceMatchReply* self);
+    friend QObject* QPlaceMatchReply_SuperSender(const QPlaceMatchReply* self);
     friend int QPlaceMatchReply_SenderSignalIndex(const QPlaceMatchReply* self);
-    friend int QPlaceMatchReply_QBaseSenderSignalIndex(const QPlaceMatchReply* self);
+    friend int QPlaceMatchReply_SuperSenderSignalIndex(const QPlaceMatchReply* self);
     friend int QPlaceMatchReply_Receivers(const QPlaceMatchReply* self, const char* signal);
-    friend int QPlaceMatchReply_QBaseReceivers(const QPlaceMatchReply* self, const char* signal);
+    friend int QPlaceMatchReply_SuperReceivers(const QPlaceMatchReply* self, const char* signal);
     friend bool QPlaceMatchReply_IsSignalConnected(const QPlaceMatchReply* self, const QMetaMethod* signal);
-    friend bool QPlaceMatchReply_QBaseIsSignalConnected(const QPlaceMatchReply* self, const QMetaMethod* signal);
+    friend bool QPlaceMatchReply_SuperIsSignalConnected(const QPlaceMatchReply* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -56,13 +56,17 @@ pub const ktexteditor__mark = struct {
         qtc.KTextEditor__Mark_SetType(@ptrCast(self), @bitCast(_type));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KTextEditor__Mark `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KTextEditor__Mark_Delete(@ptrCast(self));
     }
 };
@@ -4295,6 +4299,9 @@ pub const ktexteditor__document = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -4302,7 +4309,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KTextEditor__Document_Delete(@ptrCast(self));
     }
 };
@@ -4339,13 +4346,17 @@ pub const ktexteditor__document__editingtransaction = struct {
         qtc.KTextEditor__Document__EditingTransaction_Finish(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KTextEditor__Document__EditingTransaction `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KTextEditor__Document__EditingTransaction_Delete(@ptrCast(self));
     }
 };

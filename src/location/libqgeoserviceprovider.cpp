@@ -244,7 +244,7 @@ void QGeoServiceProvider_SetAllowExperimental(QGeoServiceProvider* self, bool al
 }
 
 // Base class handler implementation
-QMetaObject* QGeoServiceProvider_QBaseMetaObject(const QGeoServiceProvider* self) {
+QMetaObject* QGeoServiceProvider_SuperMetaObject(const QGeoServiceProvider* self) {
     auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
     if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
         vqgeoserviceprovider->setQGeoServiceProvider_MetaObject_IsBase(true);
@@ -263,7 +263,7 @@ void QGeoServiceProvider_OnMetaObject(const QGeoServiceProvider* self, intptr_t 
 }
 
 // Base class handler implementation
-void* QGeoServiceProvider_QBaseMetacast(QGeoServiceProvider* self, const char* param1) {
+void* QGeoServiceProvider_SuperMetacast(QGeoServiceProvider* self, const char* param1) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
     if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
         vqgeoserviceprovider->setQGeoServiceProvider_Metacast_IsBase(true);
@@ -282,7 +282,7 @@ void QGeoServiceProvider_OnMetacast(QGeoServiceProvider* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QGeoServiceProvider_QBaseMetacall(QGeoServiceProvider* self, int param1, int param2, void** param3) {
+int QGeoServiceProvider_SuperMetacall(QGeoServiceProvider* self, int param1, int param2, void** param3) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
     if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
         vqgeoserviceprovider->setQGeoServiceProvider_Metacall_IsBase(true);
@@ -311,7 +311,7 @@ bool QGeoServiceProvider_Event(QGeoServiceProvider* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QGeoServiceProvider_QBaseEvent(QGeoServiceProvider* self, QEvent* event) {
+bool QGeoServiceProvider_SuperEvent(QGeoServiceProvider* self, QEvent* event) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
     if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
         vqgeoserviceprovider->setQGeoServiceProvider_Event_IsBase(true);
@@ -340,7 +340,7 @@ bool QGeoServiceProvider_EventFilter(QGeoServiceProvider* self, QObject* watched
 }
 
 // Base class handler implementation
-bool QGeoServiceProvider_QBaseEventFilter(QGeoServiceProvider* self, QObject* watched, QEvent* event) {
+bool QGeoServiceProvider_SuperEventFilter(QGeoServiceProvider* self, QObject* watched, QEvent* event) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
     if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
         vqgeoserviceprovider->setQGeoServiceProvider_EventFilter_IsBase(true);
@@ -369,7 +369,7 @@ void QGeoServiceProvider_TimerEvent(QGeoServiceProvider* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void QGeoServiceProvider_QBaseTimerEvent(QGeoServiceProvider* self, QTimerEvent* event) {
+void QGeoServiceProvider_SuperTimerEvent(QGeoServiceProvider* self, QTimerEvent* event) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
     if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
         vqgeoserviceprovider->setQGeoServiceProvider_TimerEvent_IsBase(true);
@@ -398,7 +398,7 @@ void QGeoServiceProvider_ChildEvent(QGeoServiceProvider* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void QGeoServiceProvider_QBaseChildEvent(QGeoServiceProvider* self, QChildEvent* event) {
+void QGeoServiceProvider_SuperChildEvent(QGeoServiceProvider* self, QChildEvent* event) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
     if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
         vqgeoserviceprovider->setQGeoServiceProvider_ChildEvent_IsBase(true);
@@ -427,7 +427,7 @@ void QGeoServiceProvider_CustomEvent(QGeoServiceProvider* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QGeoServiceProvider_QBaseCustomEvent(QGeoServiceProvider* self, QEvent* event) {
+void QGeoServiceProvider_SuperCustomEvent(QGeoServiceProvider* self, QEvent* event) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
     if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
         vqgeoserviceprovider->setQGeoServiceProvider_CustomEvent_IsBase(true);
@@ -456,7 +456,7 @@ void QGeoServiceProvider_ConnectNotify(QGeoServiceProvider* self, const QMetaMet
 }
 
 // Base class handler implementation
-void QGeoServiceProvider_QBaseConnectNotify(QGeoServiceProvider* self, const QMetaMethod* signal) {
+void QGeoServiceProvider_SuperConnectNotify(QGeoServiceProvider* self, const QMetaMethod* signal) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
     if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
         vqgeoserviceprovider->setQGeoServiceProvider_ConnectNotify_IsBase(true);
@@ -485,7 +485,7 @@ void QGeoServiceProvider_DisconnectNotify(QGeoServiceProvider* self, const QMeta
 }
 
 // Base class handler implementation
-void QGeoServiceProvider_QBaseDisconnectNotify(QGeoServiceProvider* self, const QMetaMethod* signal) {
+void QGeoServiceProvider_SuperDisconnectNotify(QGeoServiceProvider* self, const QMetaMethod* signal) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
     if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
         vqgeoserviceprovider->setQGeoServiceProvider_DisconnectNotify_IsBase(true);
@@ -514,7 +514,7 @@ QObject* QGeoServiceProvider_Sender(const QGeoServiceProvider* self) {
 }
 
 // Base class handler implementation
-QObject* QGeoServiceProvider_QBaseSender(const QGeoServiceProvider* self) {
+QObject* QGeoServiceProvider_SuperSender(const QGeoServiceProvider* self) {
     auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
     if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
         vqgeoserviceprovider->setQGeoServiceProvider_Sender_IsBase(true);
@@ -543,7 +543,7 @@ int QGeoServiceProvider_SenderSignalIndex(const QGeoServiceProvider* self) {
 }
 
 // Base class handler implementation
-int QGeoServiceProvider_QBaseSenderSignalIndex(const QGeoServiceProvider* self) {
+int QGeoServiceProvider_SuperSenderSignalIndex(const QGeoServiceProvider* self) {
     auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
     if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
         vqgeoserviceprovider->setQGeoServiceProvider_SenderSignalIndex_IsBase(true);
@@ -572,7 +572,7 @@ int QGeoServiceProvider_Receivers(const QGeoServiceProvider* self, const char* s
 }
 
 // Base class handler implementation
-int QGeoServiceProvider_QBaseReceivers(const QGeoServiceProvider* self, const char* signal) {
+int QGeoServiceProvider_SuperReceivers(const QGeoServiceProvider* self, const char* signal) {
     auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
     if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
         vqgeoserviceprovider->setQGeoServiceProvider_Receivers_IsBase(true);
@@ -601,7 +601,7 @@ bool QGeoServiceProvider_IsSignalConnected(const QGeoServiceProvider* self, cons
 }
 
 // Base class handler implementation
-bool QGeoServiceProvider_QBaseIsSignalConnected(const QGeoServiceProvider* self, const QMetaMethod* signal) {
+bool QGeoServiceProvider_SuperIsSignalConnected(const QGeoServiceProvider* self, const QMetaMethod* signal) {
     auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
     if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
         vqgeoserviceprovider->setQGeoServiceProvider_IsSignalConnected_IsBase(true);

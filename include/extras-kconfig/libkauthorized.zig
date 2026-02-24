@@ -946,6 +946,9 @@ pub const kauthorized = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kauthorized.html#dtor.KAuthorized)
     ///
@@ -955,7 +958,7 @@ pub const kauthorized = struct {
     ///
     /// ` self: QtC.KAuthorized `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KAuthorized_Delete(@ptrCast(self));
     }
 };

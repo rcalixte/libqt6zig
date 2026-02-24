@@ -229,7 +229,7 @@ QVariant* QMimeData_RetrieveData(const QMimeData* self, const libqt_string mimet
 }
 
 // Base class handler implementation
-QMetaObject* QMimeData_QBaseMetaObject(const QMimeData* self) {
+QMetaObject* QMimeData_SuperMetaObject(const QMimeData* self) {
     auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
     if (vqmimedata && vqmimedata->isVirtualQMimeData) {
         vqmimedata->setQMimeData_MetaObject_IsBase(true);
@@ -248,7 +248,7 @@ void QMimeData_OnMetaObject(const QMimeData* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QMimeData_QBaseMetacast(QMimeData* self, const char* param1) {
+void* QMimeData_SuperMetacast(QMimeData* self, const char* param1) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
     if (vqmimedata && vqmimedata->isVirtualQMimeData) {
         vqmimedata->setQMimeData_Metacast_IsBase(true);
@@ -267,7 +267,7 @@ void QMimeData_OnMetacast(QMimeData* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QMimeData_QBaseMetacall(QMimeData* self, int param1, int param2, void** param3) {
+int QMimeData_SuperMetacall(QMimeData* self, int param1, int param2, void** param3) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
     if (vqmimedata && vqmimedata->isVirtualQMimeData) {
         vqmimedata->setQMimeData_Metacall_IsBase(true);
@@ -286,7 +286,7 @@ void QMimeData_OnMetacall(QMimeData* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QMimeData_QBaseHasFormat(const QMimeData* self, const libqt_string mimetype) {
+bool QMimeData_SuperHasFormat(const QMimeData* self, const libqt_string mimetype) {
     auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
     QString mimetype_QString = QString::fromUtf8(mimetype.data, mimetype.len);
     if (vqmimedata && vqmimedata->isVirtualQMimeData) {
@@ -306,7 +306,7 @@ void QMimeData_OnHasFormat(const QMimeData* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QMimeData_QBaseFormats(const QMimeData* self) {
+libqt_list /* of libqt_string */ QMimeData_SuperFormats(const QMimeData* self) {
     auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
     if (vqmimedata && vqmimedata->isVirtualQMimeData) {
         vqmimedata->setQMimeData_Formats_IsBase(true);
@@ -359,7 +359,7 @@ void QMimeData_OnFormats(const QMimeData* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QVariant* QMimeData_QBaseRetrieveData(const QMimeData* self, const libqt_string mimetype, QMetaType* preferredType) {
+QVariant* QMimeData_SuperRetrieveData(const QMimeData* self, const libqt_string mimetype, QMetaType* preferredType) {
     auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
     QString mimetype_QString = QString::fromUtf8(mimetype.data, mimetype.len);
     if (vqmimedata && vqmimedata->isVirtualQMimeData) {
@@ -388,7 +388,7 @@ bool QMimeData_Event(QMimeData* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QMimeData_QBaseEvent(QMimeData* self, QEvent* event) {
+bool QMimeData_SuperEvent(QMimeData* self, QEvent* event) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
     if (vqmimedata && vqmimedata->isVirtualQMimeData) {
         vqmimedata->setQMimeData_Event_IsBase(true);
@@ -417,7 +417,7 @@ bool QMimeData_EventFilter(QMimeData* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QMimeData_QBaseEventFilter(QMimeData* self, QObject* watched, QEvent* event) {
+bool QMimeData_SuperEventFilter(QMimeData* self, QObject* watched, QEvent* event) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
     if (vqmimedata && vqmimedata->isVirtualQMimeData) {
         vqmimedata->setQMimeData_EventFilter_IsBase(true);
@@ -446,7 +446,7 @@ void QMimeData_TimerEvent(QMimeData* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QMimeData_QBaseTimerEvent(QMimeData* self, QTimerEvent* event) {
+void QMimeData_SuperTimerEvent(QMimeData* self, QTimerEvent* event) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
     if (vqmimedata && vqmimedata->isVirtualQMimeData) {
         vqmimedata->setQMimeData_TimerEvent_IsBase(true);
@@ -475,7 +475,7 @@ void QMimeData_ChildEvent(QMimeData* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QMimeData_QBaseChildEvent(QMimeData* self, QChildEvent* event) {
+void QMimeData_SuperChildEvent(QMimeData* self, QChildEvent* event) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
     if (vqmimedata && vqmimedata->isVirtualQMimeData) {
         vqmimedata->setQMimeData_ChildEvent_IsBase(true);
@@ -504,7 +504,7 @@ void QMimeData_CustomEvent(QMimeData* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QMimeData_QBaseCustomEvent(QMimeData* self, QEvent* event) {
+void QMimeData_SuperCustomEvent(QMimeData* self, QEvent* event) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
     if (vqmimedata && vqmimedata->isVirtualQMimeData) {
         vqmimedata->setQMimeData_CustomEvent_IsBase(true);
@@ -533,7 +533,7 @@ void QMimeData_ConnectNotify(QMimeData* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QMimeData_QBaseConnectNotify(QMimeData* self, const QMetaMethod* signal) {
+void QMimeData_SuperConnectNotify(QMimeData* self, const QMetaMethod* signal) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
     if (vqmimedata && vqmimedata->isVirtualQMimeData) {
         vqmimedata->setQMimeData_ConnectNotify_IsBase(true);
@@ -562,7 +562,7 @@ void QMimeData_DisconnectNotify(QMimeData* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QMimeData_QBaseDisconnectNotify(QMimeData* self, const QMetaMethod* signal) {
+void QMimeData_SuperDisconnectNotify(QMimeData* self, const QMetaMethod* signal) {
     auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
     if (vqmimedata && vqmimedata->isVirtualQMimeData) {
         vqmimedata->setQMimeData_DisconnectNotify_IsBase(true);
@@ -591,7 +591,7 @@ QObject* QMimeData_Sender(const QMimeData* self) {
 }
 
 // Base class handler implementation
-QObject* QMimeData_QBaseSender(const QMimeData* self) {
+QObject* QMimeData_SuperSender(const QMimeData* self) {
     auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
     if (vqmimedata && vqmimedata->isVirtualQMimeData) {
         vqmimedata->setQMimeData_Sender_IsBase(true);
@@ -620,7 +620,7 @@ int QMimeData_SenderSignalIndex(const QMimeData* self) {
 }
 
 // Base class handler implementation
-int QMimeData_QBaseSenderSignalIndex(const QMimeData* self) {
+int QMimeData_SuperSenderSignalIndex(const QMimeData* self) {
     auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
     if (vqmimedata && vqmimedata->isVirtualQMimeData) {
         vqmimedata->setQMimeData_SenderSignalIndex_IsBase(true);
@@ -649,7 +649,7 @@ int QMimeData_Receivers(const QMimeData* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QMimeData_QBaseReceivers(const QMimeData* self, const char* signal) {
+int QMimeData_SuperReceivers(const QMimeData* self, const char* signal) {
     auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
     if (vqmimedata && vqmimedata->isVirtualQMimeData) {
         vqmimedata->setQMimeData_Receivers_IsBase(true);
@@ -678,7 +678,7 @@ bool QMimeData_IsSignalConnected(const QMimeData* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool QMimeData_QBaseIsSignalConnected(const QMimeData* self, const QMetaMethod* signal) {
+bool QMimeData_SuperIsSignalConnected(const QMimeData* self, const QMetaMethod* signal) {
     auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
     if (vqmimedata && vqmimedata->isVirtualQMimeData) {
         vqmimedata->setQMimeData_IsSignalConnected_IsBase(true);

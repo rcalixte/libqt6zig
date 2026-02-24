@@ -59,6 +59,10 @@ pub const ksslerroruidata = struct {
         qtc.KSslErrorUiData_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/ksslerroruidata.html#dtor.KSslErrorUiData)
     ///
     /// Delete this object from C++ memory.
@@ -67,7 +71,7 @@ pub const ksslerroruidata = struct {
     ///
     /// ` self: QtC.KSslErrorUiData `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KSslErrorUiData_Delete(@ptrCast(self));
     }
 };

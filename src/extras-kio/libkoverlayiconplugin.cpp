@@ -129,7 +129,7 @@ void KOverlayIconPlugin_Connect_OverlaysChanged(KOverlayIconPlugin* self, intptr
 }
 
 // Base class handler implementation
-QMetaObject* KOverlayIconPlugin_QBaseMetaObject(const KOverlayIconPlugin* self) {
+QMetaObject* KOverlayIconPlugin_SuperMetaObject(const KOverlayIconPlugin* self) {
     auto* vkoverlayiconplugin = const_cast<VirtualKOverlayIconPlugin*>(dynamic_cast<const VirtualKOverlayIconPlugin*>(self));
     if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
         vkoverlayiconplugin->setKOverlayIconPlugin_MetaObject_IsBase(true);
@@ -148,7 +148,7 @@ void KOverlayIconPlugin_OnMetaObject(const KOverlayIconPlugin* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* KOverlayIconPlugin_QBaseMetacast(KOverlayIconPlugin* self, const char* param1) {
+void* KOverlayIconPlugin_SuperMetacast(KOverlayIconPlugin* self, const char* param1) {
     auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
     if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
         vkoverlayiconplugin->setKOverlayIconPlugin_Metacast_IsBase(true);
@@ -167,7 +167,7 @@ void KOverlayIconPlugin_OnMetacast(KOverlayIconPlugin* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KOverlayIconPlugin_QBaseMetacall(KOverlayIconPlugin* self, int param1, int param2, void** param3) {
+int KOverlayIconPlugin_SuperMetacall(KOverlayIconPlugin* self, int param1, int param2, void** param3) {
     auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
     if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
         vkoverlayiconplugin->setKOverlayIconPlugin_Metacall_IsBase(true);
@@ -186,7 +186,7 @@ void KOverlayIconPlugin_OnMetacall(KOverlayIconPlugin* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KOverlayIconPlugin_QBaseGetOverlays(KOverlayIconPlugin* self, const QUrl* item) {
+libqt_list /* of libqt_string */ KOverlayIconPlugin_SuperGetOverlays(KOverlayIconPlugin* self, const QUrl* item) {
     auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
     if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
         vkoverlayiconplugin->setKOverlayIconPlugin_GetOverlays_IsBase(true);
@@ -249,7 +249,7 @@ bool KOverlayIconPlugin_Event(KOverlayIconPlugin* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KOverlayIconPlugin_QBaseEvent(KOverlayIconPlugin* self, QEvent* event) {
+bool KOverlayIconPlugin_SuperEvent(KOverlayIconPlugin* self, QEvent* event) {
     auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
     if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
         vkoverlayiconplugin->setKOverlayIconPlugin_Event_IsBase(true);
@@ -278,7 +278,7 @@ bool KOverlayIconPlugin_EventFilter(KOverlayIconPlugin* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool KOverlayIconPlugin_QBaseEventFilter(KOverlayIconPlugin* self, QObject* watched, QEvent* event) {
+bool KOverlayIconPlugin_SuperEventFilter(KOverlayIconPlugin* self, QObject* watched, QEvent* event) {
     auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
     if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
         vkoverlayiconplugin->setKOverlayIconPlugin_EventFilter_IsBase(true);
@@ -307,7 +307,7 @@ void KOverlayIconPlugin_TimerEvent(KOverlayIconPlugin* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void KOverlayIconPlugin_QBaseTimerEvent(KOverlayIconPlugin* self, QTimerEvent* event) {
+void KOverlayIconPlugin_SuperTimerEvent(KOverlayIconPlugin* self, QTimerEvent* event) {
     auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
     if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
         vkoverlayiconplugin->setKOverlayIconPlugin_TimerEvent_IsBase(true);
@@ -336,7 +336,7 @@ void KOverlayIconPlugin_ChildEvent(KOverlayIconPlugin* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void KOverlayIconPlugin_QBaseChildEvent(KOverlayIconPlugin* self, QChildEvent* event) {
+void KOverlayIconPlugin_SuperChildEvent(KOverlayIconPlugin* self, QChildEvent* event) {
     auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
     if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
         vkoverlayiconplugin->setKOverlayIconPlugin_ChildEvent_IsBase(true);
@@ -365,7 +365,7 @@ void KOverlayIconPlugin_CustomEvent(KOverlayIconPlugin* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KOverlayIconPlugin_QBaseCustomEvent(KOverlayIconPlugin* self, QEvent* event) {
+void KOverlayIconPlugin_SuperCustomEvent(KOverlayIconPlugin* self, QEvent* event) {
     auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
     if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
         vkoverlayiconplugin->setKOverlayIconPlugin_CustomEvent_IsBase(true);
@@ -394,7 +394,7 @@ void KOverlayIconPlugin_ConnectNotify(KOverlayIconPlugin* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void KOverlayIconPlugin_QBaseConnectNotify(KOverlayIconPlugin* self, const QMetaMethod* signal) {
+void KOverlayIconPlugin_SuperConnectNotify(KOverlayIconPlugin* self, const QMetaMethod* signal) {
     auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
     if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
         vkoverlayiconplugin->setKOverlayIconPlugin_ConnectNotify_IsBase(true);
@@ -423,7 +423,7 @@ void KOverlayIconPlugin_DisconnectNotify(KOverlayIconPlugin* self, const QMetaMe
 }
 
 // Base class handler implementation
-void KOverlayIconPlugin_QBaseDisconnectNotify(KOverlayIconPlugin* self, const QMetaMethod* signal) {
+void KOverlayIconPlugin_SuperDisconnectNotify(KOverlayIconPlugin* self, const QMetaMethod* signal) {
     auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
     if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
         vkoverlayiconplugin->setKOverlayIconPlugin_DisconnectNotify_IsBase(true);
@@ -452,7 +452,7 @@ QObject* KOverlayIconPlugin_Sender(const KOverlayIconPlugin* self) {
 }
 
 // Base class handler implementation
-QObject* KOverlayIconPlugin_QBaseSender(const KOverlayIconPlugin* self) {
+QObject* KOverlayIconPlugin_SuperSender(const KOverlayIconPlugin* self) {
     auto* vkoverlayiconplugin = const_cast<VirtualKOverlayIconPlugin*>(dynamic_cast<const VirtualKOverlayIconPlugin*>(self));
     if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
         vkoverlayiconplugin->setKOverlayIconPlugin_Sender_IsBase(true);
@@ -481,7 +481,7 @@ int KOverlayIconPlugin_SenderSignalIndex(const KOverlayIconPlugin* self) {
 }
 
 // Base class handler implementation
-int KOverlayIconPlugin_QBaseSenderSignalIndex(const KOverlayIconPlugin* self) {
+int KOverlayIconPlugin_SuperSenderSignalIndex(const KOverlayIconPlugin* self) {
     auto* vkoverlayiconplugin = const_cast<VirtualKOverlayIconPlugin*>(dynamic_cast<const VirtualKOverlayIconPlugin*>(self));
     if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
         vkoverlayiconplugin->setKOverlayIconPlugin_SenderSignalIndex_IsBase(true);
@@ -510,7 +510,7 @@ int KOverlayIconPlugin_Receivers(const KOverlayIconPlugin* self, const char* sig
 }
 
 // Base class handler implementation
-int KOverlayIconPlugin_QBaseReceivers(const KOverlayIconPlugin* self, const char* signal) {
+int KOverlayIconPlugin_SuperReceivers(const KOverlayIconPlugin* self, const char* signal) {
     auto* vkoverlayiconplugin = const_cast<VirtualKOverlayIconPlugin*>(dynamic_cast<const VirtualKOverlayIconPlugin*>(self));
     if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
         vkoverlayiconplugin->setKOverlayIconPlugin_Receivers_IsBase(true);
@@ -539,7 +539,7 @@ bool KOverlayIconPlugin_IsSignalConnected(const KOverlayIconPlugin* self, const 
 }
 
 // Base class handler implementation
-bool KOverlayIconPlugin_QBaseIsSignalConnected(const KOverlayIconPlugin* self, const QMetaMethod* signal) {
+bool KOverlayIconPlugin_SuperIsSignalConnected(const KOverlayIconPlugin* self, const QMetaMethod* signal) {
     auto* vkoverlayiconplugin = const_cast<VirtualKOverlayIconPlugin*>(dynamic_cast<const VirtualKOverlayIconPlugin*>(self));
     if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
         vkoverlayiconplugin->setKOverlayIconPlugin_IsSignalConnected_IsBase(true);

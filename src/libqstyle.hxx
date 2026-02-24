@@ -843,23 +843,23 @@ class VirtualQStyle : public QStyle {
 
     // Friend functions
     friend void QStyle_TimerEvent(QStyle* self, QTimerEvent* event);
-    friend void QStyle_QBaseTimerEvent(QStyle* self, QTimerEvent* event);
+    friend void QStyle_SuperTimerEvent(QStyle* self, QTimerEvent* event);
     friend void QStyle_ChildEvent(QStyle* self, QChildEvent* event);
-    friend void QStyle_QBaseChildEvent(QStyle* self, QChildEvent* event);
+    friend void QStyle_SuperChildEvent(QStyle* self, QChildEvent* event);
     friend void QStyle_CustomEvent(QStyle* self, QEvent* event);
-    friend void QStyle_QBaseCustomEvent(QStyle* self, QEvent* event);
+    friend void QStyle_SuperCustomEvent(QStyle* self, QEvent* event);
     friend void QStyle_ConnectNotify(QStyle* self, const QMetaMethod* signal);
-    friend void QStyle_QBaseConnectNotify(QStyle* self, const QMetaMethod* signal);
+    friend void QStyle_SuperConnectNotify(QStyle* self, const QMetaMethod* signal);
     friend void QStyle_DisconnectNotify(QStyle* self, const QMetaMethod* signal);
-    friend void QStyle_QBaseDisconnectNotify(QStyle* self, const QMetaMethod* signal);
+    friend void QStyle_SuperDisconnectNotify(QStyle* self, const QMetaMethod* signal);
     friend QObject* QStyle_Sender(const QStyle* self);
-    friend QObject* QStyle_QBaseSender(const QStyle* self);
+    friend QObject* QStyle_SuperSender(const QStyle* self);
     friend int QStyle_SenderSignalIndex(const QStyle* self);
-    friend int QStyle_QBaseSenderSignalIndex(const QStyle* self);
+    friend int QStyle_SuperSenderSignalIndex(const QStyle* self);
     friend int QStyle_Receivers(const QStyle* self, const char* signal);
-    friend int QStyle_QBaseReceivers(const QStyle* self, const char* signal);
+    friend int QStyle_SuperReceivers(const QStyle* self, const char* signal);
     friend bool QStyle_IsSignalConnected(const QStyle* self, const QMetaMethod* signal);
-    friend bool QStyle_QBaseIsSignalConnected(const QStyle* self, const QMetaMethod* signal);
+    friend bool QStyle_SuperIsSignalConnected(const QStyle* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -155,7 +155,7 @@ void QRubberBand_InitStyleOption(const QRubberBand* self, QStyleOptionRubberBand
 }
 
 // Base class handler implementation
-QMetaObject* QRubberBand_QBaseMetaObject(const QRubberBand* self) {
+QMetaObject* QRubberBand_SuperMetaObject(const QRubberBand* self) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_MetaObject_IsBase(true);
@@ -174,7 +174,7 @@ void QRubberBand_OnMetaObject(const QRubberBand* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QRubberBand_QBaseMetacast(QRubberBand* self, const char* param1) {
+void* QRubberBand_SuperMetacast(QRubberBand* self, const char* param1) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_Metacast_IsBase(true);
@@ -193,7 +193,7 @@ void QRubberBand_OnMetacast(QRubberBand* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QRubberBand_QBaseMetacall(QRubberBand* self, int param1, int param2, void** param3) {
+int QRubberBand_SuperMetacall(QRubberBand* self, int param1, int param2, void** param3) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_Metacall_IsBase(true);
@@ -212,7 +212,7 @@ void QRubberBand_OnMetacall(QRubberBand* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QRubberBand_QBaseEvent(QRubberBand* self, QEvent* e) {
+bool QRubberBand_SuperEvent(QRubberBand* self, QEvent* e) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_Event_IsBase(true);
@@ -231,7 +231,7 @@ void QRubberBand_OnEvent(QRubberBand* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBasePaintEvent(QRubberBand* self, QPaintEvent* param1) {
+void QRubberBand_SuperPaintEvent(QRubberBand* self, QPaintEvent* param1) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_PaintEvent_IsBase(true);
@@ -250,7 +250,7 @@ void QRubberBand_OnPaintEvent(QRubberBand* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseChangeEvent(QRubberBand* self, QEvent* param1) {
+void QRubberBand_SuperChangeEvent(QRubberBand* self, QEvent* param1) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_ChangeEvent_IsBase(true);
@@ -269,7 +269,7 @@ void QRubberBand_OnChangeEvent(QRubberBand* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseShowEvent(QRubberBand* self, QShowEvent* param1) {
+void QRubberBand_SuperShowEvent(QRubberBand* self, QShowEvent* param1) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_ShowEvent_IsBase(true);
@@ -288,7 +288,7 @@ void QRubberBand_OnShowEvent(QRubberBand* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseResizeEvent(QRubberBand* self, QResizeEvent* param1) {
+void QRubberBand_SuperResizeEvent(QRubberBand* self, QResizeEvent* param1) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_ResizeEvent_IsBase(true);
@@ -307,7 +307,7 @@ void QRubberBand_OnResizeEvent(QRubberBand* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseMoveEvent(QRubberBand* self, QMoveEvent* param1) {
+void QRubberBand_SuperMoveEvent(QRubberBand* self, QMoveEvent* param1) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_MoveEvent_IsBase(true);
@@ -326,7 +326,7 @@ void QRubberBand_OnMoveEvent(QRubberBand* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseInitStyleOption(const QRubberBand* self, QStyleOptionRubberBand* option) {
+void QRubberBand_SuperInitStyleOption(const QRubberBand* self, QStyleOptionRubberBand* option) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_InitStyleOption_IsBase(true);
@@ -355,7 +355,7 @@ int QRubberBand_DevType(const QRubberBand* self) {
 }
 
 // Base class handler implementation
-int QRubberBand_QBaseDevType(const QRubberBand* self) {
+int QRubberBand_SuperDevType(const QRubberBand* self) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_DevType_IsBase(true);
@@ -384,7 +384,7 @@ void QRubberBand_SetVisible(QRubberBand* self, bool visible) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseSetVisible(QRubberBand* self, bool visible) {
+void QRubberBand_SuperSetVisible(QRubberBand* self, bool visible) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_SetVisible_IsBase(true);
@@ -413,7 +413,7 @@ QSize* QRubberBand_SizeHint(const QRubberBand* self) {
 }
 
 // Base class handler implementation
-QSize* QRubberBand_QBaseSizeHint(const QRubberBand* self) {
+QSize* QRubberBand_SuperSizeHint(const QRubberBand* self) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_SizeHint_IsBase(true);
@@ -442,7 +442,7 @@ QSize* QRubberBand_MinimumSizeHint(const QRubberBand* self) {
 }
 
 // Base class handler implementation
-QSize* QRubberBand_QBaseMinimumSizeHint(const QRubberBand* self) {
+QSize* QRubberBand_SuperMinimumSizeHint(const QRubberBand* self) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_MinimumSizeHint_IsBase(true);
@@ -471,7 +471,7 @@ int QRubberBand_HeightForWidth(const QRubberBand* self, int param1) {
 }
 
 // Base class handler implementation
-int QRubberBand_QBaseHeightForWidth(const QRubberBand* self, int param1) {
+int QRubberBand_SuperHeightForWidth(const QRubberBand* self, int param1) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_HeightForWidth_IsBase(true);
@@ -500,7 +500,7 @@ bool QRubberBand_HasHeightForWidth(const QRubberBand* self) {
 }
 
 // Base class handler implementation
-bool QRubberBand_QBaseHasHeightForWidth(const QRubberBand* self) {
+bool QRubberBand_SuperHasHeightForWidth(const QRubberBand* self) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_HasHeightForWidth_IsBase(true);
@@ -529,7 +529,7 @@ QPaintEngine* QRubberBand_PaintEngine(const QRubberBand* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QRubberBand_QBasePaintEngine(const QRubberBand* self) {
+QPaintEngine* QRubberBand_SuperPaintEngine(const QRubberBand* self) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_PaintEngine_IsBase(true);
@@ -558,7 +558,7 @@ void QRubberBand_MousePressEvent(QRubberBand* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseMousePressEvent(QRubberBand* self, QMouseEvent* event) {
+void QRubberBand_SuperMousePressEvent(QRubberBand* self, QMouseEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_MousePressEvent_IsBase(true);
@@ -587,7 +587,7 @@ void QRubberBand_MouseReleaseEvent(QRubberBand* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseMouseReleaseEvent(QRubberBand* self, QMouseEvent* event) {
+void QRubberBand_SuperMouseReleaseEvent(QRubberBand* self, QMouseEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_MouseReleaseEvent_IsBase(true);
@@ -616,7 +616,7 @@ void QRubberBand_MouseDoubleClickEvent(QRubberBand* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseMouseDoubleClickEvent(QRubberBand* self, QMouseEvent* event) {
+void QRubberBand_SuperMouseDoubleClickEvent(QRubberBand* self, QMouseEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_MouseDoubleClickEvent_IsBase(true);
@@ -645,7 +645,7 @@ void QRubberBand_MouseMoveEvent(QRubberBand* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseMouseMoveEvent(QRubberBand* self, QMouseEvent* event) {
+void QRubberBand_SuperMouseMoveEvent(QRubberBand* self, QMouseEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_MouseMoveEvent_IsBase(true);
@@ -674,7 +674,7 @@ void QRubberBand_WheelEvent(QRubberBand* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseWheelEvent(QRubberBand* self, QWheelEvent* event) {
+void QRubberBand_SuperWheelEvent(QRubberBand* self, QWheelEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_WheelEvent_IsBase(true);
@@ -703,7 +703,7 @@ void QRubberBand_KeyPressEvent(QRubberBand* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseKeyPressEvent(QRubberBand* self, QKeyEvent* event) {
+void QRubberBand_SuperKeyPressEvent(QRubberBand* self, QKeyEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_KeyPressEvent_IsBase(true);
@@ -732,7 +732,7 @@ void QRubberBand_KeyReleaseEvent(QRubberBand* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseKeyReleaseEvent(QRubberBand* self, QKeyEvent* event) {
+void QRubberBand_SuperKeyReleaseEvent(QRubberBand* self, QKeyEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_KeyReleaseEvent_IsBase(true);
@@ -761,7 +761,7 @@ void QRubberBand_FocusInEvent(QRubberBand* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseFocusInEvent(QRubberBand* self, QFocusEvent* event) {
+void QRubberBand_SuperFocusInEvent(QRubberBand* self, QFocusEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_FocusInEvent_IsBase(true);
@@ -790,7 +790,7 @@ void QRubberBand_FocusOutEvent(QRubberBand* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseFocusOutEvent(QRubberBand* self, QFocusEvent* event) {
+void QRubberBand_SuperFocusOutEvent(QRubberBand* self, QFocusEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_FocusOutEvent_IsBase(true);
@@ -819,7 +819,7 @@ void QRubberBand_EnterEvent(QRubberBand* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseEnterEvent(QRubberBand* self, QEnterEvent* event) {
+void QRubberBand_SuperEnterEvent(QRubberBand* self, QEnterEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_EnterEvent_IsBase(true);
@@ -848,7 +848,7 @@ void QRubberBand_LeaveEvent(QRubberBand* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseLeaveEvent(QRubberBand* self, QEvent* event) {
+void QRubberBand_SuperLeaveEvent(QRubberBand* self, QEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_LeaveEvent_IsBase(true);
@@ -877,7 +877,7 @@ void QRubberBand_CloseEvent(QRubberBand* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseCloseEvent(QRubberBand* self, QCloseEvent* event) {
+void QRubberBand_SuperCloseEvent(QRubberBand* self, QCloseEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_CloseEvent_IsBase(true);
@@ -906,7 +906,7 @@ void QRubberBand_ContextMenuEvent(QRubberBand* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseContextMenuEvent(QRubberBand* self, QContextMenuEvent* event) {
+void QRubberBand_SuperContextMenuEvent(QRubberBand* self, QContextMenuEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_ContextMenuEvent_IsBase(true);
@@ -935,7 +935,7 @@ void QRubberBand_TabletEvent(QRubberBand* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseTabletEvent(QRubberBand* self, QTabletEvent* event) {
+void QRubberBand_SuperTabletEvent(QRubberBand* self, QTabletEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_TabletEvent_IsBase(true);
@@ -964,7 +964,7 @@ void QRubberBand_ActionEvent(QRubberBand* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseActionEvent(QRubberBand* self, QActionEvent* event) {
+void QRubberBand_SuperActionEvent(QRubberBand* self, QActionEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_ActionEvent_IsBase(true);
@@ -993,7 +993,7 @@ void QRubberBand_DragEnterEvent(QRubberBand* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseDragEnterEvent(QRubberBand* self, QDragEnterEvent* event) {
+void QRubberBand_SuperDragEnterEvent(QRubberBand* self, QDragEnterEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_DragEnterEvent_IsBase(true);
@@ -1022,7 +1022,7 @@ void QRubberBand_DragMoveEvent(QRubberBand* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseDragMoveEvent(QRubberBand* self, QDragMoveEvent* event) {
+void QRubberBand_SuperDragMoveEvent(QRubberBand* self, QDragMoveEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_DragMoveEvent_IsBase(true);
@@ -1051,7 +1051,7 @@ void QRubberBand_DragLeaveEvent(QRubberBand* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseDragLeaveEvent(QRubberBand* self, QDragLeaveEvent* event) {
+void QRubberBand_SuperDragLeaveEvent(QRubberBand* self, QDragLeaveEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_DragLeaveEvent_IsBase(true);
@@ -1080,7 +1080,7 @@ void QRubberBand_DropEvent(QRubberBand* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseDropEvent(QRubberBand* self, QDropEvent* event) {
+void QRubberBand_SuperDropEvent(QRubberBand* self, QDropEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_DropEvent_IsBase(true);
@@ -1109,7 +1109,7 @@ void QRubberBand_HideEvent(QRubberBand* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseHideEvent(QRubberBand* self, QHideEvent* event) {
+void QRubberBand_SuperHideEvent(QRubberBand* self, QHideEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_HideEvent_IsBase(true);
@@ -1139,7 +1139,7 @@ bool QRubberBand_NativeEvent(QRubberBand* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool QRubberBand_QBaseNativeEvent(QRubberBand* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QRubberBand_SuperNativeEvent(QRubberBand* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
@@ -1169,7 +1169,7 @@ int QRubberBand_Metric(const QRubberBand* self, int param1) {
 }
 
 // Base class handler implementation
-int QRubberBand_QBaseMetric(const QRubberBand* self, int param1) {
+int QRubberBand_SuperMetric(const QRubberBand* self, int param1) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_Metric_IsBase(true);
@@ -1198,7 +1198,7 @@ void QRubberBand_InitPainter(const QRubberBand* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseInitPainter(const QRubberBand* self, QPainter* painter) {
+void QRubberBand_SuperInitPainter(const QRubberBand* self, QPainter* painter) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_InitPainter_IsBase(true);
@@ -1227,7 +1227,7 @@ QPaintDevice* QRubberBand_Redirected(const QRubberBand* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QRubberBand_QBaseRedirected(const QRubberBand* self, QPoint* offset) {
+QPaintDevice* QRubberBand_SuperRedirected(const QRubberBand* self, QPoint* offset) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_Redirected_IsBase(true);
@@ -1256,7 +1256,7 @@ QPainter* QRubberBand_SharedPainter(const QRubberBand* self) {
 }
 
 // Base class handler implementation
-QPainter* QRubberBand_QBaseSharedPainter(const QRubberBand* self) {
+QPainter* QRubberBand_SuperSharedPainter(const QRubberBand* self) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_SharedPainter_IsBase(true);
@@ -1285,7 +1285,7 @@ void QRubberBand_InputMethodEvent(QRubberBand* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseInputMethodEvent(QRubberBand* self, QInputMethodEvent* param1) {
+void QRubberBand_SuperInputMethodEvent(QRubberBand* self, QInputMethodEvent* param1) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_InputMethodEvent_IsBase(true);
@@ -1314,7 +1314,7 @@ QVariant* QRubberBand_InputMethodQuery(const QRubberBand* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QRubberBand_QBaseInputMethodQuery(const QRubberBand* self, int param1) {
+QVariant* QRubberBand_SuperInputMethodQuery(const QRubberBand* self, int param1) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_InputMethodQuery_IsBase(true);
@@ -1343,7 +1343,7 @@ bool QRubberBand_FocusNextPrevChild(QRubberBand* self, bool next) {
 }
 
 // Base class handler implementation
-bool QRubberBand_QBaseFocusNextPrevChild(QRubberBand* self, bool next) {
+bool QRubberBand_SuperFocusNextPrevChild(QRubberBand* self, bool next) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_FocusNextPrevChild_IsBase(true);
@@ -1372,7 +1372,7 @@ bool QRubberBand_EventFilter(QRubberBand* self, QObject* watched, QEvent* event)
 }
 
 // Base class handler implementation
-bool QRubberBand_QBaseEventFilter(QRubberBand* self, QObject* watched, QEvent* event) {
+bool QRubberBand_SuperEventFilter(QRubberBand* self, QObject* watched, QEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_EventFilter_IsBase(true);
@@ -1401,7 +1401,7 @@ void QRubberBand_TimerEvent(QRubberBand* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseTimerEvent(QRubberBand* self, QTimerEvent* event) {
+void QRubberBand_SuperTimerEvent(QRubberBand* self, QTimerEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_TimerEvent_IsBase(true);
@@ -1430,7 +1430,7 @@ void QRubberBand_ChildEvent(QRubberBand* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseChildEvent(QRubberBand* self, QChildEvent* event) {
+void QRubberBand_SuperChildEvent(QRubberBand* self, QChildEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_ChildEvent_IsBase(true);
@@ -1459,7 +1459,7 @@ void QRubberBand_CustomEvent(QRubberBand* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseCustomEvent(QRubberBand* self, QEvent* event) {
+void QRubberBand_SuperCustomEvent(QRubberBand* self, QEvent* event) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_CustomEvent_IsBase(true);
@@ -1488,7 +1488,7 @@ void QRubberBand_ConnectNotify(QRubberBand* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseConnectNotify(QRubberBand* self, const QMetaMethod* signal) {
+void QRubberBand_SuperConnectNotify(QRubberBand* self, const QMetaMethod* signal) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_ConnectNotify_IsBase(true);
@@ -1517,7 +1517,7 @@ void QRubberBand_DisconnectNotify(QRubberBand* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseDisconnectNotify(QRubberBand* self, const QMetaMethod* signal) {
+void QRubberBand_SuperDisconnectNotify(QRubberBand* self, const QMetaMethod* signal) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_DisconnectNotify_IsBase(true);
@@ -1546,7 +1546,7 @@ void QRubberBand_UpdateMicroFocus(QRubberBand* self) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseUpdateMicroFocus(QRubberBand* self) {
+void QRubberBand_SuperUpdateMicroFocus(QRubberBand* self) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_UpdateMicroFocus_IsBase(true);
@@ -1575,7 +1575,7 @@ void QRubberBand_Create(QRubberBand* self) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseCreate(QRubberBand* self) {
+void QRubberBand_SuperCreate(QRubberBand* self) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_Create_IsBase(true);
@@ -1604,7 +1604,7 @@ void QRubberBand_Destroy(QRubberBand* self) {
 }
 
 // Base class handler implementation
-void QRubberBand_QBaseDestroy(QRubberBand* self) {
+void QRubberBand_SuperDestroy(QRubberBand* self) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_Destroy_IsBase(true);
@@ -1633,7 +1633,7 @@ bool QRubberBand_FocusNextChild(QRubberBand* self) {
 }
 
 // Base class handler implementation
-bool QRubberBand_QBaseFocusNextChild(QRubberBand* self) {
+bool QRubberBand_SuperFocusNextChild(QRubberBand* self) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_FocusNextChild_IsBase(true);
@@ -1662,7 +1662,7 @@ bool QRubberBand_FocusPreviousChild(QRubberBand* self) {
 }
 
 // Base class handler implementation
-bool QRubberBand_QBaseFocusPreviousChild(QRubberBand* self) {
+bool QRubberBand_SuperFocusPreviousChild(QRubberBand* self) {
     auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_FocusPreviousChild_IsBase(true);
@@ -1691,7 +1691,7 @@ QObject* QRubberBand_Sender(const QRubberBand* self) {
 }
 
 // Base class handler implementation
-QObject* QRubberBand_QBaseSender(const QRubberBand* self) {
+QObject* QRubberBand_SuperSender(const QRubberBand* self) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_Sender_IsBase(true);
@@ -1720,7 +1720,7 @@ int QRubberBand_SenderSignalIndex(const QRubberBand* self) {
 }
 
 // Base class handler implementation
-int QRubberBand_QBaseSenderSignalIndex(const QRubberBand* self) {
+int QRubberBand_SuperSenderSignalIndex(const QRubberBand* self) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_SenderSignalIndex_IsBase(true);
@@ -1749,7 +1749,7 @@ int QRubberBand_Receivers(const QRubberBand* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QRubberBand_QBaseReceivers(const QRubberBand* self, const char* signal) {
+int QRubberBand_SuperReceivers(const QRubberBand* self, const char* signal) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_Receivers_IsBase(true);
@@ -1778,7 +1778,7 @@ bool QRubberBand_IsSignalConnected(const QRubberBand* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QRubberBand_QBaseIsSignalConnected(const QRubberBand* self, const QMetaMethod* signal) {
+bool QRubberBand_SuperIsSignalConnected(const QRubberBand* self, const QMetaMethod* signal) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_IsSignalConnected_IsBase(true);
@@ -1807,7 +1807,7 @@ double QRubberBand_GetDecodedMetricF(const QRubberBand* self, int metricA, int m
 }
 
 // Base class handler implementation
-double QRubberBand_QBaseGetDecodedMetricF(const QRubberBand* self, int metricA, int metricB) {
+double QRubberBand_SuperGetDecodedMetricF(const QRubberBand* self, int metricA, int metricB) {
     auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->setQRubberBand_GetDecodedMetricF_IsBase(true);

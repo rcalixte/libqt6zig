@@ -113,6 +113,10 @@ pub const signon__error = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
     ///
     /// Delete this object from C++ memory.
@@ -121,7 +125,7 @@ pub const signon__error = struct {
     ///
     /// ` self: QtC.SignOn__Error `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.SignOn__Error_Delete(@ptrCast(self));
     }
 };

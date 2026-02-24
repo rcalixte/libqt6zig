@@ -386,23 +386,23 @@ class VirtualKDateValidator final : public KDateValidator {
 
     // Friend functions
     friend void KDateValidator_TimerEvent(KDateValidator* self, QTimerEvent* event);
-    friend void KDateValidator_QBaseTimerEvent(KDateValidator* self, QTimerEvent* event);
+    friend void KDateValidator_SuperTimerEvent(KDateValidator* self, QTimerEvent* event);
     friend void KDateValidator_ChildEvent(KDateValidator* self, QChildEvent* event);
-    friend void KDateValidator_QBaseChildEvent(KDateValidator* self, QChildEvent* event);
+    friend void KDateValidator_SuperChildEvent(KDateValidator* self, QChildEvent* event);
     friend void KDateValidator_CustomEvent(KDateValidator* self, QEvent* event);
-    friend void KDateValidator_QBaseCustomEvent(KDateValidator* self, QEvent* event);
+    friend void KDateValidator_SuperCustomEvent(KDateValidator* self, QEvent* event);
     friend void KDateValidator_ConnectNotify(KDateValidator* self, const QMetaMethod* signal);
-    friend void KDateValidator_QBaseConnectNotify(KDateValidator* self, const QMetaMethod* signal);
+    friend void KDateValidator_SuperConnectNotify(KDateValidator* self, const QMetaMethod* signal);
     friend void KDateValidator_DisconnectNotify(KDateValidator* self, const QMetaMethod* signal);
-    friend void KDateValidator_QBaseDisconnectNotify(KDateValidator* self, const QMetaMethod* signal);
+    friend void KDateValidator_SuperDisconnectNotify(KDateValidator* self, const QMetaMethod* signal);
     friend QObject* KDateValidator_Sender(const KDateValidator* self);
-    friend QObject* KDateValidator_QBaseSender(const KDateValidator* self);
+    friend QObject* KDateValidator_SuperSender(const KDateValidator* self);
     friend int KDateValidator_SenderSignalIndex(const KDateValidator* self);
-    friend int KDateValidator_QBaseSenderSignalIndex(const KDateValidator* self);
+    friend int KDateValidator_SuperSenderSignalIndex(const KDateValidator* self);
     friend int KDateValidator_Receivers(const KDateValidator* self, const char* signal);
-    friend int KDateValidator_QBaseReceivers(const KDateValidator* self, const char* signal);
+    friend int KDateValidator_SuperReceivers(const KDateValidator* self, const char* signal);
     friend bool KDateValidator_IsSignalConnected(const KDateValidator* self, const QMetaMethod* signal);
-    friend bool KDateValidator_QBaseIsSignalConnected(const KDateValidator* self, const QMetaMethod* signal);
+    friend bool KDateValidator_SuperIsSignalConnected(const KDateValidator* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -52,6 +52,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -60,8 +64,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` self: QtC.KAdjustingScrollArea `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KAdjustingScrollArea_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KAdjustingScrollArea_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -87,6 +91,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -95,9 +103,9 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KAdjustingScrollArea_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KAdjustingScrollArea_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -126,6 +134,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -138,8 +150,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KAdjustingScrollArea_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KAdjustingScrollArea_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -183,6 +195,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    ///
+    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+
     /// ### [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#minimumSizeHint)
     ///
     /// Base class method implementation
@@ -191,8 +207,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` self: QtC.KAdjustingScrollArea `
     ///
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KAdjustingScrollArea_QBaseMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.KAdjustingScrollArea_SuperMinimumSizeHint(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#sizeHint)
@@ -219,6 +235,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// ### [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#sizeHint)
     ///
     /// Base class method implementation
@@ -227,8 +247,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` self: QtC.KAdjustingScrollArea `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KAdjustingScrollArea_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.KAdjustingScrollArea_SuperSizeHint(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#event)
@@ -257,6 +277,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// ### [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#event)
     ///
     /// Base class method implementation
@@ -267,8 +291,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KAdjustingScrollArea_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KAdjustingScrollArea_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -5667,6 +5691,10 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_FocusNextPrevChild(@ptrCast(self), next);
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    ///
+    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+
     /// Inherited from QScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#focusNextPrevChild)
@@ -5679,8 +5707,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` next: bool `
     ///
-    pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.KAdjustingScrollArea_QBaseFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
+        return qtc.KAdjustingScrollArea_SuperFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// Inherited from QScrollArea
@@ -5715,6 +5743,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_ResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// Inherited from QScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#resizeEvent)
@@ -5727,8 +5759,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param1: QtC.QResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseResizeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperResizeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QScrollArea
@@ -5765,6 +5797,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_ScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
+    /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
+    ///
+    pub const QBaseScrollContentsBy = SuperScrollContentsBy;
+
     /// Inherited from QScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#scrollContentsBy)
@@ -5779,8 +5815,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn QBaseScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.KAdjustingScrollArea_QBaseScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn SuperScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
+        qtc.KAdjustingScrollArea_SuperScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QScrollArea
@@ -5813,6 +5849,10 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_ViewportSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
+    ///
+    pub const QBaseViewportSizeHint = SuperViewportSizeHint;
+
     /// Inherited from QScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollarea.html#viewportSizeHint)
@@ -5823,8 +5863,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` self: QtC.KAdjustingScrollArea `
     ///
-    pub fn QBaseViewportSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KAdjustingScrollArea_QBaseViewportSizeHint(@ptrCast(self));
+    pub fn SuperViewportSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.KAdjustingScrollArea_SuperViewportSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QScrollArea
@@ -5859,6 +5899,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_SetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
+    /// ### DEPRECATED: Use `SuperSetupViewport` instead
+    ///
+    pub const QBaseSetupViewport = SuperSetupViewport;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
@@ -5871,8 +5915,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` viewport: QtC.QWidget `
     ///
-    pub fn QBaseSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseSetupViewport(@ptrCast(self), @ptrCast(viewport));
+    pub fn SuperSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperSetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -5907,6 +5951,10 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_ViewportEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperViewportEvent` instead
+    ///
+    pub const QBaseViewportEvent = SuperViewportEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportEvent)
@@ -5919,8 +5967,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseViewportEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.KAdjustingScrollArea_QBaseViewportEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperViewportEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
+        return qtc.KAdjustingScrollArea_SuperViewportEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -5955,6 +6003,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_PaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    ///
+    pub const QBasePaintEvent = SuperPaintEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#paintEvent)
@@ -5967,8 +6019,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param1: QtC.QPaintEvent `
     ///
-    pub fn QBasePaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBasePaintEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperPaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperPaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6003,6 +6055,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_MousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mousePressEvent)
@@ -6015,8 +6071,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseMousePressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperMousePressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6051,6 +6107,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_MouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseReleaseEvent)
@@ -6063,8 +6123,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6099,6 +6159,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseDoubleClickEvent)
@@ -6111,8 +6175,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6147,6 +6211,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_MouseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseMoveEvent)
@@ -6159,8 +6227,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param1: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6195,6 +6263,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_WheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
@@ -6207,8 +6279,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param1: QtC.QWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseWheelEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperWheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6243,6 +6315,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
@@ -6255,8 +6331,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param1: QtC.QContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6291,6 +6367,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_DragEnterEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragEnterEvent)
@@ -6303,8 +6383,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param1: QtC.QDragEnterEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperDragEnterEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6339,6 +6419,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_DragMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragMoveEvent)
@@ -6351,8 +6435,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param1: QtC.QDragMoveEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperDragMoveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6387,6 +6471,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_DragLeaveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dragLeaveEvent)
@@ -6399,8 +6487,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param1: QtC.QDragLeaveEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6435,6 +6523,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_DropEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#dropEvent)
@@ -6447,8 +6539,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param1: QtC.QDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseDropEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDropEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperDropEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6483,6 +6575,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#keyPressEvent)
@@ -6495,8 +6591,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param1: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperKeyPressEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6531,6 +6627,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_ChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    ///
+    pub const QBaseChangeEvent = SuperChangeEvent;
+
     /// Inherited from QFrame
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
@@ -6543,8 +6643,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QFrame
@@ -6579,6 +6679,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_InitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
+    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    ///
+    pub const QBaseInitStyleOption = SuperInitStyleOption;
+
     /// Inherited from QFrame
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
@@ -6591,8 +6695,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` option: QtC.QStyleOptionFrame `
     ///
-    pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// Inherited from QFrame
@@ -6625,6 +6729,10 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_DevType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
@@ -6635,8 +6743,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` self: QtC.KAdjustingScrollArea `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.KAdjustingScrollArea_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.KAdjustingScrollArea_SuperDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -6671,6 +6779,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_SetVisible(@ptrCast(self), visible);
     }
 
+    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    ///
+    pub const QBaseSetVisible = SuperSetVisible;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
@@ -6683,8 +6795,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.KAdjustingScrollArea_QBaseSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
+        qtc.KAdjustingScrollArea_SuperSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
@@ -6719,6 +6831,10 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
@@ -6731,8 +6847,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KAdjustingScrollArea_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.KAdjustingScrollArea_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6765,6 +6881,10 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
@@ -6775,8 +6895,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` self: QtC.KAdjustingScrollArea `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.KAdjustingScrollArea_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.KAdjustingScrollArea_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -6809,6 +6929,10 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_PaintEngine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
@@ -6819,8 +6943,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` self: QtC.KAdjustingScrollArea `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.KAdjustingScrollArea_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.KAdjustingScrollArea_SuperPaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -6855,6 +6979,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -6867,8 +6995,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6903,6 +7031,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6915,8 +7047,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6951,6 +7083,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6963,8 +7099,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -6999,6 +7135,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    ///
+    pub const QBaseEnterEvent = SuperEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
@@ -7011,8 +7151,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` event: QtC.QEnterEvent `
     ///
-    pub fn QBaseEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7047,6 +7187,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    ///
+    pub const QBaseLeaveEvent = SuperLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
@@ -7059,8 +7203,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7095,6 +7239,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
@@ -7107,8 +7255,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` event: QtC.QMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7143,6 +7291,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
@@ -7155,8 +7307,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` event: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7191,6 +7343,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    ///
+    pub const QBaseTabletEvent = SuperTabletEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
@@ -7203,8 +7359,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` event: QtC.QTabletEvent `
     ///
-    pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7239,6 +7395,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_ActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    ///
+    pub const QBaseActionEvent = SuperActionEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
@@ -7251,8 +7411,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` event: QtC.QActionEvent `
     ///
-    pub fn QBaseActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7287,6 +7447,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
@@ -7299,8 +7463,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` event: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7335,6 +7499,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
@@ -7347,8 +7515,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` event: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -7391,6 +7559,10 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    ///
+    pub const QBaseNativeEvent = SuperNativeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
@@ -7407,12 +7579,12 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KAdjustingScrollArea_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KAdjustingScrollArea_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -7447,6 +7619,10 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_Metric(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
@@ -7459,8 +7635,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KAdjustingScrollArea_QBaseMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.KAdjustingScrollArea_SuperMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7495,6 +7671,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
@@ -7507,8 +7687,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
@@ -7543,6 +7723,10 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
@@ -7555,8 +7739,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.KAdjustingScrollArea_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.KAdjustingScrollArea_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
@@ -7589,6 +7773,10 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
@@ -7599,8 +7787,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` self: QtC.KAdjustingScrollArea `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.KAdjustingScrollArea_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.KAdjustingScrollArea_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -7635,6 +7823,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodEvent)
@@ -7647,8 +7839,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param1: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7683,6 +7875,10 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_InputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
@@ -7695,8 +7891,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.KAdjustingScrollArea_QBaseInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
+        return qtc.KAdjustingScrollArea_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7731,6 +7927,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -7743,8 +7943,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7779,6 +7979,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -7791,8 +7995,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7827,6 +8031,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -7839,8 +8047,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -7875,6 +8083,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7887,8 +8099,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -7923,6 +8135,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -7935,8 +8151,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -7977,6 +8193,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_SetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
+    /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
+    ///
+    pub const QBaseSetViewportMargins = SuperSetViewportMargins;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
@@ -7995,8 +8215,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn QBaseSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.KAdjustingScrollArea_QBaseSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SuperSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.KAdjustingScrollArea_SuperSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8029,6 +8249,10 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_ViewportMargins(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperViewportMargins` instead
+    ///
+    pub const QBaseViewportMargins = SuperViewportMargins;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
@@ -8039,8 +8263,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` self: QtC.KAdjustingScrollArea `
     ///
-    pub fn QBaseViewportMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.KAdjustingScrollArea_QBaseViewportMargins(@ptrCast(self));
+    pub fn SuperViewportMargins(self: ?*anyopaque) QtC.QMargins {
+        return qtc.KAdjustingScrollArea_SuperViewportMargins(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8075,6 +8299,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_DrawFrame(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    ///
+    pub const QBaseDrawFrame = SuperDrawFrame;
+
     /// Inherited from QFrame
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
@@ -8087,8 +8315,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` param1: QtC.QPainter `
     ///
-    pub fn QBaseDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseDrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperDrawFrame(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QFrame
@@ -8121,6 +8349,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8131,8 +8363,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` self: QtC.KAdjustingScrollArea `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8165,6 +8397,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_Create(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreate` instead
+    ///
+    pub const QBaseCreate = SuperCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8175,8 +8411,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` self: QtC.KAdjustingScrollArea `
     ///
-    pub fn QBaseCreate(self: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseCreate(@ptrCast(self));
+    pub fn SuperCreate(self: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8209,6 +8445,10 @@ pub const kadjustingscrollarea = struct {
         qtc.KAdjustingScrollArea_Destroy(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroy` instead
+    ///
+    pub const QBaseDestroy = SuperDestroy;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
@@ -8219,8 +8459,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` self: QtC.KAdjustingScrollArea `
     ///
-    pub fn QBaseDestroy(self: ?*anyopaque) void {
-        qtc.KAdjustingScrollArea_QBaseDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: ?*anyopaque) void {
+        qtc.KAdjustingScrollArea_SuperDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8253,6 +8493,10 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_FocusNextChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    ///
+    pub const QBaseFocusNextChild = SuperFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8263,8 +8507,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` self: QtC.KAdjustingScrollArea `
     ///
-    pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.KAdjustingScrollArea_QBaseFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
+        return qtc.KAdjustingScrollArea_SuperFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8297,6 +8541,10 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_FocusPreviousChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    ///
+    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
@@ -8307,8 +8555,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` self: QtC.KAdjustingScrollArea `
     ///
-    pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.KAdjustingScrollArea_QBaseFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
+        return qtc.KAdjustingScrollArea_SuperFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -8341,6 +8589,10 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -8351,8 +8603,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` self: QtC.KAdjustingScrollArea `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KAdjustingScrollArea_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KAdjustingScrollArea_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -8385,6 +8637,10 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -8395,8 +8651,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` self: QtC.KAdjustingScrollArea `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KAdjustingScrollArea_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KAdjustingScrollArea_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -8432,6 +8688,10 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -8444,9 +8704,9 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KAdjustingScrollArea_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KAdjustingScrollArea_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -8481,6 +8741,10 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -8493,8 +8757,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KAdjustingScrollArea_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KAdjustingScrollArea_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -8531,6 +8795,10 @@ pub const kadjustingscrollarea = struct {
         return qtc.KAdjustingScrollArea_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -8545,8 +8813,8 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KAdjustingScrollArea_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.KAdjustingScrollArea_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -8580,6 +8848,9 @@ pub const kadjustingscrollarea = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kadjustingscrollarea.html#dtor.KAdjustingScrollArea)
     ///
@@ -8589,7 +8860,7 @@ pub const kadjustingscrollarea = struct {
     ///
     /// ` self: QtC.KAdjustingScrollArea `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KAdjustingScrollArea_Delete(@ptrCast(self));
     }
 };

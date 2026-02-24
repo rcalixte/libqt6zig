@@ -126,6 +126,10 @@ pub const qbasictimer = struct {
         qtc.QBasicTimer_Stop(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#dtor.QBasicTimer)
     ///
     /// Delete this object from C++ memory.
@@ -134,7 +138,7 @@ pub const qbasictimer = struct {
     ///
     /// ` self: QtC.QBasicTimer `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QBasicTimer_Delete(@ptrCast(self));
     }
 };

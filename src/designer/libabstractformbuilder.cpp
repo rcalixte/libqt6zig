@@ -112,7 +112,7 @@ bool QAbstractFormBuilder_CheckProperty(const QAbstractFormBuilder* self, QObjec
 }
 
 // Base class handler implementation
-QWidget* QAbstractFormBuilder_QBaseLoad(QAbstractFormBuilder* self, QIODevice* dev, QWidget* parentWidget) {
+QWidget* QAbstractFormBuilder_SuperLoad(QAbstractFormBuilder* self, QIODevice* dev, QWidget* parentWidget) {
     auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
     if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
         vqabstractformbuilder->setQAbstractFormBuilder_Load_IsBase(true);
@@ -131,7 +131,7 @@ void QAbstractFormBuilder_OnLoad(QAbstractFormBuilder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractFormBuilder_QBaseSave(QAbstractFormBuilder* self, QIODevice* dev, QWidget* widget) {
+void QAbstractFormBuilder_SuperSave(QAbstractFormBuilder* self, QIODevice* dev, QWidget* widget) {
     auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
     if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
         vqabstractformbuilder->setQAbstractFormBuilder_Save_IsBase(true);
@@ -150,7 +150,7 @@ void QAbstractFormBuilder_OnSave(QAbstractFormBuilder* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QAbstractFormBuilder_QBaseAddMenuAction(QAbstractFormBuilder* self, QAction* action) {
+void QAbstractFormBuilder_SuperAddMenuAction(QAbstractFormBuilder* self, QAction* action) {
     auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
     if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
         vqabstractformbuilder->setQAbstractFormBuilder_AddMenuAction_IsBase(true);
@@ -169,7 +169,7 @@ void QAbstractFormBuilder_OnAddMenuAction(QAbstractFormBuilder* self, intptr_t s
 }
 
 // Base class handler implementation
-QWidget* QAbstractFormBuilder_QBaseCreateWidget(QAbstractFormBuilder* self, const libqt_string widgetName, QWidget* parentWidget, const libqt_string name) {
+QWidget* QAbstractFormBuilder_SuperCreateWidget(QAbstractFormBuilder* self, const libqt_string widgetName, QWidget* parentWidget, const libqt_string name) {
     auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
     QString widgetName_QString = QString::fromUtf8(widgetName.data, widgetName.len);
     QString name_QString = QString::fromUtf8(name.data, name.len);
@@ -190,7 +190,7 @@ void QAbstractFormBuilder_OnCreateWidget(QAbstractFormBuilder* self, intptr_t sl
 }
 
 // Base class handler implementation
-QLayout* QAbstractFormBuilder_QBaseCreateLayout(QAbstractFormBuilder* self, const libqt_string layoutName, QObject* parent, const libqt_string name) {
+QLayout* QAbstractFormBuilder_SuperCreateLayout(QAbstractFormBuilder* self, const libqt_string layoutName, QObject* parent, const libqt_string name) {
     auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
     QString layoutName_QString = QString::fromUtf8(layoutName.data, layoutName.len);
     QString name_QString = QString::fromUtf8(name.data, name.len);
@@ -211,7 +211,7 @@ void QAbstractFormBuilder_OnCreateLayout(QAbstractFormBuilder* self, intptr_t sl
 }
 
 // Base class handler implementation
-QAction* QAbstractFormBuilder_QBaseCreateAction(QAbstractFormBuilder* self, QObject* parent, const libqt_string name) {
+QAction* QAbstractFormBuilder_SuperCreateAction(QAbstractFormBuilder* self, QObject* parent, const libqt_string name) {
     auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
@@ -231,7 +231,7 @@ void QAbstractFormBuilder_OnCreateAction(QAbstractFormBuilder* self, intptr_t sl
 }
 
 // Base class handler implementation
-QActionGroup* QAbstractFormBuilder_QBaseCreateActionGroup(QAbstractFormBuilder* self, QObject* parent, const libqt_string name) {
+QActionGroup* QAbstractFormBuilder_SuperCreateActionGroup(QAbstractFormBuilder* self, QObject* parent, const libqt_string name) {
     auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
@@ -251,7 +251,7 @@ void QAbstractFormBuilder_OnCreateActionGroup(QAbstractFormBuilder* self, intptr
 }
 
 // Base class handler implementation
-bool QAbstractFormBuilder_QBaseCheckProperty(const QAbstractFormBuilder* self, QObject* obj, const libqt_string prop) {
+bool QAbstractFormBuilder_SuperCheckProperty(const QAbstractFormBuilder* self, QObject* obj, const libqt_string prop) {
     auto* vqabstractformbuilder = const_cast<VirtualQAbstractFormBuilder*>(dynamic_cast<const VirtualQAbstractFormBuilder*>(self));
     QString prop_QString = QString::fromUtf8(prop.data, prop.len);
     if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
@@ -282,7 +282,7 @@ bool QAbstractFormBuilder_ApplyPropertyInternally(QAbstractFormBuilder* self, QO
 }
 
 // Base class handler implementation
-bool QAbstractFormBuilder_QBaseApplyPropertyInternally(QAbstractFormBuilder* self, QObject* o, const libqt_string propertyName, const QVariant* value) {
+bool QAbstractFormBuilder_SuperApplyPropertyInternally(QAbstractFormBuilder* self, QObject* o, const libqt_string propertyName, const QVariant* value) {
     auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
     QString propertyName_QString = QString::fromUtf8(propertyName.data, propertyName.len);
     if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
@@ -312,7 +312,7 @@ void QAbstractFormBuilder_Reset(QAbstractFormBuilder* self) {
 }
 
 // Base class handler implementation
-void QAbstractFormBuilder_QBaseReset(QAbstractFormBuilder* self) {
+void QAbstractFormBuilder_SuperReset(QAbstractFormBuilder* self) {
     auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
     if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
         vqabstractformbuilder->setQAbstractFormBuilder_Reset_IsBase(true);
@@ -340,7 +340,7 @@ QMetaEnum* QAbstractFormBuilder_ToolBarAreaMetaEnum(QAbstractFormBuilder* self) 
 }
 
 // Base class handler implementation
-QMetaEnum* QAbstractFormBuilder_QBaseToolBarAreaMetaEnum(QAbstractFormBuilder* self) {
+QMetaEnum* QAbstractFormBuilder_SuperToolBarAreaMetaEnum(QAbstractFormBuilder* self) {
     auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
     if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
         vqabstractformbuilder->setQAbstractFormBuilder_ToolBarAreaMetaEnum_IsBase(true);

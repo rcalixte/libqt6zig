@@ -84,13 +84,17 @@ pub const qwebengineglobalsettings__dnsmode = struct {
         qtc.QWebEngineGlobalSettings__DnsMode_SetServerTemplates(@ptrCast(self), serverTemplates_list);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QWebEngineGlobalSettings__DnsMode `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWebEngineGlobalSettings__DnsMode_Delete(@ptrCast(self));
     }
 };

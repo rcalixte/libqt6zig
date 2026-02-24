@@ -325,7 +325,7 @@ QWidget* QMenuBar_CornerWidget1(const QMenuBar* self, int corner) {
 }
 
 // Base class handler implementation
-QMetaObject* QMenuBar_QBaseMetaObject(const QMenuBar* self) {
+QMetaObject* QMenuBar_SuperMetaObject(const QMenuBar* self) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_MetaObject_IsBase(true);
@@ -344,7 +344,7 @@ void QMenuBar_OnMetaObject(const QMenuBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QMenuBar_QBaseMetacast(QMenuBar* self, const char* param1) {
+void* QMenuBar_SuperMetacast(QMenuBar* self, const char* param1) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_Metacast_IsBase(true);
@@ -363,7 +363,7 @@ void QMenuBar_OnMetacast(QMenuBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QMenuBar_QBaseMetacall(QMenuBar* self, int param1, int param2, void** param3) {
+int QMenuBar_SuperMetacall(QMenuBar* self, int param1, int param2, void** param3) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_Metacall_IsBase(true);
@@ -382,7 +382,7 @@ void QMenuBar_OnMetacall(QMenuBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QMenuBar_QBaseSizeHint(const QMenuBar* self) {
+QSize* QMenuBar_SuperSizeHint(const QMenuBar* self) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_SizeHint_IsBase(true);
@@ -401,7 +401,7 @@ void QMenuBar_OnSizeHint(const QMenuBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QMenuBar_QBaseMinimumSizeHint(const QMenuBar* self) {
+QSize* QMenuBar_SuperMinimumSizeHint(const QMenuBar* self) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_MinimumSizeHint_IsBase(true);
@@ -420,7 +420,7 @@ void QMenuBar_OnMinimumSizeHint(const QMenuBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QMenuBar_QBaseHeightForWidth(const QMenuBar* self, int param1) {
+int QMenuBar_SuperHeightForWidth(const QMenuBar* self, int param1) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_HeightForWidth_IsBase(true);
@@ -439,7 +439,7 @@ void QMenuBar_OnHeightForWidth(const QMenuBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseSetVisible(QMenuBar* self, bool visible) {
+void QMenuBar_SuperSetVisible(QMenuBar* self, bool visible) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_SetVisible_IsBase(true);
@@ -458,7 +458,7 @@ void QMenuBar_OnSetVisible(QMenuBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseChangeEvent(QMenuBar* self, QEvent* param1) {
+void QMenuBar_SuperChangeEvent(QMenuBar* self, QEvent* param1) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_ChangeEvent_IsBase(true);
@@ -477,7 +477,7 @@ void QMenuBar_OnChangeEvent(QMenuBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseKeyPressEvent(QMenuBar* self, QKeyEvent* param1) {
+void QMenuBar_SuperKeyPressEvent(QMenuBar* self, QKeyEvent* param1) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_KeyPressEvent_IsBase(true);
@@ -496,7 +496,7 @@ void QMenuBar_OnKeyPressEvent(QMenuBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseMouseReleaseEvent(QMenuBar* self, QMouseEvent* param1) {
+void QMenuBar_SuperMouseReleaseEvent(QMenuBar* self, QMouseEvent* param1) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_MouseReleaseEvent_IsBase(true);
@@ -515,7 +515,7 @@ void QMenuBar_OnMouseReleaseEvent(QMenuBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseMousePressEvent(QMenuBar* self, QMouseEvent* param1) {
+void QMenuBar_SuperMousePressEvent(QMenuBar* self, QMouseEvent* param1) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_MousePressEvent_IsBase(true);
@@ -534,7 +534,7 @@ void QMenuBar_OnMousePressEvent(QMenuBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseMouseMoveEvent(QMenuBar* self, QMouseEvent* param1) {
+void QMenuBar_SuperMouseMoveEvent(QMenuBar* self, QMouseEvent* param1) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_MouseMoveEvent_IsBase(true);
@@ -553,7 +553,7 @@ void QMenuBar_OnMouseMoveEvent(QMenuBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseLeaveEvent(QMenuBar* self, QEvent* param1) {
+void QMenuBar_SuperLeaveEvent(QMenuBar* self, QEvent* param1) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_LeaveEvent_IsBase(true);
@@ -572,7 +572,7 @@ void QMenuBar_OnLeaveEvent(QMenuBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBasePaintEvent(QMenuBar* self, QPaintEvent* param1) {
+void QMenuBar_SuperPaintEvent(QMenuBar* self, QPaintEvent* param1) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_PaintEvent_IsBase(true);
@@ -591,7 +591,7 @@ void QMenuBar_OnPaintEvent(QMenuBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseResizeEvent(QMenuBar* self, QResizeEvent* param1) {
+void QMenuBar_SuperResizeEvent(QMenuBar* self, QResizeEvent* param1) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_ResizeEvent_IsBase(true);
@@ -610,7 +610,7 @@ void QMenuBar_OnResizeEvent(QMenuBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseActionEvent(QMenuBar* self, QActionEvent* param1) {
+void QMenuBar_SuperActionEvent(QMenuBar* self, QActionEvent* param1) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_ActionEvent_IsBase(true);
@@ -629,7 +629,7 @@ void QMenuBar_OnActionEvent(QMenuBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseFocusOutEvent(QMenuBar* self, QFocusEvent* param1) {
+void QMenuBar_SuperFocusOutEvent(QMenuBar* self, QFocusEvent* param1) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_FocusOutEvent_IsBase(true);
@@ -648,7 +648,7 @@ void QMenuBar_OnFocusOutEvent(QMenuBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseFocusInEvent(QMenuBar* self, QFocusEvent* param1) {
+void QMenuBar_SuperFocusInEvent(QMenuBar* self, QFocusEvent* param1) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_FocusInEvent_IsBase(true);
@@ -667,7 +667,7 @@ void QMenuBar_OnFocusInEvent(QMenuBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseTimerEvent(QMenuBar* self, QTimerEvent* param1) {
+void QMenuBar_SuperTimerEvent(QMenuBar* self, QTimerEvent* param1) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_TimerEvent_IsBase(true);
@@ -686,7 +686,7 @@ void QMenuBar_OnTimerEvent(QMenuBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QMenuBar_QBaseEventFilter(QMenuBar* self, QObject* param1, QEvent* param2) {
+bool QMenuBar_SuperEventFilter(QMenuBar* self, QObject* param1, QEvent* param2) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_EventFilter_IsBase(true);
@@ -705,7 +705,7 @@ void QMenuBar_OnEventFilter(QMenuBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QMenuBar_QBaseEvent(QMenuBar* self, QEvent* param1) {
+bool QMenuBar_SuperEvent(QMenuBar* self, QEvent* param1) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_Event_IsBase(true);
@@ -724,7 +724,7 @@ void QMenuBar_OnEvent(QMenuBar* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseInitStyleOption(const QMenuBar* self, QStyleOptionMenuItem* option, const QAction* action) {
+void QMenuBar_SuperInitStyleOption(const QMenuBar* self, QStyleOptionMenuItem* option, const QAction* action) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_InitStyleOption_IsBase(true);
@@ -753,7 +753,7 @@ int QMenuBar_DevType(const QMenuBar* self) {
 }
 
 // Base class handler implementation
-int QMenuBar_QBaseDevType(const QMenuBar* self) {
+int QMenuBar_SuperDevType(const QMenuBar* self) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_DevType_IsBase(true);
@@ -782,7 +782,7 @@ bool QMenuBar_HasHeightForWidth(const QMenuBar* self) {
 }
 
 // Base class handler implementation
-bool QMenuBar_QBaseHasHeightForWidth(const QMenuBar* self) {
+bool QMenuBar_SuperHasHeightForWidth(const QMenuBar* self) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_HasHeightForWidth_IsBase(true);
@@ -811,7 +811,7 @@ QPaintEngine* QMenuBar_PaintEngine(const QMenuBar* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QMenuBar_QBasePaintEngine(const QMenuBar* self) {
+QPaintEngine* QMenuBar_SuperPaintEngine(const QMenuBar* self) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_PaintEngine_IsBase(true);
@@ -840,7 +840,7 @@ void QMenuBar_MouseDoubleClickEvent(QMenuBar* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseMouseDoubleClickEvent(QMenuBar* self, QMouseEvent* event) {
+void QMenuBar_SuperMouseDoubleClickEvent(QMenuBar* self, QMouseEvent* event) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_MouseDoubleClickEvent_IsBase(true);
@@ -869,7 +869,7 @@ void QMenuBar_WheelEvent(QMenuBar* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseWheelEvent(QMenuBar* self, QWheelEvent* event) {
+void QMenuBar_SuperWheelEvent(QMenuBar* self, QWheelEvent* event) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_WheelEvent_IsBase(true);
@@ -898,7 +898,7 @@ void QMenuBar_KeyReleaseEvent(QMenuBar* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseKeyReleaseEvent(QMenuBar* self, QKeyEvent* event) {
+void QMenuBar_SuperKeyReleaseEvent(QMenuBar* self, QKeyEvent* event) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_KeyReleaseEvent_IsBase(true);
@@ -927,7 +927,7 @@ void QMenuBar_EnterEvent(QMenuBar* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseEnterEvent(QMenuBar* self, QEnterEvent* event) {
+void QMenuBar_SuperEnterEvent(QMenuBar* self, QEnterEvent* event) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_EnterEvent_IsBase(true);
@@ -956,7 +956,7 @@ void QMenuBar_MoveEvent(QMenuBar* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseMoveEvent(QMenuBar* self, QMoveEvent* event) {
+void QMenuBar_SuperMoveEvent(QMenuBar* self, QMoveEvent* event) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_MoveEvent_IsBase(true);
@@ -985,7 +985,7 @@ void QMenuBar_CloseEvent(QMenuBar* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseCloseEvent(QMenuBar* self, QCloseEvent* event) {
+void QMenuBar_SuperCloseEvent(QMenuBar* self, QCloseEvent* event) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_CloseEvent_IsBase(true);
@@ -1014,7 +1014,7 @@ void QMenuBar_ContextMenuEvent(QMenuBar* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseContextMenuEvent(QMenuBar* self, QContextMenuEvent* event) {
+void QMenuBar_SuperContextMenuEvent(QMenuBar* self, QContextMenuEvent* event) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_ContextMenuEvent_IsBase(true);
@@ -1043,7 +1043,7 @@ void QMenuBar_TabletEvent(QMenuBar* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseTabletEvent(QMenuBar* self, QTabletEvent* event) {
+void QMenuBar_SuperTabletEvent(QMenuBar* self, QTabletEvent* event) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_TabletEvent_IsBase(true);
@@ -1072,7 +1072,7 @@ void QMenuBar_DragEnterEvent(QMenuBar* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseDragEnterEvent(QMenuBar* self, QDragEnterEvent* event) {
+void QMenuBar_SuperDragEnterEvent(QMenuBar* self, QDragEnterEvent* event) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_DragEnterEvent_IsBase(true);
@@ -1101,7 +1101,7 @@ void QMenuBar_DragMoveEvent(QMenuBar* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseDragMoveEvent(QMenuBar* self, QDragMoveEvent* event) {
+void QMenuBar_SuperDragMoveEvent(QMenuBar* self, QDragMoveEvent* event) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_DragMoveEvent_IsBase(true);
@@ -1130,7 +1130,7 @@ void QMenuBar_DragLeaveEvent(QMenuBar* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseDragLeaveEvent(QMenuBar* self, QDragLeaveEvent* event) {
+void QMenuBar_SuperDragLeaveEvent(QMenuBar* self, QDragLeaveEvent* event) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_DragLeaveEvent_IsBase(true);
@@ -1159,7 +1159,7 @@ void QMenuBar_DropEvent(QMenuBar* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseDropEvent(QMenuBar* self, QDropEvent* event) {
+void QMenuBar_SuperDropEvent(QMenuBar* self, QDropEvent* event) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_DropEvent_IsBase(true);
@@ -1188,7 +1188,7 @@ void QMenuBar_ShowEvent(QMenuBar* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseShowEvent(QMenuBar* self, QShowEvent* event) {
+void QMenuBar_SuperShowEvent(QMenuBar* self, QShowEvent* event) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_ShowEvent_IsBase(true);
@@ -1217,7 +1217,7 @@ void QMenuBar_HideEvent(QMenuBar* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseHideEvent(QMenuBar* self, QHideEvent* event) {
+void QMenuBar_SuperHideEvent(QMenuBar* self, QHideEvent* event) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_HideEvent_IsBase(true);
@@ -1247,7 +1247,7 @@ bool QMenuBar_NativeEvent(QMenuBar* self, const libqt_string eventType, void* me
 }
 
 // Base class handler implementation
-bool QMenuBar_QBaseNativeEvent(QMenuBar* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QMenuBar_SuperNativeEvent(QMenuBar* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
@@ -1277,7 +1277,7 @@ int QMenuBar_Metric(const QMenuBar* self, int param1) {
 }
 
 // Base class handler implementation
-int QMenuBar_QBaseMetric(const QMenuBar* self, int param1) {
+int QMenuBar_SuperMetric(const QMenuBar* self, int param1) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_Metric_IsBase(true);
@@ -1306,7 +1306,7 @@ void QMenuBar_InitPainter(const QMenuBar* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseInitPainter(const QMenuBar* self, QPainter* painter) {
+void QMenuBar_SuperInitPainter(const QMenuBar* self, QPainter* painter) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_InitPainter_IsBase(true);
@@ -1335,7 +1335,7 @@ QPaintDevice* QMenuBar_Redirected(const QMenuBar* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QMenuBar_QBaseRedirected(const QMenuBar* self, QPoint* offset) {
+QPaintDevice* QMenuBar_SuperRedirected(const QMenuBar* self, QPoint* offset) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_Redirected_IsBase(true);
@@ -1364,7 +1364,7 @@ QPainter* QMenuBar_SharedPainter(const QMenuBar* self) {
 }
 
 // Base class handler implementation
-QPainter* QMenuBar_QBaseSharedPainter(const QMenuBar* self) {
+QPainter* QMenuBar_SuperSharedPainter(const QMenuBar* self) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_SharedPainter_IsBase(true);
@@ -1393,7 +1393,7 @@ void QMenuBar_InputMethodEvent(QMenuBar* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseInputMethodEvent(QMenuBar* self, QInputMethodEvent* param1) {
+void QMenuBar_SuperInputMethodEvent(QMenuBar* self, QInputMethodEvent* param1) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_InputMethodEvent_IsBase(true);
@@ -1422,7 +1422,7 @@ QVariant* QMenuBar_InputMethodQuery(const QMenuBar* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QMenuBar_QBaseInputMethodQuery(const QMenuBar* self, int param1) {
+QVariant* QMenuBar_SuperInputMethodQuery(const QMenuBar* self, int param1) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_InputMethodQuery_IsBase(true);
@@ -1451,7 +1451,7 @@ bool QMenuBar_FocusNextPrevChild(QMenuBar* self, bool next) {
 }
 
 // Base class handler implementation
-bool QMenuBar_QBaseFocusNextPrevChild(QMenuBar* self, bool next) {
+bool QMenuBar_SuperFocusNextPrevChild(QMenuBar* self, bool next) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_FocusNextPrevChild_IsBase(true);
@@ -1480,7 +1480,7 @@ void QMenuBar_ChildEvent(QMenuBar* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseChildEvent(QMenuBar* self, QChildEvent* event) {
+void QMenuBar_SuperChildEvent(QMenuBar* self, QChildEvent* event) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_ChildEvent_IsBase(true);
@@ -1509,7 +1509,7 @@ void QMenuBar_CustomEvent(QMenuBar* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseCustomEvent(QMenuBar* self, QEvent* event) {
+void QMenuBar_SuperCustomEvent(QMenuBar* self, QEvent* event) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_CustomEvent_IsBase(true);
@@ -1538,7 +1538,7 @@ void QMenuBar_ConnectNotify(QMenuBar* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseConnectNotify(QMenuBar* self, const QMetaMethod* signal) {
+void QMenuBar_SuperConnectNotify(QMenuBar* self, const QMetaMethod* signal) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_ConnectNotify_IsBase(true);
@@ -1567,7 +1567,7 @@ void QMenuBar_DisconnectNotify(QMenuBar* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseDisconnectNotify(QMenuBar* self, const QMetaMethod* signal) {
+void QMenuBar_SuperDisconnectNotify(QMenuBar* self, const QMetaMethod* signal) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_DisconnectNotify_IsBase(true);
@@ -1596,7 +1596,7 @@ void QMenuBar_UpdateMicroFocus(QMenuBar* self) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseUpdateMicroFocus(QMenuBar* self) {
+void QMenuBar_SuperUpdateMicroFocus(QMenuBar* self) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_UpdateMicroFocus_IsBase(true);
@@ -1625,7 +1625,7 @@ void QMenuBar_Create(QMenuBar* self) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseCreate(QMenuBar* self) {
+void QMenuBar_SuperCreate(QMenuBar* self) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_Create_IsBase(true);
@@ -1654,7 +1654,7 @@ void QMenuBar_Destroy(QMenuBar* self) {
 }
 
 // Base class handler implementation
-void QMenuBar_QBaseDestroy(QMenuBar* self) {
+void QMenuBar_SuperDestroy(QMenuBar* self) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_Destroy_IsBase(true);
@@ -1683,7 +1683,7 @@ bool QMenuBar_FocusNextChild(QMenuBar* self) {
 }
 
 // Base class handler implementation
-bool QMenuBar_QBaseFocusNextChild(QMenuBar* self) {
+bool QMenuBar_SuperFocusNextChild(QMenuBar* self) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_FocusNextChild_IsBase(true);
@@ -1712,7 +1712,7 @@ bool QMenuBar_FocusPreviousChild(QMenuBar* self) {
 }
 
 // Base class handler implementation
-bool QMenuBar_QBaseFocusPreviousChild(QMenuBar* self) {
+bool QMenuBar_SuperFocusPreviousChild(QMenuBar* self) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_FocusPreviousChild_IsBase(true);
@@ -1741,7 +1741,7 @@ QObject* QMenuBar_Sender(const QMenuBar* self) {
 }
 
 // Base class handler implementation
-QObject* QMenuBar_QBaseSender(const QMenuBar* self) {
+QObject* QMenuBar_SuperSender(const QMenuBar* self) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_Sender_IsBase(true);
@@ -1770,7 +1770,7 @@ int QMenuBar_SenderSignalIndex(const QMenuBar* self) {
 }
 
 // Base class handler implementation
-int QMenuBar_QBaseSenderSignalIndex(const QMenuBar* self) {
+int QMenuBar_SuperSenderSignalIndex(const QMenuBar* self) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_SenderSignalIndex_IsBase(true);
@@ -1799,7 +1799,7 @@ int QMenuBar_Receivers(const QMenuBar* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QMenuBar_QBaseReceivers(const QMenuBar* self, const char* signal) {
+int QMenuBar_SuperReceivers(const QMenuBar* self, const char* signal) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_Receivers_IsBase(true);
@@ -1828,7 +1828,7 @@ bool QMenuBar_IsSignalConnected(const QMenuBar* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-bool QMenuBar_QBaseIsSignalConnected(const QMenuBar* self, const QMetaMethod* signal) {
+bool QMenuBar_SuperIsSignalConnected(const QMenuBar* self, const QMetaMethod* signal) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_IsSignalConnected_IsBase(true);
@@ -1857,7 +1857,7 @@ double QMenuBar_GetDecodedMetricF(const QMenuBar* self, int metricA, int metricB
 }
 
 // Base class handler implementation
-double QMenuBar_QBaseGetDecodedMetricF(const QMenuBar* self, int metricA, int metricB) {
+double QMenuBar_SuperGetDecodedMetricF(const QMenuBar* self, int metricA, int metricB) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
     if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
         vqmenubar->setQMenuBar_GetDecodedMetricF_IsBase(true);

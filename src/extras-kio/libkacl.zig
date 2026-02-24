@@ -396,6 +396,10 @@ pub const kacl = struct {
         qtc.KACL_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperVirtualHook` instead
+    ///
+    pub const QBaseVirtualHook = SuperVirtualHook;
+
     /// ### [Upstream resources](https://api.kde.org/kacl.html#virtual_hook)
     ///
     /// Base class method implementation
@@ -408,9 +412,12 @@ pub const kacl = struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KACL_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
+    pub fn SuperVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
+        qtc.KACL_SuperVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kacl.html#dtor.KACL)
     ///
@@ -420,7 +427,7 @@ pub const kacl = struct {
     ///
     /// ` self: QtC.KACL `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KACL_Delete(@ptrCast(self));
     }
 };

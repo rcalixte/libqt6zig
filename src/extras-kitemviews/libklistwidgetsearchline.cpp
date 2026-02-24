@@ -131,7 +131,7 @@ bool KListWidgetSearchLine_Event(KListWidgetSearchLine* self, QEvent* event) {
 }
 
 // Base class handler implementation
-QMetaObject* KListWidgetSearchLine_QBaseMetaObject(const KListWidgetSearchLine* self) {
+QMetaObject* KListWidgetSearchLine_SuperMetaObject(const KListWidgetSearchLine* self) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_MetaObject_IsBase(true);
@@ -150,7 +150,7 @@ void KListWidgetSearchLine_OnMetaObject(const KListWidgetSearchLine* self, intpt
 }
 
 // Base class handler implementation
-void* KListWidgetSearchLine_QBaseMetacast(KListWidgetSearchLine* self, const char* param1) {
+void* KListWidgetSearchLine_SuperMetacast(KListWidgetSearchLine* self, const char* param1) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_Metacast_IsBase(true);
@@ -169,7 +169,7 @@ void KListWidgetSearchLine_OnMetacast(KListWidgetSearchLine* self, intptr_t slot
 }
 
 // Base class handler implementation
-int KListWidgetSearchLine_QBaseMetacall(KListWidgetSearchLine* self, int param1, int param2, void** param3) {
+int KListWidgetSearchLine_SuperMetacall(KListWidgetSearchLine* self, int param1, int param2, void** param3) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_Metacall_IsBase(true);
@@ -188,7 +188,7 @@ void KListWidgetSearchLine_OnMetacall(KListWidgetSearchLine* self, intptr_t slot
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseUpdateSearch(KListWidgetSearchLine* self, const libqt_string s) {
+void KListWidgetSearchLine_SuperUpdateSearch(KListWidgetSearchLine* self, const libqt_string s) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     QString s_QString = QString::fromUtf8(s.data, s.len);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
@@ -208,7 +208,7 @@ void KListWidgetSearchLine_OnUpdateSearch(KListWidgetSearchLine* self, intptr_t 
 }
 
 // Base class handler implementation
-bool KListWidgetSearchLine_QBaseItemMatches(const KListWidgetSearchLine* self, const QListWidgetItem* item, const libqt_string s) {
+bool KListWidgetSearchLine_SuperItemMatches(const KListWidgetSearchLine* self, const QListWidgetItem* item, const libqt_string s) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
     QString s_QString = QString::fromUtf8(s.data, s.len);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
@@ -228,7 +228,7 @@ void KListWidgetSearchLine_OnItemMatches(const KListWidgetSearchLine* self, intp
 }
 
 // Base class handler implementation
-bool KListWidgetSearchLine_QBaseEvent(KListWidgetSearchLine* self, QEvent* event) {
+bool KListWidgetSearchLine_SuperEvent(KListWidgetSearchLine* self, QEvent* event) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_Event_IsBase(true);
@@ -257,7 +257,7 @@ QSize* KListWidgetSearchLine_SizeHint(const KListWidgetSearchLine* self) {
 }
 
 // Base class handler implementation
-QSize* KListWidgetSearchLine_QBaseSizeHint(const KListWidgetSearchLine* self) {
+QSize* KListWidgetSearchLine_SuperSizeHint(const KListWidgetSearchLine* self) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_SizeHint_IsBase(true);
@@ -286,7 +286,7 @@ QSize* KListWidgetSearchLine_MinimumSizeHint(const KListWidgetSearchLine* self) 
 }
 
 // Base class handler implementation
-QSize* KListWidgetSearchLine_QBaseMinimumSizeHint(const KListWidgetSearchLine* self) {
+QSize* KListWidgetSearchLine_SuperMinimumSizeHint(const KListWidgetSearchLine* self) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_MinimumSizeHint_IsBase(true);
@@ -315,7 +315,7 @@ void KListWidgetSearchLine_MousePressEvent(KListWidgetSearchLine* self, QMouseEv
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseMousePressEvent(KListWidgetSearchLine* self, QMouseEvent* param1) {
+void KListWidgetSearchLine_SuperMousePressEvent(KListWidgetSearchLine* self, QMouseEvent* param1) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_MousePressEvent_IsBase(true);
@@ -344,7 +344,7 @@ void KListWidgetSearchLine_MouseMoveEvent(KListWidgetSearchLine* self, QMouseEve
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseMouseMoveEvent(KListWidgetSearchLine* self, QMouseEvent* param1) {
+void KListWidgetSearchLine_SuperMouseMoveEvent(KListWidgetSearchLine* self, QMouseEvent* param1) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_MouseMoveEvent_IsBase(true);
@@ -373,7 +373,7 @@ void KListWidgetSearchLine_MouseReleaseEvent(KListWidgetSearchLine* self, QMouse
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseMouseReleaseEvent(KListWidgetSearchLine* self, QMouseEvent* param1) {
+void KListWidgetSearchLine_SuperMouseReleaseEvent(KListWidgetSearchLine* self, QMouseEvent* param1) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_MouseReleaseEvent_IsBase(true);
@@ -402,7 +402,7 @@ void KListWidgetSearchLine_MouseDoubleClickEvent(KListWidgetSearchLine* self, QM
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseMouseDoubleClickEvent(KListWidgetSearchLine* self, QMouseEvent* param1) {
+void KListWidgetSearchLine_SuperMouseDoubleClickEvent(KListWidgetSearchLine* self, QMouseEvent* param1) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_MouseDoubleClickEvent_IsBase(true);
@@ -431,7 +431,7 @@ void KListWidgetSearchLine_KeyPressEvent(KListWidgetSearchLine* self, QKeyEvent*
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseKeyPressEvent(KListWidgetSearchLine* self, QKeyEvent* param1) {
+void KListWidgetSearchLine_SuperKeyPressEvent(KListWidgetSearchLine* self, QKeyEvent* param1) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_KeyPressEvent_IsBase(true);
@@ -460,7 +460,7 @@ void KListWidgetSearchLine_KeyReleaseEvent(KListWidgetSearchLine* self, QKeyEven
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseKeyReleaseEvent(KListWidgetSearchLine* self, QKeyEvent* param1) {
+void KListWidgetSearchLine_SuperKeyReleaseEvent(KListWidgetSearchLine* self, QKeyEvent* param1) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_KeyReleaseEvent_IsBase(true);
@@ -489,7 +489,7 @@ void KListWidgetSearchLine_FocusInEvent(KListWidgetSearchLine* self, QFocusEvent
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseFocusInEvent(KListWidgetSearchLine* self, QFocusEvent* param1) {
+void KListWidgetSearchLine_SuperFocusInEvent(KListWidgetSearchLine* self, QFocusEvent* param1) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_FocusInEvent_IsBase(true);
@@ -518,7 +518,7 @@ void KListWidgetSearchLine_FocusOutEvent(KListWidgetSearchLine* self, QFocusEven
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseFocusOutEvent(KListWidgetSearchLine* self, QFocusEvent* param1) {
+void KListWidgetSearchLine_SuperFocusOutEvent(KListWidgetSearchLine* self, QFocusEvent* param1) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_FocusOutEvent_IsBase(true);
@@ -547,7 +547,7 @@ void KListWidgetSearchLine_PaintEvent(KListWidgetSearchLine* self, QPaintEvent* 
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBasePaintEvent(KListWidgetSearchLine* self, QPaintEvent* param1) {
+void KListWidgetSearchLine_SuperPaintEvent(KListWidgetSearchLine* self, QPaintEvent* param1) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_PaintEvent_IsBase(true);
@@ -576,7 +576,7 @@ void KListWidgetSearchLine_DragEnterEvent(KListWidgetSearchLine* self, QDragEnte
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseDragEnterEvent(KListWidgetSearchLine* self, QDragEnterEvent* param1) {
+void KListWidgetSearchLine_SuperDragEnterEvent(KListWidgetSearchLine* self, QDragEnterEvent* param1) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_DragEnterEvent_IsBase(true);
@@ -605,7 +605,7 @@ void KListWidgetSearchLine_DragMoveEvent(KListWidgetSearchLine* self, QDragMoveE
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseDragMoveEvent(KListWidgetSearchLine* self, QDragMoveEvent* e) {
+void KListWidgetSearchLine_SuperDragMoveEvent(KListWidgetSearchLine* self, QDragMoveEvent* e) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_DragMoveEvent_IsBase(true);
@@ -634,7 +634,7 @@ void KListWidgetSearchLine_DragLeaveEvent(KListWidgetSearchLine* self, QDragLeav
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseDragLeaveEvent(KListWidgetSearchLine* self, QDragLeaveEvent* e) {
+void KListWidgetSearchLine_SuperDragLeaveEvent(KListWidgetSearchLine* self, QDragLeaveEvent* e) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_DragLeaveEvent_IsBase(true);
@@ -663,7 +663,7 @@ void KListWidgetSearchLine_DropEvent(KListWidgetSearchLine* self, QDropEvent* pa
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseDropEvent(KListWidgetSearchLine* self, QDropEvent* param1) {
+void KListWidgetSearchLine_SuperDropEvent(KListWidgetSearchLine* self, QDropEvent* param1) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_DropEvent_IsBase(true);
@@ -692,7 +692,7 @@ void KListWidgetSearchLine_ChangeEvent(KListWidgetSearchLine* self, QEvent* para
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseChangeEvent(KListWidgetSearchLine* self, QEvent* param1) {
+void KListWidgetSearchLine_SuperChangeEvent(KListWidgetSearchLine* self, QEvent* param1) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_ChangeEvent_IsBase(true);
@@ -721,7 +721,7 @@ void KListWidgetSearchLine_ContextMenuEvent(KListWidgetSearchLine* self, QContex
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseContextMenuEvent(KListWidgetSearchLine* self, QContextMenuEvent* param1) {
+void KListWidgetSearchLine_SuperContextMenuEvent(KListWidgetSearchLine* self, QContextMenuEvent* param1) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_ContextMenuEvent_IsBase(true);
@@ -750,7 +750,7 @@ void KListWidgetSearchLine_InputMethodEvent(KListWidgetSearchLine* self, QInputM
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseInputMethodEvent(KListWidgetSearchLine* self, QInputMethodEvent* param1) {
+void KListWidgetSearchLine_SuperInputMethodEvent(KListWidgetSearchLine* self, QInputMethodEvent* param1) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_InputMethodEvent_IsBase(true);
@@ -779,7 +779,7 @@ void KListWidgetSearchLine_InitStyleOption(const KListWidgetSearchLine* self, QS
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseInitStyleOption(const KListWidgetSearchLine* self, QStyleOptionFrame* option) {
+void KListWidgetSearchLine_SuperInitStyleOption(const KListWidgetSearchLine* self, QStyleOptionFrame* option) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_InitStyleOption_IsBase(true);
@@ -808,7 +808,7 @@ QVariant* KListWidgetSearchLine_InputMethodQuery(const KListWidgetSearchLine* se
 }
 
 // Base class handler implementation
-QVariant* KListWidgetSearchLine_QBaseInputMethodQuery(const KListWidgetSearchLine* self, int param1) {
+QVariant* KListWidgetSearchLine_SuperInputMethodQuery(const KListWidgetSearchLine* self, int param1) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_InputMethodQuery_IsBase(true);
@@ -837,7 +837,7 @@ void KListWidgetSearchLine_TimerEvent(KListWidgetSearchLine* self, QTimerEvent* 
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseTimerEvent(KListWidgetSearchLine* self, QTimerEvent* param1) {
+void KListWidgetSearchLine_SuperTimerEvent(KListWidgetSearchLine* self, QTimerEvent* param1) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_TimerEvent_IsBase(true);
@@ -866,7 +866,7 @@ int KListWidgetSearchLine_DevType(const KListWidgetSearchLine* self) {
 }
 
 // Base class handler implementation
-int KListWidgetSearchLine_QBaseDevType(const KListWidgetSearchLine* self) {
+int KListWidgetSearchLine_SuperDevType(const KListWidgetSearchLine* self) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_DevType_IsBase(true);
@@ -895,7 +895,7 @@ void KListWidgetSearchLine_SetVisible(KListWidgetSearchLine* self, bool visible)
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseSetVisible(KListWidgetSearchLine* self, bool visible) {
+void KListWidgetSearchLine_SuperSetVisible(KListWidgetSearchLine* self, bool visible) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_SetVisible_IsBase(true);
@@ -924,7 +924,7 @@ int KListWidgetSearchLine_HeightForWidth(const KListWidgetSearchLine* self, int 
 }
 
 // Base class handler implementation
-int KListWidgetSearchLine_QBaseHeightForWidth(const KListWidgetSearchLine* self, int param1) {
+int KListWidgetSearchLine_SuperHeightForWidth(const KListWidgetSearchLine* self, int param1) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_HeightForWidth_IsBase(true);
@@ -953,7 +953,7 @@ bool KListWidgetSearchLine_HasHeightForWidth(const KListWidgetSearchLine* self) 
 }
 
 // Base class handler implementation
-bool KListWidgetSearchLine_QBaseHasHeightForWidth(const KListWidgetSearchLine* self) {
+bool KListWidgetSearchLine_SuperHasHeightForWidth(const KListWidgetSearchLine* self) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_HasHeightForWidth_IsBase(true);
@@ -982,7 +982,7 @@ QPaintEngine* KListWidgetSearchLine_PaintEngine(const KListWidgetSearchLine* sel
 }
 
 // Base class handler implementation
-QPaintEngine* KListWidgetSearchLine_QBasePaintEngine(const KListWidgetSearchLine* self) {
+QPaintEngine* KListWidgetSearchLine_SuperPaintEngine(const KListWidgetSearchLine* self) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_PaintEngine_IsBase(true);
@@ -1011,7 +1011,7 @@ void KListWidgetSearchLine_WheelEvent(KListWidgetSearchLine* self, QWheelEvent* 
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseWheelEvent(KListWidgetSearchLine* self, QWheelEvent* event) {
+void KListWidgetSearchLine_SuperWheelEvent(KListWidgetSearchLine* self, QWheelEvent* event) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_WheelEvent_IsBase(true);
@@ -1040,7 +1040,7 @@ void KListWidgetSearchLine_EnterEvent(KListWidgetSearchLine* self, QEnterEvent* 
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseEnterEvent(KListWidgetSearchLine* self, QEnterEvent* event) {
+void KListWidgetSearchLine_SuperEnterEvent(KListWidgetSearchLine* self, QEnterEvent* event) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_EnterEvent_IsBase(true);
@@ -1069,7 +1069,7 @@ void KListWidgetSearchLine_LeaveEvent(KListWidgetSearchLine* self, QEvent* event
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseLeaveEvent(KListWidgetSearchLine* self, QEvent* event) {
+void KListWidgetSearchLine_SuperLeaveEvent(KListWidgetSearchLine* self, QEvent* event) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_LeaveEvent_IsBase(true);
@@ -1098,7 +1098,7 @@ void KListWidgetSearchLine_MoveEvent(KListWidgetSearchLine* self, QMoveEvent* ev
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseMoveEvent(KListWidgetSearchLine* self, QMoveEvent* event) {
+void KListWidgetSearchLine_SuperMoveEvent(KListWidgetSearchLine* self, QMoveEvent* event) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_MoveEvent_IsBase(true);
@@ -1127,7 +1127,7 @@ void KListWidgetSearchLine_ResizeEvent(KListWidgetSearchLine* self, QResizeEvent
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseResizeEvent(KListWidgetSearchLine* self, QResizeEvent* event) {
+void KListWidgetSearchLine_SuperResizeEvent(KListWidgetSearchLine* self, QResizeEvent* event) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_ResizeEvent_IsBase(true);
@@ -1156,7 +1156,7 @@ void KListWidgetSearchLine_CloseEvent(KListWidgetSearchLine* self, QCloseEvent* 
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseCloseEvent(KListWidgetSearchLine* self, QCloseEvent* event) {
+void KListWidgetSearchLine_SuperCloseEvent(KListWidgetSearchLine* self, QCloseEvent* event) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_CloseEvent_IsBase(true);
@@ -1185,7 +1185,7 @@ void KListWidgetSearchLine_TabletEvent(KListWidgetSearchLine* self, QTabletEvent
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseTabletEvent(KListWidgetSearchLine* self, QTabletEvent* event) {
+void KListWidgetSearchLine_SuperTabletEvent(KListWidgetSearchLine* self, QTabletEvent* event) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_TabletEvent_IsBase(true);
@@ -1214,7 +1214,7 @@ void KListWidgetSearchLine_ActionEvent(KListWidgetSearchLine* self, QActionEvent
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseActionEvent(KListWidgetSearchLine* self, QActionEvent* event) {
+void KListWidgetSearchLine_SuperActionEvent(KListWidgetSearchLine* self, QActionEvent* event) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_ActionEvent_IsBase(true);
@@ -1243,7 +1243,7 @@ void KListWidgetSearchLine_ShowEvent(KListWidgetSearchLine* self, QShowEvent* ev
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseShowEvent(KListWidgetSearchLine* self, QShowEvent* event) {
+void KListWidgetSearchLine_SuperShowEvent(KListWidgetSearchLine* self, QShowEvent* event) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_ShowEvent_IsBase(true);
@@ -1272,7 +1272,7 @@ void KListWidgetSearchLine_HideEvent(KListWidgetSearchLine* self, QHideEvent* ev
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseHideEvent(KListWidgetSearchLine* self, QHideEvent* event) {
+void KListWidgetSearchLine_SuperHideEvent(KListWidgetSearchLine* self, QHideEvent* event) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_HideEvent_IsBase(true);
@@ -1302,7 +1302,7 @@ bool KListWidgetSearchLine_NativeEvent(KListWidgetSearchLine* self, const libqt_
 }
 
 // Base class handler implementation
-bool KListWidgetSearchLine_QBaseNativeEvent(KListWidgetSearchLine* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KListWidgetSearchLine_SuperNativeEvent(KListWidgetSearchLine* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
@@ -1332,7 +1332,7 @@ int KListWidgetSearchLine_Metric(const KListWidgetSearchLine* self, int param1) 
 }
 
 // Base class handler implementation
-int KListWidgetSearchLine_QBaseMetric(const KListWidgetSearchLine* self, int param1) {
+int KListWidgetSearchLine_SuperMetric(const KListWidgetSearchLine* self, int param1) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_Metric_IsBase(true);
@@ -1361,7 +1361,7 @@ void KListWidgetSearchLine_InitPainter(const KListWidgetSearchLine* self, QPaint
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseInitPainter(const KListWidgetSearchLine* self, QPainter* painter) {
+void KListWidgetSearchLine_SuperInitPainter(const KListWidgetSearchLine* self, QPainter* painter) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_InitPainter_IsBase(true);
@@ -1390,7 +1390,7 @@ QPaintDevice* KListWidgetSearchLine_Redirected(const KListWidgetSearchLine* self
 }
 
 // Base class handler implementation
-QPaintDevice* KListWidgetSearchLine_QBaseRedirected(const KListWidgetSearchLine* self, QPoint* offset) {
+QPaintDevice* KListWidgetSearchLine_SuperRedirected(const KListWidgetSearchLine* self, QPoint* offset) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_Redirected_IsBase(true);
@@ -1419,7 +1419,7 @@ QPainter* KListWidgetSearchLine_SharedPainter(const KListWidgetSearchLine* self)
 }
 
 // Base class handler implementation
-QPainter* KListWidgetSearchLine_QBaseSharedPainter(const KListWidgetSearchLine* self) {
+QPainter* KListWidgetSearchLine_SuperSharedPainter(const KListWidgetSearchLine* self) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_SharedPainter_IsBase(true);
@@ -1448,7 +1448,7 @@ bool KListWidgetSearchLine_FocusNextPrevChild(KListWidgetSearchLine* self, bool 
 }
 
 // Base class handler implementation
-bool KListWidgetSearchLine_QBaseFocusNextPrevChild(KListWidgetSearchLine* self, bool next) {
+bool KListWidgetSearchLine_SuperFocusNextPrevChild(KListWidgetSearchLine* self, bool next) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_FocusNextPrevChild_IsBase(true);
@@ -1477,7 +1477,7 @@ bool KListWidgetSearchLine_EventFilter(KListWidgetSearchLine* self, QObject* wat
 }
 
 // Base class handler implementation
-bool KListWidgetSearchLine_QBaseEventFilter(KListWidgetSearchLine* self, QObject* watched, QEvent* event) {
+bool KListWidgetSearchLine_SuperEventFilter(KListWidgetSearchLine* self, QObject* watched, QEvent* event) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_EventFilter_IsBase(true);
@@ -1506,7 +1506,7 @@ void KListWidgetSearchLine_ChildEvent(KListWidgetSearchLine* self, QChildEvent* 
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseChildEvent(KListWidgetSearchLine* self, QChildEvent* event) {
+void KListWidgetSearchLine_SuperChildEvent(KListWidgetSearchLine* self, QChildEvent* event) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_ChildEvent_IsBase(true);
@@ -1535,7 +1535,7 @@ void KListWidgetSearchLine_CustomEvent(KListWidgetSearchLine* self, QEvent* even
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseCustomEvent(KListWidgetSearchLine* self, QEvent* event) {
+void KListWidgetSearchLine_SuperCustomEvent(KListWidgetSearchLine* self, QEvent* event) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_CustomEvent_IsBase(true);
@@ -1564,7 +1564,7 @@ void KListWidgetSearchLine_ConnectNotify(KListWidgetSearchLine* self, const QMet
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseConnectNotify(KListWidgetSearchLine* self, const QMetaMethod* signal) {
+void KListWidgetSearchLine_SuperConnectNotify(KListWidgetSearchLine* self, const QMetaMethod* signal) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_ConnectNotify_IsBase(true);
@@ -1593,7 +1593,7 @@ void KListWidgetSearchLine_DisconnectNotify(KListWidgetSearchLine* self, const Q
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseDisconnectNotify(KListWidgetSearchLine* self, const QMetaMethod* signal) {
+void KListWidgetSearchLine_SuperDisconnectNotify(KListWidgetSearchLine* self, const QMetaMethod* signal) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_DisconnectNotify_IsBase(true);
@@ -1621,7 +1621,7 @@ QRect* KListWidgetSearchLine_CursorRect(const KListWidgetSearchLine* self) {
 }
 
 // Base class handler implementation
-QRect* KListWidgetSearchLine_QBaseCursorRect(const KListWidgetSearchLine* self) {
+QRect* KListWidgetSearchLine_SuperCursorRect(const KListWidgetSearchLine* self) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_CursorRect_IsBase(true);
@@ -1649,7 +1649,7 @@ void KListWidgetSearchLine_UpdateMicroFocus(KListWidgetSearchLine* self) {
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseUpdateMicroFocus(KListWidgetSearchLine* self) {
+void KListWidgetSearchLine_SuperUpdateMicroFocus(KListWidgetSearchLine* self) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_UpdateMicroFocus_IsBase(true);
@@ -1678,7 +1678,7 @@ void KListWidgetSearchLine_Create(KListWidgetSearchLine* self) {
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseCreate(KListWidgetSearchLine* self) {
+void KListWidgetSearchLine_SuperCreate(KListWidgetSearchLine* self) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_Create_IsBase(true);
@@ -1707,7 +1707,7 @@ void KListWidgetSearchLine_Destroy(KListWidgetSearchLine* self) {
 }
 
 // Base class handler implementation
-void KListWidgetSearchLine_QBaseDestroy(KListWidgetSearchLine* self) {
+void KListWidgetSearchLine_SuperDestroy(KListWidgetSearchLine* self) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_Destroy_IsBase(true);
@@ -1736,7 +1736,7 @@ bool KListWidgetSearchLine_FocusNextChild(KListWidgetSearchLine* self) {
 }
 
 // Base class handler implementation
-bool KListWidgetSearchLine_QBaseFocusNextChild(KListWidgetSearchLine* self) {
+bool KListWidgetSearchLine_SuperFocusNextChild(KListWidgetSearchLine* self) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_FocusNextChild_IsBase(true);
@@ -1765,7 +1765,7 @@ bool KListWidgetSearchLine_FocusPreviousChild(KListWidgetSearchLine* self) {
 }
 
 // Base class handler implementation
-bool KListWidgetSearchLine_QBaseFocusPreviousChild(KListWidgetSearchLine* self) {
+bool KListWidgetSearchLine_SuperFocusPreviousChild(KListWidgetSearchLine* self) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_FocusPreviousChild_IsBase(true);
@@ -1794,7 +1794,7 @@ QObject* KListWidgetSearchLine_Sender(const KListWidgetSearchLine* self) {
 }
 
 // Base class handler implementation
-QObject* KListWidgetSearchLine_QBaseSender(const KListWidgetSearchLine* self) {
+QObject* KListWidgetSearchLine_SuperSender(const KListWidgetSearchLine* self) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_Sender_IsBase(true);
@@ -1823,7 +1823,7 @@ int KListWidgetSearchLine_SenderSignalIndex(const KListWidgetSearchLine* self) {
 }
 
 // Base class handler implementation
-int KListWidgetSearchLine_QBaseSenderSignalIndex(const KListWidgetSearchLine* self) {
+int KListWidgetSearchLine_SuperSenderSignalIndex(const KListWidgetSearchLine* self) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_SenderSignalIndex_IsBase(true);
@@ -1852,7 +1852,7 @@ int KListWidgetSearchLine_Receivers(const KListWidgetSearchLine* self, const cha
 }
 
 // Base class handler implementation
-int KListWidgetSearchLine_QBaseReceivers(const KListWidgetSearchLine* self, const char* signal) {
+int KListWidgetSearchLine_SuperReceivers(const KListWidgetSearchLine* self, const char* signal) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_Receivers_IsBase(true);
@@ -1881,7 +1881,7 @@ bool KListWidgetSearchLine_IsSignalConnected(const KListWidgetSearchLine* self, 
 }
 
 // Base class handler implementation
-bool KListWidgetSearchLine_QBaseIsSignalConnected(const KListWidgetSearchLine* self, const QMetaMethod* signal) {
+bool KListWidgetSearchLine_SuperIsSignalConnected(const KListWidgetSearchLine* self, const QMetaMethod* signal) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_IsSignalConnected_IsBase(true);
@@ -1910,7 +1910,7 @@ double KListWidgetSearchLine_GetDecodedMetricF(const KListWidgetSearchLine* self
 }
 
 // Base class handler implementation
-double KListWidgetSearchLine_QBaseGetDecodedMetricF(const KListWidgetSearchLine* self, int metricA, int metricB) {
+double KListWidgetSearchLine_SuperGetDecodedMetricF(const KListWidgetSearchLine* self, int metricA, int metricB) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
     if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
         vklistwidgetsearchline->setKListWidgetSearchLine_GetDecodedMetricF_IsBase(true);

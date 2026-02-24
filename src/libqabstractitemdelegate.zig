@@ -47,6 +47,10 @@ pub const qabstractitemdelegate = struct {
         qtc.QAbstractItemDelegate_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -55,8 +59,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` self: QtC.QAbstractItemDelegate `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QAbstractItemDelegate_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QAbstractItemDelegate_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -82,6 +86,10 @@ pub const qabstractitemdelegate = struct {
         qtc.QAbstractItemDelegate_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -90,9 +98,9 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QAbstractItemDelegate_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QAbstractItemDelegate_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -121,6 +129,10 @@ pub const qabstractitemdelegate = struct {
         qtc.QAbstractItemDelegate_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -133,8 +145,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAbstractItemDelegate_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QAbstractItemDelegate_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -184,6 +196,10 @@ pub const qabstractitemdelegate = struct {
         qtc.QAbstractItemDelegate_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPaint` instead
+    ///
+    pub const QBasePaint = SuperPaint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paint)
     ///
     /// Base class method implementation
@@ -198,8 +214,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBasePaint(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemDelegate_QBasePaint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(index));
+    pub fn SuperPaint(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.QAbstractItemDelegate_SuperPaint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHint)
@@ -230,6 +246,10 @@ pub const qabstractitemdelegate = struct {
         qtc.QAbstractItemDelegate_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHint)
     ///
     /// Base class method implementation
@@ -242,8 +262,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractItemDelegate_QBaseSizeHint(@ptrCast(self), @ptrCast(option), @ptrCast(index));
+    pub fn SuperSizeHint(self: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
+        return qtc.QAbstractItemDelegate_SuperSizeHint(@ptrCast(self), @ptrCast(option), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#createEditor)
@@ -276,6 +296,10 @@ pub const qabstractitemdelegate = struct {
         qtc.QAbstractItemDelegate_OnCreateEditor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateEditor` instead
+    ///
+    pub const QBaseCreateEditor = SuperCreateEditor;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#createEditor)
     ///
     /// Base class method implementation
@@ -290,8 +314,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseCreateEditor(self: ?*anyopaque, parent: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QWidget {
-        return qtc.QAbstractItemDelegate_QBaseCreateEditor(@ptrCast(self), @ptrCast(parent), @ptrCast(option), @ptrCast(index));
+    pub fn SuperCreateEditor(self: ?*anyopaque, parent: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) QtC.QWidget {
+        return qtc.QAbstractItemDelegate_SuperCreateEditor(@ptrCast(self), @ptrCast(parent), @ptrCast(option), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
@@ -322,6 +346,10 @@ pub const qabstractitemdelegate = struct {
         qtc.QAbstractItemDelegate_OnDestroyEditor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroyEditor` instead
+    ///
+    pub const QBaseDestroyEditor = SuperDestroyEditor;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#destroyEditor)
     ///
     /// Base class method implementation
@@ -334,8 +362,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseDestroyEditor(self: ?*anyopaque, editor: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemDelegate_QBaseDestroyEditor(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
+    pub fn SuperDestroyEditor(self: ?*anyopaque, editor: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.QAbstractItemDelegate_SuperDestroyEditor(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#setEditorData)
@@ -366,6 +394,10 @@ pub const qabstractitemdelegate = struct {
         qtc.QAbstractItemDelegate_OnSetEditorData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetEditorData` instead
+    ///
+    pub const QBaseSetEditorData = SuperSetEditorData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#setEditorData)
     ///
     /// Base class method implementation
@@ -378,8 +410,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseSetEditorData(self: ?*anyopaque, editor: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemDelegate_QBaseSetEditorData(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
+    pub fn SuperSetEditorData(self: ?*anyopaque, editor: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.QAbstractItemDelegate_SuperSetEditorData(@ptrCast(self), @ptrCast(editor), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#setModelData)
@@ -412,6 +444,10 @@ pub const qabstractitemdelegate = struct {
         qtc.QAbstractItemDelegate_OnSetModelData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetModelData` instead
+    ///
+    pub const QBaseSetModelData = SuperSetModelData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#setModelData)
     ///
     /// Base class method implementation
@@ -426,8 +462,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseSetModelData(self: ?*anyopaque, editor: ?*anyopaque, model: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemDelegate_QBaseSetModelData(@ptrCast(self), @ptrCast(editor), @ptrCast(model), @ptrCast(index));
+    pub fn SuperSetModelData(self: ?*anyopaque, editor: ?*anyopaque, model: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.QAbstractItemDelegate_SuperSetModelData(@ptrCast(self), @ptrCast(editor), @ptrCast(model), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#updateEditorGeometry)
@@ -460,6 +496,10 @@ pub const qabstractitemdelegate = struct {
         qtc.QAbstractItemDelegate_OnUpdateEditorGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateEditorGeometry` instead
+    ///
+    pub const QBaseUpdateEditorGeometry = SuperUpdateEditorGeometry;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#updateEditorGeometry)
     ///
     /// Base class method implementation
@@ -474,8 +514,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseUpdateEditorGeometry(self: ?*anyopaque, editor: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemDelegate_QBaseUpdateEditorGeometry(@ptrCast(self), @ptrCast(editor), @ptrCast(option), @ptrCast(index));
+    pub fn SuperUpdateEditorGeometry(self: ?*anyopaque, editor: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.QAbstractItemDelegate_SuperUpdateEditorGeometry(@ptrCast(self), @ptrCast(editor), @ptrCast(option), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#editorEvent)
@@ -510,6 +550,10 @@ pub const qabstractitemdelegate = struct {
         qtc.QAbstractItemDelegate_OnEditorEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEditorEvent` instead
+    ///
+    pub const QBaseEditorEvent = SuperEditorEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#editorEvent)
     ///
     /// Base class method implementation
@@ -526,8 +570,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseEditorEvent(self: ?*anyopaque, event: ?*anyopaque, model: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QAbstractItemDelegate_QBaseEditorEvent(@ptrCast(self), @ptrCast(event), @ptrCast(model), @ptrCast(option), @ptrCast(index));
+    pub fn SuperEditorEvent(self: ?*anyopaque, event: ?*anyopaque, model: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) bool {
+        return qtc.QAbstractItemDelegate_SuperEditorEvent(@ptrCast(self), @ptrCast(event), @ptrCast(model), @ptrCast(option), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#helpEvent)
@@ -562,6 +606,10 @@ pub const qabstractitemdelegate = struct {
         qtc.QAbstractItemDelegate_OnHelpEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHelpEvent` instead
+    ///
+    pub const QBaseHelpEvent = SuperHelpEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#helpEvent)
     ///
     /// Base class method implementation
@@ -578,8 +626,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseHelpEvent(self: ?*anyopaque, event: ?*anyopaque, view: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QAbstractItemDelegate_QBaseHelpEvent(@ptrCast(self), @ptrCast(event), @ptrCast(view), @ptrCast(option), @ptrCast(index));
+    pub fn SuperHelpEvent(self: ?*anyopaque, event: ?*anyopaque, view: ?*anyopaque, option: ?*anyopaque, index: ?*anyopaque) bool {
+        return qtc.QAbstractItemDelegate_SuperHelpEvent(@ptrCast(self), @ptrCast(event), @ptrCast(view), @ptrCast(option), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
@@ -619,6 +667,10 @@ pub const qabstractitemdelegate = struct {
         qtc.QAbstractItemDelegate_OnPaintingRoles(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintingRoles` instead
+    ///
+    pub const QBasePaintingRoles = SuperPaintingRoles;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paintingRoles)
     ///
     /// Base class method implementation
@@ -629,8 +681,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBasePaintingRoles(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.libqt_list = qtc.QAbstractItemDelegate_QBasePaintingRoles(@ptrCast(self));
+    pub fn SuperPaintingRoles(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.QAbstractItemDelegate_SuperPaintingRoles(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("qabstractitemdelegate.PaintingRoles: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -1532,6 +1584,10 @@ pub const qabstractitemdelegate = struct {
         return qtc.QAbstractItemDelegate_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1544,8 +1600,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QAbstractItemDelegate_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QAbstractItemDelegate_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1582,6 +1638,10 @@ pub const qabstractitemdelegate = struct {
         return qtc.QAbstractItemDelegate_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1596,8 +1656,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QAbstractItemDelegate_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QAbstractItemDelegate_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1632,6 +1692,10 @@ pub const qabstractitemdelegate = struct {
         qtc.QAbstractItemDelegate_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1644,8 +1708,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemDelegate_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemDelegate_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1680,6 +1744,10 @@ pub const qabstractitemdelegate = struct {
         qtc.QAbstractItemDelegate_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1692,8 +1760,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemDelegate_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemDelegate_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1728,6 +1796,10 @@ pub const qabstractitemdelegate = struct {
         qtc.QAbstractItemDelegate_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1740,8 +1812,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemDelegate_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemDelegate_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1776,6 +1848,10 @@ pub const qabstractitemdelegate = struct {
         qtc.QAbstractItemDelegate_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1788,8 +1864,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QAbstractItemDelegate_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QAbstractItemDelegate_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1824,6 +1900,10 @@ pub const qabstractitemdelegate = struct {
         qtc.QAbstractItemDelegate_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1836,8 +1916,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QAbstractItemDelegate_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QAbstractItemDelegate_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1870,6 +1950,10 @@ pub const qabstractitemdelegate = struct {
         return qtc.QAbstractItemDelegate_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1880,8 +1964,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` self: QtC.QAbstractItemDelegate `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QAbstractItemDelegate_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QAbstractItemDelegate_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1914,6 +1998,10 @@ pub const qabstractitemdelegate = struct {
         return qtc.QAbstractItemDelegate_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1924,8 +2012,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` self: QtC.QAbstractItemDelegate `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemDelegate_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QAbstractItemDelegate_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1961,6 +2049,10 @@ pub const qabstractitemdelegate = struct {
         return qtc.QAbstractItemDelegate_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1973,9 +2065,9 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QAbstractItemDelegate_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QAbstractItemDelegate_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2010,6 +2102,10 @@ pub const qabstractitemdelegate = struct {
         return qtc.QAbstractItemDelegate_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2022,8 +2118,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QAbstractItemDelegate_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QAbstractItemDelegate_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2057,6 +2153,9 @@ pub const qabstractitemdelegate = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#dtor.QAbstractItemDelegate)
     ///
@@ -2066,7 +2165,7 @@ pub const qabstractitemdelegate = struct {
     ///
     /// ` self: QtC.QAbstractItemDelegate `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAbstractItemDelegate_Delete(@ptrCast(self));
     }
 };

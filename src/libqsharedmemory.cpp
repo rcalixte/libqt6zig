@@ -202,7 +202,7 @@ QNativeIpcKey* QSharedMemory_LegacyNativeKey2(const libqt_string key, uint16_t t
 }
 
 // Base class handler implementation
-QMetaObject* QSharedMemory_QBaseMetaObject(const QSharedMemory* self) {
+QMetaObject* QSharedMemory_SuperMetaObject(const QSharedMemory* self) {
     auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
     if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
         vqsharedmemory->setQSharedMemory_MetaObject_IsBase(true);
@@ -221,7 +221,7 @@ void QSharedMemory_OnMetaObject(const QSharedMemory* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QSharedMemory_QBaseMetacast(QSharedMemory* self, const char* param1) {
+void* QSharedMemory_SuperMetacast(QSharedMemory* self, const char* param1) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
     if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
         vqsharedmemory->setQSharedMemory_Metacast_IsBase(true);
@@ -240,7 +240,7 @@ void QSharedMemory_OnMetacast(QSharedMemory* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSharedMemory_QBaseMetacall(QSharedMemory* self, int param1, int param2, void** param3) {
+int QSharedMemory_SuperMetacall(QSharedMemory* self, int param1, int param2, void** param3) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
     if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
         vqsharedmemory->setQSharedMemory_Metacall_IsBase(true);
@@ -269,7 +269,7 @@ bool QSharedMemory_Event(QSharedMemory* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSharedMemory_QBaseEvent(QSharedMemory* self, QEvent* event) {
+bool QSharedMemory_SuperEvent(QSharedMemory* self, QEvent* event) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
     if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
         vqsharedmemory->setQSharedMemory_Event_IsBase(true);
@@ -298,7 +298,7 @@ bool QSharedMemory_EventFilter(QSharedMemory* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QSharedMemory_QBaseEventFilter(QSharedMemory* self, QObject* watched, QEvent* event) {
+bool QSharedMemory_SuperEventFilter(QSharedMemory* self, QObject* watched, QEvent* event) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
     if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
         vqsharedmemory->setQSharedMemory_EventFilter_IsBase(true);
@@ -327,7 +327,7 @@ void QSharedMemory_TimerEvent(QSharedMemory* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QSharedMemory_QBaseTimerEvent(QSharedMemory* self, QTimerEvent* event) {
+void QSharedMemory_SuperTimerEvent(QSharedMemory* self, QTimerEvent* event) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
     if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
         vqsharedmemory->setQSharedMemory_TimerEvent_IsBase(true);
@@ -356,7 +356,7 @@ void QSharedMemory_ChildEvent(QSharedMemory* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QSharedMemory_QBaseChildEvent(QSharedMemory* self, QChildEvent* event) {
+void QSharedMemory_SuperChildEvent(QSharedMemory* self, QChildEvent* event) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
     if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
         vqsharedmemory->setQSharedMemory_ChildEvent_IsBase(true);
@@ -385,7 +385,7 @@ void QSharedMemory_CustomEvent(QSharedMemory* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSharedMemory_QBaseCustomEvent(QSharedMemory* self, QEvent* event) {
+void QSharedMemory_SuperCustomEvent(QSharedMemory* self, QEvent* event) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
     if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
         vqsharedmemory->setQSharedMemory_CustomEvent_IsBase(true);
@@ -414,7 +414,7 @@ void QSharedMemory_ConnectNotify(QSharedMemory* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QSharedMemory_QBaseConnectNotify(QSharedMemory* self, const QMetaMethod* signal) {
+void QSharedMemory_SuperConnectNotify(QSharedMemory* self, const QMetaMethod* signal) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
     if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
         vqsharedmemory->setQSharedMemory_ConnectNotify_IsBase(true);
@@ -443,7 +443,7 @@ void QSharedMemory_DisconnectNotify(QSharedMemory* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QSharedMemory_QBaseDisconnectNotify(QSharedMemory* self, const QMetaMethod* signal) {
+void QSharedMemory_SuperDisconnectNotify(QSharedMemory* self, const QMetaMethod* signal) {
     auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
     if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
         vqsharedmemory->setQSharedMemory_DisconnectNotify_IsBase(true);
@@ -472,7 +472,7 @@ QObject* QSharedMemory_Sender(const QSharedMemory* self) {
 }
 
 // Base class handler implementation
-QObject* QSharedMemory_QBaseSender(const QSharedMemory* self) {
+QObject* QSharedMemory_SuperSender(const QSharedMemory* self) {
     auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
     if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
         vqsharedmemory->setQSharedMemory_Sender_IsBase(true);
@@ -501,7 +501,7 @@ int QSharedMemory_SenderSignalIndex(const QSharedMemory* self) {
 }
 
 // Base class handler implementation
-int QSharedMemory_QBaseSenderSignalIndex(const QSharedMemory* self) {
+int QSharedMemory_SuperSenderSignalIndex(const QSharedMemory* self) {
     auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
     if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
         vqsharedmemory->setQSharedMemory_SenderSignalIndex_IsBase(true);
@@ -530,7 +530,7 @@ int QSharedMemory_Receivers(const QSharedMemory* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QSharedMemory_QBaseReceivers(const QSharedMemory* self, const char* signal) {
+int QSharedMemory_SuperReceivers(const QSharedMemory* self, const char* signal) {
     auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
     if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
         vqsharedmemory->setQSharedMemory_Receivers_IsBase(true);
@@ -559,7 +559,7 @@ bool QSharedMemory_IsSignalConnected(const QSharedMemory* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QSharedMemory_QBaseIsSignalConnected(const QSharedMemory* self, const QMetaMethod* signal) {
+bool QSharedMemory_SuperIsSignalConnected(const QSharedMemory* self, const QMetaMethod* signal) {
     auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
     if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
         vqsharedmemory->setQSharedMemory_IsSignalConnected_IsBase(true);

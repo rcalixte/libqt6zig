@@ -1041,6 +1041,9 @@ pub const packagekit__offline = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
@@ -1050,7 +1053,7 @@ pub const packagekit__offline = struct {
     ///
     /// ` self: QtC.PackageKit__Offline `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.PackageKit__Offline_Delete(@ptrCast(self));
     }
 };

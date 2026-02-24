@@ -329,23 +329,23 @@ class VirtualKSelectionWatcher final : public KSelectionWatcher {
 
     // Friend functions
     friend void KSelectionWatcher_TimerEvent(KSelectionWatcher* self, QTimerEvent* event);
-    friend void KSelectionWatcher_QBaseTimerEvent(KSelectionWatcher* self, QTimerEvent* event);
+    friend void KSelectionWatcher_SuperTimerEvent(KSelectionWatcher* self, QTimerEvent* event);
     friend void KSelectionWatcher_ChildEvent(KSelectionWatcher* self, QChildEvent* event);
-    friend void KSelectionWatcher_QBaseChildEvent(KSelectionWatcher* self, QChildEvent* event);
+    friend void KSelectionWatcher_SuperChildEvent(KSelectionWatcher* self, QChildEvent* event);
     friend void KSelectionWatcher_CustomEvent(KSelectionWatcher* self, QEvent* event);
-    friend void KSelectionWatcher_QBaseCustomEvent(KSelectionWatcher* self, QEvent* event);
+    friend void KSelectionWatcher_SuperCustomEvent(KSelectionWatcher* self, QEvent* event);
     friend void KSelectionWatcher_ConnectNotify(KSelectionWatcher* self, const QMetaMethod* signal);
-    friend void KSelectionWatcher_QBaseConnectNotify(KSelectionWatcher* self, const QMetaMethod* signal);
+    friend void KSelectionWatcher_SuperConnectNotify(KSelectionWatcher* self, const QMetaMethod* signal);
     friend void KSelectionWatcher_DisconnectNotify(KSelectionWatcher* self, const QMetaMethod* signal);
-    friend void KSelectionWatcher_QBaseDisconnectNotify(KSelectionWatcher* self, const QMetaMethod* signal);
+    friend void KSelectionWatcher_SuperDisconnectNotify(KSelectionWatcher* self, const QMetaMethod* signal);
     friend QObject* KSelectionWatcher_Sender(const KSelectionWatcher* self);
-    friend QObject* KSelectionWatcher_QBaseSender(const KSelectionWatcher* self);
+    friend QObject* KSelectionWatcher_SuperSender(const KSelectionWatcher* self);
     friend int KSelectionWatcher_SenderSignalIndex(const KSelectionWatcher* self);
-    friend int KSelectionWatcher_QBaseSenderSignalIndex(const KSelectionWatcher* self);
+    friend int KSelectionWatcher_SuperSenderSignalIndex(const KSelectionWatcher* self);
     friend int KSelectionWatcher_Receivers(const KSelectionWatcher* self, const char* signal);
-    friend int KSelectionWatcher_QBaseReceivers(const KSelectionWatcher* self, const char* signal);
+    friend int KSelectionWatcher_SuperReceivers(const KSelectionWatcher* self, const char* signal);
     friend bool KSelectionWatcher_IsSignalConnected(const KSelectionWatcher* self, const QMetaMethod* signal);
-    friend bool KSelectionWatcher_QBaseIsSignalConnected(const KSelectionWatcher* self, const QMetaMethod* signal);
+    friend bool KSelectionWatcher_SuperIsSignalConnected(const KSelectionWatcher* self, const QMetaMethod* signal);
 };
 
 #endif

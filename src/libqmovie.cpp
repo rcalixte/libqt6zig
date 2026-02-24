@@ -334,7 +334,7 @@ void QMovie_SetSpeed(QMovie* self, int percentSpeed) {
 }
 
 // Base class handler implementation
-QMetaObject* QMovie_QBaseMetaObject(const QMovie* self) {
+QMetaObject* QMovie_SuperMetaObject(const QMovie* self) {
     auto* vqmovie = const_cast<VirtualQMovie*>(dynamic_cast<const VirtualQMovie*>(self));
     if (vqmovie && vqmovie->isVirtualQMovie) {
         vqmovie->setQMovie_MetaObject_IsBase(true);
@@ -353,7 +353,7 @@ void QMovie_OnMetaObject(const QMovie* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QMovie_QBaseMetacast(QMovie* self, const char* param1) {
+void* QMovie_SuperMetacast(QMovie* self, const char* param1) {
     auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
     if (vqmovie && vqmovie->isVirtualQMovie) {
         vqmovie->setQMovie_Metacast_IsBase(true);
@@ -372,7 +372,7 @@ void QMovie_OnMetacast(QMovie* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QMovie_QBaseMetacall(QMovie* self, int param1, int param2, void** param3) {
+int QMovie_SuperMetacall(QMovie* self, int param1, int param2, void** param3) {
     auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
     if (vqmovie && vqmovie->isVirtualQMovie) {
         vqmovie->setQMovie_Metacall_IsBase(true);
@@ -401,7 +401,7 @@ bool QMovie_Event(QMovie* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QMovie_QBaseEvent(QMovie* self, QEvent* event) {
+bool QMovie_SuperEvent(QMovie* self, QEvent* event) {
     auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
     if (vqmovie && vqmovie->isVirtualQMovie) {
         vqmovie->setQMovie_Event_IsBase(true);
@@ -430,7 +430,7 @@ bool QMovie_EventFilter(QMovie* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QMovie_QBaseEventFilter(QMovie* self, QObject* watched, QEvent* event) {
+bool QMovie_SuperEventFilter(QMovie* self, QObject* watched, QEvent* event) {
     auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
     if (vqmovie && vqmovie->isVirtualQMovie) {
         vqmovie->setQMovie_EventFilter_IsBase(true);
@@ -459,7 +459,7 @@ void QMovie_TimerEvent(QMovie* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QMovie_QBaseTimerEvent(QMovie* self, QTimerEvent* event) {
+void QMovie_SuperTimerEvent(QMovie* self, QTimerEvent* event) {
     auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
     if (vqmovie && vqmovie->isVirtualQMovie) {
         vqmovie->setQMovie_TimerEvent_IsBase(true);
@@ -488,7 +488,7 @@ void QMovie_ChildEvent(QMovie* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QMovie_QBaseChildEvent(QMovie* self, QChildEvent* event) {
+void QMovie_SuperChildEvent(QMovie* self, QChildEvent* event) {
     auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
     if (vqmovie && vqmovie->isVirtualQMovie) {
         vqmovie->setQMovie_ChildEvent_IsBase(true);
@@ -517,7 +517,7 @@ void QMovie_CustomEvent(QMovie* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QMovie_QBaseCustomEvent(QMovie* self, QEvent* event) {
+void QMovie_SuperCustomEvent(QMovie* self, QEvent* event) {
     auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
     if (vqmovie && vqmovie->isVirtualQMovie) {
         vqmovie->setQMovie_CustomEvent_IsBase(true);
@@ -546,7 +546,7 @@ void QMovie_ConnectNotify(QMovie* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QMovie_QBaseConnectNotify(QMovie* self, const QMetaMethod* signal) {
+void QMovie_SuperConnectNotify(QMovie* self, const QMetaMethod* signal) {
     auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
     if (vqmovie && vqmovie->isVirtualQMovie) {
         vqmovie->setQMovie_ConnectNotify_IsBase(true);
@@ -575,7 +575,7 @@ void QMovie_DisconnectNotify(QMovie* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QMovie_QBaseDisconnectNotify(QMovie* self, const QMetaMethod* signal) {
+void QMovie_SuperDisconnectNotify(QMovie* self, const QMetaMethod* signal) {
     auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
     if (vqmovie && vqmovie->isVirtualQMovie) {
         vqmovie->setQMovie_DisconnectNotify_IsBase(true);
@@ -604,7 +604,7 @@ QObject* QMovie_Sender(const QMovie* self) {
 }
 
 // Base class handler implementation
-QObject* QMovie_QBaseSender(const QMovie* self) {
+QObject* QMovie_SuperSender(const QMovie* self) {
     auto* vqmovie = const_cast<VirtualQMovie*>(dynamic_cast<const VirtualQMovie*>(self));
     if (vqmovie && vqmovie->isVirtualQMovie) {
         vqmovie->setQMovie_Sender_IsBase(true);
@@ -633,7 +633,7 @@ int QMovie_SenderSignalIndex(const QMovie* self) {
 }
 
 // Base class handler implementation
-int QMovie_QBaseSenderSignalIndex(const QMovie* self) {
+int QMovie_SuperSenderSignalIndex(const QMovie* self) {
     auto* vqmovie = const_cast<VirtualQMovie*>(dynamic_cast<const VirtualQMovie*>(self));
     if (vqmovie && vqmovie->isVirtualQMovie) {
         vqmovie->setQMovie_SenderSignalIndex_IsBase(true);
@@ -662,7 +662,7 @@ int QMovie_Receivers(const QMovie* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QMovie_QBaseReceivers(const QMovie* self, const char* signal) {
+int QMovie_SuperReceivers(const QMovie* self, const char* signal) {
     auto* vqmovie = const_cast<VirtualQMovie*>(dynamic_cast<const VirtualQMovie*>(self));
     if (vqmovie && vqmovie->isVirtualQMovie) {
         vqmovie->setQMovie_Receivers_IsBase(true);
@@ -691,7 +691,7 @@ bool QMovie_IsSignalConnected(const QMovie* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QMovie_QBaseIsSignalConnected(const QMovie* self, const QMetaMethod* signal) {
+bool QMovie_SuperIsSignalConnected(const QMovie* self, const QMetaMethod* signal) {
     auto* vqmovie = const_cast<VirtualQMovie*>(dynamic_cast<const VirtualQMovie*>(self));
     if (vqmovie && vqmovie->isVirtualQMovie) {
         vqmovie->setQMovie_IsSignalConnected_IsBase(true);

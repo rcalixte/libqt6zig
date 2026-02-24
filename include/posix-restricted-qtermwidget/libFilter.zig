@@ -37,6 +37,10 @@ pub const konsole__filter = struct {
         qtc.Konsole__Filter_OnProcess(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperProcess` instead
+    ///
+    pub const QBaseProcess = SuperProcess;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -45,8 +49,8 @@ pub const konsole__filter = struct {
     ///
     /// ` self: QtC.Konsole__Filter `
     ///
-    pub fn QBaseProcess(self: ?*anyopaque) void {
-        qtc.Konsole__Filter_QBaseProcess(@ptrCast(self));
+    pub fn SuperProcess(self: ?*anyopaque) void {
+        qtc.Konsole__Filter_SuperProcess(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -99,6 +103,10 @@ pub const konsole__filter = struct {
         qtc.Konsole__Filter_OnAddHotSpot(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAddHotSpot` instead
+    ///
+    pub const QBaseAddHotSpot = SuperAddHotSpot;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -109,8 +117,8 @@ pub const konsole__filter = struct {
     ///
     /// ` param1: QtC.Konsole__Filter__HotSpot `
     ///
-    pub fn QBaseAddHotSpot(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.Konsole__Filter_QBaseAddHotSpot(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperAddHotSpot(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.Konsole__Filter_SuperAddHotSpot(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -145,6 +153,10 @@ pub const konsole__filter = struct {
         qtc.Konsole__Filter_OnBuffer(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBuffer` instead
+    ///
+    pub const QBaseBuffer = SuperBuffer;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -155,8 +167,8 @@ pub const konsole__filter = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseBuffer(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Konsole__Filter_QBaseBuffer(@ptrCast(self));
+    pub fn SuperBuffer(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Konsole__Filter_SuperBuffer(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__filter.Buffer: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -193,6 +205,10 @@ pub const konsole__filter = struct {
         qtc.Konsole__Filter_OnGetLineColumn(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGetLineColumn` instead
+    ///
+    pub const QBaseGetLineColumn = SuperGetLineColumn;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -207,8 +223,8 @@ pub const konsole__filter = struct {
     ///
     /// ` startColumn: *i32 `
     ///
-    pub fn QBaseGetLineColumn(self: ?*anyopaque, position: i32, startLine: *i32, startColumn: *i32) void {
-        qtc.Konsole__Filter_QBaseGetLineColumn(@ptrCast(self), @bitCast(position), @ptrCast(startLine), @ptrCast(startColumn));
+    pub fn SuperGetLineColumn(self: ?*anyopaque, position: i32, startLine: *i32, startColumn: *i32) void {
+        qtc.Konsole__Filter_SuperGetLineColumn(@ptrCast(self), @bitCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
     /// Inherited from QObject
@@ -1028,6 +1044,10 @@ pub const konsole__filter = struct {
         return qtc.Konsole__Filter_MetaObject(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -1038,8 +1058,8 @@ pub const konsole__filter = struct {
     ///
     /// ` self: QtC.Konsole__Filter `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.Konsole__Filter_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.Konsole__Filter_SuperMetaObject(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1075,6 +1095,10 @@ pub const konsole__filter = struct {
         return qtc.Konsole__Filter_Metacast(@ptrCast(self), param1_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacast)
@@ -1087,9 +1111,9 @@ pub const konsole__filter = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.Konsole__Filter_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.Konsole__Filter_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// Inherited from QObject
@@ -1128,6 +1152,10 @@ pub const konsole__filter = struct {
         return qtc.Konsole__Filter_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
@@ -1144,8 +1172,8 @@ pub const konsole__filter = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Konsole__Filter_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.Konsole__Filter_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Inherited from QObject
@@ -1180,6 +1208,10 @@ pub const konsole__filter = struct {
         return qtc.Konsole__Filter_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1192,8 +1224,8 @@ pub const konsole__filter = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.Konsole__Filter_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.Konsole__Filter_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1230,6 +1262,10 @@ pub const konsole__filter = struct {
         return qtc.Konsole__Filter_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1244,8 +1280,8 @@ pub const konsole__filter = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.Konsole__Filter_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.Konsole__Filter_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1280,6 +1316,10 @@ pub const konsole__filter = struct {
         qtc.Konsole__Filter_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1292,8 +1332,8 @@ pub const konsole__filter = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Konsole__Filter_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Konsole__Filter_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1328,6 +1368,10 @@ pub const konsole__filter = struct {
         qtc.Konsole__Filter_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1340,8 +1384,8 @@ pub const konsole__filter = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Konsole__Filter_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Konsole__Filter_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1376,6 +1420,10 @@ pub const konsole__filter = struct {
         qtc.Konsole__Filter_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1388,8 +1436,8 @@ pub const konsole__filter = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Konsole__Filter_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Konsole__Filter_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1424,6 +1472,10 @@ pub const konsole__filter = struct {
         qtc.Konsole__Filter_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1436,8 +1488,8 @@ pub const konsole__filter = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.Konsole__Filter_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.Konsole__Filter_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1472,6 +1524,10 @@ pub const konsole__filter = struct {
         qtc.Konsole__Filter_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1484,8 +1540,8 @@ pub const konsole__filter = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.Konsole__Filter_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.Konsole__Filter_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1518,6 +1574,10 @@ pub const konsole__filter = struct {
         return qtc.Konsole__Filter_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1528,8 +1588,8 @@ pub const konsole__filter = struct {
     ///
     /// ` self: QtC.Konsole__Filter `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.Konsole__Filter_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.Konsole__Filter_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1562,6 +1622,10 @@ pub const konsole__filter = struct {
         return qtc.Konsole__Filter_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1572,8 +1636,8 @@ pub const konsole__filter = struct {
     ///
     /// ` self: QtC.Konsole__Filter `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.Konsole__Filter_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.Konsole__Filter_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1609,6 +1673,10 @@ pub const konsole__filter = struct {
         return qtc.Konsole__Filter_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1621,9 +1689,9 @@ pub const konsole__filter = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.Konsole__Filter_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.Konsole__Filter_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1658,6 +1726,10 @@ pub const konsole__filter = struct {
         return qtc.Konsole__Filter_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -1670,8 +1742,8 @@ pub const konsole__filter = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.Konsole__Filter_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.Konsole__Filter_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1705,6 +1777,9 @@ pub const konsole__filter = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -1712,7 +1787,7 @@ pub const konsole__filter = struct {
     ///
     /// ` self: QtC.Konsole__Filter `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Konsole__Filter_Delete(@ptrCast(self));
     }
 };
@@ -1771,6 +1846,10 @@ pub const konsole__regexpfilter = struct {
         qtc.Konsole__RegExpFilter_OnProcess(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperProcess` instead
+    ///
+    pub const QBaseProcess = SuperProcess;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1779,8 +1858,8 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` self: QtC.Konsole__RegExpFilter `
     ///
-    pub fn QBaseProcess(self: ?*anyopaque) void {
-        qtc.Konsole__RegExpFilter_QBaseProcess(@ptrCast(self));
+    pub fn SuperProcess(self: ?*anyopaque) void {
+        qtc.Konsole__RegExpFilter_SuperProcess(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1815,6 +1894,10 @@ pub const konsole__regexpfilter = struct {
         qtc.Konsole__RegExpFilter_OnNewHotSpot(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperNewHotSpot` instead
+    ///
+    pub const QBaseNewHotSpot = SuperNewHotSpot;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -1831,8 +1914,8 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` endColumn: i32 `
     ///
-    pub fn QBaseNewHotSpot(self: ?*anyopaque, startLine: i32, startColumn: i32, endLine: i32, endColumn: i32) QtC.Konsole__RegExpFilter__HotSpot {
-        return qtc.Konsole__RegExpFilter_QBaseNewHotSpot(@ptrCast(self), @bitCast(startLine), @bitCast(startColumn), @bitCast(endLine), @bitCast(endColumn));
+    pub fn SuperNewHotSpot(self: ?*anyopaque, startLine: i32, startColumn: i32, endLine: i32, endColumn: i32) QtC.Konsole__RegExpFilter__HotSpot {
+        return qtc.Konsole__RegExpFilter_SuperNewHotSpot(@ptrCast(self), @bitCast(startLine), @bitCast(startColumn), @bitCast(endLine), @bitCast(endColumn));
     }
 
     /// Inherited from Konsole::Filter
@@ -2680,6 +2763,10 @@ pub const konsole__regexpfilter = struct {
         return qtc.Konsole__RegExpFilter_MetaObject(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -2690,8 +2777,8 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` self: QtC.Konsole__RegExpFilter `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.Konsole__RegExpFilter_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.Konsole__RegExpFilter_SuperMetaObject(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2727,6 +2814,10 @@ pub const konsole__regexpfilter = struct {
         return qtc.Konsole__RegExpFilter_Metacast(@ptrCast(self), param1_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacast)
@@ -2739,9 +2830,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.Konsole__RegExpFilter_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.Konsole__RegExpFilter_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// Inherited from QObject
@@ -2780,6 +2871,10 @@ pub const konsole__regexpfilter = struct {
         return qtc.Konsole__RegExpFilter_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
@@ -2796,8 +2891,8 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Konsole__RegExpFilter_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.Konsole__RegExpFilter_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Inherited from QObject
@@ -2832,6 +2927,10 @@ pub const konsole__regexpfilter = struct {
         return qtc.Konsole__RegExpFilter_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -2844,8 +2943,8 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.Konsole__RegExpFilter_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.Konsole__RegExpFilter_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2882,6 +2981,10 @@ pub const konsole__regexpfilter = struct {
         return qtc.Konsole__RegExpFilter_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -2896,8 +2999,8 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.Konsole__RegExpFilter_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.Konsole__RegExpFilter_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2932,6 +3035,10 @@ pub const konsole__regexpfilter = struct {
         qtc.Konsole__RegExpFilter_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -2944,8 +3051,8 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Konsole__RegExpFilter_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Konsole__RegExpFilter_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -2980,6 +3087,10 @@ pub const konsole__regexpfilter = struct {
         qtc.Konsole__RegExpFilter_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -2992,8 +3103,8 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Konsole__RegExpFilter_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Konsole__RegExpFilter_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3028,6 +3139,10 @@ pub const konsole__regexpfilter = struct {
         qtc.Konsole__RegExpFilter_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -3040,8 +3155,8 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Konsole__RegExpFilter_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Konsole__RegExpFilter_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3076,6 +3191,10 @@ pub const konsole__regexpfilter = struct {
         qtc.Konsole__RegExpFilter_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3088,8 +3207,8 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.Konsole__RegExpFilter_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.Konsole__RegExpFilter_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3124,6 +3243,10 @@ pub const konsole__regexpfilter = struct {
         qtc.Konsole__RegExpFilter_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -3136,8 +3259,8 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.Konsole__RegExpFilter_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.Konsole__RegExpFilter_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3172,6 +3295,10 @@ pub const konsole__regexpfilter = struct {
         qtc.Konsole__RegExpFilter_AddHotSpot(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperAddHotSpot` instead
+    ///
+    pub const QBaseAddHotSpot = SuperAddHotSpot;
+
     /// Inherited from Konsole::Filter
     ///
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -3184,8 +3311,8 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` param1: QtC.Konsole__Filter__HotSpot `
     ///
-    pub fn QBaseAddHotSpot(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.Konsole__RegExpFilter_QBaseAddHotSpot(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperAddHotSpot(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.Konsole__RegExpFilter_SuperAddHotSpot(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from Konsole::Filter
@@ -3224,6 +3351,10 @@ pub const konsole__regexpfilter = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperBuffer` instead
+    ///
+    pub const QBaseBuffer = SuperBuffer;
+
     /// Inherited from Konsole::Filter
     ///
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -3236,8 +3367,8 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseBuffer(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Konsole__RegExpFilter_QBaseBuffer(@ptrCast(self));
+    pub fn SuperBuffer(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Konsole__RegExpFilter_SuperBuffer(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__regexpfilter.Buffer: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3282,6 +3413,10 @@ pub const konsole__regexpfilter = struct {
         qtc.Konsole__RegExpFilter_GetLineColumn(@ptrCast(self), @bitCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
+    /// ### DEPRECATED: Use `SuperGetLineColumn` instead
+    ///
+    pub const QBaseGetLineColumn = SuperGetLineColumn;
+
     /// Inherited from Konsole::Filter
     ///
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -3298,8 +3433,8 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` startColumn: *i32 `
     ///
-    pub fn QBaseGetLineColumn(self: ?*anyopaque, position: i32, startLine: *i32, startColumn: *i32) void {
-        qtc.Konsole__RegExpFilter_QBaseGetLineColumn(@ptrCast(self), @bitCast(position), @ptrCast(startLine), @ptrCast(startColumn));
+    pub fn SuperGetLineColumn(self: ?*anyopaque, position: i32, startLine: *i32, startColumn: *i32) void {
+        qtc.Konsole__RegExpFilter_SuperGetLineColumn(@ptrCast(self), @bitCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
     /// Inherited from Konsole::Filter
@@ -3332,6 +3467,10 @@ pub const konsole__regexpfilter = struct {
         return qtc.Konsole__RegExpFilter_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -3342,8 +3481,8 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` self: QtC.Konsole__RegExpFilter `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.Konsole__RegExpFilter_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.Konsole__RegExpFilter_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3376,6 +3515,10 @@ pub const konsole__regexpfilter = struct {
         return qtc.Konsole__RegExpFilter_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -3386,8 +3529,8 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` self: QtC.Konsole__RegExpFilter `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.Konsole__RegExpFilter_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.Konsole__RegExpFilter_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3423,6 +3566,10 @@ pub const konsole__regexpfilter = struct {
         return qtc.Konsole__RegExpFilter_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -3435,9 +3582,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.Konsole__RegExpFilter_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.Konsole__RegExpFilter_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3472,6 +3619,10 @@ pub const konsole__regexpfilter = struct {
         return qtc.Konsole__RegExpFilter_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -3484,8 +3635,8 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.Konsole__RegExpFilter_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.Konsole__RegExpFilter_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3519,6 +3670,9 @@ pub const konsole__regexpfilter = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -3526,7 +3680,7 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ` self: QtC.Konsole__RegExpFilter `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter_Delete(@ptrCast(self));
     }
 };
@@ -3563,6 +3717,10 @@ pub const konsole__urlfilter = struct {
         qtc.Konsole__UrlFilter_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -3571,8 +3729,8 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` self: QtC.Konsole__UrlFilter `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.Konsole__UrlFilter_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.Konsole__UrlFilter_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -3598,6 +3756,10 @@ pub const konsole__urlfilter = struct {
         qtc.Konsole__UrlFilter_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -3606,9 +3768,9 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.Konsole__UrlFilter_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.Konsole__UrlFilter_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -3637,6 +3799,10 @@ pub const konsole__urlfilter = struct {
         qtc.Konsole__UrlFilter_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -3649,8 +3815,8 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Konsole__UrlFilter_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.Konsole__UrlFilter_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -3702,6 +3868,10 @@ pub const konsole__urlfilter = struct {
         qtc.Konsole__UrlFilter_OnNewHotSpot(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperNewHotSpot` instead
+    ///
+    pub const QBaseNewHotSpot = SuperNewHotSpot;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -3718,8 +3888,8 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` param4: i32 `
     ///
-    pub fn QBaseNewHotSpot(self: ?*anyopaque, param1: i32, param2: i32, param3: i32, param4: i32) QtC.Konsole__RegExpFilter__HotSpot {
-        return qtc.Konsole__UrlFilter_QBaseNewHotSpot(@ptrCast(self), @bitCast(param1), @bitCast(param2), @bitCast(param3), @bitCast(param4));
+    pub fn SuperNewHotSpot(self: ?*anyopaque, param1: i32, param2: i32, param3: i32, param4: i32) QtC.Konsole__RegExpFilter__HotSpot {
+        return qtc.Konsole__UrlFilter_SuperNewHotSpot(@ptrCast(self), @bitCast(param1), @bitCast(param2), @bitCast(param3), @bitCast(param4));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -4596,6 +4766,10 @@ pub const konsole__urlfilter = struct {
         qtc.Konsole__UrlFilter_Process(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperProcess` instead
+    ///
+    pub const QBaseProcess = SuperProcess;
+
     /// Inherited from Konsole::RegExpFilter
     ///
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -4606,8 +4780,8 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` self: QtC.Konsole__UrlFilter `
     ///
-    pub fn QBaseProcess(self: ?*anyopaque) void {
-        qtc.Konsole__UrlFilter_QBaseProcess(@ptrCast(self));
+    pub fn SuperProcess(self: ?*anyopaque) void {
+        qtc.Konsole__UrlFilter_SuperProcess(@ptrCast(self));
     }
 
     /// Inherited from Konsole::RegExpFilter
@@ -4642,6 +4816,10 @@ pub const konsole__urlfilter = struct {
         return qtc.Konsole__UrlFilter_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -4654,8 +4832,8 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.Konsole__UrlFilter_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.Konsole__UrlFilter_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4692,6 +4870,10 @@ pub const konsole__urlfilter = struct {
         return qtc.Konsole__UrlFilter_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -4706,8 +4888,8 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.Konsole__UrlFilter_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.Konsole__UrlFilter_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4742,6 +4924,10 @@ pub const konsole__urlfilter = struct {
         qtc.Konsole__UrlFilter_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -4754,8 +4940,8 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Konsole__UrlFilter_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Konsole__UrlFilter_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4790,6 +4976,10 @@ pub const konsole__urlfilter = struct {
         qtc.Konsole__UrlFilter_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -4802,8 +4992,8 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Konsole__UrlFilter_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Konsole__UrlFilter_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4838,6 +5028,10 @@ pub const konsole__urlfilter = struct {
         qtc.Konsole__UrlFilter_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -4850,8 +5044,8 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Konsole__UrlFilter_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Konsole__UrlFilter_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4886,6 +5080,10 @@ pub const konsole__urlfilter = struct {
         qtc.Konsole__UrlFilter_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -4898,8 +5096,8 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.Konsole__UrlFilter_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.Konsole__UrlFilter_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4934,6 +5132,10 @@ pub const konsole__urlfilter = struct {
         qtc.Konsole__UrlFilter_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -4946,8 +5148,8 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.Konsole__UrlFilter_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.Konsole__UrlFilter_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4982,6 +5184,10 @@ pub const konsole__urlfilter = struct {
         qtc.Konsole__UrlFilter_AddHotSpot(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperAddHotSpot` instead
+    ///
+    pub const QBaseAddHotSpot = SuperAddHotSpot;
+
     /// Inherited from Konsole::Filter
     ///
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -4994,8 +5200,8 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` param1: QtC.Konsole__Filter__HotSpot `
     ///
-    pub fn QBaseAddHotSpot(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.Konsole__UrlFilter_QBaseAddHotSpot(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperAddHotSpot(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.Konsole__UrlFilter_SuperAddHotSpot(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from Konsole::Filter
@@ -5034,6 +5240,10 @@ pub const konsole__urlfilter = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperBuffer` instead
+    ///
+    pub const QBaseBuffer = SuperBuffer;
+
     /// Inherited from Konsole::Filter
     ///
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -5046,8 +5256,8 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseBuffer(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Konsole__UrlFilter_QBaseBuffer(@ptrCast(self));
+    pub fn SuperBuffer(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Konsole__UrlFilter_SuperBuffer(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__urlfilter.Buffer: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5092,6 +5302,10 @@ pub const konsole__urlfilter = struct {
         qtc.Konsole__UrlFilter_GetLineColumn(@ptrCast(self), @bitCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
+    /// ### DEPRECATED: Use `SuperGetLineColumn` instead
+    ///
+    pub const QBaseGetLineColumn = SuperGetLineColumn;
+
     /// Inherited from Konsole::Filter
     ///
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -5108,8 +5322,8 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` startColumn: *i32 `
     ///
-    pub fn QBaseGetLineColumn(self: ?*anyopaque, position: i32, startLine: *i32, startColumn: *i32) void {
-        qtc.Konsole__UrlFilter_QBaseGetLineColumn(@ptrCast(self), @bitCast(position), @ptrCast(startLine), @ptrCast(startColumn));
+    pub fn SuperGetLineColumn(self: ?*anyopaque, position: i32, startLine: *i32, startColumn: *i32) void {
+        qtc.Konsole__UrlFilter_SuperGetLineColumn(@ptrCast(self), @bitCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
     /// Inherited from Konsole::Filter
@@ -5142,6 +5356,10 @@ pub const konsole__urlfilter = struct {
         return qtc.Konsole__UrlFilter_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -5152,8 +5370,8 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` self: QtC.Konsole__UrlFilter `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.Konsole__UrlFilter_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.Konsole__UrlFilter_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -5186,6 +5404,10 @@ pub const konsole__urlfilter = struct {
         return qtc.Konsole__UrlFilter_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -5196,8 +5418,8 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` self: QtC.Konsole__UrlFilter `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.Konsole__UrlFilter_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.Konsole__UrlFilter_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -5233,6 +5455,10 @@ pub const konsole__urlfilter = struct {
         return qtc.Konsole__UrlFilter_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -5245,9 +5471,9 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.Konsole__UrlFilter_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.Konsole__UrlFilter_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5282,6 +5508,10 @@ pub const konsole__urlfilter = struct {
         return qtc.Konsole__UrlFilter_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -5294,8 +5524,8 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.Konsole__UrlFilter_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.Konsole__UrlFilter_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -5329,6 +5559,9 @@ pub const konsole__urlfilter = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -5336,7 +5569,7 @@ pub const konsole__urlfilter = struct {
     ///
     /// ` self: QtC.Konsole__UrlFilter `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Konsole__UrlFilter_Delete(@ptrCast(self));
     }
 };
@@ -5377,6 +5610,10 @@ pub const konsole__filterobject = struct {
         qtc.Konsole__FilterObject_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -5385,8 +5622,8 @@ pub const konsole__filterobject = struct {
     ///
     /// ` self: QtC.Konsole__FilterObject `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.Konsole__FilterObject_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.Konsole__FilterObject_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -5412,6 +5649,10 @@ pub const konsole__filterobject = struct {
         qtc.Konsole__FilterObject_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -5420,9 +5661,9 @@ pub const konsole__filterobject = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.Konsole__FilterObject_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.Konsole__FilterObject_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -5451,6 +5692,10 @@ pub const konsole__filterobject = struct {
         qtc.Konsole__FilterObject_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -5463,8 +5708,8 @@ pub const konsole__filterobject = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Konsole__FilterObject_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.Konsole__FilterObject_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -6330,6 +6575,10 @@ pub const konsole__filterobject = struct {
         return qtc.Konsole__FilterObject_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -6342,8 +6591,8 @@ pub const konsole__filterobject = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.Konsole__FilterObject_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.Konsole__FilterObject_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -6380,6 +6629,10 @@ pub const konsole__filterobject = struct {
         return qtc.Konsole__FilterObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -6394,8 +6647,8 @@ pub const konsole__filterobject = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.Konsole__FilterObject_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.Konsole__FilterObject_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -6430,6 +6683,10 @@ pub const konsole__filterobject = struct {
         qtc.Konsole__FilterObject_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -6442,8 +6699,8 @@ pub const konsole__filterobject = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Konsole__FilterObject_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Konsole__FilterObject_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -6478,6 +6735,10 @@ pub const konsole__filterobject = struct {
         qtc.Konsole__FilterObject_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -6490,8 +6751,8 @@ pub const konsole__filterobject = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Konsole__FilterObject_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Konsole__FilterObject_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -6526,6 +6787,10 @@ pub const konsole__filterobject = struct {
         qtc.Konsole__FilterObject_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -6538,8 +6803,8 @@ pub const konsole__filterobject = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Konsole__FilterObject_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.Konsole__FilterObject_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -6574,6 +6839,10 @@ pub const konsole__filterobject = struct {
         qtc.Konsole__FilterObject_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -6586,8 +6855,8 @@ pub const konsole__filterobject = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.Konsole__FilterObject_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.Konsole__FilterObject_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -6622,6 +6891,10 @@ pub const konsole__filterobject = struct {
         qtc.Konsole__FilterObject_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -6634,8 +6907,8 @@ pub const konsole__filterobject = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.Konsole__FilterObject_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.Konsole__FilterObject_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -6668,6 +6941,10 @@ pub const konsole__filterobject = struct {
         return qtc.Konsole__FilterObject_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -6678,8 +6955,8 @@ pub const konsole__filterobject = struct {
     ///
     /// ` self: QtC.Konsole__FilterObject `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.Konsole__FilterObject_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.Konsole__FilterObject_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -6712,6 +6989,10 @@ pub const konsole__filterobject = struct {
         return qtc.Konsole__FilterObject_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -6722,8 +7003,8 @@ pub const konsole__filterobject = struct {
     ///
     /// ` self: QtC.Konsole__FilterObject `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.Konsole__FilterObject_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.Konsole__FilterObject_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -6759,6 +7040,10 @@ pub const konsole__filterobject = struct {
         return qtc.Konsole__FilterObject_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -6771,9 +7056,9 @@ pub const konsole__filterobject = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.Konsole__FilterObject_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.Konsole__FilterObject_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -6808,6 +7093,10 @@ pub const konsole__filterobject = struct {
         return qtc.Konsole__FilterObject_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -6820,8 +7109,8 @@ pub const konsole__filterobject = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.Konsole__FilterObject_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.Konsole__FilterObject_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -6855,6 +7144,9 @@ pub const konsole__filterobject = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -6862,7 +7154,7 @@ pub const konsole__filterobject = struct {
     ///
     /// ` self: QtC.Konsole__FilterObject `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Konsole__FilterObject_Delete(@ptrCast(self));
     }
 };
@@ -6988,13 +7280,17 @@ pub const konsole__filterchain = struct {
         qtc.Konsole__FilterChain_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Konsole__FilterChain `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Konsole__FilterChain_Delete(@ptrCast(self));
     }
 };
@@ -7144,13 +7440,17 @@ pub const konsole__terminalimagefilterchain = struct {
         qtc.Konsole__FilterChain_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.Konsole__TerminalImageFilterChain `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Konsole__TerminalImageFilterChain_Delete(@ptrCast(self));
     }
 };
@@ -7267,6 +7567,10 @@ pub const konsole__filter__hotspot = struct {
         qtc.Konsole__Filter__HotSpot_OnActivate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperActivate` instead
+    ///
+    pub const QBaseActivate = SuperActivate;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -7277,12 +7581,12 @@ pub const konsole__filter__hotspot = struct {
     ///
     /// ` action: []const u8 `
     ///
-    pub fn QBaseActivate(self: ?*anyopaque, action: []const u8) void {
+    pub fn SuperActivate(self: ?*anyopaque, action: []const u8) void {
         const action_str = qtc.libqt_string{
             .len = action.len,
             .data = action.ptr,
         };
-        qtc.Konsole__Filter__HotSpot_QBaseActivate(@ptrCast(self), action_str);
+        qtc.Konsole__Filter__HotSpot_SuperActivate(@ptrCast(self), action_str);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -7322,6 +7626,10 @@ pub const konsole__filter__hotspot = struct {
         qtc.Konsole__Filter__HotSpot_OnActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperActions` instead
+    ///
+    pub const QBaseActions = SuperActions;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -7332,8 +7640,8 @@ pub const konsole__filter__hotspot = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseActions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.Konsole__Filter__HotSpot_QBaseActions(@ptrCast(self));
+    pub fn SuperActions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
+        const _arr: qtc.libqt_list = qtc.Konsole__Filter__HotSpot_SuperActions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("konsole__filter__hotspot.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
@@ -7367,6 +7675,10 @@ pub const konsole__filter__hotspot = struct {
         qtc.Konsole__Filter__HotSpot_OnSetType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetType` instead
+    ///
+    pub const QBaseSetType = SuperSetType;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -7377,9 +7689,12 @@ pub const konsole__filter__hotspot = struct {
     ///
     /// ` typeVal: Filter_enums.Type `
     ///
-    pub fn QBaseSetType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.Konsole__Filter__HotSpot_QBaseSetType(@ptrCast(self), @bitCast(typeVal));
+    pub fn SuperSetType(self: ?*anyopaque, typeVal: i32) void {
+        qtc.Konsole__Filter__HotSpot_SuperSetType(@ptrCast(self), @bitCast(typeVal));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -7387,7 +7702,7 @@ pub const konsole__filter__hotspot = struct {
     ///
     /// ` self: QtC.Konsole__Filter__HotSpot `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Konsole__Filter__HotSpot_Delete(@ptrCast(self));
     }
 };
@@ -7450,6 +7765,10 @@ pub const konsole__regexpfilter__hotspot = struct {
         qtc.Konsole__RegExpFilter__HotSpot_OnActivate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperActivate` instead
+    ///
+    pub const QBaseActivate = SuperActivate;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -7460,12 +7779,12 @@ pub const konsole__regexpfilter__hotspot = struct {
     ///
     /// ` action: []const u8 `
     ///
-    pub fn QBaseActivate(self: ?*anyopaque, action: []const u8) void {
+    pub fn SuperActivate(self: ?*anyopaque, action: []const u8) void {
         const action_str = qtc.libqt_string{
             .len = action.len,
             .data = action.ptr,
         };
-        qtc.Konsole__RegExpFilter__HotSpot_QBaseActivate(@ptrCast(self), action_str);
+        qtc.Konsole__RegExpFilter__HotSpot_SuperActivate(@ptrCast(self), action_str);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -7606,6 +7925,10 @@ pub const konsole__regexpfilter__hotspot = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperActions` instead
+    ///
+    pub const QBaseActions = SuperActions;
+
     /// Inherited from Konsole::Filter::HotSpot
     ///
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -7618,8 +7941,8 @@ pub const konsole__regexpfilter__hotspot = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseActions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.Konsole__RegExpFilter__HotSpot_QBaseActions(@ptrCast(self));
+    pub fn SuperActions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
+        const _arr: qtc.libqt_list = qtc.Konsole__RegExpFilter__HotSpot_SuperActions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("konsole__regexpfilter__hotspot.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
@@ -7665,6 +7988,10 @@ pub const konsole__regexpfilter__hotspot = struct {
         qtc.Konsole__RegExpFilter__HotSpot_SetType(@ptrCast(self), @bitCast(typeVal));
     }
 
+    /// ### DEPRECATED: Use `SuperSetType` instead
+    ///
+    pub const QBaseSetType = SuperSetType;
+
     /// Inherited from Konsole::Filter::HotSpot
     ///
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -7677,8 +8004,8 @@ pub const konsole__regexpfilter__hotspot = struct {
     ///
     /// ` typeVal: Filter_enums.Type `
     ///
-    pub fn QBaseSetType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.Konsole__RegExpFilter__HotSpot_QBaseSetType(@ptrCast(self), @bitCast(typeVal));
+    pub fn SuperSetType(self: ?*anyopaque, typeVal: i32) void {
+        qtc.Konsole__RegExpFilter__HotSpot_SuperSetType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
@@ -7696,6 +8023,9 @@ pub const konsole__regexpfilter__hotspot = struct {
     pub fn OnSetType(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.Konsole__RegExpFilter__HotSpot_OnSetType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -7703,7 +8033,7 @@ pub const konsole__regexpfilter__hotspot = struct {
     ///
     /// ` self: QtC.Konsole__RegExpFilter__HotSpot `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Konsole__RegExpFilter__HotSpot_Delete(@ptrCast(self));
     }
 };
@@ -7773,6 +8103,10 @@ pub const konsole__urlfilter__hotspot = struct {
         qtc.Konsole__UrlFilter__HotSpot_OnActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperActions` instead
+    ///
+    pub const QBaseActions = SuperActions;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -7783,8 +8117,8 @@ pub const konsole__urlfilter__hotspot = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseActions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.Konsole__UrlFilter__HotSpot_QBaseActions(@ptrCast(self));
+    pub fn SuperActions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
+        const _arr: qtc.libqt_list = qtc.Konsole__UrlFilter__HotSpot_SuperActions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("konsole__urlfilter__hotspot.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
@@ -7822,6 +8156,10 @@ pub const konsole__urlfilter__hotspot = struct {
         qtc.Konsole__UrlFilter__HotSpot_OnActivate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperActivate` instead
+    ///
+    pub const QBaseActivate = SuperActivate;
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Base class method implementation
@@ -7832,12 +8170,12 @@ pub const konsole__urlfilter__hotspot = struct {
     ///
     /// ` action: []const u8 `
     ///
-    pub fn QBaseActivate(self: ?*anyopaque, action: []const u8) void {
+    pub fn SuperActivate(self: ?*anyopaque, action: []const u8) void {
         const action_str = qtc.libqt_string{
             .len = action.len,
             .data = action.ptr,
         };
-        qtc.Konsole__UrlFilter__HotSpot_QBaseActivate(@ptrCast(self), action_str);
+        qtc.Konsole__UrlFilter__HotSpot_SuperActivate(@ptrCast(self), action_str);
     }
 
     /// Inherited from Konsole::RegExpFilter::HotSpot
@@ -7977,6 +8315,10 @@ pub const konsole__urlfilter__hotspot = struct {
         qtc.Konsole__UrlFilter__HotSpot_SetType(@ptrCast(self), @bitCast(typeVal));
     }
 
+    /// ### DEPRECATED: Use `SuperSetType` instead
+    ///
+    pub const QBaseSetType = SuperSetType;
+
     /// Inherited from Konsole::Filter::HotSpot
     ///
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -7989,8 +8331,8 @@ pub const konsole__urlfilter__hotspot = struct {
     ///
     /// ` typeVal: Filter_enums.Type `
     ///
-    pub fn QBaseSetType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.Konsole__UrlFilter__HotSpot_QBaseSetType(@ptrCast(self), @bitCast(typeVal));
+    pub fn SuperSetType(self: ?*anyopaque, typeVal: i32) void {
+        qtc.Konsole__UrlFilter__HotSpot_SuperSetType(@ptrCast(self), @bitCast(typeVal));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
@@ -8008,6 +8350,9 @@ pub const konsole__urlfilter__hotspot = struct {
     pub fn OnSetType(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.Konsole__UrlFilter__HotSpot_OnSetType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// Delete this object from C++ memory.
     ///
@@ -8015,7 +8360,7 @@ pub const konsole__urlfilter__hotspot = struct {
     ///
     /// ` self: QtC.Konsole__UrlFilter__HotSpot `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Konsole__UrlFilter__HotSpot_Delete(@ptrCast(self));
     }
 };

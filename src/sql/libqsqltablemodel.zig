@@ -62,6 +62,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -70,8 +74,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` self: QtC.QSqlTableModel `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QSqlTableModel_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QSqlTableModel_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -97,6 +101,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -105,9 +113,9 @@ pub const qsqltablemodel = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QSqlTableModel_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QSqlTableModel_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -136,6 +144,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -148,8 +160,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QSqlTableModel_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QSqlTableModel_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -199,6 +211,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSetTable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetTable` instead
+    ///
+    pub const QBaseSetTable = SuperSetTable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setTable)
     ///
     /// Base class method implementation
@@ -209,12 +225,12 @@ pub const qsqltablemodel = struct {
     ///
     /// ` tableName: []const u8 `
     ///
-    pub fn QBaseSetTable(self: ?*anyopaque, tableName: []const u8) void {
+    pub fn SuperSetTable(self: ?*anyopaque, tableName: []const u8) void {
         const tableName_str = qtc.libqt_string{
             .len = tableName.len,
             .data = tableName.ptr,
         };
-        qtc.QSqlTableModel_QBaseSetTable(@ptrCast(self), tableName_str);
+        qtc.QSqlTableModel_SuperSetTable(@ptrCast(self), tableName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#tableName)
@@ -263,6 +279,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnFlags(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFlags` instead
+    ///
+    pub const QBaseFlags = SuperFlags;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#flags)
     ///
     /// Base class method implementation
@@ -277,8 +297,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn QBaseFlags(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.QSqlTableModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
+    pub fn SuperFlags(self: ?*anyopaque, index: ?*anyopaque) i32 {
+        return qtc.QSqlTableModel_SuperFlags(@ptrCast(self), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#record)
@@ -331,6 +351,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperData` instead
+    ///
+    pub const QBaseData = SuperData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#data)
     ///
     /// Base class method implementation
@@ -343,8 +367,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn QBaseData(self: ?*anyopaque, idx: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.QSqlTableModel_QBaseData(@ptrCast(self), @ptrCast(idx), @bitCast(role));
+    pub fn SuperData(self: ?*anyopaque, idx: ?*anyopaque, role: i32) QtC.QVariant {
+        return qtc.QSqlTableModel_SuperData(@ptrCast(self), @ptrCast(idx), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setData)
@@ -377,6 +401,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSetData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetData` instead
+    ///
+    pub const QBaseSetData = SuperSetData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setData)
     ///
     /// Base class method implementation
@@ -391,8 +419,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn QBaseSetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.QSqlTableModel_QBaseSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
+    pub fn SuperSetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
+        return qtc.QSqlTableModel_SuperSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#clearItemData)
@@ -421,6 +449,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnClearItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClearItemData` instead
+    ///
+    pub const QBaseClearItemData = SuperClearItemData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#clearItemData)
     ///
     /// Base class method implementation
@@ -431,8 +463,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QSqlTableModel_QBaseClearItemData(@ptrCast(self), @ptrCast(index));
+    pub fn SuperClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
+        return qtc.QSqlTableModel_SuperClearItemData(@ptrCast(self), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#headerData)
@@ -465,6 +497,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHeaderData` instead
+    ///
+    pub const QBaseHeaderData = SuperHeaderData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#headerData)
     ///
     /// Base class method implementation
@@ -479,8 +515,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn QBaseHeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.QSqlTableModel_QBaseHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
+    pub fn SuperHeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
+        return qtc.QSqlTableModel_SuperHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#isDirty)
@@ -529,6 +565,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnClear(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClear` instead
+    ///
+    pub const QBaseClear = SuperClear;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#clear)
     ///
     /// Base class method implementation
@@ -537,8 +577,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` self: QtC.QSqlTableModel `
     ///
-    pub fn QBaseClear(self: ?*anyopaque) void {
-        qtc.QSqlTableModel_QBaseClear(@ptrCast(self));
+    pub fn SuperClear(self: ?*anyopaque) void {
+        qtc.QSqlTableModel_SuperClear(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setEditStrategy)
@@ -567,6 +607,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSetEditStrategy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetEditStrategy` instead
+    ///
+    pub const QBaseSetEditStrategy = SuperSetEditStrategy;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setEditStrategy)
     ///
     /// Base class method implementation
@@ -577,8 +621,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` strategy: qsqltablemodel_enums.EditStrategy `
     ///
-    pub fn QBaseSetEditStrategy(self: ?*anyopaque, strategy: i32) void {
-        qtc.QSqlTableModel_QBaseSetEditStrategy(@ptrCast(self), @bitCast(strategy));
+    pub fn SuperSetEditStrategy(self: ?*anyopaque, strategy: i32) void {
+        qtc.QSqlTableModel_SuperSetEditStrategy(@ptrCast(self), @bitCast(strategy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#editStrategy)
@@ -659,6 +703,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSort` instead
+    ///
+    pub const QBaseSort = SuperSort;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#sort)
     ///
     /// Base class method implementation
@@ -671,8 +719,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn QBaseSort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.QSqlTableModel_QBaseSort(@ptrCast(self), @bitCast(column), @bitCast(order));
+    pub fn SuperSort(self: ?*anyopaque, column: i32, order: i32) void {
+        qtc.QSqlTableModel_SuperSort(@ptrCast(self), @bitCast(column), @bitCast(order));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setSort)
@@ -703,6 +751,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSetSort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetSort` instead
+    ///
+    pub const QBaseSetSort = SuperSetSort;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setSort)
     ///
     /// Base class method implementation
@@ -715,8 +767,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn QBaseSetSort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.QSqlTableModel_QBaseSetSort(@ptrCast(self), @bitCast(column), @bitCast(order));
+    pub fn SuperSetSort(self: ?*anyopaque, column: i32, order: i32) void {
+        qtc.QSqlTableModel_SuperSetSort(@ptrCast(self), @bitCast(column), @bitCast(order));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#filter)
@@ -765,6 +817,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSetFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFilter` instead
+    ///
+    pub const QBaseSetFilter = SuperSetFilter;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setFilter)
     ///
     /// Base class method implementation
@@ -775,12 +831,12 @@ pub const qsqltablemodel = struct {
     ///
     /// ` filter: []const u8 `
     ///
-    pub fn QBaseSetFilter(self: ?*anyopaque, filter: []const u8) void {
+    pub fn SuperSetFilter(self: ?*anyopaque, filter: []const u8) void {
         const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
-        qtc.QSqlTableModel_QBaseSetFilter(@ptrCast(self), filter_str);
+        qtc.QSqlTableModel_SuperSetFilter(@ptrCast(self), filter_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#rowCount)
@@ -809,6 +865,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnRowCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRowCount` instead
+    ///
+    pub const QBaseRowCount = SuperRowCount;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#rowCount)
     ///
     /// Base class method implementation
@@ -819,8 +879,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseRowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.QSqlTableModel_QBaseRowCount(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperRowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
+        return qtc.QSqlTableModel_SuperRowCount(@ptrCast(self), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#removeColumns)
@@ -853,6 +913,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRemoveColumns` instead
+    ///
+    pub const QBaseRemoveColumns = SuperRemoveColumns;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#removeColumns)
     ///
     /// Base class method implementation
@@ -867,8 +931,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseRemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QSqlTableModel_QBaseRemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn SuperRemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
+        return qtc.QSqlTableModel_SuperRemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#removeRows)
@@ -901,6 +965,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRemoveRows` instead
+    ///
+    pub const QBaseRemoveRows = SuperRemoveRows;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#removeRows)
     ///
     /// Base class method implementation
@@ -915,8 +983,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseRemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QSqlTableModel_QBaseRemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn SuperRemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
+        return qtc.QSqlTableModel_SuperRemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRows)
@@ -949,6 +1017,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInsertRows` instead
+    ///
+    pub const QBaseInsertRows = SuperInsertRows;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRows)
     ///
     /// Base class method implementation
@@ -963,8 +1035,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseInsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QSqlTableModel_QBaseInsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn SuperInsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
+        return qtc.QSqlTableModel_SuperInsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRecord)
@@ -1021,6 +1093,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnRevertRow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRevertRow` instead
+    ///
+    pub const QBaseRevertRow = SuperRevertRow;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#revertRow)
     ///
     /// Base class method implementation
@@ -1031,8 +1107,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn QBaseRevertRow(self: ?*anyopaque, row: i32) void {
-        qtc.QSqlTableModel_QBaseRevertRow(@ptrCast(self), @bitCast(row));
+    pub fn SuperRevertRow(self: ?*anyopaque, row: i32) void {
+        qtc.QSqlTableModel_SuperRevertRow(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#select)
@@ -1059,6 +1135,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSelect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSelect` instead
+    ///
+    pub const QBaseSelect = SuperSelect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#select)
     ///
     /// Base class method implementation
@@ -1067,8 +1147,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` self: QtC.QSqlTableModel `
     ///
-    pub fn QBaseSelect(self: ?*anyopaque) bool {
-        return qtc.QSqlTableModel_QBaseSelect(@ptrCast(self));
+    pub fn SuperSelect(self: ?*anyopaque) bool {
+        return qtc.QSqlTableModel_SuperSelect(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#selectRow)
@@ -1097,6 +1177,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSelectRow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSelectRow` instead
+    ///
+    pub const QBaseSelectRow = SuperSelectRow;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#selectRow)
     ///
     /// Base class method implementation
@@ -1107,8 +1191,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn QBaseSelectRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QSqlTableModel_QBaseSelectRow(@ptrCast(self), @bitCast(row));
+    pub fn SuperSelectRow(self: ?*anyopaque, row: i32) bool {
+        return qtc.QSqlTableModel_SuperSelectRow(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#submit)
@@ -1135,6 +1219,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSubmit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSubmit` instead
+    ///
+    pub const QBaseSubmit = SuperSubmit;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#submit)
     ///
     /// Base class method implementation
@@ -1143,8 +1231,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` self: QtC.QSqlTableModel `
     ///
-    pub fn QBaseSubmit(self: ?*anyopaque) bool {
-        return qtc.QSqlTableModel_QBaseSubmit(@ptrCast(self));
+    pub fn SuperSubmit(self: ?*anyopaque) bool {
+        return qtc.QSqlTableModel_SuperSubmit(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#revert)
@@ -1171,6 +1259,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnRevert(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRevert` instead
+    ///
+    pub const QBaseRevert = SuperRevert;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#revert)
     ///
     /// Base class method implementation
@@ -1179,8 +1271,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` self: QtC.QSqlTableModel `
     ///
-    pub fn QBaseRevert(self: ?*anyopaque) void {
-        qtc.QSqlTableModel_QBaseRevert(@ptrCast(self));
+    pub fn SuperRevert(self: ?*anyopaque) void {
+        qtc.QSqlTableModel_SuperRevert(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#submitAll)
@@ -1331,6 +1423,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnUpdateRowInTable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateRowInTable` instead
+    ///
+    pub const QBaseUpdateRowInTable = SuperUpdateRowInTable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#updateRowInTable)
     ///
     /// Base class method implementation
@@ -1343,8 +1439,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` values: QtC.QSqlRecord `
     ///
-    pub fn QBaseUpdateRowInTable(self: ?*anyopaque, row: i32, values: ?*anyopaque) bool {
-        return qtc.QSqlTableModel_QBaseUpdateRowInTable(@ptrCast(self), @bitCast(row), @ptrCast(values));
+    pub fn SuperUpdateRowInTable(self: ?*anyopaque, row: i32, values: ?*anyopaque) bool {
+        return qtc.QSqlTableModel_SuperUpdateRowInTable(@ptrCast(self), @bitCast(row), @ptrCast(values));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRowIntoTable)
@@ -1373,6 +1469,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnInsertRowIntoTable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInsertRowIntoTable` instead
+    ///
+    pub const QBaseInsertRowIntoTable = SuperInsertRowIntoTable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRowIntoTable)
     ///
     /// Base class method implementation
@@ -1383,8 +1483,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` values: QtC.QSqlRecord `
     ///
-    pub fn QBaseInsertRowIntoTable(self: ?*anyopaque, values: ?*anyopaque) bool {
-        return qtc.QSqlTableModel_QBaseInsertRowIntoTable(@ptrCast(self), @ptrCast(values));
+    pub fn SuperInsertRowIntoTable(self: ?*anyopaque, values: ?*anyopaque) bool {
+        return qtc.QSqlTableModel_SuperInsertRowIntoTable(@ptrCast(self), @ptrCast(values));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#deleteRowFromTable)
@@ -1413,6 +1513,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnDeleteRowFromTable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDeleteRowFromTable` instead
+    ///
+    pub const QBaseDeleteRowFromTable = SuperDeleteRowFromTable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#deleteRowFromTable)
     ///
     /// Base class method implementation
@@ -1423,8 +1527,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn QBaseDeleteRowFromTable(self: ?*anyopaque, row: i32) bool {
-        return qtc.QSqlTableModel_QBaseDeleteRowFromTable(@ptrCast(self), @bitCast(row));
+    pub fn SuperDeleteRowFromTable(self: ?*anyopaque, row: i32) bool {
+        return qtc.QSqlTableModel_SuperDeleteRowFromTable(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#orderByClause)
@@ -1459,6 +1563,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnOrderByClause(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperOrderByClause` instead
+    ///
+    pub const QBaseOrderByClause = SuperOrderByClause;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#orderByClause)
     ///
     /// Base class method implementation
@@ -1469,8 +1577,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseOrderByClause(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QSqlTableModel_QBaseOrderByClause(@ptrCast(self));
+    pub fn SuperOrderByClause(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QSqlTableModel_SuperOrderByClause(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqltablemodel.OrderByClause: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1509,6 +1617,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSelectStatement(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSelectStatement` instead
+    ///
+    pub const QBaseSelectStatement = SuperSelectStatement;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#selectStatement)
     ///
     /// Base class method implementation
@@ -1519,8 +1631,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSelectStatement(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QSqlTableModel_QBaseSelectStatement(@ptrCast(self));
+    pub fn SuperSelectStatement(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QSqlTableModel_SuperSelectStatement(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqltablemodel.SelectStatement: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1553,6 +1665,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnSetPrimaryKey(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPrimaryKey` instead
+    ///
+    pub const QBaseSetPrimaryKey = SuperSetPrimaryKey;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#setPrimaryKey)
     ///
     /// Base class method implementation
@@ -1563,8 +1679,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` key: QtC.QSqlIndex `
     ///
-    pub fn QBaseSetPrimaryKey(self: ?*anyopaque, key: ?*anyopaque) void {
-        qtc.QSqlTableModel_QBaseSetPrimaryKey(@ptrCast(self), @ptrCast(key));
+    pub fn SuperSetPrimaryKey(self: ?*anyopaque, key: ?*anyopaque) void {
+        qtc.QSqlTableModel_SuperSetPrimaryKey(@ptrCast(self), @ptrCast(key));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#indexInQuery)
@@ -1593,6 +1709,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnIndexInQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIndexInQuery` instead
+    ///
+    pub const QBaseIndexInQuery = SuperIndexInQuery;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#indexInQuery)
     ///
     /// Base class method implementation
@@ -1603,8 +1723,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` item: QtC.QModelIndex `
     ///
-    pub fn QBaseIndexInQuery(self: ?*anyopaque, item: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QSqlTableModel_QBaseIndexInQuery(@ptrCast(self), @ptrCast(item));
+    pub fn SuperIndexInQuery(self: ?*anyopaque, item: ?*anyopaque) QtC.QModelIndex {
+        return qtc.QSqlTableModel_SuperIndexInQuery(@ptrCast(self), @ptrCast(item));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#primaryValues)
@@ -1633,6 +1753,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_OnPrimaryValues(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPrimaryValues` instead
+    ///
+    pub const QBasePrimaryValues = SuperPrimaryValues;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#primaryValues)
     ///
     /// Base class method implementation
@@ -1643,8 +1767,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn QBasePrimaryValues(self: ?*anyopaque, row: i32) QtC.QSqlRecord {
-        return qtc.QSqlTableModel_QBasePrimaryValues(@ptrCast(self), @bitCast(row));
+    pub fn SuperPrimaryValues(self: ?*anyopaque, row: i32) QtC.QSqlRecord {
+        return qtc.QSqlTableModel_SuperPrimaryValues(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1811,6 +1935,10 @@ pub const qsqltablemodel = struct {
         qtc.QAbstractItemModel_OnParent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperParent` instead
+    ///
+    pub const QBaseParent = SuperParent;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#parent)
@@ -1823,8 +1951,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` child: QtC.QModelIndex `
     ///
-    pub fn QBaseParent(self: ?*anyopaque, child: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractItemModel_QBaseParent(@ptrCast(self), @ptrCast(child));
+    pub fn SuperParent(self: ?*anyopaque, child: ?*anyopaque) QtC.QModelIndex {
+        return qtc.QAbstractItemModel_SuperParent(@ptrCast(self), @ptrCast(child));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1857,6 +1985,10 @@ pub const qsqltablemodel = struct {
         qtc.QAbstractItemModel_OnHasChildren(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHasChildren` instead
+    ///
+    pub const QBaseHasChildren = SuperHasChildren;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasChildren)
@@ -1869,8 +2001,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseHasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_QBaseHasChildren(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperHasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
+        return qtc.QAbstractItemModel_SuperHasChildren(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3105,6 +3237,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_ColumnCount(@ptrCast(self), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperColumnCount` instead
+    ///
+    pub const QBaseColumnCount = SuperColumnCount;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#columnCount)
@@ -3117,8 +3253,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.QSqlTableModel_QBaseColumnCount(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
+        return qtc.QSqlTableModel_SuperColumnCount(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QSqlQueryModel
@@ -3159,6 +3295,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_SetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
     }
 
+    /// ### DEPRECATED: Use `SuperSetHeaderData` instead
+    ///
+    pub const QBaseSetHeaderData = SuperSetHeaderData;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#setHeaderData)
@@ -3177,8 +3317,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn QBaseSetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.QSqlTableModel_QBaseSetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
+    pub fn SuperSetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
+        return qtc.QSqlTableModel_SuperSetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
     }
 
     /// Inherited from QSqlQueryModel
@@ -3217,6 +3357,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_InsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperInsertColumns` instead
+    ///
+    pub const QBaseInsertColumns = SuperInsertColumns;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#insertColumns)
@@ -3233,8 +3377,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseInsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QSqlTableModel_QBaseInsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn SuperInsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
+        return qtc.QSqlTableModel_SuperInsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
     }
 
     /// Inherited from QSqlQueryModel
@@ -3269,6 +3413,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_FetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperFetchMore` instead
+    ///
+    pub const QBaseFetchMore = SuperFetchMore;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#fetchMore)
@@ -3281,8 +3429,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseFetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QSqlTableModel_QBaseFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperFetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
+        qtc.QSqlTableModel_SuperFetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QSqlQueryModel
@@ -3317,6 +3465,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_CanFetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperCanFetchMore` instead
+    ///
+    pub const QBaseCanFetchMore = SuperCanFetchMore;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#canFetchMore)
@@ -3329,8 +3481,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseCanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.QSqlTableModel_QBaseCanFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperCanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
+        return qtc.QSqlTableModel_SuperCanFetchMore(@ptrCast(self), @ptrCast(parent));
     }
 
     /// Inherited from QSqlQueryModel
@@ -3385,6 +3537,10 @@ pub const qsqltablemodel = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperRoleNames` instead
+    ///
+    pub const QBaseRoleNames = SuperRoleNames;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#roleNames)
@@ -3397,8 +3553,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.libqt_map = qtc.QSqlTableModel_QBaseRoleNames(@ptrCast(self));
+    pub fn SuperRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
+        const _map: qtc.libqt_map = qtc.QSqlTableModel_SuperRoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -3455,6 +3611,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_QueryChange(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperQueryChange` instead
+    ///
+    pub const QBaseQueryChange = SuperQueryChange;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#queryChange)
@@ -3465,8 +3625,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` self: QtC.QSqlTableModel `
     ///
-    pub fn QBaseQueryChange(self: ?*anyopaque) void {
-        qtc.QSqlTableModel_QBaseQueryChange(@ptrCast(self));
+    pub fn SuperQueryChange(self: ?*anyopaque) void {
+        qtc.QSqlTableModel_SuperQueryChange(@ptrCast(self));
     }
 
     /// Inherited from QSqlQueryModel
@@ -3505,6 +3665,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_Index(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperIndex` instead
+    ///
+    pub const QBaseIndex = SuperIndex;
+
     /// Inherited from QAbstractTableModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#index)
@@ -3521,8 +3685,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseIndex(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QSqlTableModel_QBaseIndex(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperIndex(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
+        return qtc.QSqlTableModel_SuperIndex(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractTableModel
@@ -3561,6 +3725,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_Sibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
     }
 
+    /// ### DEPRECATED: Use `SuperSibling` instead
+    ///
+    pub const QBaseSibling = SuperSibling;
+
     /// Inherited from QAbstractTableModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#sibling)
@@ -3577,8 +3745,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` idx: QtC.QModelIndex `
     ///
-    pub fn QBaseSibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QSqlTableModel_QBaseSibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
+    pub fn SuperSibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
+        return qtc.QSqlTableModel_SuperSibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
     }
 
     /// Inherited from QAbstractTableModel
@@ -3621,6 +3789,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_DropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperDropMimeData` instead
+    ///
+    pub const QBaseDropMimeData = SuperDropMimeData;
+
     /// Inherited from QAbstractTableModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttablemodel.html#dropMimeData)
@@ -3641,8 +3813,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QSqlTableModel_QBaseDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
+        return qtc.QSqlTableModel_SuperDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractTableModel
@@ -3693,6 +3865,10 @@ pub const qsqltablemodel = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperItemData` instead
+    ///
+    pub const QBaseItemData = SuperItemData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
@@ -3707,8 +3883,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.QSqlTableModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
+    pub fn SuperItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
+        const _map: qtc.libqt_map = qtc.QSqlTableModel_SuperItemData(@ptrCast(self), @ptrCast(index));
         var _ret: arraymap_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -3782,6 +3958,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_SetItemData(@ptrCast(self), @ptrCast(index), roles_map);
     }
 
+    /// ### DEPRECATED: Use `SuperSetItemData` instead
+    ///
+    pub const QBaseSetItemData = SuperSetItemData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
@@ -3798,7 +3978,7 @@ pub const qsqltablemodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    pub fn SuperSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("qsqltablemodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -3816,7 +3996,7 @@ pub const qsqltablemodel = struct {
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.QSqlTableModel_QBaseSetItemData(@ptrCast(self), @ptrCast(index), roles_map);
+        return qtc.QSqlTableModel_SuperSetItemData(@ptrCast(self), @ptrCast(index), roles_map);
     }
 
     /// Inherited from QAbstractItemModel
@@ -3866,6 +4046,10 @@ pub const qsqltablemodel = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperMimeTypes` instead
+    ///
+    pub const QBaseMimeTypes = SuperMimeTypes;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeTypes)
@@ -3878,8 +4062,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QSqlTableModel_QBaseMimeTypes(@ptrCast(self));
+    pub fn SuperMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QSqlTableModel_SuperMimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -3935,6 +4119,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_MimeData(@ptrCast(self), indexes_list);
     }
 
+    /// ### DEPRECATED: Use `SuperMimeData` instead
+    ///
+    pub const QBaseMimeData = SuperMimeData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#mimeData)
@@ -3947,12 +4135,12 @@ pub const qsqltablemodel = struct {
     ///
     /// ` indexes: []QtC.QModelIndex `
     ///
-    pub fn QBaseMimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
+    pub fn SuperMimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        return qtc.QSqlTableModel_QBaseMimeData(@ptrCast(self), indexes_list);
+        return qtc.QSqlTableModel_SuperMimeData(@ptrCast(self), indexes_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -3995,6 +4183,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `SuperCanDropMimeData` instead
+    ///
+    pub const QBaseCanDropMimeData = SuperCanDropMimeData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#canDropMimeData)
@@ -4015,8 +4207,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` parent: QtC.QModelIndex `
     ///
-    pub fn QBaseCanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QSqlTableModel_QBaseCanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperCanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
+        return qtc.QSqlTableModel_SuperCanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4053,6 +4245,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_SupportedDropActions(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSupportedDropActions` instead
+    ///
+    pub const QBaseSupportedDropActions = SuperSupportedDropActions;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
@@ -4067,8 +4263,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn QBaseSupportedDropActions(self: ?*anyopaque) i32 {
-        return qtc.QSqlTableModel_QBaseSupportedDropActions(@ptrCast(self));
+    pub fn SuperSupportedDropActions(self: ?*anyopaque) i32 {
+        return qtc.QSqlTableModel_SuperSupportedDropActions(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4105,6 +4301,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_SupportedDragActions(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSupportedDragActions` instead
+    ///
+    pub const QBaseSupportedDragActions = SuperSupportedDragActions;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
@@ -4119,8 +4319,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn QBaseSupportedDragActions(self: ?*anyopaque) i32 {
-        return qtc.QSqlTableModel_QBaseSupportedDragActions(@ptrCast(self));
+    pub fn SuperSupportedDragActions(self: ?*anyopaque) i32 {
+        return qtc.QSqlTableModel_SuperSupportedDragActions(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4163,6 +4363,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveRows` instead
+    ///
+    pub const QBaseMoveRows = SuperMoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveRows)
@@ -4183,8 +4387,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn QBaseMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QSqlTableModel_QBaseMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn SuperMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
+        return qtc.QSqlTableModel_SuperMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4227,6 +4431,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveColumns` instead
+    ///
+    pub const QBaseMoveColumns = SuperMoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#moveColumns)
@@ -4247,8 +4455,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn QBaseMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QSqlTableModel_QBaseMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn SuperMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
+        return qtc.QSqlTableModel_SuperMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4283,6 +4491,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_Buddy(@ptrCast(self), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperBuddy` instead
+    ///
+    pub const QBaseBuddy = SuperBuddy;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#buddy)
@@ -4295,8 +4507,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseBuddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QSqlTableModel_QBaseBuddy(@ptrCast(self), @ptrCast(index));
+    pub fn SuperBuddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
+        return qtc.QSqlTableModel_SuperBuddy(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4346,6 +4558,10 @@ pub const qsqltablemodel = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperMatch` instead
+    ///
+    pub const QBaseMatch = SuperMatch;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
@@ -4368,8 +4584,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QSqlTableModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
+    pub fn SuperMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
+        const _arr: qtc.libqt_list = qtc.QSqlTableModel_SuperMatch(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qsqltablemodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -4415,6 +4631,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_Span(@ptrCast(self), @ptrCast(index));
     }
 
+    /// ### DEPRECATED: Use `SuperSpan` instead
+    ///
+    pub const QBaseSpan = SuperSpan;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#span)
@@ -4427,8 +4647,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseSpan(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.QSqlTableModel_QBaseSpan(@ptrCast(self), @ptrCast(index));
+    pub fn SuperSpan(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
+        return qtc.QSqlTableModel_SuperSpan(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4465,6 +4685,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_MultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
     }
 
+    /// ### DEPRECATED: Use `SuperMultiData` instead
+    ///
+    pub const QBaseMultiData = SuperMultiData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#multiData)
@@ -4479,8 +4703,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` roleDataSpan: QtC.QModelRoleDataSpan `
     ///
-    pub fn QBaseMultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
-        qtc.QSqlTableModel_QBaseMultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
+    pub fn SuperMultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
+        qtc.QSqlTableModel_SuperMultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4513,6 +4737,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_ResetInternalData(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperResetInternalData` instead
+    ///
+    pub const QBaseResetInternalData = SuperResetInternalData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#resetInternalData)
@@ -4523,8 +4751,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` self: QtC.QSqlTableModel `
     ///
-    pub fn QBaseResetInternalData(self: ?*anyopaque) void {
-        qtc.QSqlTableModel_QBaseResetInternalData(@ptrCast(self));
+    pub fn SuperResetInternalData(self: ?*anyopaque) void {
+        qtc.QSqlTableModel_SuperResetInternalData(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4559,6 +4787,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -4571,8 +4803,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSqlTableModel_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QSqlTableModel_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4609,6 +4841,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -4623,8 +4859,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSqlTableModel_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QSqlTableModel_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4659,6 +4895,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -4671,8 +4911,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSqlTableModel_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QSqlTableModel_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4707,6 +4947,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -4719,8 +4963,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSqlTableModel_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QSqlTableModel_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4755,6 +4999,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -4767,8 +5015,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSqlTableModel_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QSqlTableModel_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4803,6 +5051,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -4815,8 +5067,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSqlTableModel_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QSqlTableModel_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4851,6 +5103,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -4863,8 +5119,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSqlTableModel_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QSqlTableModel_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4903,6 +5159,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_BeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginInsertRows` instead
+    ///
+    pub const QBaseBeginInsertRows = SuperBeginInsertRows;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginInsertRows)
@@ -4919,8 +5179,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn QBaseBeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QSqlTableModel_QBaseBeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
+        qtc.QSqlTableModel_SuperBeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QSqlQueryModel
@@ -4953,6 +5213,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_EndInsertRows(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndInsertRows` instead
+    ///
+    pub const QBaseEndInsertRows = SuperEndInsertRows;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endInsertRows)
@@ -4963,8 +5227,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` self: QtC.QSqlTableModel `
     ///
-    pub fn QBaseEndInsertRows(self: ?*anyopaque) void {
-        qtc.QSqlTableModel_QBaseEndInsertRows(@ptrCast(self));
+    pub fn SuperEndInsertRows(self: ?*anyopaque) void {
+        qtc.QSqlTableModel_SuperEndInsertRows(@ptrCast(self));
     }
 
     /// Inherited from QSqlQueryModel
@@ -5003,6 +5267,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_BeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginRemoveRows` instead
+    ///
+    pub const QBaseBeginRemoveRows = SuperBeginRemoveRows;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginRemoveRows)
@@ -5019,8 +5287,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn QBaseBeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QSqlTableModel_QBaseBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
+        qtc.QSqlTableModel_SuperBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QSqlQueryModel
@@ -5053,6 +5321,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_EndRemoveRows(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndRemoveRows` instead
+    ///
+    pub const QBaseEndRemoveRows = SuperEndRemoveRows;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endRemoveRows)
@@ -5063,8 +5335,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` self: QtC.QSqlTableModel `
     ///
-    pub fn QBaseEndRemoveRows(self: ?*anyopaque) void {
-        qtc.QSqlTableModel_QBaseEndRemoveRows(@ptrCast(self));
+    pub fn SuperEndRemoveRows(self: ?*anyopaque) void {
+        qtc.QSqlTableModel_SuperEndRemoveRows(@ptrCast(self));
     }
 
     /// Inherited from QSqlQueryModel
@@ -5103,6 +5375,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_BeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginInsertColumns` instead
+    ///
+    pub const QBaseBeginInsertColumns = SuperBeginInsertColumns;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginInsertColumns)
@@ -5119,8 +5395,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn QBaseBeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QSqlTableModel_QBaseBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
+        qtc.QSqlTableModel_SuperBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QSqlQueryModel
@@ -5153,6 +5429,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_EndInsertColumns(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndInsertColumns` instead
+    ///
+    pub const QBaseEndInsertColumns = SuperEndInsertColumns;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endInsertColumns)
@@ -5163,8 +5443,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` self: QtC.QSqlTableModel `
     ///
-    pub fn QBaseEndInsertColumns(self: ?*anyopaque) void {
-        qtc.QSqlTableModel_QBaseEndInsertColumns(@ptrCast(self));
+    pub fn SuperEndInsertColumns(self: ?*anyopaque) void {
+        qtc.QSqlTableModel_SuperEndInsertColumns(@ptrCast(self));
     }
 
     /// Inherited from QSqlQueryModel
@@ -5203,6 +5483,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_BeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginRemoveColumns` instead
+    ///
+    pub const QBaseBeginRemoveColumns = SuperBeginRemoveColumns;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginRemoveColumns)
@@ -5219,8 +5503,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn QBaseBeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QSqlTableModel_QBaseBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
+        qtc.QSqlTableModel_SuperBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QSqlQueryModel
@@ -5253,6 +5537,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_EndRemoveColumns(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndRemoveColumns` instead
+    ///
+    pub const QBaseEndRemoveColumns = SuperEndRemoveColumns;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endRemoveColumns)
@@ -5263,8 +5551,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` self: QtC.QSqlTableModel `
     ///
-    pub fn QBaseEndRemoveColumns(self: ?*anyopaque) void {
-        qtc.QSqlTableModel_QBaseEndRemoveColumns(@ptrCast(self));
+    pub fn SuperEndRemoveColumns(self: ?*anyopaque) void {
+        qtc.QSqlTableModel_SuperEndRemoveColumns(@ptrCast(self));
     }
 
     /// Inherited from QSqlQueryModel
@@ -5297,6 +5585,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_BeginResetModel(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginResetModel` instead
+    ///
+    pub const QBaseBeginResetModel = SuperBeginResetModel;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#beginResetModel)
@@ -5307,8 +5599,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` self: QtC.QSqlTableModel `
     ///
-    pub fn QBaseBeginResetModel(self: ?*anyopaque) void {
-        qtc.QSqlTableModel_QBaseBeginResetModel(@ptrCast(self));
+    pub fn SuperBeginResetModel(self: ?*anyopaque) void {
+        qtc.QSqlTableModel_SuperBeginResetModel(@ptrCast(self));
     }
 
     /// Inherited from QSqlQueryModel
@@ -5341,6 +5633,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_EndResetModel(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndResetModel` instead
+    ///
+    pub const QBaseEndResetModel = SuperEndResetModel;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#endResetModel)
@@ -5351,8 +5647,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` self: QtC.QSqlTableModel `
     ///
-    pub fn QBaseEndResetModel(self: ?*anyopaque) void {
-        qtc.QSqlTableModel_QBaseEndResetModel(@ptrCast(self));
+    pub fn SuperEndResetModel(self: ?*anyopaque) void {
+        qtc.QSqlTableModel_SuperEndResetModel(@ptrCast(self));
     }
 
     /// Inherited from QSqlQueryModel
@@ -5387,6 +5683,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_SetLastError(@ptrCast(self), @ptrCast(errorVal));
     }
 
+    /// ### DEPRECATED: Use `SuperSetLastError` instead
+    ///
+    pub const QBaseSetLastError = SuperSetLastError;
+
     /// Inherited from QSqlQueryModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#setLastError)
@@ -5399,8 +5699,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` errorVal: QtC.QSqlError `
     ///
-    pub fn QBaseSetLastError(self: ?*anyopaque, errorVal: ?*anyopaque) void {
-        qtc.QSqlTableModel_QBaseSetLastError(@ptrCast(self), @ptrCast(errorVal));
+    pub fn SuperSetLastError(self: ?*anyopaque, errorVal: ?*anyopaque) void {
+        qtc.QSqlTableModel_SuperSetLastError(@ptrCast(self), @ptrCast(errorVal));
     }
 
     /// Inherited from QSqlQueryModel
@@ -5437,6 +5737,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_CreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateIndex` instead
+    ///
+    pub const QBaseCreateIndex = SuperCreateIndex;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#createIndex)
@@ -5451,8 +5755,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn QBaseCreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.QSqlTableModel_QBaseCreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn SuperCreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
+        return qtc.QSqlTableModel_SuperCreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5493,6 +5797,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_EncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
     }
 
+    /// ### DEPRECATED: Use `SuperEncodeData` instead
+    ///
+    pub const QBaseEncodeData = SuperEncodeData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#encodeData)
@@ -5507,12 +5815,12 @@ pub const qsqltablemodel = struct {
     ///
     /// ` stream: QtC.QDataStream `
     ///
-    pub fn QBaseEncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
+    pub fn SuperEncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        qtc.QSqlTableModel_QBaseEncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
+        qtc.QSqlTableModel_SuperEncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5553,6 +5861,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_DecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
     }
 
+    /// ### DEPRECATED: Use `SuperDecodeData` instead
+    ///
+    pub const QBaseDecodeData = SuperDecodeData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#decodeData)
@@ -5571,8 +5883,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` stream: QtC.QDataStream `
     ///
-    pub fn QBaseDecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.QSqlTableModel_QBaseDecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
+    pub fn SuperDecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
+        return qtc.QSqlTableModel_SuperDecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5615,6 +5927,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_BeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginMoveRows` instead
+    ///
+    pub const QBaseBeginMoveRows = SuperBeginMoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveRows)
@@ -5635,8 +5951,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn QBaseBeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.QSqlTableModel_QBaseBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
+    pub fn SuperBeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
+        return qtc.QSqlTableModel_SuperBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5669,6 +5985,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_EndMoveRows(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndMoveRows` instead
+    ///
+    pub const QBaseEndMoveRows = SuperEndMoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
@@ -5679,8 +5999,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` self: QtC.QSqlTableModel `
     ///
-    pub fn QBaseEndMoveRows(self: ?*anyopaque) void {
-        qtc.QSqlTableModel_QBaseEndMoveRows(@ptrCast(self));
+    pub fn SuperEndMoveRows(self: ?*anyopaque) void {
+        qtc.QSqlTableModel_SuperEndMoveRows(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5723,6 +6043,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_BeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
     }
 
+    /// ### DEPRECATED: Use `SuperBeginMoveColumns` instead
+    ///
+    pub const QBaseBeginMoveColumns = SuperBeginMoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginMoveColumns)
@@ -5743,8 +6067,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn QBaseBeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.QSqlTableModel_QBaseBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
+    pub fn SuperBeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
+        return qtc.QSqlTableModel_SuperBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5777,6 +6101,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_EndMoveColumns(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperEndMoveColumns` instead
+    ///
+    pub const QBaseEndMoveColumns = SuperEndMoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
@@ -5787,8 +6115,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` self: QtC.QSqlTableModel `
     ///
-    pub fn QBaseEndMoveColumns(self: ?*anyopaque) void {
-        qtc.QSqlTableModel_QBaseEndMoveColumns(@ptrCast(self));
+    pub fn SuperEndMoveColumns(self: ?*anyopaque) void {
+        qtc.QSqlTableModel_SuperEndMoveColumns(@ptrCast(self));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5825,6 +6153,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_ChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
     }
 
+    /// ### DEPRECATED: Use `SuperChangePersistentIndex` instead
+    ///
+    pub const QBaseChangePersistentIndex = SuperChangePersistentIndex;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndex)
@@ -5839,8 +6171,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` to: QtC.QModelIndex `
     ///
-    pub fn QBaseChangePersistentIndex(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
-        qtc.QSqlTableModel_QBaseChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
+    pub fn SuperChangePersistentIndex(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
+        qtc.QSqlTableModel_SuperChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5885,6 +6217,10 @@ pub const qsqltablemodel = struct {
         qtc.QSqlTableModel_ChangePersistentIndexList(@ptrCast(self), from_list, to_list);
     }
 
+    /// ### DEPRECATED: Use `SuperChangePersistentIndexList` instead
+    ///
+    pub const QBaseChangePersistentIndexList = SuperChangePersistentIndexList;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#changePersistentIndexList)
@@ -5899,7 +6235,7 @@ pub const qsqltablemodel = struct {
     ///
     /// ` to: []QtC.QModelIndex `
     ///
-    pub fn QBaseChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
+    pub fn SuperChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -5908,7 +6244,7 @@ pub const qsqltablemodel = struct {
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
-        qtc.QSqlTableModel_QBaseChangePersistentIndexList(@ptrCast(self), from_list, to_list);
+        qtc.QSqlTableModel_SuperChangePersistentIndexList(@ptrCast(self), from_list, to_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -5948,6 +6284,10 @@ pub const qsqltablemodel = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperPersistentIndexList` instead
+    ///
+    pub const QBasePersistentIndexList = SuperPersistentIndexList;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#persistentIndexList)
@@ -5960,8 +6300,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBasePersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QSqlTableModel_QBasePersistentIndexList(@ptrCast(self));
+    pub fn SuperPersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
+        const _arr: qtc.libqt_list = qtc.QSqlTableModel_SuperPersistentIndexList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qsqltablemodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -6005,6 +6345,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -6015,8 +6359,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` self: QtC.QSqlTableModel `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QSqlTableModel_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QSqlTableModel_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -6049,6 +6393,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -6059,8 +6407,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` self: QtC.QSqlTableModel `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QSqlTableModel_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QSqlTableModel_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -6096,6 +6444,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -6108,9 +6460,9 @@ pub const qsqltablemodel = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QSqlTableModel_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QSqlTableModel_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -6145,6 +6497,10 @@ pub const qsqltablemodel = struct {
         return qtc.QSqlTableModel_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -6157,8 +6513,8 @@ pub const qsqltablemodel = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QSqlTableModel_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QSqlTableModel_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -6416,6 +6772,9 @@ pub const qsqltablemodel = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#dtor.QSqlTableModel)
     ///
@@ -6425,7 +6784,7 @@ pub const qsqltablemodel = struct {
     ///
     /// ` self: QtC.QSqlTableModel `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSqlTableModel_Delete(@ptrCast(self));
     }
 };

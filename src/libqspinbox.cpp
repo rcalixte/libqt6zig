@@ -260,7 +260,7 @@ void QSpinBox_Connect_TextChanged(QSpinBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QSpinBox_QBaseMetaObject(const QSpinBox* self) {
+QMetaObject* QSpinBox_SuperMetaObject(const QSpinBox* self) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_MetaObject_IsBase(true);
@@ -279,7 +279,7 @@ void QSpinBox_OnMetaObject(const QSpinBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QSpinBox_QBaseMetacast(QSpinBox* self, const char* param1) {
+void* QSpinBox_SuperMetacast(QSpinBox* self, const char* param1) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_Metacast_IsBase(true);
@@ -298,7 +298,7 @@ void QSpinBox_OnMetacast(QSpinBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSpinBox_QBaseMetacall(QSpinBox* self, int param1, int param2, void** param3) {
+int QSpinBox_SuperMetacall(QSpinBox* self, int param1, int param2, void** param3) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_Metacall_IsBase(true);
@@ -317,7 +317,7 @@ void QSpinBox_OnMetacall(QSpinBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QSpinBox_QBaseEvent(QSpinBox* self, QEvent* event) {
+bool QSpinBox_SuperEvent(QSpinBox* self, QEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_Event_IsBase(true);
@@ -336,7 +336,7 @@ void QSpinBox_OnEvent(QSpinBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSpinBox_QBaseValidate(const QSpinBox* self, libqt_string input, int* pos) {
+int QSpinBox_SuperValidate(const QSpinBox* self, libqt_string input, int* pos) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
@@ -356,7 +356,7 @@ void QSpinBox_OnValidate(const QSpinBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSpinBox_QBaseValueFromText(const QSpinBox* self, const libqt_string text) {
+int QSpinBox_SuperValueFromText(const QSpinBox* self, const libqt_string text) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
@@ -376,7 +376,7 @@ void QSpinBox_OnValueFromText(const QSpinBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string QSpinBox_QBaseTextFromValue(const QSpinBox* self, int val) {
+libqt_string QSpinBox_SuperTextFromValue(const QSpinBox* self, int val) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_TextFromValue_IsBase(true);
@@ -411,7 +411,7 @@ void QSpinBox_OnTextFromValue(const QSpinBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseFixup(const QSpinBox* self, libqt_string str) {
+void QSpinBox_SuperFixup(const QSpinBox* self, libqt_string str) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     QString str_QString = QString::fromUtf8(str.data, str.len);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
@@ -441,7 +441,7 @@ QSize* QSpinBox_SizeHint(const QSpinBox* self) {
 }
 
 // Base class handler implementation
-QSize* QSpinBox_QBaseSizeHint(const QSpinBox* self) {
+QSize* QSpinBox_SuperSizeHint(const QSpinBox* self) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_SizeHint_IsBase(true);
@@ -470,7 +470,7 @@ QSize* QSpinBox_MinimumSizeHint(const QSpinBox* self) {
 }
 
 // Base class handler implementation
-QSize* QSpinBox_QBaseMinimumSizeHint(const QSpinBox* self) {
+QSize* QSpinBox_SuperMinimumSizeHint(const QSpinBox* self) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_MinimumSizeHint_IsBase(true);
@@ -499,7 +499,7 @@ QVariant* QSpinBox_InputMethodQuery(const QSpinBox* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QSpinBox_QBaseInputMethodQuery(const QSpinBox* self, int param1) {
+QVariant* QSpinBox_SuperInputMethodQuery(const QSpinBox* self, int param1) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_InputMethodQuery_IsBase(true);
@@ -528,7 +528,7 @@ void QSpinBox_StepBy(QSpinBox* self, int steps) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseStepBy(QSpinBox* self, int steps) {
+void QSpinBox_SuperStepBy(QSpinBox* self, int steps) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_StepBy_IsBase(true);
@@ -557,7 +557,7 @@ void QSpinBox_Clear(QSpinBox* self) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseClear(QSpinBox* self) {
+void QSpinBox_SuperClear(QSpinBox* self) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_Clear_IsBase(true);
@@ -586,7 +586,7 @@ void QSpinBox_ResizeEvent(QSpinBox* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseResizeEvent(QSpinBox* self, QResizeEvent* event) {
+void QSpinBox_SuperResizeEvent(QSpinBox* self, QResizeEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_ResizeEvent_IsBase(true);
@@ -615,7 +615,7 @@ void QSpinBox_KeyPressEvent(QSpinBox* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseKeyPressEvent(QSpinBox* self, QKeyEvent* event) {
+void QSpinBox_SuperKeyPressEvent(QSpinBox* self, QKeyEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_KeyPressEvent_IsBase(true);
@@ -644,7 +644,7 @@ void QSpinBox_KeyReleaseEvent(QSpinBox* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseKeyReleaseEvent(QSpinBox* self, QKeyEvent* event) {
+void QSpinBox_SuperKeyReleaseEvent(QSpinBox* self, QKeyEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_KeyReleaseEvent_IsBase(true);
@@ -673,7 +673,7 @@ void QSpinBox_WheelEvent(QSpinBox* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseWheelEvent(QSpinBox* self, QWheelEvent* event) {
+void QSpinBox_SuperWheelEvent(QSpinBox* self, QWheelEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_WheelEvent_IsBase(true);
@@ -702,7 +702,7 @@ void QSpinBox_FocusInEvent(QSpinBox* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseFocusInEvent(QSpinBox* self, QFocusEvent* event) {
+void QSpinBox_SuperFocusInEvent(QSpinBox* self, QFocusEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_FocusInEvent_IsBase(true);
@@ -731,7 +731,7 @@ void QSpinBox_FocusOutEvent(QSpinBox* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseFocusOutEvent(QSpinBox* self, QFocusEvent* event) {
+void QSpinBox_SuperFocusOutEvent(QSpinBox* self, QFocusEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_FocusOutEvent_IsBase(true);
@@ -760,7 +760,7 @@ void QSpinBox_ContextMenuEvent(QSpinBox* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseContextMenuEvent(QSpinBox* self, QContextMenuEvent* event) {
+void QSpinBox_SuperContextMenuEvent(QSpinBox* self, QContextMenuEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_ContextMenuEvent_IsBase(true);
@@ -789,7 +789,7 @@ void QSpinBox_ChangeEvent(QSpinBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseChangeEvent(QSpinBox* self, QEvent* event) {
+void QSpinBox_SuperChangeEvent(QSpinBox* self, QEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_ChangeEvent_IsBase(true);
@@ -818,7 +818,7 @@ void QSpinBox_CloseEvent(QSpinBox* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseCloseEvent(QSpinBox* self, QCloseEvent* event) {
+void QSpinBox_SuperCloseEvent(QSpinBox* self, QCloseEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_CloseEvent_IsBase(true);
@@ -847,7 +847,7 @@ void QSpinBox_HideEvent(QSpinBox* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseHideEvent(QSpinBox* self, QHideEvent* event) {
+void QSpinBox_SuperHideEvent(QSpinBox* self, QHideEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_HideEvent_IsBase(true);
@@ -876,7 +876,7 @@ void QSpinBox_MousePressEvent(QSpinBox* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseMousePressEvent(QSpinBox* self, QMouseEvent* event) {
+void QSpinBox_SuperMousePressEvent(QSpinBox* self, QMouseEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_MousePressEvent_IsBase(true);
@@ -905,7 +905,7 @@ void QSpinBox_MouseReleaseEvent(QSpinBox* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseMouseReleaseEvent(QSpinBox* self, QMouseEvent* event) {
+void QSpinBox_SuperMouseReleaseEvent(QSpinBox* self, QMouseEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_MouseReleaseEvent_IsBase(true);
@@ -934,7 +934,7 @@ void QSpinBox_MouseMoveEvent(QSpinBox* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseMouseMoveEvent(QSpinBox* self, QMouseEvent* event) {
+void QSpinBox_SuperMouseMoveEvent(QSpinBox* self, QMouseEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_MouseMoveEvent_IsBase(true);
@@ -963,7 +963,7 @@ void QSpinBox_TimerEvent(QSpinBox* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseTimerEvent(QSpinBox* self, QTimerEvent* event) {
+void QSpinBox_SuperTimerEvent(QSpinBox* self, QTimerEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_TimerEvent_IsBase(true);
@@ -992,7 +992,7 @@ void QSpinBox_PaintEvent(QSpinBox* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBasePaintEvent(QSpinBox* self, QPaintEvent* event) {
+void QSpinBox_SuperPaintEvent(QSpinBox* self, QPaintEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_PaintEvent_IsBase(true);
@@ -1021,7 +1021,7 @@ void QSpinBox_ShowEvent(QSpinBox* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseShowEvent(QSpinBox* self, QShowEvent* event) {
+void QSpinBox_SuperShowEvent(QSpinBox* self, QShowEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_ShowEvent_IsBase(true);
@@ -1050,7 +1050,7 @@ void QSpinBox_InitStyleOption(const QSpinBox* self, QStyleOptionSpinBox* option)
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseInitStyleOption(const QSpinBox* self, QStyleOptionSpinBox* option) {
+void QSpinBox_SuperInitStyleOption(const QSpinBox* self, QStyleOptionSpinBox* option) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_InitStyleOption_IsBase(true);
@@ -1079,7 +1079,7 @@ int QSpinBox_StepEnabled(const QSpinBox* self) {
 }
 
 // Base class handler implementation
-int QSpinBox_QBaseStepEnabled(const QSpinBox* self) {
+int QSpinBox_SuperStepEnabled(const QSpinBox* self) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_StepEnabled_IsBase(true);
@@ -1108,7 +1108,7 @@ int QSpinBox_DevType(const QSpinBox* self) {
 }
 
 // Base class handler implementation
-int QSpinBox_QBaseDevType(const QSpinBox* self) {
+int QSpinBox_SuperDevType(const QSpinBox* self) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_DevType_IsBase(true);
@@ -1137,7 +1137,7 @@ void QSpinBox_SetVisible(QSpinBox* self, bool visible) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseSetVisible(QSpinBox* self, bool visible) {
+void QSpinBox_SuperSetVisible(QSpinBox* self, bool visible) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_SetVisible_IsBase(true);
@@ -1166,7 +1166,7 @@ int QSpinBox_HeightForWidth(const QSpinBox* self, int param1) {
 }
 
 // Base class handler implementation
-int QSpinBox_QBaseHeightForWidth(const QSpinBox* self, int param1) {
+int QSpinBox_SuperHeightForWidth(const QSpinBox* self, int param1) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_HeightForWidth_IsBase(true);
@@ -1195,7 +1195,7 @@ bool QSpinBox_HasHeightForWidth(const QSpinBox* self) {
 }
 
 // Base class handler implementation
-bool QSpinBox_QBaseHasHeightForWidth(const QSpinBox* self) {
+bool QSpinBox_SuperHasHeightForWidth(const QSpinBox* self) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_HasHeightForWidth_IsBase(true);
@@ -1224,7 +1224,7 @@ QPaintEngine* QSpinBox_PaintEngine(const QSpinBox* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QSpinBox_QBasePaintEngine(const QSpinBox* self) {
+QPaintEngine* QSpinBox_SuperPaintEngine(const QSpinBox* self) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_PaintEngine_IsBase(true);
@@ -1253,7 +1253,7 @@ void QSpinBox_MouseDoubleClickEvent(QSpinBox* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseMouseDoubleClickEvent(QSpinBox* self, QMouseEvent* event) {
+void QSpinBox_SuperMouseDoubleClickEvent(QSpinBox* self, QMouseEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_MouseDoubleClickEvent_IsBase(true);
@@ -1282,7 +1282,7 @@ void QSpinBox_EnterEvent(QSpinBox* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseEnterEvent(QSpinBox* self, QEnterEvent* event) {
+void QSpinBox_SuperEnterEvent(QSpinBox* self, QEnterEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_EnterEvent_IsBase(true);
@@ -1311,7 +1311,7 @@ void QSpinBox_LeaveEvent(QSpinBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseLeaveEvent(QSpinBox* self, QEvent* event) {
+void QSpinBox_SuperLeaveEvent(QSpinBox* self, QEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_LeaveEvent_IsBase(true);
@@ -1340,7 +1340,7 @@ void QSpinBox_MoveEvent(QSpinBox* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseMoveEvent(QSpinBox* self, QMoveEvent* event) {
+void QSpinBox_SuperMoveEvent(QSpinBox* self, QMoveEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_MoveEvent_IsBase(true);
@@ -1369,7 +1369,7 @@ void QSpinBox_TabletEvent(QSpinBox* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseTabletEvent(QSpinBox* self, QTabletEvent* event) {
+void QSpinBox_SuperTabletEvent(QSpinBox* self, QTabletEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_TabletEvent_IsBase(true);
@@ -1398,7 +1398,7 @@ void QSpinBox_ActionEvent(QSpinBox* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseActionEvent(QSpinBox* self, QActionEvent* event) {
+void QSpinBox_SuperActionEvent(QSpinBox* self, QActionEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_ActionEvent_IsBase(true);
@@ -1427,7 +1427,7 @@ void QSpinBox_DragEnterEvent(QSpinBox* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseDragEnterEvent(QSpinBox* self, QDragEnterEvent* event) {
+void QSpinBox_SuperDragEnterEvent(QSpinBox* self, QDragEnterEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_DragEnterEvent_IsBase(true);
@@ -1456,7 +1456,7 @@ void QSpinBox_DragMoveEvent(QSpinBox* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseDragMoveEvent(QSpinBox* self, QDragMoveEvent* event) {
+void QSpinBox_SuperDragMoveEvent(QSpinBox* self, QDragMoveEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_DragMoveEvent_IsBase(true);
@@ -1485,7 +1485,7 @@ void QSpinBox_DragLeaveEvent(QSpinBox* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseDragLeaveEvent(QSpinBox* self, QDragLeaveEvent* event) {
+void QSpinBox_SuperDragLeaveEvent(QSpinBox* self, QDragLeaveEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_DragLeaveEvent_IsBase(true);
@@ -1514,7 +1514,7 @@ void QSpinBox_DropEvent(QSpinBox* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseDropEvent(QSpinBox* self, QDropEvent* event) {
+void QSpinBox_SuperDropEvent(QSpinBox* self, QDropEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_DropEvent_IsBase(true);
@@ -1544,7 +1544,7 @@ bool QSpinBox_NativeEvent(QSpinBox* self, const libqt_string eventType, void* me
 }
 
 // Base class handler implementation
-bool QSpinBox_QBaseNativeEvent(QSpinBox* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QSpinBox_SuperNativeEvent(QSpinBox* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
@@ -1574,7 +1574,7 @@ int QSpinBox_Metric(const QSpinBox* self, int param1) {
 }
 
 // Base class handler implementation
-int QSpinBox_QBaseMetric(const QSpinBox* self, int param1) {
+int QSpinBox_SuperMetric(const QSpinBox* self, int param1) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_Metric_IsBase(true);
@@ -1603,7 +1603,7 @@ void QSpinBox_InitPainter(const QSpinBox* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseInitPainter(const QSpinBox* self, QPainter* painter) {
+void QSpinBox_SuperInitPainter(const QSpinBox* self, QPainter* painter) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_InitPainter_IsBase(true);
@@ -1632,7 +1632,7 @@ QPaintDevice* QSpinBox_Redirected(const QSpinBox* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QSpinBox_QBaseRedirected(const QSpinBox* self, QPoint* offset) {
+QPaintDevice* QSpinBox_SuperRedirected(const QSpinBox* self, QPoint* offset) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_Redirected_IsBase(true);
@@ -1661,7 +1661,7 @@ QPainter* QSpinBox_SharedPainter(const QSpinBox* self) {
 }
 
 // Base class handler implementation
-QPainter* QSpinBox_QBaseSharedPainter(const QSpinBox* self) {
+QPainter* QSpinBox_SuperSharedPainter(const QSpinBox* self) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_SharedPainter_IsBase(true);
@@ -1690,7 +1690,7 @@ void QSpinBox_InputMethodEvent(QSpinBox* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseInputMethodEvent(QSpinBox* self, QInputMethodEvent* param1) {
+void QSpinBox_SuperInputMethodEvent(QSpinBox* self, QInputMethodEvent* param1) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_InputMethodEvent_IsBase(true);
@@ -1719,7 +1719,7 @@ bool QSpinBox_FocusNextPrevChild(QSpinBox* self, bool next) {
 }
 
 // Base class handler implementation
-bool QSpinBox_QBaseFocusNextPrevChild(QSpinBox* self, bool next) {
+bool QSpinBox_SuperFocusNextPrevChild(QSpinBox* self, bool next) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_FocusNextPrevChild_IsBase(true);
@@ -1748,7 +1748,7 @@ bool QSpinBox_EventFilter(QSpinBox* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSpinBox_QBaseEventFilter(QSpinBox* self, QObject* watched, QEvent* event) {
+bool QSpinBox_SuperEventFilter(QSpinBox* self, QObject* watched, QEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_EventFilter_IsBase(true);
@@ -1777,7 +1777,7 @@ void QSpinBox_ChildEvent(QSpinBox* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseChildEvent(QSpinBox* self, QChildEvent* event) {
+void QSpinBox_SuperChildEvent(QSpinBox* self, QChildEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_ChildEvent_IsBase(true);
@@ -1806,7 +1806,7 @@ void QSpinBox_CustomEvent(QSpinBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseCustomEvent(QSpinBox* self, QEvent* event) {
+void QSpinBox_SuperCustomEvent(QSpinBox* self, QEvent* event) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_CustomEvent_IsBase(true);
@@ -1835,7 +1835,7 @@ void QSpinBox_ConnectNotify(QSpinBox* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseConnectNotify(QSpinBox* self, const QMetaMethod* signal) {
+void QSpinBox_SuperConnectNotify(QSpinBox* self, const QMetaMethod* signal) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_ConnectNotify_IsBase(true);
@@ -1864,7 +1864,7 @@ void QSpinBox_DisconnectNotify(QSpinBox* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseDisconnectNotify(QSpinBox* self, const QMetaMethod* signal) {
+void QSpinBox_SuperDisconnectNotify(QSpinBox* self, const QMetaMethod* signal) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_DisconnectNotify_IsBase(true);
@@ -1893,7 +1893,7 @@ QLineEdit* QSpinBox_LineEdit(const QSpinBox* self) {
 }
 
 // Base class handler implementation
-QLineEdit* QSpinBox_QBaseLineEdit(const QSpinBox* self) {
+QLineEdit* QSpinBox_SuperLineEdit(const QSpinBox* self) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_LineEdit_IsBase(true);
@@ -1922,7 +1922,7 @@ void QSpinBox_SetLineEdit(QSpinBox* self, QLineEdit* edit) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseSetLineEdit(QSpinBox* self, QLineEdit* edit) {
+void QSpinBox_SuperSetLineEdit(QSpinBox* self, QLineEdit* edit) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_SetLineEdit_IsBase(true);
@@ -1951,7 +1951,7 @@ void QSpinBox_UpdateMicroFocus(QSpinBox* self) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseUpdateMicroFocus(QSpinBox* self) {
+void QSpinBox_SuperUpdateMicroFocus(QSpinBox* self) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_UpdateMicroFocus_IsBase(true);
@@ -1980,7 +1980,7 @@ void QSpinBox_Create(QSpinBox* self) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseCreate(QSpinBox* self) {
+void QSpinBox_SuperCreate(QSpinBox* self) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_Create_IsBase(true);
@@ -2009,7 +2009,7 @@ void QSpinBox_Destroy(QSpinBox* self) {
 }
 
 // Base class handler implementation
-void QSpinBox_QBaseDestroy(QSpinBox* self) {
+void QSpinBox_SuperDestroy(QSpinBox* self) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_Destroy_IsBase(true);
@@ -2038,7 +2038,7 @@ bool QSpinBox_FocusNextChild(QSpinBox* self) {
 }
 
 // Base class handler implementation
-bool QSpinBox_QBaseFocusNextChild(QSpinBox* self) {
+bool QSpinBox_SuperFocusNextChild(QSpinBox* self) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_FocusNextChild_IsBase(true);
@@ -2067,7 +2067,7 @@ bool QSpinBox_FocusPreviousChild(QSpinBox* self) {
 }
 
 // Base class handler implementation
-bool QSpinBox_QBaseFocusPreviousChild(QSpinBox* self) {
+bool QSpinBox_SuperFocusPreviousChild(QSpinBox* self) {
     auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_FocusPreviousChild_IsBase(true);
@@ -2096,7 +2096,7 @@ QObject* QSpinBox_Sender(const QSpinBox* self) {
 }
 
 // Base class handler implementation
-QObject* QSpinBox_QBaseSender(const QSpinBox* self) {
+QObject* QSpinBox_SuperSender(const QSpinBox* self) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_Sender_IsBase(true);
@@ -2125,7 +2125,7 @@ int QSpinBox_SenderSignalIndex(const QSpinBox* self) {
 }
 
 // Base class handler implementation
-int QSpinBox_QBaseSenderSignalIndex(const QSpinBox* self) {
+int QSpinBox_SuperSenderSignalIndex(const QSpinBox* self) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_SenderSignalIndex_IsBase(true);
@@ -2154,7 +2154,7 @@ int QSpinBox_Receivers(const QSpinBox* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QSpinBox_QBaseReceivers(const QSpinBox* self, const char* signal) {
+int QSpinBox_SuperReceivers(const QSpinBox* self, const char* signal) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_Receivers_IsBase(true);
@@ -2183,7 +2183,7 @@ bool QSpinBox_IsSignalConnected(const QSpinBox* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-bool QSpinBox_QBaseIsSignalConnected(const QSpinBox* self, const QMetaMethod* signal) {
+bool QSpinBox_SuperIsSignalConnected(const QSpinBox* self, const QMetaMethod* signal) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_IsSignalConnected_IsBase(true);
@@ -2212,7 +2212,7 @@ double QSpinBox_GetDecodedMetricF(const QSpinBox* self, int metricA, int metricB
 }
 
 // Base class handler implementation
-double QSpinBox_QBaseGetDecodedMetricF(const QSpinBox* self, int metricA, int metricB) {
+double QSpinBox_SuperGetDecodedMetricF(const QSpinBox* self, int metricA, int metricB) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_GetDecodedMetricF_IsBase(true);
@@ -2456,7 +2456,7 @@ void QDoubleSpinBox_Connect_TextChanged(QDoubleSpinBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QDoubleSpinBox_QBaseMetaObject(const QDoubleSpinBox* self) {
+QMetaObject* QDoubleSpinBox_SuperMetaObject(const QDoubleSpinBox* self) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_MetaObject_IsBase(true);
@@ -2475,7 +2475,7 @@ void QDoubleSpinBox_OnMetaObject(const QDoubleSpinBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QDoubleSpinBox_QBaseMetacast(QDoubleSpinBox* self, const char* param1) {
+void* QDoubleSpinBox_SuperMetacast(QDoubleSpinBox* self, const char* param1) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_Metacast_IsBase(true);
@@ -2494,7 +2494,7 @@ void QDoubleSpinBox_OnMetacast(QDoubleSpinBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QDoubleSpinBox_QBaseMetacall(QDoubleSpinBox* self, int param1, int param2, void** param3) {
+int QDoubleSpinBox_SuperMetacall(QDoubleSpinBox* self, int param1, int param2, void** param3) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_Metacall_IsBase(true);
@@ -2513,7 +2513,7 @@ void QDoubleSpinBox_OnMetacall(QDoubleSpinBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QDoubleSpinBox_QBaseValidate(const QDoubleSpinBox* self, libqt_string input, int* pos) {
+int QDoubleSpinBox_SuperValidate(const QDoubleSpinBox* self, libqt_string input, int* pos) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
@@ -2533,7 +2533,7 @@ void QDoubleSpinBox_OnValidate(const QDoubleSpinBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-double QDoubleSpinBox_QBaseValueFromText(const QDoubleSpinBox* self, const libqt_string text) {
+double QDoubleSpinBox_SuperValueFromText(const QDoubleSpinBox* self, const libqt_string text) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
@@ -2553,7 +2553,7 @@ void QDoubleSpinBox_OnValueFromText(const QDoubleSpinBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string QDoubleSpinBox_QBaseTextFromValue(const QDoubleSpinBox* self, double val) {
+libqt_string QDoubleSpinBox_SuperTextFromValue(const QDoubleSpinBox* self, double val) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_TextFromValue_IsBase(true);
@@ -2588,7 +2588,7 @@ void QDoubleSpinBox_OnTextFromValue(const QDoubleSpinBox* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseFixup(const QDoubleSpinBox* self, libqt_string str) {
+void QDoubleSpinBox_SuperFixup(const QDoubleSpinBox* self, libqt_string str) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     QString str_QString = QString::fromUtf8(str.data, str.len);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
@@ -2618,7 +2618,7 @@ QSize* QDoubleSpinBox_SizeHint(const QDoubleSpinBox* self) {
 }
 
 // Base class handler implementation
-QSize* QDoubleSpinBox_QBaseSizeHint(const QDoubleSpinBox* self) {
+QSize* QDoubleSpinBox_SuperSizeHint(const QDoubleSpinBox* self) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_SizeHint_IsBase(true);
@@ -2647,7 +2647,7 @@ QSize* QDoubleSpinBox_MinimumSizeHint(const QDoubleSpinBox* self) {
 }
 
 // Base class handler implementation
-QSize* QDoubleSpinBox_QBaseMinimumSizeHint(const QDoubleSpinBox* self) {
+QSize* QDoubleSpinBox_SuperMinimumSizeHint(const QDoubleSpinBox* self) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_MinimumSizeHint_IsBase(true);
@@ -2676,7 +2676,7 @@ bool QDoubleSpinBox_Event(QDoubleSpinBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QDoubleSpinBox_QBaseEvent(QDoubleSpinBox* self, QEvent* event) {
+bool QDoubleSpinBox_SuperEvent(QDoubleSpinBox* self, QEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_Event_IsBase(true);
@@ -2705,7 +2705,7 @@ QVariant* QDoubleSpinBox_InputMethodQuery(const QDoubleSpinBox* self, int param1
 }
 
 // Base class handler implementation
-QVariant* QDoubleSpinBox_QBaseInputMethodQuery(const QDoubleSpinBox* self, int param1) {
+QVariant* QDoubleSpinBox_SuperInputMethodQuery(const QDoubleSpinBox* self, int param1) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_InputMethodQuery_IsBase(true);
@@ -2734,7 +2734,7 @@ void QDoubleSpinBox_StepBy(QDoubleSpinBox* self, int steps) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseStepBy(QDoubleSpinBox* self, int steps) {
+void QDoubleSpinBox_SuperStepBy(QDoubleSpinBox* self, int steps) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_StepBy_IsBase(true);
@@ -2763,7 +2763,7 @@ void QDoubleSpinBox_Clear(QDoubleSpinBox* self) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseClear(QDoubleSpinBox* self) {
+void QDoubleSpinBox_SuperClear(QDoubleSpinBox* self) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_Clear_IsBase(true);
@@ -2792,7 +2792,7 @@ void QDoubleSpinBox_ResizeEvent(QDoubleSpinBox* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseResizeEvent(QDoubleSpinBox* self, QResizeEvent* event) {
+void QDoubleSpinBox_SuperResizeEvent(QDoubleSpinBox* self, QResizeEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_ResizeEvent_IsBase(true);
@@ -2821,7 +2821,7 @@ void QDoubleSpinBox_KeyPressEvent(QDoubleSpinBox* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseKeyPressEvent(QDoubleSpinBox* self, QKeyEvent* event) {
+void QDoubleSpinBox_SuperKeyPressEvent(QDoubleSpinBox* self, QKeyEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_KeyPressEvent_IsBase(true);
@@ -2850,7 +2850,7 @@ void QDoubleSpinBox_KeyReleaseEvent(QDoubleSpinBox* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseKeyReleaseEvent(QDoubleSpinBox* self, QKeyEvent* event) {
+void QDoubleSpinBox_SuperKeyReleaseEvent(QDoubleSpinBox* self, QKeyEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_KeyReleaseEvent_IsBase(true);
@@ -2879,7 +2879,7 @@ void QDoubleSpinBox_WheelEvent(QDoubleSpinBox* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseWheelEvent(QDoubleSpinBox* self, QWheelEvent* event) {
+void QDoubleSpinBox_SuperWheelEvent(QDoubleSpinBox* self, QWheelEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_WheelEvent_IsBase(true);
@@ -2908,7 +2908,7 @@ void QDoubleSpinBox_FocusInEvent(QDoubleSpinBox* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseFocusInEvent(QDoubleSpinBox* self, QFocusEvent* event) {
+void QDoubleSpinBox_SuperFocusInEvent(QDoubleSpinBox* self, QFocusEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_FocusInEvent_IsBase(true);
@@ -2937,7 +2937,7 @@ void QDoubleSpinBox_FocusOutEvent(QDoubleSpinBox* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseFocusOutEvent(QDoubleSpinBox* self, QFocusEvent* event) {
+void QDoubleSpinBox_SuperFocusOutEvent(QDoubleSpinBox* self, QFocusEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_FocusOutEvent_IsBase(true);
@@ -2966,7 +2966,7 @@ void QDoubleSpinBox_ContextMenuEvent(QDoubleSpinBox* self, QContextMenuEvent* ev
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseContextMenuEvent(QDoubleSpinBox* self, QContextMenuEvent* event) {
+void QDoubleSpinBox_SuperContextMenuEvent(QDoubleSpinBox* self, QContextMenuEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_ContextMenuEvent_IsBase(true);
@@ -2995,7 +2995,7 @@ void QDoubleSpinBox_ChangeEvent(QDoubleSpinBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseChangeEvent(QDoubleSpinBox* self, QEvent* event) {
+void QDoubleSpinBox_SuperChangeEvent(QDoubleSpinBox* self, QEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_ChangeEvent_IsBase(true);
@@ -3024,7 +3024,7 @@ void QDoubleSpinBox_CloseEvent(QDoubleSpinBox* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseCloseEvent(QDoubleSpinBox* self, QCloseEvent* event) {
+void QDoubleSpinBox_SuperCloseEvent(QDoubleSpinBox* self, QCloseEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_CloseEvent_IsBase(true);
@@ -3053,7 +3053,7 @@ void QDoubleSpinBox_HideEvent(QDoubleSpinBox* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseHideEvent(QDoubleSpinBox* self, QHideEvent* event) {
+void QDoubleSpinBox_SuperHideEvent(QDoubleSpinBox* self, QHideEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_HideEvent_IsBase(true);
@@ -3082,7 +3082,7 @@ void QDoubleSpinBox_MousePressEvent(QDoubleSpinBox* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseMousePressEvent(QDoubleSpinBox* self, QMouseEvent* event) {
+void QDoubleSpinBox_SuperMousePressEvent(QDoubleSpinBox* self, QMouseEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_MousePressEvent_IsBase(true);
@@ -3111,7 +3111,7 @@ void QDoubleSpinBox_MouseReleaseEvent(QDoubleSpinBox* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseMouseReleaseEvent(QDoubleSpinBox* self, QMouseEvent* event) {
+void QDoubleSpinBox_SuperMouseReleaseEvent(QDoubleSpinBox* self, QMouseEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_MouseReleaseEvent_IsBase(true);
@@ -3140,7 +3140,7 @@ void QDoubleSpinBox_MouseMoveEvent(QDoubleSpinBox* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseMouseMoveEvent(QDoubleSpinBox* self, QMouseEvent* event) {
+void QDoubleSpinBox_SuperMouseMoveEvent(QDoubleSpinBox* self, QMouseEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_MouseMoveEvent_IsBase(true);
@@ -3169,7 +3169,7 @@ void QDoubleSpinBox_TimerEvent(QDoubleSpinBox* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseTimerEvent(QDoubleSpinBox* self, QTimerEvent* event) {
+void QDoubleSpinBox_SuperTimerEvent(QDoubleSpinBox* self, QTimerEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_TimerEvent_IsBase(true);
@@ -3198,7 +3198,7 @@ void QDoubleSpinBox_PaintEvent(QDoubleSpinBox* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBasePaintEvent(QDoubleSpinBox* self, QPaintEvent* event) {
+void QDoubleSpinBox_SuperPaintEvent(QDoubleSpinBox* self, QPaintEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_PaintEvent_IsBase(true);
@@ -3227,7 +3227,7 @@ void QDoubleSpinBox_ShowEvent(QDoubleSpinBox* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseShowEvent(QDoubleSpinBox* self, QShowEvent* event) {
+void QDoubleSpinBox_SuperShowEvent(QDoubleSpinBox* self, QShowEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_ShowEvent_IsBase(true);
@@ -3256,7 +3256,7 @@ void QDoubleSpinBox_InitStyleOption(const QDoubleSpinBox* self, QStyleOptionSpin
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseInitStyleOption(const QDoubleSpinBox* self, QStyleOptionSpinBox* option) {
+void QDoubleSpinBox_SuperInitStyleOption(const QDoubleSpinBox* self, QStyleOptionSpinBox* option) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_InitStyleOption_IsBase(true);
@@ -3285,7 +3285,7 @@ int QDoubleSpinBox_StepEnabled(const QDoubleSpinBox* self) {
 }
 
 // Base class handler implementation
-int QDoubleSpinBox_QBaseStepEnabled(const QDoubleSpinBox* self) {
+int QDoubleSpinBox_SuperStepEnabled(const QDoubleSpinBox* self) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_StepEnabled_IsBase(true);
@@ -3314,7 +3314,7 @@ int QDoubleSpinBox_DevType(const QDoubleSpinBox* self) {
 }
 
 // Base class handler implementation
-int QDoubleSpinBox_QBaseDevType(const QDoubleSpinBox* self) {
+int QDoubleSpinBox_SuperDevType(const QDoubleSpinBox* self) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_DevType_IsBase(true);
@@ -3343,7 +3343,7 @@ void QDoubleSpinBox_SetVisible(QDoubleSpinBox* self, bool visible) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseSetVisible(QDoubleSpinBox* self, bool visible) {
+void QDoubleSpinBox_SuperSetVisible(QDoubleSpinBox* self, bool visible) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_SetVisible_IsBase(true);
@@ -3372,7 +3372,7 @@ int QDoubleSpinBox_HeightForWidth(const QDoubleSpinBox* self, int param1) {
 }
 
 // Base class handler implementation
-int QDoubleSpinBox_QBaseHeightForWidth(const QDoubleSpinBox* self, int param1) {
+int QDoubleSpinBox_SuperHeightForWidth(const QDoubleSpinBox* self, int param1) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_HeightForWidth_IsBase(true);
@@ -3401,7 +3401,7 @@ bool QDoubleSpinBox_HasHeightForWidth(const QDoubleSpinBox* self) {
 }
 
 // Base class handler implementation
-bool QDoubleSpinBox_QBaseHasHeightForWidth(const QDoubleSpinBox* self) {
+bool QDoubleSpinBox_SuperHasHeightForWidth(const QDoubleSpinBox* self) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_HasHeightForWidth_IsBase(true);
@@ -3430,7 +3430,7 @@ QPaintEngine* QDoubleSpinBox_PaintEngine(const QDoubleSpinBox* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QDoubleSpinBox_QBasePaintEngine(const QDoubleSpinBox* self) {
+QPaintEngine* QDoubleSpinBox_SuperPaintEngine(const QDoubleSpinBox* self) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_PaintEngine_IsBase(true);
@@ -3459,7 +3459,7 @@ void QDoubleSpinBox_MouseDoubleClickEvent(QDoubleSpinBox* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseMouseDoubleClickEvent(QDoubleSpinBox* self, QMouseEvent* event) {
+void QDoubleSpinBox_SuperMouseDoubleClickEvent(QDoubleSpinBox* self, QMouseEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_MouseDoubleClickEvent_IsBase(true);
@@ -3488,7 +3488,7 @@ void QDoubleSpinBox_EnterEvent(QDoubleSpinBox* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseEnterEvent(QDoubleSpinBox* self, QEnterEvent* event) {
+void QDoubleSpinBox_SuperEnterEvent(QDoubleSpinBox* self, QEnterEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_EnterEvent_IsBase(true);
@@ -3517,7 +3517,7 @@ void QDoubleSpinBox_LeaveEvent(QDoubleSpinBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseLeaveEvent(QDoubleSpinBox* self, QEvent* event) {
+void QDoubleSpinBox_SuperLeaveEvent(QDoubleSpinBox* self, QEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_LeaveEvent_IsBase(true);
@@ -3546,7 +3546,7 @@ void QDoubleSpinBox_MoveEvent(QDoubleSpinBox* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseMoveEvent(QDoubleSpinBox* self, QMoveEvent* event) {
+void QDoubleSpinBox_SuperMoveEvent(QDoubleSpinBox* self, QMoveEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_MoveEvent_IsBase(true);
@@ -3575,7 +3575,7 @@ void QDoubleSpinBox_TabletEvent(QDoubleSpinBox* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseTabletEvent(QDoubleSpinBox* self, QTabletEvent* event) {
+void QDoubleSpinBox_SuperTabletEvent(QDoubleSpinBox* self, QTabletEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_TabletEvent_IsBase(true);
@@ -3604,7 +3604,7 @@ void QDoubleSpinBox_ActionEvent(QDoubleSpinBox* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseActionEvent(QDoubleSpinBox* self, QActionEvent* event) {
+void QDoubleSpinBox_SuperActionEvent(QDoubleSpinBox* self, QActionEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_ActionEvent_IsBase(true);
@@ -3633,7 +3633,7 @@ void QDoubleSpinBox_DragEnterEvent(QDoubleSpinBox* self, QDragEnterEvent* event)
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseDragEnterEvent(QDoubleSpinBox* self, QDragEnterEvent* event) {
+void QDoubleSpinBox_SuperDragEnterEvent(QDoubleSpinBox* self, QDragEnterEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_DragEnterEvent_IsBase(true);
@@ -3662,7 +3662,7 @@ void QDoubleSpinBox_DragMoveEvent(QDoubleSpinBox* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseDragMoveEvent(QDoubleSpinBox* self, QDragMoveEvent* event) {
+void QDoubleSpinBox_SuperDragMoveEvent(QDoubleSpinBox* self, QDragMoveEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_DragMoveEvent_IsBase(true);
@@ -3691,7 +3691,7 @@ void QDoubleSpinBox_DragLeaveEvent(QDoubleSpinBox* self, QDragLeaveEvent* event)
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseDragLeaveEvent(QDoubleSpinBox* self, QDragLeaveEvent* event) {
+void QDoubleSpinBox_SuperDragLeaveEvent(QDoubleSpinBox* self, QDragLeaveEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_DragLeaveEvent_IsBase(true);
@@ -3720,7 +3720,7 @@ void QDoubleSpinBox_DropEvent(QDoubleSpinBox* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseDropEvent(QDoubleSpinBox* self, QDropEvent* event) {
+void QDoubleSpinBox_SuperDropEvent(QDoubleSpinBox* self, QDropEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_DropEvent_IsBase(true);
@@ -3750,7 +3750,7 @@ bool QDoubleSpinBox_NativeEvent(QDoubleSpinBox* self, const libqt_string eventTy
 }
 
 // Base class handler implementation
-bool QDoubleSpinBox_QBaseNativeEvent(QDoubleSpinBox* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QDoubleSpinBox_SuperNativeEvent(QDoubleSpinBox* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
@@ -3780,7 +3780,7 @@ int QDoubleSpinBox_Metric(const QDoubleSpinBox* self, int param1) {
 }
 
 // Base class handler implementation
-int QDoubleSpinBox_QBaseMetric(const QDoubleSpinBox* self, int param1) {
+int QDoubleSpinBox_SuperMetric(const QDoubleSpinBox* self, int param1) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_Metric_IsBase(true);
@@ -3809,7 +3809,7 @@ void QDoubleSpinBox_InitPainter(const QDoubleSpinBox* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseInitPainter(const QDoubleSpinBox* self, QPainter* painter) {
+void QDoubleSpinBox_SuperInitPainter(const QDoubleSpinBox* self, QPainter* painter) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_InitPainter_IsBase(true);
@@ -3838,7 +3838,7 @@ QPaintDevice* QDoubleSpinBox_Redirected(const QDoubleSpinBox* self, QPoint* offs
 }
 
 // Base class handler implementation
-QPaintDevice* QDoubleSpinBox_QBaseRedirected(const QDoubleSpinBox* self, QPoint* offset) {
+QPaintDevice* QDoubleSpinBox_SuperRedirected(const QDoubleSpinBox* self, QPoint* offset) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_Redirected_IsBase(true);
@@ -3867,7 +3867,7 @@ QPainter* QDoubleSpinBox_SharedPainter(const QDoubleSpinBox* self) {
 }
 
 // Base class handler implementation
-QPainter* QDoubleSpinBox_QBaseSharedPainter(const QDoubleSpinBox* self) {
+QPainter* QDoubleSpinBox_SuperSharedPainter(const QDoubleSpinBox* self) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_SharedPainter_IsBase(true);
@@ -3896,7 +3896,7 @@ void QDoubleSpinBox_InputMethodEvent(QDoubleSpinBox* self, QInputMethodEvent* pa
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseInputMethodEvent(QDoubleSpinBox* self, QInputMethodEvent* param1) {
+void QDoubleSpinBox_SuperInputMethodEvent(QDoubleSpinBox* self, QInputMethodEvent* param1) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_InputMethodEvent_IsBase(true);
@@ -3925,7 +3925,7 @@ bool QDoubleSpinBox_FocusNextPrevChild(QDoubleSpinBox* self, bool next) {
 }
 
 // Base class handler implementation
-bool QDoubleSpinBox_QBaseFocusNextPrevChild(QDoubleSpinBox* self, bool next) {
+bool QDoubleSpinBox_SuperFocusNextPrevChild(QDoubleSpinBox* self, bool next) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_FocusNextPrevChild_IsBase(true);
@@ -3954,7 +3954,7 @@ bool QDoubleSpinBox_EventFilter(QDoubleSpinBox* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QDoubleSpinBox_QBaseEventFilter(QDoubleSpinBox* self, QObject* watched, QEvent* event) {
+bool QDoubleSpinBox_SuperEventFilter(QDoubleSpinBox* self, QObject* watched, QEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_EventFilter_IsBase(true);
@@ -3983,7 +3983,7 @@ void QDoubleSpinBox_ChildEvent(QDoubleSpinBox* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseChildEvent(QDoubleSpinBox* self, QChildEvent* event) {
+void QDoubleSpinBox_SuperChildEvent(QDoubleSpinBox* self, QChildEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_ChildEvent_IsBase(true);
@@ -4012,7 +4012,7 @@ void QDoubleSpinBox_CustomEvent(QDoubleSpinBox* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseCustomEvent(QDoubleSpinBox* self, QEvent* event) {
+void QDoubleSpinBox_SuperCustomEvent(QDoubleSpinBox* self, QEvent* event) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_CustomEvent_IsBase(true);
@@ -4041,7 +4041,7 @@ void QDoubleSpinBox_ConnectNotify(QDoubleSpinBox* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseConnectNotify(QDoubleSpinBox* self, const QMetaMethod* signal) {
+void QDoubleSpinBox_SuperConnectNotify(QDoubleSpinBox* self, const QMetaMethod* signal) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_ConnectNotify_IsBase(true);
@@ -4070,7 +4070,7 @@ void QDoubleSpinBox_DisconnectNotify(QDoubleSpinBox* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseDisconnectNotify(QDoubleSpinBox* self, const QMetaMethod* signal) {
+void QDoubleSpinBox_SuperDisconnectNotify(QDoubleSpinBox* self, const QMetaMethod* signal) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_DisconnectNotify_IsBase(true);
@@ -4099,7 +4099,7 @@ QLineEdit* QDoubleSpinBox_LineEdit(const QDoubleSpinBox* self) {
 }
 
 // Base class handler implementation
-QLineEdit* QDoubleSpinBox_QBaseLineEdit(const QDoubleSpinBox* self) {
+QLineEdit* QDoubleSpinBox_SuperLineEdit(const QDoubleSpinBox* self) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_LineEdit_IsBase(true);
@@ -4128,7 +4128,7 @@ void QDoubleSpinBox_SetLineEdit(QDoubleSpinBox* self, QLineEdit* edit) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseSetLineEdit(QDoubleSpinBox* self, QLineEdit* edit) {
+void QDoubleSpinBox_SuperSetLineEdit(QDoubleSpinBox* self, QLineEdit* edit) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_SetLineEdit_IsBase(true);
@@ -4157,7 +4157,7 @@ void QDoubleSpinBox_UpdateMicroFocus(QDoubleSpinBox* self) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseUpdateMicroFocus(QDoubleSpinBox* self) {
+void QDoubleSpinBox_SuperUpdateMicroFocus(QDoubleSpinBox* self) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_UpdateMicroFocus_IsBase(true);
@@ -4186,7 +4186,7 @@ void QDoubleSpinBox_Create(QDoubleSpinBox* self) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseCreate(QDoubleSpinBox* self) {
+void QDoubleSpinBox_SuperCreate(QDoubleSpinBox* self) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_Create_IsBase(true);
@@ -4215,7 +4215,7 @@ void QDoubleSpinBox_Destroy(QDoubleSpinBox* self) {
 }
 
 // Base class handler implementation
-void QDoubleSpinBox_QBaseDestroy(QDoubleSpinBox* self) {
+void QDoubleSpinBox_SuperDestroy(QDoubleSpinBox* self) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_Destroy_IsBase(true);
@@ -4244,7 +4244,7 @@ bool QDoubleSpinBox_FocusNextChild(QDoubleSpinBox* self) {
 }
 
 // Base class handler implementation
-bool QDoubleSpinBox_QBaseFocusNextChild(QDoubleSpinBox* self) {
+bool QDoubleSpinBox_SuperFocusNextChild(QDoubleSpinBox* self) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_FocusNextChild_IsBase(true);
@@ -4273,7 +4273,7 @@ bool QDoubleSpinBox_FocusPreviousChild(QDoubleSpinBox* self) {
 }
 
 // Base class handler implementation
-bool QDoubleSpinBox_QBaseFocusPreviousChild(QDoubleSpinBox* self) {
+bool QDoubleSpinBox_SuperFocusPreviousChild(QDoubleSpinBox* self) {
     auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_FocusPreviousChild_IsBase(true);
@@ -4302,7 +4302,7 @@ QObject* QDoubleSpinBox_Sender(const QDoubleSpinBox* self) {
 }
 
 // Base class handler implementation
-QObject* QDoubleSpinBox_QBaseSender(const QDoubleSpinBox* self) {
+QObject* QDoubleSpinBox_SuperSender(const QDoubleSpinBox* self) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_Sender_IsBase(true);
@@ -4331,7 +4331,7 @@ int QDoubleSpinBox_SenderSignalIndex(const QDoubleSpinBox* self) {
 }
 
 // Base class handler implementation
-int QDoubleSpinBox_QBaseSenderSignalIndex(const QDoubleSpinBox* self) {
+int QDoubleSpinBox_SuperSenderSignalIndex(const QDoubleSpinBox* self) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_SenderSignalIndex_IsBase(true);
@@ -4360,7 +4360,7 @@ int QDoubleSpinBox_Receivers(const QDoubleSpinBox* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QDoubleSpinBox_QBaseReceivers(const QDoubleSpinBox* self, const char* signal) {
+int QDoubleSpinBox_SuperReceivers(const QDoubleSpinBox* self, const char* signal) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_Receivers_IsBase(true);
@@ -4389,7 +4389,7 @@ bool QDoubleSpinBox_IsSignalConnected(const QDoubleSpinBox* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QDoubleSpinBox_QBaseIsSignalConnected(const QDoubleSpinBox* self, const QMetaMethod* signal) {
+bool QDoubleSpinBox_SuperIsSignalConnected(const QDoubleSpinBox* self, const QMetaMethod* signal) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_IsSignalConnected_IsBase(true);
@@ -4418,7 +4418,7 @@ double QDoubleSpinBox_GetDecodedMetricF(const QDoubleSpinBox* self, int metricA,
 }
 
 // Base class handler implementation
-double QDoubleSpinBox_QBaseGetDecodedMetricF(const QDoubleSpinBox* self, int metricA, int metricB) {
+double QDoubleSpinBox_SuperGetDecodedMetricF(const QDoubleSpinBox* self, int metricA, int metricB) {
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_GetDecodedMetricF_IsBase(true);

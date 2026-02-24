@@ -171,7 +171,7 @@ void QFrame_InitStyleOption(const QFrame* self, QStyleOptionFrame* option) {
 }
 
 // Base class handler implementation
-QMetaObject* QFrame_QBaseMetaObject(const QFrame* self) {
+QMetaObject* QFrame_SuperMetaObject(const QFrame* self) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_MetaObject_IsBase(true);
@@ -190,7 +190,7 @@ void QFrame_OnMetaObject(const QFrame* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QFrame_QBaseMetacast(QFrame* self, const char* param1) {
+void* QFrame_SuperMetacast(QFrame* self, const char* param1) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_Metacast_IsBase(true);
@@ -209,7 +209,7 @@ void QFrame_OnMetacast(QFrame* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QFrame_QBaseMetacall(QFrame* self, int param1, int param2, void** param3) {
+int QFrame_SuperMetacall(QFrame* self, int param1, int param2, void** param3) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_Metacall_IsBase(true);
@@ -228,7 +228,7 @@ void QFrame_OnMetacall(QFrame* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QFrame_QBaseSizeHint(const QFrame* self) {
+QSize* QFrame_SuperSizeHint(const QFrame* self) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_SizeHint_IsBase(true);
@@ -247,7 +247,7 @@ void QFrame_OnSizeHint(const QFrame* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QFrame_QBaseEvent(QFrame* self, QEvent* e) {
+bool QFrame_SuperEvent(QFrame* self, QEvent* e) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_Event_IsBase(true);
@@ -266,7 +266,7 @@ void QFrame_OnEvent(QFrame* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QFrame_QBasePaintEvent(QFrame* self, QPaintEvent* param1) {
+void QFrame_SuperPaintEvent(QFrame* self, QPaintEvent* param1) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_PaintEvent_IsBase(true);
@@ -285,7 +285,7 @@ void QFrame_OnPaintEvent(QFrame* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseChangeEvent(QFrame* self, QEvent* param1) {
+void QFrame_SuperChangeEvent(QFrame* self, QEvent* param1) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_ChangeEvent_IsBase(true);
@@ -304,7 +304,7 @@ void QFrame_OnChangeEvent(QFrame* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseInitStyleOption(const QFrame* self, QStyleOptionFrame* option) {
+void QFrame_SuperInitStyleOption(const QFrame* self, QStyleOptionFrame* option) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_InitStyleOption_IsBase(true);
@@ -333,7 +333,7 @@ int QFrame_DevType(const QFrame* self) {
 }
 
 // Base class handler implementation
-int QFrame_QBaseDevType(const QFrame* self) {
+int QFrame_SuperDevType(const QFrame* self) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_DevType_IsBase(true);
@@ -362,7 +362,7 @@ void QFrame_SetVisible(QFrame* self, bool visible) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseSetVisible(QFrame* self, bool visible) {
+void QFrame_SuperSetVisible(QFrame* self, bool visible) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_SetVisible_IsBase(true);
@@ -391,7 +391,7 @@ QSize* QFrame_MinimumSizeHint(const QFrame* self) {
 }
 
 // Base class handler implementation
-QSize* QFrame_QBaseMinimumSizeHint(const QFrame* self) {
+QSize* QFrame_SuperMinimumSizeHint(const QFrame* self) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_MinimumSizeHint_IsBase(true);
@@ -420,7 +420,7 @@ int QFrame_HeightForWidth(const QFrame* self, int param1) {
 }
 
 // Base class handler implementation
-int QFrame_QBaseHeightForWidth(const QFrame* self, int param1) {
+int QFrame_SuperHeightForWidth(const QFrame* self, int param1) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_HeightForWidth_IsBase(true);
@@ -449,7 +449,7 @@ bool QFrame_HasHeightForWidth(const QFrame* self) {
 }
 
 // Base class handler implementation
-bool QFrame_QBaseHasHeightForWidth(const QFrame* self) {
+bool QFrame_SuperHasHeightForWidth(const QFrame* self) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_HasHeightForWidth_IsBase(true);
@@ -478,7 +478,7 @@ QPaintEngine* QFrame_PaintEngine(const QFrame* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QFrame_QBasePaintEngine(const QFrame* self) {
+QPaintEngine* QFrame_SuperPaintEngine(const QFrame* self) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_PaintEngine_IsBase(true);
@@ -507,7 +507,7 @@ void QFrame_MousePressEvent(QFrame* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseMousePressEvent(QFrame* self, QMouseEvent* event) {
+void QFrame_SuperMousePressEvent(QFrame* self, QMouseEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_MousePressEvent_IsBase(true);
@@ -536,7 +536,7 @@ void QFrame_MouseReleaseEvent(QFrame* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseMouseReleaseEvent(QFrame* self, QMouseEvent* event) {
+void QFrame_SuperMouseReleaseEvent(QFrame* self, QMouseEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_MouseReleaseEvent_IsBase(true);
@@ -565,7 +565,7 @@ void QFrame_MouseDoubleClickEvent(QFrame* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseMouseDoubleClickEvent(QFrame* self, QMouseEvent* event) {
+void QFrame_SuperMouseDoubleClickEvent(QFrame* self, QMouseEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_MouseDoubleClickEvent_IsBase(true);
@@ -594,7 +594,7 @@ void QFrame_MouseMoveEvent(QFrame* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseMouseMoveEvent(QFrame* self, QMouseEvent* event) {
+void QFrame_SuperMouseMoveEvent(QFrame* self, QMouseEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_MouseMoveEvent_IsBase(true);
@@ -623,7 +623,7 @@ void QFrame_WheelEvent(QFrame* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseWheelEvent(QFrame* self, QWheelEvent* event) {
+void QFrame_SuperWheelEvent(QFrame* self, QWheelEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_WheelEvent_IsBase(true);
@@ -652,7 +652,7 @@ void QFrame_KeyPressEvent(QFrame* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseKeyPressEvent(QFrame* self, QKeyEvent* event) {
+void QFrame_SuperKeyPressEvent(QFrame* self, QKeyEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_KeyPressEvent_IsBase(true);
@@ -681,7 +681,7 @@ void QFrame_KeyReleaseEvent(QFrame* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseKeyReleaseEvent(QFrame* self, QKeyEvent* event) {
+void QFrame_SuperKeyReleaseEvent(QFrame* self, QKeyEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_KeyReleaseEvent_IsBase(true);
@@ -710,7 +710,7 @@ void QFrame_FocusInEvent(QFrame* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseFocusInEvent(QFrame* self, QFocusEvent* event) {
+void QFrame_SuperFocusInEvent(QFrame* self, QFocusEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_FocusInEvent_IsBase(true);
@@ -739,7 +739,7 @@ void QFrame_FocusOutEvent(QFrame* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseFocusOutEvent(QFrame* self, QFocusEvent* event) {
+void QFrame_SuperFocusOutEvent(QFrame* self, QFocusEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_FocusOutEvent_IsBase(true);
@@ -768,7 +768,7 @@ void QFrame_EnterEvent(QFrame* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseEnterEvent(QFrame* self, QEnterEvent* event) {
+void QFrame_SuperEnterEvent(QFrame* self, QEnterEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_EnterEvent_IsBase(true);
@@ -797,7 +797,7 @@ void QFrame_LeaveEvent(QFrame* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseLeaveEvent(QFrame* self, QEvent* event) {
+void QFrame_SuperLeaveEvent(QFrame* self, QEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_LeaveEvent_IsBase(true);
@@ -826,7 +826,7 @@ void QFrame_MoveEvent(QFrame* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseMoveEvent(QFrame* self, QMoveEvent* event) {
+void QFrame_SuperMoveEvent(QFrame* self, QMoveEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_MoveEvent_IsBase(true);
@@ -855,7 +855,7 @@ void QFrame_ResizeEvent(QFrame* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseResizeEvent(QFrame* self, QResizeEvent* event) {
+void QFrame_SuperResizeEvent(QFrame* self, QResizeEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_ResizeEvent_IsBase(true);
@@ -884,7 +884,7 @@ void QFrame_CloseEvent(QFrame* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseCloseEvent(QFrame* self, QCloseEvent* event) {
+void QFrame_SuperCloseEvent(QFrame* self, QCloseEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_CloseEvent_IsBase(true);
@@ -913,7 +913,7 @@ void QFrame_ContextMenuEvent(QFrame* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseContextMenuEvent(QFrame* self, QContextMenuEvent* event) {
+void QFrame_SuperContextMenuEvent(QFrame* self, QContextMenuEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_ContextMenuEvent_IsBase(true);
@@ -942,7 +942,7 @@ void QFrame_TabletEvent(QFrame* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseTabletEvent(QFrame* self, QTabletEvent* event) {
+void QFrame_SuperTabletEvent(QFrame* self, QTabletEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_TabletEvent_IsBase(true);
@@ -971,7 +971,7 @@ void QFrame_ActionEvent(QFrame* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseActionEvent(QFrame* self, QActionEvent* event) {
+void QFrame_SuperActionEvent(QFrame* self, QActionEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_ActionEvent_IsBase(true);
@@ -1000,7 +1000,7 @@ void QFrame_DragEnterEvent(QFrame* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseDragEnterEvent(QFrame* self, QDragEnterEvent* event) {
+void QFrame_SuperDragEnterEvent(QFrame* self, QDragEnterEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_DragEnterEvent_IsBase(true);
@@ -1029,7 +1029,7 @@ void QFrame_DragMoveEvent(QFrame* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseDragMoveEvent(QFrame* self, QDragMoveEvent* event) {
+void QFrame_SuperDragMoveEvent(QFrame* self, QDragMoveEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_DragMoveEvent_IsBase(true);
@@ -1058,7 +1058,7 @@ void QFrame_DragLeaveEvent(QFrame* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseDragLeaveEvent(QFrame* self, QDragLeaveEvent* event) {
+void QFrame_SuperDragLeaveEvent(QFrame* self, QDragLeaveEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_DragLeaveEvent_IsBase(true);
@@ -1087,7 +1087,7 @@ void QFrame_DropEvent(QFrame* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseDropEvent(QFrame* self, QDropEvent* event) {
+void QFrame_SuperDropEvent(QFrame* self, QDropEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_DropEvent_IsBase(true);
@@ -1116,7 +1116,7 @@ void QFrame_ShowEvent(QFrame* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseShowEvent(QFrame* self, QShowEvent* event) {
+void QFrame_SuperShowEvent(QFrame* self, QShowEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_ShowEvent_IsBase(true);
@@ -1145,7 +1145,7 @@ void QFrame_HideEvent(QFrame* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseHideEvent(QFrame* self, QHideEvent* event) {
+void QFrame_SuperHideEvent(QFrame* self, QHideEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_HideEvent_IsBase(true);
@@ -1175,7 +1175,7 @@ bool QFrame_NativeEvent(QFrame* self, const libqt_string eventType, void* messag
 }
 
 // Base class handler implementation
-bool QFrame_QBaseNativeEvent(QFrame* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QFrame_SuperNativeEvent(QFrame* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqframe && vqframe->isVirtualQFrame) {
@@ -1205,7 +1205,7 @@ int QFrame_Metric(const QFrame* self, int param1) {
 }
 
 // Base class handler implementation
-int QFrame_QBaseMetric(const QFrame* self, int param1) {
+int QFrame_SuperMetric(const QFrame* self, int param1) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_Metric_IsBase(true);
@@ -1234,7 +1234,7 @@ void QFrame_InitPainter(const QFrame* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseInitPainter(const QFrame* self, QPainter* painter) {
+void QFrame_SuperInitPainter(const QFrame* self, QPainter* painter) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_InitPainter_IsBase(true);
@@ -1263,7 +1263,7 @@ QPaintDevice* QFrame_Redirected(const QFrame* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QFrame_QBaseRedirected(const QFrame* self, QPoint* offset) {
+QPaintDevice* QFrame_SuperRedirected(const QFrame* self, QPoint* offset) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_Redirected_IsBase(true);
@@ -1292,7 +1292,7 @@ QPainter* QFrame_SharedPainter(const QFrame* self) {
 }
 
 // Base class handler implementation
-QPainter* QFrame_QBaseSharedPainter(const QFrame* self) {
+QPainter* QFrame_SuperSharedPainter(const QFrame* self) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_SharedPainter_IsBase(true);
@@ -1321,7 +1321,7 @@ void QFrame_InputMethodEvent(QFrame* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseInputMethodEvent(QFrame* self, QInputMethodEvent* param1) {
+void QFrame_SuperInputMethodEvent(QFrame* self, QInputMethodEvent* param1) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_InputMethodEvent_IsBase(true);
@@ -1350,7 +1350,7 @@ QVariant* QFrame_InputMethodQuery(const QFrame* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QFrame_QBaseInputMethodQuery(const QFrame* self, int param1) {
+QVariant* QFrame_SuperInputMethodQuery(const QFrame* self, int param1) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_InputMethodQuery_IsBase(true);
@@ -1379,7 +1379,7 @@ bool QFrame_FocusNextPrevChild(QFrame* self, bool next) {
 }
 
 // Base class handler implementation
-bool QFrame_QBaseFocusNextPrevChild(QFrame* self, bool next) {
+bool QFrame_SuperFocusNextPrevChild(QFrame* self, bool next) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_FocusNextPrevChild_IsBase(true);
@@ -1408,7 +1408,7 @@ bool QFrame_EventFilter(QFrame* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QFrame_QBaseEventFilter(QFrame* self, QObject* watched, QEvent* event) {
+bool QFrame_SuperEventFilter(QFrame* self, QObject* watched, QEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_EventFilter_IsBase(true);
@@ -1437,7 +1437,7 @@ void QFrame_TimerEvent(QFrame* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseTimerEvent(QFrame* self, QTimerEvent* event) {
+void QFrame_SuperTimerEvent(QFrame* self, QTimerEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_TimerEvent_IsBase(true);
@@ -1466,7 +1466,7 @@ void QFrame_ChildEvent(QFrame* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseChildEvent(QFrame* self, QChildEvent* event) {
+void QFrame_SuperChildEvent(QFrame* self, QChildEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_ChildEvent_IsBase(true);
@@ -1495,7 +1495,7 @@ void QFrame_CustomEvent(QFrame* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseCustomEvent(QFrame* self, QEvent* event) {
+void QFrame_SuperCustomEvent(QFrame* self, QEvent* event) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_CustomEvent_IsBase(true);
@@ -1524,7 +1524,7 @@ void QFrame_ConnectNotify(QFrame* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseConnectNotify(QFrame* self, const QMetaMethod* signal) {
+void QFrame_SuperConnectNotify(QFrame* self, const QMetaMethod* signal) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_ConnectNotify_IsBase(true);
@@ -1553,7 +1553,7 @@ void QFrame_DisconnectNotify(QFrame* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseDisconnectNotify(QFrame* self, const QMetaMethod* signal) {
+void QFrame_SuperDisconnectNotify(QFrame* self, const QMetaMethod* signal) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_DisconnectNotify_IsBase(true);
@@ -1582,7 +1582,7 @@ void QFrame_DrawFrame(QFrame* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseDrawFrame(QFrame* self, QPainter* param1) {
+void QFrame_SuperDrawFrame(QFrame* self, QPainter* param1) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_DrawFrame_IsBase(true);
@@ -1611,7 +1611,7 @@ void QFrame_UpdateMicroFocus(QFrame* self) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseUpdateMicroFocus(QFrame* self) {
+void QFrame_SuperUpdateMicroFocus(QFrame* self) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_UpdateMicroFocus_IsBase(true);
@@ -1640,7 +1640,7 @@ void QFrame_Create(QFrame* self) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseCreate(QFrame* self) {
+void QFrame_SuperCreate(QFrame* self) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_Create_IsBase(true);
@@ -1669,7 +1669,7 @@ void QFrame_Destroy(QFrame* self) {
 }
 
 // Base class handler implementation
-void QFrame_QBaseDestroy(QFrame* self) {
+void QFrame_SuperDestroy(QFrame* self) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_Destroy_IsBase(true);
@@ -1698,7 +1698,7 @@ bool QFrame_FocusNextChild(QFrame* self) {
 }
 
 // Base class handler implementation
-bool QFrame_QBaseFocusNextChild(QFrame* self) {
+bool QFrame_SuperFocusNextChild(QFrame* self) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_FocusNextChild_IsBase(true);
@@ -1727,7 +1727,7 @@ bool QFrame_FocusPreviousChild(QFrame* self) {
 }
 
 // Base class handler implementation
-bool QFrame_QBaseFocusPreviousChild(QFrame* self) {
+bool QFrame_SuperFocusPreviousChild(QFrame* self) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_FocusPreviousChild_IsBase(true);
@@ -1756,7 +1756,7 @@ QObject* QFrame_Sender(const QFrame* self) {
 }
 
 // Base class handler implementation
-QObject* QFrame_QBaseSender(const QFrame* self) {
+QObject* QFrame_SuperSender(const QFrame* self) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_Sender_IsBase(true);
@@ -1785,7 +1785,7 @@ int QFrame_SenderSignalIndex(const QFrame* self) {
 }
 
 // Base class handler implementation
-int QFrame_QBaseSenderSignalIndex(const QFrame* self) {
+int QFrame_SuperSenderSignalIndex(const QFrame* self) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_SenderSignalIndex_IsBase(true);
@@ -1814,7 +1814,7 @@ int QFrame_Receivers(const QFrame* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QFrame_QBaseReceivers(const QFrame* self, const char* signal) {
+int QFrame_SuperReceivers(const QFrame* self, const char* signal) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_Receivers_IsBase(true);
@@ -1843,7 +1843,7 @@ bool QFrame_IsSignalConnected(const QFrame* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QFrame_QBaseIsSignalConnected(const QFrame* self, const QMetaMethod* signal) {
+bool QFrame_SuperIsSignalConnected(const QFrame* self, const QMetaMethod* signal) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_IsSignalConnected_IsBase(true);
@@ -1872,7 +1872,7 @@ double QFrame_GetDecodedMetricF(const QFrame* self, int metricA, int metricB) {
 }
 
 // Base class handler implementation
-double QFrame_QBaseGetDecodedMetricF(const QFrame* self, int metricA, int metricB) {
+double QFrame_SuperGetDecodedMetricF(const QFrame* self, int metricA, int metricB) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->setQFrame_GetDecodedMetricF_IsBase(true);

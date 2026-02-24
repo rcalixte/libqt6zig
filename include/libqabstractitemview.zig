@@ -55,6 +55,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -63,8 +67,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QAbstractItemView_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QAbstractItemView_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -90,6 +94,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -98,9 +106,9 @@ pub const qabstractitemview = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QAbstractItemView_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QAbstractItemView_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -129,6 +137,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -141,8 +153,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAbstractItemView_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QAbstractItemView_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -188,6 +200,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetModel` instead
+    ///
+    pub const QBaseSetModel = SuperSetModel;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setModel)
     ///
     /// Base class method implementation
@@ -198,8 +214,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` model: QtC.QAbstractItemModel `
     ///
-    pub fn QBaseSetModel(self: ?*anyopaque, model: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseSetModel(@ptrCast(self), @ptrCast(model));
+    pub fn SuperSetModel(self: ?*anyopaque, model: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperSetModel(@ptrCast(self), @ptrCast(model));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#model)
@@ -238,6 +254,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSetSelectionModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetSelectionModel` instead
+    ///
+    pub const QBaseSetSelectionModel = SuperSetSelectionModel;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
     ///
     /// Base class method implementation
@@ -248,8 +268,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` selectionModel: QtC.QItemSelectionModel `
     ///
-    pub fn QBaseSetSelectionModel(self: ?*anyopaque, selectionModel: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseSetSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
+    pub fn SuperSetSelectionModel(self: ?*anyopaque, selectionModel: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperSetSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionModel)
@@ -738,6 +758,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnKeyboardSearch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyboardSearch` instead
+    ///
+    pub const QBaseKeyboardSearch = SuperKeyboardSearch;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
     ///
     /// Base class method implementation
@@ -748,12 +772,12 @@ pub const qabstractitemview = struct {
     ///
     /// ` search: []const u8 `
     ///
-    pub fn QBaseKeyboardSearch(self: ?*anyopaque, search: []const u8) void {
+    pub fn SuperKeyboardSearch(self: ?*anyopaque, search: []const u8) void {
         const search_str = qtc.libqt_string{
             .len = search.len,
             .data = search.ptr,
         };
-        qtc.QAbstractItemView_QBaseKeyboardSearch(@ptrCast(self), search_str);
+        qtc.QAbstractItemView_SuperKeyboardSearch(@ptrCast(self), search_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#visualRect)
@@ -782,6 +806,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnVisualRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperVisualRect` instead
+    ///
+    pub const QBaseVisualRect = SuperVisualRect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#visualRect)
     ///
     /// Base class method implementation
@@ -792,8 +820,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseVisualRect(self: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
-        return qtc.QAbstractItemView_QBaseVisualRect(@ptrCast(self), @ptrCast(index));
+    pub fn SuperVisualRect(self: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
+        return qtc.QAbstractItemView_SuperVisualRect(@ptrCast(self), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollTo)
@@ -824,6 +852,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnScrollTo(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperScrollTo` instead
+    ///
+    pub const QBaseScrollTo = SuperScrollTo;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollTo)
     ///
     /// Base class method implementation
@@ -836,8 +868,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn QBaseScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
-        qtc.QAbstractItemView_QBaseScrollTo(@ptrCast(self), @ptrCast(index), @bitCast(hint));
+    pub fn SuperScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
+        qtc.QAbstractItemView_SuperScrollTo(@ptrCast(self), @ptrCast(index), @bitCast(hint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#indexAt)
@@ -866,6 +898,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnIndexAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIndexAt` instead
+    ///
+    pub const QBaseIndexAt = SuperIndexAt;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#indexAt)
     ///
     /// Base class method implementation
@@ -876,8 +912,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` point: QtC.QPoint `
     ///
-    pub fn QBaseIndexAt(self: ?*anyopaque, point: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractItemView_QBaseIndexAt(@ptrCast(self), @ptrCast(point));
+    pub fn SuperIndexAt(self: ?*anyopaque, point: ?*anyopaque) QtC.QModelIndex {
+        return qtc.QAbstractItemView_SuperIndexAt(@ptrCast(self), @ptrCast(point));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForIndex)
@@ -918,6 +954,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSizeHintForRow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHintForRow` instead
+    ///
+    pub const QBaseSizeHintForRow = SuperSizeHintForRow;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
     ///
     /// Base class method implementation
@@ -928,8 +968,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn QBaseSizeHintForRow(self: ?*anyopaque, row: i32) i32 {
-        return qtc.QAbstractItemView_QBaseSizeHintForRow(@ptrCast(self), @bitCast(row));
+    pub fn SuperSizeHintForRow(self: ?*anyopaque, row: i32) i32 {
+        return qtc.QAbstractItemView_SuperSizeHintForRow(@ptrCast(self), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
@@ -958,6 +998,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSizeHintForColumn(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHintForColumn` instead
+    ///
+    pub const QBaseSizeHintForColumn = SuperSizeHintForColumn;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
     ///
     /// Base class method implementation
@@ -968,8 +1012,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn QBaseSizeHintForColumn(self: ?*anyopaque, column: i32) i32 {
-        return qtc.QAbstractItemView_QBaseSizeHintForColumn(@ptrCast(self), @bitCast(column));
+    pub fn SuperSizeHintForColumn(self: ?*anyopaque, column: i32) i32 {
+        return qtc.QAbstractItemView_SuperSizeHintForColumn(@ptrCast(self), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#openPersistentEditor)
@@ -1124,6 +1168,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnItemDelegateForIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperItemDelegateForIndex` instead
+    ///
+    pub const QBaseItemDelegateForIndex = SuperItemDelegateForIndex;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
     ///
     /// Base class method implementation
@@ -1134,8 +1182,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseItemDelegateForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_QBaseItemDelegateForIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SuperItemDelegateForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
+        return qtc.QAbstractItemView_SuperItemDelegateForIndex(@ptrCast(self), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
@@ -1164,6 +1212,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
     ///
     /// Base class method implementation
@@ -1174,8 +1226,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QAbstractItemView_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
+        return qtc.QAbstractItemView_SuperInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#reset)
@@ -1202,6 +1254,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperReset` instead
+    ///
+    pub const QBaseReset = SuperReset;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#reset)
     ///
     /// Base class method implementation
@@ -1210,8 +1266,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseReset(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseReset(@ptrCast(self));
+    pub fn SuperReset(self: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperReset(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setRootIndex)
@@ -1240,6 +1296,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSetRootIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetRootIndex` instead
+    ///
+    pub const QBaseSetRootIndex = SuperSetRootIndex;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setRootIndex)
     ///
     /// Base class method implementation
@@ -1250,8 +1310,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseSetRootIndex(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseSetRootIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SuperSetRootIndex(self: ?*anyopaque, index: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperSetRootIndex(@ptrCast(self), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doItemsLayout)
@@ -1278,6 +1338,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnDoItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDoItemsLayout` instead
+    ///
+    pub const QBaseDoItemsLayout = SuperDoItemsLayout;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doItemsLayout)
     ///
     /// Base class method implementation
@@ -1286,8 +1350,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseDoItemsLayout(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseDoItemsLayout(@ptrCast(self));
+    pub fn SuperDoItemsLayout(self: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperDoItemsLayout(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
@@ -1314,6 +1378,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSelectAll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSelectAll` instead
+    ///
+    pub const QBaseSelectAll = SuperSelectAll;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
     ///
     /// Base class method implementation
@@ -1322,8 +1390,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseSelectAll(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseSelectAll(@ptrCast(self));
+    pub fn SuperSelectAll(self: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperSelectAll(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
@@ -1426,6 +1494,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDataChanged` instead
+    ///
+    pub const QBaseDataChanged = SuperDataChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dataChanged)
     ///
     /// Base class method implementation
@@ -1440,12 +1512,12 @@ pub const qabstractitemview = struct {
     ///
     /// ` roles: []i32 `
     ///
-    pub fn QBaseDataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
+    pub fn SuperDataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
         const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
-        qtc.QAbstractItemView_QBaseDataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
+        qtc.QAbstractItemView_SuperDataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsInserted)
@@ -1478,6 +1550,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnRowsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRowsInserted` instead
+    ///
+    pub const QBaseRowsInserted = SuperRowsInserted;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsInserted)
     ///
     /// Base class method implementation
@@ -1492,8 +1568,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` end: i32 `
     ///
-    pub fn QBaseRowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QAbstractItemView_QBaseRowsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
+    pub fn SuperRowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
+        qtc.QAbstractItemView_SuperRowsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
@@ -1526,6 +1602,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnRowsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRowsAboutToBeRemoved` instead
+    ///
+    pub const QBaseRowsAboutToBeRemoved = SuperRowsAboutToBeRemoved;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
     ///
     /// Base class method implementation
@@ -1540,8 +1620,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` end: i32 `
     ///
-    pub fn QBaseRowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QAbstractItemView_QBaseRowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
+    pub fn SuperRowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
+        qtc.QAbstractItemView_SuperRowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionChanged)
@@ -1572,6 +1652,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSelectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSelectionChanged` instead
+    ///
+    pub const QBaseSelectionChanged = SuperSelectionChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionChanged)
     ///
     /// Base class method implementation
@@ -1584,8 +1668,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` deselected: QtC.QItemSelection `
     ///
-    pub fn QBaseSelectionChanged(self: ?*anyopaque, selected: ?*anyopaque, deselected: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseSelectionChanged(@ptrCast(self), @ptrCast(selected), @ptrCast(deselected));
+    pub fn SuperSelectionChanged(self: ?*anyopaque, selected: ?*anyopaque, deselected: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperSelectionChanged(@ptrCast(self), @ptrCast(selected), @ptrCast(deselected));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#currentChanged)
@@ -1616,6 +1700,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnCurrentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCurrentChanged` instead
+    ///
+    pub const QBaseCurrentChanged = SuperCurrentChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#currentChanged)
     ///
     /// Base class method implementation
@@ -1628,8 +1716,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` previous: QtC.QModelIndex `
     ///
-    pub fn QBaseCurrentChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseCurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
+    pub fn SuperCurrentChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperCurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
@@ -1656,6 +1744,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnUpdateEditorData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateEditorData` instead
+    ///
+    pub const QBaseUpdateEditorData = SuperUpdateEditorData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
     ///
     /// Base class method implementation
@@ -1664,8 +1756,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseUpdateEditorData(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseUpdateEditorData(@ptrCast(self));
+    pub fn SuperUpdateEditorData(self: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperUpdateEditorData(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
@@ -1692,6 +1784,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnUpdateEditorGeometries(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateEditorGeometries` instead
+    ///
+    pub const QBaseUpdateEditorGeometries = SuperUpdateEditorGeometries;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
     ///
     /// Base class method implementation
@@ -1700,8 +1796,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseUpdateEditorGeometries(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseUpdateEditorGeometries(@ptrCast(self));
+    pub fn SuperUpdateEditorGeometries(self: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperUpdateEditorGeometries(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateGeometries)
@@ -1728,6 +1824,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnUpdateGeometries(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateGeometries` instead
+    ///
+    pub const QBaseUpdateGeometries = SuperUpdateGeometries;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateGeometries)
     ///
     /// Base class method implementation
@@ -1736,8 +1836,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseUpdateGeometries(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseUpdateGeometries(@ptrCast(self));
+    pub fn SuperUpdateGeometries(self: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperUpdateGeometries(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
@@ -1766,6 +1866,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnVerticalScrollbarAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperVerticalScrollbarAction` instead
+    ///
+    pub const QBaseVerticalScrollbarAction = SuperVerticalScrollbarAction;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
     ///
     /// Base class method implementation
@@ -1776,8 +1880,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn QBaseVerticalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QAbstractItemView_QBaseVerticalScrollbarAction(@ptrCast(self), @bitCast(action));
+    pub fn SuperVerticalScrollbarAction(self: ?*anyopaque, action: i32) void {
+        qtc.QAbstractItemView_SuperVerticalScrollbarAction(@ptrCast(self), @bitCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
@@ -1806,6 +1910,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnHorizontalScrollbarAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHorizontalScrollbarAction` instead
+    ///
+    pub const QBaseHorizontalScrollbarAction = SuperHorizontalScrollbarAction;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
     ///
     /// Base class method implementation
@@ -1816,8 +1924,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn QBaseHorizontalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QAbstractItemView_QBaseHorizontalScrollbarAction(@ptrCast(self), @bitCast(action));
+    pub fn SuperHorizontalScrollbarAction(self: ?*anyopaque, action: i32) void {
+        qtc.QAbstractItemView_SuperHorizontalScrollbarAction(@ptrCast(self), @bitCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
@@ -1846,6 +1954,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnVerticalScrollbarValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperVerticalScrollbarValueChanged` instead
+    ///
+    pub const QBaseVerticalScrollbarValueChanged = SuperVerticalScrollbarValueChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
     ///
     /// Base class method implementation
@@ -1856,8 +1968,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn QBaseVerticalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QAbstractItemView_QBaseVerticalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn SuperVerticalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
+        qtc.QAbstractItemView_SuperVerticalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
@@ -1886,6 +1998,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnHorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHorizontalScrollbarValueChanged` instead
+    ///
+    pub const QBaseHorizontalScrollbarValueChanged = SuperHorizontalScrollbarValueChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
     ///
     /// Base class method implementation
@@ -1896,8 +2012,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn QBaseHorizontalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QAbstractItemView_QBaseHorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn SuperHorizontalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
+        qtc.QAbstractItemView_SuperHorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
@@ -1928,6 +2044,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnCloseEditor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEditor` instead
+    ///
+    pub const QBaseCloseEditor = SuperCloseEditor;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
     ///
     /// Base class method implementation
@@ -1940,8 +2060,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
-    pub fn QBaseCloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
-        qtc.QAbstractItemView_QBaseCloseEditor(@ptrCast(self), @ptrCast(editor), @bitCast(hint));
+    pub fn SuperCloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
+        qtc.QAbstractItemView_SuperCloseEditor(@ptrCast(self), @ptrCast(editor), @bitCast(hint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
@@ -1970,6 +2090,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnCommitData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCommitData` instead
+    ///
+    pub const QBaseCommitData = SuperCommitData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
     ///
     /// Base class method implementation
@@ -1980,8 +2104,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` editor: QtC.QWidget `
     ///
-    pub fn QBaseCommitData(self: ?*anyopaque, editor: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseCommitData(@ptrCast(self), @ptrCast(editor));
+    pub fn SuperCommitData(self: ?*anyopaque, editor: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperCommitData(@ptrCast(self), @ptrCast(editor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
@@ -2010,6 +2134,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnEditorDestroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEditorDestroyed` instead
+    ///
+    pub const QBaseEditorDestroyed = SuperEditorDestroyed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
     ///
     /// Base class method implementation
@@ -2020,8 +2148,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` editor: QtC.QObject `
     ///
-    pub fn QBaseEditorDestroyed(self: ?*anyopaque, editor: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseEditorDestroyed(@ptrCast(self), @ptrCast(editor));
+    pub fn SuperEditorDestroyed(self: ?*anyopaque, editor: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperEditorDestroyed(@ptrCast(self), @ptrCast(editor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
@@ -2218,6 +2346,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnMoveCursor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveCursor` instead
+    ///
+    pub const QBaseMoveCursor = SuperMoveCursor;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#moveCursor)
     ///
     /// Base class method implementation
@@ -2230,8 +2362,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn QBaseMoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i32) QtC.QModelIndex {
-        return qtc.QAbstractItemView_QBaseMoveCursor(@ptrCast(self), @bitCast(cursorAction), @bitCast(modifiers));
+    pub fn SuperMoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i32) QtC.QModelIndex {
+        return qtc.QAbstractItemView_SuperMoveCursor(@ptrCast(self), @bitCast(cursorAction), @bitCast(modifiers));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalOffset)
@@ -2258,6 +2390,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnHorizontalOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHorizontalOffset` instead
+    ///
+    pub const QBaseHorizontalOffset = SuperHorizontalOffset;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalOffset)
     ///
     /// Base class method implementation
@@ -2266,8 +2402,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseHorizontalOffset(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_QBaseHorizontalOffset(@ptrCast(self));
+    pub fn SuperHorizontalOffset(self: ?*anyopaque) i32 {
+        return qtc.QAbstractItemView_SuperHorizontalOffset(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalOffset)
@@ -2294,6 +2430,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnVerticalOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperVerticalOffset` instead
+    ///
+    pub const QBaseVerticalOffset = SuperVerticalOffset;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalOffset)
     ///
     /// Base class method implementation
@@ -2302,8 +2442,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseVerticalOffset(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_QBaseVerticalOffset(@ptrCast(self));
+    pub fn SuperVerticalOffset(self: ?*anyopaque) i32 {
+        return qtc.QAbstractItemView_SuperVerticalOffset(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#isIndexHidden)
@@ -2332,6 +2472,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnIsIndexHidden(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsIndexHidden` instead
+    ///
+    pub const QBaseIsIndexHidden = SuperIsIndexHidden;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#isIndexHidden)
     ///
     /// Base class method implementation
@@ -2342,8 +2486,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` index: QtC.QModelIndex `
     ///
-    pub fn QBaseIsIndexHidden(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_QBaseIsIndexHidden(@ptrCast(self), @ptrCast(index));
+    pub fn SuperIsIndexHidden(self: ?*anyopaque, index: ?*anyopaque) bool {
+        return qtc.QAbstractItemView_SuperIsIndexHidden(@ptrCast(self), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelection)
@@ -2374,6 +2518,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSetSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetSelection` instead
+    ///
+    pub const QBaseSetSelection = SuperSetSelection;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelection)
     ///
     /// Base class method implementation
@@ -2386,8 +2534,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn QBaseSetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i32) void {
-        qtc.QAbstractItemView_QBaseSetSelection(@ptrCast(self), @ptrCast(rect), @bitCast(command));
+    pub fn SuperSetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i32) void {
+        qtc.QAbstractItemView_SuperSetSelection(@ptrCast(self), @ptrCast(rect), @bitCast(command));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#visualRegionForSelection)
@@ -2416,6 +2564,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnVisualRegionForSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperVisualRegionForSelection` instead
+    ///
+    pub const QBaseVisualRegionForSelection = SuperVisualRegionForSelection;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#visualRegionForSelection)
     ///
     /// Base class method implementation
@@ -2426,8 +2578,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` selection: QtC.QItemSelection `
     ///
-    pub fn QBaseVisualRegionForSelection(self: ?*anyopaque, selection: ?*anyopaque) QtC.QRegion {
-        return qtc.QAbstractItemView_QBaseVisualRegionForSelection(@ptrCast(self), @ptrCast(selection));
+    pub fn SuperVisualRegionForSelection(self: ?*anyopaque, selection: ?*anyopaque) QtC.QRegion {
+        return qtc.QAbstractItemView_SuperVisualRegionForSelection(@ptrCast(self), @ptrCast(selection));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectedIndexes)
@@ -2467,6 +2619,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSelectedIndexes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSelectedIndexes` instead
+    ///
+    pub const QBaseSelectedIndexes = SuperSelectedIndexes;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectedIndexes)
     ///
     /// Base class method implementation
@@ -2477,8 +2633,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QAbstractItemView_QBaseSelectedIndexes(@ptrCast(self));
+    pub fn SuperSelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
+        const _arr: qtc.libqt_list = qtc.QAbstractItemView_SuperSelectedIndexes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractitemview.SelectedIndexes: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -2516,6 +2672,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnEdit2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEdit2` instead
+    ///
+    pub const QBaseEdit2 = SuperEdit2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// Base class method implementation
@@ -2530,8 +2690,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEdit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_QBaseEdit2(@ptrCast(self), @ptrCast(index), @bitCast(trigger), @ptrCast(event));
+    pub fn SuperEdit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
+        return qtc.QAbstractItemView_SuperEdit2(@ptrCast(self), @ptrCast(index), @bitCast(trigger), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
@@ -2566,6 +2726,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSelectionCommand(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSelectionCommand` instead
+    ///
+    pub const QBaseSelectionCommand = SuperSelectionCommand;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
     ///
     /// Base class method implementation
@@ -2582,8 +2746,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn QBaseSelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_QBaseSelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
+    pub fn SuperSelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i32 {
+        return qtc.QAbstractItemView_SuperSelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
@@ -2612,6 +2776,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnStartDrag(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperStartDrag` instead
+    ///
+    pub const QBaseStartDrag = SuperStartDrag;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
     ///
     /// Base class method implementation
@@ -2622,8 +2790,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
-    pub fn QBaseStartDrag(self: ?*anyopaque, supportedActions: i32) void {
-        qtc.QAbstractItemView_QBaseStartDrag(@ptrCast(self), @bitCast(supportedActions));
+    pub fn SuperStartDrag(self: ?*anyopaque, supportedActions: i32) void {
+        qtc.QAbstractItemView_SuperStartDrag(@ptrCast(self), @bitCast(supportedActions));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#initViewItemOption)
@@ -2652,6 +2820,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnInitViewItemOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInitViewItemOption` instead
+    ///
+    pub const QBaseInitViewItemOption = SuperInitViewItemOption;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#initViewItemOption)
     ///
     /// Base class method implementation
@@ -2662,8 +2834,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` option: QtC.QStyleOptionViewItem `
     ///
-    pub fn QBaseInitViewItemOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseInitViewItemOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitViewItemOption(self: ?*anyopaque, option: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperInitViewItemOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
@@ -2694,6 +2866,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperState` instead
+    ///
+    pub const QBaseState = SuperState;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
     ///
     /// Base class method implementation
@@ -2706,8 +2882,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` qabstractitemview_enums.State `
     ///
-    pub fn QBaseState(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_QBaseState(@ptrCast(self));
+    pub fn SuperState(self: ?*anyopaque) i32 {
+        return qtc.QAbstractItemView_SuperState(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
@@ -2736,6 +2912,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSetState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetState` instead
+    ///
+    pub const QBaseSetState = SuperSetState;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
     ///
     /// Base class method implementation
@@ -2746,8 +2926,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` state: qabstractitemview_enums.State `
     ///
-    pub fn QBaseSetState(self: ?*anyopaque, state: i32) void {
-        qtc.QAbstractItemView_QBaseSetState(@ptrCast(self), @bitCast(state));
+    pub fn SuperSetState(self: ?*anyopaque, state: i32) void {
+        qtc.QAbstractItemView_SuperSetState(@ptrCast(self), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
@@ -2774,6 +2954,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnScheduleDelayedItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperScheduleDelayedItemsLayout` instead
+    ///
+    pub const QBaseScheduleDelayedItemsLayout = SuperScheduleDelayedItemsLayout;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
     ///
     /// Base class method implementation
@@ -2782,8 +2966,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseScheduleDelayedItemsLayout(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseScheduleDelayedItemsLayout(@ptrCast(self));
+    pub fn SuperScheduleDelayedItemsLayout(self: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperScheduleDelayedItemsLayout(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
@@ -2810,6 +2994,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnExecuteDelayedItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperExecuteDelayedItemsLayout` instead
+    ///
+    pub const QBaseExecuteDelayedItemsLayout = SuperExecuteDelayedItemsLayout;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
     ///
     /// Base class method implementation
@@ -2818,8 +3006,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseExecuteDelayedItemsLayout(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseExecuteDelayedItemsLayout(@ptrCast(self));
+    pub fn SuperExecuteDelayedItemsLayout(self: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperExecuteDelayedItemsLayout(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
@@ -2848,6 +3036,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnSetDirtyRegion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetDirtyRegion` instead
+    ///
+    pub const QBaseSetDirtyRegion = SuperSetDirtyRegion;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
     ///
     /// Base class method implementation
@@ -2858,8 +3050,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` region: QtC.QRegion `
     ///
-    pub fn QBaseSetDirtyRegion(self: ?*anyopaque, region: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseSetDirtyRegion(@ptrCast(self), @ptrCast(region));
+    pub fn SuperSetDirtyRegion(self: ?*anyopaque, region: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperSetDirtyRegion(@ptrCast(self), @ptrCast(region));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
@@ -2890,6 +3082,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnScrollDirtyRegion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperScrollDirtyRegion` instead
+    ///
+    pub const QBaseScrollDirtyRegion = SuperScrollDirtyRegion;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
     ///
     /// Base class method implementation
@@ -2902,8 +3098,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn QBaseScrollDirtyRegion(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QAbstractItemView_QBaseScrollDirtyRegion(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn SuperScrollDirtyRegion(self: ?*anyopaque, dx: i32, dy: i32) void {
+        qtc.QAbstractItemView_SuperScrollDirtyRegion(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
@@ -2930,6 +3126,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnDirtyRegionOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDirtyRegionOffset` instead
+    ///
+    pub const QBaseDirtyRegionOffset = SuperDirtyRegionOffset;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
     ///
     /// Base class method implementation
@@ -2938,8 +3138,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseDirtyRegionOffset(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QAbstractItemView_QBaseDirtyRegionOffset(@ptrCast(self));
+    pub fn SuperDirtyRegionOffset(self: ?*anyopaque) QtC.QPoint {
+        return qtc.QAbstractItemView_SuperDirtyRegionOffset(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
@@ -2966,6 +3166,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnStartAutoScroll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperStartAutoScroll` instead
+    ///
+    pub const QBaseStartAutoScroll = SuperStartAutoScroll;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
     ///
     /// Base class method implementation
@@ -2974,8 +3178,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseStartAutoScroll(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseStartAutoScroll(@ptrCast(self));
+    pub fn SuperStartAutoScroll(self: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperStartAutoScroll(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
@@ -3002,6 +3206,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnStopAutoScroll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperStopAutoScroll` instead
+    ///
+    pub const QBaseStopAutoScroll = SuperStopAutoScroll;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
     ///
     /// Base class method implementation
@@ -3010,8 +3218,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseStopAutoScroll(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseStopAutoScroll(@ptrCast(self));
+    pub fn SuperStopAutoScroll(self: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperStopAutoScroll(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
@@ -3038,6 +3246,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnDoAutoScroll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDoAutoScroll` instead
+    ///
+    pub const QBaseDoAutoScroll = SuperDoAutoScroll;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
     ///
     /// Base class method implementation
@@ -3046,8 +3258,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseDoAutoScroll(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseDoAutoScroll(@ptrCast(self));
+    pub fn SuperDoAutoScroll(self: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperDoAutoScroll(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
@@ -3076,6 +3288,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    ///
+    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
     ///
     /// Base class method implementation
@@ -3086,8 +3302,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` next: bool `
     ///
-    pub fn QBaseFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QAbstractItemView_QBaseFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
+        return qtc.QAbstractItemView_SuperFocusNextPrevChild(@ptrCast(self), next);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#event)
@@ -3116,6 +3332,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#event)
     ///
     /// Base class method implementation
@@ -3126,8 +3346,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QAbstractItemView_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
@@ -3156,6 +3376,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnViewportEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperViewportEvent` instead
+    ///
+    pub const QBaseViewportEvent = SuperViewportEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
     ///
     /// Base class method implementation
@@ -3166,8 +3390,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseViewportEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_QBaseViewportEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperViewportEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QAbstractItemView_SuperViewportEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
@@ -3196,6 +3420,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
     ///
     /// Base class method implementation
@@ -3206,8 +3434,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseMoveEvent)
@@ -3236,6 +3464,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseMoveEvent)
     ///
     /// Base class method implementation
@@ -3246,8 +3478,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseReleaseEvent)
@@ -3276,6 +3508,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseReleaseEvent)
     ///
     /// Base class method implementation
@@ -3286,8 +3522,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
@@ -3316,6 +3552,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
     ///
     /// Base class method implementation
@@ -3326,8 +3566,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
@@ -3356,6 +3596,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
     ///
     /// Base class method implementation
@@ -3366,8 +3610,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QDragEnterEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
@@ -3396,6 +3640,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
     ///
     /// Base class method implementation
@@ -3406,8 +3654,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QDragMoveEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
@@ -3436,6 +3684,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
     ///
     /// Base class method implementation
@@ -3446,8 +3698,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QDragLeaveEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent)
@@ -3476,6 +3728,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent)
     ///
     /// Base class method implementation
@@ -3486,8 +3742,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
@@ -3516,6 +3772,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
     ///
     /// Base class method implementation
@@ -3526,8 +3786,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
@@ -3556,6 +3816,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
     ///
     /// Base class method implementation
@@ -3566,8 +3830,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
@@ -3596,6 +3860,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
     ///
     /// Base class method implementation
@@ -3606,8 +3874,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperKeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
@@ -3636,6 +3904,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    ///
+    pub const QBaseResizeEvent = SuperResizeEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
     ///
     /// Base class method implementation
@@ -3646,8 +3918,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QResizeEvent `
     ///
-    pub fn QBaseResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#timerEvent)
@@ -3676,6 +3948,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#timerEvent)
     ///
     /// Base class method implementation
@@ -3686,8 +3962,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
@@ -3716,6 +3992,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
     ///
     /// Base class method implementation
@@ -3726,8 +4006,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperInputMethodEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
@@ -3758,6 +4038,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
     ///
     /// Base class method implementation
@@ -3770,8 +4054,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_QBaseEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QAbstractItemView_SuperEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
@@ -3802,6 +4086,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnDropIndicatorPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDropIndicatorPosition` instead
+    ///
+    pub const QBaseDropIndicatorPosition = SuperDropIndicatorPosition;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
     ///
     /// Base class method implementation
@@ -3814,8 +4102,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` qabstractitemview_enums.DropIndicatorPosition `
     ///
-    pub fn QBaseDropIndicatorPosition(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_QBaseDropIndicatorPosition(@ptrCast(self));
+    pub fn SuperDropIndicatorPosition(self: ?*anyopaque) i32 {
+        return qtc.QAbstractItemView_SuperDropIndicatorPosition(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
@@ -3842,6 +4130,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_OnViewportSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
+    ///
+    pub const QBaseViewportSizeHint = SuperViewportSizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
     ///
     /// Base class method implementation
@@ -3850,8 +4142,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseViewportSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractItemView_QBaseViewportSizeHint(@ptrCast(self));
+    pub fn SuperViewportSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QAbstractItemView_SuperViewportSizeHint(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -9040,6 +9332,10 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_MinimumSizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    ///
+    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
@@ -9050,8 +9346,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractItemView_QBaseMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QAbstractItemView_SuperMinimumSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9084,6 +9380,10 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_SizeHint(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeHint)
@@ -9094,8 +9394,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractItemView_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QAbstractItemView_SuperSizeHint(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9130,6 +9430,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_SetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
+    /// ### DEPRECATED: Use `SuperSetupViewport` instead
+    ///
+    pub const QBaseSetupViewport = SuperSetupViewport;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setupViewport)
@@ -9142,8 +9446,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` viewport: QtC.QWidget `
     ///
-    pub fn QBaseSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseSetupViewport(@ptrCast(self), @ptrCast(viewport));
+    pub fn SuperSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperSetupViewport(@ptrCast(self), @ptrCast(viewport));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9178,6 +9482,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_PaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    ///
+    pub const QBasePaintEvent = SuperPaintEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#paintEvent)
@@ -9190,8 +9498,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` param1: QtC.QPaintEvent `
     ///
-    pub fn QBasePaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBasePaintEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperPaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperPaintEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9226,6 +9534,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_WheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#wheelEvent)
@@ -9238,8 +9550,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` param1: QtC.QWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseWheelEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperWheelEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9274,6 +9586,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#contextMenuEvent)
@@ -9286,8 +9602,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` param1: QtC.QContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperContextMenuEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9324,6 +9640,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_ScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
+    /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
+    ///
+    pub const QBaseScrollContentsBy = SuperScrollContentsBy;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollContentsBy)
@@ -9338,8 +9658,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn QBaseScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QAbstractItemView_QBaseScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn SuperScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
+        qtc.QAbstractItemView_SuperScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9374,6 +9694,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_ChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    ///
+    pub const QBaseChangeEvent = SuperChangeEvent;
+
     /// Inherited from QFrame
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#changeEvent)
@@ -9386,8 +9710,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QFrame
@@ -9422,6 +9746,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_InitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
+    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    ///
+    pub const QBaseInitStyleOption = SuperInitStyleOption;
+
     /// Inherited from QFrame
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#initStyleOption)
@@ -9434,8 +9762,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` option: QtC.QStyleOptionFrame `
     ///
-    pub fn QBaseInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
     }
 
     /// Inherited from QFrame
@@ -9468,6 +9796,10 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_DevType(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDevType` instead
+    ///
+    pub const QBaseDevType = SuperDevType;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#devType)
@@ -9478,8 +9810,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseDevType(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_QBaseDevType(@ptrCast(self));
+    pub fn SuperDevType(self: ?*anyopaque) i32 {
+        return qtc.QAbstractItemView_SuperDevType(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9514,6 +9846,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_SetVisible(@ptrCast(self), visible);
     }
 
+    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    ///
+    pub const QBaseSetVisible = SuperSetVisible;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setVisible)
@@ -9526,8 +9862,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn QBaseSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QAbstractItemView_QBaseSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
+        qtc.QAbstractItemView_SuperSetVisible(@ptrCast(self), visible);
     }
 
     /// Inherited from QWidget
@@ -9562,6 +9898,10 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#heightForWidth)
@@ -9574,8 +9914,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QAbstractItemView_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QAbstractItemView_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -9608,6 +9948,10 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hasHeightForWidth)
@@ -9618,8 +9962,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.QAbstractItemView_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9652,6 +9996,10 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_PaintEngine(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    ///
+    pub const QBasePaintEngine = SuperPaintEngine;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#paintEngine)
@@ -9662,8 +10010,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBasePaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QAbstractItemView_QBasePaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
+        return qtc.QAbstractItemView_SuperPaintEngine(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -9698,6 +10046,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -9710,8 +10062,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9746,6 +10098,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_EnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    ///
+    pub const QBaseEnterEvent = SuperEnterEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#enterEvent)
@@ -9758,8 +10114,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QEnterEvent `
     ///
-    pub fn QBaseEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9794,6 +10150,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_LeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    ///
+    pub const QBaseLeaveEvent = SuperLeaveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#leaveEvent)
@@ -9806,8 +10166,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9842,6 +10202,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_MoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    ///
+    pub const QBaseMoveEvent = SuperMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#moveEvent)
@@ -9854,8 +10218,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QMoveEvent `
     ///
-    pub fn QBaseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9890,6 +10254,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_CloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    ///
+    pub const QBaseCloseEvent = SuperCloseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#closeEvent)
@@ -9902,8 +10270,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QCloseEvent `
     ///
-    pub fn QBaseCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9938,6 +10306,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_TabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    ///
+    pub const QBaseTabletEvent = SuperTabletEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#tabletEvent)
@@ -9950,8 +10322,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QTabletEvent `
     ///
-    pub fn QBaseTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -9986,6 +10358,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_ActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    ///
+    pub const QBaseActionEvent = SuperActionEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#actionEvent)
@@ -9998,8 +10374,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QActionEvent `
     ///
-    pub fn QBaseActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperActionEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -10034,6 +10410,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_ShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    ///
+    pub const QBaseShowEvent = SuperShowEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#showEvent)
@@ -10046,8 +10426,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QShowEvent `
     ///
-    pub fn QBaseShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperShowEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -10082,6 +10462,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_HideEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    ///
+    pub const QBaseHideEvent = SuperHideEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#hideEvent)
@@ -10094,8 +10478,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QHideEvent `
     ///
-    pub fn QBaseHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperHideEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QWidget
@@ -10138,6 +10522,10 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    ///
+    pub const QBaseNativeEvent = SuperNativeEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#nativeEvent)
@@ -10154,12 +10542,12 @@ pub const qabstractitemview = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QAbstractItemView_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QAbstractItemView_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -10194,6 +10582,10 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_Metric(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMetric` instead
+    ///
+    pub const QBaseMetric = SuperMetric;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#metric)
@@ -10206,8 +10598,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QAbstractItemView_QBaseMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QAbstractItemView_SuperMetric(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -10242,6 +10634,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_InitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
+    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    ///
+    pub const QBaseInitPainter = SuperInitPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#initPainter)
@@ -10254,8 +10650,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` painter: QtC.QPainter `
     ///
-    pub fn QBaseInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
@@ -10290,6 +10686,10 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_Redirected(@ptrCast(self), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `SuperRedirected` instead
+    ///
+    pub const QBaseRedirected = SuperRedirected;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#redirected)
@@ -10302,8 +10702,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` offset: QtC.QPoint `
     ///
-    pub fn QBaseRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QAbstractItemView_QBaseRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
+        return qtc.QAbstractItemView_SuperRedirected(@ptrCast(self), @ptrCast(offset));
     }
 
     /// Inherited from QWidget
@@ -10336,6 +10736,10 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_SharedPainter(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    ///
+    pub const QBaseSharedPainter = SuperSharedPainter;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sharedPainter)
@@ -10346,8 +10750,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QAbstractItemView_QBaseSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
+        return qtc.QAbstractItemView_SuperSharedPainter(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10382,6 +10786,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -10394,8 +10802,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -10430,6 +10838,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -10442,8 +10854,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -10478,6 +10890,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -10490,8 +10906,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -10526,6 +10942,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -10538,8 +10958,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -10580,6 +11000,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_SetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
+    /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
+    ///
+    pub const QBaseSetViewportMargins = SuperSetViewportMargins;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
@@ -10598,8 +11022,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn QBaseSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QAbstractItemView_QBaseSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SuperSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QAbstractItemView_SuperSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10632,6 +11056,10 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_ViewportMargins(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperViewportMargins` instead
+    ///
+    pub const QBaseViewportMargins = SuperViewportMargins;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
@@ -10642,8 +11070,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseViewportMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QAbstractItemView_QBaseViewportMargins(@ptrCast(self));
+    pub fn SuperViewportMargins(self: ?*anyopaque) QtC.QMargins {
+        return qtc.QAbstractItemView_SuperViewportMargins(@ptrCast(self));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10678,6 +11106,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_DrawFrame(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    ///
+    pub const QBaseDrawFrame = SuperDrawFrame;
+
     /// Inherited from QFrame
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
@@ -10690,8 +11122,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` param1: QtC.QPainter `
     ///
-    pub fn QBaseDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseDrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperDrawFrame(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QFrame
@@ -10724,6 +11156,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -10734,8 +11170,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10768,6 +11204,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_Create(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCreate` instead
+    ///
+    pub const QBaseCreate = SuperCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -10778,8 +11218,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseCreate(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseCreate(@ptrCast(self));
+    pub fn SuperCreate(self: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperCreate(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10812,6 +11252,10 @@ pub const qabstractitemview = struct {
         qtc.QAbstractItemView_Destroy(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperDestroy` instead
+    ///
+    pub const QBaseDestroy = SuperDestroy;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
@@ -10822,8 +11266,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseDestroy(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_QBaseDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: ?*anyopaque) void {
+        qtc.QAbstractItemView_SuperDestroy(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10856,6 +11300,10 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_FocusNextChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    ///
+    pub const QBaseFocusNextChild = SuperFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -10866,8 +11314,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_QBaseFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
+        return qtc.QAbstractItemView_SuperFocusNextChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10900,6 +11348,10 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_FocusPreviousChild(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    ///
+    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
@@ -10910,8 +11362,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_QBaseFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
+        return qtc.QAbstractItemView_SuperFocusPreviousChild(@ptrCast(self));
     }
 
     /// Inherited from QWidget
@@ -10944,6 +11396,10 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -10954,8 +11410,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QAbstractItemView_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QAbstractItemView_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -10988,6 +11444,10 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -10998,8 +11458,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QAbstractItemView_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -11035,6 +11495,10 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -11047,9 +11511,9 @@ pub const qabstractitemview = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QAbstractItemView_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QAbstractItemView_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -11084,6 +11548,10 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -11096,8 +11564,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QAbstractItemView_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -11134,6 +11602,10 @@ pub const qabstractitemview = struct {
         return qtc.QAbstractItemView_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
+    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    ///
+    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
@@ -11148,8 +11620,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QAbstractItemView_QBaseGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
+        return qtc.QAbstractItemView_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -11183,6 +11655,9 @@ pub const qabstractitemview = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dtor.QAbstractItemView)
     ///
@@ -11192,7 +11667,7 @@ pub const qabstractitemview = struct {
     ///
     /// ` self: QtC.QAbstractItemView `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAbstractItemView_Delete(@ptrCast(self));
     }
 };

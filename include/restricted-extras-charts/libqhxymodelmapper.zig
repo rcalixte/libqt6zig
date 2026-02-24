@@ -46,6 +46,10 @@ pub const qhxymodelmapper = struct {
         qtc.QHXYModelMapper_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -54,8 +58,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` self: QtC.QHXYModelMapper `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QHXYModelMapper_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QHXYModelMapper_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -81,6 +85,10 @@ pub const qhxymodelmapper = struct {
         qtc.QHXYModelMapper_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -89,9 +97,9 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QHXYModelMapper_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QHXYModelMapper_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -120,6 +128,10 @@ pub const qhxymodelmapper = struct {
         qtc.QHXYModelMapper_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -132,8 +144,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QHXYModelMapper_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QHXYModelMapper_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1213,6 +1225,10 @@ pub const qhxymodelmapper = struct {
         return qtc.QHXYModelMapper_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1225,8 +1241,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QHXYModelMapper_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QHXYModelMapper_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1263,6 +1279,10 @@ pub const qhxymodelmapper = struct {
         return qtc.QHXYModelMapper_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1277,8 +1297,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QHXYModelMapper_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QHXYModelMapper_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1313,6 +1333,10 @@ pub const qhxymodelmapper = struct {
         qtc.QHXYModelMapper_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1325,8 +1349,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QHXYModelMapper_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QHXYModelMapper_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1361,6 +1385,10 @@ pub const qhxymodelmapper = struct {
         qtc.QHXYModelMapper_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1373,8 +1401,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QHXYModelMapper_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QHXYModelMapper_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1409,6 +1437,10 @@ pub const qhxymodelmapper = struct {
         qtc.QHXYModelMapper_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1421,8 +1453,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QHXYModelMapper_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QHXYModelMapper_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1457,6 +1489,10 @@ pub const qhxymodelmapper = struct {
         qtc.QHXYModelMapper_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1469,8 +1505,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QHXYModelMapper_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QHXYModelMapper_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1505,6 +1541,10 @@ pub const qhxymodelmapper = struct {
         qtc.QHXYModelMapper_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1517,8 +1557,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QHXYModelMapper_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QHXYModelMapper_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1551,6 +1591,10 @@ pub const qhxymodelmapper = struct {
         return qtc.QHXYModelMapper_First(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperFirst` instead
+    ///
+    pub const QBaseFirst = SuperFirst;
+
     /// Inherited from QXYModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#first)
@@ -1561,8 +1605,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` self: QtC.QHXYModelMapper `
     ///
-    pub fn QBaseFirst(self: ?*anyopaque) i32 {
-        return qtc.QHXYModelMapper_QBaseFirst(@ptrCast(self));
+    pub fn SuperFirst(self: ?*anyopaque) i32 {
+        return qtc.QHXYModelMapper_SuperFirst(@ptrCast(self));
     }
 
     /// Inherited from QXYModelMapper
@@ -1597,6 +1641,10 @@ pub const qhxymodelmapper = struct {
         qtc.QHXYModelMapper_SetFirst(@ptrCast(self), @bitCast(first));
     }
 
+    /// ### DEPRECATED: Use `SuperSetFirst` instead
+    ///
+    pub const QBaseSetFirst = SuperSetFirst;
+
     /// Inherited from QXYModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setFirst)
@@ -1609,8 +1657,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` first: i32 `
     ///
-    pub fn QBaseSetFirst(self: ?*anyopaque, first: i32) void {
-        qtc.QHXYModelMapper_QBaseSetFirst(@ptrCast(self), @bitCast(first));
+    pub fn SuperSetFirst(self: ?*anyopaque, first: i32) void {
+        qtc.QHXYModelMapper_SuperSetFirst(@ptrCast(self), @bitCast(first));
     }
 
     /// Inherited from QXYModelMapper
@@ -1643,6 +1691,10 @@ pub const qhxymodelmapper = struct {
         return qtc.QHXYModelMapper_Count(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperCount` instead
+    ///
+    pub const QBaseCount = SuperCount;
+
     /// Inherited from QXYModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#count)
@@ -1653,8 +1705,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` self: QtC.QHXYModelMapper `
     ///
-    pub fn QBaseCount(self: ?*anyopaque) i32 {
-        return qtc.QHXYModelMapper_QBaseCount(@ptrCast(self));
+    pub fn SuperCount(self: ?*anyopaque) i32 {
+        return qtc.QHXYModelMapper_SuperCount(@ptrCast(self));
     }
 
     /// Inherited from QXYModelMapper
@@ -1689,6 +1741,10 @@ pub const qhxymodelmapper = struct {
         qtc.QHXYModelMapper_SetCount(@ptrCast(self), @bitCast(count));
     }
 
+    /// ### DEPRECATED: Use `SuperSetCount` instead
+    ///
+    pub const QBaseSetCount = SuperSetCount;
+
     /// Inherited from QXYModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setCount)
@@ -1701,8 +1757,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn QBaseSetCount(self: ?*anyopaque, count: i32) void {
-        qtc.QHXYModelMapper_QBaseSetCount(@ptrCast(self), @bitCast(count));
+    pub fn SuperSetCount(self: ?*anyopaque, count: i32) void {
+        qtc.QHXYModelMapper_SuperSetCount(@ptrCast(self), @bitCast(count));
     }
 
     /// Inherited from QXYModelMapper
@@ -1739,6 +1795,10 @@ pub const qhxymodelmapper = struct {
         return qtc.QHXYModelMapper_Orientation(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperOrientation` instead
+    ///
+    pub const QBaseOrientation = SuperOrientation;
+
     /// Inherited from QXYModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#orientation)
@@ -1753,8 +1813,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn QBaseOrientation(self: ?*anyopaque) i32 {
-        return qtc.QHXYModelMapper_QBaseOrientation(@ptrCast(self));
+    pub fn SuperOrientation(self: ?*anyopaque) i32 {
+        return qtc.QHXYModelMapper_SuperOrientation(@ptrCast(self));
     }
 
     /// Inherited from QXYModelMapper
@@ -1789,6 +1849,10 @@ pub const qhxymodelmapper = struct {
         qtc.QHXYModelMapper_SetOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
+    /// ### DEPRECATED: Use `SuperSetOrientation` instead
+    ///
+    pub const QBaseSetOrientation = SuperSetOrientation;
+
     /// Inherited from QXYModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setOrientation)
@@ -1801,8 +1865,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    pub fn QBaseSetOrientation(self: ?*anyopaque, orientation: i32) void {
-        qtc.QHXYModelMapper_QBaseSetOrientation(@ptrCast(self), @bitCast(orientation));
+    pub fn SuperSetOrientation(self: ?*anyopaque, orientation: i32) void {
+        qtc.QHXYModelMapper_SuperSetOrientation(@ptrCast(self), @bitCast(orientation));
     }
 
     /// Inherited from QXYModelMapper
@@ -1835,6 +1899,10 @@ pub const qhxymodelmapper = struct {
         return qtc.QHXYModelMapper_XSection(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperXSection` instead
+    ///
+    pub const QBaseXSection = SuperXSection;
+
     /// Inherited from QXYModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#xSection)
@@ -1845,8 +1913,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` self: QtC.QHXYModelMapper `
     ///
-    pub fn QBaseXSection(self: ?*anyopaque) i32 {
-        return qtc.QHXYModelMapper_QBaseXSection(@ptrCast(self));
+    pub fn SuperXSection(self: ?*anyopaque) i32 {
+        return qtc.QHXYModelMapper_SuperXSection(@ptrCast(self));
     }
 
     /// Inherited from QXYModelMapper
@@ -1881,6 +1949,10 @@ pub const qhxymodelmapper = struct {
         qtc.QHXYModelMapper_SetXSection(@ptrCast(self), @bitCast(xSection));
     }
 
+    /// ### DEPRECATED: Use `SuperSetXSection` instead
+    ///
+    pub const QBaseSetXSection = SuperSetXSection;
+
     /// Inherited from QXYModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setXSection)
@@ -1893,8 +1965,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` xSection: i32 `
     ///
-    pub fn QBaseSetXSection(self: ?*anyopaque, xSection: i32) void {
-        qtc.QHXYModelMapper_QBaseSetXSection(@ptrCast(self), @bitCast(xSection));
+    pub fn SuperSetXSection(self: ?*anyopaque, xSection: i32) void {
+        qtc.QHXYModelMapper_SuperSetXSection(@ptrCast(self), @bitCast(xSection));
     }
 
     /// Inherited from QXYModelMapper
@@ -1927,6 +1999,10 @@ pub const qhxymodelmapper = struct {
         return qtc.QHXYModelMapper_YSection(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperYSection` instead
+    ///
+    pub const QBaseYSection = SuperYSection;
+
     /// Inherited from QXYModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#ySection)
@@ -1937,8 +2013,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` self: QtC.QHXYModelMapper `
     ///
-    pub fn QBaseYSection(self: ?*anyopaque) i32 {
-        return qtc.QHXYModelMapper_QBaseYSection(@ptrCast(self));
+    pub fn SuperYSection(self: ?*anyopaque) i32 {
+        return qtc.QHXYModelMapper_SuperYSection(@ptrCast(self));
     }
 
     /// Inherited from QXYModelMapper
@@ -1973,6 +2049,10 @@ pub const qhxymodelmapper = struct {
         qtc.QHXYModelMapper_SetYSection(@ptrCast(self), @bitCast(ySection));
     }
 
+    /// ### DEPRECATED: Use `SuperSetYSection` instead
+    ///
+    pub const QBaseSetYSection = SuperSetYSection;
+
     /// Inherited from QXYModelMapper
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxymodelmapper.html#setYSection)
@@ -1985,8 +2065,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` ySection: i32 `
     ///
-    pub fn QBaseSetYSection(self: ?*anyopaque, ySection: i32) void {
-        qtc.QHXYModelMapper_QBaseSetYSection(@ptrCast(self), @bitCast(ySection));
+    pub fn SuperSetYSection(self: ?*anyopaque, ySection: i32) void {
+        qtc.QHXYModelMapper_SuperSetYSection(@ptrCast(self), @bitCast(ySection));
     }
 
     /// Inherited from QXYModelMapper
@@ -2019,6 +2099,10 @@ pub const qhxymodelmapper = struct {
         return qtc.QHXYModelMapper_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2029,8 +2113,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` self: QtC.QHXYModelMapper `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QHXYModelMapper_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QHXYModelMapper_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2063,6 +2147,10 @@ pub const qhxymodelmapper = struct {
         return qtc.QHXYModelMapper_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2073,8 +2161,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` self: QtC.QHXYModelMapper `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QHXYModelMapper_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QHXYModelMapper_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2110,6 +2198,10 @@ pub const qhxymodelmapper = struct {
         return qtc.QHXYModelMapper_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2122,9 +2214,9 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QHXYModelMapper_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QHXYModelMapper_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2159,6 +2251,10 @@ pub const qhxymodelmapper = struct {
         return qtc.QHXYModelMapper_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2171,8 +2267,8 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QHXYModelMapper_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QHXYModelMapper_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2206,6 +2302,9 @@ pub const qhxymodelmapper = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhxymodelmapper-qtcharts.html#dtor.QHXYModelMapper)
     ///
@@ -2215,7 +2314,7 @@ pub const qhxymodelmapper = struct {
     ///
     /// ` self: QtC.QHXYModelMapper `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QHXYModelMapper_Delete(@ptrCast(self));
     }
 };

@@ -109,7 +109,7 @@ void KNotificationAction_Connect_LabelChanged(KNotificationAction* self, intptr_
 }
 
 // Base class handler implementation
-QMetaObject* KNotificationAction_QBaseMetaObject(const KNotificationAction* self) {
+QMetaObject* KNotificationAction_SuperMetaObject(const KNotificationAction* self) {
     auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self));
     if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
         vknotificationaction->setKNotificationAction_MetaObject_IsBase(true);
@@ -128,7 +128,7 @@ void KNotificationAction_OnMetaObject(const KNotificationAction* self, intptr_t 
 }
 
 // Base class handler implementation
-void* KNotificationAction_QBaseMetacast(KNotificationAction* self, const char* param1) {
+void* KNotificationAction_SuperMetacast(KNotificationAction* self, const char* param1) {
     auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
     if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
         vknotificationaction->setKNotificationAction_Metacast_IsBase(true);
@@ -147,7 +147,7 @@ void KNotificationAction_OnMetacast(KNotificationAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KNotificationAction_QBaseMetacall(KNotificationAction* self, int param1, int param2, void** param3) {
+int KNotificationAction_SuperMetacall(KNotificationAction* self, int param1, int param2, void** param3) {
     auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
     if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
         vknotificationaction->setKNotificationAction_Metacall_IsBase(true);
@@ -176,7 +176,7 @@ bool KNotificationAction_Event(KNotificationAction* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KNotificationAction_QBaseEvent(KNotificationAction* self, QEvent* event) {
+bool KNotificationAction_SuperEvent(KNotificationAction* self, QEvent* event) {
     auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
     if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
         vknotificationaction->setKNotificationAction_Event_IsBase(true);
@@ -205,7 +205,7 @@ bool KNotificationAction_EventFilter(KNotificationAction* self, QObject* watched
 }
 
 // Base class handler implementation
-bool KNotificationAction_QBaseEventFilter(KNotificationAction* self, QObject* watched, QEvent* event) {
+bool KNotificationAction_SuperEventFilter(KNotificationAction* self, QObject* watched, QEvent* event) {
     auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
     if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
         vknotificationaction->setKNotificationAction_EventFilter_IsBase(true);
@@ -234,7 +234,7 @@ void KNotificationAction_TimerEvent(KNotificationAction* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void KNotificationAction_QBaseTimerEvent(KNotificationAction* self, QTimerEvent* event) {
+void KNotificationAction_SuperTimerEvent(KNotificationAction* self, QTimerEvent* event) {
     auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
     if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
         vknotificationaction->setKNotificationAction_TimerEvent_IsBase(true);
@@ -263,7 +263,7 @@ void KNotificationAction_ChildEvent(KNotificationAction* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void KNotificationAction_QBaseChildEvent(KNotificationAction* self, QChildEvent* event) {
+void KNotificationAction_SuperChildEvent(KNotificationAction* self, QChildEvent* event) {
     auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
     if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
         vknotificationaction->setKNotificationAction_ChildEvent_IsBase(true);
@@ -292,7 +292,7 @@ void KNotificationAction_CustomEvent(KNotificationAction* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KNotificationAction_QBaseCustomEvent(KNotificationAction* self, QEvent* event) {
+void KNotificationAction_SuperCustomEvent(KNotificationAction* self, QEvent* event) {
     auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
     if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
         vknotificationaction->setKNotificationAction_CustomEvent_IsBase(true);
@@ -321,7 +321,7 @@ void KNotificationAction_ConnectNotify(KNotificationAction* self, const QMetaMet
 }
 
 // Base class handler implementation
-void KNotificationAction_QBaseConnectNotify(KNotificationAction* self, const QMetaMethod* signal) {
+void KNotificationAction_SuperConnectNotify(KNotificationAction* self, const QMetaMethod* signal) {
     auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
     if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
         vknotificationaction->setKNotificationAction_ConnectNotify_IsBase(true);
@@ -350,7 +350,7 @@ void KNotificationAction_DisconnectNotify(KNotificationAction* self, const QMeta
 }
 
 // Base class handler implementation
-void KNotificationAction_QBaseDisconnectNotify(KNotificationAction* self, const QMetaMethod* signal) {
+void KNotificationAction_SuperDisconnectNotify(KNotificationAction* self, const QMetaMethod* signal) {
     auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
     if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
         vknotificationaction->setKNotificationAction_DisconnectNotify_IsBase(true);
@@ -379,7 +379,7 @@ QObject* KNotificationAction_Sender(const KNotificationAction* self) {
 }
 
 // Base class handler implementation
-QObject* KNotificationAction_QBaseSender(const KNotificationAction* self) {
+QObject* KNotificationAction_SuperSender(const KNotificationAction* self) {
     auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self));
     if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
         vknotificationaction->setKNotificationAction_Sender_IsBase(true);
@@ -408,7 +408,7 @@ int KNotificationAction_SenderSignalIndex(const KNotificationAction* self) {
 }
 
 // Base class handler implementation
-int KNotificationAction_QBaseSenderSignalIndex(const KNotificationAction* self) {
+int KNotificationAction_SuperSenderSignalIndex(const KNotificationAction* self) {
     auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self));
     if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
         vknotificationaction->setKNotificationAction_SenderSignalIndex_IsBase(true);
@@ -437,7 +437,7 @@ int KNotificationAction_Receivers(const KNotificationAction* self, const char* s
 }
 
 // Base class handler implementation
-int KNotificationAction_QBaseReceivers(const KNotificationAction* self, const char* signal) {
+int KNotificationAction_SuperReceivers(const KNotificationAction* self, const char* signal) {
     auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self));
     if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
         vknotificationaction->setKNotificationAction_Receivers_IsBase(true);
@@ -466,7 +466,7 @@ bool KNotificationAction_IsSignalConnected(const KNotificationAction* self, cons
 }
 
 // Base class handler implementation
-bool KNotificationAction_QBaseIsSignalConnected(const KNotificationAction* self, const QMetaMethod* signal) {
+bool KNotificationAction_SuperIsSignalConnected(const KNotificationAction* self, const QMetaMethod* signal) {
     auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self));
     if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
         vknotificationaction->setKNotificationAction_IsSignalConnected_IsBase(true);
@@ -1094,7 +1094,7 @@ void KNotification_Beep1(const libqt_string reason) {
 }
 
 // Base class handler implementation
-QMetaObject* KNotification_QBaseMetaObject(const KNotification* self) {
+QMetaObject* KNotification_SuperMetaObject(const KNotification* self) {
     auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self));
     if (vknotification && vknotification->isVirtualKNotification) {
         vknotification->setKNotification_MetaObject_IsBase(true);
@@ -1113,7 +1113,7 @@ void KNotification_OnMetaObject(const KNotification* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KNotification_QBaseMetacast(KNotification* self, const char* param1) {
+void* KNotification_SuperMetacast(KNotification* self, const char* param1) {
     auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
     if (vknotification && vknotification->isVirtualKNotification) {
         vknotification->setKNotification_Metacast_IsBase(true);
@@ -1132,7 +1132,7 @@ void KNotification_OnMetacast(KNotification* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KNotification_QBaseMetacall(KNotification* self, int param1, int param2, void** param3) {
+int KNotification_SuperMetacall(KNotification* self, int param1, int param2, void** param3) {
     auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
     if (vknotification && vknotification->isVirtualKNotification) {
         vknotification->setKNotification_Metacall_IsBase(true);
@@ -1161,7 +1161,7 @@ bool KNotification_EventFilter(KNotification* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool KNotification_QBaseEventFilter(KNotification* self, QObject* watched, QEvent* event) {
+bool KNotification_SuperEventFilter(KNotification* self, QObject* watched, QEvent* event) {
     auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
     if (vknotification && vknotification->isVirtualKNotification) {
         vknotification->setKNotification_EventFilter_IsBase(true);
@@ -1190,7 +1190,7 @@ void KNotification_TimerEvent(KNotification* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KNotification_QBaseTimerEvent(KNotification* self, QTimerEvent* event) {
+void KNotification_SuperTimerEvent(KNotification* self, QTimerEvent* event) {
     auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
     if (vknotification && vknotification->isVirtualKNotification) {
         vknotification->setKNotification_TimerEvent_IsBase(true);
@@ -1219,7 +1219,7 @@ void KNotification_ChildEvent(KNotification* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KNotification_QBaseChildEvent(KNotification* self, QChildEvent* event) {
+void KNotification_SuperChildEvent(KNotification* self, QChildEvent* event) {
     auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
     if (vknotification && vknotification->isVirtualKNotification) {
         vknotification->setKNotification_ChildEvent_IsBase(true);
@@ -1248,7 +1248,7 @@ void KNotification_CustomEvent(KNotification* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KNotification_QBaseCustomEvent(KNotification* self, QEvent* event) {
+void KNotification_SuperCustomEvent(KNotification* self, QEvent* event) {
     auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
     if (vknotification && vknotification->isVirtualKNotification) {
         vknotification->setKNotification_CustomEvent_IsBase(true);
@@ -1277,7 +1277,7 @@ void KNotification_ConnectNotify(KNotification* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void KNotification_QBaseConnectNotify(KNotification* self, const QMetaMethod* signal) {
+void KNotification_SuperConnectNotify(KNotification* self, const QMetaMethod* signal) {
     auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
     if (vknotification && vknotification->isVirtualKNotification) {
         vknotification->setKNotification_ConnectNotify_IsBase(true);
@@ -1306,7 +1306,7 @@ void KNotification_DisconnectNotify(KNotification* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void KNotification_QBaseDisconnectNotify(KNotification* self, const QMetaMethod* signal) {
+void KNotification_SuperDisconnectNotify(KNotification* self, const QMetaMethod* signal) {
     auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
     if (vknotification && vknotification->isVirtualKNotification) {
         vknotification->setKNotification_DisconnectNotify_IsBase(true);
@@ -1335,7 +1335,7 @@ QObject* KNotification_Sender(const KNotification* self) {
 }
 
 // Base class handler implementation
-QObject* KNotification_QBaseSender(const KNotification* self) {
+QObject* KNotification_SuperSender(const KNotification* self) {
     auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self));
     if (vknotification && vknotification->isVirtualKNotification) {
         vknotification->setKNotification_Sender_IsBase(true);
@@ -1364,7 +1364,7 @@ int KNotification_SenderSignalIndex(const KNotification* self) {
 }
 
 // Base class handler implementation
-int KNotification_QBaseSenderSignalIndex(const KNotification* self) {
+int KNotification_SuperSenderSignalIndex(const KNotification* self) {
     auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self));
     if (vknotification && vknotification->isVirtualKNotification) {
         vknotification->setKNotification_SenderSignalIndex_IsBase(true);
@@ -1393,7 +1393,7 @@ int KNotification_Receivers(const KNotification* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KNotification_QBaseReceivers(const KNotification* self, const char* signal) {
+int KNotification_SuperReceivers(const KNotification* self, const char* signal) {
     auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self));
     if (vknotification && vknotification->isVirtualKNotification) {
         vknotification->setKNotification_Receivers_IsBase(true);
@@ -1422,7 +1422,7 @@ bool KNotification_IsSignalConnected(const KNotification* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool KNotification_QBaseIsSignalConnected(const KNotification* self, const QMetaMethod* signal) {
+bool KNotification_SuperIsSignalConnected(const KNotification* self, const QMetaMethod* signal) {
     auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self));
     if (vknotification && vknotification->isVirtualKNotification) {
         vknotification->setKNotification_IsSignalConnected_IsBase(true);

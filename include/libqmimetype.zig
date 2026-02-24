@@ -311,6 +311,10 @@ pub const qmimetype = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html#dtor.QMimeType)
     ///
     /// Delete this object from C++ memory.
@@ -319,7 +323,7 @@ pub const qmimetype = struct {
     ///
     /// ` self: QtC.QMimeType `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMimeType_Delete(@ptrCast(self));
     }
 };

@@ -161,6 +161,10 @@ pub const qdomimplementation = struct {
         return qtc.QDomImplementation_IsNull(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomimplementation.html#dtor.QDomImplementation)
     ///
     /// Delete this object from C++ memory.
@@ -169,7 +173,7 @@ pub const qdomimplementation = struct {
     ///
     /// ` self: QtC.QDomImplementation `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDomImplementation_Delete(@ptrCast(self));
     }
 };
@@ -1112,6 +1116,10 @@ pub const qdomnode = struct {
         return qtc.QDomNode_NextSiblingElement2(@ptrCast(self), taName_str, namespaceURI_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#dtor.QDomNode)
     ///
     /// Delete this object from C++ memory.
@@ -1120,7 +1128,7 @@ pub const qdomnode = struct {
     ///
     /// ` self: QtC.QDomNode `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDomNode_Delete(@ptrCast(self));
     }
 };
@@ -1243,6 +1251,10 @@ pub const qdomnodelist = struct {
         return qtc.QDomNodeList_IsEmpty(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnodelist.html#dtor.QDomNodeList)
     ///
     /// Delete this object from C++ memory.
@@ -1251,7 +1263,7 @@ pub const qdomnodelist = struct {
     ///
     /// ` self: QtC.QDomNodeList `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDomNodeList_Delete(@ptrCast(self));
     }
 };
@@ -2424,6 +2436,10 @@ pub const qdomdocumenttype = struct {
         return qtc.QDomNode_NextSiblingElement2(@ptrCast(self), taName_str, namespaceURI_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocumenttype.html#dtor.QDomDocumentType)
     ///
     /// Delete this object from C++ memory.
@@ -2432,7 +2448,7 @@ pub const qdomdocumenttype = struct {
     ///
     /// ` self: QtC.QDomDocumentType `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDomDocumentType_Delete(@ptrCast(self));
     }
 };
@@ -4026,6 +4042,10 @@ pub const qdomdocument = struct {
         return qtc.QDomNode_NextSiblingElement2(@ptrCast(self), taName_str, namespaceURI_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#dtor.QDomDocument)
     ///
     /// Delete this object from C++ memory.
@@ -4034,7 +4054,7 @@ pub const qdomdocument = struct {
     ///
     /// ` self: QtC.QDomDocument `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDomDocument_Delete(@ptrCast(self));
     }
 };
@@ -4261,6 +4281,10 @@ pub const qdomnamednodemap = struct {
         return qtc.QDomNamedNodeMap_Contains(@ptrCast(self), name_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnamednodemap.html#dtor.QDomNamedNodeMap)
     ///
     /// Delete this object from C++ memory.
@@ -4269,7 +4293,7 @@ pub const qdomnamednodemap = struct {
     ///
     /// ` self: QtC.QDomNamedNodeMap `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDomNamedNodeMap_Delete(@ptrCast(self));
     }
 };
@@ -5358,6 +5382,10 @@ pub const qdomdocumentfragment = struct {
         return qtc.QDomNode_NextSiblingElement2(@ptrCast(self), taName_str, namespaceURI_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocumentfragment.html#dtor.QDomDocumentFragment)
     ///
     /// Delete this object from C++ memory.
@@ -5366,7 +5394,7 @@ pub const qdomdocumentfragment = struct {
     ///
     /// ` self: QtC.QDomDocumentFragment `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDomDocumentFragment_Delete(@ptrCast(self));
     }
 };
@@ -6585,6 +6613,10 @@ pub const qdomcharacterdata = struct {
         return qtc.QDomNode_NextSiblingElement2(@ptrCast(self), taName_str, namespaceURI_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcharacterdata.html#dtor.QDomCharacterData)
     ///
     /// Delete this object from C++ memory.
@@ -6593,7 +6625,7 @@ pub const qdomcharacterdata = struct {
     ///
     /// ` self: QtC.QDomCharacterData `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDomCharacterData_Delete(@ptrCast(self));
     }
 };
@@ -7750,6 +7782,10 @@ pub const qdomattr = struct {
         return qtc.QDomNode_NextSiblingElement2(@ptrCast(self), taName_str, namespaceURI_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomattr.html#dtor.QDomAttr)
     ///
     /// Delete this object from C++ memory.
@@ -7758,7 +7794,7 @@ pub const qdomattr = struct {
     ///
     /// ` self: QtC.QDomAttr `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDomAttr_Delete(@ptrCast(self));
     }
 };
@@ -9471,6 +9507,10 @@ pub const qdomelement = struct {
         return qtc.QDomNode_NextSiblingElement2(@ptrCast(self), taName_str, namespaceURI_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#dtor.QDomElement)
     ///
     /// Delete this object from C++ memory.
@@ -9479,7 +9519,7 @@ pub const qdomelement = struct {
     ///
     /// ` self: QtC.QDomElement `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDomElement_Delete(@ptrCast(self));
     }
 };
@@ -10726,6 +10766,10 @@ pub const qdomtext = struct {
         return qtc.QDomNode_NextSiblingElement2(@ptrCast(self), taName_str, namespaceURI_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomtext.html#dtor.QDomText)
     ///
     /// Delete this object from C++ memory.
@@ -10734,7 +10778,7 @@ pub const qdomtext = struct {
     ///
     /// ` self: QtC.QDomText `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDomText_Delete(@ptrCast(self));
     }
 };
@@ -11969,6 +12013,10 @@ pub const qdomcomment = struct {
         return qtc.QDomNode_NextSiblingElement2(@ptrCast(self), taName_str, namespaceURI_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcomment.html#dtor.QDomComment)
     ///
     /// Delete this object from C++ memory.
@@ -11977,7 +12025,7 @@ pub const qdomcomment = struct {
     ///
     /// ` self: QtC.QDomComment `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDomComment_Delete(@ptrCast(self));
     }
 };
@@ -13226,6 +13274,10 @@ pub const qdomcdatasection = struct {
         return qtc.QDomNode_NextSiblingElement2(@ptrCast(self), taName_str, namespaceURI_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcdatasection.html#dtor.QDomCDATASection)
     ///
     /// Delete this object from C++ memory.
@@ -13234,7 +13286,7 @@ pub const qdomcdatasection = struct {
     ///
     /// ` self: QtC.QDomCDATASection `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDomCDATASection_Delete(@ptrCast(self));
     }
 };
@@ -14355,6 +14407,10 @@ pub const qdomnotation = struct {
         return qtc.QDomNode_NextSiblingElement2(@ptrCast(self), taName_str, namespaceURI_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnotation.html#dtor.QDomNotation)
     ///
     /// Delete this object from C++ memory.
@@ -14363,7 +14419,7 @@ pub const qdomnotation = struct {
     ///
     /// ` self: QtC.QDomNotation `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDomNotation_Delete(@ptrCast(self));
     }
 };
@@ -15500,6 +15556,10 @@ pub const qdomentity = struct {
         return qtc.QDomNode_NextSiblingElement2(@ptrCast(self), taName_str, namespaceURI_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomentity.html#dtor.QDomEntity)
     ///
     /// Delete this object from C++ memory.
@@ -15508,7 +15568,7 @@ pub const qdomentity = struct {
     ///
     /// ` self: QtC.QDomEntity `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDomEntity_Delete(@ptrCast(self));
     }
 };
@@ -16597,6 +16657,10 @@ pub const qdomentityreference = struct {
         return qtc.QDomNode_NextSiblingElement2(@ptrCast(self), taName_str, namespaceURI_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomentityreference.html#dtor.QDomEntityReference)
     ///
     /// Delete this object from C++ memory.
@@ -16605,7 +16669,7 @@ pub const qdomentityreference = struct {
     ///
     /// ` self: QtC.QDomEntityReference `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDomEntityReference_Delete(@ptrCast(self));
     }
 };
@@ -17742,6 +17806,10 @@ pub const qdomprocessinginstruction = struct {
         return qtc.QDomNode_NextSiblingElement2(@ptrCast(self), taName_str, namespaceURI_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomprocessinginstruction.html#dtor.QDomProcessingInstruction)
     ///
     /// Delete this object from C++ memory.
@@ -17750,7 +17818,7 @@ pub const qdomprocessinginstruction = struct {
     ///
     /// ` self: QtC.QDomProcessingInstruction `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDomProcessingInstruction_Delete(@ptrCast(self));
     }
 };
@@ -17865,13 +17933,17 @@ pub const qdomdocument__parseresult = struct {
         qtc.QDomDocument__ParseResult_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QDomDocument__ParseResult `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDomDocument__ParseResult_Delete(@ptrCast(self));
     }
 };

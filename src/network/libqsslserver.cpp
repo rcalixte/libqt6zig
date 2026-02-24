@@ -223,7 +223,7 @@ void QSslServer_IncomingConnection(QSslServer* self, intptr_t socket) {
 }
 
 // Base class handler implementation
-QMetaObject* QSslServer_QBaseMetaObject(const QSslServer* self) {
+QMetaObject* QSslServer_SuperMetaObject(const QSslServer* self) {
     auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
     if (vqsslserver && vqsslserver->isVirtualQSslServer) {
         vqsslserver->setQSslServer_MetaObject_IsBase(true);
@@ -242,7 +242,7 @@ void QSslServer_OnMetaObject(const QSslServer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QSslServer_QBaseMetacast(QSslServer* self, const char* param1) {
+void* QSslServer_SuperMetacast(QSslServer* self, const char* param1) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
     if (vqsslserver && vqsslserver->isVirtualQSslServer) {
         vqsslserver->setQSslServer_Metacast_IsBase(true);
@@ -261,7 +261,7 @@ void QSslServer_OnMetacast(QSslServer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSslServer_QBaseMetacall(QSslServer* self, int param1, int param2, void** param3) {
+int QSslServer_SuperMetacall(QSslServer* self, int param1, int param2, void** param3) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
     if (vqsslserver && vqsslserver->isVirtualQSslServer) {
         vqsslserver->setQSslServer_Metacall_IsBase(true);
@@ -280,7 +280,7 @@ void QSslServer_OnMetacall(QSslServer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QSslServer_QBaseIncomingConnection(QSslServer* self, intptr_t socket) {
+void QSslServer_SuperIncomingConnection(QSslServer* self, intptr_t socket) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
     if (vqsslserver && vqsslserver->isVirtualQSslServer) {
         vqsslserver->setQSslServer_IncomingConnection_IsBase(true);
@@ -309,7 +309,7 @@ bool QSslServer_HasPendingConnections(const QSslServer* self) {
 }
 
 // Base class handler implementation
-bool QSslServer_QBaseHasPendingConnections(const QSslServer* self) {
+bool QSslServer_SuperHasPendingConnections(const QSslServer* self) {
     auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
     if (vqsslserver && vqsslserver->isVirtualQSslServer) {
         vqsslserver->setQSslServer_HasPendingConnections_IsBase(true);
@@ -338,7 +338,7 @@ QTcpSocket* QSslServer_NextPendingConnection(QSslServer* self) {
 }
 
 // Base class handler implementation
-QTcpSocket* QSslServer_QBaseNextPendingConnection(QSslServer* self) {
+QTcpSocket* QSslServer_SuperNextPendingConnection(QSslServer* self) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
     if (vqsslserver && vqsslserver->isVirtualQSslServer) {
         vqsslserver->setQSslServer_NextPendingConnection_IsBase(true);
@@ -367,7 +367,7 @@ bool QSslServer_Event(QSslServer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSslServer_QBaseEvent(QSslServer* self, QEvent* event) {
+bool QSslServer_SuperEvent(QSslServer* self, QEvent* event) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
     if (vqsslserver && vqsslserver->isVirtualQSslServer) {
         vqsslserver->setQSslServer_Event_IsBase(true);
@@ -396,7 +396,7 @@ bool QSslServer_EventFilter(QSslServer* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QSslServer_QBaseEventFilter(QSslServer* self, QObject* watched, QEvent* event) {
+bool QSslServer_SuperEventFilter(QSslServer* self, QObject* watched, QEvent* event) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
     if (vqsslserver && vqsslserver->isVirtualQSslServer) {
         vqsslserver->setQSslServer_EventFilter_IsBase(true);
@@ -425,7 +425,7 @@ void QSslServer_TimerEvent(QSslServer* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QSslServer_QBaseTimerEvent(QSslServer* self, QTimerEvent* event) {
+void QSslServer_SuperTimerEvent(QSslServer* self, QTimerEvent* event) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
     if (vqsslserver && vqsslserver->isVirtualQSslServer) {
         vqsslserver->setQSslServer_TimerEvent_IsBase(true);
@@ -454,7 +454,7 @@ void QSslServer_ChildEvent(QSslServer* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QSslServer_QBaseChildEvent(QSslServer* self, QChildEvent* event) {
+void QSslServer_SuperChildEvent(QSslServer* self, QChildEvent* event) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
     if (vqsslserver && vqsslserver->isVirtualQSslServer) {
         vqsslserver->setQSslServer_ChildEvent_IsBase(true);
@@ -483,7 +483,7 @@ void QSslServer_CustomEvent(QSslServer* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QSslServer_QBaseCustomEvent(QSslServer* self, QEvent* event) {
+void QSslServer_SuperCustomEvent(QSslServer* self, QEvent* event) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
     if (vqsslserver && vqsslserver->isVirtualQSslServer) {
         vqsslserver->setQSslServer_CustomEvent_IsBase(true);
@@ -512,7 +512,7 @@ void QSslServer_ConnectNotify(QSslServer* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSslServer_QBaseConnectNotify(QSslServer* self, const QMetaMethod* signal) {
+void QSslServer_SuperConnectNotify(QSslServer* self, const QMetaMethod* signal) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
     if (vqsslserver && vqsslserver->isVirtualQSslServer) {
         vqsslserver->setQSslServer_ConnectNotify_IsBase(true);
@@ -541,7 +541,7 @@ void QSslServer_DisconnectNotify(QSslServer* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QSslServer_QBaseDisconnectNotify(QSslServer* self, const QMetaMethod* signal) {
+void QSslServer_SuperDisconnectNotify(QSslServer* self, const QMetaMethod* signal) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
     if (vqsslserver && vqsslserver->isVirtualQSslServer) {
         vqsslserver->setQSslServer_DisconnectNotify_IsBase(true);
@@ -570,7 +570,7 @@ void QSslServer_AddPendingConnection(QSslServer* self, QTcpSocket* socket) {
 }
 
 // Base class handler implementation
-void QSslServer_QBaseAddPendingConnection(QSslServer* self, QTcpSocket* socket) {
+void QSslServer_SuperAddPendingConnection(QSslServer* self, QTcpSocket* socket) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
     if (vqsslserver && vqsslserver->isVirtualQSslServer) {
         vqsslserver->setQSslServer_AddPendingConnection_IsBase(true);
@@ -599,7 +599,7 @@ QObject* QSslServer_Sender(const QSslServer* self) {
 }
 
 // Base class handler implementation
-QObject* QSslServer_QBaseSender(const QSslServer* self) {
+QObject* QSslServer_SuperSender(const QSslServer* self) {
     auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
     if (vqsslserver && vqsslserver->isVirtualQSslServer) {
         vqsslserver->setQSslServer_Sender_IsBase(true);
@@ -628,7 +628,7 @@ int QSslServer_SenderSignalIndex(const QSslServer* self) {
 }
 
 // Base class handler implementation
-int QSslServer_QBaseSenderSignalIndex(const QSslServer* self) {
+int QSslServer_SuperSenderSignalIndex(const QSslServer* self) {
     auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
     if (vqsslserver && vqsslserver->isVirtualQSslServer) {
         vqsslserver->setQSslServer_SenderSignalIndex_IsBase(true);
@@ -657,7 +657,7 @@ int QSslServer_Receivers(const QSslServer* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QSslServer_QBaseReceivers(const QSslServer* self, const char* signal) {
+int QSslServer_SuperReceivers(const QSslServer* self, const char* signal) {
     auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
     if (vqsslserver && vqsslserver->isVirtualQSslServer) {
         vqsslserver->setQSslServer_Receivers_IsBase(true);
@@ -686,7 +686,7 @@ bool QSslServer_IsSignalConnected(const QSslServer* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QSslServer_QBaseIsSignalConnected(const QSslServer* self, const QMetaMethod* signal) {
+bool QSslServer_SuperIsSignalConnected(const QSslServer* self, const QMetaMethod* signal) {
     auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
     if (vqsslserver && vqsslserver->isVirtualQSslServer) {
         vqsslserver->setQSslServer_IsSignalConnected_IsBase(true);

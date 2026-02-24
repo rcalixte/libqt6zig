@@ -273,16 +273,16 @@ void QOpenGLFunctions_3_2_Core_GlFramebufferTexture(QOpenGLFunctions_3_2_Core* s
 void QOpenGLFunctions_3_2_Core_GlGetBufferParameteri64v(QOpenGLFunctions_3_2_Core* self, uint32_t target, uint32_t pname, int64_t* params);
 void QOpenGLFunctions_3_2_Core_GlGetInteger64iV(QOpenGLFunctions_3_2_Core* self, uint32_t target, uint32_t index, int64_t* data);
 void QOpenGLFunctions_3_2_Core_OnInitializeOpenGLFunctions(QOpenGLFunctions_3_2_Core* self, intptr_t slot);
-bool QOpenGLFunctions_3_2_Core_QBaseInitializeOpenGLFunctions(QOpenGLFunctions_3_2_Core* self);
+bool QOpenGLFunctions_3_2_Core_SuperInitializeOpenGLFunctions(QOpenGLFunctions_3_2_Core* self);
 bool QOpenGLFunctions_3_2_Core_IsInitialized(const QOpenGLFunctions_3_2_Core* self);
 void QOpenGLFunctions_3_2_Core_OnIsInitialized(const QOpenGLFunctions_3_2_Core* self, intptr_t slot);
-bool QOpenGLFunctions_3_2_Core_QBaseIsInitialized(const QOpenGLFunctions_3_2_Core* self);
+bool QOpenGLFunctions_3_2_Core_SuperIsInitialized(const QOpenGLFunctions_3_2_Core* self);
 void QOpenGLFunctions_3_2_Core_SetOwningContext(QOpenGLFunctions_3_2_Core* self, const QOpenGLContext* context);
 void QOpenGLFunctions_3_2_Core_OnSetOwningContext(QOpenGLFunctions_3_2_Core* self, intptr_t slot);
-void QOpenGLFunctions_3_2_Core_QBaseSetOwningContext(QOpenGLFunctions_3_2_Core* self, const QOpenGLContext* context);
+void QOpenGLFunctions_3_2_Core_SuperSetOwningContext(QOpenGLFunctions_3_2_Core* self, const QOpenGLContext* context);
 QOpenGLContext* QOpenGLFunctions_3_2_Core_OwningContext(const QOpenGLFunctions_3_2_Core* self);
 void QOpenGLFunctions_3_2_Core_OnOwningContext(const QOpenGLFunctions_3_2_Core* self, intptr_t slot);
-QOpenGLContext* QOpenGLFunctions_3_2_Core_QBaseOwningContext(const QOpenGLFunctions_3_2_Core* self);
+QOpenGLContext* QOpenGLFunctions_3_2_Core_SuperOwningContext(const QOpenGLFunctions_3_2_Core* self);
 void QOpenGLFunctions_3_2_Core_Delete(QOpenGLFunctions_3_2_Core* self);
 
 #ifdef __cplusplus

@@ -152,7 +152,7 @@ libqt_string KGlobalShortcutInfo_UniqueName(const KGlobalShortcutInfo* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KGlobalShortcutInfo_QBaseMetaObject(const KGlobalShortcutInfo* self) {
+QMetaObject* KGlobalShortcutInfo_SuperMetaObject(const KGlobalShortcutInfo* self) {
     auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
     if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
         vkglobalshortcutinfo->setKGlobalShortcutInfo_MetaObject_IsBase(true);
@@ -171,7 +171,7 @@ void KGlobalShortcutInfo_OnMetaObject(const KGlobalShortcutInfo* self, intptr_t 
 }
 
 // Base class handler implementation
-void* KGlobalShortcutInfo_QBaseMetacast(KGlobalShortcutInfo* self, const char* param1) {
+void* KGlobalShortcutInfo_SuperMetacast(KGlobalShortcutInfo* self, const char* param1) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
     if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
         vkglobalshortcutinfo->setKGlobalShortcutInfo_Metacast_IsBase(true);
@@ -190,7 +190,7 @@ void KGlobalShortcutInfo_OnMetacast(KGlobalShortcutInfo* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KGlobalShortcutInfo_QBaseMetacall(KGlobalShortcutInfo* self, int param1, int param2, void** param3) {
+int KGlobalShortcutInfo_SuperMetacall(KGlobalShortcutInfo* self, int param1, int param2, void** param3) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
     if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
         vkglobalshortcutinfo->setKGlobalShortcutInfo_Metacall_IsBase(true);
@@ -219,7 +219,7 @@ bool KGlobalShortcutInfo_Event(KGlobalShortcutInfo* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KGlobalShortcutInfo_QBaseEvent(KGlobalShortcutInfo* self, QEvent* event) {
+bool KGlobalShortcutInfo_SuperEvent(KGlobalShortcutInfo* self, QEvent* event) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
     if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
         vkglobalshortcutinfo->setKGlobalShortcutInfo_Event_IsBase(true);
@@ -248,7 +248,7 @@ bool KGlobalShortcutInfo_EventFilter(KGlobalShortcutInfo* self, QObject* watched
 }
 
 // Base class handler implementation
-bool KGlobalShortcutInfo_QBaseEventFilter(KGlobalShortcutInfo* self, QObject* watched, QEvent* event) {
+bool KGlobalShortcutInfo_SuperEventFilter(KGlobalShortcutInfo* self, QObject* watched, QEvent* event) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
     if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
         vkglobalshortcutinfo->setKGlobalShortcutInfo_EventFilter_IsBase(true);
@@ -277,7 +277,7 @@ void KGlobalShortcutInfo_TimerEvent(KGlobalShortcutInfo* self, QTimerEvent* even
 }
 
 // Base class handler implementation
-void KGlobalShortcutInfo_QBaseTimerEvent(KGlobalShortcutInfo* self, QTimerEvent* event) {
+void KGlobalShortcutInfo_SuperTimerEvent(KGlobalShortcutInfo* self, QTimerEvent* event) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
     if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
         vkglobalshortcutinfo->setKGlobalShortcutInfo_TimerEvent_IsBase(true);
@@ -306,7 +306,7 @@ void KGlobalShortcutInfo_ChildEvent(KGlobalShortcutInfo* self, QChildEvent* even
 }
 
 // Base class handler implementation
-void KGlobalShortcutInfo_QBaseChildEvent(KGlobalShortcutInfo* self, QChildEvent* event) {
+void KGlobalShortcutInfo_SuperChildEvent(KGlobalShortcutInfo* self, QChildEvent* event) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
     if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
         vkglobalshortcutinfo->setKGlobalShortcutInfo_ChildEvent_IsBase(true);
@@ -335,7 +335,7 @@ void KGlobalShortcutInfo_CustomEvent(KGlobalShortcutInfo* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KGlobalShortcutInfo_QBaseCustomEvent(KGlobalShortcutInfo* self, QEvent* event) {
+void KGlobalShortcutInfo_SuperCustomEvent(KGlobalShortcutInfo* self, QEvent* event) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
     if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
         vkglobalshortcutinfo->setKGlobalShortcutInfo_CustomEvent_IsBase(true);
@@ -364,7 +364,7 @@ void KGlobalShortcutInfo_ConnectNotify(KGlobalShortcutInfo* self, const QMetaMet
 }
 
 // Base class handler implementation
-void KGlobalShortcutInfo_QBaseConnectNotify(KGlobalShortcutInfo* self, const QMetaMethod* signal) {
+void KGlobalShortcutInfo_SuperConnectNotify(KGlobalShortcutInfo* self, const QMetaMethod* signal) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
     if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
         vkglobalshortcutinfo->setKGlobalShortcutInfo_ConnectNotify_IsBase(true);
@@ -393,7 +393,7 @@ void KGlobalShortcutInfo_DisconnectNotify(KGlobalShortcutInfo* self, const QMeta
 }
 
 // Base class handler implementation
-void KGlobalShortcutInfo_QBaseDisconnectNotify(KGlobalShortcutInfo* self, const QMetaMethod* signal) {
+void KGlobalShortcutInfo_SuperDisconnectNotify(KGlobalShortcutInfo* self, const QMetaMethod* signal) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
     if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
         vkglobalshortcutinfo->setKGlobalShortcutInfo_DisconnectNotify_IsBase(true);
@@ -422,7 +422,7 @@ QObject* KGlobalShortcutInfo_Sender(const KGlobalShortcutInfo* self) {
 }
 
 // Base class handler implementation
-QObject* KGlobalShortcutInfo_QBaseSender(const KGlobalShortcutInfo* self) {
+QObject* KGlobalShortcutInfo_SuperSender(const KGlobalShortcutInfo* self) {
     auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
     if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
         vkglobalshortcutinfo->setKGlobalShortcutInfo_Sender_IsBase(true);
@@ -451,7 +451,7 @@ int KGlobalShortcutInfo_SenderSignalIndex(const KGlobalShortcutInfo* self) {
 }
 
 // Base class handler implementation
-int KGlobalShortcutInfo_QBaseSenderSignalIndex(const KGlobalShortcutInfo* self) {
+int KGlobalShortcutInfo_SuperSenderSignalIndex(const KGlobalShortcutInfo* self) {
     auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
     if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
         vkglobalshortcutinfo->setKGlobalShortcutInfo_SenderSignalIndex_IsBase(true);
@@ -480,7 +480,7 @@ int KGlobalShortcutInfo_Receivers(const KGlobalShortcutInfo* self, const char* s
 }
 
 // Base class handler implementation
-int KGlobalShortcutInfo_QBaseReceivers(const KGlobalShortcutInfo* self, const char* signal) {
+int KGlobalShortcutInfo_SuperReceivers(const KGlobalShortcutInfo* self, const char* signal) {
     auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
     if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
         vkglobalshortcutinfo->setKGlobalShortcutInfo_Receivers_IsBase(true);
@@ -509,7 +509,7 @@ bool KGlobalShortcutInfo_IsSignalConnected(const KGlobalShortcutInfo* self, cons
 }
 
 // Base class handler implementation
-bool KGlobalShortcutInfo_QBaseIsSignalConnected(const KGlobalShortcutInfo* self, const QMetaMethod* signal) {
+bool KGlobalShortcutInfo_SuperIsSignalConnected(const KGlobalShortcutInfo* self, const QMetaMethod* signal) {
     auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
     if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
         vkglobalshortcutinfo->setKGlobalShortcutInfo_IsSignalConnected_IsBase(true);

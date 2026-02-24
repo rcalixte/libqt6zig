@@ -168,6 +168,10 @@ pub const accounts__application = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Application.html)
     ///
     /// Delete this object from C++ memory.
@@ -176,7 +180,7 @@ pub const accounts__application = struct {
     ///
     /// ` self: QtC.Accounts__Application `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.Accounts__Application_Delete(@ptrCast(self));
     }
 };

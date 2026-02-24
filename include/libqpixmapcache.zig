@@ -159,6 +159,10 @@ pub const qpixmapcache = struct {
         qtc.QPixmapCache_Clear();
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmapcache.html#dtor.QPixmapCache)
     ///
     /// Delete this object from C++ memory.
@@ -167,7 +171,7 @@ pub const qpixmapcache = struct {
     ///
     /// ` self: QtC.QPixmapCache `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPixmapCache_Delete(@ptrCast(self));
     }
 };
@@ -248,13 +252,17 @@ pub const qpixmapcache__key = struct {
         return qtc.QPixmapCache__Key_IsValid(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QPixmapCache__Key `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPixmapCache__Key_Delete(@ptrCast(self));
     }
 };

@@ -83,7 +83,7 @@ void KXMessages_BroadcastMessage3(KXMessages* self, const char* msg_type, const 
 }
 
 // Base class handler implementation
-QMetaObject* KXMessages_QBaseMetaObject(const KXMessages* self) {
+QMetaObject* KXMessages_SuperMetaObject(const KXMessages* self) {
     auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self));
     if (vkxmessages && vkxmessages->isVirtualKXMessages) {
         vkxmessages->setKXMessages_MetaObject_IsBase(true);
@@ -102,7 +102,7 @@ void KXMessages_OnMetaObject(const KXMessages* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KXMessages_QBaseMetacast(KXMessages* self, const char* param1) {
+void* KXMessages_SuperMetacast(KXMessages* self, const char* param1) {
     auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
     if (vkxmessages && vkxmessages->isVirtualKXMessages) {
         vkxmessages->setKXMessages_Metacast_IsBase(true);
@@ -121,7 +121,7 @@ void KXMessages_OnMetacast(KXMessages* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KXMessages_QBaseMetacall(KXMessages* self, int param1, int param2, void** param3) {
+int KXMessages_SuperMetacall(KXMessages* self, int param1, int param2, void** param3) {
     auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
     if (vkxmessages && vkxmessages->isVirtualKXMessages) {
         vkxmessages->setKXMessages_Metacall_IsBase(true);
@@ -150,7 +150,7 @@ bool KXMessages_Event(KXMessages* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KXMessages_QBaseEvent(KXMessages* self, QEvent* event) {
+bool KXMessages_SuperEvent(KXMessages* self, QEvent* event) {
     auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
     if (vkxmessages && vkxmessages->isVirtualKXMessages) {
         vkxmessages->setKXMessages_Event_IsBase(true);
@@ -179,7 +179,7 @@ bool KXMessages_EventFilter(KXMessages* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KXMessages_QBaseEventFilter(KXMessages* self, QObject* watched, QEvent* event) {
+bool KXMessages_SuperEventFilter(KXMessages* self, QObject* watched, QEvent* event) {
     auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
     if (vkxmessages && vkxmessages->isVirtualKXMessages) {
         vkxmessages->setKXMessages_EventFilter_IsBase(true);
@@ -208,7 +208,7 @@ void KXMessages_TimerEvent(KXMessages* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KXMessages_QBaseTimerEvent(KXMessages* self, QTimerEvent* event) {
+void KXMessages_SuperTimerEvent(KXMessages* self, QTimerEvent* event) {
     auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
     if (vkxmessages && vkxmessages->isVirtualKXMessages) {
         vkxmessages->setKXMessages_TimerEvent_IsBase(true);
@@ -237,7 +237,7 @@ void KXMessages_ChildEvent(KXMessages* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KXMessages_QBaseChildEvent(KXMessages* self, QChildEvent* event) {
+void KXMessages_SuperChildEvent(KXMessages* self, QChildEvent* event) {
     auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
     if (vkxmessages && vkxmessages->isVirtualKXMessages) {
         vkxmessages->setKXMessages_ChildEvent_IsBase(true);
@@ -266,7 +266,7 @@ void KXMessages_CustomEvent(KXMessages* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KXMessages_QBaseCustomEvent(KXMessages* self, QEvent* event) {
+void KXMessages_SuperCustomEvent(KXMessages* self, QEvent* event) {
     auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
     if (vkxmessages && vkxmessages->isVirtualKXMessages) {
         vkxmessages->setKXMessages_CustomEvent_IsBase(true);
@@ -295,7 +295,7 @@ void KXMessages_ConnectNotify(KXMessages* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KXMessages_QBaseConnectNotify(KXMessages* self, const QMetaMethod* signal) {
+void KXMessages_SuperConnectNotify(KXMessages* self, const QMetaMethod* signal) {
     auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
     if (vkxmessages && vkxmessages->isVirtualKXMessages) {
         vkxmessages->setKXMessages_ConnectNotify_IsBase(true);
@@ -324,7 +324,7 @@ void KXMessages_DisconnectNotify(KXMessages* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KXMessages_QBaseDisconnectNotify(KXMessages* self, const QMetaMethod* signal) {
+void KXMessages_SuperDisconnectNotify(KXMessages* self, const QMetaMethod* signal) {
     auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
     if (vkxmessages && vkxmessages->isVirtualKXMessages) {
         vkxmessages->setKXMessages_DisconnectNotify_IsBase(true);
@@ -353,7 +353,7 @@ QObject* KXMessages_Sender(const KXMessages* self) {
 }
 
 // Base class handler implementation
-QObject* KXMessages_QBaseSender(const KXMessages* self) {
+QObject* KXMessages_SuperSender(const KXMessages* self) {
     auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self));
     if (vkxmessages && vkxmessages->isVirtualKXMessages) {
         vkxmessages->setKXMessages_Sender_IsBase(true);
@@ -382,7 +382,7 @@ int KXMessages_SenderSignalIndex(const KXMessages* self) {
 }
 
 // Base class handler implementation
-int KXMessages_QBaseSenderSignalIndex(const KXMessages* self) {
+int KXMessages_SuperSenderSignalIndex(const KXMessages* self) {
     auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self));
     if (vkxmessages && vkxmessages->isVirtualKXMessages) {
         vkxmessages->setKXMessages_SenderSignalIndex_IsBase(true);
@@ -411,7 +411,7 @@ int KXMessages_Receivers(const KXMessages* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KXMessages_QBaseReceivers(const KXMessages* self, const char* signal) {
+int KXMessages_SuperReceivers(const KXMessages* self, const char* signal) {
     auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self));
     if (vkxmessages && vkxmessages->isVirtualKXMessages) {
         vkxmessages->setKXMessages_Receivers_IsBase(true);
@@ -440,7 +440,7 @@ bool KXMessages_IsSignalConnected(const KXMessages* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool KXMessages_QBaseIsSignalConnected(const KXMessages* self, const QMetaMethod* signal) {
+bool KXMessages_SuperIsSignalConnected(const KXMessages* self, const QMetaMethod* signal) {
     auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self));
     if (vkxmessages && vkxmessages->isVirtualKXMessages) {
         vkxmessages->setKXMessages_IsSignalConnected_IsBase(true);

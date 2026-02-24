@@ -96,7 +96,7 @@ void KAbstractFileItemActionPlugin_Connect_Error(KAbstractFileItemActionPlugin* 
 }
 
 // Base class handler implementation
-QMetaObject* KAbstractFileItemActionPlugin_QBaseMetaObject(const KAbstractFileItemActionPlugin* self) {
+QMetaObject* KAbstractFileItemActionPlugin_SuperMetaObject(const KAbstractFileItemActionPlugin* self) {
     auto* vkabstractfileitemactionplugin = const_cast<VirtualKAbstractFileItemActionPlugin*>(dynamic_cast<const VirtualKAbstractFileItemActionPlugin*>(self));
     if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_MetaObject_IsBase(true);
@@ -115,7 +115,7 @@ void KAbstractFileItemActionPlugin_OnMetaObject(const KAbstractFileItemActionPlu
 }
 
 // Base class handler implementation
-void* KAbstractFileItemActionPlugin_QBaseMetacast(KAbstractFileItemActionPlugin* self, const char* param1) {
+void* KAbstractFileItemActionPlugin_SuperMetacast(KAbstractFileItemActionPlugin* self, const char* param1) {
     auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
     if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_Metacast_IsBase(true);
@@ -134,7 +134,7 @@ void KAbstractFileItemActionPlugin_OnMetacast(KAbstractFileItemActionPlugin* sel
 }
 
 // Base class handler implementation
-int KAbstractFileItemActionPlugin_QBaseMetacall(KAbstractFileItemActionPlugin* self, int param1, int param2, void** param3) {
+int KAbstractFileItemActionPlugin_SuperMetacall(KAbstractFileItemActionPlugin* self, int param1, int param2, void** param3) {
     auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
     if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_Metacall_IsBase(true);
@@ -153,7 +153,7 @@ void KAbstractFileItemActionPlugin_OnMetacall(KAbstractFileItemActionPlugin* sel
 }
 
 // Base class handler implementation
-libqt_list /* of QAction* */ KAbstractFileItemActionPlugin_QBaseActions(KAbstractFileItemActionPlugin* self, const KFileItemListProperties* fileItemInfos, QWidget* parentWidget) {
+libqt_list /* of QAction* */ KAbstractFileItemActionPlugin_SuperActions(KAbstractFileItemActionPlugin* self, const KFileItemListProperties* fileItemInfos, QWidget* parentWidget) {
     auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
     if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_Actions_IsBase(true);
@@ -200,7 +200,7 @@ bool KAbstractFileItemActionPlugin_Event(KAbstractFileItemActionPlugin* self, QE
 }
 
 // Base class handler implementation
-bool KAbstractFileItemActionPlugin_QBaseEvent(KAbstractFileItemActionPlugin* self, QEvent* event) {
+bool KAbstractFileItemActionPlugin_SuperEvent(KAbstractFileItemActionPlugin* self, QEvent* event) {
     auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
     if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_Event_IsBase(true);
@@ -229,7 +229,7 @@ bool KAbstractFileItemActionPlugin_EventFilter(KAbstractFileItemActionPlugin* se
 }
 
 // Base class handler implementation
-bool KAbstractFileItemActionPlugin_QBaseEventFilter(KAbstractFileItemActionPlugin* self, QObject* watched, QEvent* event) {
+bool KAbstractFileItemActionPlugin_SuperEventFilter(KAbstractFileItemActionPlugin* self, QObject* watched, QEvent* event) {
     auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
     if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_EventFilter_IsBase(true);
@@ -258,7 +258,7 @@ void KAbstractFileItemActionPlugin_TimerEvent(KAbstractFileItemActionPlugin* sel
 }
 
 // Base class handler implementation
-void KAbstractFileItemActionPlugin_QBaseTimerEvent(KAbstractFileItemActionPlugin* self, QTimerEvent* event) {
+void KAbstractFileItemActionPlugin_SuperTimerEvent(KAbstractFileItemActionPlugin* self, QTimerEvent* event) {
     auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
     if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_TimerEvent_IsBase(true);
@@ -287,7 +287,7 @@ void KAbstractFileItemActionPlugin_ChildEvent(KAbstractFileItemActionPlugin* sel
 }
 
 // Base class handler implementation
-void KAbstractFileItemActionPlugin_QBaseChildEvent(KAbstractFileItemActionPlugin* self, QChildEvent* event) {
+void KAbstractFileItemActionPlugin_SuperChildEvent(KAbstractFileItemActionPlugin* self, QChildEvent* event) {
     auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
     if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_ChildEvent_IsBase(true);
@@ -316,7 +316,7 @@ void KAbstractFileItemActionPlugin_CustomEvent(KAbstractFileItemActionPlugin* se
 }
 
 // Base class handler implementation
-void KAbstractFileItemActionPlugin_QBaseCustomEvent(KAbstractFileItemActionPlugin* self, QEvent* event) {
+void KAbstractFileItemActionPlugin_SuperCustomEvent(KAbstractFileItemActionPlugin* self, QEvent* event) {
     auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
     if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_CustomEvent_IsBase(true);
@@ -345,7 +345,7 @@ void KAbstractFileItemActionPlugin_ConnectNotify(KAbstractFileItemActionPlugin* 
 }
 
 // Base class handler implementation
-void KAbstractFileItemActionPlugin_QBaseConnectNotify(KAbstractFileItemActionPlugin* self, const QMetaMethod* signal) {
+void KAbstractFileItemActionPlugin_SuperConnectNotify(KAbstractFileItemActionPlugin* self, const QMetaMethod* signal) {
     auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
     if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_ConnectNotify_IsBase(true);
@@ -374,7 +374,7 @@ void KAbstractFileItemActionPlugin_DisconnectNotify(KAbstractFileItemActionPlugi
 }
 
 // Base class handler implementation
-void KAbstractFileItemActionPlugin_QBaseDisconnectNotify(KAbstractFileItemActionPlugin* self, const QMetaMethod* signal) {
+void KAbstractFileItemActionPlugin_SuperDisconnectNotify(KAbstractFileItemActionPlugin* self, const QMetaMethod* signal) {
     auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
     if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_DisconnectNotify_IsBase(true);
@@ -403,7 +403,7 @@ QObject* KAbstractFileItemActionPlugin_Sender(const KAbstractFileItemActionPlugi
 }
 
 // Base class handler implementation
-QObject* KAbstractFileItemActionPlugin_QBaseSender(const KAbstractFileItemActionPlugin* self) {
+QObject* KAbstractFileItemActionPlugin_SuperSender(const KAbstractFileItemActionPlugin* self) {
     auto* vkabstractfileitemactionplugin = const_cast<VirtualKAbstractFileItemActionPlugin*>(dynamic_cast<const VirtualKAbstractFileItemActionPlugin*>(self));
     if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_Sender_IsBase(true);
@@ -432,7 +432,7 @@ int KAbstractFileItemActionPlugin_SenderSignalIndex(const KAbstractFileItemActio
 }
 
 // Base class handler implementation
-int KAbstractFileItemActionPlugin_QBaseSenderSignalIndex(const KAbstractFileItemActionPlugin* self) {
+int KAbstractFileItemActionPlugin_SuperSenderSignalIndex(const KAbstractFileItemActionPlugin* self) {
     auto* vkabstractfileitemactionplugin = const_cast<VirtualKAbstractFileItemActionPlugin*>(dynamic_cast<const VirtualKAbstractFileItemActionPlugin*>(self));
     if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_SenderSignalIndex_IsBase(true);
@@ -461,7 +461,7 @@ int KAbstractFileItemActionPlugin_Receivers(const KAbstractFileItemActionPlugin*
 }
 
 // Base class handler implementation
-int KAbstractFileItemActionPlugin_QBaseReceivers(const KAbstractFileItemActionPlugin* self, const char* signal) {
+int KAbstractFileItemActionPlugin_SuperReceivers(const KAbstractFileItemActionPlugin* self, const char* signal) {
     auto* vkabstractfileitemactionplugin = const_cast<VirtualKAbstractFileItemActionPlugin*>(dynamic_cast<const VirtualKAbstractFileItemActionPlugin*>(self));
     if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_Receivers_IsBase(true);
@@ -490,7 +490,7 @@ bool KAbstractFileItemActionPlugin_IsSignalConnected(const KAbstractFileItemActi
 }
 
 // Base class handler implementation
-bool KAbstractFileItemActionPlugin_QBaseIsSignalConnected(const KAbstractFileItemActionPlugin* self, const QMetaMethod* signal) {
+bool KAbstractFileItemActionPlugin_SuperIsSignalConnected(const KAbstractFileItemActionPlugin* self, const QMetaMethod* signal) {
     auto* vkabstractfileitemactionplugin = const_cast<VirtualKAbstractFileItemActionPlugin*>(dynamic_cast<const VirtualKAbstractFileItemActionPlugin*>(self));
     if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_IsSignalConnected_IsBase(true);

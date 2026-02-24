@@ -153,6 +153,10 @@ pub const qhttp2configuration = struct {
         qtc.QHttp2Configuration_Swap(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttp2configuration.html#dtor.QHttp2Configuration)
     ///
     /// Delete this object from C++ memory.
@@ -161,7 +165,7 @@ pub const qhttp2configuration = struct {
     ///
     /// ` self: QtC.QHttp2Configuration `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QHttp2Configuration_Delete(@ptrCast(self));
     }
 };

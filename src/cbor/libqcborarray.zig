@@ -607,6 +607,10 @@ pub const qcborarray = struct {
         return qtc.QCborArray_ToJsonArray(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborarray.html#dtor.QCborArray)
     ///
     /// Delete this object from C++ memory.
@@ -615,7 +619,7 @@ pub const qcborarray = struct {
     ///
     /// ` self: QtC.QCborArray `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCborArray_Delete(@ptrCast(self));
     }
 };
@@ -806,13 +810,17 @@ pub const qcborarray__iterator = struct {
         return qtc.QCborArray__Iterator_OperatorMinus2(@ptrCast(self), @ptrCast(j));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QCborArray__Iterator `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCborArray__Iterator_Delete(@ptrCast(self));
     }
 };
@@ -993,13 +1001,17 @@ pub const qcborarray__constiterator = struct {
         return qtc.QCborArray__ConstIterator_OperatorMinus2(@ptrCast(self), @ptrCast(j));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QCborArray__ConstIterator `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCborArray__ConstIterator_Delete(@ptrCast(self));
     }
 };

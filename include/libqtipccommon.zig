@@ -205,6 +205,10 @@ pub const qnativeipckey = struct {
         return qtc.QNativeIpcKey_FromString(stringVal_str);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeipckey.html#dtor.QNativeIpcKey)
     ///
     /// Delete this object from C++ memory.
@@ -213,7 +217,7 @@ pub const qnativeipckey = struct {
     ///
     /// ` self: QtC.QNativeIpcKey `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QNativeIpcKey_Delete(@ptrCast(self));
     }
 };

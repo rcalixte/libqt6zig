@@ -173,6 +173,10 @@ pub const kfileitemlistproperties = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kfileitemlistproperties.html#dtor.KFileItemListProperties)
     ///
     /// Delete this object from C++ memory.
@@ -181,7 +185,7 @@ pub const kfileitemlistproperties = struct {
     ///
     /// ` self: QtC.KFileItemListProperties `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KFileItemListProperties_Delete(@ptrCast(self));
     }
 };

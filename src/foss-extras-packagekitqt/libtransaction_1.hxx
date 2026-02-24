@@ -356,25 +356,25 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
 
     // Friend functions
     friend void PackageKit__Transaction_ConnectNotify(PackageKit::Transaction* self, const QMetaMethod* signal);
-    friend void PackageKit__Transaction_QBaseConnectNotify(PackageKit::Transaction* self, const QMetaMethod* signal);
+    friend void PackageKit__Transaction_SuperConnectNotify(PackageKit::Transaction* self, const QMetaMethod* signal);
     friend void PackageKit__Transaction_DisconnectNotify(PackageKit::Transaction* self, const QMetaMethod* signal);
-    friend void PackageKit__Transaction_QBaseDisconnectNotify(PackageKit::Transaction* self, const QMetaMethod* signal);
+    friend void PackageKit__Transaction_SuperDisconnectNotify(PackageKit::Transaction* self, const QMetaMethod* signal);
     friend void PackageKit__Transaction_TimerEvent(PackageKit::Transaction* self, QTimerEvent* event);
-    friend void PackageKit__Transaction_QBaseTimerEvent(PackageKit::Transaction* self, QTimerEvent* event);
+    friend void PackageKit__Transaction_SuperTimerEvent(PackageKit::Transaction* self, QTimerEvent* event);
     friend void PackageKit__Transaction_ChildEvent(PackageKit::Transaction* self, QChildEvent* event);
-    friend void PackageKit__Transaction_QBaseChildEvent(PackageKit::Transaction* self, QChildEvent* event);
+    friend void PackageKit__Transaction_SuperChildEvent(PackageKit::Transaction* self, QChildEvent* event);
     friend void PackageKit__Transaction_CustomEvent(PackageKit::Transaction* self, QEvent* event);
-    friend void PackageKit__Transaction_QBaseCustomEvent(PackageKit::Transaction* self, QEvent* event);
+    friend void PackageKit__Transaction_SuperCustomEvent(PackageKit::Transaction* self, QEvent* event);
     friend int PackageKit__Transaction_ParseError(PackageKit::Transaction* self, const libqt_string errorName);
-    friend int PackageKit__Transaction_QBaseParseError(PackageKit::Transaction* self, const libqt_string errorName);
+    friend int PackageKit__Transaction_SuperParseError(PackageKit::Transaction* self, const libqt_string errorName);
     friend QObject* PackageKit__Transaction_Sender(const PackageKit::Transaction* self);
-    friend QObject* PackageKit__Transaction_QBaseSender(const PackageKit::Transaction* self);
+    friend QObject* PackageKit__Transaction_SuperSender(const PackageKit::Transaction* self);
     friend int PackageKit__Transaction_SenderSignalIndex(const PackageKit::Transaction* self);
-    friend int PackageKit__Transaction_QBaseSenderSignalIndex(const PackageKit::Transaction* self);
+    friend int PackageKit__Transaction_SuperSenderSignalIndex(const PackageKit::Transaction* self);
     friend int PackageKit__Transaction_Receivers(const PackageKit::Transaction* self, const char* signal);
-    friend int PackageKit__Transaction_QBaseReceivers(const PackageKit::Transaction* self, const char* signal);
+    friend int PackageKit__Transaction_SuperReceivers(const PackageKit::Transaction* self, const char* signal);
     friend bool PackageKit__Transaction_IsSignalConnected(const PackageKit::Transaction* self, const QMetaMethod* signal);
-    friend bool PackageKit__Transaction_QBaseIsSignalConnected(const PackageKit::Transaction* self, const QMetaMethod* signal);
+    friend bool PackageKit__Transaction_SuperIsSignalConnected(const PackageKit::Transaction* self, const QMetaMethod* signal);
 };
 
 #endif

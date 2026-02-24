@@ -26,7 +26,7 @@ void KMessageBoxNotifyInterface_OperatorAssign(KMessageBoxNotifyInterface* self,
 }
 
 // Base class handler implementation
-void KMessageBoxNotifyInterface_QBaseSendNotification(KMessageBoxNotifyInterface* self, int notificationType, const libqt_string message, QWidget* parent) {
+void KMessageBoxNotifyInterface_SuperSendNotification(KMessageBoxNotifyInterface* self, int notificationType, const libqt_string message, QWidget* parent) {
     auto* vkmessageboxnotifyinterface = dynamic_cast<VirtualKMessageBoxNotifyInterface*>(self);
     QString message_QString = QString::fromUtf8(message.data, message.len);
     if (vkmessageboxnotifyinterface && vkmessageboxnotifyinterface->isVirtualKMessageBoxNotifyInterface) {

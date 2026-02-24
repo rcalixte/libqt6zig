@@ -979,6 +979,10 @@ pub const qrect = struct {
         return qtc.QRect_Contains23(@ptrCast(self), @ptrCast(p), proper);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#dtor.QRect)
     ///
     /// Delete this object from C++ memory.
@@ -987,7 +991,7 @@ pub const qrect = struct {
     ///
     /// ` self: QtC.QRect `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QRect_Delete(@ptrCast(self));
     }
 };
@@ -1934,6 +1938,10 @@ pub const qrectf = struct {
         return qtc.QRectF_ToAlignedRect(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html#dtor.QRectF)
     ///
     /// Delete this object from C++ memory.
@@ -1942,7 +1950,7 @@ pub const qrectf = struct {
     ///
     /// ` self: QtC.QRectF `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QRectF_Delete(@ptrCast(self));
     }
 };

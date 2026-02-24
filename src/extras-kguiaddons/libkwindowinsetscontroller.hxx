@@ -328,23 +328,23 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
 
     // Friend functions
     friend void KWindowInsetsController_TimerEvent(KWindowInsetsController* self, QTimerEvent* event);
-    friend void KWindowInsetsController_QBaseTimerEvent(KWindowInsetsController* self, QTimerEvent* event);
+    friend void KWindowInsetsController_SuperTimerEvent(KWindowInsetsController* self, QTimerEvent* event);
     friend void KWindowInsetsController_ChildEvent(KWindowInsetsController* self, QChildEvent* event);
-    friend void KWindowInsetsController_QBaseChildEvent(KWindowInsetsController* self, QChildEvent* event);
+    friend void KWindowInsetsController_SuperChildEvent(KWindowInsetsController* self, QChildEvent* event);
     friend void KWindowInsetsController_CustomEvent(KWindowInsetsController* self, QEvent* event);
-    friend void KWindowInsetsController_QBaseCustomEvent(KWindowInsetsController* self, QEvent* event);
+    friend void KWindowInsetsController_SuperCustomEvent(KWindowInsetsController* self, QEvent* event);
     friend void KWindowInsetsController_ConnectNotify(KWindowInsetsController* self, const QMetaMethod* signal);
-    friend void KWindowInsetsController_QBaseConnectNotify(KWindowInsetsController* self, const QMetaMethod* signal);
+    friend void KWindowInsetsController_SuperConnectNotify(KWindowInsetsController* self, const QMetaMethod* signal);
     friend void KWindowInsetsController_DisconnectNotify(KWindowInsetsController* self, const QMetaMethod* signal);
-    friend void KWindowInsetsController_QBaseDisconnectNotify(KWindowInsetsController* self, const QMetaMethod* signal);
+    friend void KWindowInsetsController_SuperDisconnectNotify(KWindowInsetsController* self, const QMetaMethod* signal);
     friend QObject* KWindowInsetsController_Sender(const KWindowInsetsController* self);
-    friend QObject* KWindowInsetsController_QBaseSender(const KWindowInsetsController* self);
+    friend QObject* KWindowInsetsController_SuperSender(const KWindowInsetsController* self);
     friend int KWindowInsetsController_SenderSignalIndex(const KWindowInsetsController* self);
-    friend int KWindowInsetsController_QBaseSenderSignalIndex(const KWindowInsetsController* self);
+    friend int KWindowInsetsController_SuperSenderSignalIndex(const KWindowInsetsController* self);
     friend int KWindowInsetsController_Receivers(const KWindowInsetsController* self, const char* signal);
-    friend int KWindowInsetsController_QBaseReceivers(const KWindowInsetsController* self, const char* signal);
+    friend int KWindowInsetsController_SuperReceivers(const KWindowInsetsController* self, const char* signal);
     friend bool KWindowInsetsController_IsSignalConnected(const KWindowInsetsController* self, const QMetaMethod* signal);
-    friend bool KWindowInsetsController_QBaseIsSignalConnected(const KWindowInsetsController* self, const QMetaMethod* signal);
+    friend bool KWindowInsetsController_SuperIsSignalConnected(const KWindowInsetsController* self, const QMetaMethod* signal);
 };
 
 #endif

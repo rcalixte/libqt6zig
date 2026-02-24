@@ -52,7 +52,7 @@ void KBookmarkAction_SlotSelected(KBookmarkAction* self, int mb, int km) {
 }
 
 // Base class handler implementation
-QMetaObject* KBookmarkAction_QBaseMetaObject(const KBookmarkAction* self) {
+QMetaObject* KBookmarkAction_SuperMetaObject(const KBookmarkAction* self) {
     auto* vkbookmarkaction = const_cast<VirtualKBookmarkAction*>(dynamic_cast<const VirtualKBookmarkAction*>(self));
     if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
         vkbookmarkaction->setKBookmarkAction_MetaObject_IsBase(true);
@@ -71,7 +71,7 @@ void KBookmarkAction_OnMetaObject(const KBookmarkAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KBookmarkAction_QBaseMetacast(KBookmarkAction* self, const char* param1) {
+void* KBookmarkAction_SuperMetacast(KBookmarkAction* self, const char* param1) {
     auto* vkbookmarkaction = dynamic_cast<VirtualKBookmarkAction*>(self);
     if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
         vkbookmarkaction->setKBookmarkAction_Metacast_IsBase(true);
@@ -90,7 +90,7 @@ void KBookmarkAction_OnMetacast(KBookmarkAction* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KBookmarkAction_QBaseMetacall(KBookmarkAction* self, int param1, int param2, void** param3) {
+int KBookmarkAction_SuperMetacall(KBookmarkAction* self, int param1, int param2, void** param3) {
     auto* vkbookmarkaction = dynamic_cast<VirtualKBookmarkAction*>(self);
     if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
         vkbookmarkaction->setKBookmarkAction_Metacall_IsBase(true);
@@ -119,7 +119,7 @@ bool KBookmarkAction_Event(KBookmarkAction* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool KBookmarkAction_QBaseEvent(KBookmarkAction* self, QEvent* param1) {
+bool KBookmarkAction_SuperEvent(KBookmarkAction* self, QEvent* param1) {
     auto* vkbookmarkaction = dynamic_cast<VirtualKBookmarkAction*>(self);
     if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
         vkbookmarkaction->setKBookmarkAction_Event_IsBase(true);
@@ -148,7 +148,7 @@ bool KBookmarkAction_EventFilter(KBookmarkAction* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool KBookmarkAction_QBaseEventFilter(KBookmarkAction* self, QObject* watched, QEvent* event) {
+bool KBookmarkAction_SuperEventFilter(KBookmarkAction* self, QObject* watched, QEvent* event) {
     auto* vkbookmarkaction = dynamic_cast<VirtualKBookmarkAction*>(self);
     if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
         vkbookmarkaction->setKBookmarkAction_EventFilter_IsBase(true);
@@ -177,7 +177,7 @@ void KBookmarkAction_TimerEvent(KBookmarkAction* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkAction_QBaseTimerEvent(KBookmarkAction* self, QTimerEvent* event) {
+void KBookmarkAction_SuperTimerEvent(KBookmarkAction* self, QTimerEvent* event) {
     auto* vkbookmarkaction = dynamic_cast<VirtualKBookmarkAction*>(self);
     if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
         vkbookmarkaction->setKBookmarkAction_TimerEvent_IsBase(true);
@@ -206,7 +206,7 @@ void KBookmarkAction_ChildEvent(KBookmarkAction* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkAction_QBaseChildEvent(KBookmarkAction* self, QChildEvent* event) {
+void KBookmarkAction_SuperChildEvent(KBookmarkAction* self, QChildEvent* event) {
     auto* vkbookmarkaction = dynamic_cast<VirtualKBookmarkAction*>(self);
     if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
         vkbookmarkaction->setKBookmarkAction_ChildEvent_IsBase(true);
@@ -235,7 +235,7 @@ void KBookmarkAction_CustomEvent(KBookmarkAction* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KBookmarkAction_QBaseCustomEvent(KBookmarkAction* self, QEvent* event) {
+void KBookmarkAction_SuperCustomEvent(KBookmarkAction* self, QEvent* event) {
     auto* vkbookmarkaction = dynamic_cast<VirtualKBookmarkAction*>(self);
     if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
         vkbookmarkaction->setKBookmarkAction_CustomEvent_IsBase(true);
@@ -264,7 +264,7 @@ void KBookmarkAction_ConnectNotify(KBookmarkAction* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KBookmarkAction_QBaseConnectNotify(KBookmarkAction* self, const QMetaMethod* signal) {
+void KBookmarkAction_SuperConnectNotify(KBookmarkAction* self, const QMetaMethod* signal) {
     auto* vkbookmarkaction = dynamic_cast<VirtualKBookmarkAction*>(self);
     if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
         vkbookmarkaction->setKBookmarkAction_ConnectNotify_IsBase(true);
@@ -293,7 +293,7 @@ void KBookmarkAction_DisconnectNotify(KBookmarkAction* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KBookmarkAction_QBaseDisconnectNotify(KBookmarkAction* self, const QMetaMethod* signal) {
+void KBookmarkAction_SuperDisconnectNotify(KBookmarkAction* self, const QMetaMethod* signal) {
     auto* vkbookmarkaction = dynamic_cast<VirtualKBookmarkAction*>(self);
     if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
         vkbookmarkaction->setKBookmarkAction_DisconnectNotify_IsBase(true);
@@ -322,7 +322,7 @@ QObject* KBookmarkAction_Sender(const KBookmarkAction* self) {
 }
 
 // Base class handler implementation
-QObject* KBookmarkAction_QBaseSender(const KBookmarkAction* self) {
+QObject* KBookmarkAction_SuperSender(const KBookmarkAction* self) {
     auto* vkbookmarkaction = const_cast<VirtualKBookmarkAction*>(dynamic_cast<const VirtualKBookmarkAction*>(self));
     if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
         vkbookmarkaction->setKBookmarkAction_Sender_IsBase(true);
@@ -351,7 +351,7 @@ int KBookmarkAction_SenderSignalIndex(const KBookmarkAction* self) {
 }
 
 // Base class handler implementation
-int KBookmarkAction_QBaseSenderSignalIndex(const KBookmarkAction* self) {
+int KBookmarkAction_SuperSenderSignalIndex(const KBookmarkAction* self) {
     auto* vkbookmarkaction = const_cast<VirtualKBookmarkAction*>(dynamic_cast<const VirtualKBookmarkAction*>(self));
     if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
         vkbookmarkaction->setKBookmarkAction_SenderSignalIndex_IsBase(true);
@@ -380,7 +380,7 @@ int KBookmarkAction_Receivers(const KBookmarkAction* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KBookmarkAction_QBaseReceivers(const KBookmarkAction* self, const char* signal) {
+int KBookmarkAction_SuperReceivers(const KBookmarkAction* self, const char* signal) {
     auto* vkbookmarkaction = const_cast<VirtualKBookmarkAction*>(dynamic_cast<const VirtualKBookmarkAction*>(self));
     if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
         vkbookmarkaction->setKBookmarkAction_Receivers_IsBase(true);
@@ -409,7 +409,7 @@ bool KBookmarkAction_IsSignalConnected(const KBookmarkAction* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KBookmarkAction_QBaseIsSignalConnected(const KBookmarkAction* self, const QMetaMethod* signal) {
+bool KBookmarkAction_SuperIsSignalConnected(const KBookmarkAction* self, const QMetaMethod* signal) {
     auto* vkbookmarkaction = const_cast<VirtualKBookmarkAction*>(dynamic_cast<const VirtualKBookmarkAction*>(self));
     if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
         vkbookmarkaction->setKBookmarkAction_IsSignalConnected_IsBase(true);

@@ -370,7 +370,7 @@ void KCategorizedView_SlotLayoutChanged(KCategorizedView* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KCategorizedView_QBaseMetaObject(const KCategorizedView* self) {
+QMetaObject* KCategorizedView_SuperMetaObject(const KCategorizedView* self) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_MetaObject_IsBase(true);
@@ -389,7 +389,7 @@ void KCategorizedView_OnMetaObject(const KCategorizedView* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* KCategorizedView_QBaseMetacast(KCategorizedView* self, const char* param1) {
+void* KCategorizedView_SuperMetacast(KCategorizedView* self, const char* param1) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_Metacast_IsBase(true);
@@ -408,7 +408,7 @@ void KCategorizedView_OnMetacast(KCategorizedView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KCategorizedView_QBaseMetacall(KCategorizedView* self, int param1, int param2, void** param3) {
+int KCategorizedView_SuperMetacall(KCategorizedView* self, int param1, int param2, void** param3) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_Metacall_IsBase(true);
@@ -427,7 +427,7 @@ void KCategorizedView_OnMetacall(KCategorizedView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseSetModel(KCategorizedView* self, QAbstractItemModel* model) {
+void KCategorizedView_SuperSetModel(KCategorizedView* self, QAbstractItemModel* model) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_SetModel_IsBase(true);
@@ -446,7 +446,7 @@ void KCategorizedView_OnSetModel(KCategorizedView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QRect* KCategorizedView_QBaseVisualRect(const KCategorizedView* self, const QModelIndex* index) {
+QRect* KCategorizedView_SuperVisualRect(const KCategorizedView* self, const QModelIndex* index) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_VisualRect_IsBase(true);
@@ -465,7 +465,7 @@ void KCategorizedView_OnVisualRect(const KCategorizedView* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-QModelIndex* KCategorizedView_QBaseIndexAt(const KCategorizedView* self, const QPoint* point) {
+QModelIndex* KCategorizedView_SuperIndexAt(const KCategorizedView* self, const QPoint* point) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_IndexAt_IsBase(true);
@@ -484,7 +484,7 @@ void KCategorizedView_OnIndexAt(const KCategorizedView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseReset(KCategorizedView* self) {
+void KCategorizedView_SuperReset(KCategorizedView* self) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_Reset_IsBase(true);
@@ -503,7 +503,7 @@ void KCategorizedView_OnReset(KCategorizedView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBasePaintEvent(KCategorizedView* self, QPaintEvent* event) {
+void KCategorizedView_SuperPaintEvent(KCategorizedView* self, QPaintEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_PaintEvent_IsBase(true);
@@ -522,7 +522,7 @@ void KCategorizedView_OnPaintEvent(KCategorizedView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseResizeEvent(KCategorizedView* self, QResizeEvent* event) {
+void KCategorizedView_SuperResizeEvent(KCategorizedView* self, QResizeEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_ResizeEvent_IsBase(true);
@@ -541,7 +541,7 @@ void KCategorizedView_OnResizeEvent(KCategorizedView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseSetSelection(KCategorizedView* self, const QRect* rect, int flags) {
+void KCategorizedView_SuperSetSelection(KCategorizedView* self, const QRect* rect, int flags) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_SetSelection_IsBase(true);
@@ -560,7 +560,7 @@ void KCategorizedView_OnSetSelection(KCategorizedView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseMouseMoveEvent(KCategorizedView* self, QMouseEvent* event) {
+void KCategorizedView_SuperMouseMoveEvent(KCategorizedView* self, QMouseEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_MouseMoveEvent_IsBase(true);
@@ -579,7 +579,7 @@ void KCategorizedView_OnMouseMoveEvent(KCategorizedView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseMousePressEvent(KCategorizedView* self, QMouseEvent* event) {
+void KCategorizedView_SuperMousePressEvent(KCategorizedView* self, QMouseEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_MousePressEvent_IsBase(true);
@@ -598,7 +598,7 @@ void KCategorizedView_OnMousePressEvent(KCategorizedView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseMouseReleaseEvent(KCategorizedView* self, QMouseEvent* event) {
+void KCategorizedView_SuperMouseReleaseEvent(KCategorizedView* self, QMouseEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_MouseReleaseEvent_IsBase(true);
@@ -617,7 +617,7 @@ void KCategorizedView_OnMouseReleaseEvent(KCategorizedView* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseLeaveEvent(KCategorizedView* self, QEvent* event) {
+void KCategorizedView_SuperLeaveEvent(KCategorizedView* self, QEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_LeaveEvent_IsBase(true);
@@ -636,7 +636,7 @@ void KCategorizedView_OnLeaveEvent(KCategorizedView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseStartDrag(KCategorizedView* self, int supportedActions) {
+void KCategorizedView_SuperStartDrag(KCategorizedView* self, int supportedActions) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_StartDrag_IsBase(true);
@@ -655,7 +655,7 @@ void KCategorizedView_OnStartDrag(KCategorizedView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseDragMoveEvent(KCategorizedView* self, QDragMoveEvent* event) {
+void KCategorizedView_SuperDragMoveEvent(KCategorizedView* self, QDragMoveEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_DragMoveEvent_IsBase(true);
@@ -674,7 +674,7 @@ void KCategorizedView_OnDragMoveEvent(KCategorizedView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseDragEnterEvent(KCategorizedView* self, QDragEnterEvent* event) {
+void KCategorizedView_SuperDragEnterEvent(KCategorizedView* self, QDragEnterEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_DragEnterEvent_IsBase(true);
@@ -693,7 +693,7 @@ void KCategorizedView_OnDragEnterEvent(KCategorizedView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseDragLeaveEvent(KCategorizedView* self, QDragLeaveEvent* event) {
+void KCategorizedView_SuperDragLeaveEvent(KCategorizedView* self, QDragLeaveEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_DragLeaveEvent_IsBase(true);
@@ -712,7 +712,7 @@ void KCategorizedView_OnDragLeaveEvent(KCategorizedView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseDropEvent(KCategorizedView* self, QDropEvent* event) {
+void KCategorizedView_SuperDropEvent(KCategorizedView* self, QDropEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_DropEvent_IsBase(true);
@@ -731,7 +731,7 @@ void KCategorizedView_OnDropEvent(KCategorizedView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QModelIndex* KCategorizedView_QBaseMoveCursor(KCategorizedView* self, int cursorAction, int modifiers) {
+QModelIndex* KCategorizedView_SuperMoveCursor(KCategorizedView* self, int cursorAction, int modifiers) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_MoveCursor_IsBase(true);
@@ -749,7 +749,7 @@ void KCategorizedView_OnMoveCursor(KCategorizedView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseRowsAboutToBeRemoved(KCategorizedView* self, const QModelIndex* parent, int start, int end) {
+void KCategorizedView_SuperRowsAboutToBeRemoved(KCategorizedView* self, const QModelIndex* parent, int start, int end) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_RowsAboutToBeRemoved_IsBase(true);
@@ -768,7 +768,7 @@ void KCategorizedView_OnRowsAboutToBeRemoved(KCategorizedView* self, intptr_t sl
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseUpdateGeometries(KCategorizedView* self) {
+void KCategorizedView_SuperUpdateGeometries(KCategorizedView* self) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_UpdateGeometries_IsBase(true);
@@ -787,7 +787,7 @@ void KCategorizedView_OnUpdateGeometries(KCategorizedView* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseCurrentChanged(KCategorizedView* self, const QModelIndex* current, const QModelIndex* previous) {
+void KCategorizedView_SuperCurrentChanged(KCategorizedView* self, const QModelIndex* current, const QModelIndex* previous) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_CurrentChanged_IsBase(true);
@@ -806,7 +806,7 @@ void KCategorizedView_OnCurrentChanged(KCategorizedView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseDataChanged(KCategorizedView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
+void KCategorizedView_SuperDataChanged(KCategorizedView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     QList<int> roles_QList;
     roles_QList.reserve(roles.len);
@@ -831,7 +831,7 @@ void KCategorizedView_OnDataChanged(KCategorizedView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseRowsInserted(KCategorizedView* self, const QModelIndex* parent, int start, int end) {
+void KCategorizedView_SuperRowsInserted(KCategorizedView* self, const QModelIndex* parent, int start, int end) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_RowsInserted_IsBase(true);
@@ -850,7 +850,7 @@ void KCategorizedView_OnRowsInserted(KCategorizedView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseSlotLayoutChanged(KCategorizedView* self) {
+void KCategorizedView_SuperSlotLayoutChanged(KCategorizedView* self) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_SlotLayoutChanged_IsBase(true);
@@ -879,7 +879,7 @@ void KCategorizedView_ScrollTo(KCategorizedView* self, const QModelIndex* index,
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseScrollTo(KCategorizedView* self, const QModelIndex* index, int hint) {
+void KCategorizedView_SuperScrollTo(KCategorizedView* self, const QModelIndex* index, int hint) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_ScrollTo_IsBase(true);
@@ -908,7 +908,7 @@ void KCategorizedView_DoItemsLayout(KCategorizedView* self) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseDoItemsLayout(KCategorizedView* self) {
+void KCategorizedView_SuperDoItemsLayout(KCategorizedView* self) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_DoItemsLayout_IsBase(true);
@@ -937,7 +937,7 @@ void KCategorizedView_SetRootIndex(KCategorizedView* self, const QModelIndex* in
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseSetRootIndex(KCategorizedView* self, const QModelIndex* index) {
+void KCategorizedView_SuperSetRootIndex(KCategorizedView* self, const QModelIndex* index) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_SetRootIndex_IsBase(true);
@@ -966,7 +966,7 @@ bool KCategorizedView_Event(KCategorizedView* self, QEvent* e) {
 }
 
 // Base class handler implementation
-bool KCategorizedView_QBaseEvent(KCategorizedView* self, QEvent* e) {
+bool KCategorizedView_SuperEvent(KCategorizedView* self, QEvent* e) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_Event_IsBase(true);
@@ -995,7 +995,7 @@ void KCategorizedView_ScrollContentsBy(KCategorizedView* self, int dx, int dy) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseScrollContentsBy(KCategorizedView* self, int dx, int dy) {
+void KCategorizedView_SuperScrollContentsBy(KCategorizedView* self, int dx, int dy) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_ScrollContentsBy_IsBase(true);
@@ -1024,7 +1024,7 @@ void KCategorizedView_WheelEvent(KCategorizedView* self, QWheelEvent* e) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseWheelEvent(KCategorizedView* self, QWheelEvent* e) {
+void KCategorizedView_SuperWheelEvent(KCategorizedView* self, QWheelEvent* e) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_WheelEvent_IsBase(true);
@@ -1053,7 +1053,7 @@ void KCategorizedView_TimerEvent(KCategorizedView* self, QTimerEvent* e) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseTimerEvent(KCategorizedView* self, QTimerEvent* e) {
+void KCategorizedView_SuperTimerEvent(KCategorizedView* self, QTimerEvent* e) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_TimerEvent_IsBase(true);
@@ -1082,7 +1082,7 @@ void KCategorizedView_InitViewItemOption(const KCategorizedView* self, QStyleOpt
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseInitViewItemOption(const KCategorizedView* self, QStyleOptionViewItem* option) {
+void KCategorizedView_SuperInitViewItemOption(const KCategorizedView* self, QStyleOptionViewItem* option) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_InitViewItemOption_IsBase(true);
@@ -1111,7 +1111,7 @@ int KCategorizedView_HorizontalOffset(const KCategorizedView* self) {
 }
 
 // Base class handler implementation
-int KCategorizedView_QBaseHorizontalOffset(const KCategorizedView* self) {
+int KCategorizedView_SuperHorizontalOffset(const KCategorizedView* self) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_HorizontalOffset_IsBase(true);
@@ -1140,7 +1140,7 @@ int KCategorizedView_VerticalOffset(const KCategorizedView* self) {
 }
 
 // Base class handler implementation
-int KCategorizedView_QBaseVerticalOffset(const KCategorizedView* self) {
+int KCategorizedView_SuperVerticalOffset(const KCategorizedView* self) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_VerticalOffset_IsBase(true);
@@ -1168,7 +1168,7 @@ QRegion* KCategorizedView_VisualRegionForSelection(const KCategorizedView* self,
 }
 
 // Base class handler implementation
-QRegion* KCategorizedView_QBaseVisualRegionForSelection(const KCategorizedView* self, const QItemSelection* selection) {
+QRegion* KCategorizedView_SuperVisualRegionForSelection(const KCategorizedView* self, const QItemSelection* selection) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_VisualRegionForSelection_IsBase(true);
@@ -1214,7 +1214,7 @@ libqt_list /* of QModelIndex* */ KCategorizedView_SelectedIndexes(const KCategor
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KCategorizedView_QBaseSelectedIndexes(const KCategorizedView* self) {
+libqt_list /* of QModelIndex* */ KCategorizedView_SuperSelectedIndexes(const KCategorizedView* self) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_SelectedIndexes_IsBase(true);
@@ -1261,7 +1261,7 @@ bool KCategorizedView_IsIndexHidden(const KCategorizedView* self, const QModelIn
 }
 
 // Base class handler implementation
-bool KCategorizedView_QBaseIsIndexHidden(const KCategorizedView* self, const QModelIndex* index) {
+bool KCategorizedView_SuperIsIndexHidden(const KCategorizedView* self, const QModelIndex* index) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_IsIndexHidden_IsBase(true);
@@ -1290,7 +1290,7 @@ void KCategorizedView_SelectionChanged(KCategorizedView* self, const QItemSelect
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseSelectionChanged(KCategorizedView* self, const QItemSelection* selected, const QItemSelection* deselected) {
+void KCategorizedView_SuperSelectionChanged(KCategorizedView* self, const QItemSelection* selected, const QItemSelection* deselected) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_SelectionChanged_IsBase(true);
@@ -1318,7 +1318,7 @@ QSize* KCategorizedView_ViewportSizeHint(const KCategorizedView* self) {
 }
 
 // Base class handler implementation
-QSize* KCategorizedView_QBaseViewportSizeHint(const KCategorizedView* self) {
+QSize* KCategorizedView_SuperViewportSizeHint(const KCategorizedView* self) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_ViewportSizeHint_IsBase(true);
@@ -1346,7 +1346,7 @@ void KCategorizedView_SetSelectionModel(KCategorizedView* self, QItemSelectionMo
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseSetSelectionModel(KCategorizedView* self, QItemSelectionModel* selectionModel) {
+void KCategorizedView_SuperSetSelectionModel(KCategorizedView* self, QItemSelectionModel* selectionModel) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_SetSelectionModel_IsBase(true);
@@ -1376,7 +1376,7 @@ void KCategorizedView_KeyboardSearch(KCategorizedView* self, const libqt_string 
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseKeyboardSearch(KCategorizedView* self, const libqt_string search) {
+void KCategorizedView_SuperKeyboardSearch(KCategorizedView* self, const libqt_string search) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     QString search_QString = QString::fromUtf8(search.data, search.len);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
@@ -1406,7 +1406,7 @@ int KCategorizedView_SizeHintForRow(const KCategorizedView* self, int row) {
 }
 
 // Base class handler implementation
-int KCategorizedView_QBaseSizeHintForRow(const KCategorizedView* self, int row) {
+int KCategorizedView_SuperSizeHintForRow(const KCategorizedView* self, int row) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_SizeHintForRow_IsBase(true);
@@ -1435,7 +1435,7 @@ int KCategorizedView_SizeHintForColumn(const KCategorizedView* self, int column)
 }
 
 // Base class handler implementation
-int KCategorizedView_QBaseSizeHintForColumn(const KCategorizedView* self, int column) {
+int KCategorizedView_SuperSizeHintForColumn(const KCategorizedView* self, int column) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_SizeHintForColumn_IsBase(true);
@@ -1464,7 +1464,7 @@ QAbstractItemDelegate* KCategorizedView_ItemDelegateForIndex(const KCategorizedV
 }
 
 // Base class handler implementation
-QAbstractItemDelegate* KCategorizedView_QBaseItemDelegateForIndex(const KCategorizedView* self, const QModelIndex* index) {
+QAbstractItemDelegate* KCategorizedView_SuperItemDelegateForIndex(const KCategorizedView* self, const QModelIndex* index) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_ItemDelegateForIndex_IsBase(true);
@@ -1493,7 +1493,7 @@ QVariant* KCategorizedView_InputMethodQuery(const KCategorizedView* self, int qu
 }
 
 // Base class handler implementation
-QVariant* KCategorizedView_QBaseInputMethodQuery(const KCategorizedView* self, int query) {
+QVariant* KCategorizedView_SuperInputMethodQuery(const KCategorizedView* self, int query) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_InputMethodQuery_IsBase(true);
@@ -1522,7 +1522,7 @@ void KCategorizedView_SelectAll(KCategorizedView* self) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseSelectAll(KCategorizedView* self) {
+void KCategorizedView_SuperSelectAll(KCategorizedView* self) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_SelectAll_IsBase(true);
@@ -1551,7 +1551,7 @@ void KCategorizedView_UpdateEditorData(KCategorizedView* self) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseUpdateEditorData(KCategorizedView* self) {
+void KCategorizedView_SuperUpdateEditorData(KCategorizedView* self) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_UpdateEditorData_IsBase(true);
@@ -1580,7 +1580,7 @@ void KCategorizedView_UpdateEditorGeometries(KCategorizedView* self) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseUpdateEditorGeometries(KCategorizedView* self) {
+void KCategorizedView_SuperUpdateEditorGeometries(KCategorizedView* self) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_UpdateEditorGeometries_IsBase(true);
@@ -1609,7 +1609,7 @@ void KCategorizedView_VerticalScrollbarAction(KCategorizedView* self, int action
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseVerticalScrollbarAction(KCategorizedView* self, int action) {
+void KCategorizedView_SuperVerticalScrollbarAction(KCategorizedView* self, int action) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_VerticalScrollbarAction_IsBase(true);
@@ -1638,7 +1638,7 @@ void KCategorizedView_HorizontalScrollbarAction(KCategorizedView* self, int acti
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseHorizontalScrollbarAction(KCategorizedView* self, int action) {
+void KCategorizedView_SuperHorizontalScrollbarAction(KCategorizedView* self, int action) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_HorizontalScrollbarAction_IsBase(true);
@@ -1667,7 +1667,7 @@ void KCategorizedView_VerticalScrollbarValueChanged(KCategorizedView* self, int 
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseVerticalScrollbarValueChanged(KCategorizedView* self, int value) {
+void KCategorizedView_SuperVerticalScrollbarValueChanged(KCategorizedView* self, int value) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_VerticalScrollbarValueChanged_IsBase(true);
@@ -1696,7 +1696,7 @@ void KCategorizedView_HorizontalScrollbarValueChanged(KCategorizedView* self, in
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseHorizontalScrollbarValueChanged(KCategorizedView* self, int value) {
+void KCategorizedView_SuperHorizontalScrollbarValueChanged(KCategorizedView* self, int value) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_HorizontalScrollbarValueChanged_IsBase(true);
@@ -1725,7 +1725,7 @@ void KCategorizedView_CloseEditor(KCategorizedView* self, QWidget* editor, int h
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseCloseEditor(KCategorizedView* self, QWidget* editor, int hint) {
+void KCategorizedView_SuperCloseEditor(KCategorizedView* self, QWidget* editor, int hint) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_CloseEditor_IsBase(true);
@@ -1754,7 +1754,7 @@ void KCategorizedView_CommitData(KCategorizedView* self, QWidget* editor) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseCommitData(KCategorizedView* self, QWidget* editor) {
+void KCategorizedView_SuperCommitData(KCategorizedView* self, QWidget* editor) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_CommitData_IsBase(true);
@@ -1783,7 +1783,7 @@ void KCategorizedView_EditorDestroyed(KCategorizedView* self, QObject* editor) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseEditorDestroyed(KCategorizedView* self, QObject* editor) {
+void KCategorizedView_SuperEditorDestroyed(KCategorizedView* self, QObject* editor) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_EditorDestroyed_IsBase(true);
@@ -1812,7 +1812,7 @@ bool KCategorizedView_Edit2(KCategorizedView* self, const QModelIndex* index, in
 }
 
 // Base class handler implementation
-bool KCategorizedView_QBaseEdit2(KCategorizedView* self, const QModelIndex* index, int trigger, QEvent* event) {
+bool KCategorizedView_SuperEdit2(KCategorizedView* self, const QModelIndex* index, int trigger, QEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_Edit2_IsBase(true);
@@ -1841,7 +1841,7 @@ int KCategorizedView_SelectionCommand(const KCategorizedView* self, const QModel
 }
 
 // Base class handler implementation
-int KCategorizedView_QBaseSelectionCommand(const KCategorizedView* self, const QModelIndex* index, const QEvent* event) {
+int KCategorizedView_SuperSelectionCommand(const KCategorizedView* self, const QModelIndex* index, const QEvent* event) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_SelectionCommand_IsBase(true);
@@ -1870,7 +1870,7 @@ bool KCategorizedView_FocusNextPrevChild(KCategorizedView* self, bool next) {
 }
 
 // Base class handler implementation
-bool KCategorizedView_QBaseFocusNextPrevChild(KCategorizedView* self, bool next) {
+bool KCategorizedView_SuperFocusNextPrevChild(KCategorizedView* self, bool next) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_FocusNextPrevChild_IsBase(true);
@@ -1899,7 +1899,7 @@ bool KCategorizedView_ViewportEvent(KCategorizedView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KCategorizedView_QBaseViewportEvent(KCategorizedView* self, QEvent* event) {
+bool KCategorizedView_SuperViewportEvent(KCategorizedView* self, QEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_ViewportEvent_IsBase(true);
@@ -1928,7 +1928,7 @@ void KCategorizedView_MouseDoubleClickEvent(KCategorizedView* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseMouseDoubleClickEvent(KCategorizedView* self, QMouseEvent* event) {
+void KCategorizedView_SuperMouseDoubleClickEvent(KCategorizedView* self, QMouseEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_MouseDoubleClickEvent_IsBase(true);
@@ -1957,7 +1957,7 @@ void KCategorizedView_FocusInEvent(KCategorizedView* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseFocusInEvent(KCategorizedView* self, QFocusEvent* event) {
+void KCategorizedView_SuperFocusInEvent(KCategorizedView* self, QFocusEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_FocusInEvent_IsBase(true);
@@ -1986,7 +1986,7 @@ void KCategorizedView_FocusOutEvent(KCategorizedView* self, QFocusEvent* event) 
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseFocusOutEvent(KCategorizedView* self, QFocusEvent* event) {
+void KCategorizedView_SuperFocusOutEvent(KCategorizedView* self, QFocusEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_FocusOutEvent_IsBase(true);
@@ -2015,7 +2015,7 @@ void KCategorizedView_KeyPressEvent(KCategorizedView* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseKeyPressEvent(KCategorizedView* self, QKeyEvent* event) {
+void KCategorizedView_SuperKeyPressEvent(KCategorizedView* self, QKeyEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_KeyPressEvent_IsBase(true);
@@ -2044,7 +2044,7 @@ void KCategorizedView_InputMethodEvent(KCategorizedView* self, QInputMethodEvent
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseInputMethodEvent(KCategorizedView* self, QInputMethodEvent* event) {
+void KCategorizedView_SuperInputMethodEvent(KCategorizedView* self, QInputMethodEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_InputMethodEvent_IsBase(true);
@@ -2073,7 +2073,7 @@ bool KCategorizedView_EventFilter(KCategorizedView* self, QObject* object, QEven
 }
 
 // Base class handler implementation
-bool KCategorizedView_QBaseEventFilter(KCategorizedView* self, QObject* object, QEvent* event) {
+bool KCategorizedView_SuperEventFilter(KCategorizedView* self, QObject* object, QEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_EventFilter_IsBase(true);
@@ -2102,7 +2102,7 @@ QSize* KCategorizedView_MinimumSizeHint(const KCategorizedView* self) {
 }
 
 // Base class handler implementation
-QSize* KCategorizedView_QBaseMinimumSizeHint(const KCategorizedView* self) {
+QSize* KCategorizedView_SuperMinimumSizeHint(const KCategorizedView* self) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_MinimumSizeHint_IsBase(true);
@@ -2131,7 +2131,7 @@ QSize* KCategorizedView_SizeHint(const KCategorizedView* self) {
 }
 
 // Base class handler implementation
-QSize* KCategorizedView_QBaseSizeHint(const KCategorizedView* self) {
+QSize* KCategorizedView_SuperSizeHint(const KCategorizedView* self) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_SizeHint_IsBase(true);
@@ -2160,7 +2160,7 @@ void KCategorizedView_SetupViewport(KCategorizedView* self, QWidget* viewport) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseSetupViewport(KCategorizedView* self, QWidget* viewport) {
+void KCategorizedView_SuperSetupViewport(KCategorizedView* self, QWidget* viewport) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_SetupViewport_IsBase(true);
@@ -2189,7 +2189,7 @@ void KCategorizedView_ContextMenuEvent(KCategorizedView* self, QContextMenuEvent
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseContextMenuEvent(KCategorizedView* self, QContextMenuEvent* param1) {
+void KCategorizedView_SuperContextMenuEvent(KCategorizedView* self, QContextMenuEvent* param1) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_ContextMenuEvent_IsBase(true);
@@ -2218,7 +2218,7 @@ void KCategorizedView_ChangeEvent(KCategorizedView* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseChangeEvent(KCategorizedView* self, QEvent* param1) {
+void KCategorizedView_SuperChangeEvent(KCategorizedView* self, QEvent* param1) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_ChangeEvent_IsBase(true);
@@ -2247,7 +2247,7 @@ void KCategorizedView_InitStyleOption(const KCategorizedView* self, QStyleOption
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseInitStyleOption(const KCategorizedView* self, QStyleOptionFrame* option) {
+void KCategorizedView_SuperInitStyleOption(const KCategorizedView* self, QStyleOptionFrame* option) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_InitStyleOption_IsBase(true);
@@ -2276,7 +2276,7 @@ int KCategorizedView_DevType(const KCategorizedView* self) {
 }
 
 // Base class handler implementation
-int KCategorizedView_QBaseDevType(const KCategorizedView* self) {
+int KCategorizedView_SuperDevType(const KCategorizedView* self) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_DevType_IsBase(true);
@@ -2305,7 +2305,7 @@ void KCategorizedView_SetVisible(KCategorizedView* self, bool visible) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseSetVisible(KCategorizedView* self, bool visible) {
+void KCategorizedView_SuperSetVisible(KCategorizedView* self, bool visible) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_SetVisible_IsBase(true);
@@ -2334,7 +2334,7 @@ int KCategorizedView_HeightForWidth(const KCategorizedView* self, int param1) {
 }
 
 // Base class handler implementation
-int KCategorizedView_QBaseHeightForWidth(const KCategorizedView* self, int param1) {
+int KCategorizedView_SuperHeightForWidth(const KCategorizedView* self, int param1) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_HeightForWidth_IsBase(true);
@@ -2363,7 +2363,7 @@ bool KCategorizedView_HasHeightForWidth(const KCategorizedView* self) {
 }
 
 // Base class handler implementation
-bool KCategorizedView_QBaseHasHeightForWidth(const KCategorizedView* self) {
+bool KCategorizedView_SuperHasHeightForWidth(const KCategorizedView* self) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_HasHeightForWidth_IsBase(true);
@@ -2392,7 +2392,7 @@ QPaintEngine* KCategorizedView_PaintEngine(const KCategorizedView* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KCategorizedView_QBasePaintEngine(const KCategorizedView* self) {
+QPaintEngine* KCategorizedView_SuperPaintEngine(const KCategorizedView* self) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_PaintEngine_IsBase(true);
@@ -2421,7 +2421,7 @@ void KCategorizedView_KeyReleaseEvent(KCategorizedView* self, QKeyEvent* event) 
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseKeyReleaseEvent(KCategorizedView* self, QKeyEvent* event) {
+void KCategorizedView_SuperKeyReleaseEvent(KCategorizedView* self, QKeyEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_KeyReleaseEvent_IsBase(true);
@@ -2450,7 +2450,7 @@ void KCategorizedView_EnterEvent(KCategorizedView* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseEnterEvent(KCategorizedView* self, QEnterEvent* event) {
+void KCategorizedView_SuperEnterEvent(KCategorizedView* self, QEnterEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_EnterEvent_IsBase(true);
@@ -2479,7 +2479,7 @@ void KCategorizedView_MoveEvent(KCategorizedView* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseMoveEvent(KCategorizedView* self, QMoveEvent* event) {
+void KCategorizedView_SuperMoveEvent(KCategorizedView* self, QMoveEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_MoveEvent_IsBase(true);
@@ -2508,7 +2508,7 @@ void KCategorizedView_CloseEvent(KCategorizedView* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseCloseEvent(KCategorizedView* self, QCloseEvent* event) {
+void KCategorizedView_SuperCloseEvent(KCategorizedView* self, QCloseEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_CloseEvent_IsBase(true);
@@ -2537,7 +2537,7 @@ void KCategorizedView_TabletEvent(KCategorizedView* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseTabletEvent(KCategorizedView* self, QTabletEvent* event) {
+void KCategorizedView_SuperTabletEvent(KCategorizedView* self, QTabletEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_TabletEvent_IsBase(true);
@@ -2566,7 +2566,7 @@ void KCategorizedView_ActionEvent(KCategorizedView* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseActionEvent(KCategorizedView* self, QActionEvent* event) {
+void KCategorizedView_SuperActionEvent(KCategorizedView* self, QActionEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_ActionEvent_IsBase(true);
@@ -2595,7 +2595,7 @@ void KCategorizedView_ShowEvent(KCategorizedView* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseShowEvent(KCategorizedView* self, QShowEvent* event) {
+void KCategorizedView_SuperShowEvent(KCategorizedView* self, QShowEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_ShowEvent_IsBase(true);
@@ -2624,7 +2624,7 @@ void KCategorizedView_HideEvent(KCategorizedView* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseHideEvent(KCategorizedView* self, QHideEvent* event) {
+void KCategorizedView_SuperHideEvent(KCategorizedView* self, QHideEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_HideEvent_IsBase(true);
@@ -2654,7 +2654,7 @@ bool KCategorizedView_NativeEvent(KCategorizedView* self, const libqt_string eve
 }
 
 // Base class handler implementation
-bool KCategorizedView_QBaseNativeEvent(KCategorizedView* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KCategorizedView_SuperNativeEvent(KCategorizedView* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
@@ -2684,7 +2684,7 @@ int KCategorizedView_Metric(const KCategorizedView* self, int param1) {
 }
 
 // Base class handler implementation
-int KCategorizedView_QBaseMetric(const KCategorizedView* self, int param1) {
+int KCategorizedView_SuperMetric(const KCategorizedView* self, int param1) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_Metric_IsBase(true);
@@ -2713,7 +2713,7 @@ void KCategorizedView_InitPainter(const KCategorizedView* self, QPainter* painte
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseInitPainter(const KCategorizedView* self, QPainter* painter) {
+void KCategorizedView_SuperInitPainter(const KCategorizedView* self, QPainter* painter) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_InitPainter_IsBase(true);
@@ -2742,7 +2742,7 @@ QPaintDevice* KCategorizedView_Redirected(const KCategorizedView* self, QPoint* 
 }
 
 // Base class handler implementation
-QPaintDevice* KCategorizedView_QBaseRedirected(const KCategorizedView* self, QPoint* offset) {
+QPaintDevice* KCategorizedView_SuperRedirected(const KCategorizedView* self, QPoint* offset) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_Redirected_IsBase(true);
@@ -2771,7 +2771,7 @@ QPainter* KCategorizedView_SharedPainter(const KCategorizedView* self) {
 }
 
 // Base class handler implementation
-QPainter* KCategorizedView_QBaseSharedPainter(const KCategorizedView* self) {
+QPainter* KCategorizedView_SuperSharedPainter(const KCategorizedView* self) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_SharedPainter_IsBase(true);
@@ -2800,7 +2800,7 @@ void KCategorizedView_ChildEvent(KCategorizedView* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseChildEvent(KCategorizedView* self, QChildEvent* event) {
+void KCategorizedView_SuperChildEvent(KCategorizedView* self, QChildEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_ChildEvent_IsBase(true);
@@ -2829,7 +2829,7 @@ void KCategorizedView_CustomEvent(KCategorizedView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseCustomEvent(KCategorizedView* self, QEvent* event) {
+void KCategorizedView_SuperCustomEvent(KCategorizedView* self, QEvent* event) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_CustomEvent_IsBase(true);
@@ -2858,7 +2858,7 @@ void KCategorizedView_ConnectNotify(KCategorizedView* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseConnectNotify(KCategorizedView* self, const QMetaMethod* signal) {
+void KCategorizedView_SuperConnectNotify(KCategorizedView* self, const QMetaMethod* signal) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_ConnectNotify_IsBase(true);
@@ -2887,7 +2887,7 @@ void KCategorizedView_DisconnectNotify(KCategorizedView* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseDisconnectNotify(KCategorizedView* self, const QMetaMethod* signal) {
+void KCategorizedView_SuperDisconnectNotify(KCategorizedView* self, const QMetaMethod* signal) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_DisconnectNotify_IsBase(true);
@@ -2916,7 +2916,7 @@ void KCategorizedView_ResizeContents(KCategorizedView* self, int width, int heig
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseResizeContents(KCategorizedView* self, int width, int height) {
+void KCategorizedView_SuperResizeContents(KCategorizedView* self, int width, int height) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_ResizeContents_IsBase(true);
@@ -2944,7 +2944,7 @@ QSize* KCategorizedView_ContentsSize(const KCategorizedView* self) {
 }
 
 // Base class handler implementation
-QSize* KCategorizedView_QBaseContentsSize(const KCategorizedView* self) {
+QSize* KCategorizedView_SuperContentsSize(const KCategorizedView* self) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_ContentsSize_IsBase(true);
@@ -2971,7 +2971,7 @@ QRect* KCategorizedView_RectForIndex(const KCategorizedView* self, const QModelI
 }
 
 // Base class handler implementation
-QRect* KCategorizedView_QBaseRectForIndex(const KCategorizedView* self, const QModelIndex* index) {
+QRect* KCategorizedView_SuperRectForIndex(const KCategorizedView* self, const QModelIndex* index) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_RectForIndex_IsBase(true);
@@ -2999,7 +2999,7 @@ void KCategorizedView_SetPositionForIndex(KCategorizedView* self, const QPoint* 
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseSetPositionForIndex(KCategorizedView* self, const QPoint* position, const QModelIndex* index) {
+void KCategorizedView_SuperSetPositionForIndex(KCategorizedView* self, const QPoint* position, const QModelIndex* index) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_SetPositionForIndex_IsBase(true);
@@ -3028,7 +3028,7 @@ int KCategorizedView_State(const KCategorizedView* self) {
 }
 
 // Base class handler implementation
-int KCategorizedView_QBaseState(const KCategorizedView* self) {
+int KCategorizedView_SuperState(const KCategorizedView* self) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_State_IsBase(true);
@@ -3057,7 +3057,7 @@ void KCategorizedView_SetState(KCategorizedView* self, int state) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseSetState(KCategorizedView* self, int state) {
+void KCategorizedView_SuperSetState(KCategorizedView* self, int state) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_SetState_IsBase(true);
@@ -3086,7 +3086,7 @@ void KCategorizedView_ScheduleDelayedItemsLayout(KCategorizedView* self) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseScheduleDelayedItemsLayout(KCategorizedView* self) {
+void KCategorizedView_SuperScheduleDelayedItemsLayout(KCategorizedView* self) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_ScheduleDelayedItemsLayout_IsBase(true);
@@ -3115,7 +3115,7 @@ void KCategorizedView_ExecuteDelayedItemsLayout(KCategorizedView* self) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseExecuteDelayedItemsLayout(KCategorizedView* self) {
+void KCategorizedView_SuperExecuteDelayedItemsLayout(KCategorizedView* self) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_ExecuteDelayedItemsLayout_IsBase(true);
@@ -3144,7 +3144,7 @@ void KCategorizedView_SetDirtyRegion(KCategorizedView* self, const QRegion* regi
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseSetDirtyRegion(KCategorizedView* self, const QRegion* region) {
+void KCategorizedView_SuperSetDirtyRegion(KCategorizedView* self, const QRegion* region) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_SetDirtyRegion_IsBase(true);
@@ -3173,7 +3173,7 @@ void KCategorizedView_ScrollDirtyRegion(KCategorizedView* self, int dx, int dy) 
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseScrollDirtyRegion(KCategorizedView* self, int dx, int dy) {
+void KCategorizedView_SuperScrollDirtyRegion(KCategorizedView* self, int dx, int dy) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_ScrollDirtyRegion_IsBase(true);
@@ -3201,7 +3201,7 @@ QPoint* KCategorizedView_DirtyRegionOffset(const KCategorizedView* self) {
 }
 
 // Base class handler implementation
-QPoint* KCategorizedView_QBaseDirtyRegionOffset(const KCategorizedView* self) {
+QPoint* KCategorizedView_SuperDirtyRegionOffset(const KCategorizedView* self) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_DirtyRegionOffset_IsBase(true);
@@ -3229,7 +3229,7 @@ void KCategorizedView_StartAutoScroll(KCategorizedView* self) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseStartAutoScroll(KCategorizedView* self) {
+void KCategorizedView_SuperStartAutoScroll(KCategorizedView* self) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_StartAutoScroll_IsBase(true);
@@ -3258,7 +3258,7 @@ void KCategorizedView_StopAutoScroll(KCategorizedView* self) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseStopAutoScroll(KCategorizedView* self) {
+void KCategorizedView_SuperStopAutoScroll(KCategorizedView* self) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_StopAutoScroll_IsBase(true);
@@ -3287,7 +3287,7 @@ void KCategorizedView_DoAutoScroll(KCategorizedView* self) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseDoAutoScroll(KCategorizedView* self) {
+void KCategorizedView_SuperDoAutoScroll(KCategorizedView* self) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_DoAutoScroll_IsBase(true);
@@ -3316,7 +3316,7 @@ int KCategorizedView_DropIndicatorPosition(const KCategorizedView* self) {
 }
 
 // Base class handler implementation
-int KCategorizedView_QBaseDropIndicatorPosition(const KCategorizedView* self) {
+int KCategorizedView_SuperDropIndicatorPosition(const KCategorizedView* self) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_DropIndicatorPosition_IsBase(true);
@@ -3345,7 +3345,7 @@ void KCategorizedView_SetViewportMargins(KCategorizedView* self, int left, int t
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseSetViewportMargins(KCategorizedView* self, int left, int top, int right, int bottom) {
+void KCategorizedView_SuperSetViewportMargins(KCategorizedView* self, int left, int top, int right, int bottom) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_SetViewportMargins_IsBase(true);
@@ -3373,7 +3373,7 @@ QMargins* KCategorizedView_ViewportMargins(const KCategorizedView* self) {
 }
 
 // Base class handler implementation
-QMargins* KCategorizedView_QBaseViewportMargins(const KCategorizedView* self) {
+QMargins* KCategorizedView_SuperViewportMargins(const KCategorizedView* self) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_ViewportMargins_IsBase(true);
@@ -3401,7 +3401,7 @@ void KCategorizedView_DrawFrame(KCategorizedView* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseDrawFrame(KCategorizedView* self, QPainter* param1) {
+void KCategorizedView_SuperDrawFrame(KCategorizedView* self, QPainter* param1) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_DrawFrame_IsBase(true);
@@ -3430,7 +3430,7 @@ void KCategorizedView_UpdateMicroFocus(KCategorizedView* self) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseUpdateMicroFocus(KCategorizedView* self) {
+void KCategorizedView_SuperUpdateMicroFocus(KCategorizedView* self) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_UpdateMicroFocus_IsBase(true);
@@ -3459,7 +3459,7 @@ void KCategorizedView_Create(KCategorizedView* self) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseCreate(KCategorizedView* self) {
+void KCategorizedView_SuperCreate(KCategorizedView* self) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_Create_IsBase(true);
@@ -3488,7 +3488,7 @@ void KCategorizedView_Destroy(KCategorizedView* self) {
 }
 
 // Base class handler implementation
-void KCategorizedView_QBaseDestroy(KCategorizedView* self) {
+void KCategorizedView_SuperDestroy(KCategorizedView* self) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_Destroy_IsBase(true);
@@ -3517,7 +3517,7 @@ bool KCategorizedView_FocusNextChild(KCategorizedView* self) {
 }
 
 // Base class handler implementation
-bool KCategorizedView_QBaseFocusNextChild(KCategorizedView* self) {
+bool KCategorizedView_SuperFocusNextChild(KCategorizedView* self) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_FocusNextChild_IsBase(true);
@@ -3546,7 +3546,7 @@ bool KCategorizedView_FocusPreviousChild(KCategorizedView* self) {
 }
 
 // Base class handler implementation
-bool KCategorizedView_QBaseFocusPreviousChild(KCategorizedView* self) {
+bool KCategorizedView_SuperFocusPreviousChild(KCategorizedView* self) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_FocusPreviousChild_IsBase(true);
@@ -3575,7 +3575,7 @@ QObject* KCategorizedView_Sender(const KCategorizedView* self) {
 }
 
 // Base class handler implementation
-QObject* KCategorizedView_QBaseSender(const KCategorizedView* self) {
+QObject* KCategorizedView_SuperSender(const KCategorizedView* self) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_Sender_IsBase(true);
@@ -3604,7 +3604,7 @@ int KCategorizedView_SenderSignalIndex(const KCategorizedView* self) {
 }
 
 // Base class handler implementation
-int KCategorizedView_QBaseSenderSignalIndex(const KCategorizedView* self) {
+int KCategorizedView_SuperSenderSignalIndex(const KCategorizedView* self) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_SenderSignalIndex_IsBase(true);
@@ -3633,7 +3633,7 @@ int KCategorizedView_Receivers(const KCategorizedView* self, const char* signal)
 }
 
 // Base class handler implementation
-int KCategorizedView_QBaseReceivers(const KCategorizedView* self, const char* signal) {
+int KCategorizedView_SuperReceivers(const KCategorizedView* self, const char* signal) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_Receivers_IsBase(true);
@@ -3662,7 +3662,7 @@ bool KCategorizedView_IsSignalConnected(const KCategorizedView* self, const QMet
 }
 
 // Base class handler implementation
-bool KCategorizedView_QBaseIsSignalConnected(const KCategorizedView* self, const QMetaMethod* signal) {
+bool KCategorizedView_SuperIsSignalConnected(const KCategorizedView* self, const QMetaMethod* signal) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_IsSignalConnected_IsBase(true);
@@ -3691,7 +3691,7 @@ double KCategorizedView_GetDecodedMetricF(const KCategorizedView* self, int metr
 }
 
 // Base class handler implementation
-double KCategorizedView_QBaseGetDecodedMetricF(const KCategorizedView* self, int metricA, int metricB) {
+double KCategorizedView_SuperGetDecodedMetricF(const KCategorizedView* self, int metricA, int metricB) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->setKCategorizedView_GetDecodedMetricF_IsBase(true);

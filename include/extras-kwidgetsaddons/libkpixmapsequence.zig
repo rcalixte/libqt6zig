@@ -122,6 +122,10 @@ pub const kpixmapsequence = struct {
         return qtc.KPixmapSequence_FrameAt(@ptrCast(self), @bitCast(index));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequence.html#dtor.KPixmapSequence)
     ///
     /// Delete this object from C++ memory.
@@ -130,7 +134,7 @@ pub const kpixmapsequence = struct {
     ///
     /// ` self: QtC.KPixmapSequence `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KPixmapSequence_Delete(@ptrCast(self));
     }
 };

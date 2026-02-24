@@ -48,13 +48,17 @@ pub const kio__openwith = struct {
         qtc.KIO__OpenWith_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KIO__OpenWith `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KIO__OpenWith_Delete(@ptrCast(self));
     }
 };
@@ -159,13 +163,17 @@ pub const kio__openwith__acceptresult = struct {
         qtc.KIO__OpenWith__AcceptResult_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KIO__OpenWith__AcceptResult `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KIO__OpenWith__AcceptResult_Delete(@ptrCast(self));
     }
 };

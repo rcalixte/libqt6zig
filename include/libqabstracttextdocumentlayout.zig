@@ -40,6 +40,10 @@ pub const qabstracttextdocumentlayout = struct {
         qtc.QAbstractTextDocumentLayout_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -48,8 +52,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` self: QtC.QAbstractTextDocumentLayout `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QAbstractTextDocumentLayout_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QAbstractTextDocumentLayout_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -75,6 +79,10 @@ pub const qabstracttextdocumentlayout = struct {
         qtc.QAbstractTextDocumentLayout_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -83,9 +91,9 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QAbstractTextDocumentLayout_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QAbstractTextDocumentLayout_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -114,6 +122,10 @@ pub const qabstracttextdocumentlayout = struct {
         qtc.QAbstractTextDocumentLayout_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -126,8 +138,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAbstractTextDocumentLayout_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QAbstractTextDocumentLayout_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -175,6 +187,10 @@ pub const qabstracttextdocumentlayout = struct {
         qtc.QAbstractTextDocumentLayout_OnDraw(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDraw` instead
+    ///
+    pub const QBaseDraw = SuperDraw;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#draw)
     ///
     /// Base class method implementation
@@ -187,8 +203,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` context: QtC.QAbstractTextDocumentLayout__PaintContext `
     ///
-    pub fn QBaseDraw(self: ?*anyopaque, painter: ?*anyopaque, context: ?*anyopaque) void {
-        qtc.QAbstractTextDocumentLayout_QBaseDraw(@ptrCast(self), @ptrCast(painter), @ptrCast(context));
+    pub fn SuperDraw(self: ?*anyopaque, painter: ?*anyopaque, context: ?*anyopaque) void {
+        qtc.QAbstractTextDocumentLayout_SuperDraw(@ptrCast(self), @ptrCast(painter), @ptrCast(context));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#hitTest)
@@ -219,6 +235,10 @@ pub const qabstracttextdocumentlayout = struct {
         qtc.QAbstractTextDocumentLayout_OnHitTest(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHitTest` instead
+    ///
+    pub const QBaseHitTest = SuperHitTest;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#hitTest)
     ///
     /// Base class method implementation
@@ -231,8 +251,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` accuracy: qnamespace_enums.HitTestAccuracy `
     ///
-    pub fn QBaseHitTest(self: ?*anyopaque, point: ?*anyopaque, accuracy: i32) i32 {
-        return qtc.QAbstractTextDocumentLayout_QBaseHitTest(@ptrCast(self), @ptrCast(point), @bitCast(accuracy));
+    pub fn SuperHitTest(self: ?*anyopaque, point: ?*anyopaque, accuracy: i32) i32 {
+        return qtc.QAbstractTextDocumentLayout_SuperHitTest(@ptrCast(self), @ptrCast(point), @bitCast(accuracy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#anchorAt)
@@ -319,6 +339,10 @@ pub const qabstracttextdocumentlayout = struct {
         qtc.QAbstractTextDocumentLayout_OnPageCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPageCount` instead
+    ///
+    pub const QBasePageCount = SuperPageCount;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#pageCount)
     ///
     /// Base class method implementation
@@ -327,8 +351,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` self: QtC.QAbstractTextDocumentLayout `
     ///
-    pub fn QBasePageCount(self: ?*anyopaque) i32 {
-        return qtc.QAbstractTextDocumentLayout_QBasePageCount(@ptrCast(self));
+    pub fn SuperPageCount(self: ?*anyopaque) i32 {
+        return qtc.QAbstractTextDocumentLayout_SuperPageCount(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentSize)
@@ -355,6 +379,10 @@ pub const qabstracttextdocumentlayout = struct {
         qtc.QAbstractTextDocumentLayout_OnDocumentSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDocumentSize` instead
+    ///
+    pub const QBaseDocumentSize = SuperDocumentSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentSize)
     ///
     /// Base class method implementation
@@ -363,8 +391,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` self: QtC.QAbstractTextDocumentLayout `
     ///
-    pub fn QBaseDocumentSize(self: ?*anyopaque) QtC.QSizeF {
-        return qtc.QAbstractTextDocumentLayout_QBaseDocumentSize(@ptrCast(self));
+    pub fn SuperDocumentSize(self: ?*anyopaque) QtC.QSizeF {
+        return qtc.QAbstractTextDocumentLayout_SuperDocumentSize(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#frameBoundingRect)
@@ -393,6 +421,10 @@ pub const qabstracttextdocumentlayout = struct {
         qtc.QAbstractTextDocumentLayout_OnFrameBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFrameBoundingRect` instead
+    ///
+    pub const QBaseFrameBoundingRect = SuperFrameBoundingRect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#frameBoundingRect)
     ///
     /// Base class method implementation
@@ -403,8 +435,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` frame: QtC.QTextFrame `
     ///
-    pub fn QBaseFrameBoundingRect(self: ?*anyopaque, frame: ?*anyopaque) QtC.QRectF {
-        return qtc.QAbstractTextDocumentLayout_QBaseFrameBoundingRect(@ptrCast(self), @ptrCast(frame));
+    pub fn SuperFrameBoundingRect(self: ?*anyopaque, frame: ?*anyopaque) QtC.QRectF {
+        return qtc.QAbstractTextDocumentLayout_SuperFrameBoundingRect(@ptrCast(self), @ptrCast(frame));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#blockBoundingRect)
@@ -433,6 +465,10 @@ pub const qabstracttextdocumentlayout = struct {
         qtc.QAbstractTextDocumentLayout_OnBlockBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBlockBoundingRect` instead
+    ///
+    pub const QBaseBlockBoundingRect = SuperBlockBoundingRect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#blockBoundingRect)
     ///
     /// Base class method implementation
@@ -443,8 +479,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` block: QtC.QTextBlock `
     ///
-    pub fn QBaseBlockBoundingRect(self: ?*anyopaque, block: ?*anyopaque) QtC.QRectF {
-        return qtc.QAbstractTextDocumentLayout_QBaseBlockBoundingRect(@ptrCast(self), @ptrCast(block));
+    pub fn SuperBlockBoundingRect(self: ?*anyopaque, block: ?*anyopaque) QtC.QRectF {
+        return qtc.QAbstractTextDocumentLayout_SuperBlockBoundingRect(@ptrCast(self), @ptrCast(block));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#setPaintDevice)
@@ -641,6 +677,10 @@ pub const qabstracttextdocumentlayout = struct {
         qtc.QAbstractTextDocumentLayout_OnDocumentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDocumentChanged` instead
+    ///
+    pub const QBaseDocumentChanged = SuperDocumentChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentChanged)
     ///
     /// Base class method implementation
@@ -655,8 +695,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` charsAdded: i32 `
     ///
-    pub fn QBaseDocumentChanged(self: ?*anyopaque, from: i32, charsRemoved: i32, charsAdded: i32) void {
-        qtc.QAbstractTextDocumentLayout_QBaseDocumentChanged(@ptrCast(self), @bitCast(from), @bitCast(charsRemoved), @bitCast(charsAdded));
+    pub fn SuperDocumentChanged(self: ?*anyopaque, from: i32, charsRemoved: i32, charsAdded: i32) void {
+        qtc.QAbstractTextDocumentLayout_SuperDocumentChanged(@ptrCast(self), @bitCast(from), @bitCast(charsRemoved), @bitCast(charsAdded));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#resizeInlineObject)
@@ -689,6 +729,10 @@ pub const qabstracttextdocumentlayout = struct {
         qtc.QAbstractTextDocumentLayout_OnResizeInlineObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperResizeInlineObject` instead
+    ///
+    pub const QBaseResizeInlineObject = SuperResizeInlineObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#resizeInlineObject)
     ///
     /// Base class method implementation
@@ -703,8 +747,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` format: QtC.QTextFormat `
     ///
-    pub fn QBaseResizeInlineObject(self: ?*anyopaque, item: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
-        qtc.QAbstractTextDocumentLayout_QBaseResizeInlineObject(@ptrCast(self), @ptrCast(item), @bitCast(posInDocument), @ptrCast(format));
+    pub fn SuperResizeInlineObject(self: ?*anyopaque, item: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
+        qtc.QAbstractTextDocumentLayout_SuperResizeInlineObject(@ptrCast(self), @ptrCast(item), @bitCast(posInDocument), @ptrCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#positionInlineObject)
@@ -737,6 +781,10 @@ pub const qabstracttextdocumentlayout = struct {
         qtc.QAbstractTextDocumentLayout_OnPositionInlineObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPositionInlineObject` instead
+    ///
+    pub const QBasePositionInlineObject = SuperPositionInlineObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#positionInlineObject)
     ///
     /// Base class method implementation
@@ -751,8 +799,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` format: QtC.QTextFormat `
     ///
-    pub fn QBasePositionInlineObject(self: ?*anyopaque, item: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
-        qtc.QAbstractTextDocumentLayout_QBasePositionInlineObject(@ptrCast(self), @ptrCast(item), @bitCast(posInDocument), @ptrCast(format));
+    pub fn SuperPositionInlineObject(self: ?*anyopaque, item: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
+        qtc.QAbstractTextDocumentLayout_SuperPositionInlineObject(@ptrCast(self), @ptrCast(item), @bitCast(posInDocument), @ptrCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#drawInlineObject)
@@ -789,6 +837,10 @@ pub const qabstracttextdocumentlayout = struct {
         qtc.QAbstractTextDocumentLayout_OnDrawInlineObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDrawInlineObject` instead
+    ///
+    pub const QBaseDrawInlineObject = SuperDrawInlineObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#drawInlineObject)
     ///
     /// Base class method implementation
@@ -807,8 +859,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` format: QtC.QTextFormat `
     ///
-    pub fn QBaseDrawInlineObject(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, object: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
-        qtc.QAbstractTextDocumentLayout_QBaseDrawInlineObject(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(object), @bitCast(posInDocument), @ptrCast(format));
+    pub fn SuperDrawInlineObject(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, object: QtC.QTextInlineObject, posInDocument: i32, format: ?*anyopaque) void {
+        qtc.QAbstractTextDocumentLayout_SuperDrawInlineObject(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(object), @bitCast(posInDocument), @ptrCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#formatIndex)
@@ -837,6 +889,10 @@ pub const qabstracttextdocumentlayout = struct {
         qtc.QAbstractTextDocumentLayout_OnFormatIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFormatIndex` instead
+    ///
+    pub const QBaseFormatIndex = SuperFormatIndex;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#formatIndex)
     ///
     /// Base class method implementation
@@ -847,8 +903,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` pos: i32 `
     ///
-    pub fn QBaseFormatIndex(self: ?*anyopaque, pos: i32) i32 {
-        return qtc.QAbstractTextDocumentLayout_QBaseFormatIndex(@ptrCast(self), @bitCast(pos));
+    pub fn SuperFormatIndex(self: ?*anyopaque, pos: i32) i32 {
+        return qtc.QAbstractTextDocumentLayout_SuperFormatIndex(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#format)
@@ -877,6 +933,10 @@ pub const qabstracttextdocumentlayout = struct {
         qtc.QAbstractTextDocumentLayout_OnFormat(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperFormat` instead
+    ///
+    pub const QBaseFormat = SuperFormat;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#format)
     ///
     /// Base class method implementation
@@ -887,8 +947,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` pos: i32 `
     ///
-    pub fn QBaseFormat(self: ?*anyopaque, pos: i32) QtC.QTextCharFormat {
-        return qtc.QAbstractTextDocumentLayout_QBaseFormat(@ptrCast(self), @bitCast(pos));
+    pub fn SuperFormat(self: ?*anyopaque, pos: i32) QtC.QTextCharFormat {
+        return qtc.QAbstractTextDocumentLayout_SuperFormat(@ptrCast(self), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1725,6 +1785,10 @@ pub const qabstracttextdocumentlayout = struct {
         return qtc.QAbstractTextDocumentLayout_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1737,8 +1801,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QAbstractTextDocumentLayout_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QAbstractTextDocumentLayout_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1775,6 +1839,10 @@ pub const qabstracttextdocumentlayout = struct {
         return qtc.QAbstractTextDocumentLayout_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1789,8 +1857,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QAbstractTextDocumentLayout_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QAbstractTextDocumentLayout_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1825,6 +1893,10 @@ pub const qabstracttextdocumentlayout = struct {
         qtc.QAbstractTextDocumentLayout_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1837,8 +1909,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractTextDocumentLayout_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractTextDocumentLayout_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1873,6 +1945,10 @@ pub const qabstracttextdocumentlayout = struct {
         qtc.QAbstractTextDocumentLayout_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1885,8 +1961,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractTextDocumentLayout_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractTextDocumentLayout_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1921,6 +1997,10 @@ pub const qabstracttextdocumentlayout = struct {
         qtc.QAbstractTextDocumentLayout_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1933,8 +2013,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractTextDocumentLayout_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QAbstractTextDocumentLayout_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1969,6 +2049,10 @@ pub const qabstracttextdocumentlayout = struct {
         qtc.QAbstractTextDocumentLayout_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1981,8 +2065,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QAbstractTextDocumentLayout_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QAbstractTextDocumentLayout_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2017,6 +2101,10 @@ pub const qabstracttextdocumentlayout = struct {
         qtc.QAbstractTextDocumentLayout_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -2029,8 +2117,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QAbstractTextDocumentLayout_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QAbstractTextDocumentLayout_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2063,6 +2151,10 @@ pub const qabstracttextdocumentlayout = struct {
         return qtc.QAbstractTextDocumentLayout_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -2073,8 +2165,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` self: QtC.QAbstractTextDocumentLayout `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QAbstractTextDocumentLayout_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QAbstractTextDocumentLayout_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2107,6 +2199,10 @@ pub const qabstracttextdocumentlayout = struct {
         return qtc.QAbstractTextDocumentLayout_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2117,8 +2213,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` self: QtC.QAbstractTextDocumentLayout `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QAbstractTextDocumentLayout_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QAbstractTextDocumentLayout_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2154,6 +2250,10 @@ pub const qabstracttextdocumentlayout = struct {
         return qtc.QAbstractTextDocumentLayout_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2166,9 +2266,9 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QAbstractTextDocumentLayout_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QAbstractTextDocumentLayout_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2203,6 +2303,10 @@ pub const qabstracttextdocumentlayout = struct {
         return qtc.QAbstractTextDocumentLayout_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2215,8 +2319,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QAbstractTextDocumentLayout_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QAbstractTextDocumentLayout_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2250,6 +2354,9 @@ pub const qabstracttextdocumentlayout = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#dtor.QAbstractTextDocumentLayout)
     ///
@@ -2259,7 +2366,7 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ` self: QtC.QAbstractTextDocumentLayout `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout_Delete(@ptrCast(self));
     }
 };
@@ -2314,6 +2421,10 @@ pub const qtextobjectinterface = struct {
         qtc.QTextObjectInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextobjectinterface.html#dtor.QTextObjectInterface)
     ///
     /// Delete this object from C++ memory.
@@ -2322,7 +2433,7 @@ pub const qtextobjectinterface = struct {
     ///
     /// ` self: QtC.QTextObjectInterface `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTextObjectInterface_Delete(@ptrCast(self));
     }
 };
@@ -2401,13 +2512,17 @@ pub const qabstracttextdocumentlayout__selection = struct {
         qtc.QAbstractTextDocumentLayout__Selection_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QAbstractTextDocumentLayout__Selection `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout__Selection_Delete(@ptrCast(self));
     }
 };
@@ -2541,13 +2656,17 @@ pub const qabstracttextdocumentlayout__paintcontext = struct {
         qtc.QAbstractTextDocumentLayout__PaintContext_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QAbstractTextDocumentLayout__PaintContext `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAbstractTextDocumentLayout__PaintContext_Delete(@ptrCast(self));
     }
 };

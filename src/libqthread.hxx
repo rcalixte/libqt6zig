@@ -365,27 +365,27 @@ class VirtualQThread final : public QThread {
 
     // Friend functions
     friend void QThread_Run(QThread* self);
-    friend void QThread_QBaseRun(QThread* self);
+    friend void QThread_SuperRun(QThread* self);
     friend void QThread_TimerEvent(QThread* self, QTimerEvent* event);
-    friend void QThread_QBaseTimerEvent(QThread* self, QTimerEvent* event);
+    friend void QThread_SuperTimerEvent(QThread* self, QTimerEvent* event);
     friend void QThread_ChildEvent(QThread* self, QChildEvent* event);
-    friend void QThread_QBaseChildEvent(QThread* self, QChildEvent* event);
+    friend void QThread_SuperChildEvent(QThread* self, QChildEvent* event);
     friend void QThread_CustomEvent(QThread* self, QEvent* event);
-    friend void QThread_QBaseCustomEvent(QThread* self, QEvent* event);
+    friend void QThread_SuperCustomEvent(QThread* self, QEvent* event);
     friend void QThread_ConnectNotify(QThread* self, const QMetaMethod* signal);
-    friend void QThread_QBaseConnectNotify(QThread* self, const QMetaMethod* signal);
+    friend void QThread_SuperConnectNotify(QThread* self, const QMetaMethod* signal);
     friend void QThread_DisconnectNotify(QThread* self, const QMetaMethod* signal);
-    friend void QThread_QBaseDisconnectNotify(QThread* self, const QMetaMethod* signal);
+    friend void QThread_SuperDisconnectNotify(QThread* self, const QMetaMethod* signal);
     friend int QThread_Exec(QThread* self);
-    friend int QThread_QBaseExec(QThread* self);
+    friend int QThread_SuperExec(QThread* self);
     friend QObject* QThread_Sender(const QThread* self);
-    friend QObject* QThread_QBaseSender(const QThread* self);
+    friend QObject* QThread_SuperSender(const QThread* self);
     friend int QThread_SenderSignalIndex(const QThread* self);
-    friend int QThread_QBaseSenderSignalIndex(const QThread* self);
+    friend int QThread_SuperSenderSignalIndex(const QThread* self);
     friend int QThread_Receivers(const QThread* self, const char* signal);
-    friend int QThread_QBaseReceivers(const QThread* self, const char* signal);
+    friend int QThread_SuperReceivers(const QThread* self, const char* signal);
     friend bool QThread_IsSignalConnected(const QThread* self, const QMetaMethod* signal);
-    friend bool QThread_QBaseIsSignalConnected(const QThread* self, const QMetaMethod* signal);
+    friend bool QThread_SuperIsSignalConnected(const QThread* self, const QMetaMethod* signal);
 };
 
 #endif

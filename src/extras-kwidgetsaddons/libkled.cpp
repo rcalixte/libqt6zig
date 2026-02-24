@@ -176,7 +176,7 @@ void KLed_ResizeEvent(KLed* self, QResizeEvent* param1) {
 }
 
 // Base class handler implementation
-QMetaObject* KLed_QBaseMetaObject(const KLed* self) {
+QMetaObject* KLed_SuperMetaObject(const KLed* self) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_MetaObject_IsBase(true);
@@ -195,7 +195,7 @@ void KLed_OnMetaObject(const KLed* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KLed_QBaseMetacast(KLed* self, const char* param1) {
+void* KLed_SuperMetacast(KLed* self, const char* param1) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_Metacast_IsBase(true);
@@ -214,7 +214,7 @@ void KLed_OnMetacast(KLed* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KLed_QBaseMetacall(KLed* self, int param1, int param2, void** param3) {
+int KLed_SuperMetacall(KLed* self, int param1, int param2, void** param3) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_Metacall_IsBase(true);
@@ -233,7 +233,7 @@ void KLed_OnMetacall(KLed* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* KLed_QBaseSizeHint(const KLed* self) {
+QSize* KLed_SuperSizeHint(const KLed* self) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_SizeHint_IsBase(true);
@@ -252,7 +252,7 @@ void KLed_OnSizeHint(const KLed* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* KLed_QBaseMinimumSizeHint(const KLed* self) {
+QSize* KLed_SuperMinimumSizeHint(const KLed* self) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_MinimumSizeHint_IsBase(true);
@@ -271,7 +271,7 @@ void KLed_OnMinimumSizeHint(const KLed* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KLed_QBasePaintEvent(KLed* self, QPaintEvent* param1) {
+void KLed_SuperPaintEvent(KLed* self, QPaintEvent* param1) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_PaintEvent_IsBase(true);
@@ -290,7 +290,7 @@ void KLed_OnPaintEvent(KLed* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KLed_QBaseResizeEvent(KLed* self, QResizeEvent* param1) {
+void KLed_SuperResizeEvent(KLed* self, QResizeEvent* param1) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_ResizeEvent_IsBase(true);
@@ -319,7 +319,7 @@ int KLed_DevType(const KLed* self) {
 }
 
 // Base class handler implementation
-int KLed_QBaseDevType(const KLed* self) {
+int KLed_SuperDevType(const KLed* self) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_DevType_IsBase(true);
@@ -348,7 +348,7 @@ void KLed_SetVisible(KLed* self, bool visible) {
 }
 
 // Base class handler implementation
-void KLed_QBaseSetVisible(KLed* self, bool visible) {
+void KLed_SuperSetVisible(KLed* self, bool visible) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_SetVisible_IsBase(true);
@@ -377,7 +377,7 @@ int KLed_HeightForWidth(const KLed* self, int param1) {
 }
 
 // Base class handler implementation
-int KLed_QBaseHeightForWidth(const KLed* self, int param1) {
+int KLed_SuperHeightForWidth(const KLed* self, int param1) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_HeightForWidth_IsBase(true);
@@ -406,7 +406,7 @@ bool KLed_HasHeightForWidth(const KLed* self) {
 }
 
 // Base class handler implementation
-bool KLed_QBaseHasHeightForWidth(const KLed* self) {
+bool KLed_SuperHasHeightForWidth(const KLed* self) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_HasHeightForWidth_IsBase(true);
@@ -435,7 +435,7 @@ QPaintEngine* KLed_PaintEngine(const KLed* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KLed_QBasePaintEngine(const KLed* self) {
+QPaintEngine* KLed_SuperPaintEngine(const KLed* self) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_PaintEngine_IsBase(true);
@@ -464,7 +464,7 @@ bool KLed_Event(KLed* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KLed_QBaseEvent(KLed* self, QEvent* event) {
+bool KLed_SuperEvent(KLed* self, QEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_Event_IsBase(true);
@@ -493,7 +493,7 @@ void KLed_MousePressEvent(KLed* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseMousePressEvent(KLed* self, QMouseEvent* event) {
+void KLed_SuperMousePressEvent(KLed* self, QMouseEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_MousePressEvent_IsBase(true);
@@ -522,7 +522,7 @@ void KLed_MouseReleaseEvent(KLed* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseMouseReleaseEvent(KLed* self, QMouseEvent* event) {
+void KLed_SuperMouseReleaseEvent(KLed* self, QMouseEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_MouseReleaseEvent_IsBase(true);
@@ -551,7 +551,7 @@ void KLed_MouseDoubleClickEvent(KLed* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseMouseDoubleClickEvent(KLed* self, QMouseEvent* event) {
+void KLed_SuperMouseDoubleClickEvent(KLed* self, QMouseEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_MouseDoubleClickEvent_IsBase(true);
@@ -580,7 +580,7 @@ void KLed_MouseMoveEvent(KLed* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseMouseMoveEvent(KLed* self, QMouseEvent* event) {
+void KLed_SuperMouseMoveEvent(KLed* self, QMouseEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_MouseMoveEvent_IsBase(true);
@@ -609,7 +609,7 @@ void KLed_WheelEvent(KLed* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseWheelEvent(KLed* self, QWheelEvent* event) {
+void KLed_SuperWheelEvent(KLed* self, QWheelEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_WheelEvent_IsBase(true);
@@ -638,7 +638,7 @@ void KLed_KeyPressEvent(KLed* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseKeyPressEvent(KLed* self, QKeyEvent* event) {
+void KLed_SuperKeyPressEvent(KLed* self, QKeyEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_KeyPressEvent_IsBase(true);
@@ -667,7 +667,7 @@ void KLed_KeyReleaseEvent(KLed* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseKeyReleaseEvent(KLed* self, QKeyEvent* event) {
+void KLed_SuperKeyReleaseEvent(KLed* self, QKeyEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_KeyReleaseEvent_IsBase(true);
@@ -696,7 +696,7 @@ void KLed_FocusInEvent(KLed* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseFocusInEvent(KLed* self, QFocusEvent* event) {
+void KLed_SuperFocusInEvent(KLed* self, QFocusEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_FocusInEvent_IsBase(true);
@@ -725,7 +725,7 @@ void KLed_FocusOutEvent(KLed* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseFocusOutEvent(KLed* self, QFocusEvent* event) {
+void KLed_SuperFocusOutEvent(KLed* self, QFocusEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_FocusOutEvent_IsBase(true);
@@ -754,7 +754,7 @@ void KLed_EnterEvent(KLed* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseEnterEvent(KLed* self, QEnterEvent* event) {
+void KLed_SuperEnterEvent(KLed* self, QEnterEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_EnterEvent_IsBase(true);
@@ -783,7 +783,7 @@ void KLed_LeaveEvent(KLed* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseLeaveEvent(KLed* self, QEvent* event) {
+void KLed_SuperLeaveEvent(KLed* self, QEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_LeaveEvent_IsBase(true);
@@ -812,7 +812,7 @@ void KLed_MoveEvent(KLed* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseMoveEvent(KLed* self, QMoveEvent* event) {
+void KLed_SuperMoveEvent(KLed* self, QMoveEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_MoveEvent_IsBase(true);
@@ -841,7 +841,7 @@ void KLed_CloseEvent(KLed* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseCloseEvent(KLed* self, QCloseEvent* event) {
+void KLed_SuperCloseEvent(KLed* self, QCloseEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_CloseEvent_IsBase(true);
@@ -870,7 +870,7 @@ void KLed_ContextMenuEvent(KLed* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseContextMenuEvent(KLed* self, QContextMenuEvent* event) {
+void KLed_SuperContextMenuEvent(KLed* self, QContextMenuEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_ContextMenuEvent_IsBase(true);
@@ -899,7 +899,7 @@ void KLed_TabletEvent(KLed* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseTabletEvent(KLed* self, QTabletEvent* event) {
+void KLed_SuperTabletEvent(KLed* self, QTabletEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_TabletEvent_IsBase(true);
@@ -928,7 +928,7 @@ void KLed_ActionEvent(KLed* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseActionEvent(KLed* self, QActionEvent* event) {
+void KLed_SuperActionEvent(KLed* self, QActionEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_ActionEvent_IsBase(true);
@@ -957,7 +957,7 @@ void KLed_DragEnterEvent(KLed* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseDragEnterEvent(KLed* self, QDragEnterEvent* event) {
+void KLed_SuperDragEnterEvent(KLed* self, QDragEnterEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_DragEnterEvent_IsBase(true);
@@ -986,7 +986,7 @@ void KLed_DragMoveEvent(KLed* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseDragMoveEvent(KLed* self, QDragMoveEvent* event) {
+void KLed_SuperDragMoveEvent(KLed* self, QDragMoveEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_DragMoveEvent_IsBase(true);
@@ -1015,7 +1015,7 @@ void KLed_DragLeaveEvent(KLed* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseDragLeaveEvent(KLed* self, QDragLeaveEvent* event) {
+void KLed_SuperDragLeaveEvent(KLed* self, QDragLeaveEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_DragLeaveEvent_IsBase(true);
@@ -1044,7 +1044,7 @@ void KLed_DropEvent(KLed* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseDropEvent(KLed* self, QDropEvent* event) {
+void KLed_SuperDropEvent(KLed* self, QDropEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_DropEvent_IsBase(true);
@@ -1073,7 +1073,7 @@ void KLed_ShowEvent(KLed* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseShowEvent(KLed* self, QShowEvent* event) {
+void KLed_SuperShowEvent(KLed* self, QShowEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_ShowEvent_IsBase(true);
@@ -1102,7 +1102,7 @@ void KLed_HideEvent(KLed* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseHideEvent(KLed* self, QHideEvent* event) {
+void KLed_SuperHideEvent(KLed* self, QHideEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_HideEvent_IsBase(true);
@@ -1132,7 +1132,7 @@ bool KLed_NativeEvent(KLed* self, const libqt_string eventType, void* message, i
 }
 
 // Base class handler implementation
-bool KLed_QBaseNativeEvent(KLed* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KLed_SuperNativeEvent(KLed* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkled && vkled->isVirtualKLed) {
@@ -1162,7 +1162,7 @@ void KLed_ChangeEvent(KLed* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KLed_QBaseChangeEvent(KLed* self, QEvent* param1) {
+void KLed_SuperChangeEvent(KLed* self, QEvent* param1) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_ChangeEvent_IsBase(true);
@@ -1191,7 +1191,7 @@ int KLed_Metric(const KLed* self, int param1) {
 }
 
 // Base class handler implementation
-int KLed_QBaseMetric(const KLed* self, int param1) {
+int KLed_SuperMetric(const KLed* self, int param1) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_Metric_IsBase(true);
@@ -1220,7 +1220,7 @@ void KLed_InitPainter(const KLed* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KLed_QBaseInitPainter(const KLed* self, QPainter* painter) {
+void KLed_SuperInitPainter(const KLed* self, QPainter* painter) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_InitPainter_IsBase(true);
@@ -1249,7 +1249,7 @@ QPaintDevice* KLed_Redirected(const KLed* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KLed_QBaseRedirected(const KLed* self, QPoint* offset) {
+QPaintDevice* KLed_SuperRedirected(const KLed* self, QPoint* offset) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_Redirected_IsBase(true);
@@ -1278,7 +1278,7 @@ QPainter* KLed_SharedPainter(const KLed* self) {
 }
 
 // Base class handler implementation
-QPainter* KLed_QBaseSharedPainter(const KLed* self) {
+QPainter* KLed_SuperSharedPainter(const KLed* self) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_SharedPainter_IsBase(true);
@@ -1307,7 +1307,7 @@ void KLed_InputMethodEvent(KLed* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void KLed_QBaseInputMethodEvent(KLed* self, QInputMethodEvent* param1) {
+void KLed_SuperInputMethodEvent(KLed* self, QInputMethodEvent* param1) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_InputMethodEvent_IsBase(true);
@@ -1336,7 +1336,7 @@ QVariant* KLed_InputMethodQuery(const KLed* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KLed_QBaseInputMethodQuery(const KLed* self, int param1) {
+QVariant* KLed_SuperInputMethodQuery(const KLed* self, int param1) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_InputMethodQuery_IsBase(true);
@@ -1365,7 +1365,7 @@ bool KLed_FocusNextPrevChild(KLed* self, bool next) {
 }
 
 // Base class handler implementation
-bool KLed_QBaseFocusNextPrevChild(KLed* self, bool next) {
+bool KLed_SuperFocusNextPrevChild(KLed* self, bool next) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_FocusNextPrevChild_IsBase(true);
@@ -1394,7 +1394,7 @@ bool KLed_EventFilter(KLed* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KLed_QBaseEventFilter(KLed* self, QObject* watched, QEvent* event) {
+bool KLed_SuperEventFilter(KLed* self, QObject* watched, QEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_EventFilter_IsBase(true);
@@ -1423,7 +1423,7 @@ void KLed_TimerEvent(KLed* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseTimerEvent(KLed* self, QTimerEvent* event) {
+void KLed_SuperTimerEvent(KLed* self, QTimerEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_TimerEvent_IsBase(true);
@@ -1452,7 +1452,7 @@ void KLed_ChildEvent(KLed* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseChildEvent(KLed* self, QChildEvent* event) {
+void KLed_SuperChildEvent(KLed* self, QChildEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_ChildEvent_IsBase(true);
@@ -1481,7 +1481,7 @@ void KLed_CustomEvent(KLed* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KLed_QBaseCustomEvent(KLed* self, QEvent* event) {
+void KLed_SuperCustomEvent(KLed* self, QEvent* event) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_CustomEvent_IsBase(true);
@@ -1510,7 +1510,7 @@ void KLed_ConnectNotify(KLed* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KLed_QBaseConnectNotify(KLed* self, const QMetaMethod* signal) {
+void KLed_SuperConnectNotify(KLed* self, const QMetaMethod* signal) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_ConnectNotify_IsBase(true);
@@ -1539,7 +1539,7 @@ void KLed_DisconnectNotify(KLed* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KLed_QBaseDisconnectNotify(KLed* self, const QMetaMethod* signal) {
+void KLed_SuperDisconnectNotify(KLed* self, const QMetaMethod* signal) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_DisconnectNotify_IsBase(true);
@@ -1568,7 +1568,7 @@ void KLed_UpdateMicroFocus(KLed* self) {
 }
 
 // Base class handler implementation
-void KLed_QBaseUpdateMicroFocus(KLed* self) {
+void KLed_SuperUpdateMicroFocus(KLed* self) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_UpdateMicroFocus_IsBase(true);
@@ -1597,7 +1597,7 @@ void KLed_Create(KLed* self) {
 }
 
 // Base class handler implementation
-void KLed_QBaseCreate(KLed* self) {
+void KLed_SuperCreate(KLed* self) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_Create_IsBase(true);
@@ -1626,7 +1626,7 @@ void KLed_Destroy(KLed* self) {
 }
 
 // Base class handler implementation
-void KLed_QBaseDestroy(KLed* self) {
+void KLed_SuperDestroy(KLed* self) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_Destroy_IsBase(true);
@@ -1655,7 +1655,7 @@ bool KLed_FocusNextChild(KLed* self) {
 }
 
 // Base class handler implementation
-bool KLed_QBaseFocusNextChild(KLed* self) {
+bool KLed_SuperFocusNextChild(KLed* self) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_FocusNextChild_IsBase(true);
@@ -1684,7 +1684,7 @@ bool KLed_FocusPreviousChild(KLed* self) {
 }
 
 // Base class handler implementation
-bool KLed_QBaseFocusPreviousChild(KLed* self) {
+bool KLed_SuperFocusPreviousChild(KLed* self) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_FocusPreviousChild_IsBase(true);
@@ -1713,7 +1713,7 @@ QObject* KLed_Sender(const KLed* self) {
 }
 
 // Base class handler implementation
-QObject* KLed_QBaseSender(const KLed* self) {
+QObject* KLed_SuperSender(const KLed* self) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_Sender_IsBase(true);
@@ -1742,7 +1742,7 @@ int KLed_SenderSignalIndex(const KLed* self) {
 }
 
 // Base class handler implementation
-int KLed_QBaseSenderSignalIndex(const KLed* self) {
+int KLed_SuperSenderSignalIndex(const KLed* self) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_SenderSignalIndex_IsBase(true);
@@ -1771,7 +1771,7 @@ int KLed_Receivers(const KLed* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KLed_QBaseReceivers(const KLed* self, const char* signal) {
+int KLed_SuperReceivers(const KLed* self, const char* signal) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_Receivers_IsBase(true);
@@ -1800,7 +1800,7 @@ bool KLed_IsSignalConnected(const KLed* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool KLed_QBaseIsSignalConnected(const KLed* self, const QMetaMethod* signal) {
+bool KLed_SuperIsSignalConnected(const KLed* self, const QMetaMethod* signal) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_IsSignalConnected_IsBase(true);
@@ -1829,7 +1829,7 @@ double KLed_GetDecodedMetricF(const KLed* self, int metricA, int metricB) {
 }
 
 // Base class handler implementation
-double KLed_QBaseGetDecodedMetricF(const KLed* self, int metricA, int metricB) {
+double KLed_SuperGetDecodedMetricF(const KLed* self, int metricA, int metricB) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
     if (vkled && vkled->isVirtualKLed) {
         vkled->setKLed_GetDecodedMetricF_IsBase(true);

@@ -687,7 +687,7 @@ void QProcess_Connect_Finished2(QProcess* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QProcess_QBaseMetaObject(const QProcess* self) {
+QMetaObject* QProcess_SuperMetaObject(const QProcess* self) {
     auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_MetaObject_IsBase(true);
@@ -706,7 +706,7 @@ void QProcess_OnMetaObject(const QProcess* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QProcess_QBaseMetacast(QProcess* self, const char* param1) {
+void* QProcess_SuperMetacast(QProcess* self, const char* param1) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_Metacast_IsBase(true);
@@ -725,7 +725,7 @@ void QProcess_OnMetacast(QProcess* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QProcess_QBaseMetacall(QProcess* self, int param1, int param2, void** param3) {
+int QProcess_SuperMetacall(QProcess* self, int param1, int param2, void** param3) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_Metacall_IsBase(true);
@@ -744,7 +744,7 @@ void QProcess_OnMetacall(QProcess* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QProcess_QBaseOpen(QProcess* self, int mode) {
+bool QProcess_SuperOpen(QProcess* self, int mode) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_Open_IsBase(true);
@@ -763,7 +763,7 @@ void QProcess_OnOpen(QProcess* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QProcess_QBaseWaitForReadyRead(QProcess* self, int msecs) {
+bool QProcess_SuperWaitForReadyRead(QProcess* self, int msecs) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_WaitForReadyRead_IsBase(true);
@@ -782,7 +782,7 @@ void QProcess_OnWaitForReadyRead(QProcess* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QProcess_QBaseWaitForBytesWritten(QProcess* self, int msecs) {
+bool QProcess_SuperWaitForBytesWritten(QProcess* self, int msecs) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_WaitForBytesWritten_IsBase(true);
@@ -801,7 +801,7 @@ void QProcess_OnWaitForBytesWritten(QProcess* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QProcess_QBaseBytesToWrite(const QProcess* self) {
+long long QProcess_SuperBytesToWrite(const QProcess* self) {
     auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_BytesToWrite_IsBase(true);
@@ -820,7 +820,7 @@ void QProcess_OnBytesToWrite(const QProcess* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QProcess_QBaseIsSequential(const QProcess* self) {
+bool QProcess_SuperIsSequential(const QProcess* self) {
     auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_IsSequential_IsBase(true);
@@ -839,7 +839,7 @@ void QProcess_OnIsSequential(const QProcess* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QProcess_QBaseClose(QProcess* self) {
+void QProcess_SuperClose(QProcess* self) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_Close_IsBase(true);
@@ -858,7 +858,7 @@ void QProcess_OnClose(QProcess* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QProcess_QBaseReadData(QProcess* self, char* data, long long maxlen) {
+long long QProcess_SuperReadData(QProcess* self, char* data, long long maxlen) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_ReadData_IsBase(true);
@@ -877,7 +877,7 @@ void QProcess_OnReadData(QProcess* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QProcess_QBaseWriteData(QProcess* self, const char* data, long long lenVal) {
+long long QProcess_SuperWriteData(QProcess* self, const char* data, long long lenVal) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_WriteData_IsBase(true);
@@ -906,7 +906,7 @@ long long QProcess_Pos(const QProcess* self) {
 }
 
 // Base class handler implementation
-long long QProcess_QBasePos(const QProcess* self) {
+long long QProcess_SuperPos(const QProcess* self) {
     auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_Pos_IsBase(true);
@@ -935,7 +935,7 @@ long long QProcess_Size(const QProcess* self) {
 }
 
 // Base class handler implementation
-long long QProcess_QBaseSize(const QProcess* self) {
+long long QProcess_SuperSize(const QProcess* self) {
     auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_Size_IsBase(true);
@@ -964,7 +964,7 @@ bool QProcess_Seek(QProcess* self, long long pos) {
 }
 
 // Base class handler implementation
-bool QProcess_QBaseSeek(QProcess* self, long long pos) {
+bool QProcess_SuperSeek(QProcess* self, long long pos) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_Seek_IsBase(true);
@@ -993,7 +993,7 @@ bool QProcess_AtEnd(const QProcess* self) {
 }
 
 // Base class handler implementation
-bool QProcess_QBaseAtEnd(const QProcess* self) {
+bool QProcess_SuperAtEnd(const QProcess* self) {
     auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_AtEnd_IsBase(true);
@@ -1022,7 +1022,7 @@ bool QProcess_Reset(QProcess* self) {
 }
 
 // Base class handler implementation
-bool QProcess_QBaseReset(QProcess* self) {
+bool QProcess_SuperReset(QProcess* self) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_Reset_IsBase(true);
@@ -1051,7 +1051,7 @@ long long QProcess_BytesAvailable(const QProcess* self) {
 }
 
 // Base class handler implementation
-long long QProcess_QBaseBytesAvailable(const QProcess* self) {
+long long QProcess_SuperBytesAvailable(const QProcess* self) {
     auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_BytesAvailable_IsBase(true);
@@ -1080,7 +1080,7 @@ bool QProcess_CanReadLine(const QProcess* self) {
 }
 
 // Base class handler implementation
-bool QProcess_QBaseCanReadLine(const QProcess* self) {
+bool QProcess_SuperCanReadLine(const QProcess* self) {
     auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_CanReadLine_IsBase(true);
@@ -1109,7 +1109,7 @@ long long QProcess_ReadLineData(QProcess* self, char* data, long long maxlen) {
 }
 
 // Base class handler implementation
-long long QProcess_QBaseReadLineData(QProcess* self, char* data, long long maxlen) {
+long long QProcess_SuperReadLineData(QProcess* self, char* data, long long maxlen) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_ReadLineData_IsBase(true);
@@ -1138,7 +1138,7 @@ long long QProcess_SkipData(QProcess* self, long long maxSize) {
 }
 
 // Base class handler implementation
-long long QProcess_QBaseSkipData(QProcess* self, long long maxSize) {
+long long QProcess_SuperSkipData(QProcess* self, long long maxSize) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_SkipData_IsBase(true);
@@ -1167,7 +1167,7 @@ bool QProcess_Event(QProcess* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QProcess_QBaseEvent(QProcess* self, QEvent* event) {
+bool QProcess_SuperEvent(QProcess* self, QEvent* event) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_Event_IsBase(true);
@@ -1196,7 +1196,7 @@ bool QProcess_EventFilter(QProcess* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QProcess_QBaseEventFilter(QProcess* self, QObject* watched, QEvent* event) {
+bool QProcess_SuperEventFilter(QProcess* self, QObject* watched, QEvent* event) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_EventFilter_IsBase(true);
@@ -1225,7 +1225,7 @@ void QProcess_TimerEvent(QProcess* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QProcess_QBaseTimerEvent(QProcess* self, QTimerEvent* event) {
+void QProcess_SuperTimerEvent(QProcess* self, QTimerEvent* event) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_TimerEvent_IsBase(true);
@@ -1254,7 +1254,7 @@ void QProcess_ChildEvent(QProcess* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QProcess_QBaseChildEvent(QProcess* self, QChildEvent* event) {
+void QProcess_SuperChildEvent(QProcess* self, QChildEvent* event) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_ChildEvent_IsBase(true);
@@ -1283,7 +1283,7 @@ void QProcess_CustomEvent(QProcess* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QProcess_QBaseCustomEvent(QProcess* self, QEvent* event) {
+void QProcess_SuperCustomEvent(QProcess* self, QEvent* event) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_CustomEvent_IsBase(true);
@@ -1312,7 +1312,7 @@ void QProcess_ConnectNotify(QProcess* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QProcess_QBaseConnectNotify(QProcess* self, const QMetaMethod* signal) {
+void QProcess_SuperConnectNotify(QProcess* self, const QMetaMethod* signal) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_ConnectNotify_IsBase(true);
@@ -1341,7 +1341,7 @@ void QProcess_DisconnectNotify(QProcess* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QProcess_QBaseDisconnectNotify(QProcess* self, const QMetaMethod* signal) {
+void QProcess_SuperDisconnectNotify(QProcess* self, const QMetaMethod* signal) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_DisconnectNotify_IsBase(true);
@@ -1370,7 +1370,7 @@ void QProcess_SetProcessState(QProcess* self, int state) {
 }
 
 // Base class handler implementation
-void QProcess_QBaseSetProcessState(QProcess* self, int state) {
+void QProcess_SuperSetProcessState(QProcess* self, int state) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_SetProcessState_IsBase(true);
@@ -1399,7 +1399,7 @@ void QProcess_SetOpenMode(QProcess* self, int openMode) {
 }
 
 // Base class handler implementation
-void QProcess_QBaseSetOpenMode(QProcess* self, int openMode) {
+void QProcess_SuperSetOpenMode(QProcess* self, int openMode) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_SetOpenMode_IsBase(true);
@@ -1429,7 +1429,7 @@ void QProcess_SetErrorString(QProcess* self, const libqt_string errorString) {
 }
 
 // Base class handler implementation
-void QProcess_QBaseSetErrorString(QProcess* self, const libqt_string errorString) {
+void QProcess_SuperSetErrorString(QProcess* self, const libqt_string errorString) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
     if (vqprocess && vqprocess->isVirtualQProcess) {
@@ -1459,7 +1459,7 @@ QObject* QProcess_Sender(const QProcess* self) {
 }
 
 // Base class handler implementation
-QObject* QProcess_QBaseSender(const QProcess* self) {
+QObject* QProcess_SuperSender(const QProcess* self) {
     auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_Sender_IsBase(true);
@@ -1488,7 +1488,7 @@ int QProcess_SenderSignalIndex(const QProcess* self) {
 }
 
 // Base class handler implementation
-int QProcess_QBaseSenderSignalIndex(const QProcess* self) {
+int QProcess_SuperSenderSignalIndex(const QProcess* self) {
     auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_SenderSignalIndex_IsBase(true);
@@ -1517,7 +1517,7 @@ int QProcess_Receivers(const QProcess* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QProcess_QBaseReceivers(const QProcess* self, const char* signal) {
+int QProcess_SuperReceivers(const QProcess* self, const char* signal) {
     auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_Receivers_IsBase(true);
@@ -1546,7 +1546,7 @@ bool QProcess_IsSignalConnected(const QProcess* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-bool QProcess_QBaseIsSignalConnected(const QProcess* self, const QMetaMethod* signal) {
+bool QProcess_SuperIsSignalConnected(const QProcess* self, const QMetaMethod* signal) {
     auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_IsSignalConnected_IsBase(true);

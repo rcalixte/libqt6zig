@@ -1416,6 +1416,10 @@ pub const qdir = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#dtor.QDir)
     ///
     /// Delete this object from C++ memory.
@@ -1424,7 +1428,7 @@ pub const qdir = struct {
     ///
     /// ` self: QtC.QDir `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QDir_Delete(@ptrCast(self));
     }
 };

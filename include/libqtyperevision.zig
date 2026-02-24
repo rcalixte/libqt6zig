@@ -119,6 +119,10 @@ pub const qtyperevision = struct {
         return qtc.QTypeRevision_IsValid(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtyperevision.html#dtor.QTypeRevision)
     ///
     /// Delete this object from C++ memory.
@@ -127,7 +131,7 @@ pub const qtyperevision = struct {
     ///
     /// ` self: QtC.QTypeRevision `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTypeRevision_Delete(@ptrCast(self));
     }
 };

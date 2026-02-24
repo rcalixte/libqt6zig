@@ -297,7 +297,7 @@ QAbstractItemView* QColumnView_CreateColumn(QColumnView* self, const QModelIndex
 }
 
 // Base class handler implementation
-QMetaObject* QColumnView_QBaseMetaObject(const QColumnView* self) {
+QMetaObject* QColumnView_SuperMetaObject(const QColumnView* self) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_MetaObject_IsBase(true);
@@ -316,7 +316,7 @@ void QColumnView_OnMetaObject(const QColumnView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QColumnView_QBaseMetacast(QColumnView* self, const char* param1) {
+void* QColumnView_SuperMetacast(QColumnView* self, const char* param1) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_Metacast_IsBase(true);
@@ -335,7 +335,7 @@ void QColumnView_OnMetacast(QColumnView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QColumnView_QBaseMetacall(QColumnView* self, int param1, int param2, void** param3) {
+int QColumnView_SuperMetacall(QColumnView* self, int param1, int param2, void** param3) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_Metacall_IsBase(true);
@@ -354,7 +354,7 @@ void QColumnView_OnMetacall(QColumnView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QModelIndex* QColumnView_QBaseIndexAt(const QColumnView* self, const QPoint* point) {
+QModelIndex* QColumnView_SuperIndexAt(const QColumnView* self, const QPoint* point) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_IndexAt_IsBase(true);
@@ -373,7 +373,7 @@ void QColumnView_OnIndexAt(const QColumnView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseScrollTo(QColumnView* self, const QModelIndex* index, int hint) {
+void QColumnView_SuperScrollTo(QColumnView* self, const QModelIndex* index, int hint) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_ScrollTo_IsBase(true);
@@ -392,7 +392,7 @@ void QColumnView_OnScrollTo(QColumnView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QColumnView_QBaseSizeHint(const QColumnView* self) {
+QSize* QColumnView_SuperSizeHint(const QColumnView* self) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_SizeHint_IsBase(true);
@@ -411,7 +411,7 @@ void QColumnView_OnSizeHint(const QColumnView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QRect* QColumnView_QBaseVisualRect(const QColumnView* self, const QModelIndex* index) {
+QRect* QColumnView_SuperVisualRect(const QColumnView* self, const QModelIndex* index) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_VisualRect_IsBase(true);
@@ -430,7 +430,7 @@ void QColumnView_OnVisualRect(const QColumnView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseSetModel(QColumnView* self, QAbstractItemModel* model) {
+void QColumnView_SuperSetModel(QColumnView* self, QAbstractItemModel* model) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_SetModel_IsBase(true);
@@ -449,7 +449,7 @@ void QColumnView_OnSetModel(QColumnView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseSetSelectionModel(QColumnView* self, QItemSelectionModel* selectionModel) {
+void QColumnView_SuperSetSelectionModel(QColumnView* self, QItemSelectionModel* selectionModel) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_SetSelectionModel_IsBase(true);
@@ -468,7 +468,7 @@ void QColumnView_OnSetSelectionModel(QColumnView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseSetRootIndex(QColumnView* self, const QModelIndex* index) {
+void QColumnView_SuperSetRootIndex(QColumnView* self, const QModelIndex* index) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_SetRootIndex_IsBase(true);
@@ -487,7 +487,7 @@ void QColumnView_OnSetRootIndex(QColumnView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseSelectAll(QColumnView* self) {
+void QColumnView_SuperSelectAll(QColumnView* self) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_SelectAll_IsBase(true);
@@ -506,7 +506,7 @@ void QColumnView_OnSelectAll(QColumnView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QColumnView_QBaseIsIndexHidden(const QColumnView* self, const QModelIndex* index) {
+bool QColumnView_SuperIsIndexHidden(const QColumnView* self, const QModelIndex* index) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_IsIndexHidden_IsBase(true);
@@ -525,7 +525,7 @@ void QColumnView_OnIsIndexHidden(const QColumnView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QModelIndex* QColumnView_QBaseMoveCursor(QColumnView* self, int cursorAction, int modifiers) {
+QModelIndex* QColumnView_SuperMoveCursor(QColumnView* self, int cursorAction, int modifiers) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_MoveCursor_IsBase(true);
@@ -543,7 +543,7 @@ void QColumnView_OnMoveCursor(QColumnView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseResizeEvent(QColumnView* self, QResizeEvent* event) {
+void QColumnView_SuperResizeEvent(QColumnView* self, QResizeEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_ResizeEvent_IsBase(true);
@@ -562,7 +562,7 @@ void QColumnView_OnResizeEvent(QColumnView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseSetSelection(QColumnView* self, const QRect* rect, int command) {
+void QColumnView_SuperSetSelection(QColumnView* self, const QRect* rect, int command) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_SetSelection_IsBase(true);
@@ -581,7 +581,7 @@ void QColumnView_OnSetSelection(QColumnView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QRegion* QColumnView_QBaseVisualRegionForSelection(const QColumnView* self, const QItemSelection* selection) {
+QRegion* QColumnView_SuperVisualRegionForSelection(const QColumnView* self, const QItemSelection* selection) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_VisualRegionForSelection_IsBase(true);
@@ -599,7 +599,7 @@ void QColumnView_OnVisualRegionForSelection(const QColumnView* self, intptr_t sl
 }
 
 // Base class handler implementation
-int QColumnView_QBaseHorizontalOffset(const QColumnView* self) {
+int QColumnView_SuperHorizontalOffset(const QColumnView* self) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_HorizontalOffset_IsBase(true);
@@ -618,7 +618,7 @@ void QColumnView_OnHorizontalOffset(const QColumnView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QColumnView_QBaseVerticalOffset(const QColumnView* self) {
+int QColumnView_SuperVerticalOffset(const QColumnView* self) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_VerticalOffset_IsBase(true);
@@ -637,7 +637,7 @@ void QColumnView_OnVerticalOffset(const QColumnView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseRowsInserted(QColumnView* self, const QModelIndex* parent, int start, int end) {
+void QColumnView_SuperRowsInserted(QColumnView* self, const QModelIndex* parent, int start, int end) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_RowsInserted_IsBase(true);
@@ -656,7 +656,7 @@ void QColumnView_OnRowsInserted(QColumnView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseCurrentChanged(QColumnView* self, const QModelIndex* current, const QModelIndex* previous) {
+void QColumnView_SuperCurrentChanged(QColumnView* self, const QModelIndex* current, const QModelIndex* previous) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_CurrentChanged_IsBase(true);
@@ -675,7 +675,7 @@ void QColumnView_OnCurrentChanged(QColumnView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseScrollContentsBy(QColumnView* self, int dx, int dy) {
+void QColumnView_SuperScrollContentsBy(QColumnView* self, int dx, int dy) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_ScrollContentsBy_IsBase(true);
@@ -694,7 +694,7 @@ void QColumnView_OnScrollContentsBy(QColumnView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QAbstractItemView* QColumnView_QBaseCreateColumn(QColumnView* self, const QModelIndex* rootIndex) {
+QAbstractItemView* QColumnView_SuperCreateColumn(QColumnView* self, const QModelIndex* rootIndex) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_CreateColumn_IsBase(true);
@@ -724,7 +724,7 @@ void QColumnView_KeyboardSearch(QColumnView* self, const libqt_string search) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseKeyboardSearch(QColumnView* self, const libqt_string search) {
+void QColumnView_SuperKeyboardSearch(QColumnView* self, const libqt_string search) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     QString search_QString = QString::fromUtf8(search.data, search.len);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
@@ -754,7 +754,7 @@ int QColumnView_SizeHintForRow(const QColumnView* self, int row) {
 }
 
 // Base class handler implementation
-int QColumnView_QBaseSizeHintForRow(const QColumnView* self, int row) {
+int QColumnView_SuperSizeHintForRow(const QColumnView* self, int row) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_SizeHintForRow_IsBase(true);
@@ -783,7 +783,7 @@ int QColumnView_SizeHintForColumn(const QColumnView* self, int column) {
 }
 
 // Base class handler implementation
-int QColumnView_QBaseSizeHintForColumn(const QColumnView* self, int column) {
+int QColumnView_SuperSizeHintForColumn(const QColumnView* self, int column) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_SizeHintForColumn_IsBase(true);
@@ -812,7 +812,7 @@ QAbstractItemDelegate* QColumnView_ItemDelegateForIndex(const QColumnView* self,
 }
 
 // Base class handler implementation
-QAbstractItemDelegate* QColumnView_QBaseItemDelegateForIndex(const QColumnView* self, const QModelIndex* index) {
+QAbstractItemDelegate* QColumnView_SuperItemDelegateForIndex(const QColumnView* self, const QModelIndex* index) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_ItemDelegateForIndex_IsBase(true);
@@ -841,7 +841,7 @@ QVariant* QColumnView_InputMethodQuery(const QColumnView* self, int query) {
 }
 
 // Base class handler implementation
-QVariant* QColumnView_QBaseInputMethodQuery(const QColumnView* self, int query) {
+QVariant* QColumnView_SuperInputMethodQuery(const QColumnView* self, int query) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_InputMethodQuery_IsBase(true);
@@ -870,7 +870,7 @@ void QColumnView_Reset(QColumnView* self) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseReset(QColumnView* self) {
+void QColumnView_SuperReset(QColumnView* self) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_Reset_IsBase(true);
@@ -899,7 +899,7 @@ void QColumnView_DoItemsLayout(QColumnView* self) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseDoItemsLayout(QColumnView* self) {
+void QColumnView_SuperDoItemsLayout(QColumnView* self) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_DoItemsLayout_IsBase(true);
@@ -934,7 +934,7 @@ void QColumnView_DataChanged(QColumnView* self, const QModelIndex* topLeft, cons
 }
 
 // Base class handler implementation
-void QColumnView_QBaseDataChanged(QColumnView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
+void QColumnView_SuperDataChanged(QColumnView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     QList<int> roles_QList;
     roles_QList.reserve(roles.len);
@@ -969,7 +969,7 @@ void QColumnView_RowsAboutToBeRemoved(QColumnView* self, const QModelIndex* pare
 }
 
 // Base class handler implementation
-void QColumnView_QBaseRowsAboutToBeRemoved(QColumnView* self, const QModelIndex* parent, int start, int end) {
+void QColumnView_SuperRowsAboutToBeRemoved(QColumnView* self, const QModelIndex* parent, int start, int end) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_RowsAboutToBeRemoved_IsBase(true);
@@ -998,7 +998,7 @@ void QColumnView_SelectionChanged(QColumnView* self, const QItemSelection* selec
 }
 
 // Base class handler implementation
-void QColumnView_QBaseSelectionChanged(QColumnView* self, const QItemSelection* selected, const QItemSelection* deselected) {
+void QColumnView_SuperSelectionChanged(QColumnView* self, const QItemSelection* selected, const QItemSelection* deselected) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_SelectionChanged_IsBase(true);
@@ -1027,7 +1027,7 @@ void QColumnView_UpdateEditorData(QColumnView* self) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseUpdateEditorData(QColumnView* self) {
+void QColumnView_SuperUpdateEditorData(QColumnView* self) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_UpdateEditorData_IsBase(true);
@@ -1056,7 +1056,7 @@ void QColumnView_UpdateEditorGeometries(QColumnView* self) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseUpdateEditorGeometries(QColumnView* self) {
+void QColumnView_SuperUpdateEditorGeometries(QColumnView* self) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_UpdateEditorGeometries_IsBase(true);
@@ -1085,7 +1085,7 @@ void QColumnView_UpdateGeometries(QColumnView* self) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseUpdateGeometries(QColumnView* self) {
+void QColumnView_SuperUpdateGeometries(QColumnView* self) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_UpdateGeometries_IsBase(true);
@@ -1114,7 +1114,7 @@ void QColumnView_VerticalScrollbarAction(QColumnView* self, int action) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseVerticalScrollbarAction(QColumnView* self, int action) {
+void QColumnView_SuperVerticalScrollbarAction(QColumnView* self, int action) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_VerticalScrollbarAction_IsBase(true);
@@ -1143,7 +1143,7 @@ void QColumnView_HorizontalScrollbarAction(QColumnView* self, int action) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseHorizontalScrollbarAction(QColumnView* self, int action) {
+void QColumnView_SuperHorizontalScrollbarAction(QColumnView* self, int action) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_HorizontalScrollbarAction_IsBase(true);
@@ -1172,7 +1172,7 @@ void QColumnView_VerticalScrollbarValueChanged(QColumnView* self, int value) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseVerticalScrollbarValueChanged(QColumnView* self, int value) {
+void QColumnView_SuperVerticalScrollbarValueChanged(QColumnView* self, int value) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_VerticalScrollbarValueChanged_IsBase(true);
@@ -1201,7 +1201,7 @@ void QColumnView_HorizontalScrollbarValueChanged(QColumnView* self, int value) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseHorizontalScrollbarValueChanged(QColumnView* self, int value) {
+void QColumnView_SuperHorizontalScrollbarValueChanged(QColumnView* self, int value) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_HorizontalScrollbarValueChanged_IsBase(true);
@@ -1230,7 +1230,7 @@ void QColumnView_CloseEditor(QColumnView* self, QWidget* editor, int hint) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseCloseEditor(QColumnView* self, QWidget* editor, int hint) {
+void QColumnView_SuperCloseEditor(QColumnView* self, QWidget* editor, int hint) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_CloseEditor_IsBase(true);
@@ -1259,7 +1259,7 @@ void QColumnView_CommitData(QColumnView* self, QWidget* editor) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseCommitData(QColumnView* self, QWidget* editor) {
+void QColumnView_SuperCommitData(QColumnView* self, QWidget* editor) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_CommitData_IsBase(true);
@@ -1288,7 +1288,7 @@ void QColumnView_EditorDestroyed(QColumnView* self, QObject* editor) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseEditorDestroyed(QColumnView* self, QObject* editor) {
+void QColumnView_SuperEditorDestroyed(QColumnView* self, QObject* editor) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_EditorDestroyed_IsBase(true);
@@ -1335,7 +1335,7 @@ libqt_list /* of QModelIndex* */ QColumnView_SelectedIndexes(const QColumnView* 
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ QColumnView_QBaseSelectedIndexes(const QColumnView* self) {
+libqt_list /* of QModelIndex* */ QColumnView_SuperSelectedIndexes(const QColumnView* self) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_SelectedIndexes_IsBase(true);
@@ -1382,7 +1382,7 @@ bool QColumnView_Edit2(QColumnView* self, const QModelIndex* index, int trigger,
 }
 
 // Base class handler implementation
-bool QColumnView_QBaseEdit2(QColumnView* self, const QModelIndex* index, int trigger, QEvent* event) {
+bool QColumnView_SuperEdit2(QColumnView* self, const QModelIndex* index, int trigger, QEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_Edit2_IsBase(true);
@@ -1411,7 +1411,7 @@ int QColumnView_SelectionCommand(const QColumnView* self, const QModelIndex* ind
 }
 
 // Base class handler implementation
-int QColumnView_QBaseSelectionCommand(const QColumnView* self, const QModelIndex* index, const QEvent* event) {
+int QColumnView_SuperSelectionCommand(const QColumnView* self, const QModelIndex* index, const QEvent* event) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_SelectionCommand_IsBase(true);
@@ -1440,7 +1440,7 @@ void QColumnView_StartDrag(QColumnView* self, int supportedActions) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseStartDrag(QColumnView* self, int supportedActions) {
+void QColumnView_SuperStartDrag(QColumnView* self, int supportedActions) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_StartDrag_IsBase(true);
@@ -1469,7 +1469,7 @@ void QColumnView_InitViewItemOption(const QColumnView* self, QStyleOptionViewIte
 }
 
 // Base class handler implementation
-void QColumnView_QBaseInitViewItemOption(const QColumnView* self, QStyleOptionViewItem* option) {
+void QColumnView_SuperInitViewItemOption(const QColumnView* self, QStyleOptionViewItem* option) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_InitViewItemOption_IsBase(true);
@@ -1498,7 +1498,7 @@ bool QColumnView_FocusNextPrevChild(QColumnView* self, bool next) {
 }
 
 // Base class handler implementation
-bool QColumnView_QBaseFocusNextPrevChild(QColumnView* self, bool next) {
+bool QColumnView_SuperFocusNextPrevChild(QColumnView* self, bool next) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_FocusNextPrevChild_IsBase(true);
@@ -1527,7 +1527,7 @@ bool QColumnView_Event(QColumnView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QColumnView_QBaseEvent(QColumnView* self, QEvent* event) {
+bool QColumnView_SuperEvent(QColumnView* self, QEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_Event_IsBase(true);
@@ -1556,7 +1556,7 @@ bool QColumnView_ViewportEvent(QColumnView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QColumnView_QBaseViewportEvent(QColumnView* self, QEvent* event) {
+bool QColumnView_SuperViewportEvent(QColumnView* self, QEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_ViewportEvent_IsBase(true);
@@ -1585,7 +1585,7 @@ void QColumnView_MousePressEvent(QColumnView* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseMousePressEvent(QColumnView* self, QMouseEvent* event) {
+void QColumnView_SuperMousePressEvent(QColumnView* self, QMouseEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_MousePressEvent_IsBase(true);
@@ -1614,7 +1614,7 @@ void QColumnView_MouseMoveEvent(QColumnView* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseMouseMoveEvent(QColumnView* self, QMouseEvent* event) {
+void QColumnView_SuperMouseMoveEvent(QColumnView* self, QMouseEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_MouseMoveEvent_IsBase(true);
@@ -1643,7 +1643,7 @@ void QColumnView_MouseReleaseEvent(QColumnView* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseMouseReleaseEvent(QColumnView* self, QMouseEvent* event) {
+void QColumnView_SuperMouseReleaseEvent(QColumnView* self, QMouseEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_MouseReleaseEvent_IsBase(true);
@@ -1672,7 +1672,7 @@ void QColumnView_MouseDoubleClickEvent(QColumnView* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseMouseDoubleClickEvent(QColumnView* self, QMouseEvent* event) {
+void QColumnView_SuperMouseDoubleClickEvent(QColumnView* self, QMouseEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_MouseDoubleClickEvent_IsBase(true);
@@ -1701,7 +1701,7 @@ void QColumnView_DragEnterEvent(QColumnView* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseDragEnterEvent(QColumnView* self, QDragEnterEvent* event) {
+void QColumnView_SuperDragEnterEvent(QColumnView* self, QDragEnterEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_DragEnterEvent_IsBase(true);
@@ -1730,7 +1730,7 @@ void QColumnView_DragMoveEvent(QColumnView* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseDragMoveEvent(QColumnView* self, QDragMoveEvent* event) {
+void QColumnView_SuperDragMoveEvent(QColumnView* self, QDragMoveEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_DragMoveEvent_IsBase(true);
@@ -1759,7 +1759,7 @@ void QColumnView_DragLeaveEvent(QColumnView* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseDragLeaveEvent(QColumnView* self, QDragLeaveEvent* event) {
+void QColumnView_SuperDragLeaveEvent(QColumnView* self, QDragLeaveEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_DragLeaveEvent_IsBase(true);
@@ -1788,7 +1788,7 @@ void QColumnView_DropEvent(QColumnView* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseDropEvent(QColumnView* self, QDropEvent* event) {
+void QColumnView_SuperDropEvent(QColumnView* self, QDropEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_DropEvent_IsBase(true);
@@ -1817,7 +1817,7 @@ void QColumnView_FocusInEvent(QColumnView* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseFocusInEvent(QColumnView* self, QFocusEvent* event) {
+void QColumnView_SuperFocusInEvent(QColumnView* self, QFocusEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_FocusInEvent_IsBase(true);
@@ -1846,7 +1846,7 @@ void QColumnView_FocusOutEvent(QColumnView* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseFocusOutEvent(QColumnView* self, QFocusEvent* event) {
+void QColumnView_SuperFocusOutEvent(QColumnView* self, QFocusEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_FocusOutEvent_IsBase(true);
@@ -1875,7 +1875,7 @@ void QColumnView_KeyPressEvent(QColumnView* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseKeyPressEvent(QColumnView* self, QKeyEvent* event) {
+void QColumnView_SuperKeyPressEvent(QColumnView* self, QKeyEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_KeyPressEvent_IsBase(true);
@@ -1904,7 +1904,7 @@ void QColumnView_TimerEvent(QColumnView* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseTimerEvent(QColumnView* self, QTimerEvent* event) {
+void QColumnView_SuperTimerEvent(QColumnView* self, QTimerEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_TimerEvent_IsBase(true);
@@ -1933,7 +1933,7 @@ void QColumnView_InputMethodEvent(QColumnView* self, QInputMethodEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseInputMethodEvent(QColumnView* self, QInputMethodEvent* event) {
+void QColumnView_SuperInputMethodEvent(QColumnView* self, QInputMethodEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_InputMethodEvent_IsBase(true);
@@ -1962,7 +1962,7 @@ bool QColumnView_EventFilter(QColumnView* self, QObject* object, QEvent* event) 
 }
 
 // Base class handler implementation
-bool QColumnView_QBaseEventFilter(QColumnView* self, QObject* object, QEvent* event) {
+bool QColumnView_SuperEventFilter(QColumnView* self, QObject* object, QEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_EventFilter_IsBase(true);
@@ -1990,7 +1990,7 @@ QSize* QColumnView_ViewportSizeHint(const QColumnView* self) {
 }
 
 // Base class handler implementation
-QSize* QColumnView_QBaseViewportSizeHint(const QColumnView* self) {
+QSize* QColumnView_SuperViewportSizeHint(const QColumnView* self) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_ViewportSizeHint_IsBase(true);
@@ -2018,7 +2018,7 @@ QSize* QColumnView_MinimumSizeHint(const QColumnView* self) {
 }
 
 // Base class handler implementation
-QSize* QColumnView_QBaseMinimumSizeHint(const QColumnView* self) {
+QSize* QColumnView_SuperMinimumSizeHint(const QColumnView* self) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_MinimumSizeHint_IsBase(true);
@@ -2047,7 +2047,7 @@ void QColumnView_SetupViewport(QColumnView* self, QWidget* viewport) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseSetupViewport(QColumnView* self, QWidget* viewport) {
+void QColumnView_SuperSetupViewport(QColumnView* self, QWidget* viewport) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_SetupViewport_IsBase(true);
@@ -2076,7 +2076,7 @@ void QColumnView_PaintEvent(QColumnView* self, QPaintEvent* param1) {
 }
 
 // Base class handler implementation
-void QColumnView_QBasePaintEvent(QColumnView* self, QPaintEvent* param1) {
+void QColumnView_SuperPaintEvent(QColumnView* self, QPaintEvent* param1) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_PaintEvent_IsBase(true);
@@ -2105,7 +2105,7 @@ void QColumnView_WheelEvent(QColumnView* self, QWheelEvent* param1) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseWheelEvent(QColumnView* self, QWheelEvent* param1) {
+void QColumnView_SuperWheelEvent(QColumnView* self, QWheelEvent* param1) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_WheelEvent_IsBase(true);
@@ -2134,7 +2134,7 @@ void QColumnView_ContextMenuEvent(QColumnView* self, QContextMenuEvent* param1) 
 }
 
 // Base class handler implementation
-void QColumnView_QBaseContextMenuEvent(QColumnView* self, QContextMenuEvent* param1) {
+void QColumnView_SuperContextMenuEvent(QColumnView* self, QContextMenuEvent* param1) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_ContextMenuEvent_IsBase(true);
@@ -2163,7 +2163,7 @@ void QColumnView_ChangeEvent(QColumnView* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseChangeEvent(QColumnView* self, QEvent* param1) {
+void QColumnView_SuperChangeEvent(QColumnView* self, QEvent* param1) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_ChangeEvent_IsBase(true);
@@ -2192,7 +2192,7 @@ void QColumnView_InitStyleOption(const QColumnView* self, QStyleOptionFrame* opt
 }
 
 // Base class handler implementation
-void QColumnView_QBaseInitStyleOption(const QColumnView* self, QStyleOptionFrame* option) {
+void QColumnView_SuperInitStyleOption(const QColumnView* self, QStyleOptionFrame* option) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_InitStyleOption_IsBase(true);
@@ -2221,7 +2221,7 @@ int QColumnView_DevType(const QColumnView* self) {
 }
 
 // Base class handler implementation
-int QColumnView_QBaseDevType(const QColumnView* self) {
+int QColumnView_SuperDevType(const QColumnView* self) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_DevType_IsBase(true);
@@ -2250,7 +2250,7 @@ void QColumnView_SetVisible(QColumnView* self, bool visible) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseSetVisible(QColumnView* self, bool visible) {
+void QColumnView_SuperSetVisible(QColumnView* self, bool visible) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_SetVisible_IsBase(true);
@@ -2279,7 +2279,7 @@ int QColumnView_HeightForWidth(const QColumnView* self, int param1) {
 }
 
 // Base class handler implementation
-int QColumnView_QBaseHeightForWidth(const QColumnView* self, int param1) {
+int QColumnView_SuperHeightForWidth(const QColumnView* self, int param1) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_HeightForWidth_IsBase(true);
@@ -2308,7 +2308,7 @@ bool QColumnView_HasHeightForWidth(const QColumnView* self) {
 }
 
 // Base class handler implementation
-bool QColumnView_QBaseHasHeightForWidth(const QColumnView* self) {
+bool QColumnView_SuperHasHeightForWidth(const QColumnView* self) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_HasHeightForWidth_IsBase(true);
@@ -2337,7 +2337,7 @@ QPaintEngine* QColumnView_PaintEngine(const QColumnView* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QColumnView_QBasePaintEngine(const QColumnView* self) {
+QPaintEngine* QColumnView_SuperPaintEngine(const QColumnView* self) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_PaintEngine_IsBase(true);
@@ -2366,7 +2366,7 @@ void QColumnView_KeyReleaseEvent(QColumnView* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseKeyReleaseEvent(QColumnView* self, QKeyEvent* event) {
+void QColumnView_SuperKeyReleaseEvent(QColumnView* self, QKeyEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_KeyReleaseEvent_IsBase(true);
@@ -2395,7 +2395,7 @@ void QColumnView_EnterEvent(QColumnView* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseEnterEvent(QColumnView* self, QEnterEvent* event) {
+void QColumnView_SuperEnterEvent(QColumnView* self, QEnterEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_EnterEvent_IsBase(true);
@@ -2424,7 +2424,7 @@ void QColumnView_LeaveEvent(QColumnView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseLeaveEvent(QColumnView* self, QEvent* event) {
+void QColumnView_SuperLeaveEvent(QColumnView* self, QEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_LeaveEvent_IsBase(true);
@@ -2453,7 +2453,7 @@ void QColumnView_MoveEvent(QColumnView* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseMoveEvent(QColumnView* self, QMoveEvent* event) {
+void QColumnView_SuperMoveEvent(QColumnView* self, QMoveEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_MoveEvent_IsBase(true);
@@ -2482,7 +2482,7 @@ void QColumnView_CloseEvent(QColumnView* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseCloseEvent(QColumnView* self, QCloseEvent* event) {
+void QColumnView_SuperCloseEvent(QColumnView* self, QCloseEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_CloseEvent_IsBase(true);
@@ -2511,7 +2511,7 @@ void QColumnView_TabletEvent(QColumnView* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseTabletEvent(QColumnView* self, QTabletEvent* event) {
+void QColumnView_SuperTabletEvent(QColumnView* self, QTabletEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_TabletEvent_IsBase(true);
@@ -2540,7 +2540,7 @@ void QColumnView_ActionEvent(QColumnView* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseActionEvent(QColumnView* self, QActionEvent* event) {
+void QColumnView_SuperActionEvent(QColumnView* self, QActionEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_ActionEvent_IsBase(true);
@@ -2569,7 +2569,7 @@ void QColumnView_ShowEvent(QColumnView* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseShowEvent(QColumnView* self, QShowEvent* event) {
+void QColumnView_SuperShowEvent(QColumnView* self, QShowEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_ShowEvent_IsBase(true);
@@ -2598,7 +2598,7 @@ void QColumnView_HideEvent(QColumnView* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseHideEvent(QColumnView* self, QHideEvent* event) {
+void QColumnView_SuperHideEvent(QColumnView* self, QHideEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_HideEvent_IsBase(true);
@@ -2628,7 +2628,7 @@ bool QColumnView_NativeEvent(QColumnView* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool QColumnView_QBaseNativeEvent(QColumnView* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QColumnView_SuperNativeEvent(QColumnView* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
@@ -2658,7 +2658,7 @@ int QColumnView_Metric(const QColumnView* self, int param1) {
 }
 
 // Base class handler implementation
-int QColumnView_QBaseMetric(const QColumnView* self, int param1) {
+int QColumnView_SuperMetric(const QColumnView* self, int param1) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_Metric_IsBase(true);
@@ -2687,7 +2687,7 @@ void QColumnView_InitPainter(const QColumnView* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseInitPainter(const QColumnView* self, QPainter* painter) {
+void QColumnView_SuperInitPainter(const QColumnView* self, QPainter* painter) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_InitPainter_IsBase(true);
@@ -2716,7 +2716,7 @@ QPaintDevice* QColumnView_Redirected(const QColumnView* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QColumnView_QBaseRedirected(const QColumnView* self, QPoint* offset) {
+QPaintDevice* QColumnView_SuperRedirected(const QColumnView* self, QPoint* offset) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_Redirected_IsBase(true);
@@ -2745,7 +2745,7 @@ QPainter* QColumnView_SharedPainter(const QColumnView* self) {
 }
 
 // Base class handler implementation
-QPainter* QColumnView_QBaseSharedPainter(const QColumnView* self) {
+QPainter* QColumnView_SuperSharedPainter(const QColumnView* self) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_SharedPainter_IsBase(true);
@@ -2774,7 +2774,7 @@ void QColumnView_ChildEvent(QColumnView* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseChildEvent(QColumnView* self, QChildEvent* event) {
+void QColumnView_SuperChildEvent(QColumnView* self, QChildEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_ChildEvent_IsBase(true);
@@ -2803,7 +2803,7 @@ void QColumnView_CustomEvent(QColumnView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseCustomEvent(QColumnView* self, QEvent* event) {
+void QColumnView_SuperCustomEvent(QColumnView* self, QEvent* event) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_CustomEvent_IsBase(true);
@@ -2832,7 +2832,7 @@ void QColumnView_ConnectNotify(QColumnView* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseConnectNotify(QColumnView* self, const QMetaMethod* signal) {
+void QColumnView_SuperConnectNotify(QColumnView* self, const QMetaMethod* signal) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_ConnectNotify_IsBase(true);
@@ -2861,7 +2861,7 @@ void QColumnView_DisconnectNotify(QColumnView* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QColumnView_QBaseDisconnectNotify(QColumnView* self, const QMetaMethod* signal) {
+void QColumnView_SuperDisconnectNotify(QColumnView* self, const QMetaMethod* signal) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_DisconnectNotify_IsBase(true);
@@ -2890,7 +2890,7 @@ void QColumnView_InitializeColumn(const QColumnView* self, QAbstractItemView* co
 }
 
 // Base class handler implementation
-void QColumnView_QBaseInitializeColumn(const QColumnView* self, QAbstractItemView* column) {
+void QColumnView_SuperInitializeColumn(const QColumnView* self, QAbstractItemView* column) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_InitializeColumn_IsBase(true);
@@ -2919,7 +2919,7 @@ int QColumnView_State(const QColumnView* self) {
 }
 
 // Base class handler implementation
-int QColumnView_QBaseState(const QColumnView* self) {
+int QColumnView_SuperState(const QColumnView* self) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_State_IsBase(true);
@@ -2948,7 +2948,7 @@ void QColumnView_SetState(QColumnView* self, int state) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseSetState(QColumnView* self, int state) {
+void QColumnView_SuperSetState(QColumnView* self, int state) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_SetState_IsBase(true);
@@ -2977,7 +2977,7 @@ void QColumnView_ScheduleDelayedItemsLayout(QColumnView* self) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseScheduleDelayedItemsLayout(QColumnView* self) {
+void QColumnView_SuperScheduleDelayedItemsLayout(QColumnView* self) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_ScheduleDelayedItemsLayout_IsBase(true);
@@ -3006,7 +3006,7 @@ void QColumnView_ExecuteDelayedItemsLayout(QColumnView* self) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseExecuteDelayedItemsLayout(QColumnView* self) {
+void QColumnView_SuperExecuteDelayedItemsLayout(QColumnView* self) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_ExecuteDelayedItemsLayout_IsBase(true);
@@ -3035,7 +3035,7 @@ void QColumnView_SetDirtyRegion(QColumnView* self, const QRegion* region) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseSetDirtyRegion(QColumnView* self, const QRegion* region) {
+void QColumnView_SuperSetDirtyRegion(QColumnView* self, const QRegion* region) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_SetDirtyRegion_IsBase(true);
@@ -3064,7 +3064,7 @@ void QColumnView_ScrollDirtyRegion(QColumnView* self, int dx, int dy) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseScrollDirtyRegion(QColumnView* self, int dx, int dy) {
+void QColumnView_SuperScrollDirtyRegion(QColumnView* self, int dx, int dy) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_ScrollDirtyRegion_IsBase(true);
@@ -3092,7 +3092,7 @@ QPoint* QColumnView_DirtyRegionOffset(const QColumnView* self) {
 }
 
 // Base class handler implementation
-QPoint* QColumnView_QBaseDirtyRegionOffset(const QColumnView* self) {
+QPoint* QColumnView_SuperDirtyRegionOffset(const QColumnView* self) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_DirtyRegionOffset_IsBase(true);
@@ -3120,7 +3120,7 @@ void QColumnView_StartAutoScroll(QColumnView* self) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseStartAutoScroll(QColumnView* self) {
+void QColumnView_SuperStartAutoScroll(QColumnView* self) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_StartAutoScroll_IsBase(true);
@@ -3149,7 +3149,7 @@ void QColumnView_StopAutoScroll(QColumnView* self) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseStopAutoScroll(QColumnView* self) {
+void QColumnView_SuperStopAutoScroll(QColumnView* self) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_StopAutoScroll_IsBase(true);
@@ -3178,7 +3178,7 @@ void QColumnView_DoAutoScroll(QColumnView* self) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseDoAutoScroll(QColumnView* self) {
+void QColumnView_SuperDoAutoScroll(QColumnView* self) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_DoAutoScroll_IsBase(true);
@@ -3207,7 +3207,7 @@ int QColumnView_DropIndicatorPosition(const QColumnView* self) {
 }
 
 // Base class handler implementation
-int QColumnView_QBaseDropIndicatorPosition(const QColumnView* self) {
+int QColumnView_SuperDropIndicatorPosition(const QColumnView* self) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_DropIndicatorPosition_IsBase(true);
@@ -3236,7 +3236,7 @@ void QColumnView_SetViewportMargins(QColumnView* self, int left, int top, int ri
 }
 
 // Base class handler implementation
-void QColumnView_QBaseSetViewportMargins(QColumnView* self, int left, int top, int right, int bottom) {
+void QColumnView_SuperSetViewportMargins(QColumnView* self, int left, int top, int right, int bottom) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_SetViewportMargins_IsBase(true);
@@ -3264,7 +3264,7 @@ QMargins* QColumnView_ViewportMargins(const QColumnView* self) {
 }
 
 // Base class handler implementation
-QMargins* QColumnView_QBaseViewportMargins(const QColumnView* self) {
+QMargins* QColumnView_SuperViewportMargins(const QColumnView* self) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_ViewportMargins_IsBase(true);
@@ -3292,7 +3292,7 @@ void QColumnView_DrawFrame(QColumnView* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseDrawFrame(QColumnView* self, QPainter* param1) {
+void QColumnView_SuperDrawFrame(QColumnView* self, QPainter* param1) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_DrawFrame_IsBase(true);
@@ -3321,7 +3321,7 @@ void QColumnView_UpdateMicroFocus(QColumnView* self) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseUpdateMicroFocus(QColumnView* self) {
+void QColumnView_SuperUpdateMicroFocus(QColumnView* self) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_UpdateMicroFocus_IsBase(true);
@@ -3350,7 +3350,7 @@ void QColumnView_Create(QColumnView* self) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseCreate(QColumnView* self) {
+void QColumnView_SuperCreate(QColumnView* self) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_Create_IsBase(true);
@@ -3379,7 +3379,7 @@ void QColumnView_Destroy(QColumnView* self) {
 }
 
 // Base class handler implementation
-void QColumnView_QBaseDestroy(QColumnView* self) {
+void QColumnView_SuperDestroy(QColumnView* self) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_Destroy_IsBase(true);
@@ -3408,7 +3408,7 @@ bool QColumnView_FocusNextChild(QColumnView* self) {
 }
 
 // Base class handler implementation
-bool QColumnView_QBaseFocusNextChild(QColumnView* self) {
+bool QColumnView_SuperFocusNextChild(QColumnView* self) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_FocusNextChild_IsBase(true);
@@ -3437,7 +3437,7 @@ bool QColumnView_FocusPreviousChild(QColumnView* self) {
 }
 
 // Base class handler implementation
-bool QColumnView_QBaseFocusPreviousChild(QColumnView* self) {
+bool QColumnView_SuperFocusPreviousChild(QColumnView* self) {
     auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_FocusPreviousChild_IsBase(true);
@@ -3466,7 +3466,7 @@ QObject* QColumnView_Sender(const QColumnView* self) {
 }
 
 // Base class handler implementation
-QObject* QColumnView_QBaseSender(const QColumnView* self) {
+QObject* QColumnView_SuperSender(const QColumnView* self) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_Sender_IsBase(true);
@@ -3495,7 +3495,7 @@ int QColumnView_SenderSignalIndex(const QColumnView* self) {
 }
 
 // Base class handler implementation
-int QColumnView_QBaseSenderSignalIndex(const QColumnView* self) {
+int QColumnView_SuperSenderSignalIndex(const QColumnView* self) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_SenderSignalIndex_IsBase(true);
@@ -3524,7 +3524,7 @@ int QColumnView_Receivers(const QColumnView* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QColumnView_QBaseReceivers(const QColumnView* self, const char* signal) {
+int QColumnView_SuperReceivers(const QColumnView* self, const char* signal) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_Receivers_IsBase(true);
@@ -3553,7 +3553,7 @@ bool QColumnView_IsSignalConnected(const QColumnView* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QColumnView_QBaseIsSignalConnected(const QColumnView* self, const QMetaMethod* signal) {
+bool QColumnView_SuperIsSignalConnected(const QColumnView* self, const QMetaMethod* signal) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_IsSignalConnected_IsBase(true);
@@ -3582,7 +3582,7 @@ double QColumnView_GetDecodedMetricF(const QColumnView* self, int metricA, int m
 }
 
 // Base class handler implementation
-double QColumnView_QBaseGetDecodedMetricF(const QColumnView* self, int metricA, int metricB) {
+double QColumnView_SuperGetDecodedMetricF(const QColumnView* self, int metricA, int metricB) {
     auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         vqcolumnview->setQColumnView_GetDecodedMetricF_IsBase(true);

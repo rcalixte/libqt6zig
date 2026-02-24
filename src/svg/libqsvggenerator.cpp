@@ -134,7 +134,7 @@ int QSvgGenerator_Metric(const QSvgGenerator* self, int metric) {
 }
 
 // Base class handler implementation
-QPaintEngine* QSvgGenerator_QBasePaintEngine(const QSvgGenerator* self) {
+QPaintEngine* QSvgGenerator_SuperPaintEngine(const QSvgGenerator* self) {
     auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
     if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
         vqsvggenerator->setQSvgGenerator_PaintEngine_IsBase(true);
@@ -153,7 +153,7 @@ void QSvgGenerator_OnPaintEngine(const QSvgGenerator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QSvgGenerator_QBaseMetric(const QSvgGenerator* self, int metric) {
+int QSvgGenerator_SuperMetric(const QSvgGenerator* self, int metric) {
     auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
     if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
         vqsvggenerator->setQSvgGenerator_Metric_IsBase(true);
@@ -182,7 +182,7 @@ int QSvgGenerator_DevType(const QSvgGenerator* self) {
 }
 
 // Base class handler implementation
-int QSvgGenerator_QBaseDevType(const QSvgGenerator* self) {
+int QSvgGenerator_SuperDevType(const QSvgGenerator* self) {
     auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
     if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
         vqsvggenerator->setQSvgGenerator_DevType_IsBase(true);
@@ -211,7 +211,7 @@ void QSvgGenerator_InitPainter(const QSvgGenerator* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QSvgGenerator_QBaseInitPainter(const QSvgGenerator* self, QPainter* painter) {
+void QSvgGenerator_SuperInitPainter(const QSvgGenerator* self, QPainter* painter) {
     auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
     if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
         vqsvggenerator->setQSvgGenerator_InitPainter_IsBase(true);
@@ -240,7 +240,7 @@ QPaintDevice* QSvgGenerator_Redirected(const QSvgGenerator* self, QPoint* offset
 }
 
 // Base class handler implementation
-QPaintDevice* QSvgGenerator_QBaseRedirected(const QSvgGenerator* self, QPoint* offset) {
+QPaintDevice* QSvgGenerator_SuperRedirected(const QSvgGenerator* self, QPoint* offset) {
     auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
     if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
         vqsvggenerator->setQSvgGenerator_Redirected_IsBase(true);
@@ -269,7 +269,7 @@ QPainter* QSvgGenerator_SharedPainter(const QSvgGenerator* self) {
 }
 
 // Base class handler implementation
-QPainter* QSvgGenerator_QBaseSharedPainter(const QSvgGenerator* self) {
+QPainter* QSvgGenerator_SuperSharedPainter(const QSvgGenerator* self) {
     auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
     if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
         vqsvggenerator->setQSvgGenerator_SharedPainter_IsBase(true);
@@ -298,7 +298,7 @@ double QSvgGenerator_GetDecodedMetricF(const QSvgGenerator* self, int metricA, i
 }
 
 // Base class handler implementation
-double QSvgGenerator_QBaseGetDecodedMetricF(const QSvgGenerator* self, int metricA, int metricB) {
+double QSvgGenerator_SuperGetDecodedMetricF(const QSvgGenerator* self, int metricA, int metricB) {
     auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
     if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
         vqsvggenerator->setQSvgGenerator_GetDecodedMetricF_IsBase(true);

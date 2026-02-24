@@ -44,6 +44,10 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperClone` instead
+    ///
+    pub const QBaseClone = SuperClone;
+
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#clone)
     ///
     /// Base class method implementation
@@ -52,8 +56,8 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// ` self: QtC.KCountryFlagEmojiIconEngine `
     ///
-    pub fn QBaseClone(self: ?*anyopaque) QtC.QIconEngine {
-        return qtc.KCountryFlagEmojiIconEngine_QBaseClone(@ptrCast(self));
+    pub fn SuperClone(self: ?*anyopaque) QtC.QIconEngine {
+        return qtc.KCountryFlagEmojiIconEngine_SuperClone(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#key)
@@ -88,6 +92,10 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_OnKey(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperKey` instead
+    ///
+    pub const QBaseKey = SuperKey;
+
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#key)
     ///
     /// Base class method implementation
@@ -98,8 +106,8 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseKey(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KCountryFlagEmojiIconEngine_QBaseKey(@ptrCast(self));
+    pub fn SuperKey(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KCountryFlagEmojiIconEngine_SuperKey(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcountryflagemojiiconengine.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -138,6 +146,10 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPaint` instead
+    ///
+    pub const QBasePaint = SuperPaint;
+
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#paint)
     ///
     /// Base class method implementation
@@ -154,8 +166,8 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn QBasePaint(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, mode: i32, state: i32) void {
-        qtc.KCountryFlagEmojiIconEngine_QBasePaint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @bitCast(mode), @bitCast(state));
+    pub fn SuperPaint(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, mode: i32, state: i32) void {
+        qtc.KCountryFlagEmojiIconEngine_SuperPaint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @bitCast(mode), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#pixmap)
@@ -188,6 +200,10 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_OnPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPixmap` instead
+    ///
+    pub const QBasePixmap = SuperPixmap;
+
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#pixmap)
     ///
     /// Base class method implementation
@@ -202,8 +218,8 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn QBasePixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QPixmap {
-        return qtc.KCountryFlagEmojiIconEngine_QBasePixmap(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state));
+    pub fn SuperPixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QPixmap {
+        return qtc.KCountryFlagEmojiIconEngine_SuperPixmap(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#scaledPixmap)
@@ -238,6 +254,10 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_OnScaledPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperScaledPixmap` instead
+    ///
+    pub const QBaseScaledPixmap = SuperScaledPixmap;
+
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#scaledPixmap)
     ///
     /// Base class method implementation
@@ -254,8 +274,8 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// ` scale: f64 `
     ///
-    pub fn QBaseScaledPixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32, scale: f64) QtC.QPixmap {
-        return qtc.KCountryFlagEmojiIconEngine_QBaseScaledPixmap(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state), @bitCast(scale));
+    pub fn SuperScaledPixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32, scale: f64) QtC.QPixmap {
+        return qtc.KCountryFlagEmojiIconEngine_SuperScaledPixmap(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state), @bitCast(scale));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#isNull)
@@ -282,6 +302,10 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_OnIsNull(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsNull` instead
+    ///
+    pub const QBaseIsNull = SuperIsNull;
+
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#isNull)
     ///
     /// Base class method implementation
@@ -290,8 +314,8 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// ` self: QtC.KCountryFlagEmojiIconEngine `
     ///
-    pub fn QBaseIsNull(self: ?*anyopaque) bool {
-        return qtc.KCountryFlagEmojiIconEngine_QBaseIsNull(@ptrCast(self));
+    pub fn SuperIsNull(self: ?*anyopaque) bool {
+        return qtc.KCountryFlagEmojiIconEngine_SuperIsNull(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#setGlobalDefaultFont)
@@ -324,6 +348,10 @@ pub const kcountryflagemojiiconengine = struct {
         return qtc.KCountryFlagEmojiIconEngine_ActualSize(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state));
     }
 
+    /// ### DEPRECATED: Use `SuperActualSize` instead
+    ///
+    pub const QBaseActualSize = SuperActualSize;
+
     /// Inherited from QIconEngine
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#actualSize)
@@ -340,8 +368,8 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn QBaseActualSize(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QSize {
-        return qtc.KCountryFlagEmojiIconEngine_QBaseActualSize(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state));
+    pub fn SuperActualSize(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QSize {
+        return qtc.KCountryFlagEmojiIconEngine_SuperActualSize(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state));
     }
 
     /// Inherited from QIconEngine
@@ -380,6 +408,10 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_AddPixmap(@ptrCast(self), @ptrCast(pixmap), @bitCast(mode), @bitCast(state));
     }
 
+    /// ### DEPRECATED: Use `SuperAddPixmap` instead
+    ///
+    pub const QBaseAddPixmap = SuperAddPixmap;
+
     /// Inherited from QIconEngine
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#addPixmap)
@@ -396,8 +428,8 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn QBaseAddPixmap(self: ?*anyopaque, pixmap: ?*anyopaque, mode: i32, state: i32) void {
-        qtc.KCountryFlagEmojiIconEngine_QBaseAddPixmap(@ptrCast(self), @ptrCast(pixmap), @bitCast(mode), @bitCast(state));
+    pub fn SuperAddPixmap(self: ?*anyopaque, pixmap: ?*anyopaque, mode: i32, state: i32) void {
+        qtc.KCountryFlagEmojiIconEngine_SuperAddPixmap(@ptrCast(self), @ptrCast(pixmap), @bitCast(mode), @bitCast(state));
     }
 
     /// Inherited from QIconEngine
@@ -442,6 +474,10 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_AddFile(@ptrCast(self), fileName_str, @ptrCast(size), @bitCast(mode), @bitCast(state));
     }
 
+    /// ### DEPRECATED: Use `SuperAddFile` instead
+    ///
+    pub const QBaseAddFile = SuperAddFile;
+
     /// Inherited from QIconEngine
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#addFile)
@@ -460,12 +496,12 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn QBaseAddFile(self: ?*anyopaque, fileName: []const u8, size: ?*anyopaque, mode: i32, state: i32) void {
+    pub fn SuperAddFile(self: ?*anyopaque, fileName: []const u8, size: ?*anyopaque, mode: i32, state: i32) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        qtc.KCountryFlagEmojiIconEngine_QBaseAddFile(@ptrCast(self), fileName_str, @ptrCast(size), @bitCast(mode), @bitCast(state));
+        qtc.KCountryFlagEmojiIconEngine_SuperAddFile(@ptrCast(self), fileName_str, @ptrCast(size), @bitCast(mode), @bitCast(state));
     }
 
     /// Inherited from QIconEngine
@@ -500,6 +536,10 @@ pub const kcountryflagemojiiconengine = struct {
         return qtc.KCountryFlagEmojiIconEngine_Read(@ptrCast(self), @ptrCast(in));
     }
 
+    /// ### DEPRECATED: Use `SuperRead` instead
+    ///
+    pub const QBaseRead = SuperRead;
+
     /// Inherited from QIconEngine
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#read)
@@ -512,8 +552,8 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// ` in: QtC.QDataStream `
     ///
-    pub fn QBaseRead(self: ?*anyopaque, in: ?*anyopaque) bool {
-        return qtc.KCountryFlagEmojiIconEngine_QBaseRead(@ptrCast(self), @ptrCast(in));
+    pub fn SuperRead(self: ?*anyopaque, in: ?*anyopaque) bool {
+        return qtc.KCountryFlagEmojiIconEngine_SuperRead(@ptrCast(self), @ptrCast(in));
     }
 
     /// Inherited from QIconEngine
@@ -548,6 +588,10 @@ pub const kcountryflagemojiiconengine = struct {
         return qtc.KCountryFlagEmojiIconEngine_Write(@ptrCast(self), @ptrCast(out));
     }
 
+    /// ### DEPRECATED: Use `SuperWrite` instead
+    ///
+    pub const QBaseWrite = SuperWrite;
+
     /// Inherited from QIconEngine
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#write)
@@ -560,8 +604,8 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// ` out: QtC.QDataStream `
     ///
-    pub fn QBaseWrite(self: ?*anyopaque, out: ?*anyopaque) bool {
-        return qtc.KCountryFlagEmojiIconEngine_QBaseWrite(@ptrCast(self), @ptrCast(out));
+    pub fn SuperWrite(self: ?*anyopaque, out: ?*anyopaque) bool {
+        return qtc.KCountryFlagEmojiIconEngine_SuperWrite(@ptrCast(self), @ptrCast(out));
     }
 
     /// Inherited from QIconEngine
@@ -605,6 +649,10 @@ pub const kcountryflagemojiiconengine = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperAvailableSizes` instead
+    ///
+    pub const QBaseAvailableSizes = SuperAvailableSizes;
+
     /// Inherited from QIconEngine
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#availableSizes)
@@ -621,8 +669,8 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseAvailableSizes(self: ?*anyopaque, mode: i32, state: i32, allocator: std.mem.Allocator) []QtC.QSize {
-        const _arr: qtc.libqt_list = qtc.KCountryFlagEmojiIconEngine_QBaseAvailableSizes(@ptrCast(self), @bitCast(mode), @bitCast(state));
+    pub fn SuperAvailableSizes(self: ?*anyopaque, mode: i32, state: i32, allocator: std.mem.Allocator) []QtC.QSize {
+        const _arr: qtc.libqt_list = qtc.KCountryFlagEmojiIconEngine_SuperAvailableSizes(@ptrCast(self), @bitCast(mode), @bitCast(state));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSize, _arr.len) catch @panic("kcountryflagemojiiconengine.AvailableSizes: Memory allocation failed");
         const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
@@ -672,6 +720,10 @@ pub const kcountryflagemojiiconengine = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `SuperIconName` instead
+    ///
+    pub const QBaseIconName = SuperIconName;
+
     /// Inherited from QIconEngine
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#iconName)
@@ -684,8 +736,8 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseIconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KCountryFlagEmojiIconEngine_QBaseIconName(@ptrCast(self));
+    pub fn SuperIconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KCountryFlagEmojiIconEngine_SuperIconName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcountryflagemojiiconengine.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -728,6 +780,10 @@ pub const kcountryflagemojiiconengine = struct {
         qtc.KCountryFlagEmojiIconEngine_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
+    /// ### DEPRECATED: Use `SuperVirtualHook` instead
+    ///
+    pub const QBaseVirtualHook = SuperVirtualHook;
+
     /// Inherited from QIconEngine
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#virtual_hook)
@@ -742,8 +798,8 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KCountryFlagEmojiIconEngine_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
+    pub fn SuperVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
+        qtc.KCountryFlagEmojiIconEngine_SuperVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from QIconEngine
@@ -761,6 +817,9 @@ pub const kcountryflagemojiiconengine = struct {
     pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.KCountryFlagEmojiIconEngine_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kcountryflagemojiiconengine.html#dtor.KCountryFlagEmojiIconEngine)
     ///
@@ -770,7 +829,7 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// ` self: QtC.KCountryFlagEmojiIconEngine `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KCountryFlagEmojiIconEngine_Delete(@ptrCast(self));
     }
 };

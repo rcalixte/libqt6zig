@@ -149,7 +149,7 @@ bool QStackedWidget_Event(QStackedWidget* self, QEvent* e) {
 }
 
 // Base class handler implementation
-QMetaObject* QStackedWidget_QBaseMetaObject(const QStackedWidget* self) {
+QMetaObject* QStackedWidget_SuperMetaObject(const QStackedWidget* self) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_MetaObject_IsBase(true);
@@ -168,7 +168,7 @@ void QStackedWidget_OnMetaObject(const QStackedWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QStackedWidget_QBaseMetacast(QStackedWidget* self, const char* param1) {
+void* QStackedWidget_SuperMetacast(QStackedWidget* self, const char* param1) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_Metacast_IsBase(true);
@@ -187,7 +187,7 @@ void QStackedWidget_OnMetacast(QStackedWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QStackedWidget_QBaseMetacall(QStackedWidget* self, int param1, int param2, void** param3) {
+int QStackedWidget_SuperMetacall(QStackedWidget* self, int param1, int param2, void** param3) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_Metacall_IsBase(true);
@@ -206,7 +206,7 @@ void QStackedWidget_OnMetacall(QStackedWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QStackedWidget_QBaseEvent(QStackedWidget* self, QEvent* e) {
+bool QStackedWidget_SuperEvent(QStackedWidget* self, QEvent* e) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_Event_IsBase(true);
@@ -235,7 +235,7 @@ QSize* QStackedWidget_SizeHint(const QStackedWidget* self) {
 }
 
 // Base class handler implementation
-QSize* QStackedWidget_QBaseSizeHint(const QStackedWidget* self) {
+QSize* QStackedWidget_SuperSizeHint(const QStackedWidget* self) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_SizeHint_IsBase(true);
@@ -264,7 +264,7 @@ void QStackedWidget_PaintEvent(QStackedWidget* self, QPaintEvent* param1) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBasePaintEvent(QStackedWidget* self, QPaintEvent* param1) {
+void QStackedWidget_SuperPaintEvent(QStackedWidget* self, QPaintEvent* param1) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_PaintEvent_IsBase(true);
@@ -293,7 +293,7 @@ void QStackedWidget_ChangeEvent(QStackedWidget* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseChangeEvent(QStackedWidget* self, QEvent* param1) {
+void QStackedWidget_SuperChangeEvent(QStackedWidget* self, QEvent* param1) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_ChangeEvent_IsBase(true);
@@ -322,7 +322,7 @@ void QStackedWidget_InitStyleOption(const QStackedWidget* self, QStyleOptionFram
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseInitStyleOption(const QStackedWidget* self, QStyleOptionFrame* option) {
+void QStackedWidget_SuperInitStyleOption(const QStackedWidget* self, QStyleOptionFrame* option) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_InitStyleOption_IsBase(true);
@@ -351,7 +351,7 @@ int QStackedWidget_DevType(const QStackedWidget* self) {
 }
 
 // Base class handler implementation
-int QStackedWidget_QBaseDevType(const QStackedWidget* self) {
+int QStackedWidget_SuperDevType(const QStackedWidget* self) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_DevType_IsBase(true);
@@ -380,7 +380,7 @@ void QStackedWidget_SetVisible(QStackedWidget* self, bool visible) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseSetVisible(QStackedWidget* self, bool visible) {
+void QStackedWidget_SuperSetVisible(QStackedWidget* self, bool visible) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_SetVisible_IsBase(true);
@@ -409,7 +409,7 @@ QSize* QStackedWidget_MinimumSizeHint(const QStackedWidget* self) {
 }
 
 // Base class handler implementation
-QSize* QStackedWidget_QBaseMinimumSizeHint(const QStackedWidget* self) {
+QSize* QStackedWidget_SuperMinimumSizeHint(const QStackedWidget* self) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_MinimumSizeHint_IsBase(true);
@@ -438,7 +438,7 @@ int QStackedWidget_HeightForWidth(const QStackedWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int QStackedWidget_QBaseHeightForWidth(const QStackedWidget* self, int param1) {
+int QStackedWidget_SuperHeightForWidth(const QStackedWidget* self, int param1) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_HeightForWidth_IsBase(true);
@@ -467,7 +467,7 @@ bool QStackedWidget_HasHeightForWidth(const QStackedWidget* self) {
 }
 
 // Base class handler implementation
-bool QStackedWidget_QBaseHasHeightForWidth(const QStackedWidget* self) {
+bool QStackedWidget_SuperHasHeightForWidth(const QStackedWidget* self) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_HasHeightForWidth_IsBase(true);
@@ -496,7 +496,7 @@ QPaintEngine* QStackedWidget_PaintEngine(const QStackedWidget* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QStackedWidget_QBasePaintEngine(const QStackedWidget* self) {
+QPaintEngine* QStackedWidget_SuperPaintEngine(const QStackedWidget* self) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_PaintEngine_IsBase(true);
@@ -525,7 +525,7 @@ void QStackedWidget_MousePressEvent(QStackedWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseMousePressEvent(QStackedWidget* self, QMouseEvent* event) {
+void QStackedWidget_SuperMousePressEvent(QStackedWidget* self, QMouseEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_MousePressEvent_IsBase(true);
@@ -554,7 +554,7 @@ void QStackedWidget_MouseReleaseEvent(QStackedWidget* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseMouseReleaseEvent(QStackedWidget* self, QMouseEvent* event) {
+void QStackedWidget_SuperMouseReleaseEvent(QStackedWidget* self, QMouseEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_MouseReleaseEvent_IsBase(true);
@@ -583,7 +583,7 @@ void QStackedWidget_MouseDoubleClickEvent(QStackedWidget* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseMouseDoubleClickEvent(QStackedWidget* self, QMouseEvent* event) {
+void QStackedWidget_SuperMouseDoubleClickEvent(QStackedWidget* self, QMouseEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_MouseDoubleClickEvent_IsBase(true);
@@ -612,7 +612,7 @@ void QStackedWidget_MouseMoveEvent(QStackedWidget* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseMouseMoveEvent(QStackedWidget* self, QMouseEvent* event) {
+void QStackedWidget_SuperMouseMoveEvent(QStackedWidget* self, QMouseEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_MouseMoveEvent_IsBase(true);
@@ -641,7 +641,7 @@ void QStackedWidget_WheelEvent(QStackedWidget* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseWheelEvent(QStackedWidget* self, QWheelEvent* event) {
+void QStackedWidget_SuperWheelEvent(QStackedWidget* self, QWheelEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_WheelEvent_IsBase(true);
@@ -670,7 +670,7 @@ void QStackedWidget_KeyPressEvent(QStackedWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseKeyPressEvent(QStackedWidget* self, QKeyEvent* event) {
+void QStackedWidget_SuperKeyPressEvent(QStackedWidget* self, QKeyEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_KeyPressEvent_IsBase(true);
@@ -699,7 +699,7 @@ void QStackedWidget_KeyReleaseEvent(QStackedWidget* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseKeyReleaseEvent(QStackedWidget* self, QKeyEvent* event) {
+void QStackedWidget_SuperKeyReleaseEvent(QStackedWidget* self, QKeyEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_KeyReleaseEvent_IsBase(true);
@@ -728,7 +728,7 @@ void QStackedWidget_FocusInEvent(QStackedWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseFocusInEvent(QStackedWidget* self, QFocusEvent* event) {
+void QStackedWidget_SuperFocusInEvent(QStackedWidget* self, QFocusEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_FocusInEvent_IsBase(true);
@@ -757,7 +757,7 @@ void QStackedWidget_FocusOutEvent(QStackedWidget* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseFocusOutEvent(QStackedWidget* self, QFocusEvent* event) {
+void QStackedWidget_SuperFocusOutEvent(QStackedWidget* self, QFocusEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_FocusOutEvent_IsBase(true);
@@ -786,7 +786,7 @@ void QStackedWidget_EnterEvent(QStackedWidget* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseEnterEvent(QStackedWidget* self, QEnterEvent* event) {
+void QStackedWidget_SuperEnterEvent(QStackedWidget* self, QEnterEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_EnterEvent_IsBase(true);
@@ -815,7 +815,7 @@ void QStackedWidget_LeaveEvent(QStackedWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseLeaveEvent(QStackedWidget* self, QEvent* event) {
+void QStackedWidget_SuperLeaveEvent(QStackedWidget* self, QEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_LeaveEvent_IsBase(true);
@@ -844,7 +844,7 @@ void QStackedWidget_MoveEvent(QStackedWidget* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseMoveEvent(QStackedWidget* self, QMoveEvent* event) {
+void QStackedWidget_SuperMoveEvent(QStackedWidget* self, QMoveEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_MoveEvent_IsBase(true);
@@ -873,7 +873,7 @@ void QStackedWidget_ResizeEvent(QStackedWidget* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseResizeEvent(QStackedWidget* self, QResizeEvent* event) {
+void QStackedWidget_SuperResizeEvent(QStackedWidget* self, QResizeEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_ResizeEvent_IsBase(true);
@@ -902,7 +902,7 @@ void QStackedWidget_CloseEvent(QStackedWidget* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseCloseEvent(QStackedWidget* self, QCloseEvent* event) {
+void QStackedWidget_SuperCloseEvent(QStackedWidget* self, QCloseEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_CloseEvent_IsBase(true);
@@ -931,7 +931,7 @@ void QStackedWidget_ContextMenuEvent(QStackedWidget* self, QContextMenuEvent* ev
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseContextMenuEvent(QStackedWidget* self, QContextMenuEvent* event) {
+void QStackedWidget_SuperContextMenuEvent(QStackedWidget* self, QContextMenuEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_ContextMenuEvent_IsBase(true);
@@ -960,7 +960,7 @@ void QStackedWidget_TabletEvent(QStackedWidget* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseTabletEvent(QStackedWidget* self, QTabletEvent* event) {
+void QStackedWidget_SuperTabletEvent(QStackedWidget* self, QTabletEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_TabletEvent_IsBase(true);
@@ -989,7 +989,7 @@ void QStackedWidget_ActionEvent(QStackedWidget* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseActionEvent(QStackedWidget* self, QActionEvent* event) {
+void QStackedWidget_SuperActionEvent(QStackedWidget* self, QActionEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_ActionEvent_IsBase(true);
@@ -1018,7 +1018,7 @@ void QStackedWidget_DragEnterEvent(QStackedWidget* self, QDragEnterEvent* event)
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseDragEnterEvent(QStackedWidget* self, QDragEnterEvent* event) {
+void QStackedWidget_SuperDragEnterEvent(QStackedWidget* self, QDragEnterEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_DragEnterEvent_IsBase(true);
@@ -1047,7 +1047,7 @@ void QStackedWidget_DragMoveEvent(QStackedWidget* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseDragMoveEvent(QStackedWidget* self, QDragMoveEvent* event) {
+void QStackedWidget_SuperDragMoveEvent(QStackedWidget* self, QDragMoveEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_DragMoveEvent_IsBase(true);
@@ -1076,7 +1076,7 @@ void QStackedWidget_DragLeaveEvent(QStackedWidget* self, QDragLeaveEvent* event)
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseDragLeaveEvent(QStackedWidget* self, QDragLeaveEvent* event) {
+void QStackedWidget_SuperDragLeaveEvent(QStackedWidget* self, QDragLeaveEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_DragLeaveEvent_IsBase(true);
@@ -1105,7 +1105,7 @@ void QStackedWidget_DropEvent(QStackedWidget* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseDropEvent(QStackedWidget* self, QDropEvent* event) {
+void QStackedWidget_SuperDropEvent(QStackedWidget* self, QDropEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_DropEvent_IsBase(true);
@@ -1134,7 +1134,7 @@ void QStackedWidget_ShowEvent(QStackedWidget* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseShowEvent(QStackedWidget* self, QShowEvent* event) {
+void QStackedWidget_SuperShowEvent(QStackedWidget* self, QShowEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_ShowEvent_IsBase(true);
@@ -1163,7 +1163,7 @@ void QStackedWidget_HideEvent(QStackedWidget* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseHideEvent(QStackedWidget* self, QHideEvent* event) {
+void QStackedWidget_SuperHideEvent(QStackedWidget* self, QHideEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_HideEvent_IsBase(true);
@@ -1193,7 +1193,7 @@ bool QStackedWidget_NativeEvent(QStackedWidget* self, const libqt_string eventTy
 }
 
 // Base class handler implementation
-bool QStackedWidget_QBaseNativeEvent(QStackedWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QStackedWidget_SuperNativeEvent(QStackedWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
@@ -1223,7 +1223,7 @@ int QStackedWidget_Metric(const QStackedWidget* self, int param1) {
 }
 
 // Base class handler implementation
-int QStackedWidget_QBaseMetric(const QStackedWidget* self, int param1) {
+int QStackedWidget_SuperMetric(const QStackedWidget* self, int param1) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_Metric_IsBase(true);
@@ -1252,7 +1252,7 @@ void QStackedWidget_InitPainter(const QStackedWidget* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseInitPainter(const QStackedWidget* self, QPainter* painter) {
+void QStackedWidget_SuperInitPainter(const QStackedWidget* self, QPainter* painter) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_InitPainter_IsBase(true);
@@ -1281,7 +1281,7 @@ QPaintDevice* QStackedWidget_Redirected(const QStackedWidget* self, QPoint* offs
 }
 
 // Base class handler implementation
-QPaintDevice* QStackedWidget_QBaseRedirected(const QStackedWidget* self, QPoint* offset) {
+QPaintDevice* QStackedWidget_SuperRedirected(const QStackedWidget* self, QPoint* offset) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_Redirected_IsBase(true);
@@ -1310,7 +1310,7 @@ QPainter* QStackedWidget_SharedPainter(const QStackedWidget* self) {
 }
 
 // Base class handler implementation
-QPainter* QStackedWidget_QBaseSharedPainter(const QStackedWidget* self) {
+QPainter* QStackedWidget_SuperSharedPainter(const QStackedWidget* self) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_SharedPainter_IsBase(true);
@@ -1339,7 +1339,7 @@ void QStackedWidget_InputMethodEvent(QStackedWidget* self, QInputMethodEvent* pa
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseInputMethodEvent(QStackedWidget* self, QInputMethodEvent* param1) {
+void QStackedWidget_SuperInputMethodEvent(QStackedWidget* self, QInputMethodEvent* param1) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_InputMethodEvent_IsBase(true);
@@ -1368,7 +1368,7 @@ QVariant* QStackedWidget_InputMethodQuery(const QStackedWidget* self, int param1
 }
 
 // Base class handler implementation
-QVariant* QStackedWidget_QBaseInputMethodQuery(const QStackedWidget* self, int param1) {
+QVariant* QStackedWidget_SuperInputMethodQuery(const QStackedWidget* self, int param1) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_InputMethodQuery_IsBase(true);
@@ -1397,7 +1397,7 @@ bool QStackedWidget_FocusNextPrevChild(QStackedWidget* self, bool next) {
 }
 
 // Base class handler implementation
-bool QStackedWidget_QBaseFocusNextPrevChild(QStackedWidget* self, bool next) {
+bool QStackedWidget_SuperFocusNextPrevChild(QStackedWidget* self, bool next) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_FocusNextPrevChild_IsBase(true);
@@ -1426,7 +1426,7 @@ bool QStackedWidget_EventFilter(QStackedWidget* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QStackedWidget_QBaseEventFilter(QStackedWidget* self, QObject* watched, QEvent* event) {
+bool QStackedWidget_SuperEventFilter(QStackedWidget* self, QObject* watched, QEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_EventFilter_IsBase(true);
@@ -1455,7 +1455,7 @@ void QStackedWidget_TimerEvent(QStackedWidget* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseTimerEvent(QStackedWidget* self, QTimerEvent* event) {
+void QStackedWidget_SuperTimerEvent(QStackedWidget* self, QTimerEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_TimerEvent_IsBase(true);
@@ -1484,7 +1484,7 @@ void QStackedWidget_ChildEvent(QStackedWidget* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseChildEvent(QStackedWidget* self, QChildEvent* event) {
+void QStackedWidget_SuperChildEvent(QStackedWidget* self, QChildEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_ChildEvent_IsBase(true);
@@ -1513,7 +1513,7 @@ void QStackedWidget_CustomEvent(QStackedWidget* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseCustomEvent(QStackedWidget* self, QEvent* event) {
+void QStackedWidget_SuperCustomEvent(QStackedWidget* self, QEvent* event) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_CustomEvent_IsBase(true);
@@ -1542,7 +1542,7 @@ void QStackedWidget_ConnectNotify(QStackedWidget* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseConnectNotify(QStackedWidget* self, const QMetaMethod* signal) {
+void QStackedWidget_SuperConnectNotify(QStackedWidget* self, const QMetaMethod* signal) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_ConnectNotify_IsBase(true);
@@ -1571,7 +1571,7 @@ void QStackedWidget_DisconnectNotify(QStackedWidget* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseDisconnectNotify(QStackedWidget* self, const QMetaMethod* signal) {
+void QStackedWidget_SuperDisconnectNotify(QStackedWidget* self, const QMetaMethod* signal) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_DisconnectNotify_IsBase(true);
@@ -1600,7 +1600,7 @@ void QStackedWidget_DrawFrame(QStackedWidget* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseDrawFrame(QStackedWidget* self, QPainter* param1) {
+void QStackedWidget_SuperDrawFrame(QStackedWidget* self, QPainter* param1) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_DrawFrame_IsBase(true);
@@ -1629,7 +1629,7 @@ void QStackedWidget_UpdateMicroFocus(QStackedWidget* self) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseUpdateMicroFocus(QStackedWidget* self) {
+void QStackedWidget_SuperUpdateMicroFocus(QStackedWidget* self) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_UpdateMicroFocus_IsBase(true);
@@ -1658,7 +1658,7 @@ void QStackedWidget_Create(QStackedWidget* self) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseCreate(QStackedWidget* self) {
+void QStackedWidget_SuperCreate(QStackedWidget* self) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_Create_IsBase(true);
@@ -1687,7 +1687,7 @@ void QStackedWidget_Destroy(QStackedWidget* self) {
 }
 
 // Base class handler implementation
-void QStackedWidget_QBaseDestroy(QStackedWidget* self) {
+void QStackedWidget_SuperDestroy(QStackedWidget* self) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_Destroy_IsBase(true);
@@ -1716,7 +1716,7 @@ bool QStackedWidget_FocusNextChild(QStackedWidget* self) {
 }
 
 // Base class handler implementation
-bool QStackedWidget_QBaseFocusNextChild(QStackedWidget* self) {
+bool QStackedWidget_SuperFocusNextChild(QStackedWidget* self) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_FocusNextChild_IsBase(true);
@@ -1745,7 +1745,7 @@ bool QStackedWidget_FocusPreviousChild(QStackedWidget* self) {
 }
 
 // Base class handler implementation
-bool QStackedWidget_QBaseFocusPreviousChild(QStackedWidget* self) {
+bool QStackedWidget_SuperFocusPreviousChild(QStackedWidget* self) {
     auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_FocusPreviousChild_IsBase(true);
@@ -1774,7 +1774,7 @@ QObject* QStackedWidget_Sender(const QStackedWidget* self) {
 }
 
 // Base class handler implementation
-QObject* QStackedWidget_QBaseSender(const QStackedWidget* self) {
+QObject* QStackedWidget_SuperSender(const QStackedWidget* self) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_Sender_IsBase(true);
@@ -1803,7 +1803,7 @@ int QStackedWidget_SenderSignalIndex(const QStackedWidget* self) {
 }
 
 // Base class handler implementation
-int QStackedWidget_QBaseSenderSignalIndex(const QStackedWidget* self) {
+int QStackedWidget_SuperSenderSignalIndex(const QStackedWidget* self) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_SenderSignalIndex_IsBase(true);
@@ -1832,7 +1832,7 @@ int QStackedWidget_Receivers(const QStackedWidget* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QStackedWidget_QBaseReceivers(const QStackedWidget* self, const char* signal) {
+int QStackedWidget_SuperReceivers(const QStackedWidget* self, const char* signal) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_Receivers_IsBase(true);
@@ -1861,7 +1861,7 @@ bool QStackedWidget_IsSignalConnected(const QStackedWidget* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QStackedWidget_QBaseIsSignalConnected(const QStackedWidget* self, const QMetaMethod* signal) {
+bool QStackedWidget_SuperIsSignalConnected(const QStackedWidget* self, const QMetaMethod* signal) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_IsSignalConnected_IsBase(true);
@@ -1890,7 +1890,7 @@ double QStackedWidget_GetDecodedMetricF(const QStackedWidget* self, int metricA,
 }
 
 // Base class handler implementation
-double QStackedWidget_QBaseGetDecodedMetricF(const QStackedWidget* self, int metricA, int metricB) {
+double QStackedWidget_SuperGetDecodedMetricF(const QStackedWidget* self, int metricA, int metricB) {
     auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
     if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
         vqstackedwidget->setQStackedWidget_GetDecodedMetricF_IsBase(true);

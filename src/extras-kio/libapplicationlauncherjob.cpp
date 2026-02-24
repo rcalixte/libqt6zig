@@ -93,7 +93,7 @@ libqt_list /* of long long */ KIO__ApplicationLauncherJob_Pids(const KIO__Applic
 }
 
 // Base class handler implementation
-void KIO__ApplicationLauncherJob_QBaseStart(KIO__ApplicationLauncherJob* self) {
+void KIO__ApplicationLauncherJob_SuperStart(KIO__ApplicationLauncherJob* self) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_Start_IsBase(true);
@@ -122,7 +122,7 @@ QMetaObject* KIO__ApplicationLauncherJob_MetaObject(const KIO__ApplicationLaunch
 }
 
 // Base class handler implementation
-QMetaObject* KIO__ApplicationLauncherJob_QBaseMetaObject(const KIO__ApplicationLauncherJob* self) {
+QMetaObject* KIO__ApplicationLauncherJob_SuperMetaObject(const KIO__ApplicationLauncherJob* self) {
     auto* vkioapplicationlauncherjob = const_cast<VirtualKIOApplicationLauncherJob*>(dynamic_cast<const VirtualKIOApplicationLauncherJob*>(self));
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_MetaObject_IsBase(true);
@@ -151,7 +151,7 @@ void* KIO__ApplicationLauncherJob_Metacast(KIO__ApplicationLauncherJob* self, co
 }
 
 // Base class handler implementation
-void* KIO__ApplicationLauncherJob_QBaseMetacast(KIO__ApplicationLauncherJob* self, const char* param1) {
+void* KIO__ApplicationLauncherJob_SuperMetacast(KIO__ApplicationLauncherJob* self, const char* param1) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_Metacast_IsBase(true);
@@ -180,7 +180,7 @@ int KIO__ApplicationLauncherJob_Metacall(KIO__ApplicationLauncherJob* self, int 
 }
 
 // Base class handler implementation
-int KIO__ApplicationLauncherJob_QBaseMetacall(KIO__ApplicationLauncherJob* self, int param1, int param2, void** param3) {
+int KIO__ApplicationLauncherJob_SuperMetacall(KIO__ApplicationLauncherJob* self, int param1, int param2, void** param3) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_Metacall_IsBase(true);
@@ -209,7 +209,7 @@ bool KIO__ApplicationLauncherJob_DoKill(KIO__ApplicationLauncherJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__ApplicationLauncherJob_QBaseDoKill(KIO__ApplicationLauncherJob* self) {
+bool KIO__ApplicationLauncherJob_SuperDoKill(KIO__ApplicationLauncherJob* self) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_DoKill_IsBase(true);
@@ -238,7 +238,7 @@ bool KIO__ApplicationLauncherJob_DoSuspend(KIO__ApplicationLauncherJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__ApplicationLauncherJob_QBaseDoSuspend(KIO__ApplicationLauncherJob* self) {
+bool KIO__ApplicationLauncherJob_SuperDoSuspend(KIO__ApplicationLauncherJob* self) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_DoSuspend_IsBase(true);
@@ -267,7 +267,7 @@ bool KIO__ApplicationLauncherJob_DoResume(KIO__ApplicationLauncherJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__ApplicationLauncherJob_QBaseDoResume(KIO__ApplicationLauncherJob* self) {
+bool KIO__ApplicationLauncherJob_SuperDoResume(KIO__ApplicationLauncherJob* self) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_DoResume_IsBase(true);
@@ -312,7 +312,7 @@ libqt_string KIO__ApplicationLauncherJob_ErrorString(const KIO__ApplicationLaunc
 }
 
 // Base class handler implementation
-libqt_string KIO__ApplicationLauncherJob_QBaseErrorString(const KIO__ApplicationLauncherJob* self) {
+libqt_string KIO__ApplicationLauncherJob_SuperErrorString(const KIO__ApplicationLauncherJob* self) {
     auto* vkioapplicationlauncherjob = const_cast<VirtualKIOApplicationLauncherJob*>(dynamic_cast<const VirtualKIOApplicationLauncherJob*>(self));
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_ErrorString_IsBase(true);
@@ -357,7 +357,7 @@ bool KIO__ApplicationLauncherJob_Event(KIO__ApplicationLauncherJob* self, QEvent
 }
 
 // Base class handler implementation
-bool KIO__ApplicationLauncherJob_QBaseEvent(KIO__ApplicationLauncherJob* self, QEvent* event) {
+bool KIO__ApplicationLauncherJob_SuperEvent(KIO__ApplicationLauncherJob* self, QEvent* event) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_Event_IsBase(true);
@@ -386,7 +386,7 @@ bool KIO__ApplicationLauncherJob_EventFilter(KIO__ApplicationLauncherJob* self, 
 }
 
 // Base class handler implementation
-bool KIO__ApplicationLauncherJob_QBaseEventFilter(KIO__ApplicationLauncherJob* self, QObject* watched, QEvent* event) {
+bool KIO__ApplicationLauncherJob_SuperEventFilter(KIO__ApplicationLauncherJob* self, QObject* watched, QEvent* event) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_EventFilter_IsBase(true);
@@ -415,7 +415,7 @@ void KIO__ApplicationLauncherJob_TimerEvent(KIO__ApplicationLauncherJob* self, Q
 }
 
 // Base class handler implementation
-void KIO__ApplicationLauncherJob_QBaseTimerEvent(KIO__ApplicationLauncherJob* self, QTimerEvent* event) {
+void KIO__ApplicationLauncherJob_SuperTimerEvent(KIO__ApplicationLauncherJob* self, QTimerEvent* event) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_TimerEvent_IsBase(true);
@@ -444,7 +444,7 @@ void KIO__ApplicationLauncherJob_ChildEvent(KIO__ApplicationLauncherJob* self, Q
 }
 
 // Base class handler implementation
-void KIO__ApplicationLauncherJob_QBaseChildEvent(KIO__ApplicationLauncherJob* self, QChildEvent* event) {
+void KIO__ApplicationLauncherJob_SuperChildEvent(KIO__ApplicationLauncherJob* self, QChildEvent* event) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_ChildEvent_IsBase(true);
@@ -473,7 +473,7 @@ void KIO__ApplicationLauncherJob_CustomEvent(KIO__ApplicationLauncherJob* self, 
 }
 
 // Base class handler implementation
-void KIO__ApplicationLauncherJob_QBaseCustomEvent(KIO__ApplicationLauncherJob* self, QEvent* event) {
+void KIO__ApplicationLauncherJob_SuperCustomEvent(KIO__ApplicationLauncherJob* self, QEvent* event) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_CustomEvent_IsBase(true);
@@ -502,7 +502,7 @@ void KIO__ApplicationLauncherJob_ConnectNotify(KIO__ApplicationLauncherJob* self
 }
 
 // Base class handler implementation
-void KIO__ApplicationLauncherJob_QBaseConnectNotify(KIO__ApplicationLauncherJob* self, const QMetaMethod* signal) {
+void KIO__ApplicationLauncherJob_SuperConnectNotify(KIO__ApplicationLauncherJob* self, const QMetaMethod* signal) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_ConnectNotify_IsBase(true);
@@ -531,7 +531,7 @@ void KIO__ApplicationLauncherJob_DisconnectNotify(KIO__ApplicationLauncherJob* s
 }
 
 // Base class handler implementation
-void KIO__ApplicationLauncherJob_QBaseDisconnectNotify(KIO__ApplicationLauncherJob* self, const QMetaMethod* signal) {
+void KIO__ApplicationLauncherJob_SuperDisconnectNotify(KIO__ApplicationLauncherJob* self, const QMetaMethod* signal) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_DisconnectNotify_IsBase(true);
@@ -560,7 +560,7 @@ void KIO__ApplicationLauncherJob_SetCapabilities(KIO__ApplicationLauncherJob* se
 }
 
 // Base class handler implementation
-void KIO__ApplicationLauncherJob_QBaseSetCapabilities(KIO__ApplicationLauncherJob* self, int capabilities) {
+void KIO__ApplicationLauncherJob_SuperSetCapabilities(KIO__ApplicationLauncherJob* self, int capabilities) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_SetCapabilities_IsBase(true);
@@ -589,7 +589,7 @@ bool KIO__ApplicationLauncherJob_IsFinished(const KIO__ApplicationLauncherJob* s
 }
 
 // Base class handler implementation
-bool KIO__ApplicationLauncherJob_QBaseIsFinished(const KIO__ApplicationLauncherJob* self) {
+bool KIO__ApplicationLauncherJob_SuperIsFinished(const KIO__ApplicationLauncherJob* self) {
     auto* vkioapplicationlauncherjob = const_cast<VirtualKIOApplicationLauncherJob*>(dynamic_cast<const VirtualKIOApplicationLauncherJob*>(self));
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_IsFinished_IsBase(true);
@@ -618,7 +618,7 @@ void KIO__ApplicationLauncherJob_SetError(KIO__ApplicationLauncherJob* self, int
 }
 
 // Base class handler implementation
-void KIO__ApplicationLauncherJob_QBaseSetError(KIO__ApplicationLauncherJob* self, int errorCode) {
+void KIO__ApplicationLauncherJob_SuperSetError(KIO__ApplicationLauncherJob* self, int errorCode) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_SetError_IsBase(true);
@@ -648,7 +648,7 @@ void KIO__ApplicationLauncherJob_SetErrorText(KIO__ApplicationLauncherJob* self,
 }
 
 // Base class handler implementation
-void KIO__ApplicationLauncherJob_QBaseSetErrorText(KIO__ApplicationLauncherJob* self, const libqt_string errorText) {
+void KIO__ApplicationLauncherJob_SuperSetErrorText(KIO__ApplicationLauncherJob* self, const libqt_string errorText) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
@@ -678,7 +678,7 @@ void KIO__ApplicationLauncherJob_SetProcessedAmount(KIO__ApplicationLauncherJob*
 }
 
 // Base class handler implementation
-void KIO__ApplicationLauncherJob_QBaseSetProcessedAmount(KIO__ApplicationLauncherJob* self, int unit, unsigned long long amount) {
+void KIO__ApplicationLauncherJob_SuperSetProcessedAmount(KIO__ApplicationLauncherJob* self, int unit, unsigned long long amount) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_SetProcessedAmount_IsBase(true);
@@ -707,7 +707,7 @@ void KIO__ApplicationLauncherJob_SetTotalAmount(KIO__ApplicationLauncherJob* sel
 }
 
 // Base class handler implementation
-void KIO__ApplicationLauncherJob_QBaseSetTotalAmount(KIO__ApplicationLauncherJob* self, int unit, unsigned long long amount) {
+void KIO__ApplicationLauncherJob_SuperSetTotalAmount(KIO__ApplicationLauncherJob* self, int unit, unsigned long long amount) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_SetTotalAmount_IsBase(true);
@@ -736,7 +736,7 @@ void KIO__ApplicationLauncherJob_SetProgressUnit(KIO__ApplicationLauncherJob* se
 }
 
 // Base class handler implementation
-void KIO__ApplicationLauncherJob_QBaseSetProgressUnit(KIO__ApplicationLauncherJob* self, int unit) {
+void KIO__ApplicationLauncherJob_SuperSetProgressUnit(KIO__ApplicationLauncherJob* self, int unit) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_SetProgressUnit_IsBase(true);
@@ -765,7 +765,7 @@ void KIO__ApplicationLauncherJob_SetPercent(KIO__ApplicationLauncherJob* self, u
 }
 
 // Base class handler implementation
-void KIO__ApplicationLauncherJob_QBaseSetPercent(KIO__ApplicationLauncherJob* self, unsigned long percentage) {
+void KIO__ApplicationLauncherJob_SuperSetPercent(KIO__ApplicationLauncherJob* self, unsigned long percentage) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_SetPercent_IsBase(true);
@@ -794,7 +794,7 @@ void KIO__ApplicationLauncherJob_EmitResult(KIO__ApplicationLauncherJob* self) {
 }
 
 // Base class handler implementation
-void KIO__ApplicationLauncherJob_QBaseEmitResult(KIO__ApplicationLauncherJob* self) {
+void KIO__ApplicationLauncherJob_SuperEmitResult(KIO__ApplicationLauncherJob* self) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_EmitResult_IsBase(true);
@@ -823,7 +823,7 @@ void KIO__ApplicationLauncherJob_EmitPercent(KIO__ApplicationLauncherJob* self, 
 }
 
 // Base class handler implementation
-void KIO__ApplicationLauncherJob_QBaseEmitPercent(KIO__ApplicationLauncherJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
+void KIO__ApplicationLauncherJob_SuperEmitPercent(KIO__ApplicationLauncherJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_EmitPercent_IsBase(true);
@@ -852,7 +852,7 @@ void KIO__ApplicationLauncherJob_EmitSpeed(KIO__ApplicationLauncherJob* self, un
 }
 
 // Base class handler implementation
-void KIO__ApplicationLauncherJob_QBaseEmitSpeed(KIO__ApplicationLauncherJob* self, unsigned long speed) {
+void KIO__ApplicationLauncherJob_SuperEmitSpeed(KIO__ApplicationLauncherJob* self, unsigned long speed) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_EmitSpeed_IsBase(true);
@@ -881,7 +881,7 @@ void KIO__ApplicationLauncherJob_StartElapsedTimer(KIO__ApplicationLauncherJob* 
 }
 
 // Base class handler implementation
-void KIO__ApplicationLauncherJob_QBaseStartElapsedTimer(KIO__ApplicationLauncherJob* self) {
+void KIO__ApplicationLauncherJob_SuperStartElapsedTimer(KIO__ApplicationLauncherJob* self) {
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_StartElapsedTimer_IsBase(true);
@@ -910,7 +910,7 @@ QObject* KIO__ApplicationLauncherJob_Sender(const KIO__ApplicationLauncherJob* s
 }
 
 // Base class handler implementation
-QObject* KIO__ApplicationLauncherJob_QBaseSender(const KIO__ApplicationLauncherJob* self) {
+QObject* KIO__ApplicationLauncherJob_SuperSender(const KIO__ApplicationLauncherJob* self) {
     auto* vkioapplicationlauncherjob = const_cast<VirtualKIOApplicationLauncherJob*>(dynamic_cast<const VirtualKIOApplicationLauncherJob*>(self));
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_Sender_IsBase(true);
@@ -939,7 +939,7 @@ int KIO__ApplicationLauncherJob_SenderSignalIndex(const KIO__ApplicationLauncher
 }
 
 // Base class handler implementation
-int KIO__ApplicationLauncherJob_QBaseSenderSignalIndex(const KIO__ApplicationLauncherJob* self) {
+int KIO__ApplicationLauncherJob_SuperSenderSignalIndex(const KIO__ApplicationLauncherJob* self) {
     auto* vkioapplicationlauncherjob = const_cast<VirtualKIOApplicationLauncherJob*>(dynamic_cast<const VirtualKIOApplicationLauncherJob*>(self));
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_SenderSignalIndex_IsBase(true);
@@ -968,7 +968,7 @@ int KIO__ApplicationLauncherJob_Receivers(const KIO__ApplicationLauncherJob* sel
 }
 
 // Base class handler implementation
-int KIO__ApplicationLauncherJob_QBaseReceivers(const KIO__ApplicationLauncherJob* self, const char* signal) {
+int KIO__ApplicationLauncherJob_SuperReceivers(const KIO__ApplicationLauncherJob* self, const char* signal) {
     auto* vkioapplicationlauncherjob = const_cast<VirtualKIOApplicationLauncherJob*>(dynamic_cast<const VirtualKIOApplicationLauncherJob*>(self));
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_Receivers_IsBase(true);
@@ -997,7 +997,7 @@ bool KIO__ApplicationLauncherJob_IsSignalConnected(const KIO__ApplicationLaunche
 }
 
 // Base class handler implementation
-bool KIO__ApplicationLauncherJob_QBaseIsSignalConnected(const KIO__ApplicationLauncherJob* self, const QMetaMethod* signal) {
+bool KIO__ApplicationLauncherJob_SuperIsSignalConnected(const KIO__ApplicationLauncherJob* self, const QMetaMethod* signal) {
     auto* vkioapplicationlauncherjob = const_cast<VirtualKIOApplicationLauncherJob*>(dynamic_cast<const VirtualKIOApplicationLauncherJob*>(self));
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_IsSignalConnected_IsBase(true);

@@ -25,7 +25,7 @@ void QRunnable_SetAutoDelete(QRunnable* self, bool autoDelete) {
 }
 
 // Base class handler implementation
-void QRunnable_QBaseRun(QRunnable* self) {
+void QRunnable_SuperRun(QRunnable* self) {
     auto* vqrunnable = dynamic_cast<VirtualQRunnable*>(self);
     if (vqrunnable && vqrunnable->isVirtualQRunnable) {
         vqrunnable->setQRunnable_Run_IsBase(true);

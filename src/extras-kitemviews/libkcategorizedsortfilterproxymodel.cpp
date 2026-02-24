@@ -119,7 +119,7 @@ int KCategorizedSortFilterProxyModel_CompareCategories(const KCategorizedSortFil
 }
 
 // Base class handler implementation
-QMetaObject* KCategorizedSortFilterProxyModel_QBaseMetaObject(const KCategorizedSortFilterProxyModel* self) {
+QMetaObject* KCategorizedSortFilterProxyModel_SuperMetaObject(const KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_MetaObject_IsBase(true);
@@ -138,7 +138,7 @@ void KCategorizedSortFilterProxyModel_OnMetaObject(const KCategorizedSortFilterP
 }
 
 // Base class handler implementation
-void* KCategorizedSortFilterProxyModel_QBaseMetacast(KCategorizedSortFilterProxyModel* self, const char* param1) {
+void* KCategorizedSortFilterProxyModel_SuperMetacast(KCategorizedSortFilterProxyModel* self, const char* param1) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_Metacast_IsBase(true);
@@ -157,7 +157,7 @@ void KCategorizedSortFilterProxyModel_OnMetacast(KCategorizedSortFilterProxyMode
 }
 
 // Base class handler implementation
-int KCategorizedSortFilterProxyModel_QBaseMetacall(KCategorizedSortFilterProxyModel* self, int param1, int param2, void** param3) {
+int KCategorizedSortFilterProxyModel_SuperMetacall(KCategorizedSortFilterProxyModel* self, int param1, int param2, void** param3) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_Metacall_IsBase(true);
@@ -176,7 +176,7 @@ void KCategorizedSortFilterProxyModel_OnMetacall(KCategorizedSortFilterProxyMode
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseSort(KCategorizedSortFilterProxyModel* self, int column, int order) {
+void KCategorizedSortFilterProxyModel_SuperSort(KCategorizedSortFilterProxyModel* self, int column, int order) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_Sort_IsBase(true);
@@ -195,7 +195,7 @@ void KCategorizedSortFilterProxyModel_OnSort(KCategorizedSortFilterProxyModel* s
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseLessThan(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
+bool KCategorizedSortFilterProxyModel_SuperLessThan(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_LessThan_IsBase(true);
@@ -214,7 +214,7 @@ void KCategorizedSortFilterProxyModel_OnLessThan(const KCategorizedSortFilterPro
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseSubSortLessThan(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
+bool KCategorizedSortFilterProxyModel_SuperSubSortLessThan(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_SubSortLessThan_IsBase(true);
@@ -233,7 +233,7 @@ void KCategorizedSortFilterProxyModel_OnSubSortLessThan(const KCategorizedSortFi
 }
 
 // Base class handler implementation
-int KCategorizedSortFilterProxyModel_QBaseCompareCategories(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
+int KCategorizedSortFilterProxyModel_SuperCompareCategories(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_CompareCategories_IsBase(true);
@@ -262,7 +262,7 @@ void KCategorizedSortFilterProxyModel_SetSourceModel(KCategorizedSortFilterProxy
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseSetSourceModel(KCategorizedSortFilterProxyModel* self, QAbstractItemModel* sourceModel) {
+void KCategorizedSortFilterProxyModel_SuperSetSourceModel(KCategorizedSortFilterProxyModel* self, QAbstractItemModel* sourceModel) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_SetSourceModel_IsBase(true);
@@ -291,7 +291,7 @@ QModelIndex* KCategorizedSortFilterProxyModel_MapToSource(const KCategorizedSort
 }
 
 // Base class handler implementation
-QModelIndex* KCategorizedSortFilterProxyModel_QBaseMapToSource(const KCategorizedSortFilterProxyModel* self, const QModelIndex* proxyIndex) {
+QModelIndex* KCategorizedSortFilterProxyModel_SuperMapToSource(const KCategorizedSortFilterProxyModel* self, const QModelIndex* proxyIndex) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_MapToSource_IsBase(true);
@@ -320,7 +320,7 @@ QModelIndex* KCategorizedSortFilterProxyModel_MapFromSource(const KCategorizedSo
 }
 
 // Base class handler implementation
-QModelIndex* KCategorizedSortFilterProxyModel_QBaseMapFromSource(const KCategorizedSortFilterProxyModel* self, const QModelIndex* sourceIndex) {
+QModelIndex* KCategorizedSortFilterProxyModel_SuperMapFromSource(const KCategorizedSortFilterProxyModel* self, const QModelIndex* sourceIndex) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_MapFromSource_IsBase(true);
@@ -349,7 +349,7 @@ QItemSelection* KCategorizedSortFilterProxyModel_MapSelectionToSource(const KCat
 }
 
 // Base class handler implementation
-QItemSelection* KCategorizedSortFilterProxyModel_QBaseMapSelectionToSource(const KCategorizedSortFilterProxyModel* self, const QItemSelection* proxySelection) {
+QItemSelection* KCategorizedSortFilterProxyModel_SuperMapSelectionToSource(const KCategorizedSortFilterProxyModel* self, const QItemSelection* proxySelection) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_MapSelectionToSource_IsBase(true);
@@ -378,7 +378,7 @@ QItemSelection* KCategorizedSortFilterProxyModel_MapSelectionFromSource(const KC
 }
 
 // Base class handler implementation
-QItemSelection* KCategorizedSortFilterProxyModel_QBaseMapSelectionFromSource(const KCategorizedSortFilterProxyModel* self, const QItemSelection* sourceSelection) {
+QItemSelection* KCategorizedSortFilterProxyModel_SuperMapSelectionFromSource(const KCategorizedSortFilterProxyModel* self, const QItemSelection* sourceSelection) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_MapSelectionFromSource_IsBase(true);
@@ -407,7 +407,7 @@ bool KCategorizedSortFilterProxyModel_FilterAcceptsRow(const KCategorizedSortFil
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseFilterAcceptsRow(const KCategorizedSortFilterProxyModel* self, int source_row, const QModelIndex* source_parent) {
+bool KCategorizedSortFilterProxyModel_SuperFilterAcceptsRow(const KCategorizedSortFilterProxyModel* self, int source_row, const QModelIndex* source_parent) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_FilterAcceptsRow_IsBase(true);
@@ -436,7 +436,7 @@ bool KCategorizedSortFilterProxyModel_FilterAcceptsColumn(const KCategorizedSort
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseFilterAcceptsColumn(const KCategorizedSortFilterProxyModel* self, int source_column, const QModelIndex* source_parent) {
+bool KCategorizedSortFilterProxyModel_SuperFilterAcceptsColumn(const KCategorizedSortFilterProxyModel* self, int source_column, const QModelIndex* source_parent) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_FilterAcceptsColumn_IsBase(true);
@@ -465,7 +465,7 @@ QModelIndex* KCategorizedSortFilterProxyModel_Index(const KCategorizedSortFilter
 }
 
 // Base class handler implementation
-QModelIndex* KCategorizedSortFilterProxyModel_QBaseIndex(const KCategorizedSortFilterProxyModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* KCategorizedSortFilterProxyModel_SuperIndex(const KCategorizedSortFilterProxyModel* self, int row, int column, const QModelIndex* parent) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_Index_IsBase(true);
@@ -494,7 +494,7 @@ QModelIndex* KCategorizedSortFilterProxyModel_Parent(const KCategorizedSortFilte
 }
 
 // Base class handler implementation
-QModelIndex* KCategorizedSortFilterProxyModel_QBaseParent(const KCategorizedSortFilterProxyModel* self, const QModelIndex* child) {
+QModelIndex* KCategorizedSortFilterProxyModel_SuperParent(const KCategorizedSortFilterProxyModel* self, const QModelIndex* child) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_Parent_IsBase(true);
@@ -523,7 +523,7 @@ QModelIndex* KCategorizedSortFilterProxyModel_Sibling(const KCategorizedSortFilt
 }
 
 // Base class handler implementation
-QModelIndex* KCategorizedSortFilterProxyModel_QBaseSibling(const KCategorizedSortFilterProxyModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* KCategorizedSortFilterProxyModel_SuperSibling(const KCategorizedSortFilterProxyModel* self, int row, int column, const QModelIndex* idx) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_Sibling_IsBase(true);
@@ -552,7 +552,7 @@ int KCategorizedSortFilterProxyModel_RowCount(const KCategorizedSortFilterProxyM
 }
 
 // Base class handler implementation
-int KCategorizedSortFilterProxyModel_QBaseRowCount(const KCategorizedSortFilterProxyModel* self, const QModelIndex* parent) {
+int KCategorizedSortFilterProxyModel_SuperRowCount(const KCategorizedSortFilterProxyModel* self, const QModelIndex* parent) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_RowCount_IsBase(true);
@@ -581,7 +581,7 @@ int KCategorizedSortFilterProxyModel_ColumnCount(const KCategorizedSortFilterPro
 }
 
 // Base class handler implementation
-int KCategorizedSortFilterProxyModel_QBaseColumnCount(const KCategorizedSortFilterProxyModel* self, const QModelIndex* parent) {
+int KCategorizedSortFilterProxyModel_SuperColumnCount(const KCategorizedSortFilterProxyModel* self, const QModelIndex* parent) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_ColumnCount_IsBase(true);
@@ -610,7 +610,7 @@ bool KCategorizedSortFilterProxyModel_HasChildren(const KCategorizedSortFilterPr
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseHasChildren(const KCategorizedSortFilterProxyModel* self, const QModelIndex* parent) {
+bool KCategorizedSortFilterProxyModel_SuperHasChildren(const KCategorizedSortFilterProxyModel* self, const QModelIndex* parent) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_HasChildren_IsBase(true);
@@ -639,7 +639,7 @@ QVariant* KCategorizedSortFilterProxyModel_Data(const KCategorizedSortFilterProx
 }
 
 // Base class handler implementation
-QVariant* KCategorizedSortFilterProxyModel_QBaseData(const KCategorizedSortFilterProxyModel* self, const QModelIndex* index, int role) {
+QVariant* KCategorizedSortFilterProxyModel_SuperData(const KCategorizedSortFilterProxyModel* self, const QModelIndex* index, int role) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_Data_IsBase(true);
@@ -668,7 +668,7 @@ bool KCategorizedSortFilterProxyModel_SetData(KCategorizedSortFilterProxyModel* 
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseSetData(KCategorizedSortFilterProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool KCategorizedSortFilterProxyModel_SuperSetData(KCategorizedSortFilterProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_SetData_IsBase(true);
@@ -697,7 +697,7 @@ QVariant* KCategorizedSortFilterProxyModel_HeaderData(const KCategorizedSortFilt
 }
 
 // Base class handler implementation
-QVariant* KCategorizedSortFilterProxyModel_QBaseHeaderData(const KCategorizedSortFilterProxyModel* self, int section, int orientation, int role) {
+QVariant* KCategorizedSortFilterProxyModel_SuperHeaderData(const KCategorizedSortFilterProxyModel* self, int section, int orientation, int role) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_HeaderData_IsBase(true);
@@ -726,7 +726,7 @@ bool KCategorizedSortFilterProxyModel_SetHeaderData(KCategorizedSortFilterProxyM
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseSetHeaderData(KCategorizedSortFilterProxyModel* self, int section, int orientation, const QVariant* value, int role) {
+bool KCategorizedSortFilterProxyModel_SuperSetHeaderData(KCategorizedSortFilterProxyModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_SetHeaderData_IsBase(true);
@@ -761,7 +761,7 @@ QMimeData* KCategorizedSortFilterProxyModel_MimeData(const KCategorizedSortFilte
 }
 
 // Base class handler implementation
-QMimeData* KCategorizedSortFilterProxyModel_QBaseMimeData(const KCategorizedSortFilterProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* KCategorizedSortFilterProxyModel_SuperMimeData(const KCategorizedSortFilterProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -796,7 +796,7 @@ bool KCategorizedSortFilterProxyModel_DropMimeData(KCategorizedSortFilterProxyMo
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseDropMimeData(KCategorizedSortFilterProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KCategorizedSortFilterProxyModel_SuperDropMimeData(KCategorizedSortFilterProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_DropMimeData_IsBase(true);
@@ -825,7 +825,7 @@ bool KCategorizedSortFilterProxyModel_InsertRows(KCategorizedSortFilterProxyMode
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseInsertRows(KCategorizedSortFilterProxyModel* self, int row, int count, const QModelIndex* parent) {
+bool KCategorizedSortFilterProxyModel_SuperInsertRows(KCategorizedSortFilterProxyModel* self, int row, int count, const QModelIndex* parent) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_InsertRows_IsBase(true);
@@ -854,7 +854,7 @@ bool KCategorizedSortFilterProxyModel_InsertColumns(KCategorizedSortFilterProxyM
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseInsertColumns(KCategorizedSortFilterProxyModel* self, int column, int count, const QModelIndex* parent) {
+bool KCategorizedSortFilterProxyModel_SuperInsertColumns(KCategorizedSortFilterProxyModel* self, int column, int count, const QModelIndex* parent) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_InsertColumns_IsBase(true);
@@ -883,7 +883,7 @@ bool KCategorizedSortFilterProxyModel_RemoveRows(KCategorizedSortFilterProxyMode
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseRemoveRows(KCategorizedSortFilterProxyModel* self, int row, int count, const QModelIndex* parent) {
+bool KCategorizedSortFilterProxyModel_SuperRemoveRows(KCategorizedSortFilterProxyModel* self, int row, int count, const QModelIndex* parent) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_RemoveRows_IsBase(true);
@@ -912,7 +912,7 @@ bool KCategorizedSortFilterProxyModel_RemoveColumns(KCategorizedSortFilterProxyM
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseRemoveColumns(KCategorizedSortFilterProxyModel* self, int column, int count, const QModelIndex* parent) {
+bool KCategorizedSortFilterProxyModel_SuperRemoveColumns(KCategorizedSortFilterProxyModel* self, int column, int count, const QModelIndex* parent) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_RemoveColumns_IsBase(true);
@@ -941,7 +941,7 @@ void KCategorizedSortFilterProxyModel_FetchMore(KCategorizedSortFilterProxyModel
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseFetchMore(KCategorizedSortFilterProxyModel* self, const QModelIndex* parent) {
+void KCategorizedSortFilterProxyModel_SuperFetchMore(KCategorizedSortFilterProxyModel* self, const QModelIndex* parent) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_FetchMore_IsBase(true);
@@ -970,7 +970,7 @@ bool KCategorizedSortFilterProxyModel_CanFetchMore(const KCategorizedSortFilterP
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseCanFetchMore(const KCategorizedSortFilterProxyModel* self, const QModelIndex* parent) {
+bool KCategorizedSortFilterProxyModel_SuperCanFetchMore(const KCategorizedSortFilterProxyModel* self, const QModelIndex* parent) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_CanFetchMore_IsBase(true);
@@ -999,7 +999,7 @@ int KCategorizedSortFilterProxyModel_Flags(const KCategorizedSortFilterProxyMode
 }
 
 // Base class handler implementation
-int KCategorizedSortFilterProxyModel_QBaseFlags(const KCategorizedSortFilterProxyModel* self, const QModelIndex* index) {
+int KCategorizedSortFilterProxyModel_SuperFlags(const KCategorizedSortFilterProxyModel* self, const QModelIndex* index) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_Flags_IsBase(true);
@@ -1028,7 +1028,7 @@ QModelIndex* KCategorizedSortFilterProxyModel_Buddy(const KCategorizedSortFilter
 }
 
 // Base class handler implementation
-QModelIndex* KCategorizedSortFilterProxyModel_QBaseBuddy(const KCategorizedSortFilterProxyModel* self, const QModelIndex* index) {
+QModelIndex* KCategorizedSortFilterProxyModel_SuperBuddy(const KCategorizedSortFilterProxyModel* self, const QModelIndex* index) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_Buddy_IsBase(true);
@@ -1075,7 +1075,7 @@ libqt_list /* of QModelIndex* */ KCategorizedSortFilterProxyModel_Match(const KC
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KCategorizedSortFilterProxyModel_QBaseMatch(const KCategorizedSortFilterProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ KCategorizedSortFilterProxyModel_SuperMatch(const KCategorizedSortFilterProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_Match_IsBase(true);
@@ -1122,7 +1122,7 @@ QSize* KCategorizedSortFilterProxyModel_Span(const KCategorizedSortFilterProxyMo
 }
 
 // Base class handler implementation
-QSize* KCategorizedSortFilterProxyModel_QBaseSpan(const KCategorizedSortFilterProxyModel* self, const QModelIndex* index) {
+QSize* KCategorizedSortFilterProxyModel_SuperSpan(const KCategorizedSortFilterProxyModel* self, const QModelIndex* index) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_Span_IsBase(true);
@@ -1185,7 +1185,7 @@ libqt_list /* of libqt_string */ KCategorizedSortFilterProxyModel_MimeTypes(cons
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KCategorizedSortFilterProxyModel_QBaseMimeTypes(const KCategorizedSortFilterProxyModel* self) {
+libqt_list /* of libqt_string */ KCategorizedSortFilterProxyModel_SuperMimeTypes(const KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_MimeTypes_IsBase(true);
@@ -1248,7 +1248,7 @@ int KCategorizedSortFilterProxyModel_SupportedDropActions(const KCategorizedSort
 }
 
 // Base class handler implementation
-int KCategorizedSortFilterProxyModel_QBaseSupportedDropActions(const KCategorizedSortFilterProxyModel* self) {
+int KCategorizedSortFilterProxyModel_SuperSupportedDropActions(const KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_SupportedDropActions_IsBase(true);
@@ -1277,7 +1277,7 @@ bool KCategorizedSortFilterProxyModel_Submit(KCategorizedSortFilterProxyModel* s
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseSubmit(KCategorizedSortFilterProxyModel* self) {
+bool KCategorizedSortFilterProxyModel_SuperSubmit(KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_Submit_IsBase(true);
@@ -1306,7 +1306,7 @@ void KCategorizedSortFilterProxyModel_Revert(KCategorizedSortFilterProxyModel* s
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseRevert(KCategorizedSortFilterProxyModel* self) {
+void KCategorizedSortFilterProxyModel_SuperRevert(KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_Revert_IsBase(true);
@@ -1363,7 +1363,7 @@ libqt_map /* of int to QVariant* */ KCategorizedSortFilterProxyModel_ItemData(co
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ KCategorizedSortFilterProxyModel_QBaseItemData(const KCategorizedSortFilterProxyModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ KCategorizedSortFilterProxyModel_SuperItemData(const KCategorizedSortFilterProxyModel* self, const QModelIndex* index) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_ItemData_IsBase(true);
@@ -1426,7 +1426,7 @@ bool KCategorizedSortFilterProxyModel_SetItemData(KCategorizedSortFilterProxyMod
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseSetItemData(KCategorizedSortFilterProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool KCategorizedSortFilterProxyModel_SuperSetItemData(KCategorizedSortFilterProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -1461,7 +1461,7 @@ bool KCategorizedSortFilterProxyModel_ClearItemData(KCategorizedSortFilterProxyM
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseClearItemData(KCategorizedSortFilterProxyModel* self, const QModelIndex* index) {
+bool KCategorizedSortFilterProxyModel_SuperClearItemData(KCategorizedSortFilterProxyModel* self, const QModelIndex* index) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_ClearItemData_IsBase(true);
@@ -1490,7 +1490,7 @@ bool KCategorizedSortFilterProxyModel_CanDropMimeData(const KCategorizedSortFilt
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseCanDropMimeData(const KCategorizedSortFilterProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KCategorizedSortFilterProxyModel_SuperCanDropMimeData(const KCategorizedSortFilterProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_CanDropMimeData_IsBase(true);
@@ -1519,7 +1519,7 @@ int KCategorizedSortFilterProxyModel_SupportedDragActions(const KCategorizedSort
 }
 
 // Base class handler implementation
-int KCategorizedSortFilterProxyModel_QBaseSupportedDragActions(const KCategorizedSortFilterProxyModel* self) {
+int KCategorizedSortFilterProxyModel_SuperSupportedDragActions(const KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_SupportedDragActions_IsBase(true);
@@ -1586,7 +1586,7 @@ libqt_map /* of int to libqt_string */ KCategorizedSortFilterProxyModel_RoleName
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ KCategorizedSortFilterProxyModel_QBaseRoleNames(const KCategorizedSortFilterProxyModel* self) {
+libqt_map /* of int to libqt_string */ KCategorizedSortFilterProxyModel_SuperRoleNames(const KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_RoleNames_IsBase(true);
@@ -1653,7 +1653,7 @@ bool KCategorizedSortFilterProxyModel_MoveRows(KCategorizedSortFilterProxyModel*
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseMoveRows(KCategorizedSortFilterProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KCategorizedSortFilterProxyModel_SuperMoveRows(KCategorizedSortFilterProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_MoveRows_IsBase(true);
@@ -1682,7 +1682,7 @@ bool KCategorizedSortFilterProxyModel_MoveColumns(KCategorizedSortFilterProxyMod
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseMoveColumns(KCategorizedSortFilterProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KCategorizedSortFilterProxyModel_SuperMoveColumns(KCategorizedSortFilterProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_MoveColumns_IsBase(true);
@@ -1711,7 +1711,7 @@ void KCategorizedSortFilterProxyModel_MultiData(const KCategorizedSortFilterProx
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseMultiData(const KCategorizedSortFilterProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void KCategorizedSortFilterProxyModel_SuperMultiData(const KCategorizedSortFilterProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_MultiData_IsBase(true);
@@ -1740,7 +1740,7 @@ void KCategorizedSortFilterProxyModel_ResetInternalData(KCategorizedSortFilterPr
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseResetInternalData(KCategorizedSortFilterProxyModel* self) {
+void KCategorizedSortFilterProxyModel_SuperResetInternalData(KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_ResetInternalData_IsBase(true);
@@ -1769,7 +1769,7 @@ bool KCategorizedSortFilterProxyModel_Event(KCategorizedSortFilterProxyModel* se
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseEvent(KCategorizedSortFilterProxyModel* self, QEvent* event) {
+bool KCategorizedSortFilterProxyModel_SuperEvent(KCategorizedSortFilterProxyModel* self, QEvent* event) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_Event_IsBase(true);
@@ -1798,7 +1798,7 @@ bool KCategorizedSortFilterProxyModel_EventFilter(KCategorizedSortFilterProxyMod
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseEventFilter(KCategorizedSortFilterProxyModel* self, QObject* watched, QEvent* event) {
+bool KCategorizedSortFilterProxyModel_SuperEventFilter(KCategorizedSortFilterProxyModel* self, QObject* watched, QEvent* event) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_EventFilter_IsBase(true);
@@ -1827,7 +1827,7 @@ void KCategorizedSortFilterProxyModel_TimerEvent(KCategorizedSortFilterProxyMode
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseTimerEvent(KCategorizedSortFilterProxyModel* self, QTimerEvent* event) {
+void KCategorizedSortFilterProxyModel_SuperTimerEvent(KCategorizedSortFilterProxyModel* self, QTimerEvent* event) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_TimerEvent_IsBase(true);
@@ -1856,7 +1856,7 @@ void KCategorizedSortFilterProxyModel_ChildEvent(KCategorizedSortFilterProxyMode
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseChildEvent(KCategorizedSortFilterProxyModel* self, QChildEvent* event) {
+void KCategorizedSortFilterProxyModel_SuperChildEvent(KCategorizedSortFilterProxyModel* self, QChildEvent* event) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_ChildEvent_IsBase(true);
@@ -1885,7 +1885,7 @@ void KCategorizedSortFilterProxyModel_CustomEvent(KCategorizedSortFilterProxyMod
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseCustomEvent(KCategorizedSortFilterProxyModel* self, QEvent* event) {
+void KCategorizedSortFilterProxyModel_SuperCustomEvent(KCategorizedSortFilterProxyModel* self, QEvent* event) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_CustomEvent_IsBase(true);
@@ -1914,7 +1914,7 @@ void KCategorizedSortFilterProxyModel_ConnectNotify(KCategorizedSortFilterProxyM
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseConnectNotify(KCategorizedSortFilterProxyModel* self, const QMetaMethod* signal) {
+void KCategorizedSortFilterProxyModel_SuperConnectNotify(KCategorizedSortFilterProxyModel* self, const QMetaMethod* signal) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_ConnectNotify_IsBase(true);
@@ -1943,7 +1943,7 @@ void KCategorizedSortFilterProxyModel_DisconnectNotify(KCategorizedSortFilterPro
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseDisconnectNotify(KCategorizedSortFilterProxyModel* self, const QMetaMethod* signal) {
+void KCategorizedSortFilterProxyModel_SuperDisconnectNotify(KCategorizedSortFilterProxyModel* self, const QMetaMethod* signal) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_DisconnectNotify_IsBase(true);
@@ -1972,7 +1972,7 @@ void KCategorizedSortFilterProxyModel_InvalidateFilter(KCategorizedSortFilterPro
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseInvalidateFilter(KCategorizedSortFilterProxyModel* self) {
+void KCategorizedSortFilterProxyModel_SuperInvalidateFilter(KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_InvalidateFilter_IsBase(true);
@@ -2001,7 +2001,7 @@ void KCategorizedSortFilterProxyModel_InvalidateRowsFilter(KCategorizedSortFilte
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseInvalidateRowsFilter(KCategorizedSortFilterProxyModel* self) {
+void KCategorizedSortFilterProxyModel_SuperInvalidateRowsFilter(KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_InvalidateRowsFilter_IsBase(true);
@@ -2030,7 +2030,7 @@ void KCategorizedSortFilterProxyModel_InvalidateColumnsFilter(KCategorizedSortFi
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseInvalidateColumnsFilter(KCategorizedSortFilterProxyModel* self) {
+void KCategorizedSortFilterProxyModel_SuperInvalidateColumnsFilter(KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_InvalidateColumnsFilter_IsBase(true);
@@ -2058,7 +2058,7 @@ QModelIndex* KCategorizedSortFilterProxyModel_CreateSourceIndex(const KCategoriz
 }
 
 // Base class handler implementation
-QModelIndex* KCategorizedSortFilterProxyModel_QBaseCreateSourceIndex(const KCategorizedSortFilterProxyModel* self, int row, int col, void* internalPtr) {
+QModelIndex* KCategorizedSortFilterProxyModel_SuperCreateSourceIndex(const KCategorizedSortFilterProxyModel* self, int row, int col, void* internalPtr) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_CreateSourceIndex_IsBase(true);
@@ -2085,7 +2085,7 @@ QModelIndex* KCategorizedSortFilterProxyModel_CreateIndex(const KCategorizedSort
 }
 
 // Base class handler implementation
-QModelIndex* KCategorizedSortFilterProxyModel_QBaseCreateIndex(const KCategorizedSortFilterProxyModel* self, int row, int column) {
+QModelIndex* KCategorizedSortFilterProxyModel_SuperCreateIndex(const KCategorizedSortFilterProxyModel* self, int row, int column) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_CreateIndex_IsBase(true);
@@ -2119,7 +2119,7 @@ void KCategorizedSortFilterProxyModel_EncodeData(const KCategorizedSortFilterPro
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseEncodeData(const KCategorizedSortFilterProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void KCategorizedSortFilterProxyModel_SuperEncodeData(const KCategorizedSortFilterProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -2154,7 +2154,7 @@ bool KCategorizedSortFilterProxyModel_DecodeData(KCategorizedSortFilterProxyMode
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseDecodeData(KCategorizedSortFilterProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool KCategorizedSortFilterProxyModel_SuperDecodeData(KCategorizedSortFilterProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_DecodeData_IsBase(true);
@@ -2183,7 +2183,7 @@ void KCategorizedSortFilterProxyModel_BeginInsertRows(KCategorizedSortFilterProx
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseBeginInsertRows(KCategorizedSortFilterProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KCategorizedSortFilterProxyModel_SuperBeginInsertRows(KCategorizedSortFilterProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_BeginInsertRows_IsBase(true);
@@ -2212,7 +2212,7 @@ void KCategorizedSortFilterProxyModel_EndInsertRows(KCategorizedSortFilterProxyM
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseEndInsertRows(KCategorizedSortFilterProxyModel* self) {
+void KCategorizedSortFilterProxyModel_SuperEndInsertRows(KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_EndInsertRows_IsBase(true);
@@ -2241,7 +2241,7 @@ void KCategorizedSortFilterProxyModel_BeginRemoveRows(KCategorizedSortFilterProx
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseBeginRemoveRows(KCategorizedSortFilterProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KCategorizedSortFilterProxyModel_SuperBeginRemoveRows(KCategorizedSortFilterProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_BeginRemoveRows_IsBase(true);
@@ -2270,7 +2270,7 @@ void KCategorizedSortFilterProxyModel_EndRemoveRows(KCategorizedSortFilterProxyM
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseEndRemoveRows(KCategorizedSortFilterProxyModel* self) {
+void KCategorizedSortFilterProxyModel_SuperEndRemoveRows(KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_EndRemoveRows_IsBase(true);
@@ -2299,7 +2299,7 @@ bool KCategorizedSortFilterProxyModel_BeginMoveRows(KCategorizedSortFilterProxyM
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseBeginMoveRows(KCategorizedSortFilterProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool KCategorizedSortFilterProxyModel_SuperBeginMoveRows(KCategorizedSortFilterProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_BeginMoveRows_IsBase(true);
@@ -2328,7 +2328,7 @@ void KCategorizedSortFilterProxyModel_EndMoveRows(KCategorizedSortFilterProxyMod
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseEndMoveRows(KCategorizedSortFilterProxyModel* self) {
+void KCategorizedSortFilterProxyModel_SuperEndMoveRows(KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_EndMoveRows_IsBase(true);
@@ -2357,7 +2357,7 @@ void KCategorizedSortFilterProxyModel_BeginInsertColumns(KCategorizedSortFilterP
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseBeginInsertColumns(KCategorizedSortFilterProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KCategorizedSortFilterProxyModel_SuperBeginInsertColumns(KCategorizedSortFilterProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_BeginInsertColumns_IsBase(true);
@@ -2386,7 +2386,7 @@ void KCategorizedSortFilterProxyModel_EndInsertColumns(KCategorizedSortFilterPro
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseEndInsertColumns(KCategorizedSortFilterProxyModel* self) {
+void KCategorizedSortFilterProxyModel_SuperEndInsertColumns(KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_EndInsertColumns_IsBase(true);
@@ -2415,7 +2415,7 @@ void KCategorizedSortFilterProxyModel_BeginRemoveColumns(KCategorizedSortFilterP
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseBeginRemoveColumns(KCategorizedSortFilterProxyModel* self, const QModelIndex* parent, int first, int last) {
+void KCategorizedSortFilterProxyModel_SuperBeginRemoveColumns(KCategorizedSortFilterProxyModel* self, const QModelIndex* parent, int first, int last) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_BeginRemoveColumns_IsBase(true);
@@ -2444,7 +2444,7 @@ void KCategorizedSortFilterProxyModel_EndRemoveColumns(KCategorizedSortFilterPro
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseEndRemoveColumns(KCategorizedSortFilterProxyModel* self) {
+void KCategorizedSortFilterProxyModel_SuperEndRemoveColumns(KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_EndRemoveColumns_IsBase(true);
@@ -2473,7 +2473,7 @@ bool KCategorizedSortFilterProxyModel_BeginMoveColumns(KCategorizedSortFilterPro
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseBeginMoveColumns(KCategorizedSortFilterProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool KCategorizedSortFilterProxyModel_SuperBeginMoveColumns(KCategorizedSortFilterProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_BeginMoveColumns_IsBase(true);
@@ -2502,7 +2502,7 @@ void KCategorizedSortFilterProxyModel_EndMoveColumns(KCategorizedSortFilterProxy
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseEndMoveColumns(KCategorizedSortFilterProxyModel* self) {
+void KCategorizedSortFilterProxyModel_SuperEndMoveColumns(KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_EndMoveColumns_IsBase(true);
@@ -2531,7 +2531,7 @@ void KCategorizedSortFilterProxyModel_BeginResetModel(KCategorizedSortFilterProx
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseBeginResetModel(KCategorizedSortFilterProxyModel* self) {
+void KCategorizedSortFilterProxyModel_SuperBeginResetModel(KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_BeginResetModel_IsBase(true);
@@ -2560,7 +2560,7 @@ void KCategorizedSortFilterProxyModel_EndResetModel(KCategorizedSortFilterProxyM
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseEndResetModel(KCategorizedSortFilterProxyModel* self) {
+void KCategorizedSortFilterProxyModel_SuperEndResetModel(KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_EndResetModel_IsBase(true);
@@ -2589,7 +2589,7 @@ void KCategorizedSortFilterProxyModel_ChangePersistentIndex(KCategorizedSortFilt
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseChangePersistentIndex(KCategorizedSortFilterProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
+void KCategorizedSortFilterProxyModel_SuperChangePersistentIndex(KCategorizedSortFilterProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_ChangePersistentIndex_IsBase(true);
@@ -2630,7 +2630,7 @@ void KCategorizedSortFilterProxyModel_ChangePersistentIndexList(KCategorizedSort
 }
 
 // Base class handler implementation
-void KCategorizedSortFilterProxyModel_QBaseChangePersistentIndexList(KCategorizedSortFilterProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void KCategorizedSortFilterProxyModel_SuperChangePersistentIndexList(KCategorizedSortFilterProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2689,7 +2689,7 @@ libqt_list /* of QModelIndex* */ KCategorizedSortFilterProxyModel_PersistentInde
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KCategorizedSortFilterProxyModel_QBasePersistentIndexList(const KCategorizedSortFilterProxyModel* self) {
+libqt_list /* of QModelIndex* */ KCategorizedSortFilterProxyModel_SuperPersistentIndexList(const KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_PersistentIndexList_IsBase(true);
@@ -2736,7 +2736,7 @@ QObject* KCategorizedSortFilterProxyModel_Sender(const KCategorizedSortFilterPro
 }
 
 // Base class handler implementation
-QObject* KCategorizedSortFilterProxyModel_QBaseSender(const KCategorizedSortFilterProxyModel* self) {
+QObject* KCategorizedSortFilterProxyModel_SuperSender(const KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_Sender_IsBase(true);
@@ -2765,7 +2765,7 @@ int KCategorizedSortFilterProxyModel_SenderSignalIndex(const KCategorizedSortFil
 }
 
 // Base class handler implementation
-int KCategorizedSortFilterProxyModel_QBaseSenderSignalIndex(const KCategorizedSortFilterProxyModel* self) {
+int KCategorizedSortFilterProxyModel_SuperSenderSignalIndex(const KCategorizedSortFilterProxyModel* self) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_SenderSignalIndex_IsBase(true);
@@ -2794,7 +2794,7 @@ int KCategorizedSortFilterProxyModel_Receivers(const KCategorizedSortFilterProxy
 }
 
 // Base class handler implementation
-int KCategorizedSortFilterProxyModel_QBaseReceivers(const KCategorizedSortFilterProxyModel* self, const char* signal) {
+int KCategorizedSortFilterProxyModel_SuperReceivers(const KCategorizedSortFilterProxyModel* self, const char* signal) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_Receivers_IsBase(true);
@@ -2823,7 +2823,7 @@ bool KCategorizedSortFilterProxyModel_IsSignalConnected(const KCategorizedSortFi
 }
 
 // Base class handler implementation
-bool KCategorizedSortFilterProxyModel_QBaseIsSignalConnected(const KCategorizedSortFilterProxyModel* self, const QMetaMethod* signal) {
+bool KCategorizedSortFilterProxyModel_SuperIsSignalConnected(const KCategorizedSortFilterProxyModel* self, const QMetaMethod* signal) {
     auto* vkcategorizedsortfilterproxymodel = const_cast<VirtualKCategorizedSortFilterProxyModel*>(dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self));
     if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
         vkcategorizedsortfilterproxymodel->setKCategorizedSortFilterProxyModel_IsSignalConnected_IsBase(true);

@@ -41,6 +41,10 @@ pub const qgeoareamonitorsource = struct {
         qtc.QGeoAreaMonitorSource_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -49,8 +53,8 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` self: QtC.QGeoAreaMonitorSource `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QGeoAreaMonitorSource_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QGeoAreaMonitorSource_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -76,6 +80,10 @@ pub const qgeoareamonitorsource = struct {
         qtc.QGeoAreaMonitorSource_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -84,9 +92,9 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QGeoAreaMonitorSource_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QGeoAreaMonitorSource_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -115,6 +123,10 @@ pub const qgeoareamonitorsource = struct {
         qtc.QGeoAreaMonitorSource_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -127,8 +139,8 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGeoAreaMonitorSource_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QGeoAreaMonitorSource_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -225,6 +237,10 @@ pub const qgeoareamonitorsource = struct {
         qtc.QGeoAreaMonitorSource_OnSetPositionInfoSource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetPositionInfoSource` instead
+    ///
+    pub const QBaseSetPositionInfoSource = SuperSetPositionInfoSource;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#setPositionInfoSource)
     ///
     /// Base class method implementation
@@ -235,8 +251,8 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` source: QtC.QGeoPositionInfoSource `
     ///
-    pub fn QBaseSetPositionInfoSource(self: ?*anyopaque, source: ?*anyopaque) void {
-        qtc.QGeoAreaMonitorSource_QBaseSetPositionInfoSource(@ptrCast(self), @ptrCast(source));
+    pub fn SuperSetPositionInfoSource(self: ?*anyopaque, source: ?*anyopaque) void {
+        qtc.QGeoAreaMonitorSource_SuperSetPositionInfoSource(@ptrCast(self), @ptrCast(source));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#positionInfoSource)
@@ -263,6 +279,10 @@ pub const qgeoareamonitorsource = struct {
         qtc.QGeoAreaMonitorSource_OnPositionInfoSource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPositionInfoSource` instead
+    ///
+    pub const QBasePositionInfoSource = SuperPositionInfoSource;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#positionInfoSource)
     ///
     /// Base class method implementation
@@ -271,8 +291,8 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` self: QtC.QGeoAreaMonitorSource `
     ///
-    pub fn QBasePositionInfoSource(self: ?*anyopaque) QtC.QGeoPositionInfoSource {
-        return qtc.QGeoAreaMonitorSource_QBasePositionInfoSource(@ptrCast(self));
+    pub fn SuperPositionInfoSource(self: ?*anyopaque) QtC.QGeoPositionInfoSource {
+        return qtc.QGeoAreaMonitorSource_SuperPositionInfoSource(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#sourceName)
@@ -319,6 +339,10 @@ pub const qgeoareamonitorsource = struct {
         qtc.QGeoAreaMonitorSource_OnError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperError` instead
+    ///
+    pub const QBaseError = SuperError;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#error)
     ///
     /// Base class method implementation
@@ -331,8 +355,8 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` qgeoareamonitorsource_enums.Error `
     ///
-    pub fn QBaseError(self: ?*anyopaque) i32 {
-        return qtc.QGeoAreaMonitorSource_QBaseError(@ptrCast(self));
+    pub fn SuperError(self: ?*anyopaque) i32 {
+        return qtc.QGeoAreaMonitorSource_SuperError(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#supportedAreaMonitorFeatures)
@@ -363,6 +387,10 @@ pub const qgeoareamonitorsource = struct {
         qtc.QGeoAreaMonitorSource_OnSupportedAreaMonitorFeatures(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSupportedAreaMonitorFeatures` instead
+    ///
+    pub const QBaseSupportedAreaMonitorFeatures = SuperSupportedAreaMonitorFeatures;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#supportedAreaMonitorFeatures)
     ///
     /// Base class method implementation
@@ -375,8 +403,8 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` flag of qgeoareamonitorsource_enums.AreaMonitorFeature `
     ///
-    pub fn QBaseSupportedAreaMonitorFeatures(self: ?*anyopaque) i32 {
-        return qtc.QGeoAreaMonitorSource_QBaseSupportedAreaMonitorFeatures(@ptrCast(self));
+    pub fn SuperSupportedAreaMonitorFeatures(self: ?*anyopaque) i32 {
+        return qtc.QGeoAreaMonitorSource_SuperSupportedAreaMonitorFeatures(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#startMonitoring)
@@ -405,6 +433,10 @@ pub const qgeoareamonitorsource = struct {
         qtc.QGeoAreaMonitorSource_OnStartMonitoring(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperStartMonitoring` instead
+    ///
+    pub const QBaseStartMonitoring = SuperStartMonitoring;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#startMonitoring)
     ///
     /// Base class method implementation
@@ -415,8 +447,8 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` monitor: QtC.QGeoAreaMonitorInfo `
     ///
-    pub fn QBaseStartMonitoring(self: ?*anyopaque, monitor: ?*anyopaque) bool {
-        return qtc.QGeoAreaMonitorSource_QBaseStartMonitoring(@ptrCast(self), @ptrCast(monitor));
+    pub fn SuperStartMonitoring(self: ?*anyopaque, monitor: ?*anyopaque) bool {
+        return qtc.QGeoAreaMonitorSource_SuperStartMonitoring(@ptrCast(self), @ptrCast(monitor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#stopMonitoring)
@@ -445,6 +477,10 @@ pub const qgeoareamonitorsource = struct {
         qtc.QGeoAreaMonitorSource_OnStopMonitoring(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperStopMonitoring` instead
+    ///
+    pub const QBaseStopMonitoring = SuperStopMonitoring;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#stopMonitoring)
     ///
     /// Base class method implementation
@@ -455,8 +491,8 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` monitor: QtC.QGeoAreaMonitorInfo `
     ///
-    pub fn QBaseStopMonitoring(self: ?*anyopaque, monitor: ?*anyopaque) bool {
-        return qtc.QGeoAreaMonitorSource_QBaseStopMonitoring(@ptrCast(self), @ptrCast(monitor));
+    pub fn SuperStopMonitoring(self: ?*anyopaque, monitor: ?*anyopaque) bool {
+        return qtc.QGeoAreaMonitorSource_SuperStopMonitoring(@ptrCast(self), @ptrCast(monitor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#requestUpdate)
@@ -488,6 +524,10 @@ pub const qgeoareamonitorsource = struct {
         qtc.QGeoAreaMonitorSource_OnRequestUpdate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRequestUpdate` instead
+    ///
+    pub const QBaseRequestUpdate = SuperRequestUpdate;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#requestUpdate)
     ///
     /// Base class method implementation
@@ -500,9 +540,9 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseRequestUpdate(self: ?*anyopaque, monitor: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn SuperRequestUpdate(self: ?*anyopaque, monitor: ?*anyopaque, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QGeoAreaMonitorSource_QBaseRequestUpdate(@ptrCast(self), @ptrCast(monitor), signal_Cstring);
+        return qtc.QGeoAreaMonitorSource_SuperRequestUpdate(@ptrCast(self), @ptrCast(monitor), signal_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#activeMonitors)
@@ -542,6 +582,10 @@ pub const qgeoareamonitorsource = struct {
         qtc.QGeoAreaMonitorSource_OnActiveMonitors(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperActiveMonitors` instead
+    ///
+    pub const QBaseActiveMonitors = SuperActiveMonitors;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#activeMonitors)
     ///
     /// Base class method implementation
@@ -552,8 +596,8 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseActiveMonitors(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGeoAreaMonitorInfo {
-        const _arr: qtc.libqt_list = qtc.QGeoAreaMonitorSource_QBaseActiveMonitors(@ptrCast(self));
+    pub fn SuperActiveMonitors(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGeoAreaMonitorInfo {
+        const _arr: qtc.libqt_list = qtc.QGeoAreaMonitorSource_SuperActiveMonitors(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGeoAreaMonitorInfo, _arr.len) catch @panic("qgeoareamonitorsource.ActiveMonitors: Memory allocation failed");
         const _data: [*]QtC.QGeoAreaMonitorInfo = @ptrCast(@alignCast(_arr.data));
@@ -600,6 +644,10 @@ pub const qgeoareamonitorsource = struct {
         qtc.QGeoAreaMonitorSource_OnActiveMonitors2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperActiveMonitors2` instead
+    ///
+    pub const QBaseActiveMonitors2 = SuperActiveMonitors2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#activeMonitors)
     ///
     /// Base class method implementation
@@ -612,8 +660,8 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseActiveMonitors2(self: ?*anyopaque, lookupArea: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGeoAreaMonitorInfo {
-        const _arr: qtc.libqt_list = qtc.QGeoAreaMonitorSource_QBaseActiveMonitors2(@ptrCast(self), @ptrCast(lookupArea));
+    pub fn SuperActiveMonitors2(self: ?*anyopaque, lookupArea: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGeoAreaMonitorInfo {
+        const _arr: qtc.libqt_list = qtc.QGeoAreaMonitorSource_SuperActiveMonitors2(@ptrCast(self), @ptrCast(lookupArea));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGeoAreaMonitorInfo, _arr.len) catch @panic("qgeoareamonitorsource.ActiveMonitors2: Memory allocation failed");
         const _data: [*]QtC.QGeoAreaMonitorInfo = @ptrCast(@alignCast(_arr.data));
@@ -653,6 +701,10 @@ pub const qgeoareamonitorsource = struct {
         qtc.QGeoAreaMonitorSource_OnSetBackendProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetBackendProperty` instead
+    ///
+    pub const QBaseSetBackendProperty = SuperSetBackendProperty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#setBackendProperty)
     ///
     /// Base class method implementation
@@ -665,12 +717,12 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn QBaseSetBackendProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SuperSetBackendProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QGeoAreaMonitorSource_QBaseSetBackendProperty(@ptrCast(self), name_str, @ptrCast(value));
+        return qtc.QGeoAreaMonitorSource_SuperSetBackendProperty(@ptrCast(self), name_str, @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#backendProperty)
@@ -703,6 +755,10 @@ pub const qgeoareamonitorsource = struct {
         qtc.QGeoAreaMonitorSource_OnBackendProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBackendProperty` instead
+    ///
+    pub const QBaseBackendProperty = SuperBackendProperty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#backendProperty)
     ///
     /// Base class method implementation
@@ -713,12 +769,12 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn QBaseBackendProperty(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn SuperBackendProperty(self: ?*anyopaque, name: []const u8) QtC.QVariant {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QGeoAreaMonitorSource_QBaseBackendProperty(@ptrCast(self), name_str);
+        return qtc.QGeoAreaMonitorSource_SuperBackendProperty(@ptrCast(self), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#areaEntered)
@@ -1617,6 +1673,10 @@ pub const qgeoareamonitorsource = struct {
         return qtc.QGeoAreaMonitorSource_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1629,8 +1689,8 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGeoAreaMonitorSource_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGeoAreaMonitorSource_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1667,6 +1727,10 @@ pub const qgeoareamonitorsource = struct {
         return qtc.QGeoAreaMonitorSource_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1681,8 +1745,8 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGeoAreaMonitorSource_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGeoAreaMonitorSource_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1717,6 +1781,10 @@ pub const qgeoareamonitorsource = struct {
         qtc.QGeoAreaMonitorSource_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1729,8 +1797,8 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGeoAreaMonitorSource_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGeoAreaMonitorSource_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1765,6 +1833,10 @@ pub const qgeoareamonitorsource = struct {
         qtc.QGeoAreaMonitorSource_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1777,8 +1849,8 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGeoAreaMonitorSource_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGeoAreaMonitorSource_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1813,6 +1885,10 @@ pub const qgeoareamonitorsource = struct {
         qtc.QGeoAreaMonitorSource_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1825,8 +1901,8 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGeoAreaMonitorSource_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGeoAreaMonitorSource_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1861,6 +1937,10 @@ pub const qgeoareamonitorsource = struct {
         qtc.QGeoAreaMonitorSource_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1873,8 +1953,8 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGeoAreaMonitorSource_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGeoAreaMonitorSource_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1909,6 +1989,10 @@ pub const qgeoareamonitorsource = struct {
         qtc.QGeoAreaMonitorSource_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1921,8 +2005,8 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGeoAreaMonitorSource_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGeoAreaMonitorSource_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1955,6 +2039,10 @@ pub const qgeoareamonitorsource = struct {
         return qtc.QGeoAreaMonitorSource_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1965,8 +2053,8 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` self: QtC.QGeoAreaMonitorSource `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QGeoAreaMonitorSource_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QGeoAreaMonitorSource_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1999,6 +2087,10 @@ pub const qgeoareamonitorsource = struct {
         return qtc.QGeoAreaMonitorSource_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -2009,8 +2101,8 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` self: QtC.QGeoAreaMonitorSource `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QGeoAreaMonitorSource_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QGeoAreaMonitorSource_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2046,6 +2138,10 @@ pub const qgeoareamonitorsource = struct {
         return qtc.QGeoAreaMonitorSource_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2058,9 +2154,9 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QGeoAreaMonitorSource_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QGeoAreaMonitorSource_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2095,6 +2191,10 @@ pub const qgeoareamonitorsource = struct {
         return qtc.QGeoAreaMonitorSource_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2107,8 +2207,8 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QGeoAreaMonitorSource_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QGeoAreaMonitorSource_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2142,6 +2242,9 @@ pub const qgeoareamonitorsource = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#dtor.QGeoAreaMonitorSource)
     ///
@@ -2151,7 +2254,7 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` self: QtC.QGeoAreaMonitorSource `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGeoAreaMonitorSource_Delete(@ptrCast(self));
     }
 };

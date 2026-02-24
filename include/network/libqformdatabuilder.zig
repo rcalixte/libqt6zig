@@ -140,6 +140,10 @@ pub const qformdatapartbuilder = struct {
         return qtc.QFormDataPartBuilder_SetBodyDevice3(@ptrCast(self), @ptrCast(body), fileName.ptr, mimeType.ptr);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#dtor.QFormDataPartBuilder)
     ///
     /// Delete this object from C++ memory.
@@ -148,7 +152,7 @@ pub const qformdatapartbuilder = struct {
     ///
     /// ` self: QtC.QFormDataPartBuilder `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QFormDataPartBuilder_Delete(@ptrCast(self));
     }
 };
@@ -207,6 +211,10 @@ pub const qformdatabuilder = struct {
         return qtc.QFormDataBuilder_BuildMultiPart1(@ptrCast(self), @bitCast(options));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatabuilder.html#dtor.QFormDataBuilder)
     ///
     /// Delete this object from C++ memory.
@@ -215,7 +223,7 @@ pub const qformdatabuilder = struct {
     ///
     /// ` self: QtC.QFormDataBuilder `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QFormDataBuilder_Delete(@ptrCast(self));
     }
 };

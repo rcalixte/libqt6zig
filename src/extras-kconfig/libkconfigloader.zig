@@ -189,6 +189,10 @@ pub const kconfigloader = struct {
         qtc.KConfigLoader_OnUsrSave(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperUsrSave` instead
+    ///
+    pub const QBaseUsrSave = SuperUsrSave;
+
     /// ### [Upstream resources](https://api.kde.org/kconfigloader.html#usrSave)
     ///
     /// Base class method implementation
@@ -197,8 +201,8 @@ pub const kconfigloader = struct {
     ///
     /// ` self: QtC.KConfigLoader `
     ///
-    pub fn QBaseUsrSave(self: ?*anyopaque) bool {
-        return qtc.KConfigLoader_QBaseUsrSave(@ptrCast(self));
+    pub fn SuperUsrSave(self: ?*anyopaque) bool {
+        return qtc.KConfigLoader_SuperUsrSave(@ptrCast(self));
     }
 
     /// Inherited from KConfigSkeleton
@@ -2866,6 +2870,10 @@ pub const kconfigloader = struct {
         return qtc.KConfigLoader_MetaObject(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// Inherited from KConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kconfigskeleton.html#metaObject)
@@ -2876,8 +2884,8 @@ pub const kconfigloader = struct {
     ///
     /// ` self: QtC.KConfigLoader `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KConfigLoader_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KConfigLoader_SuperMetaObject(@ptrCast(self));
     }
 
     /// Inherited from KConfigSkeleton
@@ -2913,6 +2921,10 @@ pub const kconfigloader = struct {
         return qtc.KConfigLoader_Metacast(@ptrCast(self), param1_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Inherited from KConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kconfigskeleton.html#qt_metacast)
@@ -2925,9 +2937,9 @@ pub const kconfigloader = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KConfigLoader_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KConfigLoader_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// Inherited from KConfigSkeleton
@@ -2966,6 +2978,10 @@ pub const kconfigloader = struct {
         return qtc.KConfigLoader_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Inherited from KConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kconfigskeleton.html#qt_metacall)
@@ -2982,8 +2998,8 @@ pub const kconfigloader = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KConfigLoader_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KConfigLoader_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Inherited from KConfigSkeleton
@@ -3016,6 +3032,10 @@ pub const kconfigloader = struct {
         qtc.KConfigLoader_SetDefaults(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSetDefaults` instead
+    ///
+    pub const QBaseSetDefaults = SuperSetDefaults;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#setDefaults)
@@ -3026,8 +3046,8 @@ pub const kconfigloader = struct {
     ///
     /// ` self: QtC.KConfigLoader `
     ///
-    pub fn QBaseSetDefaults(self: ?*anyopaque) void {
-        qtc.KConfigLoader_QBaseSetDefaults(@ptrCast(self));
+    pub fn SuperSetDefaults(self: ?*anyopaque) void {
+        qtc.KConfigLoader_SuperSetDefaults(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
@@ -3062,6 +3082,10 @@ pub const kconfigloader = struct {
         return qtc.KConfigLoader_UseDefaults(@ptrCast(self), b);
     }
 
+    /// ### DEPRECATED: Use `SuperUseDefaults` instead
+    ///
+    pub const QBaseUseDefaults = SuperUseDefaults;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#useDefaults)
@@ -3074,8 +3098,8 @@ pub const kconfigloader = struct {
     ///
     /// ` b: bool `
     ///
-    pub fn QBaseUseDefaults(self: ?*anyopaque, b: bool) bool {
-        return qtc.KConfigLoader_QBaseUseDefaults(@ptrCast(self), b);
+    pub fn SuperUseDefaults(self: ?*anyopaque, b: bool) bool {
+        return qtc.KConfigLoader_SuperUseDefaults(@ptrCast(self), b);
     }
 
     /// Inherited from KCoreConfigSkeleton
@@ -3110,6 +3134,10 @@ pub const kconfigloader = struct {
         return qtc.KConfigLoader_UsrUseDefaults(@ptrCast(self), b);
     }
 
+    /// ### DEPRECATED: Use `SuperUsrUseDefaults` instead
+    ///
+    pub const QBaseUsrUseDefaults = SuperUsrUseDefaults;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrUseDefaults)
@@ -3122,8 +3150,8 @@ pub const kconfigloader = struct {
     ///
     /// ` b: bool `
     ///
-    pub fn QBaseUsrUseDefaults(self: ?*anyopaque, b: bool) bool {
-        return qtc.KConfigLoader_QBaseUsrUseDefaults(@ptrCast(self), b);
+    pub fn SuperUsrUseDefaults(self: ?*anyopaque, b: bool) bool {
+        return qtc.KConfigLoader_SuperUsrUseDefaults(@ptrCast(self), b);
     }
 
     /// Inherited from KCoreConfigSkeleton
@@ -3156,6 +3184,10 @@ pub const kconfigloader = struct {
         qtc.KConfigLoader_UsrSetDefaults(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUsrSetDefaults` instead
+    ///
+    pub const QBaseUsrSetDefaults = SuperUsrSetDefaults;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrSetDefaults)
@@ -3166,8 +3198,8 @@ pub const kconfigloader = struct {
     ///
     /// ` self: QtC.KConfigLoader `
     ///
-    pub fn QBaseUsrSetDefaults(self: ?*anyopaque) void {
-        qtc.KConfigLoader_QBaseUsrSetDefaults(@ptrCast(self));
+    pub fn SuperUsrSetDefaults(self: ?*anyopaque) void {
+        qtc.KConfigLoader_SuperUsrSetDefaults(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
@@ -3200,6 +3232,10 @@ pub const kconfigloader = struct {
         qtc.KConfigLoader_UsrRead(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUsrRead` instead
+    ///
+    pub const QBaseUsrRead = SuperUsrRead;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrRead)
@@ -3210,8 +3246,8 @@ pub const kconfigloader = struct {
     ///
     /// ` self: QtC.KConfigLoader `
     ///
-    pub fn QBaseUsrRead(self: ?*anyopaque) void {
-        qtc.KConfigLoader_QBaseUsrRead(@ptrCast(self));
+    pub fn SuperUsrRead(self: ?*anyopaque) void {
+        qtc.KConfigLoader_SuperUsrRead(@ptrCast(self));
     }
 
     /// Inherited from KCoreConfigSkeleton
@@ -3246,6 +3282,10 @@ pub const kconfigloader = struct {
         return qtc.KConfigLoader_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -3258,8 +3298,8 @@ pub const kconfigloader = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KConfigLoader_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KConfigLoader_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3296,6 +3336,10 @@ pub const kconfigloader = struct {
         return qtc.KConfigLoader_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -3310,8 +3354,8 @@ pub const kconfigloader = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KConfigLoader_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.KConfigLoader_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3346,6 +3390,10 @@ pub const kconfigloader = struct {
         qtc.KConfigLoader_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -3358,8 +3406,8 @@ pub const kconfigloader = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KConfigLoader_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KConfigLoader_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3394,6 +3442,10 @@ pub const kconfigloader = struct {
         qtc.KConfigLoader_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -3406,8 +3458,8 @@ pub const kconfigloader = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KConfigLoader_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KConfigLoader_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3442,6 +3494,10 @@ pub const kconfigloader = struct {
         qtc.KConfigLoader_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -3454,8 +3510,8 @@ pub const kconfigloader = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KConfigLoader_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.KConfigLoader_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -3490,6 +3546,10 @@ pub const kconfigloader = struct {
         qtc.KConfigLoader_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3502,8 +3562,8 @@ pub const kconfigloader = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KConfigLoader_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KConfigLoader_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3538,6 +3598,10 @@ pub const kconfigloader = struct {
         qtc.KConfigLoader_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -3550,8 +3614,8 @@ pub const kconfigloader = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KConfigLoader_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.KConfigLoader_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3584,6 +3648,10 @@ pub const kconfigloader = struct {
         return qtc.KConfigLoader_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -3594,8 +3662,8 @@ pub const kconfigloader = struct {
     ///
     /// ` self: QtC.KConfigLoader `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KConfigLoader_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.KConfigLoader_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3628,6 +3696,10 @@ pub const kconfigloader = struct {
         return qtc.KConfigLoader_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -3638,8 +3710,8 @@ pub const kconfigloader = struct {
     ///
     /// ` self: QtC.KConfigLoader `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KConfigLoader_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.KConfigLoader_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -3675,6 +3747,10 @@ pub const kconfigloader = struct {
         return qtc.KConfigLoader_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -3687,9 +3763,9 @@ pub const kconfigloader = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KConfigLoader_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KConfigLoader_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3724,6 +3800,10 @@ pub const kconfigloader = struct {
         return qtc.KConfigLoader_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -3736,8 +3816,8 @@ pub const kconfigloader = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KConfigLoader_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.KConfigLoader_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -3771,6 +3851,9 @@ pub const kconfigloader = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/kconfigloader.html#dtor.KConfigLoader)
     ///
@@ -3780,7 +3863,7 @@ pub const kconfigloader = struct {
     ///
     /// ` self: QtC.KConfigLoader `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KConfigLoader_Delete(@ptrCast(self));
     }
 };

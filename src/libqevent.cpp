@@ -116,7 +116,7 @@ void QInputEvent_SetTimestamp(QInputEvent* self, unsigned long long timestamp) {
 }
 
 // Base class handler implementation
-QInputEvent* QInputEvent_QBaseClone(const QInputEvent* self) {
+QInputEvent* QInputEvent_SuperClone(const QInputEvent* self) {
     auto* vqinputevent = const_cast<VirtualQInputEvent*>(dynamic_cast<const VirtualQInputEvent*>(self));
     if (vqinputevent && vqinputevent->isVirtualQInputEvent) {
         vqinputevent->setQInputEvent_Clone_IsBase(true);
@@ -135,7 +135,7 @@ void QInputEvent_OnClone(const QInputEvent* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QInputEvent_QBaseSetTimestamp(QInputEvent* self, unsigned long long timestamp) {
+void QInputEvent_SuperSetTimestamp(QInputEvent* self, unsigned long long timestamp) {
     auto* vqinputevent = dynamic_cast<VirtualQInputEvent*>(self);
     if (vqinputevent && vqinputevent->isVirtualQInputEvent) {
         vqinputevent->setQInputEvent_SetTimestamp_IsBase(true);
@@ -164,7 +164,7 @@ void QInputEvent_SetAccepted(QInputEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QInputEvent_QBaseSetAccepted(QInputEvent* self, bool accepted) {
+void QInputEvent_SuperSetAccepted(QInputEvent* self, bool accepted) {
     auto* vqinputevent = dynamic_cast<VirtualQInputEvent*>(self);
     if (vqinputevent && vqinputevent->isVirtualQInputEvent) {
         vqinputevent->setQInputEvent_SetAccepted_IsBase(true);
@@ -322,7 +322,7 @@ bool QPointerEvent_RemovePassiveGrabber(QPointerEvent* self, const QEventPoint* 
 }
 
 // Base class handler implementation
-QPointerEvent* QPointerEvent_QBaseClone(const QPointerEvent* self) {
+QPointerEvent* QPointerEvent_SuperClone(const QPointerEvent* self) {
     auto* vqpointerevent = const_cast<VirtualQPointerEvent*>(dynamic_cast<const VirtualQPointerEvent*>(self));
     if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
         vqpointerevent->setQPointerEvent_Clone_IsBase(true);
@@ -341,7 +341,7 @@ void QPointerEvent_OnClone(const QPointerEvent* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPointerEvent_QBaseSetTimestamp(QPointerEvent* self, unsigned long long timestamp) {
+void QPointerEvent_SuperSetTimestamp(QPointerEvent* self, unsigned long long timestamp) {
     auto* vqpointerevent = dynamic_cast<VirtualQPointerEvent*>(self);
     if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
         vqpointerevent->setQPointerEvent_SetTimestamp_IsBase(true);
@@ -360,7 +360,7 @@ void QPointerEvent_OnSetTimestamp(QPointerEvent* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QPointerEvent_QBaseIsBeginEvent(const QPointerEvent* self) {
+bool QPointerEvent_SuperIsBeginEvent(const QPointerEvent* self) {
     auto* vqpointerevent = const_cast<VirtualQPointerEvent*>(dynamic_cast<const VirtualQPointerEvent*>(self));
     if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
         vqpointerevent->setQPointerEvent_IsBeginEvent_IsBase(true);
@@ -379,7 +379,7 @@ void QPointerEvent_OnIsBeginEvent(const QPointerEvent* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QPointerEvent_QBaseIsUpdateEvent(const QPointerEvent* self) {
+bool QPointerEvent_SuperIsUpdateEvent(const QPointerEvent* self) {
     auto* vqpointerevent = const_cast<VirtualQPointerEvent*>(dynamic_cast<const VirtualQPointerEvent*>(self));
     if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
         vqpointerevent->setQPointerEvent_IsUpdateEvent_IsBase(true);
@@ -398,7 +398,7 @@ void QPointerEvent_OnIsUpdateEvent(const QPointerEvent* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QPointerEvent_QBaseIsEndEvent(const QPointerEvent* self) {
+bool QPointerEvent_SuperIsEndEvent(const QPointerEvent* self) {
     auto* vqpointerevent = const_cast<VirtualQPointerEvent*>(dynamic_cast<const VirtualQPointerEvent*>(self));
     if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
         vqpointerevent->setQPointerEvent_IsEndEvent_IsBase(true);
@@ -417,7 +417,7 @@ void QPointerEvent_OnIsEndEvent(const QPointerEvent* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPointerEvent_QBaseSetAccepted(QPointerEvent* self, bool accepted) {
+void QPointerEvent_SuperSetAccepted(QPointerEvent* self, bool accepted) {
     auto* vqpointerevent = dynamic_cast<VirtualQPointerEvent*>(self);
     if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
         vqpointerevent->setQPointerEvent_SetAccepted_IsBase(true);
@@ -541,7 +541,7 @@ QPointF* QEnterEvent_ScreenPos(const QEnterEvent* self) {
 }
 
 // Base class handler implementation
-QEnterEvent* QEnterEvent_QBaseClone(const QEnterEvent* self) {
+QEnterEvent* QEnterEvent_SuperClone(const QEnterEvent* self) {
     auto* vqenterevent = const_cast<VirtualQEnterEvent*>(dynamic_cast<const VirtualQEnterEvent*>(self));
     if (vqenterevent && vqenterevent->isVirtualQEnterEvent) {
         vqenterevent->setQEnterEvent_Clone_IsBase(true);
@@ -570,7 +570,7 @@ bool QEnterEvent_IsBeginEvent(const QEnterEvent* self) {
 }
 
 // Base class handler implementation
-bool QEnterEvent_QBaseIsBeginEvent(const QEnterEvent* self) {
+bool QEnterEvent_SuperIsBeginEvent(const QEnterEvent* self) {
     auto* vqenterevent = const_cast<VirtualQEnterEvent*>(dynamic_cast<const VirtualQEnterEvent*>(self));
     if (vqenterevent && vqenterevent->isVirtualQEnterEvent) {
         vqenterevent->setQEnterEvent_IsBeginEvent_IsBase(true);
@@ -599,7 +599,7 @@ bool QEnterEvent_IsUpdateEvent(const QEnterEvent* self) {
 }
 
 // Base class handler implementation
-bool QEnterEvent_QBaseIsUpdateEvent(const QEnterEvent* self) {
+bool QEnterEvent_SuperIsUpdateEvent(const QEnterEvent* self) {
     auto* vqenterevent = const_cast<VirtualQEnterEvent*>(dynamic_cast<const VirtualQEnterEvent*>(self));
     if (vqenterevent && vqenterevent->isVirtualQEnterEvent) {
         vqenterevent->setQEnterEvent_IsUpdateEvent_IsBase(true);
@@ -628,7 +628,7 @@ bool QEnterEvent_IsEndEvent(const QEnterEvent* self) {
 }
 
 // Base class handler implementation
-bool QEnterEvent_QBaseIsEndEvent(const QEnterEvent* self) {
+bool QEnterEvent_SuperIsEndEvent(const QEnterEvent* self) {
     auto* vqenterevent = const_cast<VirtualQEnterEvent*>(dynamic_cast<const VirtualQEnterEvent*>(self));
     if (vqenterevent && vqenterevent->isVirtualQEnterEvent) {
         vqenterevent->setQEnterEvent_IsEndEvent_IsBase(true);
@@ -657,7 +657,7 @@ void QEnterEvent_SetTimestamp(QEnterEvent* self, unsigned long long timestamp) {
 }
 
 // Base class handler implementation
-void QEnterEvent_QBaseSetTimestamp(QEnterEvent* self, unsigned long long timestamp) {
+void QEnterEvent_SuperSetTimestamp(QEnterEvent* self, unsigned long long timestamp) {
     auto* vqenterevent = dynamic_cast<VirtualQEnterEvent*>(self);
     if (vqenterevent && vqenterevent->isVirtualQEnterEvent) {
         vqenterevent->setQEnterEvent_SetTimestamp_IsBase(true);
@@ -686,7 +686,7 @@ void QEnterEvent_SetAccepted(QEnterEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QEnterEvent_QBaseSetAccepted(QEnterEvent* self, bool accepted) {
+void QEnterEvent_SuperSetAccepted(QEnterEvent* self, bool accepted) {
     auto* vqenterevent = dynamic_cast<VirtualQEnterEvent*>(self);
     if (vqenterevent && vqenterevent->isVirtualQEnterEvent) {
         vqenterevent->setQEnterEvent_SetAccepted_IsBase(true);
@@ -794,7 +794,7 @@ int QMouseEvent_Flags(const QMouseEvent* self) {
 }
 
 // Base class handler implementation
-QMouseEvent* QMouseEvent_QBaseClone(const QMouseEvent* self) {
+QMouseEvent* QMouseEvent_SuperClone(const QMouseEvent* self) {
     auto* vqmouseevent = const_cast<VirtualQMouseEvent*>(dynamic_cast<const VirtualQMouseEvent*>(self));
     if (vqmouseevent && vqmouseevent->isVirtualQMouseEvent) {
         vqmouseevent->setQMouseEvent_Clone_IsBase(true);
@@ -823,7 +823,7 @@ bool QMouseEvent_IsBeginEvent(const QMouseEvent* self) {
 }
 
 // Base class handler implementation
-bool QMouseEvent_QBaseIsBeginEvent(const QMouseEvent* self) {
+bool QMouseEvent_SuperIsBeginEvent(const QMouseEvent* self) {
     auto* vqmouseevent = const_cast<VirtualQMouseEvent*>(dynamic_cast<const VirtualQMouseEvent*>(self));
     if (vqmouseevent && vqmouseevent->isVirtualQMouseEvent) {
         vqmouseevent->setQMouseEvent_IsBeginEvent_IsBase(true);
@@ -852,7 +852,7 @@ bool QMouseEvent_IsUpdateEvent(const QMouseEvent* self) {
 }
 
 // Base class handler implementation
-bool QMouseEvent_QBaseIsUpdateEvent(const QMouseEvent* self) {
+bool QMouseEvent_SuperIsUpdateEvent(const QMouseEvent* self) {
     auto* vqmouseevent = const_cast<VirtualQMouseEvent*>(dynamic_cast<const VirtualQMouseEvent*>(self));
     if (vqmouseevent && vqmouseevent->isVirtualQMouseEvent) {
         vqmouseevent->setQMouseEvent_IsUpdateEvent_IsBase(true);
@@ -881,7 +881,7 @@ bool QMouseEvent_IsEndEvent(const QMouseEvent* self) {
 }
 
 // Base class handler implementation
-bool QMouseEvent_QBaseIsEndEvent(const QMouseEvent* self) {
+bool QMouseEvent_SuperIsEndEvent(const QMouseEvent* self) {
     auto* vqmouseevent = const_cast<VirtualQMouseEvent*>(dynamic_cast<const VirtualQMouseEvent*>(self));
     if (vqmouseevent && vqmouseevent->isVirtualQMouseEvent) {
         vqmouseevent->setQMouseEvent_IsEndEvent_IsBase(true);
@@ -910,7 +910,7 @@ void QMouseEvent_SetTimestamp(QMouseEvent* self, unsigned long long timestamp) {
 }
 
 // Base class handler implementation
-void QMouseEvent_QBaseSetTimestamp(QMouseEvent* self, unsigned long long timestamp) {
+void QMouseEvent_SuperSetTimestamp(QMouseEvent* self, unsigned long long timestamp) {
     auto* vqmouseevent = dynamic_cast<VirtualQMouseEvent*>(self);
     if (vqmouseevent && vqmouseevent->isVirtualQMouseEvent) {
         vqmouseevent->setQMouseEvent_SetTimestamp_IsBase(true);
@@ -939,7 +939,7 @@ void QMouseEvent_SetAccepted(QMouseEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QMouseEvent_QBaseSetAccepted(QMouseEvent* self, bool accepted) {
+void QMouseEvent_SuperSetAccepted(QMouseEvent* self, bool accepted) {
     auto* vqmouseevent = dynamic_cast<VirtualQMouseEvent*>(self);
     if (vqmouseevent && vqmouseevent->isVirtualQMouseEvent) {
         vqmouseevent->setQMouseEvent_SetAccepted_IsBase(true);
@@ -1020,7 +1020,7 @@ QPointF* QHoverEvent_OldPosF(const QHoverEvent* self) {
 }
 
 // Base class handler implementation
-QHoverEvent* QHoverEvent_QBaseClone(const QHoverEvent* self) {
+QHoverEvent* QHoverEvent_SuperClone(const QHoverEvent* self) {
     auto* vqhoverevent = const_cast<VirtualQHoverEvent*>(dynamic_cast<const VirtualQHoverEvent*>(self));
     if (vqhoverevent && vqhoverevent->isVirtualQHoverEvent) {
         vqhoverevent->setQHoverEvent_Clone_IsBase(true);
@@ -1039,7 +1039,7 @@ void QHoverEvent_OnClone(const QHoverEvent* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QHoverEvent_QBaseIsUpdateEvent(const QHoverEvent* self) {
+bool QHoverEvent_SuperIsUpdateEvent(const QHoverEvent* self) {
     auto* vqhoverevent = const_cast<VirtualQHoverEvent*>(dynamic_cast<const VirtualQHoverEvent*>(self));
     if (vqhoverevent && vqhoverevent->isVirtualQHoverEvent) {
         vqhoverevent->setQHoverEvent_IsUpdateEvent_IsBase(true);
@@ -1068,7 +1068,7 @@ bool QHoverEvent_IsBeginEvent(const QHoverEvent* self) {
 }
 
 // Base class handler implementation
-bool QHoverEvent_QBaseIsBeginEvent(const QHoverEvent* self) {
+bool QHoverEvent_SuperIsBeginEvent(const QHoverEvent* self) {
     auto* vqhoverevent = const_cast<VirtualQHoverEvent*>(dynamic_cast<const VirtualQHoverEvent*>(self));
     if (vqhoverevent && vqhoverevent->isVirtualQHoverEvent) {
         vqhoverevent->setQHoverEvent_IsBeginEvent_IsBase(true);
@@ -1097,7 +1097,7 @@ bool QHoverEvent_IsEndEvent(const QHoverEvent* self) {
 }
 
 // Base class handler implementation
-bool QHoverEvent_QBaseIsEndEvent(const QHoverEvent* self) {
+bool QHoverEvent_SuperIsEndEvent(const QHoverEvent* self) {
     auto* vqhoverevent = const_cast<VirtualQHoverEvent*>(dynamic_cast<const VirtualQHoverEvent*>(self));
     if (vqhoverevent && vqhoverevent->isVirtualQHoverEvent) {
         vqhoverevent->setQHoverEvent_IsEndEvent_IsBase(true);
@@ -1126,7 +1126,7 @@ void QHoverEvent_SetTimestamp(QHoverEvent* self, unsigned long long timestamp) {
 }
 
 // Base class handler implementation
-void QHoverEvent_QBaseSetTimestamp(QHoverEvent* self, unsigned long long timestamp) {
+void QHoverEvent_SuperSetTimestamp(QHoverEvent* self, unsigned long long timestamp) {
     auto* vqhoverevent = dynamic_cast<VirtualQHoverEvent*>(self);
     if (vqhoverevent && vqhoverevent->isVirtualQHoverEvent) {
         vqhoverevent->setQHoverEvent_SetTimestamp_IsBase(true);
@@ -1155,7 +1155,7 @@ void QHoverEvent_SetAccepted(QHoverEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QHoverEvent_QBaseSetAccepted(QHoverEvent* self, bool accepted) {
+void QHoverEvent_SuperSetAccepted(QHoverEvent* self, bool accepted) {
     auto* vqhoverevent = dynamic_cast<VirtualQHoverEvent*>(self);
     if (vqhoverevent && vqhoverevent->isVirtualQHoverEvent) {
         vqhoverevent->setQHoverEvent_SetAccepted_IsBase(true);
@@ -1254,7 +1254,7 @@ int QWheelEvent_Source(const QWheelEvent* self) {
 }
 
 // Base class handler implementation
-QWheelEvent* QWheelEvent_QBaseClone(const QWheelEvent* self) {
+QWheelEvent* QWheelEvent_SuperClone(const QWheelEvent* self) {
     auto* vqwheelevent = const_cast<VirtualQWheelEvent*>(dynamic_cast<const VirtualQWheelEvent*>(self));
     if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
         vqwheelevent->setQWheelEvent_Clone_IsBase(true);
@@ -1273,7 +1273,7 @@ void QWheelEvent_OnClone(const QWheelEvent* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QWheelEvent_QBaseIsBeginEvent(const QWheelEvent* self) {
+bool QWheelEvent_SuperIsBeginEvent(const QWheelEvent* self) {
     auto* vqwheelevent = const_cast<VirtualQWheelEvent*>(dynamic_cast<const VirtualQWheelEvent*>(self));
     if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
         vqwheelevent->setQWheelEvent_IsBeginEvent_IsBase(true);
@@ -1292,7 +1292,7 @@ void QWheelEvent_OnIsBeginEvent(const QWheelEvent* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QWheelEvent_QBaseIsUpdateEvent(const QWheelEvent* self) {
+bool QWheelEvent_SuperIsUpdateEvent(const QWheelEvent* self) {
     auto* vqwheelevent = const_cast<VirtualQWheelEvent*>(dynamic_cast<const VirtualQWheelEvent*>(self));
     if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
         vqwheelevent->setQWheelEvent_IsUpdateEvent_IsBase(true);
@@ -1311,7 +1311,7 @@ void QWheelEvent_OnIsUpdateEvent(const QWheelEvent* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QWheelEvent_QBaseIsEndEvent(const QWheelEvent* self) {
+bool QWheelEvent_SuperIsEndEvent(const QWheelEvent* self) {
     auto* vqwheelevent = const_cast<VirtualQWheelEvent*>(dynamic_cast<const VirtualQWheelEvent*>(self));
     if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
         vqwheelevent->setQWheelEvent_IsEndEvent_IsBase(true);
@@ -1340,7 +1340,7 @@ void QWheelEvent_SetTimestamp(QWheelEvent* self, unsigned long long timestamp) {
 }
 
 // Base class handler implementation
-void QWheelEvent_QBaseSetTimestamp(QWheelEvent* self, unsigned long long timestamp) {
+void QWheelEvent_SuperSetTimestamp(QWheelEvent* self, unsigned long long timestamp) {
     auto* vqwheelevent = dynamic_cast<VirtualQWheelEvent*>(self);
     if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
         vqwheelevent->setQWheelEvent_SetTimestamp_IsBase(true);
@@ -1369,7 +1369,7 @@ void QWheelEvent_SetAccepted(QWheelEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QWheelEvent_QBaseSetAccepted(QWheelEvent* self, bool accepted) {
+void QWheelEvent_SuperSetAccepted(QWheelEvent* self, bool accepted) {
     auto* vqwheelevent = dynamic_cast<VirtualQWheelEvent*>(self);
     if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
         vqwheelevent->setQWheelEvent_SetAccepted_IsBase(true);
@@ -1473,7 +1473,7 @@ double QTabletEvent_YTilt(const QTabletEvent* self) {
 }
 
 // Base class handler implementation
-QTabletEvent* QTabletEvent_QBaseClone(const QTabletEvent* self) {
+QTabletEvent* QTabletEvent_SuperClone(const QTabletEvent* self) {
     auto* vqtabletevent = const_cast<VirtualQTabletEvent*>(dynamic_cast<const VirtualQTabletEvent*>(self));
     if (vqtabletevent && vqtabletevent->isVirtualQTabletEvent) {
         vqtabletevent->setQTabletEvent_Clone_IsBase(true);
@@ -1502,7 +1502,7 @@ bool QTabletEvent_IsBeginEvent(const QTabletEvent* self) {
 }
 
 // Base class handler implementation
-bool QTabletEvent_QBaseIsBeginEvent(const QTabletEvent* self) {
+bool QTabletEvent_SuperIsBeginEvent(const QTabletEvent* self) {
     auto* vqtabletevent = const_cast<VirtualQTabletEvent*>(dynamic_cast<const VirtualQTabletEvent*>(self));
     if (vqtabletevent && vqtabletevent->isVirtualQTabletEvent) {
         vqtabletevent->setQTabletEvent_IsBeginEvent_IsBase(true);
@@ -1531,7 +1531,7 @@ bool QTabletEvent_IsUpdateEvent(const QTabletEvent* self) {
 }
 
 // Base class handler implementation
-bool QTabletEvent_QBaseIsUpdateEvent(const QTabletEvent* self) {
+bool QTabletEvent_SuperIsUpdateEvent(const QTabletEvent* self) {
     auto* vqtabletevent = const_cast<VirtualQTabletEvent*>(dynamic_cast<const VirtualQTabletEvent*>(self));
     if (vqtabletevent && vqtabletevent->isVirtualQTabletEvent) {
         vqtabletevent->setQTabletEvent_IsUpdateEvent_IsBase(true);
@@ -1560,7 +1560,7 @@ bool QTabletEvent_IsEndEvent(const QTabletEvent* self) {
 }
 
 // Base class handler implementation
-bool QTabletEvent_QBaseIsEndEvent(const QTabletEvent* self) {
+bool QTabletEvent_SuperIsEndEvent(const QTabletEvent* self) {
     auto* vqtabletevent = const_cast<VirtualQTabletEvent*>(dynamic_cast<const VirtualQTabletEvent*>(self));
     if (vqtabletevent && vqtabletevent->isVirtualQTabletEvent) {
         vqtabletevent->setQTabletEvent_IsEndEvent_IsBase(true);
@@ -1589,7 +1589,7 @@ void QTabletEvent_SetTimestamp(QTabletEvent* self, unsigned long long timestamp)
 }
 
 // Base class handler implementation
-void QTabletEvent_QBaseSetTimestamp(QTabletEvent* self, unsigned long long timestamp) {
+void QTabletEvent_SuperSetTimestamp(QTabletEvent* self, unsigned long long timestamp) {
     auto* vqtabletevent = dynamic_cast<VirtualQTabletEvent*>(self);
     if (vqtabletevent && vqtabletevent->isVirtualQTabletEvent) {
         vqtabletevent->setQTabletEvent_SetTimestamp_IsBase(true);
@@ -1618,7 +1618,7 @@ void QTabletEvent_SetAccepted(QTabletEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QTabletEvent_QBaseSetAccepted(QTabletEvent* self, bool accepted) {
+void QTabletEvent_SuperSetAccepted(QTabletEvent* self, bool accepted) {
     auto* vqtabletevent = dynamic_cast<VirtualQTabletEvent*>(self);
     if (vqtabletevent && vqtabletevent->isVirtualQTabletEvent) {
         vqtabletevent->setQTabletEvent_SetAccepted_IsBase(true);
@@ -1698,7 +1698,7 @@ QPointF* QNativeGestureEvent_ScreenPos(const QNativeGestureEvent* self) {
 }
 
 // Base class handler implementation
-QNativeGestureEvent* QNativeGestureEvent_QBaseClone(const QNativeGestureEvent* self) {
+QNativeGestureEvent* QNativeGestureEvent_SuperClone(const QNativeGestureEvent* self) {
     auto* vqnativegestureevent = const_cast<VirtualQNativeGestureEvent*>(dynamic_cast<const VirtualQNativeGestureEvent*>(self));
     if (vqnativegestureevent && vqnativegestureevent->isVirtualQNativeGestureEvent) {
         vqnativegestureevent->setQNativeGestureEvent_Clone_IsBase(true);
@@ -1727,7 +1727,7 @@ bool QNativeGestureEvent_IsBeginEvent(const QNativeGestureEvent* self) {
 }
 
 // Base class handler implementation
-bool QNativeGestureEvent_QBaseIsBeginEvent(const QNativeGestureEvent* self) {
+bool QNativeGestureEvent_SuperIsBeginEvent(const QNativeGestureEvent* self) {
     auto* vqnativegestureevent = const_cast<VirtualQNativeGestureEvent*>(dynamic_cast<const VirtualQNativeGestureEvent*>(self));
     if (vqnativegestureevent && vqnativegestureevent->isVirtualQNativeGestureEvent) {
         vqnativegestureevent->setQNativeGestureEvent_IsBeginEvent_IsBase(true);
@@ -1756,7 +1756,7 @@ bool QNativeGestureEvent_IsUpdateEvent(const QNativeGestureEvent* self) {
 }
 
 // Base class handler implementation
-bool QNativeGestureEvent_QBaseIsUpdateEvent(const QNativeGestureEvent* self) {
+bool QNativeGestureEvent_SuperIsUpdateEvent(const QNativeGestureEvent* self) {
     auto* vqnativegestureevent = const_cast<VirtualQNativeGestureEvent*>(dynamic_cast<const VirtualQNativeGestureEvent*>(self));
     if (vqnativegestureevent && vqnativegestureevent->isVirtualQNativeGestureEvent) {
         vqnativegestureevent->setQNativeGestureEvent_IsUpdateEvent_IsBase(true);
@@ -1785,7 +1785,7 @@ bool QNativeGestureEvent_IsEndEvent(const QNativeGestureEvent* self) {
 }
 
 // Base class handler implementation
-bool QNativeGestureEvent_QBaseIsEndEvent(const QNativeGestureEvent* self) {
+bool QNativeGestureEvent_SuperIsEndEvent(const QNativeGestureEvent* self) {
     auto* vqnativegestureevent = const_cast<VirtualQNativeGestureEvent*>(dynamic_cast<const VirtualQNativeGestureEvent*>(self));
     if (vqnativegestureevent && vqnativegestureevent->isVirtualQNativeGestureEvent) {
         vqnativegestureevent->setQNativeGestureEvent_IsEndEvent_IsBase(true);
@@ -1814,7 +1814,7 @@ void QNativeGestureEvent_SetTimestamp(QNativeGestureEvent* self, unsigned long l
 }
 
 // Base class handler implementation
-void QNativeGestureEvent_QBaseSetTimestamp(QNativeGestureEvent* self, unsigned long long timestamp) {
+void QNativeGestureEvent_SuperSetTimestamp(QNativeGestureEvent* self, unsigned long long timestamp) {
     auto* vqnativegestureevent = dynamic_cast<VirtualQNativeGestureEvent*>(self);
     if (vqnativegestureevent && vqnativegestureevent->isVirtualQNativeGestureEvent) {
         vqnativegestureevent->setQNativeGestureEvent_SetTimestamp_IsBase(true);
@@ -1843,7 +1843,7 @@ void QNativeGestureEvent_SetAccepted(QNativeGestureEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QNativeGestureEvent_QBaseSetAccepted(QNativeGestureEvent* self, bool accepted) {
+void QNativeGestureEvent_SuperSetAccepted(QNativeGestureEvent* self, bool accepted) {
     auto* vqnativegestureevent = dynamic_cast<VirtualQNativeGestureEvent*>(self);
     if (vqnativegestureevent && vqnativegestureevent->isVirtualQNativeGestureEvent) {
         vqnativegestureevent->setQNativeGestureEvent_SetAccepted_IsBase(true);
@@ -1966,7 +1966,7 @@ unsigned int QKeyEvent_NativeModifiers(const QKeyEvent* self) {
 }
 
 // Base class handler implementation
-QKeyEvent* QKeyEvent_QBaseClone(const QKeyEvent* self) {
+QKeyEvent* QKeyEvent_SuperClone(const QKeyEvent* self) {
     auto* vqkeyevent = const_cast<VirtualQKeyEvent*>(dynamic_cast<const VirtualQKeyEvent*>(self));
     if (vqkeyevent && vqkeyevent->isVirtualQKeyEvent) {
         vqkeyevent->setQKeyEvent_Clone_IsBase(true);
@@ -1995,7 +1995,7 @@ void QKeyEvent_SetTimestamp(QKeyEvent* self, unsigned long long timestamp) {
 }
 
 // Base class handler implementation
-void QKeyEvent_QBaseSetTimestamp(QKeyEvent* self, unsigned long long timestamp) {
+void QKeyEvent_SuperSetTimestamp(QKeyEvent* self, unsigned long long timestamp) {
     auto* vqkeyevent = dynamic_cast<VirtualQKeyEvent*>(self);
     if (vqkeyevent && vqkeyevent->isVirtualQKeyEvent) {
         vqkeyevent->setQKeyEvent_SetTimestamp_IsBase(true);
@@ -2024,7 +2024,7 @@ void QKeyEvent_SetAccepted(QKeyEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QKeyEvent_QBaseSetAccepted(QKeyEvent* self, bool accepted) {
+void QKeyEvent_SuperSetAccepted(QKeyEvent* self, bool accepted) {
     auto* vqkeyevent = dynamic_cast<VirtualQKeyEvent*>(self);
     if (vqkeyevent && vqkeyevent->isVirtualQKeyEvent) {
         vqkeyevent->setQKeyEvent_SetAccepted_IsBase(true);
@@ -2076,7 +2076,7 @@ int QFocusEvent_Reason(const QFocusEvent* self) {
 }
 
 // Base class handler implementation
-QFocusEvent* QFocusEvent_QBaseClone(const QFocusEvent* self) {
+QFocusEvent* QFocusEvent_SuperClone(const QFocusEvent* self) {
     auto* vqfocusevent = const_cast<VirtualQFocusEvent*>(dynamic_cast<const VirtualQFocusEvent*>(self));
     if (vqfocusevent && vqfocusevent->isVirtualQFocusEvent) {
         vqfocusevent->setQFocusEvent_Clone_IsBase(true);
@@ -2105,7 +2105,7 @@ void QFocusEvent_SetAccepted(QFocusEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QFocusEvent_QBaseSetAccepted(QFocusEvent* self, bool accepted) {
+void QFocusEvent_SuperSetAccepted(QFocusEvent* self, bool accepted) {
     auto* vqfocusevent = dynamic_cast<VirtualQFocusEvent*>(self);
     if (vqfocusevent && vqfocusevent->isVirtualQFocusEvent) {
         vqfocusevent->setQFocusEvent_SetAccepted_IsBase(true);
@@ -2157,7 +2157,7 @@ QRegion* QPaintEvent_Region(const QPaintEvent* self) {
 }
 
 // Base class handler implementation
-QPaintEvent* QPaintEvent_QBaseClone(const QPaintEvent* self) {
+QPaintEvent* QPaintEvent_SuperClone(const QPaintEvent* self) {
     auto* vqpaintevent = const_cast<VirtualQPaintEvent*>(dynamic_cast<const VirtualQPaintEvent*>(self));
     if (vqpaintevent && vqpaintevent->isVirtualQPaintEvent) {
         vqpaintevent->setQPaintEvent_Clone_IsBase(true);
@@ -2186,7 +2186,7 @@ void QPaintEvent_SetAccepted(QPaintEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QPaintEvent_QBaseSetAccepted(QPaintEvent* self, bool accepted) {
+void QPaintEvent_SuperSetAccepted(QPaintEvent* self, bool accepted) {
     auto* vqpaintevent = dynamic_cast<VirtualQPaintEvent*>(self);
     if (vqpaintevent && vqpaintevent->isVirtualQPaintEvent) {
         vqpaintevent->setQPaintEvent_SetAccepted_IsBase(true);
@@ -2234,7 +2234,7 @@ QPoint* QMoveEvent_OldPos(const QMoveEvent* self) {
 }
 
 // Base class handler implementation
-QMoveEvent* QMoveEvent_QBaseClone(const QMoveEvent* self) {
+QMoveEvent* QMoveEvent_SuperClone(const QMoveEvent* self) {
     auto* vqmoveevent = const_cast<VirtualQMoveEvent*>(dynamic_cast<const VirtualQMoveEvent*>(self));
     if (vqmoveevent && vqmoveevent->isVirtualQMoveEvent) {
         vqmoveevent->setQMoveEvent_Clone_IsBase(true);
@@ -2263,7 +2263,7 @@ void QMoveEvent_SetAccepted(QMoveEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QMoveEvent_QBaseSetAccepted(QMoveEvent* self, bool accepted) {
+void QMoveEvent_SuperSetAccepted(QMoveEvent* self, bool accepted) {
     auto* vqmoveevent = dynamic_cast<VirtualQMoveEvent*>(self);
     if (vqmoveevent && vqmoveevent->isVirtualQMoveEvent) {
         vqmoveevent->setQMoveEvent_SetAccepted_IsBase(true);
@@ -2305,7 +2305,7 @@ QRegion* QExposeEvent_Region(const QExposeEvent* self) {
 }
 
 // Base class handler implementation
-QExposeEvent* QExposeEvent_QBaseClone(const QExposeEvent* self) {
+QExposeEvent* QExposeEvent_SuperClone(const QExposeEvent* self) {
     auto* vqexposeevent = const_cast<VirtualQExposeEvent*>(dynamic_cast<const VirtualQExposeEvent*>(self));
     if (vqexposeevent && vqexposeevent->isVirtualQExposeEvent) {
         vqexposeevent->setQExposeEvent_Clone_IsBase(true);
@@ -2334,7 +2334,7 @@ void QExposeEvent_SetAccepted(QExposeEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QExposeEvent_QBaseSetAccepted(QExposeEvent* self, bool accepted) {
+void QExposeEvent_SuperSetAccepted(QExposeEvent* self, bool accepted) {
     auto* vqexposeevent = dynamic_cast<VirtualQExposeEvent*>(self);
     if (vqexposeevent && vqexposeevent->isVirtualQExposeEvent) {
         vqexposeevent->setQExposeEvent_SetAccepted_IsBase(true);
@@ -2374,7 +2374,7 @@ int QPlatformSurfaceEvent_SurfaceEventType(const QPlatformSurfaceEvent* self) {
 }
 
 // Base class handler implementation
-QPlatformSurfaceEvent* QPlatformSurfaceEvent_QBaseClone(const QPlatformSurfaceEvent* self) {
+QPlatformSurfaceEvent* QPlatformSurfaceEvent_SuperClone(const QPlatformSurfaceEvent* self) {
     auto* vqplatformsurfaceevent = const_cast<VirtualQPlatformSurfaceEvent*>(dynamic_cast<const VirtualQPlatformSurfaceEvent*>(self));
     if (vqplatformsurfaceevent && vqplatformsurfaceevent->isVirtualQPlatformSurfaceEvent) {
         vqplatformsurfaceevent->setQPlatformSurfaceEvent_Clone_IsBase(true);
@@ -2403,7 +2403,7 @@ void QPlatformSurfaceEvent_SetAccepted(QPlatformSurfaceEvent* self, bool accepte
 }
 
 // Base class handler implementation
-void QPlatformSurfaceEvent_QBaseSetAccepted(QPlatformSurfaceEvent* self, bool accepted) {
+void QPlatformSurfaceEvent_SuperSetAccepted(QPlatformSurfaceEvent* self, bool accepted) {
     auto* vqplatformsurfaceevent = dynamic_cast<VirtualQPlatformSurfaceEvent*>(self);
     if (vqplatformsurfaceevent && vqplatformsurfaceevent->isVirtualQPlatformSurfaceEvent) {
         vqplatformsurfaceevent->setQPlatformSurfaceEvent_SetAccepted_IsBase(true);
@@ -2451,7 +2451,7 @@ QSize* QResizeEvent_OldSize(const QResizeEvent* self) {
 }
 
 // Base class handler implementation
-QResizeEvent* QResizeEvent_QBaseClone(const QResizeEvent* self) {
+QResizeEvent* QResizeEvent_SuperClone(const QResizeEvent* self) {
     auto* vqresizeevent = const_cast<VirtualQResizeEvent*>(dynamic_cast<const VirtualQResizeEvent*>(self));
     if (vqresizeevent && vqresizeevent->isVirtualQResizeEvent) {
         vqresizeevent->setQResizeEvent_Clone_IsBase(true);
@@ -2480,7 +2480,7 @@ void QResizeEvent_SetAccepted(QResizeEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QResizeEvent_QBaseSetAccepted(QResizeEvent* self, bool accepted) {
+void QResizeEvent_SuperSetAccepted(QResizeEvent* self, bool accepted) {
     auto* vqresizeevent = dynamic_cast<VirtualQResizeEvent*>(self);
     if (vqresizeevent && vqresizeevent->isVirtualQResizeEvent) {
         vqresizeevent->setQResizeEvent_SetAccepted_IsBase(true);
@@ -2516,7 +2516,7 @@ QCloseEvent* QCloseEvent_Clone(const QCloseEvent* self) {
 }
 
 // Base class handler implementation
-QCloseEvent* QCloseEvent_QBaseClone(const QCloseEvent* self) {
+QCloseEvent* QCloseEvent_SuperClone(const QCloseEvent* self) {
     auto* vqcloseevent = const_cast<VirtualQCloseEvent*>(dynamic_cast<const VirtualQCloseEvent*>(self));
     if (vqcloseevent && vqcloseevent->isVirtualQCloseEvent) {
         vqcloseevent->setQCloseEvent_Clone_IsBase(true);
@@ -2545,7 +2545,7 @@ void QCloseEvent_SetAccepted(QCloseEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QCloseEvent_QBaseSetAccepted(QCloseEvent* self, bool accepted) {
+void QCloseEvent_SuperSetAccepted(QCloseEvent* self, bool accepted) {
     auto* vqcloseevent = dynamic_cast<VirtualQCloseEvent*>(self);
     if (vqcloseevent && vqcloseevent->isVirtualQCloseEvent) {
         vqcloseevent->setQCloseEvent_SetAccepted_IsBase(true);
@@ -2581,7 +2581,7 @@ QIconDragEvent* QIconDragEvent_Clone(const QIconDragEvent* self) {
 }
 
 // Base class handler implementation
-QIconDragEvent* QIconDragEvent_QBaseClone(const QIconDragEvent* self) {
+QIconDragEvent* QIconDragEvent_SuperClone(const QIconDragEvent* self) {
     auto* vqicondragevent = const_cast<VirtualQIconDragEvent*>(dynamic_cast<const VirtualQIconDragEvent*>(self));
     if (vqicondragevent && vqicondragevent->isVirtualQIconDragEvent) {
         vqicondragevent->setQIconDragEvent_Clone_IsBase(true);
@@ -2610,7 +2610,7 @@ void QIconDragEvent_SetAccepted(QIconDragEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QIconDragEvent_QBaseSetAccepted(QIconDragEvent* self, bool accepted) {
+void QIconDragEvent_SuperSetAccepted(QIconDragEvent* self, bool accepted) {
     auto* vqicondragevent = dynamic_cast<VirtualQIconDragEvent*>(self);
     if (vqicondragevent && vqicondragevent->isVirtualQIconDragEvent) {
         vqicondragevent->setQIconDragEvent_SetAccepted_IsBase(true);
@@ -2646,7 +2646,7 @@ QShowEvent* QShowEvent_Clone(const QShowEvent* self) {
 }
 
 // Base class handler implementation
-QShowEvent* QShowEvent_QBaseClone(const QShowEvent* self) {
+QShowEvent* QShowEvent_SuperClone(const QShowEvent* self) {
     auto* vqshowevent = const_cast<VirtualQShowEvent*>(dynamic_cast<const VirtualQShowEvent*>(self));
     if (vqshowevent && vqshowevent->isVirtualQShowEvent) {
         vqshowevent->setQShowEvent_Clone_IsBase(true);
@@ -2675,7 +2675,7 @@ void QShowEvent_SetAccepted(QShowEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QShowEvent_QBaseSetAccepted(QShowEvent* self, bool accepted) {
+void QShowEvent_SuperSetAccepted(QShowEvent* self, bool accepted) {
     auto* vqshowevent = dynamic_cast<VirtualQShowEvent*>(self);
     if (vqshowevent && vqshowevent->isVirtualQShowEvent) {
         vqshowevent->setQShowEvent_SetAccepted_IsBase(true);
@@ -2711,7 +2711,7 @@ QHideEvent* QHideEvent_Clone(const QHideEvent* self) {
 }
 
 // Base class handler implementation
-QHideEvent* QHideEvent_QBaseClone(const QHideEvent* self) {
+QHideEvent* QHideEvent_SuperClone(const QHideEvent* self) {
     auto* vqhideevent = const_cast<VirtualQHideEvent*>(dynamic_cast<const VirtualQHideEvent*>(self));
     if (vqhideevent && vqhideevent->isVirtualQHideEvent) {
         vqhideevent->setQHideEvent_Clone_IsBase(true);
@@ -2740,7 +2740,7 @@ void QHideEvent_SetAccepted(QHideEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QHideEvent_QBaseSetAccepted(QHideEvent* self, bool accepted) {
+void QHideEvent_SuperSetAccepted(QHideEvent* self, bool accepted) {
     auto* vqhideevent = dynamic_cast<VirtualQHideEvent*>(self);
     if (vqhideevent && vqhideevent->isVirtualQHideEvent) {
         vqhideevent->setQHideEvent_SetAccepted_IsBase(true);
@@ -2816,7 +2816,7 @@ int QContextMenuEvent_Reason(const QContextMenuEvent* self) {
 }
 
 // Base class handler implementation
-QContextMenuEvent* QContextMenuEvent_QBaseClone(const QContextMenuEvent* self) {
+QContextMenuEvent* QContextMenuEvent_SuperClone(const QContextMenuEvent* self) {
     auto* vqcontextmenuevent = const_cast<VirtualQContextMenuEvent*>(dynamic_cast<const VirtualQContextMenuEvent*>(self));
     if (vqcontextmenuevent && vqcontextmenuevent->isVirtualQContextMenuEvent) {
         vqcontextmenuevent->setQContextMenuEvent_Clone_IsBase(true);
@@ -2845,7 +2845,7 @@ void QContextMenuEvent_SetTimestamp(QContextMenuEvent* self, unsigned long long 
 }
 
 // Base class handler implementation
-void QContextMenuEvent_QBaseSetTimestamp(QContextMenuEvent* self, unsigned long long timestamp) {
+void QContextMenuEvent_SuperSetTimestamp(QContextMenuEvent* self, unsigned long long timestamp) {
     auto* vqcontextmenuevent = dynamic_cast<VirtualQContextMenuEvent*>(self);
     if (vqcontextmenuevent && vqcontextmenuevent->isVirtualQContextMenuEvent) {
         vqcontextmenuevent->setQContextMenuEvent_SetTimestamp_IsBase(true);
@@ -2874,7 +2874,7 @@ void QContextMenuEvent_SetAccepted(QContextMenuEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QContextMenuEvent_QBaseSetAccepted(QContextMenuEvent* self, bool accepted) {
+void QContextMenuEvent_SuperSetAccepted(QContextMenuEvent* self, bool accepted) {
     auto* vqcontextmenuevent = dynamic_cast<VirtualQContextMenuEvent*>(self);
     if (vqcontextmenuevent && vqcontextmenuevent->isVirtualQContextMenuEvent) {
         vqcontextmenuevent->setQContextMenuEvent_SetAccepted_IsBase(true);
@@ -2981,7 +2981,7 @@ void QInputMethodEvent_SetCommitString3(QInputMethodEvent* self, const libqt_str
 }
 
 // Base class handler implementation
-QInputMethodEvent* QInputMethodEvent_QBaseClone(const QInputMethodEvent* self) {
+QInputMethodEvent* QInputMethodEvent_SuperClone(const QInputMethodEvent* self) {
     auto* vqinputmethodevent = const_cast<VirtualQInputMethodEvent*>(dynamic_cast<const VirtualQInputMethodEvent*>(self));
     if (vqinputmethodevent && vqinputmethodevent->isVirtualQInputMethodEvent) {
         vqinputmethodevent->setQInputMethodEvent_Clone_IsBase(true);
@@ -3010,7 +3010,7 @@ void QInputMethodEvent_SetAccepted(QInputMethodEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QInputMethodEvent_QBaseSetAccepted(QInputMethodEvent* self, bool accepted) {
+void QInputMethodEvent_SuperSetAccepted(QInputMethodEvent* self, bool accepted) {
     auto* vqinputmethodevent = dynamic_cast<VirtualQInputMethodEvent*>(self);
     if (vqinputmethodevent && vqinputmethodevent->isVirtualQInputMethodEvent) {
         vqinputmethodevent->setQInputMethodEvent_SetAccepted_IsBase(true);
@@ -3058,7 +3058,7 @@ QVariant* QInputMethodQueryEvent_Value(const QInputMethodQueryEvent* self, int q
 }
 
 // Base class handler implementation
-QInputMethodQueryEvent* QInputMethodQueryEvent_QBaseClone(const QInputMethodQueryEvent* self) {
+QInputMethodQueryEvent* QInputMethodQueryEvent_SuperClone(const QInputMethodQueryEvent* self) {
     auto* vqinputmethodqueryevent = const_cast<VirtualQInputMethodQueryEvent*>(dynamic_cast<const VirtualQInputMethodQueryEvent*>(self));
     if (vqinputmethodqueryevent && vqinputmethodqueryevent->isVirtualQInputMethodQueryEvent) {
         vqinputmethodqueryevent->setQInputMethodQueryEvent_Clone_IsBase(true);
@@ -3087,7 +3087,7 @@ void QInputMethodQueryEvent_SetAccepted(QInputMethodQueryEvent* self, bool accep
 }
 
 // Base class handler implementation
-void QInputMethodQueryEvent_QBaseSetAccepted(QInputMethodQueryEvent* self, bool accepted) {
+void QInputMethodQueryEvent_SuperSetAccepted(QInputMethodQueryEvent* self, bool accepted) {
     auto* vqinputmethodqueryevent = dynamic_cast<VirtualQInputMethodQueryEvent*>(self);
     if (vqinputmethodqueryevent && vqinputmethodqueryevent->isVirtualQInputMethodQueryEvent) {
         vqinputmethodqueryevent->setQInputMethodQueryEvent_SetAccepted_IsBase(true);
@@ -3183,7 +3183,7 @@ QMimeData* QDropEvent_MimeData(const QDropEvent* self) {
 }
 
 // Base class handler implementation
-QDropEvent* QDropEvent_QBaseClone(const QDropEvent* self) {
+QDropEvent* QDropEvent_SuperClone(const QDropEvent* self) {
     auto* vqdropevent = const_cast<VirtualQDropEvent*>(dynamic_cast<const VirtualQDropEvent*>(self));
     if (vqdropevent && vqdropevent->isVirtualQDropEvent) {
         vqdropevent->setQDropEvent_Clone_IsBase(true);
@@ -3212,7 +3212,7 @@ void QDropEvent_SetAccepted(QDropEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QDropEvent_QBaseSetAccepted(QDropEvent* self, bool accepted) {
+void QDropEvent_SuperSetAccepted(QDropEvent* self, bool accepted) {
     auto* vqdropevent = dynamic_cast<VirtualQDropEvent*>(self);
     if (vqdropevent && vqdropevent->isVirtualQDropEvent) {
         vqdropevent->setQDropEvent_SetAccepted_IsBase(true);
@@ -3272,7 +3272,7 @@ void QDragMoveEvent_Ignore2(QDragMoveEvent* self, const QRect* r) {
 }
 
 // Base class handler implementation
-QDragMoveEvent* QDragMoveEvent_QBaseClone(const QDragMoveEvent* self) {
+QDragMoveEvent* QDragMoveEvent_SuperClone(const QDragMoveEvent* self) {
     auto* vqdragmoveevent = const_cast<VirtualQDragMoveEvent*>(dynamic_cast<const VirtualQDragMoveEvent*>(self));
     if (vqdragmoveevent && vqdragmoveevent->isVirtualQDragMoveEvent) {
         vqdragmoveevent->setQDragMoveEvent_Clone_IsBase(true);
@@ -3301,7 +3301,7 @@ void QDragMoveEvent_SetAccepted(QDragMoveEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QDragMoveEvent_QBaseSetAccepted(QDragMoveEvent* self, bool accepted) {
+void QDragMoveEvent_SuperSetAccepted(QDragMoveEvent* self, bool accepted) {
     auto* vqdragmoveevent = dynamic_cast<VirtualQDragMoveEvent*>(self);
     if (vqdragmoveevent && vqdragmoveevent->isVirtualQDragMoveEvent) {
         vqdragmoveevent->setQDragMoveEvent_SetAccepted_IsBase(true);
@@ -3337,7 +3337,7 @@ QDragEnterEvent* QDragEnterEvent_Clone(const QDragEnterEvent* self) {
 }
 
 // Base class handler implementation
-QDragEnterEvent* QDragEnterEvent_QBaseClone(const QDragEnterEvent* self) {
+QDragEnterEvent* QDragEnterEvent_SuperClone(const QDragEnterEvent* self) {
     auto* vqdragenterevent = const_cast<VirtualQDragEnterEvent*>(dynamic_cast<const VirtualQDragEnterEvent*>(self));
     if (vqdragenterevent && vqdragenterevent->isVirtualQDragEnterEvent) {
         vqdragenterevent->setQDragEnterEvent_Clone_IsBase(true);
@@ -3366,7 +3366,7 @@ void QDragEnterEvent_SetAccepted(QDragEnterEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QDragEnterEvent_QBaseSetAccepted(QDragEnterEvent* self, bool accepted) {
+void QDragEnterEvent_SuperSetAccepted(QDragEnterEvent* self, bool accepted) {
     auto* vqdragenterevent = dynamic_cast<VirtualQDragEnterEvent*>(self);
     if (vqdragenterevent && vqdragenterevent->isVirtualQDragEnterEvent) {
         vqdragenterevent->setQDragEnterEvent_SetAccepted_IsBase(true);
@@ -3402,7 +3402,7 @@ QDragLeaveEvent* QDragLeaveEvent_Clone(const QDragLeaveEvent* self) {
 }
 
 // Base class handler implementation
-QDragLeaveEvent* QDragLeaveEvent_QBaseClone(const QDragLeaveEvent* self) {
+QDragLeaveEvent* QDragLeaveEvent_SuperClone(const QDragLeaveEvent* self) {
     auto* vqdragleaveevent = const_cast<VirtualQDragLeaveEvent*>(dynamic_cast<const VirtualQDragLeaveEvent*>(self));
     if (vqdragleaveevent && vqdragleaveevent->isVirtualQDragLeaveEvent) {
         vqdragleaveevent->setQDragLeaveEvent_Clone_IsBase(true);
@@ -3431,7 +3431,7 @@ void QDragLeaveEvent_SetAccepted(QDragLeaveEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QDragLeaveEvent_QBaseSetAccepted(QDragLeaveEvent* self, bool accepted) {
+void QDragLeaveEvent_SuperSetAccepted(QDragLeaveEvent* self, bool accepted) {
     auto* vqdragleaveevent = dynamic_cast<VirtualQDragLeaveEvent*>(self);
     if (vqdragleaveevent && vqdragleaveevent->isVirtualQDragLeaveEvent) {
         vqdragleaveevent->setQDragLeaveEvent_SetAccepted_IsBase(true);
@@ -3495,7 +3495,7 @@ QPoint* QHelpEvent_GlobalPos(const QHelpEvent* self) {
 }
 
 // Base class handler implementation
-QHelpEvent* QHelpEvent_QBaseClone(const QHelpEvent* self) {
+QHelpEvent* QHelpEvent_SuperClone(const QHelpEvent* self) {
     auto* vqhelpevent = const_cast<VirtualQHelpEvent*>(dynamic_cast<const VirtualQHelpEvent*>(self));
     if (vqhelpevent && vqhelpevent->isVirtualQHelpEvent) {
         vqhelpevent->setQHelpEvent_Clone_IsBase(true);
@@ -3524,7 +3524,7 @@ void QHelpEvent_SetAccepted(QHelpEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QHelpEvent_QBaseSetAccepted(QHelpEvent* self, bool accepted) {
+void QHelpEvent_SuperSetAccepted(QHelpEvent* self, bool accepted) {
     auto* vqhelpevent = dynamic_cast<VirtualQHelpEvent*>(self);
     if (vqhelpevent && vqhelpevent->isVirtualQHelpEvent) {
         vqhelpevent->setQHelpEvent_SetAccepted_IsBase(true);
@@ -3573,7 +3573,7 @@ libqt_string QStatusTipEvent_Tip(const QStatusTipEvent* self) {
 }
 
 // Base class handler implementation
-QStatusTipEvent* QStatusTipEvent_QBaseClone(const QStatusTipEvent* self) {
+QStatusTipEvent* QStatusTipEvent_SuperClone(const QStatusTipEvent* self) {
     auto* vqstatustipevent = const_cast<VirtualQStatusTipEvent*>(dynamic_cast<const VirtualQStatusTipEvent*>(self));
     if (vqstatustipevent && vqstatustipevent->isVirtualQStatusTipEvent) {
         vqstatustipevent->setQStatusTipEvent_Clone_IsBase(true);
@@ -3602,7 +3602,7 @@ void QStatusTipEvent_SetAccepted(QStatusTipEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QStatusTipEvent_QBaseSetAccepted(QStatusTipEvent* self, bool accepted) {
+void QStatusTipEvent_SuperSetAccepted(QStatusTipEvent* self, bool accepted) {
     auto* vqstatustipevent = dynamic_cast<VirtualQStatusTipEvent*>(self);
     if (vqstatustipevent && vqstatustipevent->isVirtualQStatusTipEvent) {
         vqstatustipevent->setQStatusTipEvent_SetAccepted_IsBase(true);
@@ -3651,7 +3651,7 @@ libqt_string QWhatsThisClickedEvent_Href(const QWhatsThisClickedEvent* self) {
 }
 
 // Base class handler implementation
-QWhatsThisClickedEvent* QWhatsThisClickedEvent_QBaseClone(const QWhatsThisClickedEvent* self) {
+QWhatsThisClickedEvent* QWhatsThisClickedEvent_SuperClone(const QWhatsThisClickedEvent* self) {
     auto* vqwhatsthisclickedevent = const_cast<VirtualQWhatsThisClickedEvent*>(dynamic_cast<const VirtualQWhatsThisClickedEvent*>(self));
     if (vqwhatsthisclickedevent && vqwhatsthisclickedevent->isVirtualQWhatsThisClickedEvent) {
         vqwhatsthisclickedevent->setQWhatsThisClickedEvent_Clone_IsBase(true);
@@ -3680,7 +3680,7 @@ void QWhatsThisClickedEvent_SetAccepted(QWhatsThisClickedEvent* self, bool accep
 }
 
 // Base class handler implementation
-void QWhatsThisClickedEvent_QBaseSetAccepted(QWhatsThisClickedEvent* self, bool accepted) {
+void QWhatsThisClickedEvent_SuperSetAccepted(QWhatsThisClickedEvent* self, bool accepted) {
     auto* vqwhatsthisclickedevent = dynamic_cast<VirtualQWhatsThisClickedEvent*>(self);
     if (vqwhatsthisclickedevent && vqwhatsthisclickedevent->isVirtualQWhatsThisClickedEvent) {
         vqwhatsthisclickedevent->setQWhatsThisClickedEvent_SetAccepted_IsBase(true);
@@ -3728,7 +3728,7 @@ QAction* QActionEvent_Before(const QActionEvent* self) {
 }
 
 // Base class handler implementation
-QActionEvent* QActionEvent_QBaseClone(const QActionEvent* self) {
+QActionEvent* QActionEvent_SuperClone(const QActionEvent* self) {
     auto* vqactionevent = const_cast<VirtualQActionEvent*>(dynamic_cast<const VirtualQActionEvent*>(self));
     if (vqactionevent && vqactionevent->isVirtualQActionEvent) {
         vqactionevent->setQActionEvent_Clone_IsBase(true);
@@ -3757,7 +3757,7 @@ void QActionEvent_SetAccepted(QActionEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QActionEvent_QBaseSetAccepted(QActionEvent* self, bool accepted) {
+void QActionEvent_SuperSetAccepted(QActionEvent* self, bool accepted) {
     auto* vqactionevent = dynamic_cast<VirtualQActionEvent*>(self);
     if (vqactionevent && vqactionevent->isVirtualQActionEvent) {
         vqactionevent->setQActionEvent_SetAccepted_IsBase(true);
@@ -3818,7 +3818,7 @@ bool QFileOpenEvent_OpenFile(const QFileOpenEvent* self, QFile* file, int flags)
 }
 
 // Base class handler implementation
-QFileOpenEvent* QFileOpenEvent_QBaseClone(const QFileOpenEvent* self) {
+QFileOpenEvent* QFileOpenEvent_SuperClone(const QFileOpenEvent* self) {
     auto* vqfileopenevent = const_cast<VirtualQFileOpenEvent*>(dynamic_cast<const VirtualQFileOpenEvent*>(self));
     if (vqfileopenevent && vqfileopenevent->isVirtualQFileOpenEvent) {
         vqfileopenevent->setQFileOpenEvent_Clone_IsBase(true);
@@ -3847,7 +3847,7 @@ void QFileOpenEvent_SetAccepted(QFileOpenEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QFileOpenEvent_QBaseSetAccepted(QFileOpenEvent* self, bool accepted) {
+void QFileOpenEvent_SuperSetAccepted(QFileOpenEvent* self, bool accepted) {
     auto* vqfileopenevent = dynamic_cast<VirtualQFileOpenEvent*>(self);
     if (vqfileopenevent && vqfileopenevent->isVirtualQFileOpenEvent) {
         vqfileopenevent->setQFileOpenEvent_SetAccepted_IsBase(true);
@@ -3887,7 +3887,7 @@ bool QToolBarChangeEvent_Toggle(const QToolBarChangeEvent* self) {
 }
 
 // Base class handler implementation
-QToolBarChangeEvent* QToolBarChangeEvent_QBaseClone(const QToolBarChangeEvent* self) {
+QToolBarChangeEvent* QToolBarChangeEvent_SuperClone(const QToolBarChangeEvent* self) {
     auto* vqtoolbarchangeevent = const_cast<VirtualQToolBarChangeEvent*>(dynamic_cast<const VirtualQToolBarChangeEvent*>(self));
     if (vqtoolbarchangeevent && vqtoolbarchangeevent->isVirtualQToolBarChangeEvent) {
         vqtoolbarchangeevent->setQToolBarChangeEvent_Clone_IsBase(true);
@@ -3916,7 +3916,7 @@ void QToolBarChangeEvent_SetAccepted(QToolBarChangeEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QToolBarChangeEvent_QBaseSetAccepted(QToolBarChangeEvent* self, bool accepted) {
+void QToolBarChangeEvent_SuperSetAccepted(QToolBarChangeEvent* self, bool accepted) {
     auto* vqtoolbarchangeevent = dynamic_cast<VirtualQToolBarChangeEvent*>(self);
     if (vqtoolbarchangeevent && vqtoolbarchangeevent->isVirtualQToolBarChangeEvent) {
         vqtoolbarchangeevent->setQToolBarChangeEvent_SetAccepted_IsBase(true);
@@ -3982,7 +3982,7 @@ bool QShortcutEvent_IsAmbiguous(const QShortcutEvent* self) {
 }
 
 // Base class handler implementation
-QShortcutEvent* QShortcutEvent_QBaseClone(const QShortcutEvent* self) {
+QShortcutEvent* QShortcutEvent_SuperClone(const QShortcutEvent* self) {
     auto* vqshortcutevent = const_cast<VirtualQShortcutEvent*>(dynamic_cast<const VirtualQShortcutEvent*>(self));
     if (vqshortcutevent && vqshortcutevent->isVirtualQShortcutEvent) {
         vqshortcutevent->setQShortcutEvent_Clone_IsBase(true);
@@ -4011,7 +4011,7 @@ void QShortcutEvent_SetAccepted(QShortcutEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QShortcutEvent_QBaseSetAccepted(QShortcutEvent* self, bool accepted) {
+void QShortcutEvent_SuperSetAccepted(QShortcutEvent* self, bool accepted) {
     auto* vqshortcutevent = dynamic_cast<VirtualQShortcutEvent*>(self);
     if (vqshortcutevent && vqshortcutevent->isVirtualQShortcutEvent) {
         vqshortcutevent->setQShortcutEvent_SetAccepted_IsBase(true);
@@ -4059,7 +4059,7 @@ bool QWindowStateChangeEvent_IsOverride(const QWindowStateChangeEvent* self) {
 }
 
 // Base class handler implementation
-QWindowStateChangeEvent* QWindowStateChangeEvent_QBaseClone(const QWindowStateChangeEvent* self) {
+QWindowStateChangeEvent* QWindowStateChangeEvent_SuperClone(const QWindowStateChangeEvent* self) {
     auto* vqwindowstatechangeevent = const_cast<VirtualQWindowStateChangeEvent*>(dynamic_cast<const VirtualQWindowStateChangeEvent*>(self));
     if (vqwindowstatechangeevent && vqwindowstatechangeevent->isVirtualQWindowStateChangeEvent) {
         vqwindowstatechangeevent->setQWindowStateChangeEvent_Clone_IsBase(true);
@@ -4088,7 +4088,7 @@ void QWindowStateChangeEvent_SetAccepted(QWindowStateChangeEvent* self, bool acc
 }
 
 // Base class handler implementation
-void QWindowStateChangeEvent_QBaseSetAccepted(QWindowStateChangeEvent* self, bool accepted) {
+void QWindowStateChangeEvent_SuperSetAccepted(QWindowStateChangeEvent* self, bool accepted) {
     auto* vqwindowstatechangeevent = dynamic_cast<VirtualQWindowStateChangeEvent*>(self);
     if (vqwindowstatechangeevent && vqwindowstatechangeevent->isVirtualQWindowStateChangeEvent) {
         vqwindowstatechangeevent->setQWindowStateChangeEvent_SetAccepted_IsBase(true);
@@ -4204,7 +4204,7 @@ bool QTouchEvent_IsEndEvent(const QTouchEvent* self) {
 }
 
 // Base class handler implementation
-QTouchEvent* QTouchEvent_QBaseClone(const QTouchEvent* self) {
+QTouchEvent* QTouchEvent_SuperClone(const QTouchEvent* self) {
     auto* vqtouchevent = const_cast<VirtualQTouchEvent*>(dynamic_cast<const VirtualQTouchEvent*>(self));
     if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
         vqtouchevent->setQTouchEvent_Clone_IsBase(true);
@@ -4223,7 +4223,7 @@ void QTouchEvent_OnClone(const QTouchEvent* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QTouchEvent_QBaseIsBeginEvent(const QTouchEvent* self) {
+bool QTouchEvent_SuperIsBeginEvent(const QTouchEvent* self) {
     auto* vqtouchevent = const_cast<VirtualQTouchEvent*>(dynamic_cast<const VirtualQTouchEvent*>(self));
     if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
         vqtouchevent->setQTouchEvent_IsBeginEvent_IsBase(true);
@@ -4242,7 +4242,7 @@ void QTouchEvent_OnIsBeginEvent(const QTouchEvent* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QTouchEvent_QBaseIsUpdateEvent(const QTouchEvent* self) {
+bool QTouchEvent_SuperIsUpdateEvent(const QTouchEvent* self) {
     auto* vqtouchevent = const_cast<VirtualQTouchEvent*>(dynamic_cast<const VirtualQTouchEvent*>(self));
     if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
         vqtouchevent->setQTouchEvent_IsUpdateEvent_IsBase(true);
@@ -4261,7 +4261,7 @@ void QTouchEvent_OnIsUpdateEvent(const QTouchEvent* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QTouchEvent_QBaseIsEndEvent(const QTouchEvent* self) {
+bool QTouchEvent_SuperIsEndEvent(const QTouchEvent* self) {
     auto* vqtouchevent = const_cast<VirtualQTouchEvent*>(dynamic_cast<const VirtualQTouchEvent*>(self));
     if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
         vqtouchevent->setQTouchEvent_IsEndEvent_IsBase(true);
@@ -4290,7 +4290,7 @@ void QTouchEvent_SetTimestamp(QTouchEvent* self, unsigned long long timestamp) {
 }
 
 // Base class handler implementation
-void QTouchEvent_QBaseSetTimestamp(QTouchEvent* self, unsigned long long timestamp) {
+void QTouchEvent_SuperSetTimestamp(QTouchEvent* self, unsigned long long timestamp) {
     auto* vqtouchevent = dynamic_cast<VirtualQTouchEvent*>(self);
     if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
         vqtouchevent->setQTouchEvent_SetTimestamp_IsBase(true);
@@ -4319,7 +4319,7 @@ void QTouchEvent_SetAccepted(QTouchEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QTouchEvent_QBaseSetAccepted(QTouchEvent* self, bool accepted) {
+void QTouchEvent_SuperSetAccepted(QTouchEvent* self, bool accepted) {
     auto* vqtouchevent = dynamic_cast<VirtualQTouchEvent*>(self);
     if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
         vqtouchevent->setQTouchEvent_SetAccepted_IsBase(true);
@@ -4383,7 +4383,7 @@ void QScrollPrepareEvent_SetContentPos(QScrollPrepareEvent* self, const QPointF*
 }
 
 // Base class handler implementation
-QScrollPrepareEvent* QScrollPrepareEvent_QBaseClone(const QScrollPrepareEvent* self) {
+QScrollPrepareEvent* QScrollPrepareEvent_SuperClone(const QScrollPrepareEvent* self) {
     auto* vqscrollprepareevent = const_cast<VirtualQScrollPrepareEvent*>(dynamic_cast<const VirtualQScrollPrepareEvent*>(self));
     if (vqscrollprepareevent && vqscrollprepareevent->isVirtualQScrollPrepareEvent) {
         vqscrollprepareevent->setQScrollPrepareEvent_Clone_IsBase(true);
@@ -4412,7 +4412,7 @@ void QScrollPrepareEvent_SetAccepted(QScrollPrepareEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QScrollPrepareEvent_QBaseSetAccepted(QScrollPrepareEvent* self, bool accepted) {
+void QScrollPrepareEvent_SuperSetAccepted(QScrollPrepareEvent* self, bool accepted) {
     auto* vqscrollprepareevent = dynamic_cast<VirtualQScrollPrepareEvent*>(self);
     if (vqscrollprepareevent && vqscrollprepareevent->isVirtualQScrollPrepareEvent) {
         vqscrollprepareevent->setQScrollPrepareEvent_SetAccepted_IsBase(true);
@@ -4460,7 +4460,7 @@ int QScrollEvent_ScrollState(const QScrollEvent* self) {
 }
 
 // Base class handler implementation
-QScrollEvent* QScrollEvent_QBaseClone(const QScrollEvent* self) {
+QScrollEvent* QScrollEvent_SuperClone(const QScrollEvent* self) {
     auto* vqscrollevent = const_cast<VirtualQScrollEvent*>(dynamic_cast<const VirtualQScrollEvent*>(self));
     if (vqscrollevent && vqscrollevent->isVirtualQScrollEvent) {
         vqscrollevent->setQScrollEvent_Clone_IsBase(true);
@@ -4489,7 +4489,7 @@ void QScrollEvent_SetAccepted(QScrollEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QScrollEvent_QBaseSetAccepted(QScrollEvent* self, bool accepted) {
+void QScrollEvent_SuperSetAccepted(QScrollEvent* self, bool accepted) {
     auto* vqscrollevent = dynamic_cast<VirtualQScrollEvent*>(self);
     if (vqscrollevent && vqscrollevent->isVirtualQScrollEvent) {
         vqscrollevent->setQScrollEvent_SetAccepted_IsBase(true);
@@ -4533,7 +4533,7 @@ int QScreenOrientationChangeEvent_Orientation(const QScreenOrientationChangeEven
 }
 
 // Base class handler implementation
-QScreenOrientationChangeEvent* QScreenOrientationChangeEvent_QBaseClone(const QScreenOrientationChangeEvent* self) {
+QScreenOrientationChangeEvent* QScreenOrientationChangeEvent_SuperClone(const QScreenOrientationChangeEvent* self) {
     auto* vqscreenorientationchangeevent = const_cast<VirtualQScreenOrientationChangeEvent*>(dynamic_cast<const VirtualQScreenOrientationChangeEvent*>(self));
     if (vqscreenorientationchangeevent && vqscreenorientationchangeevent->isVirtualQScreenOrientationChangeEvent) {
         vqscreenorientationchangeevent->setQScreenOrientationChangeEvent_Clone_IsBase(true);
@@ -4562,7 +4562,7 @@ void QScreenOrientationChangeEvent_SetAccepted(QScreenOrientationChangeEvent* se
 }
 
 // Base class handler implementation
-void QScreenOrientationChangeEvent_QBaseSetAccepted(QScreenOrientationChangeEvent* self, bool accepted) {
+void QScreenOrientationChangeEvent_SuperSetAccepted(QScreenOrientationChangeEvent* self, bool accepted) {
     auto* vqscreenorientationchangeevent = dynamic_cast<VirtualQScreenOrientationChangeEvent*>(self);
     if (vqscreenorientationchangeevent && vqscreenorientationchangeevent->isVirtualQScreenOrientationChangeEvent) {
         vqscreenorientationchangeevent->setQScreenOrientationChangeEvent_SetAccepted_IsBase(true);
@@ -4602,7 +4602,7 @@ int QApplicationStateChangeEvent_ApplicationState(const QApplicationStateChangeE
 }
 
 // Base class handler implementation
-QApplicationStateChangeEvent* QApplicationStateChangeEvent_QBaseClone(const QApplicationStateChangeEvent* self) {
+QApplicationStateChangeEvent* QApplicationStateChangeEvent_SuperClone(const QApplicationStateChangeEvent* self) {
     auto* vqapplicationstatechangeevent = const_cast<VirtualQApplicationStateChangeEvent*>(dynamic_cast<const VirtualQApplicationStateChangeEvent*>(self));
     if (vqapplicationstatechangeevent && vqapplicationstatechangeevent->isVirtualQApplicationStateChangeEvent) {
         vqapplicationstatechangeevent->setQApplicationStateChangeEvent_Clone_IsBase(true);
@@ -4631,7 +4631,7 @@ void QApplicationStateChangeEvent_SetAccepted(QApplicationStateChangeEvent* self
 }
 
 // Base class handler implementation
-void QApplicationStateChangeEvent_QBaseSetAccepted(QApplicationStateChangeEvent* self, bool accepted) {
+void QApplicationStateChangeEvent_SuperSetAccepted(QApplicationStateChangeEvent* self, bool accepted) {
     auto* vqapplicationstatechangeevent = dynamic_cast<VirtualQApplicationStateChangeEvent*>(self);
     if (vqapplicationstatechangeevent && vqapplicationstatechangeevent->isVirtualQApplicationStateChangeEvent) {
         vqapplicationstatechangeevent->setQApplicationStateChangeEvent_SetAccepted_IsBase(true);
@@ -4671,7 +4671,7 @@ QWindow* QChildWindowEvent_Child(const QChildWindowEvent* self) {
 }
 
 // Base class handler implementation
-QChildWindowEvent* QChildWindowEvent_QBaseClone(const QChildWindowEvent* self) {
+QChildWindowEvent* QChildWindowEvent_SuperClone(const QChildWindowEvent* self) {
     auto* vqchildwindowevent = const_cast<VirtualQChildWindowEvent*>(dynamic_cast<const VirtualQChildWindowEvent*>(self));
     if (vqchildwindowevent && vqchildwindowevent->isVirtualQChildWindowEvent) {
         vqchildwindowevent->setQChildWindowEvent_Clone_IsBase(true);
@@ -4700,7 +4700,7 @@ void QChildWindowEvent_SetAccepted(QChildWindowEvent* self, bool accepted) {
 }
 
 // Base class handler implementation
-void QChildWindowEvent_QBaseSetAccepted(QChildWindowEvent* self, bool accepted) {
+void QChildWindowEvent_SuperSetAccepted(QChildWindowEvent* self, bool accepted) {
     auto* vqchildwindowevent = dynamic_cast<VirtualQChildWindowEvent*>(self);
     if (vqchildwindowevent && vqchildwindowevent->isVirtualQChildWindowEvent) {
         vqchildwindowevent->setQChildWindowEvent_SetAccepted_IsBase(true);

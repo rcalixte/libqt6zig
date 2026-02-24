@@ -360,23 +360,23 @@ class VirtualQMaskGenerator : public QMaskGenerator {
 
     // Friend functions
     friend void QMaskGenerator_TimerEvent(QMaskGenerator* self, QTimerEvent* event);
-    friend void QMaskGenerator_QBaseTimerEvent(QMaskGenerator* self, QTimerEvent* event);
+    friend void QMaskGenerator_SuperTimerEvent(QMaskGenerator* self, QTimerEvent* event);
     friend void QMaskGenerator_ChildEvent(QMaskGenerator* self, QChildEvent* event);
-    friend void QMaskGenerator_QBaseChildEvent(QMaskGenerator* self, QChildEvent* event);
+    friend void QMaskGenerator_SuperChildEvent(QMaskGenerator* self, QChildEvent* event);
     friend void QMaskGenerator_CustomEvent(QMaskGenerator* self, QEvent* event);
-    friend void QMaskGenerator_QBaseCustomEvent(QMaskGenerator* self, QEvent* event);
+    friend void QMaskGenerator_SuperCustomEvent(QMaskGenerator* self, QEvent* event);
     friend void QMaskGenerator_ConnectNotify(QMaskGenerator* self, const QMetaMethod* signal);
-    friend void QMaskGenerator_QBaseConnectNotify(QMaskGenerator* self, const QMetaMethod* signal);
+    friend void QMaskGenerator_SuperConnectNotify(QMaskGenerator* self, const QMetaMethod* signal);
     friend void QMaskGenerator_DisconnectNotify(QMaskGenerator* self, const QMetaMethod* signal);
-    friend void QMaskGenerator_QBaseDisconnectNotify(QMaskGenerator* self, const QMetaMethod* signal);
+    friend void QMaskGenerator_SuperDisconnectNotify(QMaskGenerator* self, const QMetaMethod* signal);
     friend QObject* QMaskGenerator_Sender(const QMaskGenerator* self);
-    friend QObject* QMaskGenerator_QBaseSender(const QMaskGenerator* self);
+    friend QObject* QMaskGenerator_SuperSender(const QMaskGenerator* self);
     friend int QMaskGenerator_SenderSignalIndex(const QMaskGenerator* self);
-    friend int QMaskGenerator_QBaseSenderSignalIndex(const QMaskGenerator* self);
+    friend int QMaskGenerator_SuperSenderSignalIndex(const QMaskGenerator* self);
     friend int QMaskGenerator_Receivers(const QMaskGenerator* self, const char* signal);
-    friend int QMaskGenerator_QBaseReceivers(const QMaskGenerator* self, const char* signal);
+    friend int QMaskGenerator_SuperReceivers(const QMaskGenerator* self, const char* signal);
     friend bool QMaskGenerator_IsSignalConnected(const QMaskGenerator* self, const QMetaMethod* signal);
-    friend bool QMaskGenerator_QBaseIsSignalConnected(const QMaskGenerator* self, const QMetaMethod* signal);
+    friend bool QMaskGenerator_SuperIsSignalConnected(const QMaskGenerator* self, const QMetaMethod* signal);
 };
 
 #endif

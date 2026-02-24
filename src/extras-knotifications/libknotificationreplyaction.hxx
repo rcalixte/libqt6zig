@@ -327,23 +327,23 @@ class VirtualKNotificationReplyAction final : public KNotificationReplyAction {
 
     // Friend functions
     friend void KNotificationReplyAction_TimerEvent(KNotificationReplyAction* self, QTimerEvent* event);
-    friend void KNotificationReplyAction_QBaseTimerEvent(KNotificationReplyAction* self, QTimerEvent* event);
+    friend void KNotificationReplyAction_SuperTimerEvent(KNotificationReplyAction* self, QTimerEvent* event);
     friend void KNotificationReplyAction_ChildEvent(KNotificationReplyAction* self, QChildEvent* event);
-    friend void KNotificationReplyAction_QBaseChildEvent(KNotificationReplyAction* self, QChildEvent* event);
+    friend void KNotificationReplyAction_SuperChildEvent(KNotificationReplyAction* self, QChildEvent* event);
     friend void KNotificationReplyAction_CustomEvent(KNotificationReplyAction* self, QEvent* event);
-    friend void KNotificationReplyAction_QBaseCustomEvent(KNotificationReplyAction* self, QEvent* event);
+    friend void KNotificationReplyAction_SuperCustomEvent(KNotificationReplyAction* self, QEvent* event);
     friend void KNotificationReplyAction_ConnectNotify(KNotificationReplyAction* self, const QMetaMethod* signal);
-    friend void KNotificationReplyAction_QBaseConnectNotify(KNotificationReplyAction* self, const QMetaMethod* signal);
+    friend void KNotificationReplyAction_SuperConnectNotify(KNotificationReplyAction* self, const QMetaMethod* signal);
     friend void KNotificationReplyAction_DisconnectNotify(KNotificationReplyAction* self, const QMetaMethod* signal);
-    friend void KNotificationReplyAction_QBaseDisconnectNotify(KNotificationReplyAction* self, const QMetaMethod* signal);
+    friend void KNotificationReplyAction_SuperDisconnectNotify(KNotificationReplyAction* self, const QMetaMethod* signal);
     friend QObject* KNotificationReplyAction_Sender(const KNotificationReplyAction* self);
-    friend QObject* KNotificationReplyAction_QBaseSender(const KNotificationReplyAction* self);
+    friend QObject* KNotificationReplyAction_SuperSender(const KNotificationReplyAction* self);
     friend int KNotificationReplyAction_SenderSignalIndex(const KNotificationReplyAction* self);
-    friend int KNotificationReplyAction_QBaseSenderSignalIndex(const KNotificationReplyAction* self);
+    friend int KNotificationReplyAction_SuperSenderSignalIndex(const KNotificationReplyAction* self);
     friend int KNotificationReplyAction_Receivers(const KNotificationReplyAction* self, const char* signal);
-    friend int KNotificationReplyAction_QBaseReceivers(const KNotificationReplyAction* self, const char* signal);
+    friend int KNotificationReplyAction_SuperReceivers(const KNotificationReplyAction* self, const char* signal);
     friend bool KNotificationReplyAction_IsSignalConnected(const KNotificationReplyAction* self, const QMetaMethod* signal);
-    friend bool KNotificationReplyAction_QBaseIsSignalConnected(const KNotificationReplyAction* self, const QMetaMethod* signal);
+    friend bool KNotificationReplyAction_SuperIsSignalConnected(const KNotificationReplyAction* self, const QMetaMethod* signal);
 };
 
 #endif

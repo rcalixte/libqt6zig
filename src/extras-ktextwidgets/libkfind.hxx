@@ -475,27 +475,27 @@ class VirtualKFind final : public KFind {
 
     // Friend functions
     friend void KFind_TimerEvent(KFind* self, QTimerEvent* event);
-    friend void KFind_QBaseTimerEvent(KFind* self, QTimerEvent* event);
+    friend void KFind_SuperTimerEvent(KFind* self, QTimerEvent* event);
     friend void KFind_ChildEvent(KFind* self, QChildEvent* event);
-    friend void KFind_QBaseChildEvent(KFind* self, QChildEvent* event);
+    friend void KFind_SuperChildEvent(KFind* self, QChildEvent* event);
     friend void KFind_CustomEvent(KFind* self, QEvent* event);
-    friend void KFind_QBaseCustomEvent(KFind* self, QEvent* event);
+    friend void KFind_SuperCustomEvent(KFind* self, QEvent* event);
     friend void KFind_ConnectNotify(KFind* self, const QMetaMethod* signal);
-    friend void KFind_QBaseConnectNotify(KFind* self, const QMetaMethod* signal);
+    friend void KFind_SuperConnectNotify(KFind* self, const QMetaMethod* signal);
     friend void KFind_DisconnectNotify(KFind* self, const QMetaMethod* signal);
-    friend void KFind_QBaseDisconnectNotify(KFind* self, const QMetaMethod* signal);
+    friend void KFind_SuperDisconnectNotify(KFind* self, const QMetaMethod* signal);
     friend QWidget* KFind_ParentWidget(const KFind* self);
-    friend QWidget* KFind_QBaseParentWidget(const KFind* self);
+    friend QWidget* KFind_SuperParentWidget(const KFind* self);
     friend QWidget* KFind_DialogsParent(const KFind* self);
-    friend QWidget* KFind_QBaseDialogsParent(const KFind* self);
+    friend QWidget* KFind_SuperDialogsParent(const KFind* self);
     friend QObject* KFind_Sender(const KFind* self);
-    friend QObject* KFind_QBaseSender(const KFind* self);
+    friend QObject* KFind_SuperSender(const KFind* self);
     friend int KFind_SenderSignalIndex(const KFind* self);
-    friend int KFind_QBaseSenderSignalIndex(const KFind* self);
+    friend int KFind_SuperSenderSignalIndex(const KFind* self);
     friend int KFind_Receivers(const KFind* self, const char* signal);
-    friend int KFind_QBaseReceivers(const KFind* self, const char* signal);
+    friend int KFind_SuperReceivers(const KFind* self, const char* signal);
     friend bool KFind_IsSignalConnected(const KFind* self, const QMetaMethod* signal);
-    friend bool KFind_QBaseIsSignalConnected(const KFind* self, const QMetaMethod* signal);
+    friend bool KFind_SuperIsSignalConnected(const KFind* self, const QMetaMethod* signal);
 };
 
 #endif

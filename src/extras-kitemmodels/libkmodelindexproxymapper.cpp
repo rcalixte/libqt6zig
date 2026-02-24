@@ -82,7 +82,7 @@ void KModelIndexProxyMapper_Connect_IsConnectedChanged(KModelIndexProxyMapper* s
 }
 
 // Base class handler implementation
-QMetaObject* KModelIndexProxyMapper_QBaseMetaObject(const KModelIndexProxyMapper* self) {
+QMetaObject* KModelIndexProxyMapper_SuperMetaObject(const KModelIndexProxyMapper* self) {
     auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
     if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
         vkmodelindexproxymapper->setKModelIndexProxyMapper_MetaObject_IsBase(true);
@@ -101,7 +101,7 @@ void KModelIndexProxyMapper_OnMetaObject(const KModelIndexProxyMapper* self, int
 }
 
 // Base class handler implementation
-void* KModelIndexProxyMapper_QBaseMetacast(KModelIndexProxyMapper* self, const char* param1) {
+void* KModelIndexProxyMapper_SuperMetacast(KModelIndexProxyMapper* self, const char* param1) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
     if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
         vkmodelindexproxymapper->setKModelIndexProxyMapper_Metacast_IsBase(true);
@@ -120,7 +120,7 @@ void KModelIndexProxyMapper_OnMetacast(KModelIndexProxyMapper* self, intptr_t sl
 }
 
 // Base class handler implementation
-int KModelIndexProxyMapper_QBaseMetacall(KModelIndexProxyMapper* self, int param1, int param2, void** param3) {
+int KModelIndexProxyMapper_SuperMetacall(KModelIndexProxyMapper* self, int param1, int param2, void** param3) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
     if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
         vkmodelindexproxymapper->setKModelIndexProxyMapper_Metacall_IsBase(true);
@@ -149,7 +149,7 @@ bool KModelIndexProxyMapper_Event(KModelIndexProxyMapper* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KModelIndexProxyMapper_QBaseEvent(KModelIndexProxyMapper* self, QEvent* event) {
+bool KModelIndexProxyMapper_SuperEvent(KModelIndexProxyMapper* self, QEvent* event) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
     if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
         vkmodelindexproxymapper->setKModelIndexProxyMapper_Event_IsBase(true);
@@ -178,7 +178,7 @@ bool KModelIndexProxyMapper_EventFilter(KModelIndexProxyMapper* self, QObject* w
 }
 
 // Base class handler implementation
-bool KModelIndexProxyMapper_QBaseEventFilter(KModelIndexProxyMapper* self, QObject* watched, QEvent* event) {
+bool KModelIndexProxyMapper_SuperEventFilter(KModelIndexProxyMapper* self, QObject* watched, QEvent* event) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
     if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
         vkmodelindexproxymapper->setKModelIndexProxyMapper_EventFilter_IsBase(true);
@@ -207,7 +207,7 @@ void KModelIndexProxyMapper_TimerEvent(KModelIndexProxyMapper* self, QTimerEvent
 }
 
 // Base class handler implementation
-void KModelIndexProxyMapper_QBaseTimerEvent(KModelIndexProxyMapper* self, QTimerEvent* event) {
+void KModelIndexProxyMapper_SuperTimerEvent(KModelIndexProxyMapper* self, QTimerEvent* event) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
     if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
         vkmodelindexproxymapper->setKModelIndexProxyMapper_TimerEvent_IsBase(true);
@@ -236,7 +236,7 @@ void KModelIndexProxyMapper_ChildEvent(KModelIndexProxyMapper* self, QChildEvent
 }
 
 // Base class handler implementation
-void KModelIndexProxyMapper_QBaseChildEvent(KModelIndexProxyMapper* self, QChildEvent* event) {
+void KModelIndexProxyMapper_SuperChildEvent(KModelIndexProxyMapper* self, QChildEvent* event) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
     if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
         vkmodelindexproxymapper->setKModelIndexProxyMapper_ChildEvent_IsBase(true);
@@ -265,7 +265,7 @@ void KModelIndexProxyMapper_CustomEvent(KModelIndexProxyMapper* self, QEvent* ev
 }
 
 // Base class handler implementation
-void KModelIndexProxyMapper_QBaseCustomEvent(KModelIndexProxyMapper* self, QEvent* event) {
+void KModelIndexProxyMapper_SuperCustomEvent(KModelIndexProxyMapper* self, QEvent* event) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
     if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
         vkmodelindexproxymapper->setKModelIndexProxyMapper_CustomEvent_IsBase(true);
@@ -294,7 +294,7 @@ void KModelIndexProxyMapper_ConnectNotify(KModelIndexProxyMapper* self, const QM
 }
 
 // Base class handler implementation
-void KModelIndexProxyMapper_QBaseConnectNotify(KModelIndexProxyMapper* self, const QMetaMethod* signal) {
+void KModelIndexProxyMapper_SuperConnectNotify(KModelIndexProxyMapper* self, const QMetaMethod* signal) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
     if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
         vkmodelindexproxymapper->setKModelIndexProxyMapper_ConnectNotify_IsBase(true);
@@ -323,7 +323,7 @@ void KModelIndexProxyMapper_DisconnectNotify(KModelIndexProxyMapper* self, const
 }
 
 // Base class handler implementation
-void KModelIndexProxyMapper_QBaseDisconnectNotify(KModelIndexProxyMapper* self, const QMetaMethod* signal) {
+void KModelIndexProxyMapper_SuperDisconnectNotify(KModelIndexProxyMapper* self, const QMetaMethod* signal) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
     if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
         vkmodelindexproxymapper->setKModelIndexProxyMapper_DisconnectNotify_IsBase(true);
@@ -352,7 +352,7 @@ QObject* KModelIndexProxyMapper_Sender(const KModelIndexProxyMapper* self) {
 }
 
 // Base class handler implementation
-QObject* KModelIndexProxyMapper_QBaseSender(const KModelIndexProxyMapper* self) {
+QObject* KModelIndexProxyMapper_SuperSender(const KModelIndexProxyMapper* self) {
     auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
     if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
         vkmodelindexproxymapper->setKModelIndexProxyMapper_Sender_IsBase(true);
@@ -381,7 +381,7 @@ int KModelIndexProxyMapper_SenderSignalIndex(const KModelIndexProxyMapper* self)
 }
 
 // Base class handler implementation
-int KModelIndexProxyMapper_QBaseSenderSignalIndex(const KModelIndexProxyMapper* self) {
+int KModelIndexProxyMapper_SuperSenderSignalIndex(const KModelIndexProxyMapper* self) {
     auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
     if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
         vkmodelindexproxymapper->setKModelIndexProxyMapper_SenderSignalIndex_IsBase(true);
@@ -410,7 +410,7 @@ int KModelIndexProxyMapper_Receivers(const KModelIndexProxyMapper* self, const c
 }
 
 // Base class handler implementation
-int KModelIndexProxyMapper_QBaseReceivers(const KModelIndexProxyMapper* self, const char* signal) {
+int KModelIndexProxyMapper_SuperReceivers(const KModelIndexProxyMapper* self, const char* signal) {
     auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
     if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
         vkmodelindexproxymapper->setKModelIndexProxyMapper_Receivers_IsBase(true);
@@ -439,7 +439,7 @@ bool KModelIndexProxyMapper_IsSignalConnected(const KModelIndexProxyMapper* self
 }
 
 // Base class handler implementation
-bool KModelIndexProxyMapper_QBaseIsSignalConnected(const KModelIndexProxyMapper* self, const QMetaMethod* signal) {
+bool KModelIndexProxyMapper_SuperIsSignalConnected(const KModelIndexProxyMapper* self, const QMetaMethod* signal) {
     auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
     if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
         vkmodelindexproxymapper->setKModelIndexProxyMapper_IsSignalConnected_IsBase(true);

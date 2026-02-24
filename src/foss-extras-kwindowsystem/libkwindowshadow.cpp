@@ -104,7 +104,7 @@ void KWindowShadow_Destroy(KWindowShadow* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KWindowShadow_QBaseMetaObject(const KWindowShadow* self) {
+QMetaObject* KWindowShadow_SuperMetaObject(const KWindowShadow* self) {
     auto* vkwindowshadow = const_cast<VirtualKWindowShadow*>(dynamic_cast<const VirtualKWindowShadow*>(self));
     if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
         vkwindowshadow->setKWindowShadow_MetaObject_IsBase(true);
@@ -123,7 +123,7 @@ void KWindowShadow_OnMetaObject(const KWindowShadow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KWindowShadow_QBaseMetacast(KWindowShadow* self, const char* param1) {
+void* KWindowShadow_SuperMetacast(KWindowShadow* self, const char* param1) {
     auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
     if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
         vkwindowshadow->setKWindowShadow_Metacast_IsBase(true);
@@ -142,7 +142,7 @@ void KWindowShadow_OnMetacast(KWindowShadow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KWindowShadow_QBaseMetacall(KWindowShadow* self, int param1, int param2, void** param3) {
+int KWindowShadow_SuperMetacall(KWindowShadow* self, int param1, int param2, void** param3) {
     auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
     if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
         vkwindowshadow->setKWindowShadow_Metacall_IsBase(true);
@@ -171,7 +171,7 @@ bool KWindowShadow_Event(KWindowShadow* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KWindowShadow_QBaseEvent(KWindowShadow* self, QEvent* event) {
+bool KWindowShadow_SuperEvent(KWindowShadow* self, QEvent* event) {
     auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
     if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
         vkwindowshadow->setKWindowShadow_Event_IsBase(true);
@@ -200,7 +200,7 @@ bool KWindowShadow_EventFilter(KWindowShadow* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool KWindowShadow_QBaseEventFilter(KWindowShadow* self, QObject* watched, QEvent* event) {
+bool KWindowShadow_SuperEventFilter(KWindowShadow* self, QObject* watched, QEvent* event) {
     auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
     if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
         vkwindowshadow->setKWindowShadow_EventFilter_IsBase(true);
@@ -229,7 +229,7 @@ void KWindowShadow_TimerEvent(KWindowShadow* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KWindowShadow_QBaseTimerEvent(KWindowShadow* self, QTimerEvent* event) {
+void KWindowShadow_SuperTimerEvent(KWindowShadow* self, QTimerEvent* event) {
     auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
     if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
         vkwindowshadow->setKWindowShadow_TimerEvent_IsBase(true);
@@ -258,7 +258,7 @@ void KWindowShadow_ChildEvent(KWindowShadow* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KWindowShadow_QBaseChildEvent(KWindowShadow* self, QChildEvent* event) {
+void KWindowShadow_SuperChildEvent(KWindowShadow* self, QChildEvent* event) {
     auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
     if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
         vkwindowshadow->setKWindowShadow_ChildEvent_IsBase(true);
@@ -287,7 +287,7 @@ void KWindowShadow_CustomEvent(KWindowShadow* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KWindowShadow_QBaseCustomEvent(KWindowShadow* self, QEvent* event) {
+void KWindowShadow_SuperCustomEvent(KWindowShadow* self, QEvent* event) {
     auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
     if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
         vkwindowshadow->setKWindowShadow_CustomEvent_IsBase(true);
@@ -316,7 +316,7 @@ void KWindowShadow_ConnectNotify(KWindowShadow* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void KWindowShadow_QBaseConnectNotify(KWindowShadow* self, const QMetaMethod* signal) {
+void KWindowShadow_SuperConnectNotify(KWindowShadow* self, const QMetaMethod* signal) {
     auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
     if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
         vkwindowshadow->setKWindowShadow_ConnectNotify_IsBase(true);
@@ -345,7 +345,7 @@ void KWindowShadow_DisconnectNotify(KWindowShadow* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void KWindowShadow_QBaseDisconnectNotify(KWindowShadow* self, const QMetaMethod* signal) {
+void KWindowShadow_SuperDisconnectNotify(KWindowShadow* self, const QMetaMethod* signal) {
     auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
     if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
         vkwindowshadow->setKWindowShadow_DisconnectNotify_IsBase(true);
@@ -374,7 +374,7 @@ QObject* KWindowShadow_Sender(const KWindowShadow* self) {
 }
 
 // Base class handler implementation
-QObject* KWindowShadow_QBaseSender(const KWindowShadow* self) {
+QObject* KWindowShadow_SuperSender(const KWindowShadow* self) {
     auto* vkwindowshadow = const_cast<VirtualKWindowShadow*>(dynamic_cast<const VirtualKWindowShadow*>(self));
     if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
         vkwindowshadow->setKWindowShadow_Sender_IsBase(true);
@@ -403,7 +403,7 @@ int KWindowShadow_SenderSignalIndex(const KWindowShadow* self) {
 }
 
 // Base class handler implementation
-int KWindowShadow_QBaseSenderSignalIndex(const KWindowShadow* self) {
+int KWindowShadow_SuperSenderSignalIndex(const KWindowShadow* self) {
     auto* vkwindowshadow = const_cast<VirtualKWindowShadow*>(dynamic_cast<const VirtualKWindowShadow*>(self));
     if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
         vkwindowshadow->setKWindowShadow_SenderSignalIndex_IsBase(true);
@@ -432,7 +432,7 @@ int KWindowShadow_Receivers(const KWindowShadow* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KWindowShadow_QBaseReceivers(const KWindowShadow* self, const char* signal) {
+int KWindowShadow_SuperReceivers(const KWindowShadow* self, const char* signal) {
     auto* vkwindowshadow = const_cast<VirtualKWindowShadow*>(dynamic_cast<const VirtualKWindowShadow*>(self));
     if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
         vkwindowshadow->setKWindowShadow_Receivers_IsBase(true);
@@ -461,7 +461,7 @@ bool KWindowShadow_IsSignalConnected(const KWindowShadow* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool KWindowShadow_QBaseIsSignalConnected(const KWindowShadow* self, const QMetaMethod* signal) {
+bool KWindowShadow_SuperIsSignalConnected(const KWindowShadow* self, const QMetaMethod* signal) {
     auto* vkwindowshadow = const_cast<VirtualKWindowShadow*>(dynamic_cast<const VirtualKWindowShadow*>(self));
     if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
         vkwindowshadow->setKWindowShadow_IsSignalConnected_IsBase(true);

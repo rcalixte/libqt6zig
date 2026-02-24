@@ -46,6 +46,10 @@ pub const qmaskgenerator = struct {
         qtc.QMaskGenerator_OnSeed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSeed` instead
+    ///
+    pub const QBaseSeed = SuperSeed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmaskgenerator.html#seed)
     ///
     /// Base class method implementation
@@ -54,8 +58,8 @@ pub const qmaskgenerator = struct {
     ///
     /// ` self: QtC.QMaskGenerator `
     ///
-    pub fn QBaseSeed(self: ?*anyopaque) bool {
-        return qtc.QMaskGenerator_QBaseSeed(@ptrCast(self));
+    pub fn SuperSeed(self: ?*anyopaque) bool {
+        return qtc.QMaskGenerator_SuperSeed(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmaskgenerator.html#nextMask)
@@ -82,6 +86,10 @@ pub const qmaskgenerator = struct {
         qtc.QMaskGenerator_OnNextMask(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperNextMask` instead
+    ///
+    pub const QBaseNextMask = SuperNextMask;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmaskgenerator.html#nextMask)
     ///
     /// Base class method implementation
@@ -90,8 +98,8 @@ pub const qmaskgenerator = struct {
     ///
     /// ` self: QtC.QMaskGenerator `
     ///
-    pub fn QBaseNextMask(self: ?*anyopaque) u32 {
-        return qtc.QMaskGenerator_QBaseNextMask(@ptrCast(self));
+    pub fn SuperNextMask(self: ?*anyopaque) u32 {
+        return qtc.QMaskGenerator_SuperNextMask(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -911,6 +919,10 @@ pub const qmaskgenerator = struct {
         return qtc.QMaskGenerator_MetaObject(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -921,8 +933,8 @@ pub const qmaskgenerator = struct {
     ///
     /// ` self: QtC.QMaskGenerator `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QMaskGenerator_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QMaskGenerator_SuperMetaObject(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -958,6 +970,10 @@ pub const qmaskgenerator = struct {
         return qtc.QMaskGenerator_Metacast(@ptrCast(self), param1_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacast)
@@ -970,9 +986,9 @@ pub const qmaskgenerator = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QMaskGenerator_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QMaskGenerator_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// Inherited from QObject
@@ -1011,6 +1027,10 @@ pub const qmaskgenerator = struct {
         return qtc.QMaskGenerator_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacall)
@@ -1027,8 +1047,8 @@ pub const qmaskgenerator = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QMaskGenerator_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QMaskGenerator_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Inherited from QObject
@@ -1063,6 +1083,10 @@ pub const qmaskgenerator = struct {
         return qtc.QMaskGenerator_Event(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
@@ -1075,8 +1099,8 @@ pub const qmaskgenerator = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QMaskGenerator_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QMaskGenerator_SuperEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1113,6 +1137,10 @@ pub const qmaskgenerator = struct {
         return qtc.QMaskGenerator_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -1127,8 +1155,8 @@ pub const qmaskgenerator = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QMaskGenerator_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QMaskGenerator_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1163,6 +1191,10 @@ pub const qmaskgenerator = struct {
         qtc.QMaskGenerator_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1175,8 +1207,8 @@ pub const qmaskgenerator = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QMaskGenerator_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QMaskGenerator_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1211,6 +1243,10 @@ pub const qmaskgenerator = struct {
         qtc.QMaskGenerator_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1223,8 +1259,8 @@ pub const qmaskgenerator = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QMaskGenerator_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QMaskGenerator_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1259,6 +1295,10 @@ pub const qmaskgenerator = struct {
         qtc.QMaskGenerator_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1271,8 +1311,8 @@ pub const qmaskgenerator = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QMaskGenerator_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QMaskGenerator_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1307,6 +1347,10 @@ pub const qmaskgenerator = struct {
         qtc.QMaskGenerator_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1319,8 +1363,8 @@ pub const qmaskgenerator = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QMaskGenerator_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QMaskGenerator_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1355,6 +1399,10 @@ pub const qmaskgenerator = struct {
         qtc.QMaskGenerator_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1367,8 +1415,8 @@ pub const qmaskgenerator = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QMaskGenerator_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QMaskGenerator_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1401,6 +1449,10 @@ pub const qmaskgenerator = struct {
         return qtc.QMaskGenerator_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1411,8 +1463,8 @@ pub const qmaskgenerator = struct {
     ///
     /// ` self: QtC.QMaskGenerator `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QMaskGenerator_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QMaskGenerator_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1445,6 +1497,10 @@ pub const qmaskgenerator = struct {
         return qtc.QMaskGenerator_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1455,8 +1511,8 @@ pub const qmaskgenerator = struct {
     ///
     /// ` self: QtC.QMaskGenerator `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QMaskGenerator_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QMaskGenerator_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1492,6 +1548,10 @@ pub const qmaskgenerator = struct {
         return qtc.QMaskGenerator_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -1504,9 +1564,9 @@ pub const qmaskgenerator = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QMaskGenerator_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QMaskGenerator_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1541,6 +1601,10 @@ pub const qmaskgenerator = struct {
         return qtc.QMaskGenerator_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -1553,8 +1617,8 @@ pub const qmaskgenerator = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QMaskGenerator_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QMaskGenerator_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1588,6 +1652,9 @@ pub const qmaskgenerator = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmaskgenerator.html#dtor.QMaskGenerator)
     ///
@@ -1597,7 +1664,7 @@ pub const qmaskgenerator = struct {
     ///
     /// ` self: QtC.QMaskGenerator `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMaskGenerator_Delete(@ptrCast(self));
     }
 };

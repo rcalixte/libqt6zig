@@ -170,6 +170,10 @@ pub const qplacematchrequest = struct {
         qtc.QPlaceMatchRequest_Clear(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacematchrequest.html#dtor.QPlaceMatchRequest)
     ///
     /// Delete this object from C++ memory.
@@ -178,7 +182,7 @@ pub const qplacematchrequest = struct {
     ///
     /// ` self: QtC.QPlaceMatchRequest `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPlaceMatchRequest_Delete(@ptrCast(self));
     }
 };

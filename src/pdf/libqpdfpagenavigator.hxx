@@ -347,25 +347,25 @@ class VirtualQPdfPageNavigator final : public QPdfPageNavigator {
 
     // Friend functions
     friend void QPdfPageNavigator_TimerEvent(QPdfPageNavigator* self, QTimerEvent* event);
-    friend void QPdfPageNavigator_QBaseTimerEvent(QPdfPageNavigator* self, QTimerEvent* event);
+    friend void QPdfPageNavigator_SuperTimerEvent(QPdfPageNavigator* self, QTimerEvent* event);
     friend void QPdfPageNavigator_ChildEvent(QPdfPageNavigator* self, QChildEvent* event);
-    friend void QPdfPageNavigator_QBaseChildEvent(QPdfPageNavigator* self, QChildEvent* event);
+    friend void QPdfPageNavigator_SuperChildEvent(QPdfPageNavigator* self, QChildEvent* event);
     friend void QPdfPageNavigator_CustomEvent(QPdfPageNavigator* self, QEvent* event);
-    friend void QPdfPageNavigator_QBaseCustomEvent(QPdfPageNavigator* self, QEvent* event);
+    friend void QPdfPageNavigator_SuperCustomEvent(QPdfPageNavigator* self, QEvent* event);
     friend void QPdfPageNavigator_ConnectNotify(QPdfPageNavigator* self, const QMetaMethod* signal);
-    friend void QPdfPageNavigator_QBaseConnectNotify(QPdfPageNavigator* self, const QMetaMethod* signal);
+    friend void QPdfPageNavigator_SuperConnectNotify(QPdfPageNavigator* self, const QMetaMethod* signal);
     friend void QPdfPageNavigator_DisconnectNotify(QPdfPageNavigator* self, const QMetaMethod* signal);
-    friend void QPdfPageNavigator_QBaseDisconnectNotify(QPdfPageNavigator* self, const QMetaMethod* signal);
+    friend void QPdfPageNavigator_SuperDisconnectNotify(QPdfPageNavigator* self, const QMetaMethod* signal);
     friend QPdfLink* QPdfPageNavigator_CurrentLink(const QPdfPageNavigator* self);
-    friend QPdfLink* QPdfPageNavigator_QBaseCurrentLink(const QPdfPageNavigator* self);
+    friend QPdfLink* QPdfPageNavigator_SuperCurrentLink(const QPdfPageNavigator* self);
     friend QObject* QPdfPageNavigator_Sender(const QPdfPageNavigator* self);
-    friend QObject* QPdfPageNavigator_QBaseSender(const QPdfPageNavigator* self);
+    friend QObject* QPdfPageNavigator_SuperSender(const QPdfPageNavigator* self);
     friend int QPdfPageNavigator_SenderSignalIndex(const QPdfPageNavigator* self);
-    friend int QPdfPageNavigator_QBaseSenderSignalIndex(const QPdfPageNavigator* self);
+    friend int QPdfPageNavigator_SuperSenderSignalIndex(const QPdfPageNavigator* self);
     friend int QPdfPageNavigator_Receivers(const QPdfPageNavigator* self, const char* signal);
-    friend int QPdfPageNavigator_QBaseReceivers(const QPdfPageNavigator* self, const char* signal);
+    friend int QPdfPageNavigator_SuperReceivers(const QPdfPageNavigator* self, const char* signal);
     friend bool QPdfPageNavigator_IsSignalConnected(const QPdfPageNavigator* self, const QMetaMethod* signal);
-    friend bool QPdfPageNavigator_QBaseIsSignalConnected(const QPdfPageNavigator* self, const QMetaMethod* signal);
+    friend bool QPdfPageNavigator_SuperIsSignalConnected(const QPdfPageNavigator* self, const QMetaMethod* signal);
 };
 
 #endif

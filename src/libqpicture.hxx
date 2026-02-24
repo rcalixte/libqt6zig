@@ -199,15 +199,15 @@ class VirtualQPicture final : public QPicture {
 
     // Friend functions
     friend int QPicture_Metric(const QPicture* self, int m);
-    friend int QPicture_QBaseMetric(const QPicture* self, int m);
+    friend int QPicture_SuperMetric(const QPicture* self, int m);
     friend void QPicture_InitPainter(const QPicture* self, QPainter* painter);
-    friend void QPicture_QBaseInitPainter(const QPicture* self, QPainter* painter);
+    friend void QPicture_SuperInitPainter(const QPicture* self, QPainter* painter);
     friend QPaintDevice* QPicture_Redirected(const QPicture* self, QPoint* offset);
-    friend QPaintDevice* QPicture_QBaseRedirected(const QPicture* self, QPoint* offset);
+    friend QPaintDevice* QPicture_SuperRedirected(const QPicture* self, QPoint* offset);
     friend QPainter* QPicture_SharedPainter(const QPicture* self);
-    friend QPainter* QPicture_QBaseSharedPainter(const QPicture* self);
+    friend QPainter* QPicture_SuperSharedPainter(const QPicture* self);
     friend double QPicture_GetDecodedMetricF(const QPicture* self, int metricA, int metricB);
-    friend double QPicture_QBaseGetDecodedMetricF(const QPicture* self, int metricA, int metricB);
+    friend double QPicture_SuperGetDecodedMetricF(const QPicture* self, int metricA, int metricB);
 };
 
 #endif

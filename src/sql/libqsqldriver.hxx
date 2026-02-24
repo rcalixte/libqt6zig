@@ -961,29 +961,29 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Friend functions
     friend void QSqlDriver_SetOpen(QSqlDriver* self, bool o);
-    friend void QSqlDriver_QBaseSetOpen(QSqlDriver* self, bool o);
+    friend void QSqlDriver_SuperSetOpen(QSqlDriver* self, bool o);
     friend void QSqlDriver_SetOpenError(QSqlDriver* self, bool e);
-    friend void QSqlDriver_QBaseSetOpenError(QSqlDriver* self, bool e);
+    friend void QSqlDriver_SuperSetOpenError(QSqlDriver* self, bool e);
     friend void QSqlDriver_SetLastError(QSqlDriver* self, const QSqlError* e);
-    friend void QSqlDriver_QBaseSetLastError(QSqlDriver* self, const QSqlError* e);
+    friend void QSqlDriver_SuperSetLastError(QSqlDriver* self, const QSqlError* e);
     friend void QSqlDriver_TimerEvent(QSqlDriver* self, QTimerEvent* event);
-    friend void QSqlDriver_QBaseTimerEvent(QSqlDriver* self, QTimerEvent* event);
+    friend void QSqlDriver_SuperTimerEvent(QSqlDriver* self, QTimerEvent* event);
     friend void QSqlDriver_ChildEvent(QSqlDriver* self, QChildEvent* event);
-    friend void QSqlDriver_QBaseChildEvent(QSqlDriver* self, QChildEvent* event);
+    friend void QSqlDriver_SuperChildEvent(QSqlDriver* self, QChildEvent* event);
     friend void QSqlDriver_CustomEvent(QSqlDriver* self, QEvent* event);
-    friend void QSqlDriver_QBaseCustomEvent(QSqlDriver* self, QEvent* event);
+    friend void QSqlDriver_SuperCustomEvent(QSqlDriver* self, QEvent* event);
     friend void QSqlDriver_ConnectNotify(QSqlDriver* self, const QMetaMethod* signal);
-    friend void QSqlDriver_QBaseConnectNotify(QSqlDriver* self, const QMetaMethod* signal);
+    friend void QSqlDriver_SuperConnectNotify(QSqlDriver* self, const QMetaMethod* signal);
     friend void QSqlDriver_DisconnectNotify(QSqlDriver* self, const QMetaMethod* signal);
-    friend void QSqlDriver_QBaseDisconnectNotify(QSqlDriver* self, const QMetaMethod* signal);
+    friend void QSqlDriver_SuperDisconnectNotify(QSqlDriver* self, const QMetaMethod* signal);
     friend QObject* QSqlDriver_Sender(const QSqlDriver* self);
-    friend QObject* QSqlDriver_QBaseSender(const QSqlDriver* self);
+    friend QObject* QSqlDriver_SuperSender(const QSqlDriver* self);
     friend int QSqlDriver_SenderSignalIndex(const QSqlDriver* self);
-    friend int QSqlDriver_QBaseSenderSignalIndex(const QSqlDriver* self);
+    friend int QSqlDriver_SuperSenderSignalIndex(const QSqlDriver* self);
     friend int QSqlDriver_Receivers(const QSqlDriver* self, const char* signal);
-    friend int QSqlDriver_QBaseReceivers(const QSqlDriver* self, const char* signal);
+    friend int QSqlDriver_SuperReceivers(const QSqlDriver* self, const char* signal);
     friend bool QSqlDriver_IsSignalConnected(const QSqlDriver* self, const QMetaMethod* signal);
-    friend bool QSqlDriver_QBaseIsSignalConnected(const QSqlDriver* self, const QMetaMethod* signal);
+    friend bool QSqlDriver_SuperIsSignalConnected(const QSqlDriver* self, const QMetaMethod* signal);
 };
 
 #endif

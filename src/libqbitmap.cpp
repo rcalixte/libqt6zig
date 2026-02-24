@@ -100,7 +100,7 @@ int QBitmap_DevType(const QBitmap* self) {
 }
 
 // Base class handler implementation
-int QBitmap_QBaseDevType(const QBitmap* self) {
+int QBitmap_SuperDevType(const QBitmap* self) {
     auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
     if (vqbitmap && vqbitmap->isVirtualQBitmap) {
         vqbitmap->setQBitmap_DevType_IsBase(true);
@@ -129,7 +129,7 @@ QPaintEngine* QBitmap_PaintEngine(const QBitmap* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QBitmap_QBasePaintEngine(const QBitmap* self) {
+QPaintEngine* QBitmap_SuperPaintEngine(const QBitmap* self) {
     auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
     if (vqbitmap && vqbitmap->isVirtualQBitmap) {
         vqbitmap->setQBitmap_PaintEngine_IsBase(true);
@@ -158,7 +158,7 @@ int QBitmap_Metric(const QBitmap* self, int param1) {
 }
 
 // Base class handler implementation
-int QBitmap_QBaseMetric(const QBitmap* self, int param1) {
+int QBitmap_SuperMetric(const QBitmap* self, int param1) {
     auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
     if (vqbitmap && vqbitmap->isVirtualQBitmap) {
         vqbitmap->setQBitmap_Metric_IsBase(true);
@@ -187,7 +187,7 @@ void QBitmap_InitPainter(const QBitmap* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QBitmap_QBaseInitPainter(const QBitmap* self, QPainter* painter) {
+void QBitmap_SuperInitPainter(const QBitmap* self, QPainter* painter) {
     auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
     if (vqbitmap && vqbitmap->isVirtualQBitmap) {
         vqbitmap->setQBitmap_InitPainter_IsBase(true);
@@ -216,7 +216,7 @@ QPaintDevice* QBitmap_Redirected(const QBitmap* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QBitmap_QBaseRedirected(const QBitmap* self, QPoint* offset) {
+QPaintDevice* QBitmap_SuperRedirected(const QBitmap* self, QPoint* offset) {
     auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
     if (vqbitmap && vqbitmap->isVirtualQBitmap) {
         vqbitmap->setQBitmap_Redirected_IsBase(true);
@@ -245,7 +245,7 @@ QPainter* QBitmap_SharedPainter(const QBitmap* self) {
 }
 
 // Base class handler implementation
-QPainter* QBitmap_QBaseSharedPainter(const QBitmap* self) {
+QPainter* QBitmap_SuperSharedPainter(const QBitmap* self) {
     auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
     if (vqbitmap && vqbitmap->isVirtualQBitmap) {
         vqbitmap->setQBitmap_SharedPainter_IsBase(true);
@@ -274,7 +274,7 @@ double QBitmap_GetDecodedMetricF(const QBitmap* self, int metricA, int metricB) 
 }
 
 // Base class handler implementation
-double QBitmap_QBaseGetDecodedMetricF(const QBitmap* self, int metricA, int metricB) {
+double QBitmap_SuperGetDecodedMetricF(const QBitmap* self, int metricA, int metricB) {
     auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
     if (vqbitmap && vqbitmap->isVirtualQBitmap) {
         vqbitmap->setQBitmap_GetDecodedMetricF_IsBase(true);

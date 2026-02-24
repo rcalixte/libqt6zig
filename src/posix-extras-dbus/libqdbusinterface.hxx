@@ -404,29 +404,29 @@ class VirtualQDBusInterface final : public QDBusInterface {
 
     // Friend functions
     friend void QDBusInterface_ConnectNotify(QDBusInterface* self, const QMetaMethod* signal);
-    friend void QDBusInterface_QBaseConnectNotify(QDBusInterface* self, const QMetaMethod* signal);
+    friend void QDBusInterface_SuperConnectNotify(QDBusInterface* self, const QMetaMethod* signal);
     friend void QDBusInterface_DisconnectNotify(QDBusInterface* self, const QMetaMethod* signal);
-    friend void QDBusInterface_QBaseDisconnectNotify(QDBusInterface* self, const QMetaMethod* signal);
+    friend void QDBusInterface_SuperDisconnectNotify(QDBusInterface* self, const QMetaMethod* signal);
     friend void QDBusInterface_TimerEvent(QDBusInterface* self, QTimerEvent* event);
-    friend void QDBusInterface_QBaseTimerEvent(QDBusInterface* self, QTimerEvent* event);
+    friend void QDBusInterface_SuperTimerEvent(QDBusInterface* self, QTimerEvent* event);
     friend void QDBusInterface_ChildEvent(QDBusInterface* self, QChildEvent* event);
-    friend void QDBusInterface_QBaseChildEvent(QDBusInterface* self, QChildEvent* event);
+    friend void QDBusInterface_SuperChildEvent(QDBusInterface* self, QChildEvent* event);
     friend void QDBusInterface_CustomEvent(QDBusInterface* self, QEvent* event);
-    friend void QDBusInterface_QBaseCustomEvent(QDBusInterface* self, QEvent* event);
+    friend void QDBusInterface_SuperCustomEvent(QDBusInterface* self, QEvent* event);
     friend QVariant* QDBusInterface_InternalPropGet(const QDBusInterface* self, const char* propname);
-    friend QVariant* QDBusInterface_QBaseInternalPropGet(const QDBusInterface* self, const char* propname);
+    friend QVariant* QDBusInterface_SuperInternalPropGet(const QDBusInterface* self, const char* propname);
     friend void QDBusInterface_InternalPropSet(QDBusInterface* self, const char* propname, const QVariant* value);
-    friend void QDBusInterface_QBaseInternalPropSet(QDBusInterface* self, const char* propname, const QVariant* value);
+    friend void QDBusInterface_SuperInternalPropSet(QDBusInterface* self, const char* propname, const QVariant* value);
     friend QDBusMessage* QDBusInterface_InternalConstCall(const QDBusInterface* self, int mode, const libqt_string method);
-    friend QDBusMessage* QDBusInterface_QBaseInternalConstCall(const QDBusInterface* self, int mode, const libqt_string method);
+    friend QDBusMessage* QDBusInterface_SuperInternalConstCall(const QDBusInterface* self, int mode, const libqt_string method);
     friend QObject* QDBusInterface_Sender(const QDBusInterface* self);
-    friend QObject* QDBusInterface_QBaseSender(const QDBusInterface* self);
+    friend QObject* QDBusInterface_SuperSender(const QDBusInterface* self);
     friend int QDBusInterface_SenderSignalIndex(const QDBusInterface* self);
-    friend int QDBusInterface_QBaseSenderSignalIndex(const QDBusInterface* self);
+    friend int QDBusInterface_SuperSenderSignalIndex(const QDBusInterface* self);
     friend int QDBusInterface_Receivers(const QDBusInterface* self, const char* signal);
-    friend int QDBusInterface_QBaseReceivers(const QDBusInterface* self, const char* signal);
+    friend int QDBusInterface_SuperReceivers(const QDBusInterface* self, const char* signal);
     friend bool QDBusInterface_IsSignalConnected(const QDBusInterface* self, const QMetaMethod* signal);
-    friend bool QDBusInterface_QBaseIsSignalConnected(const QDBusInterface* self, const QMetaMethod* signal);
+    friend bool QDBusInterface_SuperIsSignalConnected(const QDBusInterface* self, const QMetaMethod* signal);
 };
 
 #endif

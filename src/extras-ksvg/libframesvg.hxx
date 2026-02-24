@@ -334,23 +334,23 @@ class VirtualKSvgFrameSvg final : public KSvg::FrameSvg {
 
     // Friend functions
     friend void KSvg__FrameSvg_TimerEvent(KSvg::FrameSvg* self, QTimerEvent* event);
-    friend void KSvg__FrameSvg_QBaseTimerEvent(KSvg::FrameSvg* self, QTimerEvent* event);
+    friend void KSvg__FrameSvg_SuperTimerEvent(KSvg::FrameSvg* self, QTimerEvent* event);
     friend void KSvg__FrameSvg_ChildEvent(KSvg::FrameSvg* self, QChildEvent* event);
-    friend void KSvg__FrameSvg_QBaseChildEvent(KSvg::FrameSvg* self, QChildEvent* event);
+    friend void KSvg__FrameSvg_SuperChildEvent(KSvg::FrameSvg* self, QChildEvent* event);
     friend void KSvg__FrameSvg_CustomEvent(KSvg::FrameSvg* self, QEvent* event);
-    friend void KSvg__FrameSvg_QBaseCustomEvent(KSvg::FrameSvg* self, QEvent* event);
+    friend void KSvg__FrameSvg_SuperCustomEvent(KSvg::FrameSvg* self, QEvent* event);
     friend void KSvg__FrameSvg_ConnectNotify(KSvg::FrameSvg* self, const QMetaMethod* signal);
-    friend void KSvg__FrameSvg_QBaseConnectNotify(KSvg::FrameSvg* self, const QMetaMethod* signal);
+    friend void KSvg__FrameSvg_SuperConnectNotify(KSvg::FrameSvg* self, const QMetaMethod* signal);
     friend void KSvg__FrameSvg_DisconnectNotify(KSvg::FrameSvg* self, const QMetaMethod* signal);
-    friend void KSvg__FrameSvg_QBaseDisconnectNotify(KSvg::FrameSvg* self, const QMetaMethod* signal);
+    friend void KSvg__FrameSvg_SuperDisconnectNotify(KSvg::FrameSvg* self, const QMetaMethod* signal);
     friend QObject* KSvg__FrameSvg_Sender(const KSvg::FrameSvg* self);
-    friend QObject* KSvg__FrameSvg_QBaseSender(const KSvg::FrameSvg* self);
+    friend QObject* KSvg__FrameSvg_SuperSender(const KSvg::FrameSvg* self);
     friend int KSvg__FrameSvg_SenderSignalIndex(const KSvg::FrameSvg* self);
-    friend int KSvg__FrameSvg_QBaseSenderSignalIndex(const KSvg::FrameSvg* self);
+    friend int KSvg__FrameSvg_SuperSenderSignalIndex(const KSvg::FrameSvg* self);
     friend int KSvg__FrameSvg_Receivers(const KSvg::FrameSvg* self, const char* signal);
-    friend int KSvg__FrameSvg_QBaseReceivers(const KSvg::FrameSvg* self, const char* signal);
+    friend int KSvg__FrameSvg_SuperReceivers(const KSvg::FrameSvg* self, const char* signal);
     friend bool KSvg__FrameSvg_IsSignalConnected(const KSvg::FrameSvg* self, const QMetaMethod* signal);
-    friend bool KSvg__FrameSvg_QBaseIsSignalConnected(const KSvg::FrameSvg* self, const QMetaMethod* signal);
+    friend bool KSvg__FrameSvg_SuperIsSignalConnected(const KSvg::FrameSvg* self, const QMetaMethod* signal);
 };
 
 #endif

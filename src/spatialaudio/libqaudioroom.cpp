@@ -199,7 +199,7 @@ void QAudioRoom_Connect_ReverbBrightnessChanged(QAudioRoom* self, intptr_t slot)
 }
 
 // Base class handler implementation
-QMetaObject* QAudioRoom_QBaseMetaObject(const QAudioRoom* self) {
+QMetaObject* QAudioRoom_SuperMetaObject(const QAudioRoom* self) {
     auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
     if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
         vqaudioroom->setQAudioRoom_MetaObject_IsBase(true);
@@ -218,7 +218,7 @@ void QAudioRoom_OnMetaObject(const QAudioRoom* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QAudioRoom_QBaseMetacast(QAudioRoom* self, const char* param1) {
+void* QAudioRoom_SuperMetacast(QAudioRoom* self, const char* param1) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
     if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
         vqaudioroom->setQAudioRoom_Metacast_IsBase(true);
@@ -237,7 +237,7 @@ void QAudioRoom_OnMetacast(QAudioRoom* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAudioRoom_QBaseMetacall(QAudioRoom* self, int param1, int param2, void** param3) {
+int QAudioRoom_SuperMetacall(QAudioRoom* self, int param1, int param2, void** param3) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
     if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
         vqaudioroom->setQAudioRoom_Metacall_IsBase(true);
@@ -266,7 +266,7 @@ bool QAudioRoom_Event(QAudioRoom* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QAudioRoom_QBaseEvent(QAudioRoom* self, QEvent* event) {
+bool QAudioRoom_SuperEvent(QAudioRoom* self, QEvent* event) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
     if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
         vqaudioroom->setQAudioRoom_Event_IsBase(true);
@@ -295,7 +295,7 @@ bool QAudioRoom_EventFilter(QAudioRoom* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QAudioRoom_QBaseEventFilter(QAudioRoom* self, QObject* watched, QEvent* event) {
+bool QAudioRoom_SuperEventFilter(QAudioRoom* self, QObject* watched, QEvent* event) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
     if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
         vqaudioroom->setQAudioRoom_EventFilter_IsBase(true);
@@ -324,7 +324,7 @@ void QAudioRoom_TimerEvent(QAudioRoom* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QAudioRoom_QBaseTimerEvent(QAudioRoom* self, QTimerEvent* event) {
+void QAudioRoom_SuperTimerEvent(QAudioRoom* self, QTimerEvent* event) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
     if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
         vqaudioroom->setQAudioRoom_TimerEvent_IsBase(true);
@@ -353,7 +353,7 @@ void QAudioRoom_ChildEvent(QAudioRoom* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QAudioRoom_QBaseChildEvent(QAudioRoom* self, QChildEvent* event) {
+void QAudioRoom_SuperChildEvent(QAudioRoom* self, QChildEvent* event) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
     if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
         vqaudioroom->setQAudioRoom_ChildEvent_IsBase(true);
@@ -382,7 +382,7 @@ void QAudioRoom_CustomEvent(QAudioRoom* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QAudioRoom_QBaseCustomEvent(QAudioRoom* self, QEvent* event) {
+void QAudioRoom_SuperCustomEvent(QAudioRoom* self, QEvent* event) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
     if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
         vqaudioroom->setQAudioRoom_CustomEvent_IsBase(true);
@@ -411,7 +411,7 @@ void QAudioRoom_ConnectNotify(QAudioRoom* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QAudioRoom_QBaseConnectNotify(QAudioRoom* self, const QMetaMethod* signal) {
+void QAudioRoom_SuperConnectNotify(QAudioRoom* self, const QMetaMethod* signal) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
     if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
         vqaudioroom->setQAudioRoom_ConnectNotify_IsBase(true);
@@ -440,7 +440,7 @@ void QAudioRoom_DisconnectNotify(QAudioRoom* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QAudioRoom_QBaseDisconnectNotify(QAudioRoom* self, const QMetaMethod* signal) {
+void QAudioRoom_SuperDisconnectNotify(QAudioRoom* self, const QMetaMethod* signal) {
     auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
     if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
         vqaudioroom->setQAudioRoom_DisconnectNotify_IsBase(true);
@@ -469,7 +469,7 @@ QObject* QAudioRoom_Sender(const QAudioRoom* self) {
 }
 
 // Base class handler implementation
-QObject* QAudioRoom_QBaseSender(const QAudioRoom* self) {
+QObject* QAudioRoom_SuperSender(const QAudioRoom* self) {
     auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
     if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
         vqaudioroom->setQAudioRoom_Sender_IsBase(true);
@@ -498,7 +498,7 @@ int QAudioRoom_SenderSignalIndex(const QAudioRoom* self) {
 }
 
 // Base class handler implementation
-int QAudioRoom_QBaseSenderSignalIndex(const QAudioRoom* self) {
+int QAudioRoom_SuperSenderSignalIndex(const QAudioRoom* self) {
     auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
     if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
         vqaudioroom->setQAudioRoom_SenderSignalIndex_IsBase(true);
@@ -527,7 +527,7 @@ int QAudioRoom_Receivers(const QAudioRoom* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QAudioRoom_QBaseReceivers(const QAudioRoom* self, const char* signal) {
+int QAudioRoom_SuperReceivers(const QAudioRoom* self, const char* signal) {
     auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
     if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
         vqaudioroom->setQAudioRoom_Receivers_IsBase(true);
@@ -556,7 +556,7 @@ bool QAudioRoom_IsSignalConnected(const QAudioRoom* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QAudioRoom_QBaseIsSignalConnected(const QAudioRoom* self, const QMetaMethod* signal) {
+bool QAudioRoom_SuperIsSignalConnected(const QAudioRoom* self, const QMetaMethod* signal) {
     auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
     if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
         vqaudioroom->setQAudioRoom_IsSignalConnected_IsBase(true);

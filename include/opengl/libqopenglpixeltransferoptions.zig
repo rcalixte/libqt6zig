@@ -219,6 +219,10 @@ pub const qopenglpixeltransferoptions = struct {
         return qtc.QOpenGLPixelTransferOptions_IsSwapBytesEnabled(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglpixeltransferoptions.html#dtor.QOpenGLPixelTransferOptions)
     ///
     /// Delete this object from C++ memory.
@@ -227,7 +231,7 @@ pub const qopenglpixeltransferoptions = struct {
     ///
     /// ` self: QtC.QOpenGLPixelTransferOptions `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QOpenGLPixelTransferOptions_Delete(@ptrCast(self));
     }
 };

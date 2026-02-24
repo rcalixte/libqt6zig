@@ -571,35 +571,35 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
 
     // Friend functions
     friend void QAbstractTextDocumentLayout_DocumentChanged(QAbstractTextDocumentLayout* self, int from, int charsRemoved, int charsAdded);
-    friend void QAbstractTextDocumentLayout_QBaseDocumentChanged(QAbstractTextDocumentLayout* self, int from, int charsRemoved, int charsAdded);
+    friend void QAbstractTextDocumentLayout_SuperDocumentChanged(QAbstractTextDocumentLayout* self, int from, int charsRemoved, int charsAdded);
     friend void QAbstractTextDocumentLayout_ResizeInlineObject(QAbstractTextDocumentLayout* self, QTextInlineObject* item, int posInDocument, const QTextFormat* format);
-    friend void QAbstractTextDocumentLayout_QBaseResizeInlineObject(QAbstractTextDocumentLayout* self, QTextInlineObject* item, int posInDocument, const QTextFormat* format);
+    friend void QAbstractTextDocumentLayout_SuperResizeInlineObject(QAbstractTextDocumentLayout* self, QTextInlineObject* item, int posInDocument, const QTextFormat* format);
     friend void QAbstractTextDocumentLayout_PositionInlineObject(QAbstractTextDocumentLayout* self, QTextInlineObject* item, int posInDocument, const QTextFormat* format);
-    friend void QAbstractTextDocumentLayout_QBasePositionInlineObject(QAbstractTextDocumentLayout* self, QTextInlineObject* item, int posInDocument, const QTextFormat* format);
+    friend void QAbstractTextDocumentLayout_SuperPositionInlineObject(QAbstractTextDocumentLayout* self, QTextInlineObject* item, int posInDocument, const QTextFormat* format);
     friend void QAbstractTextDocumentLayout_DrawInlineObject(QAbstractTextDocumentLayout* self, QPainter* painter, const QRectF* rect, QTextInlineObject* object, int posInDocument, const QTextFormat* format);
-    friend void QAbstractTextDocumentLayout_QBaseDrawInlineObject(QAbstractTextDocumentLayout* self, QPainter* painter, const QRectF* rect, QTextInlineObject* object, int posInDocument, const QTextFormat* format);
+    friend void QAbstractTextDocumentLayout_SuperDrawInlineObject(QAbstractTextDocumentLayout* self, QPainter* painter, const QRectF* rect, QTextInlineObject* object, int posInDocument, const QTextFormat* format);
     friend void QAbstractTextDocumentLayout_TimerEvent(QAbstractTextDocumentLayout* self, QTimerEvent* event);
-    friend void QAbstractTextDocumentLayout_QBaseTimerEvent(QAbstractTextDocumentLayout* self, QTimerEvent* event);
+    friend void QAbstractTextDocumentLayout_SuperTimerEvent(QAbstractTextDocumentLayout* self, QTimerEvent* event);
     friend void QAbstractTextDocumentLayout_ChildEvent(QAbstractTextDocumentLayout* self, QChildEvent* event);
-    friend void QAbstractTextDocumentLayout_QBaseChildEvent(QAbstractTextDocumentLayout* self, QChildEvent* event);
+    friend void QAbstractTextDocumentLayout_SuperChildEvent(QAbstractTextDocumentLayout* self, QChildEvent* event);
     friend void QAbstractTextDocumentLayout_CustomEvent(QAbstractTextDocumentLayout* self, QEvent* event);
-    friend void QAbstractTextDocumentLayout_QBaseCustomEvent(QAbstractTextDocumentLayout* self, QEvent* event);
+    friend void QAbstractTextDocumentLayout_SuperCustomEvent(QAbstractTextDocumentLayout* self, QEvent* event);
     friend void QAbstractTextDocumentLayout_ConnectNotify(QAbstractTextDocumentLayout* self, const QMetaMethod* signal);
-    friend void QAbstractTextDocumentLayout_QBaseConnectNotify(QAbstractTextDocumentLayout* self, const QMetaMethod* signal);
+    friend void QAbstractTextDocumentLayout_SuperConnectNotify(QAbstractTextDocumentLayout* self, const QMetaMethod* signal);
     friend void QAbstractTextDocumentLayout_DisconnectNotify(QAbstractTextDocumentLayout* self, const QMetaMethod* signal);
-    friend void QAbstractTextDocumentLayout_QBaseDisconnectNotify(QAbstractTextDocumentLayout* self, const QMetaMethod* signal);
+    friend void QAbstractTextDocumentLayout_SuperDisconnectNotify(QAbstractTextDocumentLayout* self, const QMetaMethod* signal);
     friend int QAbstractTextDocumentLayout_FormatIndex(QAbstractTextDocumentLayout* self, int pos);
-    friend int QAbstractTextDocumentLayout_QBaseFormatIndex(QAbstractTextDocumentLayout* self, int pos);
+    friend int QAbstractTextDocumentLayout_SuperFormatIndex(QAbstractTextDocumentLayout* self, int pos);
     friend QTextCharFormat* QAbstractTextDocumentLayout_Format(QAbstractTextDocumentLayout* self, int pos);
-    friend QTextCharFormat* QAbstractTextDocumentLayout_QBaseFormat(QAbstractTextDocumentLayout* self, int pos);
+    friend QTextCharFormat* QAbstractTextDocumentLayout_SuperFormat(QAbstractTextDocumentLayout* self, int pos);
     friend QObject* QAbstractTextDocumentLayout_Sender(const QAbstractTextDocumentLayout* self);
-    friend QObject* QAbstractTextDocumentLayout_QBaseSender(const QAbstractTextDocumentLayout* self);
+    friend QObject* QAbstractTextDocumentLayout_SuperSender(const QAbstractTextDocumentLayout* self);
     friend int QAbstractTextDocumentLayout_SenderSignalIndex(const QAbstractTextDocumentLayout* self);
-    friend int QAbstractTextDocumentLayout_QBaseSenderSignalIndex(const QAbstractTextDocumentLayout* self);
+    friend int QAbstractTextDocumentLayout_SuperSenderSignalIndex(const QAbstractTextDocumentLayout* self);
     friend int QAbstractTextDocumentLayout_Receivers(const QAbstractTextDocumentLayout* self, const char* signal);
-    friend int QAbstractTextDocumentLayout_QBaseReceivers(const QAbstractTextDocumentLayout* self, const char* signal);
+    friend int QAbstractTextDocumentLayout_SuperReceivers(const QAbstractTextDocumentLayout* self, const char* signal);
     friend bool QAbstractTextDocumentLayout_IsSignalConnected(const QAbstractTextDocumentLayout* self, const QMetaMethod* signal);
-    friend bool QAbstractTextDocumentLayout_QBaseIsSignalConnected(const QAbstractTextDocumentLayout* self, const QMetaMethod* signal);
+    friend bool QAbstractTextDocumentLayout_SuperIsSignalConnected(const QAbstractTextDocumentLayout* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -136,7 +136,7 @@ void QChartView_MouseReleaseEvent(QChartView* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-QMetaObject* QChartView_QBaseMetaObject(const QChartView* self) {
+QMetaObject* QChartView_SuperMetaObject(const QChartView* self) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_MetaObject_IsBase(true);
@@ -155,7 +155,7 @@ void QChartView_OnMetaObject(const QChartView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QChartView_QBaseMetacast(QChartView* self, const char* param1) {
+void* QChartView_SuperMetacast(QChartView* self, const char* param1) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_Metacast_IsBase(true);
@@ -174,7 +174,7 @@ void QChartView_OnMetacast(QChartView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QChartView_QBaseMetacall(QChartView* self, int param1, int param2, void** param3) {
+int QChartView_SuperMetacall(QChartView* self, int param1, int param2, void** param3) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_Metacall_IsBase(true);
@@ -193,7 +193,7 @@ void QChartView_OnMetacall(QChartView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseResizeEvent(QChartView* self, QResizeEvent* event) {
+void QChartView_SuperResizeEvent(QChartView* self, QResizeEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_ResizeEvent_IsBase(true);
@@ -212,7 +212,7 @@ void QChartView_OnResizeEvent(QChartView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseMousePressEvent(QChartView* self, QMouseEvent* event) {
+void QChartView_SuperMousePressEvent(QChartView* self, QMouseEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_MousePressEvent_IsBase(true);
@@ -231,7 +231,7 @@ void QChartView_OnMousePressEvent(QChartView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseMouseMoveEvent(QChartView* self, QMouseEvent* event) {
+void QChartView_SuperMouseMoveEvent(QChartView* self, QMouseEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_MouseMoveEvent_IsBase(true);
@@ -250,7 +250,7 @@ void QChartView_OnMouseMoveEvent(QChartView* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseMouseReleaseEvent(QChartView* self, QMouseEvent* event) {
+void QChartView_SuperMouseReleaseEvent(QChartView* self, QMouseEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_MouseReleaseEvent_IsBase(true);
@@ -279,7 +279,7 @@ QSize* QChartView_SizeHint(const QChartView* self) {
 }
 
 // Base class handler implementation
-QSize* QChartView_QBaseSizeHint(const QChartView* self) {
+QSize* QChartView_SuperSizeHint(const QChartView* self) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_SizeHint_IsBase(true);
@@ -308,7 +308,7 @@ QVariant* QChartView_InputMethodQuery(const QChartView* self, int query) {
 }
 
 // Base class handler implementation
-QVariant* QChartView_QBaseInputMethodQuery(const QChartView* self, int query) {
+QVariant* QChartView_SuperInputMethodQuery(const QChartView* self, int query) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_InputMethodQuery_IsBase(true);
@@ -337,7 +337,7 @@ void QChartView_SetupViewport(QChartView* self, QWidget* widget) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseSetupViewport(QChartView* self, QWidget* widget) {
+void QChartView_SuperSetupViewport(QChartView* self, QWidget* widget) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_SetupViewport_IsBase(true);
@@ -366,7 +366,7 @@ bool QChartView_Event(QChartView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QChartView_QBaseEvent(QChartView* self, QEvent* event) {
+bool QChartView_SuperEvent(QChartView* self, QEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_Event_IsBase(true);
@@ -395,7 +395,7 @@ bool QChartView_ViewportEvent(QChartView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QChartView_QBaseViewportEvent(QChartView* self, QEvent* event) {
+bool QChartView_SuperViewportEvent(QChartView* self, QEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_ViewportEvent_IsBase(true);
@@ -424,7 +424,7 @@ void QChartView_ContextMenuEvent(QChartView* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseContextMenuEvent(QChartView* self, QContextMenuEvent* event) {
+void QChartView_SuperContextMenuEvent(QChartView* self, QContextMenuEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_ContextMenuEvent_IsBase(true);
@@ -453,7 +453,7 @@ void QChartView_DragEnterEvent(QChartView* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseDragEnterEvent(QChartView* self, QDragEnterEvent* event) {
+void QChartView_SuperDragEnterEvent(QChartView* self, QDragEnterEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_DragEnterEvent_IsBase(true);
@@ -482,7 +482,7 @@ void QChartView_DragLeaveEvent(QChartView* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseDragLeaveEvent(QChartView* self, QDragLeaveEvent* event) {
+void QChartView_SuperDragLeaveEvent(QChartView* self, QDragLeaveEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_DragLeaveEvent_IsBase(true);
@@ -511,7 +511,7 @@ void QChartView_DragMoveEvent(QChartView* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseDragMoveEvent(QChartView* self, QDragMoveEvent* event) {
+void QChartView_SuperDragMoveEvent(QChartView* self, QDragMoveEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_DragMoveEvent_IsBase(true);
@@ -540,7 +540,7 @@ void QChartView_DropEvent(QChartView* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseDropEvent(QChartView* self, QDropEvent* event) {
+void QChartView_SuperDropEvent(QChartView* self, QDropEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_DropEvent_IsBase(true);
@@ -569,7 +569,7 @@ void QChartView_FocusInEvent(QChartView* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseFocusInEvent(QChartView* self, QFocusEvent* event) {
+void QChartView_SuperFocusInEvent(QChartView* self, QFocusEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_FocusInEvent_IsBase(true);
@@ -598,7 +598,7 @@ bool QChartView_FocusNextPrevChild(QChartView* self, bool next) {
 }
 
 // Base class handler implementation
-bool QChartView_QBaseFocusNextPrevChild(QChartView* self, bool next) {
+bool QChartView_SuperFocusNextPrevChild(QChartView* self, bool next) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_FocusNextPrevChild_IsBase(true);
@@ -627,7 +627,7 @@ void QChartView_FocusOutEvent(QChartView* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseFocusOutEvent(QChartView* self, QFocusEvent* event) {
+void QChartView_SuperFocusOutEvent(QChartView* self, QFocusEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_FocusOutEvent_IsBase(true);
@@ -656,7 +656,7 @@ void QChartView_KeyPressEvent(QChartView* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseKeyPressEvent(QChartView* self, QKeyEvent* event) {
+void QChartView_SuperKeyPressEvent(QChartView* self, QKeyEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_KeyPressEvent_IsBase(true);
@@ -685,7 +685,7 @@ void QChartView_KeyReleaseEvent(QChartView* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseKeyReleaseEvent(QChartView* self, QKeyEvent* event) {
+void QChartView_SuperKeyReleaseEvent(QChartView* self, QKeyEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_KeyReleaseEvent_IsBase(true);
@@ -714,7 +714,7 @@ void QChartView_MouseDoubleClickEvent(QChartView* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseMouseDoubleClickEvent(QChartView* self, QMouseEvent* event) {
+void QChartView_SuperMouseDoubleClickEvent(QChartView* self, QMouseEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_MouseDoubleClickEvent_IsBase(true);
@@ -743,7 +743,7 @@ void QChartView_WheelEvent(QChartView* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseWheelEvent(QChartView* self, QWheelEvent* event) {
+void QChartView_SuperWheelEvent(QChartView* self, QWheelEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_WheelEvent_IsBase(true);
@@ -772,7 +772,7 @@ void QChartView_PaintEvent(QChartView* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBasePaintEvent(QChartView* self, QPaintEvent* event) {
+void QChartView_SuperPaintEvent(QChartView* self, QPaintEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_PaintEvent_IsBase(true);
@@ -801,7 +801,7 @@ void QChartView_ScrollContentsBy(QChartView* self, int dx, int dy) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseScrollContentsBy(QChartView* self, int dx, int dy) {
+void QChartView_SuperScrollContentsBy(QChartView* self, int dx, int dy) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_ScrollContentsBy_IsBase(true);
@@ -830,7 +830,7 @@ void QChartView_ShowEvent(QChartView* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseShowEvent(QChartView* self, QShowEvent* event) {
+void QChartView_SuperShowEvent(QChartView* self, QShowEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_ShowEvent_IsBase(true);
@@ -859,7 +859,7 @@ void QChartView_InputMethodEvent(QChartView* self, QInputMethodEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseInputMethodEvent(QChartView* self, QInputMethodEvent* event) {
+void QChartView_SuperInputMethodEvent(QChartView* self, QInputMethodEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_InputMethodEvent_IsBase(true);
@@ -888,7 +888,7 @@ void QChartView_DrawBackground(QChartView* self, QPainter* painter, const QRectF
 }
 
 // Base class handler implementation
-void QChartView_QBaseDrawBackground(QChartView* self, QPainter* painter, const QRectF* rect) {
+void QChartView_SuperDrawBackground(QChartView* self, QPainter* painter, const QRectF* rect) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_DrawBackground_IsBase(true);
@@ -917,7 +917,7 @@ void QChartView_DrawForeground(QChartView* self, QPainter* painter, const QRectF
 }
 
 // Base class handler implementation
-void QChartView_QBaseDrawForeground(QChartView* self, QPainter* painter, const QRectF* rect) {
+void QChartView_SuperDrawForeground(QChartView* self, QPainter* painter, const QRectF* rect) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_DrawForeground_IsBase(true);
@@ -946,7 +946,7 @@ void QChartView_DrawItems(QChartView* self, QPainter* painter, int numItems, QGr
 }
 
 // Base class handler implementation
-void QChartView_QBaseDrawItems(QChartView* self, QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options) {
+void QChartView_SuperDrawItems(QChartView* self, QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_DrawItems_IsBase(true);
@@ -975,7 +975,7 @@ QSize* QChartView_MinimumSizeHint(const QChartView* self) {
 }
 
 // Base class handler implementation
-QSize* QChartView_QBaseMinimumSizeHint(const QChartView* self) {
+QSize* QChartView_SuperMinimumSizeHint(const QChartView* self) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_MinimumSizeHint_IsBase(true);
@@ -1004,7 +1004,7 @@ bool QChartView_EventFilter(QChartView* self, QObject* param1, QEvent* param2) {
 }
 
 // Base class handler implementation
-bool QChartView_QBaseEventFilter(QChartView* self, QObject* param1, QEvent* param2) {
+bool QChartView_SuperEventFilter(QChartView* self, QObject* param1, QEvent* param2) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_EventFilter_IsBase(true);
@@ -1032,7 +1032,7 @@ QSize* QChartView_ViewportSizeHint(const QChartView* self) {
 }
 
 // Base class handler implementation
-QSize* QChartView_QBaseViewportSizeHint(const QChartView* self) {
+QSize* QChartView_SuperViewportSizeHint(const QChartView* self) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_ViewportSizeHint_IsBase(true);
@@ -1060,7 +1060,7 @@ void QChartView_ChangeEvent(QChartView* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseChangeEvent(QChartView* self, QEvent* param1) {
+void QChartView_SuperChangeEvent(QChartView* self, QEvent* param1) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_ChangeEvent_IsBase(true);
@@ -1089,7 +1089,7 @@ void QChartView_InitStyleOption(const QChartView* self, QStyleOptionFrame* optio
 }
 
 // Base class handler implementation
-void QChartView_QBaseInitStyleOption(const QChartView* self, QStyleOptionFrame* option) {
+void QChartView_SuperInitStyleOption(const QChartView* self, QStyleOptionFrame* option) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_InitStyleOption_IsBase(true);
@@ -1118,7 +1118,7 @@ int QChartView_DevType(const QChartView* self) {
 }
 
 // Base class handler implementation
-int QChartView_QBaseDevType(const QChartView* self) {
+int QChartView_SuperDevType(const QChartView* self) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_DevType_IsBase(true);
@@ -1147,7 +1147,7 @@ void QChartView_SetVisible(QChartView* self, bool visible) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseSetVisible(QChartView* self, bool visible) {
+void QChartView_SuperSetVisible(QChartView* self, bool visible) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_SetVisible_IsBase(true);
@@ -1176,7 +1176,7 @@ int QChartView_HeightForWidth(const QChartView* self, int param1) {
 }
 
 // Base class handler implementation
-int QChartView_QBaseHeightForWidth(const QChartView* self, int param1) {
+int QChartView_SuperHeightForWidth(const QChartView* self, int param1) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_HeightForWidth_IsBase(true);
@@ -1205,7 +1205,7 @@ bool QChartView_HasHeightForWidth(const QChartView* self) {
 }
 
 // Base class handler implementation
-bool QChartView_QBaseHasHeightForWidth(const QChartView* self) {
+bool QChartView_SuperHasHeightForWidth(const QChartView* self) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_HasHeightForWidth_IsBase(true);
@@ -1234,7 +1234,7 @@ QPaintEngine* QChartView_PaintEngine(const QChartView* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QChartView_QBasePaintEngine(const QChartView* self) {
+QPaintEngine* QChartView_SuperPaintEngine(const QChartView* self) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_PaintEngine_IsBase(true);
@@ -1263,7 +1263,7 @@ void QChartView_EnterEvent(QChartView* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseEnterEvent(QChartView* self, QEnterEvent* event) {
+void QChartView_SuperEnterEvent(QChartView* self, QEnterEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_EnterEvent_IsBase(true);
@@ -1292,7 +1292,7 @@ void QChartView_LeaveEvent(QChartView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseLeaveEvent(QChartView* self, QEvent* event) {
+void QChartView_SuperLeaveEvent(QChartView* self, QEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_LeaveEvent_IsBase(true);
@@ -1321,7 +1321,7 @@ void QChartView_MoveEvent(QChartView* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseMoveEvent(QChartView* self, QMoveEvent* event) {
+void QChartView_SuperMoveEvent(QChartView* self, QMoveEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_MoveEvent_IsBase(true);
@@ -1350,7 +1350,7 @@ void QChartView_CloseEvent(QChartView* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseCloseEvent(QChartView* self, QCloseEvent* event) {
+void QChartView_SuperCloseEvent(QChartView* self, QCloseEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_CloseEvent_IsBase(true);
@@ -1379,7 +1379,7 @@ void QChartView_TabletEvent(QChartView* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseTabletEvent(QChartView* self, QTabletEvent* event) {
+void QChartView_SuperTabletEvent(QChartView* self, QTabletEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_TabletEvent_IsBase(true);
@@ -1408,7 +1408,7 @@ void QChartView_ActionEvent(QChartView* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseActionEvent(QChartView* self, QActionEvent* event) {
+void QChartView_SuperActionEvent(QChartView* self, QActionEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_ActionEvent_IsBase(true);
@@ -1437,7 +1437,7 @@ void QChartView_HideEvent(QChartView* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseHideEvent(QChartView* self, QHideEvent* event) {
+void QChartView_SuperHideEvent(QChartView* self, QHideEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_HideEvent_IsBase(true);
@@ -1467,7 +1467,7 @@ bool QChartView_NativeEvent(QChartView* self, const libqt_string eventType, void
 }
 
 // Base class handler implementation
-bool QChartView_QBaseNativeEvent(QChartView* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QChartView_SuperNativeEvent(QChartView* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqchartview && vqchartview->isVirtualQChartView) {
@@ -1497,7 +1497,7 @@ int QChartView_Metric(const QChartView* self, int param1) {
 }
 
 // Base class handler implementation
-int QChartView_QBaseMetric(const QChartView* self, int param1) {
+int QChartView_SuperMetric(const QChartView* self, int param1) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_Metric_IsBase(true);
@@ -1526,7 +1526,7 @@ void QChartView_InitPainter(const QChartView* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseInitPainter(const QChartView* self, QPainter* painter) {
+void QChartView_SuperInitPainter(const QChartView* self, QPainter* painter) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_InitPainter_IsBase(true);
@@ -1555,7 +1555,7 @@ QPaintDevice* QChartView_Redirected(const QChartView* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QChartView_QBaseRedirected(const QChartView* self, QPoint* offset) {
+QPaintDevice* QChartView_SuperRedirected(const QChartView* self, QPoint* offset) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_Redirected_IsBase(true);
@@ -1584,7 +1584,7 @@ QPainter* QChartView_SharedPainter(const QChartView* self) {
 }
 
 // Base class handler implementation
-QPainter* QChartView_QBaseSharedPainter(const QChartView* self) {
+QPainter* QChartView_SuperSharedPainter(const QChartView* self) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_SharedPainter_IsBase(true);
@@ -1613,7 +1613,7 @@ void QChartView_TimerEvent(QChartView* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseTimerEvent(QChartView* self, QTimerEvent* event) {
+void QChartView_SuperTimerEvent(QChartView* self, QTimerEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_TimerEvent_IsBase(true);
@@ -1642,7 +1642,7 @@ void QChartView_ChildEvent(QChartView* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseChildEvent(QChartView* self, QChildEvent* event) {
+void QChartView_SuperChildEvent(QChartView* self, QChildEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_ChildEvent_IsBase(true);
@@ -1671,7 +1671,7 @@ void QChartView_CustomEvent(QChartView* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseCustomEvent(QChartView* self, QEvent* event) {
+void QChartView_SuperCustomEvent(QChartView* self, QEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_CustomEvent_IsBase(true);
@@ -1700,7 +1700,7 @@ void QChartView_ConnectNotify(QChartView* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseConnectNotify(QChartView* self, const QMetaMethod* signal) {
+void QChartView_SuperConnectNotify(QChartView* self, const QMetaMethod* signal) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_ConnectNotify_IsBase(true);
@@ -1729,7 +1729,7 @@ void QChartView_DisconnectNotify(QChartView* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseDisconnectNotify(QChartView* self, const QMetaMethod* signal) {
+void QChartView_SuperDisconnectNotify(QChartView* self, const QMetaMethod* signal) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_DisconnectNotify_IsBase(true);
@@ -1758,7 +1758,7 @@ void QChartView_SetViewportMargins(QChartView* self, int left, int top, int righ
 }
 
 // Base class handler implementation
-void QChartView_QBaseSetViewportMargins(QChartView* self, int left, int top, int right, int bottom) {
+void QChartView_SuperSetViewportMargins(QChartView* self, int left, int top, int right, int bottom) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_SetViewportMargins_IsBase(true);
@@ -1786,7 +1786,7 @@ QMargins* QChartView_ViewportMargins(const QChartView* self) {
 }
 
 // Base class handler implementation
-QMargins* QChartView_QBaseViewportMargins(const QChartView* self) {
+QMargins* QChartView_SuperViewportMargins(const QChartView* self) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_ViewportMargins_IsBase(true);
@@ -1814,7 +1814,7 @@ void QChartView_DrawFrame(QChartView* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseDrawFrame(QChartView* self, QPainter* param1) {
+void QChartView_SuperDrawFrame(QChartView* self, QPainter* param1) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_DrawFrame_IsBase(true);
@@ -1843,7 +1843,7 @@ void QChartView_UpdateMicroFocus(QChartView* self) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseUpdateMicroFocus(QChartView* self) {
+void QChartView_SuperUpdateMicroFocus(QChartView* self) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_UpdateMicroFocus_IsBase(true);
@@ -1872,7 +1872,7 @@ void QChartView_Create(QChartView* self) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseCreate(QChartView* self) {
+void QChartView_SuperCreate(QChartView* self) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_Create_IsBase(true);
@@ -1901,7 +1901,7 @@ void QChartView_Destroy(QChartView* self) {
 }
 
 // Base class handler implementation
-void QChartView_QBaseDestroy(QChartView* self) {
+void QChartView_SuperDestroy(QChartView* self) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_Destroy_IsBase(true);
@@ -1930,7 +1930,7 @@ bool QChartView_FocusNextChild(QChartView* self) {
 }
 
 // Base class handler implementation
-bool QChartView_QBaseFocusNextChild(QChartView* self) {
+bool QChartView_SuperFocusNextChild(QChartView* self) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_FocusNextChild_IsBase(true);
@@ -1959,7 +1959,7 @@ bool QChartView_FocusPreviousChild(QChartView* self) {
 }
 
 // Base class handler implementation
-bool QChartView_QBaseFocusPreviousChild(QChartView* self) {
+bool QChartView_SuperFocusPreviousChild(QChartView* self) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_FocusPreviousChild_IsBase(true);
@@ -1988,7 +1988,7 @@ QObject* QChartView_Sender(const QChartView* self) {
 }
 
 // Base class handler implementation
-QObject* QChartView_QBaseSender(const QChartView* self) {
+QObject* QChartView_SuperSender(const QChartView* self) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_Sender_IsBase(true);
@@ -2017,7 +2017,7 @@ int QChartView_SenderSignalIndex(const QChartView* self) {
 }
 
 // Base class handler implementation
-int QChartView_QBaseSenderSignalIndex(const QChartView* self) {
+int QChartView_SuperSenderSignalIndex(const QChartView* self) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_SenderSignalIndex_IsBase(true);
@@ -2046,7 +2046,7 @@ int QChartView_Receivers(const QChartView* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QChartView_QBaseReceivers(const QChartView* self, const char* signal) {
+int QChartView_SuperReceivers(const QChartView* self, const char* signal) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_Receivers_IsBase(true);
@@ -2075,7 +2075,7 @@ bool QChartView_IsSignalConnected(const QChartView* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QChartView_QBaseIsSignalConnected(const QChartView* self, const QMetaMethod* signal) {
+bool QChartView_SuperIsSignalConnected(const QChartView* self, const QMetaMethod* signal) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_IsSignalConnected_IsBase(true);
@@ -2104,7 +2104,7 @@ double QChartView_GetDecodedMetricF(const QChartView* self, int metricA, int met
 }
 
 // Base class handler implementation
-double QChartView_QBaseGetDecodedMetricF(const QChartView* self, int metricA, int metricB) {
+double QChartView_SuperGetDecodedMetricF(const QChartView* self, int metricA, int metricB) {
     auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_GetDecodedMetricF_IsBase(true);

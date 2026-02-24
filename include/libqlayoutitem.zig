@@ -55,6 +55,10 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#sizeHint)
     ///
     /// Base class method implementation
@@ -63,8 +67,8 @@ pub const qlayoutitem = struct {
     ///
     /// ` self: QtC.QLayoutItem `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QLayoutItem_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QLayoutItem_SuperSizeHint(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumSize)
@@ -91,6 +95,10 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnMinimumSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSize` instead
+    ///
+    pub const QBaseMinimumSize = SuperMinimumSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumSize)
     ///
     /// Base class method implementation
@@ -99,8 +107,8 @@ pub const qlayoutitem = struct {
     ///
     /// ` self: QtC.QLayoutItem `
     ///
-    pub fn QBaseMinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QLayoutItem_QBaseMinimumSize(@ptrCast(self));
+    pub fn SuperMinimumSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QLayoutItem_SuperMinimumSize(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#maximumSize)
@@ -127,6 +135,10 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnMaximumSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMaximumSize` instead
+    ///
+    pub const QBaseMaximumSize = SuperMaximumSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#maximumSize)
     ///
     /// Base class method implementation
@@ -135,8 +147,8 @@ pub const qlayoutitem = struct {
     ///
     /// ` self: QtC.QLayoutItem `
     ///
-    pub fn QBaseMaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QLayoutItem_QBaseMaximumSize(@ptrCast(self));
+    pub fn SuperMaximumSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QLayoutItem_SuperMaximumSize(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#expandingDirections)
@@ -167,6 +179,10 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnExpandingDirections(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperExpandingDirections` instead
+    ///
+    pub const QBaseExpandingDirections = SuperExpandingDirections;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#expandingDirections)
     ///
     /// Base class method implementation
@@ -179,8 +195,8 @@ pub const qlayoutitem = struct {
     ///
     /// ` flag of qnamespace_enums.Orientation `
     ///
-    pub fn QBaseExpandingDirections(self: ?*anyopaque) i32 {
-        return qtc.QLayoutItem_QBaseExpandingDirections(@ptrCast(self));
+    pub fn SuperExpandingDirections(self: ?*anyopaque) i32 {
+        return qtc.QLayoutItem_SuperExpandingDirections(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setGeometry)
@@ -209,6 +225,10 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnSetGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetGeometry` instead
+    ///
+    pub const QBaseSetGeometry = SuperSetGeometry;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#setGeometry)
     ///
     /// Base class method implementation
@@ -219,8 +239,8 @@ pub const qlayoutitem = struct {
     ///
     /// ` geometry: QtC.QRect `
     ///
-    pub fn QBaseSetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QLayoutItem_QBaseSetGeometry(@ptrCast(self), @ptrCast(geometry));
+    pub fn SuperSetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
+        qtc.QLayoutItem_SuperSetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#geometry)
@@ -247,6 +267,10 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGeometry` instead
+    ///
+    pub const QBaseGeometry = SuperGeometry;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#geometry)
     ///
     /// Base class method implementation
@@ -255,8 +279,8 @@ pub const qlayoutitem = struct {
     ///
     /// ` self: QtC.QLayoutItem `
     ///
-    pub fn QBaseGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QLayoutItem_QBaseGeometry(@ptrCast(self));
+    pub fn SuperGeometry(self: ?*anyopaque) QtC.QRect {
+        return qtc.QLayoutItem_SuperGeometry(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#isEmpty)
@@ -283,6 +307,10 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnIsEmpty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsEmpty` instead
+    ///
+    pub const QBaseIsEmpty = SuperIsEmpty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#isEmpty)
     ///
     /// Base class method implementation
@@ -291,8 +319,8 @@ pub const qlayoutitem = struct {
     ///
     /// ` self: QtC.QLayoutItem `
     ///
-    pub fn QBaseIsEmpty(self: ?*anyopaque) bool {
-        return qtc.QLayoutItem_QBaseIsEmpty(@ptrCast(self));
+    pub fn SuperIsEmpty(self: ?*anyopaque) bool {
+        return qtc.QLayoutItem_SuperIsEmpty(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
@@ -319,6 +347,10 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
     ///
     /// Base class method implementation
@@ -327,8 +359,8 @@ pub const qlayoutitem = struct {
     ///
     /// ` self: QtC.QLayoutItem `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QLayoutItem_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.QLayoutItem_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
@@ -357,6 +389,10 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
     ///
     /// Base class method implementation
@@ -367,8 +403,8 @@ pub const qlayoutitem = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QLayoutItem_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QLayoutItem_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
@@ -397,6 +433,10 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnMinimumHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumHeightForWidth` instead
+    ///
+    pub const QBaseMinimumHeightForWidth = SuperMinimumHeightForWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
     ///
     /// Base class method implementation
@@ -407,8 +447,8 @@ pub const qlayoutitem = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseMinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QLayoutItem_QBaseMinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QLayoutItem_SuperMinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
@@ -435,6 +475,10 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnInvalidate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperInvalidate` instead
+    ///
+    pub const QBaseInvalidate = SuperInvalidate;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
     ///
     /// Base class method implementation
@@ -443,8 +487,8 @@ pub const qlayoutitem = struct {
     ///
     /// ` self: QtC.QLayoutItem `
     ///
-    pub fn QBaseInvalidate(self: ?*anyopaque) void {
-        qtc.QLayoutItem_QBaseInvalidate(@ptrCast(self));
+    pub fn SuperInvalidate(self: ?*anyopaque) void {
+        qtc.QLayoutItem_SuperInvalidate(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
@@ -471,6 +515,10 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWidget` instead
+    ///
+    pub const QBaseWidget = SuperWidget;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
     ///
     /// Base class method implementation
@@ -479,8 +527,8 @@ pub const qlayoutitem = struct {
     ///
     /// ` self: QtC.QLayoutItem `
     ///
-    pub fn QBaseWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QLayoutItem_QBaseWidget(@ptrCast(self));
+    pub fn SuperWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QLayoutItem_SuperWidget(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
@@ -507,6 +555,10 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperLayout` instead
+    ///
+    pub const QBaseLayout = SuperLayout;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
     ///
     /// Base class method implementation
@@ -515,8 +567,8 @@ pub const qlayoutitem = struct {
     ///
     /// ` self: QtC.QLayoutItem `
     ///
-    pub fn QBaseLayout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QLayoutItem_QBaseLayout(@ptrCast(self));
+    pub fn SuperLayout(self: ?*anyopaque) QtC.QLayout {
+        return qtc.QLayoutItem_SuperLayout(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
@@ -543,6 +595,10 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnSpacerItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSpacerItem` instead
+    ///
+    pub const QBaseSpacerItem = SuperSpacerItem;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
     ///
     /// Base class method implementation
@@ -551,8 +607,8 @@ pub const qlayoutitem = struct {
     ///
     /// ` self: QtC.QLayoutItem `
     ///
-    pub fn QBaseSpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
-        return qtc.QLayoutItem_QBaseSpacerItem(@ptrCast(self));
+    pub fn SuperSpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
+        return qtc.QLayoutItem_SuperSpacerItem(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
@@ -609,6 +665,10 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnControlTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperControlTypes` instead
+    ///
+    pub const QBaseControlTypes = SuperControlTypes;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
     ///
     /// Base class method implementation
@@ -621,8 +681,8 @@ pub const qlayoutitem = struct {
     ///
     /// ` flag of qsizepolicy_enums.ControlType `
     ///
-    pub fn QBaseControlTypes(self: ?*anyopaque) i32 {
-        return qtc.QLayoutItem_QBaseControlTypes(@ptrCast(self));
+    pub fn SuperControlTypes(self: ?*anyopaque) i32 {
+        return qtc.QLayoutItem_SuperControlTypes(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
@@ -651,6 +711,10 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnOperatorAssign(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperOperatorAssign` instead
+    ///
+    pub const QBaseOperatorAssign = SuperOperatorAssign;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
     ///
     /// Base class method implementation
@@ -661,9 +725,12 @@ pub const qlayoutitem = struct {
     ///
     /// ` param1: QtC.QLayoutItem `
     ///
-    pub fn QBaseOperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QLayoutItem_QBaseOperatorAssign(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperOperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QLayoutItem_SuperOperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#dtor.QLayoutItem)
     ///
@@ -673,7 +740,7 @@ pub const qlayoutitem = struct {
     ///
     /// ` self: QtC.QLayoutItem `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QLayoutItem_Delete(@ptrCast(self));
     }
 };
@@ -770,6 +837,10 @@ pub const qspaceritem = struct {
         qtc.QSpacerItem_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#sizeHint)
     ///
     /// Base class method implementation
@@ -778,8 +849,8 @@ pub const qspaceritem = struct {
     ///
     /// ` self: QtC.QSpacerItem `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QSpacerItem_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QSpacerItem_SuperSizeHint(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#minimumSize)
@@ -806,6 +877,10 @@ pub const qspaceritem = struct {
         qtc.QSpacerItem_OnMinimumSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSize` instead
+    ///
+    pub const QBaseMinimumSize = SuperMinimumSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#minimumSize)
     ///
     /// Base class method implementation
@@ -814,8 +889,8 @@ pub const qspaceritem = struct {
     ///
     /// ` self: QtC.QSpacerItem `
     ///
-    pub fn QBaseMinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QSpacerItem_QBaseMinimumSize(@ptrCast(self));
+    pub fn SuperMinimumSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QSpacerItem_SuperMinimumSize(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#maximumSize)
@@ -842,6 +917,10 @@ pub const qspaceritem = struct {
         qtc.QSpacerItem_OnMaximumSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMaximumSize` instead
+    ///
+    pub const QBaseMaximumSize = SuperMaximumSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#maximumSize)
     ///
     /// Base class method implementation
@@ -850,8 +929,8 @@ pub const qspaceritem = struct {
     ///
     /// ` self: QtC.QSpacerItem `
     ///
-    pub fn QBaseMaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QSpacerItem_QBaseMaximumSize(@ptrCast(self));
+    pub fn SuperMaximumSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QSpacerItem_SuperMaximumSize(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#expandingDirections)
@@ -882,6 +961,10 @@ pub const qspaceritem = struct {
         qtc.QSpacerItem_OnExpandingDirections(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperExpandingDirections` instead
+    ///
+    pub const QBaseExpandingDirections = SuperExpandingDirections;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#expandingDirections)
     ///
     /// Base class method implementation
@@ -894,8 +977,8 @@ pub const qspaceritem = struct {
     ///
     /// ` flag of qnamespace_enums.Orientation `
     ///
-    pub fn QBaseExpandingDirections(self: ?*anyopaque) i32 {
-        return qtc.QSpacerItem_QBaseExpandingDirections(@ptrCast(self));
+    pub fn SuperExpandingDirections(self: ?*anyopaque) i32 {
+        return qtc.QSpacerItem_SuperExpandingDirections(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#isEmpty)
@@ -922,6 +1005,10 @@ pub const qspaceritem = struct {
         qtc.QSpacerItem_OnIsEmpty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsEmpty` instead
+    ///
+    pub const QBaseIsEmpty = SuperIsEmpty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#isEmpty)
     ///
     /// Base class method implementation
@@ -930,8 +1017,8 @@ pub const qspaceritem = struct {
     ///
     /// ` self: QtC.QSpacerItem `
     ///
-    pub fn QBaseIsEmpty(self: ?*anyopaque) bool {
-        return qtc.QSpacerItem_QBaseIsEmpty(@ptrCast(self));
+    pub fn SuperIsEmpty(self: ?*anyopaque) bool {
+        return qtc.QSpacerItem_SuperIsEmpty(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#setGeometry)
@@ -960,6 +1047,10 @@ pub const qspaceritem = struct {
         qtc.QSpacerItem_OnSetGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetGeometry` instead
+    ///
+    pub const QBaseSetGeometry = SuperSetGeometry;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#setGeometry)
     ///
     /// Base class method implementation
@@ -970,8 +1061,8 @@ pub const qspaceritem = struct {
     ///
     /// ` geometry: QtC.QRect `
     ///
-    pub fn QBaseSetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QSpacerItem_QBaseSetGeometry(@ptrCast(self), @ptrCast(geometry));
+    pub fn SuperSetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
+        qtc.QSpacerItem_SuperSetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#geometry)
@@ -998,6 +1089,10 @@ pub const qspaceritem = struct {
         qtc.QSpacerItem_OnGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGeometry` instead
+    ///
+    pub const QBaseGeometry = SuperGeometry;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#geometry)
     ///
     /// Base class method implementation
@@ -1006,8 +1101,8 @@ pub const qspaceritem = struct {
     ///
     /// ` self: QtC.QSpacerItem `
     ///
-    pub fn QBaseGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QSpacerItem_QBaseGeometry(@ptrCast(self));
+    pub fn SuperGeometry(self: ?*anyopaque) QtC.QRect {
+        return qtc.QSpacerItem_SuperGeometry(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#spacerItem)
@@ -1034,6 +1129,10 @@ pub const qspaceritem = struct {
         qtc.QSpacerItem_OnSpacerItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSpacerItem` instead
+    ///
+    pub const QBaseSpacerItem = SuperSpacerItem;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#spacerItem)
     ///
     /// Base class method implementation
@@ -1042,8 +1141,8 @@ pub const qspaceritem = struct {
     ///
     /// ` self: QtC.QSpacerItem `
     ///
-    pub fn QBaseSpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
-        return qtc.QSpacerItem_QBaseSpacerItem(@ptrCast(self));
+    pub fn SuperSpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
+        return qtc.QSpacerItem_SuperSpacerItem(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#sizePolicy)
@@ -1134,6 +1233,10 @@ pub const qspaceritem = struct {
         return qtc.QSpacerItem_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
@@ -1144,8 +1247,8 @@ pub const qspaceritem = struct {
     ///
     /// ` self: QtC.QSpacerItem `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QSpacerItem_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.QSpacerItem_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
@@ -1180,6 +1283,10 @@ pub const qspaceritem = struct {
         return qtc.QSpacerItem_HeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
@@ -1192,8 +1299,8 @@ pub const qspaceritem = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QSpacerItem_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QSpacerItem_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QLayoutItem
@@ -1228,6 +1335,10 @@ pub const qspaceritem = struct {
         return qtc.QSpacerItem_MinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumHeightForWidth` instead
+    ///
+    pub const QBaseMinimumHeightForWidth = SuperMinimumHeightForWidth;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
@@ -1240,8 +1351,8 @@ pub const qspaceritem = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseMinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QSpacerItem_QBaseMinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QSpacerItem_SuperMinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QLayoutItem
@@ -1274,6 +1385,10 @@ pub const qspaceritem = struct {
         qtc.QSpacerItem_Invalidate(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperInvalidate` instead
+    ///
+    pub const QBaseInvalidate = SuperInvalidate;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
@@ -1284,8 +1399,8 @@ pub const qspaceritem = struct {
     ///
     /// ` self: QtC.QSpacerItem `
     ///
-    pub fn QBaseInvalidate(self: ?*anyopaque) void {
-        qtc.QSpacerItem_QBaseInvalidate(@ptrCast(self));
+    pub fn SuperInvalidate(self: ?*anyopaque) void {
+        qtc.QSpacerItem_SuperInvalidate(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
@@ -1318,6 +1433,10 @@ pub const qspaceritem = struct {
         return qtc.QSpacerItem_Widget(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperWidget` instead
+    ///
+    pub const QBaseWidget = SuperWidget;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
@@ -1328,8 +1447,8 @@ pub const qspaceritem = struct {
     ///
     /// ` self: QtC.QSpacerItem `
     ///
-    pub fn QBaseWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QSpacerItem_QBaseWidget(@ptrCast(self));
+    pub fn SuperWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QSpacerItem_SuperWidget(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
@@ -1362,6 +1481,10 @@ pub const qspaceritem = struct {
         return qtc.QSpacerItem_Layout(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperLayout` instead
+    ///
+    pub const QBaseLayout = SuperLayout;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
@@ -1372,8 +1495,8 @@ pub const qspaceritem = struct {
     ///
     /// ` self: QtC.QSpacerItem `
     ///
-    pub fn QBaseLayout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QSpacerItem_QBaseLayout(@ptrCast(self));
+    pub fn SuperLayout(self: ?*anyopaque) QtC.QLayout {
+        return qtc.QSpacerItem_SuperLayout(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
@@ -1410,6 +1533,10 @@ pub const qspaceritem = struct {
         return qtc.QSpacerItem_ControlTypes(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperControlTypes` instead
+    ///
+    pub const QBaseControlTypes = SuperControlTypes;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
@@ -1424,8 +1551,8 @@ pub const qspaceritem = struct {
     ///
     /// ` flag of qsizepolicy_enums.ControlType `
     ///
-    pub fn QBaseControlTypes(self: ?*anyopaque) i32 {
-        return qtc.QSpacerItem_QBaseControlTypes(@ptrCast(self));
+    pub fn SuperControlTypes(self: ?*anyopaque) i32 {
+        return qtc.QSpacerItem_SuperControlTypes(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
@@ -1443,6 +1570,9 @@ pub const qspaceritem = struct {
     pub fn OnControlTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
         qtc.QSpacerItem_OnControlTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#dtor.QSpacerItem)
     ///
@@ -1452,7 +1582,7 @@ pub const qspaceritem = struct {
     ///
     /// ` self: QtC.QSpacerItem `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QSpacerItem_Delete(@ptrCast(self));
     }
 };
@@ -1493,6 +1623,10 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#sizeHint)
     ///
     /// Base class method implementation
@@ -1501,8 +1635,8 @@ pub const qwidgetitem = struct {
     ///
     /// ` self: QtC.QWidgetItem `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidgetItem_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidgetItem_SuperSizeHint(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumSize)
@@ -1529,6 +1663,10 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnMinimumSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSize` instead
+    ///
+    pub const QBaseMinimumSize = SuperMinimumSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumSize)
     ///
     /// Base class method implementation
@@ -1537,8 +1675,8 @@ pub const qwidgetitem = struct {
     ///
     /// ` self: QtC.QWidgetItem `
     ///
-    pub fn QBaseMinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidgetItem_QBaseMinimumSize(@ptrCast(self));
+    pub fn SuperMinimumSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidgetItem_SuperMinimumSize(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#maximumSize)
@@ -1565,6 +1703,10 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnMaximumSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMaximumSize` instead
+    ///
+    pub const QBaseMaximumSize = SuperMaximumSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#maximumSize)
     ///
     /// Base class method implementation
@@ -1573,8 +1715,8 @@ pub const qwidgetitem = struct {
     ///
     /// ` self: QtC.QWidgetItem `
     ///
-    pub fn QBaseMaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidgetItem_QBaseMaximumSize(@ptrCast(self));
+    pub fn SuperMaximumSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidgetItem_SuperMaximumSize(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
@@ -1605,6 +1747,10 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnExpandingDirections(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperExpandingDirections` instead
+    ///
+    pub const QBaseExpandingDirections = SuperExpandingDirections;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
     ///
     /// Base class method implementation
@@ -1617,8 +1763,8 @@ pub const qwidgetitem = struct {
     ///
     /// ` flag of qnamespace_enums.Orientation `
     ///
-    pub fn QBaseExpandingDirections(self: ?*anyopaque) i32 {
-        return qtc.QWidgetItem_QBaseExpandingDirections(@ptrCast(self));
+    pub fn SuperExpandingDirections(self: ?*anyopaque) i32 {
+        return qtc.QWidgetItem_SuperExpandingDirections(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
@@ -1645,6 +1791,10 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnIsEmpty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsEmpty` instead
+    ///
+    pub const QBaseIsEmpty = SuperIsEmpty;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
     ///
     /// Base class method implementation
@@ -1653,8 +1803,8 @@ pub const qwidgetitem = struct {
     ///
     /// ` self: QtC.QWidgetItem `
     ///
-    pub fn QBaseIsEmpty(self: ?*anyopaque) bool {
-        return qtc.QWidgetItem_QBaseIsEmpty(@ptrCast(self));
+    pub fn SuperIsEmpty(self: ?*anyopaque) bool {
+        return qtc.QWidgetItem_SuperIsEmpty(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
@@ -1683,6 +1833,10 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnSetGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSetGeometry` instead
+    ///
+    pub const QBaseSetGeometry = SuperSetGeometry;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
     ///
     /// Base class method implementation
@@ -1693,8 +1847,8 @@ pub const qwidgetitem = struct {
     ///
     /// ` geometry: QtC.QRect `
     ///
-    pub fn QBaseSetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidgetItem_QBaseSetGeometry(@ptrCast(self), @ptrCast(geometry));
+    pub fn SuperSetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
+        qtc.QWidgetItem_SuperSetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
@@ -1721,6 +1875,10 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGeometry` instead
+    ///
+    pub const QBaseGeometry = SuperGeometry;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
     ///
     /// Base class method implementation
@@ -1729,8 +1887,8 @@ pub const qwidgetitem = struct {
     ///
     /// ` self: QtC.QWidgetItem `
     ///
-    pub fn QBaseGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidgetItem_QBaseGeometry(@ptrCast(self));
+    pub fn SuperGeometry(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidgetItem_SuperGeometry(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
@@ -1757,6 +1915,10 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperWidget` instead
+    ///
+    pub const QBaseWidget = SuperWidget;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
     ///
     /// Base class method implementation
@@ -1765,8 +1927,8 @@ pub const qwidgetitem = struct {
     ///
     /// ` self: QtC.QWidgetItem `
     ///
-    pub fn QBaseWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidgetItem_QBaseWidget(@ptrCast(self));
+    pub fn SuperWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidgetItem_SuperWidget(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
@@ -1793,6 +1955,10 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
     ///
     /// Base class method implementation
@@ -1801,8 +1967,8 @@ pub const qwidgetitem = struct {
     ///
     /// ` self: QtC.QWidgetItem `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QWidgetItem_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.QWidgetItem_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#heightForWidth)
@@ -1831,6 +1997,10 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#heightForWidth)
     ///
     /// Base class method implementation
@@ -1841,8 +2011,8 @@ pub const qwidgetitem = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QWidgetItem_QBaseHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QWidgetItem_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
@@ -1871,6 +2041,10 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnMinimumHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumHeightForWidth` instead
+    ///
+    pub const QBaseMinimumHeightForWidth = SuperMinimumHeightForWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
     ///
     /// Base class method implementation
@@ -1881,8 +2055,8 @@ pub const qwidgetitem = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseMinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QWidgetItem_QBaseMinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QWidgetItem_SuperMinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
@@ -1913,6 +2087,10 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_OnControlTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperControlTypes` instead
+    ///
+    pub const QBaseControlTypes = SuperControlTypes;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
     ///
     /// Base class method implementation
@@ -1925,8 +2103,8 @@ pub const qwidgetitem = struct {
     ///
     /// ` flag of qsizepolicy_enums.ControlType `
     ///
-    pub fn QBaseControlTypes(self: ?*anyopaque) i32 {
-        return qtc.QWidgetItem_QBaseControlTypes(@ptrCast(self));
+    pub fn SuperControlTypes(self: ?*anyopaque) i32 {
+        return qtc.QWidgetItem_SuperControlTypes(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
@@ -1973,6 +2151,10 @@ pub const qwidgetitem = struct {
         qtc.QWidgetItem_Invalidate(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperInvalidate` instead
+    ///
+    pub const QBaseInvalidate = SuperInvalidate;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
@@ -1983,8 +2165,8 @@ pub const qwidgetitem = struct {
     ///
     /// ` self: QtC.QWidgetItem `
     ///
-    pub fn QBaseInvalidate(self: ?*anyopaque) void {
-        qtc.QWidgetItem_QBaseInvalidate(@ptrCast(self));
+    pub fn SuperInvalidate(self: ?*anyopaque) void {
+        qtc.QWidgetItem_SuperInvalidate(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
@@ -2017,6 +2199,10 @@ pub const qwidgetitem = struct {
         return qtc.QWidgetItem_Layout(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperLayout` instead
+    ///
+    pub const QBaseLayout = SuperLayout;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
@@ -2027,8 +2213,8 @@ pub const qwidgetitem = struct {
     ///
     /// ` self: QtC.QWidgetItem `
     ///
-    pub fn QBaseLayout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidgetItem_QBaseLayout(@ptrCast(self));
+    pub fn SuperLayout(self: ?*anyopaque) QtC.QLayout {
+        return qtc.QWidgetItem_SuperLayout(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
@@ -2061,6 +2247,10 @@ pub const qwidgetitem = struct {
         return qtc.QWidgetItem_SpacerItem(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSpacerItem` instead
+    ///
+    pub const QBaseSpacerItem = SuperSpacerItem;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
@@ -2071,8 +2261,8 @@ pub const qwidgetitem = struct {
     ///
     /// ` self: QtC.QWidgetItem `
     ///
-    pub fn QBaseSpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
-        return qtc.QWidgetItem_QBaseSpacerItem(@ptrCast(self));
+    pub fn SuperSpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
+        return qtc.QWidgetItem_SuperSpacerItem(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
@@ -2090,6 +2280,9 @@ pub const qwidgetitem = struct {
     pub fn OnSpacerItem(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSpacerItem) void {
         qtc.QWidgetItem_OnSpacerItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#dtor.QWidgetItem)
     ///
@@ -2099,7 +2292,7 @@ pub const qwidgetitem = struct {
     ///
     /// ` self: QtC.QWidgetItem `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWidgetItem_Delete(@ptrCast(self));
     }
 };
@@ -2140,6 +2333,10 @@ pub const qwidgetitemv2 = struct {
         qtc.QWidgetItemV2_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    ///
+    pub const QBaseSizeHint = SuperSizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#sizeHint)
     ///
     /// Base class method implementation
@@ -2148,8 +2345,8 @@ pub const qwidgetitemv2 = struct {
     ///
     /// ` self: QtC.QWidgetItemV2 `
     ///
-    pub fn QBaseSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidgetItemV2_QBaseSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidgetItemV2_SuperSizeHint(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#minimumSize)
@@ -2176,6 +2373,10 @@ pub const qwidgetitemv2 = struct {
         qtc.QWidgetItemV2_OnMinimumSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumSize` instead
+    ///
+    pub const QBaseMinimumSize = SuperMinimumSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#minimumSize)
     ///
     /// Base class method implementation
@@ -2184,8 +2385,8 @@ pub const qwidgetitemv2 = struct {
     ///
     /// ` self: QtC.QWidgetItemV2 `
     ///
-    pub fn QBaseMinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidgetItemV2_QBaseMinimumSize(@ptrCast(self));
+    pub fn SuperMinimumSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidgetItemV2_SuperMinimumSize(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#maximumSize)
@@ -2212,6 +2413,10 @@ pub const qwidgetitemv2 = struct {
         qtc.QWidgetItemV2_OnMaximumSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMaximumSize` instead
+    ///
+    pub const QBaseMaximumSize = SuperMaximumSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#maximumSize)
     ///
     /// Base class method implementation
@@ -2220,8 +2425,8 @@ pub const qwidgetitemv2 = struct {
     ///
     /// ` self: QtC.QWidgetItemV2 `
     ///
-    pub fn QBaseMaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidgetItemV2_QBaseMaximumSize(@ptrCast(self));
+    pub fn SuperMaximumSize(self: ?*anyopaque) QtC.QSize {
+        return qtc.QWidgetItemV2_SuperMaximumSize(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#heightForWidth)
@@ -2250,6 +2455,10 @@ pub const qwidgetitemv2 = struct {
         qtc.QWidgetItemV2_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    ///
+    pub const QBaseHeightForWidth = SuperHeightForWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#heightForWidth)
     ///
     /// Base class method implementation
@@ -2260,8 +2469,8 @@ pub const qwidgetitemv2 = struct {
     ///
     /// ` width: i32 `
     ///
-    pub fn QBaseHeightForWidth(self: ?*anyopaque, width: i32) i32 {
-        return qtc.QWidgetItemV2_QBaseHeightForWidth(@ptrCast(self), @bitCast(width));
+    pub fn SuperHeightForWidth(self: ?*anyopaque, width: i32) i32 {
+        return qtc.QWidgetItemV2_SuperHeightForWidth(@ptrCast(self), @bitCast(width));
     }
 
     /// Inherited from QLayoutItem
@@ -2312,6 +2521,10 @@ pub const qwidgetitemv2 = struct {
         return qtc.QWidgetItemV2_ExpandingDirections(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperExpandingDirections` instead
+    ///
+    pub const QBaseExpandingDirections = SuperExpandingDirections;
+
     /// Inherited from QWidgetItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
@@ -2326,8 +2539,8 @@ pub const qwidgetitemv2 = struct {
     ///
     /// ` flag of qnamespace_enums.Orientation `
     ///
-    pub fn QBaseExpandingDirections(self: ?*anyopaque) i32 {
-        return qtc.QWidgetItemV2_QBaseExpandingDirections(@ptrCast(self));
+    pub fn SuperExpandingDirections(self: ?*anyopaque) i32 {
+        return qtc.QWidgetItemV2_SuperExpandingDirections(@ptrCast(self));
     }
 
     /// Inherited from QWidgetItem
@@ -2360,6 +2573,10 @@ pub const qwidgetitemv2 = struct {
         return qtc.QWidgetItemV2_IsEmpty(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsEmpty` instead
+    ///
+    pub const QBaseIsEmpty = SuperIsEmpty;
+
     /// Inherited from QWidgetItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
@@ -2370,8 +2587,8 @@ pub const qwidgetitemv2 = struct {
     ///
     /// ` self: QtC.QWidgetItemV2 `
     ///
-    pub fn QBaseIsEmpty(self: ?*anyopaque) bool {
-        return qtc.QWidgetItemV2_QBaseIsEmpty(@ptrCast(self));
+    pub fn SuperIsEmpty(self: ?*anyopaque) bool {
+        return qtc.QWidgetItemV2_SuperIsEmpty(@ptrCast(self));
     }
 
     /// Inherited from QWidgetItem
@@ -2406,6 +2623,10 @@ pub const qwidgetitemv2 = struct {
         qtc.QWidgetItemV2_SetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
+    /// ### DEPRECATED: Use `SuperSetGeometry` instead
+    ///
+    pub const QBaseSetGeometry = SuperSetGeometry;
+
     /// Inherited from QWidgetItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
@@ -2418,8 +2639,8 @@ pub const qwidgetitemv2 = struct {
     ///
     /// ` geometry: QtC.QRect `
     ///
-    pub fn QBaseSetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidgetItemV2_QBaseSetGeometry(@ptrCast(self), @ptrCast(geometry));
+    pub fn SuperSetGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
+        qtc.QWidgetItemV2_SuperSetGeometry(@ptrCast(self), @ptrCast(geometry));
     }
 
     /// Inherited from QWidgetItem
@@ -2452,6 +2673,10 @@ pub const qwidgetitemv2 = struct {
         return qtc.QWidgetItemV2_Geometry(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperGeometry` instead
+    ///
+    pub const QBaseGeometry = SuperGeometry;
+
     /// Inherited from QWidgetItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
@@ -2462,8 +2687,8 @@ pub const qwidgetitemv2 = struct {
     ///
     /// ` self: QtC.QWidgetItemV2 `
     ///
-    pub fn QBaseGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidgetItemV2_QBaseGeometry(@ptrCast(self));
+    pub fn SuperGeometry(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidgetItemV2_SuperGeometry(@ptrCast(self));
     }
 
     /// Inherited from QWidgetItem
@@ -2496,6 +2721,10 @@ pub const qwidgetitemv2 = struct {
         return qtc.QWidgetItemV2_Widget(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperWidget` instead
+    ///
+    pub const QBaseWidget = SuperWidget;
+
     /// Inherited from QWidgetItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
@@ -2506,8 +2735,8 @@ pub const qwidgetitemv2 = struct {
     ///
     /// ` self: QtC.QWidgetItemV2 `
     ///
-    pub fn QBaseWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidgetItemV2_QBaseWidget(@ptrCast(self));
+    pub fn SuperWidget(self: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidgetItemV2_SuperWidget(@ptrCast(self));
     }
 
     /// Inherited from QWidgetItem
@@ -2540,6 +2769,10 @@ pub const qwidgetitemv2 = struct {
         return qtc.QWidgetItemV2_HasHeightForWidth(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    ///
+    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+
     /// Inherited from QWidgetItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
@@ -2550,8 +2783,8 @@ pub const qwidgetitemv2 = struct {
     ///
     /// ` self: QtC.QWidgetItemV2 `
     ///
-    pub fn QBaseHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QWidgetItemV2_QBaseHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
+        return qtc.QWidgetItemV2_SuperHasHeightForWidth(@ptrCast(self));
     }
 
     /// Inherited from QWidgetItem
@@ -2586,6 +2819,10 @@ pub const qwidgetitemv2 = struct {
         return qtc.QWidgetItemV2_MinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
+    /// ### DEPRECATED: Use `SuperMinimumHeightForWidth` instead
+    ///
+    pub const QBaseMinimumHeightForWidth = SuperMinimumHeightForWidth;
+
     /// Inherited from QWidgetItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
@@ -2598,8 +2835,8 @@ pub const qwidgetitemv2 = struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn QBaseMinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QWidgetItemV2_QBaseMinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMinimumHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
+        return qtc.QWidgetItemV2_SuperMinimumHeightForWidth(@ptrCast(self), @bitCast(param1));
     }
 
     /// Inherited from QWidgetItem
@@ -2636,6 +2873,10 @@ pub const qwidgetitemv2 = struct {
         return qtc.QWidgetItemV2_ControlTypes(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperControlTypes` instead
+    ///
+    pub const QBaseControlTypes = SuperControlTypes;
+
     /// Inherited from QWidgetItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
@@ -2650,8 +2891,8 @@ pub const qwidgetitemv2 = struct {
     ///
     /// ` flag of qsizepolicy_enums.ControlType `
     ///
-    pub fn QBaseControlTypes(self: ?*anyopaque) i32 {
-        return qtc.QWidgetItemV2_QBaseControlTypes(@ptrCast(self));
+    pub fn SuperControlTypes(self: ?*anyopaque) i32 {
+        return qtc.QWidgetItemV2_SuperControlTypes(@ptrCast(self));
     }
 
     /// Inherited from QWidgetItem
@@ -2684,6 +2925,10 @@ pub const qwidgetitemv2 = struct {
         qtc.QWidgetItemV2_Invalidate(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperInvalidate` instead
+    ///
+    pub const QBaseInvalidate = SuperInvalidate;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
@@ -2694,8 +2939,8 @@ pub const qwidgetitemv2 = struct {
     ///
     /// ` self: QtC.QWidgetItemV2 `
     ///
-    pub fn QBaseInvalidate(self: ?*anyopaque) void {
-        qtc.QWidgetItemV2_QBaseInvalidate(@ptrCast(self));
+    pub fn SuperInvalidate(self: ?*anyopaque) void {
+        qtc.QWidgetItemV2_SuperInvalidate(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
@@ -2728,6 +2973,10 @@ pub const qwidgetitemv2 = struct {
         return qtc.QWidgetItemV2_Layout(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperLayout` instead
+    ///
+    pub const QBaseLayout = SuperLayout;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
@@ -2738,8 +2987,8 @@ pub const qwidgetitemv2 = struct {
     ///
     /// ` self: QtC.QWidgetItemV2 `
     ///
-    pub fn QBaseLayout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidgetItemV2_QBaseLayout(@ptrCast(self));
+    pub fn SuperLayout(self: ?*anyopaque) QtC.QLayout {
+        return qtc.QWidgetItemV2_SuperLayout(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
@@ -2772,6 +3021,10 @@ pub const qwidgetitemv2 = struct {
         return qtc.QWidgetItemV2_SpacerItem(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSpacerItem` instead
+    ///
+    pub const QBaseSpacerItem = SuperSpacerItem;
+
     /// Inherited from QLayoutItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
@@ -2782,8 +3035,8 @@ pub const qwidgetitemv2 = struct {
     ///
     /// ` self: QtC.QWidgetItemV2 `
     ///
-    pub fn QBaseSpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
-        return qtc.QWidgetItemV2_QBaseSpacerItem(@ptrCast(self));
+    pub fn SuperSpacerItem(self: ?*anyopaque) QtC.QSpacerItem {
+        return qtc.QWidgetItemV2_SuperSpacerItem(@ptrCast(self));
     }
 
     /// Inherited from QLayoutItem
@@ -2801,6 +3054,9 @@ pub const qwidgetitemv2 = struct {
     pub fn OnSpacerItem(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSpacerItem) void {
         qtc.QWidgetItemV2_OnSpacerItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetitemv2.html#dtor.QWidgetItemV2)
     ///
@@ -2810,7 +3066,7 @@ pub const qwidgetitemv2 = struct {
     ///
     /// ` self: QtC.QWidgetItemV2 `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWidgetItemV2_Delete(@ptrCast(self));
     }
 };

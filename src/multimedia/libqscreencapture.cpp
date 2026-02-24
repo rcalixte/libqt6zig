@@ -151,7 +151,7 @@ void QScreenCapture_Connect_ErrorOccurred(QScreenCapture* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QScreenCapture_QBaseMetaObject(const QScreenCapture* self) {
+QMetaObject* QScreenCapture_SuperMetaObject(const QScreenCapture* self) {
     auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
     if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
         vqscreencapture->setQScreenCapture_MetaObject_IsBase(true);
@@ -170,7 +170,7 @@ void QScreenCapture_OnMetaObject(const QScreenCapture* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QScreenCapture_QBaseMetacast(QScreenCapture* self, const char* param1) {
+void* QScreenCapture_SuperMetacast(QScreenCapture* self, const char* param1) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
     if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
         vqscreencapture->setQScreenCapture_Metacast_IsBase(true);
@@ -189,7 +189,7 @@ void QScreenCapture_OnMetacast(QScreenCapture* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QScreenCapture_QBaseMetacall(QScreenCapture* self, int param1, int param2, void** param3) {
+int QScreenCapture_SuperMetacall(QScreenCapture* self, int param1, int param2, void** param3) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
     if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
         vqscreencapture->setQScreenCapture_Metacall_IsBase(true);
@@ -218,7 +218,7 @@ bool QScreenCapture_Event(QScreenCapture* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QScreenCapture_QBaseEvent(QScreenCapture* self, QEvent* event) {
+bool QScreenCapture_SuperEvent(QScreenCapture* self, QEvent* event) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
     if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
         vqscreencapture->setQScreenCapture_Event_IsBase(true);
@@ -247,7 +247,7 @@ bool QScreenCapture_EventFilter(QScreenCapture* self, QObject* watched, QEvent* 
 }
 
 // Base class handler implementation
-bool QScreenCapture_QBaseEventFilter(QScreenCapture* self, QObject* watched, QEvent* event) {
+bool QScreenCapture_SuperEventFilter(QScreenCapture* self, QObject* watched, QEvent* event) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
     if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
         vqscreencapture->setQScreenCapture_EventFilter_IsBase(true);
@@ -276,7 +276,7 @@ void QScreenCapture_TimerEvent(QScreenCapture* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QScreenCapture_QBaseTimerEvent(QScreenCapture* self, QTimerEvent* event) {
+void QScreenCapture_SuperTimerEvent(QScreenCapture* self, QTimerEvent* event) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
     if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
         vqscreencapture->setQScreenCapture_TimerEvent_IsBase(true);
@@ -305,7 +305,7 @@ void QScreenCapture_ChildEvent(QScreenCapture* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QScreenCapture_QBaseChildEvent(QScreenCapture* self, QChildEvent* event) {
+void QScreenCapture_SuperChildEvent(QScreenCapture* self, QChildEvent* event) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
     if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
         vqscreencapture->setQScreenCapture_ChildEvent_IsBase(true);
@@ -334,7 +334,7 @@ void QScreenCapture_CustomEvent(QScreenCapture* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QScreenCapture_QBaseCustomEvent(QScreenCapture* self, QEvent* event) {
+void QScreenCapture_SuperCustomEvent(QScreenCapture* self, QEvent* event) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
     if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
         vqscreencapture->setQScreenCapture_CustomEvent_IsBase(true);
@@ -363,7 +363,7 @@ void QScreenCapture_ConnectNotify(QScreenCapture* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void QScreenCapture_QBaseConnectNotify(QScreenCapture* self, const QMetaMethod* signal) {
+void QScreenCapture_SuperConnectNotify(QScreenCapture* self, const QMetaMethod* signal) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
     if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
         vqscreencapture->setQScreenCapture_ConnectNotify_IsBase(true);
@@ -392,7 +392,7 @@ void QScreenCapture_DisconnectNotify(QScreenCapture* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void QScreenCapture_QBaseDisconnectNotify(QScreenCapture* self, const QMetaMethod* signal) {
+void QScreenCapture_SuperDisconnectNotify(QScreenCapture* self, const QMetaMethod* signal) {
     auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
     if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
         vqscreencapture->setQScreenCapture_DisconnectNotify_IsBase(true);
@@ -421,7 +421,7 @@ QObject* QScreenCapture_Sender(const QScreenCapture* self) {
 }
 
 // Base class handler implementation
-QObject* QScreenCapture_QBaseSender(const QScreenCapture* self) {
+QObject* QScreenCapture_SuperSender(const QScreenCapture* self) {
     auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
     if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
         vqscreencapture->setQScreenCapture_Sender_IsBase(true);
@@ -450,7 +450,7 @@ int QScreenCapture_SenderSignalIndex(const QScreenCapture* self) {
 }
 
 // Base class handler implementation
-int QScreenCapture_QBaseSenderSignalIndex(const QScreenCapture* self) {
+int QScreenCapture_SuperSenderSignalIndex(const QScreenCapture* self) {
     auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
     if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
         vqscreencapture->setQScreenCapture_SenderSignalIndex_IsBase(true);
@@ -479,7 +479,7 @@ int QScreenCapture_Receivers(const QScreenCapture* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QScreenCapture_QBaseReceivers(const QScreenCapture* self, const char* signal) {
+int QScreenCapture_SuperReceivers(const QScreenCapture* self, const char* signal) {
     auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
     if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
         vqscreencapture->setQScreenCapture_Receivers_IsBase(true);
@@ -508,7 +508,7 @@ bool QScreenCapture_IsSignalConnected(const QScreenCapture* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool QScreenCapture_QBaseIsSignalConnected(const QScreenCapture* self, const QMetaMethod* signal) {
+bool QScreenCapture_SuperIsSignalConnected(const QScreenCapture* self, const QMetaMethod* signal) {
     auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
     if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
         vqscreencapture->setQScreenCapture_IsSignalConnected_IsBase(true);

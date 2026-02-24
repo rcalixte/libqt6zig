@@ -394,33 +394,33 @@ class VirtualQWidgetAction final : public QWidgetAction {
 
     // Friend functions
     friend bool QWidgetAction_Event(QWidgetAction* self, QEvent* param1);
-    friend bool QWidgetAction_QBaseEvent(QWidgetAction* self, QEvent* param1);
+    friend bool QWidgetAction_SuperEvent(QWidgetAction* self, QEvent* param1);
     friend bool QWidgetAction_EventFilter(QWidgetAction* self, QObject* param1, QEvent* param2);
-    friend bool QWidgetAction_QBaseEventFilter(QWidgetAction* self, QObject* param1, QEvent* param2);
+    friend bool QWidgetAction_SuperEventFilter(QWidgetAction* self, QObject* param1, QEvent* param2);
     friend QWidget* QWidgetAction_CreateWidget(QWidgetAction* self, QWidget* parent);
-    friend QWidget* QWidgetAction_QBaseCreateWidget(QWidgetAction* self, QWidget* parent);
+    friend QWidget* QWidgetAction_SuperCreateWidget(QWidgetAction* self, QWidget* parent);
     friend void QWidgetAction_DeleteWidget(QWidgetAction* self, QWidget* widget);
-    friend void QWidgetAction_QBaseDeleteWidget(QWidgetAction* self, QWidget* widget);
+    friend void QWidgetAction_SuperDeleteWidget(QWidgetAction* self, QWidget* widget);
     friend void QWidgetAction_TimerEvent(QWidgetAction* self, QTimerEvent* event);
-    friend void QWidgetAction_QBaseTimerEvent(QWidgetAction* self, QTimerEvent* event);
+    friend void QWidgetAction_SuperTimerEvent(QWidgetAction* self, QTimerEvent* event);
     friend void QWidgetAction_ChildEvent(QWidgetAction* self, QChildEvent* event);
-    friend void QWidgetAction_QBaseChildEvent(QWidgetAction* self, QChildEvent* event);
+    friend void QWidgetAction_SuperChildEvent(QWidgetAction* self, QChildEvent* event);
     friend void QWidgetAction_CustomEvent(QWidgetAction* self, QEvent* event);
-    friend void QWidgetAction_QBaseCustomEvent(QWidgetAction* self, QEvent* event);
+    friend void QWidgetAction_SuperCustomEvent(QWidgetAction* self, QEvent* event);
     friend void QWidgetAction_ConnectNotify(QWidgetAction* self, const QMetaMethod* signal);
-    friend void QWidgetAction_QBaseConnectNotify(QWidgetAction* self, const QMetaMethod* signal);
+    friend void QWidgetAction_SuperConnectNotify(QWidgetAction* self, const QMetaMethod* signal);
     friend void QWidgetAction_DisconnectNotify(QWidgetAction* self, const QMetaMethod* signal);
-    friend void QWidgetAction_QBaseDisconnectNotify(QWidgetAction* self, const QMetaMethod* signal);
+    friend void QWidgetAction_SuperDisconnectNotify(QWidgetAction* self, const QMetaMethod* signal);
     friend libqt_list /* of QWidget* */ QWidgetAction_CreatedWidgets(const QWidgetAction* self);
-    friend libqt_list /* of QWidget* */ QWidgetAction_QBaseCreatedWidgets(const QWidgetAction* self);
+    friend libqt_list /* of QWidget* */ QWidgetAction_SuperCreatedWidgets(const QWidgetAction* self);
     friend QObject* QWidgetAction_Sender(const QWidgetAction* self);
-    friend QObject* QWidgetAction_QBaseSender(const QWidgetAction* self);
+    friend QObject* QWidgetAction_SuperSender(const QWidgetAction* self);
     friend int QWidgetAction_SenderSignalIndex(const QWidgetAction* self);
-    friend int QWidgetAction_QBaseSenderSignalIndex(const QWidgetAction* self);
+    friend int QWidgetAction_SuperSenderSignalIndex(const QWidgetAction* self);
     friend int QWidgetAction_Receivers(const QWidgetAction* self, const char* signal);
-    friend int QWidgetAction_QBaseReceivers(const QWidgetAction* self, const char* signal);
+    friend int QWidgetAction_SuperReceivers(const QWidgetAction* self, const char* signal);
     friend bool QWidgetAction_IsSignalConnected(const QWidgetAction* self, const QMetaMethod* signal);
-    friend bool QWidgetAction_QBaseIsSignalConnected(const QWidgetAction* self, const QMetaMethod* signal);
+    friend bool QWidgetAction_SuperIsSignalConnected(const QWidgetAction* self, const QMetaMethod* signal);
 };
 
 #endif

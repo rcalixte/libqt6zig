@@ -167,6 +167,10 @@ pub const qbackingstore = struct {
         qtc.QBackingStore_Flush3(@ptrCast(self), @ptrCast(region), @ptrCast(window), @ptrCast(offset));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbackingstore.html#dtor.QBackingStore)
     ///
     /// Delete this object from C++ memory.
@@ -175,7 +179,7 @@ pub const qbackingstore = struct {
     ///
     /// ` self: QtC.QBackingStore `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QBackingStore_Delete(@ptrCast(self));
     }
 };

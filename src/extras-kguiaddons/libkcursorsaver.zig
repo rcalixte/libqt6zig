@@ -24,6 +24,10 @@ pub const kcursorsaver = struct {
         qtc.KCursorSaver_RestoreCursor(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kcursorsaver.html#dtor.KCursorSaver)
     ///
     /// Delete this object from C++ memory.
@@ -32,7 +36,7 @@ pub const kcursorsaver = struct {
     ///
     /// ` self: QtC.KCursorSaver `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KCursorSaver_Delete(@ptrCast(self));
     }
 };

@@ -107,7 +107,7 @@ QPrinter* QPageSetupDialog_Printer(QPageSetupDialog* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QPageSetupDialog_QBaseMetaObject(const QPageSetupDialog* self) {
+QMetaObject* QPageSetupDialog_SuperMetaObject(const QPageSetupDialog* self) {
     auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_MetaObject_IsBase(true);
@@ -126,7 +126,7 @@ void QPageSetupDialog_OnMetaObject(const QPageSetupDialog* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void* QPageSetupDialog_QBaseMetacast(QPageSetupDialog* self, const char* param1) {
+void* QPageSetupDialog_SuperMetacast(QPageSetupDialog* self, const char* param1) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_Metacast_IsBase(true);
@@ -145,7 +145,7 @@ void QPageSetupDialog_OnMetacast(QPageSetupDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPageSetupDialog_QBaseMetacall(QPageSetupDialog* self, int param1, int param2, void** param3) {
+int QPageSetupDialog_SuperMetacall(QPageSetupDialog* self, int param1, int param2, void** param3) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_Metacall_IsBase(true);
@@ -164,7 +164,7 @@ void QPageSetupDialog_OnMetacall(QPageSetupDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QPageSetupDialog_QBaseExec(QPageSetupDialog* self) {
+int QPageSetupDialog_SuperExec(QPageSetupDialog* self) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_Exec_IsBase(true);
@@ -183,7 +183,7 @@ void QPageSetupDialog_OnExec(QPageSetupDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseDone(QPageSetupDialog* self, int result) {
+void QPageSetupDialog_SuperDone(QPageSetupDialog* self, int result) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_Done_IsBase(true);
@@ -212,7 +212,7 @@ void QPageSetupDialog_SetVisible(QPageSetupDialog* self, bool visible) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseSetVisible(QPageSetupDialog* self, bool visible) {
+void QPageSetupDialog_SuperSetVisible(QPageSetupDialog* self, bool visible) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_SetVisible_IsBase(true);
@@ -241,7 +241,7 @@ QSize* QPageSetupDialog_SizeHint(const QPageSetupDialog* self) {
 }
 
 // Base class handler implementation
-QSize* QPageSetupDialog_QBaseSizeHint(const QPageSetupDialog* self) {
+QSize* QPageSetupDialog_SuperSizeHint(const QPageSetupDialog* self) {
     auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_SizeHint_IsBase(true);
@@ -270,7 +270,7 @@ QSize* QPageSetupDialog_MinimumSizeHint(const QPageSetupDialog* self) {
 }
 
 // Base class handler implementation
-QSize* QPageSetupDialog_QBaseMinimumSizeHint(const QPageSetupDialog* self) {
+QSize* QPageSetupDialog_SuperMinimumSizeHint(const QPageSetupDialog* self) {
     auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_MinimumSizeHint_IsBase(true);
@@ -299,7 +299,7 @@ void QPageSetupDialog_Open(QPageSetupDialog* self) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseOpen(QPageSetupDialog* self) {
+void QPageSetupDialog_SuperOpen(QPageSetupDialog* self) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_Open_IsBase(true);
@@ -328,7 +328,7 @@ void QPageSetupDialog_Accept(QPageSetupDialog* self) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseAccept(QPageSetupDialog* self) {
+void QPageSetupDialog_SuperAccept(QPageSetupDialog* self) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_Accept_IsBase(true);
@@ -357,7 +357,7 @@ void QPageSetupDialog_Reject(QPageSetupDialog* self) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseReject(QPageSetupDialog* self) {
+void QPageSetupDialog_SuperReject(QPageSetupDialog* self) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_Reject_IsBase(true);
@@ -386,7 +386,7 @@ void QPageSetupDialog_KeyPressEvent(QPageSetupDialog* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseKeyPressEvent(QPageSetupDialog* self, QKeyEvent* param1) {
+void QPageSetupDialog_SuperKeyPressEvent(QPageSetupDialog* self, QKeyEvent* param1) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_KeyPressEvent_IsBase(true);
@@ -415,7 +415,7 @@ void QPageSetupDialog_CloseEvent(QPageSetupDialog* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseCloseEvent(QPageSetupDialog* self, QCloseEvent* param1) {
+void QPageSetupDialog_SuperCloseEvent(QPageSetupDialog* self, QCloseEvent* param1) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_CloseEvent_IsBase(true);
@@ -444,7 +444,7 @@ void QPageSetupDialog_ShowEvent(QPageSetupDialog* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseShowEvent(QPageSetupDialog* self, QShowEvent* param1) {
+void QPageSetupDialog_SuperShowEvent(QPageSetupDialog* self, QShowEvent* param1) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_ShowEvent_IsBase(true);
@@ -473,7 +473,7 @@ void QPageSetupDialog_ResizeEvent(QPageSetupDialog* self, QResizeEvent* param1) 
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseResizeEvent(QPageSetupDialog* self, QResizeEvent* param1) {
+void QPageSetupDialog_SuperResizeEvent(QPageSetupDialog* self, QResizeEvent* param1) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_ResizeEvent_IsBase(true);
@@ -502,7 +502,7 @@ void QPageSetupDialog_ContextMenuEvent(QPageSetupDialog* self, QContextMenuEvent
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseContextMenuEvent(QPageSetupDialog* self, QContextMenuEvent* param1) {
+void QPageSetupDialog_SuperContextMenuEvent(QPageSetupDialog* self, QContextMenuEvent* param1) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_ContextMenuEvent_IsBase(true);
@@ -531,7 +531,7 @@ bool QPageSetupDialog_EventFilter(QPageSetupDialog* self, QObject* param1, QEven
 }
 
 // Base class handler implementation
-bool QPageSetupDialog_QBaseEventFilter(QPageSetupDialog* self, QObject* param1, QEvent* param2) {
+bool QPageSetupDialog_SuperEventFilter(QPageSetupDialog* self, QObject* param1, QEvent* param2) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_EventFilter_IsBase(true);
@@ -560,7 +560,7 @@ int QPageSetupDialog_DevType(const QPageSetupDialog* self) {
 }
 
 // Base class handler implementation
-int QPageSetupDialog_QBaseDevType(const QPageSetupDialog* self) {
+int QPageSetupDialog_SuperDevType(const QPageSetupDialog* self) {
     auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_DevType_IsBase(true);
@@ -589,7 +589,7 @@ int QPageSetupDialog_HeightForWidth(const QPageSetupDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int QPageSetupDialog_QBaseHeightForWidth(const QPageSetupDialog* self, int param1) {
+int QPageSetupDialog_SuperHeightForWidth(const QPageSetupDialog* self, int param1) {
     auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_HeightForWidth_IsBase(true);
@@ -618,7 +618,7 @@ bool QPageSetupDialog_HasHeightForWidth(const QPageSetupDialog* self) {
 }
 
 // Base class handler implementation
-bool QPageSetupDialog_QBaseHasHeightForWidth(const QPageSetupDialog* self) {
+bool QPageSetupDialog_SuperHasHeightForWidth(const QPageSetupDialog* self) {
     auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_HasHeightForWidth_IsBase(true);
@@ -647,7 +647,7 @@ QPaintEngine* QPageSetupDialog_PaintEngine(const QPageSetupDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QPageSetupDialog_QBasePaintEngine(const QPageSetupDialog* self) {
+QPaintEngine* QPageSetupDialog_SuperPaintEngine(const QPageSetupDialog* self) {
     auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_PaintEngine_IsBase(true);
@@ -676,7 +676,7 @@ bool QPageSetupDialog_Event(QPageSetupDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QPageSetupDialog_QBaseEvent(QPageSetupDialog* self, QEvent* event) {
+bool QPageSetupDialog_SuperEvent(QPageSetupDialog* self, QEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_Event_IsBase(true);
@@ -705,7 +705,7 @@ void QPageSetupDialog_MousePressEvent(QPageSetupDialog* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseMousePressEvent(QPageSetupDialog* self, QMouseEvent* event) {
+void QPageSetupDialog_SuperMousePressEvent(QPageSetupDialog* self, QMouseEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_MousePressEvent_IsBase(true);
@@ -734,7 +734,7 @@ void QPageSetupDialog_MouseReleaseEvent(QPageSetupDialog* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseMouseReleaseEvent(QPageSetupDialog* self, QMouseEvent* event) {
+void QPageSetupDialog_SuperMouseReleaseEvent(QPageSetupDialog* self, QMouseEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_MouseReleaseEvent_IsBase(true);
@@ -763,7 +763,7 @@ void QPageSetupDialog_MouseDoubleClickEvent(QPageSetupDialog* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseMouseDoubleClickEvent(QPageSetupDialog* self, QMouseEvent* event) {
+void QPageSetupDialog_SuperMouseDoubleClickEvent(QPageSetupDialog* self, QMouseEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_MouseDoubleClickEvent_IsBase(true);
@@ -792,7 +792,7 @@ void QPageSetupDialog_MouseMoveEvent(QPageSetupDialog* self, QMouseEvent* event)
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseMouseMoveEvent(QPageSetupDialog* self, QMouseEvent* event) {
+void QPageSetupDialog_SuperMouseMoveEvent(QPageSetupDialog* self, QMouseEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_MouseMoveEvent_IsBase(true);
@@ -821,7 +821,7 @@ void QPageSetupDialog_WheelEvent(QPageSetupDialog* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseWheelEvent(QPageSetupDialog* self, QWheelEvent* event) {
+void QPageSetupDialog_SuperWheelEvent(QPageSetupDialog* self, QWheelEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_WheelEvent_IsBase(true);
@@ -850,7 +850,7 @@ void QPageSetupDialog_KeyReleaseEvent(QPageSetupDialog* self, QKeyEvent* event) 
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseKeyReleaseEvent(QPageSetupDialog* self, QKeyEvent* event) {
+void QPageSetupDialog_SuperKeyReleaseEvent(QPageSetupDialog* self, QKeyEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_KeyReleaseEvent_IsBase(true);
@@ -879,7 +879,7 @@ void QPageSetupDialog_FocusInEvent(QPageSetupDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseFocusInEvent(QPageSetupDialog* self, QFocusEvent* event) {
+void QPageSetupDialog_SuperFocusInEvent(QPageSetupDialog* self, QFocusEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_FocusInEvent_IsBase(true);
@@ -908,7 +908,7 @@ void QPageSetupDialog_FocusOutEvent(QPageSetupDialog* self, QFocusEvent* event) 
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseFocusOutEvent(QPageSetupDialog* self, QFocusEvent* event) {
+void QPageSetupDialog_SuperFocusOutEvent(QPageSetupDialog* self, QFocusEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_FocusOutEvent_IsBase(true);
@@ -937,7 +937,7 @@ void QPageSetupDialog_EnterEvent(QPageSetupDialog* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseEnterEvent(QPageSetupDialog* self, QEnterEvent* event) {
+void QPageSetupDialog_SuperEnterEvent(QPageSetupDialog* self, QEnterEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_EnterEvent_IsBase(true);
@@ -966,7 +966,7 @@ void QPageSetupDialog_LeaveEvent(QPageSetupDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseLeaveEvent(QPageSetupDialog* self, QEvent* event) {
+void QPageSetupDialog_SuperLeaveEvent(QPageSetupDialog* self, QEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_LeaveEvent_IsBase(true);
@@ -995,7 +995,7 @@ void QPageSetupDialog_PaintEvent(QPageSetupDialog* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBasePaintEvent(QPageSetupDialog* self, QPaintEvent* event) {
+void QPageSetupDialog_SuperPaintEvent(QPageSetupDialog* self, QPaintEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_PaintEvent_IsBase(true);
@@ -1024,7 +1024,7 @@ void QPageSetupDialog_MoveEvent(QPageSetupDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseMoveEvent(QPageSetupDialog* self, QMoveEvent* event) {
+void QPageSetupDialog_SuperMoveEvent(QPageSetupDialog* self, QMoveEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_MoveEvent_IsBase(true);
@@ -1053,7 +1053,7 @@ void QPageSetupDialog_TabletEvent(QPageSetupDialog* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseTabletEvent(QPageSetupDialog* self, QTabletEvent* event) {
+void QPageSetupDialog_SuperTabletEvent(QPageSetupDialog* self, QTabletEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_TabletEvent_IsBase(true);
@@ -1082,7 +1082,7 @@ void QPageSetupDialog_ActionEvent(QPageSetupDialog* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseActionEvent(QPageSetupDialog* self, QActionEvent* event) {
+void QPageSetupDialog_SuperActionEvent(QPageSetupDialog* self, QActionEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_ActionEvent_IsBase(true);
@@ -1111,7 +1111,7 @@ void QPageSetupDialog_DragEnterEvent(QPageSetupDialog* self, QDragEnterEvent* ev
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseDragEnterEvent(QPageSetupDialog* self, QDragEnterEvent* event) {
+void QPageSetupDialog_SuperDragEnterEvent(QPageSetupDialog* self, QDragEnterEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_DragEnterEvent_IsBase(true);
@@ -1140,7 +1140,7 @@ void QPageSetupDialog_DragMoveEvent(QPageSetupDialog* self, QDragMoveEvent* even
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseDragMoveEvent(QPageSetupDialog* self, QDragMoveEvent* event) {
+void QPageSetupDialog_SuperDragMoveEvent(QPageSetupDialog* self, QDragMoveEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_DragMoveEvent_IsBase(true);
@@ -1169,7 +1169,7 @@ void QPageSetupDialog_DragLeaveEvent(QPageSetupDialog* self, QDragLeaveEvent* ev
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseDragLeaveEvent(QPageSetupDialog* self, QDragLeaveEvent* event) {
+void QPageSetupDialog_SuperDragLeaveEvent(QPageSetupDialog* self, QDragLeaveEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_DragLeaveEvent_IsBase(true);
@@ -1198,7 +1198,7 @@ void QPageSetupDialog_DropEvent(QPageSetupDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseDropEvent(QPageSetupDialog* self, QDropEvent* event) {
+void QPageSetupDialog_SuperDropEvent(QPageSetupDialog* self, QDropEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_DropEvent_IsBase(true);
@@ -1227,7 +1227,7 @@ void QPageSetupDialog_HideEvent(QPageSetupDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseHideEvent(QPageSetupDialog* self, QHideEvent* event) {
+void QPageSetupDialog_SuperHideEvent(QPageSetupDialog* self, QHideEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_HideEvent_IsBase(true);
@@ -1257,7 +1257,7 @@ bool QPageSetupDialog_NativeEvent(QPageSetupDialog* self, const libqt_string eve
 }
 
 // Base class handler implementation
-bool QPageSetupDialog_QBaseNativeEvent(QPageSetupDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QPageSetupDialog_SuperNativeEvent(QPageSetupDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
@@ -1287,7 +1287,7 @@ void QPageSetupDialog_ChangeEvent(QPageSetupDialog* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseChangeEvent(QPageSetupDialog* self, QEvent* param1) {
+void QPageSetupDialog_SuperChangeEvent(QPageSetupDialog* self, QEvent* param1) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_ChangeEvent_IsBase(true);
@@ -1316,7 +1316,7 @@ int QPageSetupDialog_Metric(const QPageSetupDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int QPageSetupDialog_QBaseMetric(const QPageSetupDialog* self, int param1) {
+int QPageSetupDialog_SuperMetric(const QPageSetupDialog* self, int param1) {
     auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_Metric_IsBase(true);
@@ -1345,7 +1345,7 @@ void QPageSetupDialog_InitPainter(const QPageSetupDialog* self, QPainter* painte
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseInitPainter(const QPageSetupDialog* self, QPainter* painter) {
+void QPageSetupDialog_SuperInitPainter(const QPageSetupDialog* self, QPainter* painter) {
     auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_InitPainter_IsBase(true);
@@ -1374,7 +1374,7 @@ QPaintDevice* QPageSetupDialog_Redirected(const QPageSetupDialog* self, QPoint* 
 }
 
 // Base class handler implementation
-QPaintDevice* QPageSetupDialog_QBaseRedirected(const QPageSetupDialog* self, QPoint* offset) {
+QPaintDevice* QPageSetupDialog_SuperRedirected(const QPageSetupDialog* self, QPoint* offset) {
     auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_Redirected_IsBase(true);
@@ -1403,7 +1403,7 @@ QPainter* QPageSetupDialog_SharedPainter(const QPageSetupDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* QPageSetupDialog_QBaseSharedPainter(const QPageSetupDialog* self) {
+QPainter* QPageSetupDialog_SuperSharedPainter(const QPageSetupDialog* self) {
     auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_SharedPainter_IsBase(true);
@@ -1432,7 +1432,7 @@ void QPageSetupDialog_InputMethodEvent(QPageSetupDialog* self, QInputMethodEvent
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseInputMethodEvent(QPageSetupDialog* self, QInputMethodEvent* param1) {
+void QPageSetupDialog_SuperInputMethodEvent(QPageSetupDialog* self, QInputMethodEvent* param1) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_InputMethodEvent_IsBase(true);
@@ -1461,7 +1461,7 @@ QVariant* QPageSetupDialog_InputMethodQuery(const QPageSetupDialog* self, int pa
 }
 
 // Base class handler implementation
-QVariant* QPageSetupDialog_QBaseInputMethodQuery(const QPageSetupDialog* self, int param1) {
+QVariant* QPageSetupDialog_SuperInputMethodQuery(const QPageSetupDialog* self, int param1) {
     auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_InputMethodQuery_IsBase(true);
@@ -1490,7 +1490,7 @@ bool QPageSetupDialog_FocusNextPrevChild(QPageSetupDialog* self, bool next) {
 }
 
 // Base class handler implementation
-bool QPageSetupDialog_QBaseFocusNextPrevChild(QPageSetupDialog* self, bool next) {
+bool QPageSetupDialog_SuperFocusNextPrevChild(QPageSetupDialog* self, bool next) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_FocusNextPrevChild_IsBase(true);
@@ -1519,7 +1519,7 @@ void QPageSetupDialog_TimerEvent(QPageSetupDialog* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseTimerEvent(QPageSetupDialog* self, QTimerEvent* event) {
+void QPageSetupDialog_SuperTimerEvent(QPageSetupDialog* self, QTimerEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_TimerEvent_IsBase(true);
@@ -1548,7 +1548,7 @@ void QPageSetupDialog_ChildEvent(QPageSetupDialog* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseChildEvent(QPageSetupDialog* self, QChildEvent* event) {
+void QPageSetupDialog_SuperChildEvent(QPageSetupDialog* self, QChildEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_ChildEvent_IsBase(true);
@@ -1577,7 +1577,7 @@ void QPageSetupDialog_CustomEvent(QPageSetupDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseCustomEvent(QPageSetupDialog* self, QEvent* event) {
+void QPageSetupDialog_SuperCustomEvent(QPageSetupDialog* self, QEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_CustomEvent_IsBase(true);
@@ -1606,7 +1606,7 @@ void QPageSetupDialog_ConnectNotify(QPageSetupDialog* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseConnectNotify(QPageSetupDialog* self, const QMetaMethod* signal) {
+void QPageSetupDialog_SuperConnectNotify(QPageSetupDialog* self, const QMetaMethod* signal) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_ConnectNotify_IsBase(true);
@@ -1635,7 +1635,7 @@ void QPageSetupDialog_DisconnectNotify(QPageSetupDialog* self, const QMetaMethod
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseDisconnectNotify(QPageSetupDialog* self, const QMetaMethod* signal) {
+void QPageSetupDialog_SuperDisconnectNotify(QPageSetupDialog* self, const QMetaMethod* signal) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_DisconnectNotify_IsBase(true);
@@ -1664,7 +1664,7 @@ void QPageSetupDialog_AdjustPosition(QPageSetupDialog* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseAdjustPosition(QPageSetupDialog* self, QWidget* param1) {
+void QPageSetupDialog_SuperAdjustPosition(QPageSetupDialog* self, QWidget* param1) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_AdjustPosition_IsBase(true);
@@ -1693,7 +1693,7 @@ void QPageSetupDialog_UpdateMicroFocus(QPageSetupDialog* self) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseUpdateMicroFocus(QPageSetupDialog* self) {
+void QPageSetupDialog_SuperUpdateMicroFocus(QPageSetupDialog* self) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_UpdateMicroFocus_IsBase(true);
@@ -1722,7 +1722,7 @@ void QPageSetupDialog_Create(QPageSetupDialog* self) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseCreate(QPageSetupDialog* self) {
+void QPageSetupDialog_SuperCreate(QPageSetupDialog* self) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_Create_IsBase(true);
@@ -1751,7 +1751,7 @@ void QPageSetupDialog_Destroy(QPageSetupDialog* self) {
 }
 
 // Base class handler implementation
-void QPageSetupDialog_QBaseDestroy(QPageSetupDialog* self) {
+void QPageSetupDialog_SuperDestroy(QPageSetupDialog* self) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_Destroy_IsBase(true);
@@ -1780,7 +1780,7 @@ bool QPageSetupDialog_FocusNextChild(QPageSetupDialog* self) {
 }
 
 // Base class handler implementation
-bool QPageSetupDialog_QBaseFocusNextChild(QPageSetupDialog* self) {
+bool QPageSetupDialog_SuperFocusNextChild(QPageSetupDialog* self) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_FocusNextChild_IsBase(true);
@@ -1809,7 +1809,7 @@ bool QPageSetupDialog_FocusPreviousChild(QPageSetupDialog* self) {
 }
 
 // Base class handler implementation
-bool QPageSetupDialog_QBaseFocusPreviousChild(QPageSetupDialog* self) {
+bool QPageSetupDialog_SuperFocusPreviousChild(QPageSetupDialog* self) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_FocusPreviousChild_IsBase(true);
@@ -1838,7 +1838,7 @@ QObject* QPageSetupDialog_Sender(const QPageSetupDialog* self) {
 }
 
 // Base class handler implementation
-QObject* QPageSetupDialog_QBaseSender(const QPageSetupDialog* self) {
+QObject* QPageSetupDialog_SuperSender(const QPageSetupDialog* self) {
     auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_Sender_IsBase(true);
@@ -1867,7 +1867,7 @@ int QPageSetupDialog_SenderSignalIndex(const QPageSetupDialog* self) {
 }
 
 // Base class handler implementation
-int QPageSetupDialog_QBaseSenderSignalIndex(const QPageSetupDialog* self) {
+int QPageSetupDialog_SuperSenderSignalIndex(const QPageSetupDialog* self) {
     auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_SenderSignalIndex_IsBase(true);
@@ -1896,7 +1896,7 @@ int QPageSetupDialog_Receivers(const QPageSetupDialog* self, const char* signal)
 }
 
 // Base class handler implementation
-int QPageSetupDialog_QBaseReceivers(const QPageSetupDialog* self, const char* signal) {
+int QPageSetupDialog_SuperReceivers(const QPageSetupDialog* self, const char* signal) {
     auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_Receivers_IsBase(true);
@@ -1925,7 +1925,7 @@ bool QPageSetupDialog_IsSignalConnected(const QPageSetupDialog* self, const QMet
 }
 
 // Base class handler implementation
-bool QPageSetupDialog_QBaseIsSignalConnected(const QPageSetupDialog* self, const QMetaMethod* signal) {
+bool QPageSetupDialog_SuperIsSignalConnected(const QPageSetupDialog* self, const QMetaMethod* signal) {
     auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_IsSignalConnected_IsBase(true);
@@ -1954,7 +1954,7 @@ double QPageSetupDialog_GetDecodedMetricF(const QPageSetupDialog* self, int metr
 }
 
 // Base class handler implementation
-double QPageSetupDialog_QBaseGetDecodedMetricF(const QPageSetupDialog* self, int metricA, int metricB) {
+double QPageSetupDialog_SuperGetDecodedMetricF(const QPageSetupDialog* self, int metricA, int metricB) {
     auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
     if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
         vqpagesetupdialog->setQPageSetupDialog_GetDecodedMetricF_IsBase(true);

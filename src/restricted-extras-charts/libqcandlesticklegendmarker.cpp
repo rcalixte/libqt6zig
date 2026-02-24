@@ -69,7 +69,7 @@ QCandlestickSeries* QCandlestickLegendMarker_Series(QCandlestickLegendMarker* se
 }
 
 // Base class handler implementation
-QMetaObject* QCandlestickLegendMarker_QBaseMetaObject(const QCandlestickLegendMarker* self) {
+QMetaObject* QCandlestickLegendMarker_SuperMetaObject(const QCandlestickLegendMarker* self) {
     auto* vqcandlesticklegendmarker = const_cast<VirtualQCandlestickLegendMarker*>(dynamic_cast<const VirtualQCandlestickLegendMarker*>(self));
     if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
         vqcandlesticklegendmarker->setQCandlestickLegendMarker_MetaObject_IsBase(true);
@@ -88,7 +88,7 @@ void QCandlestickLegendMarker_OnMetaObject(const QCandlestickLegendMarker* self,
 }
 
 // Base class handler implementation
-void* QCandlestickLegendMarker_QBaseMetacast(QCandlestickLegendMarker* self, const char* param1) {
+void* QCandlestickLegendMarker_SuperMetacast(QCandlestickLegendMarker* self, const char* param1) {
     auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
     if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
         vqcandlesticklegendmarker->setQCandlestickLegendMarker_Metacast_IsBase(true);
@@ -107,7 +107,7 @@ void QCandlestickLegendMarker_OnMetacast(QCandlestickLegendMarker* self, intptr_
 }
 
 // Base class handler implementation
-int QCandlestickLegendMarker_QBaseMetacall(QCandlestickLegendMarker* self, int param1, int param2, void** param3) {
+int QCandlestickLegendMarker_SuperMetacall(QCandlestickLegendMarker* self, int param1, int param2, void** param3) {
     auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
     if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
         vqcandlesticklegendmarker->setQCandlestickLegendMarker_Metacall_IsBase(true);
@@ -126,7 +126,7 @@ void QCandlestickLegendMarker_OnMetacall(QCandlestickLegendMarker* self, intptr_
 }
 
 // Base class handler implementation
-int QCandlestickLegendMarker_QBaseType(QCandlestickLegendMarker* self) {
+int QCandlestickLegendMarker_SuperType(QCandlestickLegendMarker* self) {
     auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
     if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
         vqcandlesticklegendmarker->setQCandlestickLegendMarker_Type_IsBase(true);
@@ -145,7 +145,7 @@ void QCandlestickLegendMarker_OnType(QCandlestickLegendMarker* self, intptr_t sl
 }
 
 // Base class handler implementation
-QCandlestickSeries* QCandlestickLegendMarker_QBaseSeries(QCandlestickLegendMarker* self) {
+QCandlestickSeries* QCandlestickLegendMarker_SuperSeries(QCandlestickLegendMarker* self) {
     auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
     if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
         vqcandlesticklegendmarker->setQCandlestickLegendMarker_Series_IsBase(true);
@@ -174,7 +174,7 @@ bool QCandlestickLegendMarker_Event(QCandlestickLegendMarker* self, QEvent* even
 }
 
 // Base class handler implementation
-bool QCandlestickLegendMarker_QBaseEvent(QCandlestickLegendMarker* self, QEvent* event) {
+bool QCandlestickLegendMarker_SuperEvent(QCandlestickLegendMarker* self, QEvent* event) {
     auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
     if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
         vqcandlesticklegendmarker->setQCandlestickLegendMarker_Event_IsBase(true);
@@ -203,7 +203,7 @@ bool QCandlestickLegendMarker_EventFilter(QCandlestickLegendMarker* self, QObjec
 }
 
 // Base class handler implementation
-bool QCandlestickLegendMarker_QBaseEventFilter(QCandlestickLegendMarker* self, QObject* watched, QEvent* event) {
+bool QCandlestickLegendMarker_SuperEventFilter(QCandlestickLegendMarker* self, QObject* watched, QEvent* event) {
     auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
     if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
         vqcandlesticklegendmarker->setQCandlestickLegendMarker_EventFilter_IsBase(true);
@@ -232,7 +232,7 @@ void QCandlestickLegendMarker_TimerEvent(QCandlestickLegendMarker* self, QTimerE
 }
 
 // Base class handler implementation
-void QCandlestickLegendMarker_QBaseTimerEvent(QCandlestickLegendMarker* self, QTimerEvent* event) {
+void QCandlestickLegendMarker_SuperTimerEvent(QCandlestickLegendMarker* self, QTimerEvent* event) {
     auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
     if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
         vqcandlesticklegendmarker->setQCandlestickLegendMarker_TimerEvent_IsBase(true);
@@ -261,7 +261,7 @@ void QCandlestickLegendMarker_ChildEvent(QCandlestickLegendMarker* self, QChildE
 }
 
 // Base class handler implementation
-void QCandlestickLegendMarker_QBaseChildEvent(QCandlestickLegendMarker* self, QChildEvent* event) {
+void QCandlestickLegendMarker_SuperChildEvent(QCandlestickLegendMarker* self, QChildEvent* event) {
     auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
     if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
         vqcandlesticklegendmarker->setQCandlestickLegendMarker_ChildEvent_IsBase(true);
@@ -290,7 +290,7 @@ void QCandlestickLegendMarker_CustomEvent(QCandlestickLegendMarker* self, QEvent
 }
 
 // Base class handler implementation
-void QCandlestickLegendMarker_QBaseCustomEvent(QCandlestickLegendMarker* self, QEvent* event) {
+void QCandlestickLegendMarker_SuperCustomEvent(QCandlestickLegendMarker* self, QEvent* event) {
     auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
     if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
         vqcandlesticklegendmarker->setQCandlestickLegendMarker_CustomEvent_IsBase(true);
@@ -319,7 +319,7 @@ void QCandlestickLegendMarker_ConnectNotify(QCandlestickLegendMarker* self, cons
 }
 
 // Base class handler implementation
-void QCandlestickLegendMarker_QBaseConnectNotify(QCandlestickLegendMarker* self, const QMetaMethod* signal) {
+void QCandlestickLegendMarker_SuperConnectNotify(QCandlestickLegendMarker* self, const QMetaMethod* signal) {
     auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
     if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
         vqcandlesticklegendmarker->setQCandlestickLegendMarker_ConnectNotify_IsBase(true);
@@ -348,7 +348,7 @@ void QCandlestickLegendMarker_DisconnectNotify(QCandlestickLegendMarker* self, c
 }
 
 // Base class handler implementation
-void QCandlestickLegendMarker_QBaseDisconnectNotify(QCandlestickLegendMarker* self, const QMetaMethod* signal) {
+void QCandlestickLegendMarker_SuperDisconnectNotify(QCandlestickLegendMarker* self, const QMetaMethod* signal) {
     auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
     if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
         vqcandlesticklegendmarker->setQCandlestickLegendMarker_DisconnectNotify_IsBase(true);
@@ -377,7 +377,7 @@ QObject* QCandlestickLegendMarker_Sender(const QCandlestickLegendMarker* self) {
 }
 
 // Base class handler implementation
-QObject* QCandlestickLegendMarker_QBaseSender(const QCandlestickLegendMarker* self) {
+QObject* QCandlestickLegendMarker_SuperSender(const QCandlestickLegendMarker* self) {
     auto* vqcandlesticklegendmarker = const_cast<VirtualQCandlestickLegendMarker*>(dynamic_cast<const VirtualQCandlestickLegendMarker*>(self));
     if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
         vqcandlesticklegendmarker->setQCandlestickLegendMarker_Sender_IsBase(true);
@@ -406,7 +406,7 @@ int QCandlestickLegendMarker_SenderSignalIndex(const QCandlestickLegendMarker* s
 }
 
 // Base class handler implementation
-int QCandlestickLegendMarker_QBaseSenderSignalIndex(const QCandlestickLegendMarker* self) {
+int QCandlestickLegendMarker_SuperSenderSignalIndex(const QCandlestickLegendMarker* self) {
     auto* vqcandlesticklegendmarker = const_cast<VirtualQCandlestickLegendMarker*>(dynamic_cast<const VirtualQCandlestickLegendMarker*>(self));
     if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
         vqcandlesticklegendmarker->setQCandlestickLegendMarker_SenderSignalIndex_IsBase(true);
@@ -435,7 +435,7 @@ int QCandlestickLegendMarker_Receivers(const QCandlestickLegendMarker* self, con
 }
 
 // Base class handler implementation
-int QCandlestickLegendMarker_QBaseReceivers(const QCandlestickLegendMarker* self, const char* signal) {
+int QCandlestickLegendMarker_SuperReceivers(const QCandlestickLegendMarker* self, const char* signal) {
     auto* vqcandlesticklegendmarker = const_cast<VirtualQCandlestickLegendMarker*>(dynamic_cast<const VirtualQCandlestickLegendMarker*>(self));
     if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
         vqcandlesticklegendmarker->setQCandlestickLegendMarker_Receivers_IsBase(true);
@@ -464,7 +464,7 @@ bool QCandlestickLegendMarker_IsSignalConnected(const QCandlestickLegendMarker* 
 }
 
 // Base class handler implementation
-bool QCandlestickLegendMarker_QBaseIsSignalConnected(const QCandlestickLegendMarker* self, const QMetaMethod* signal) {
+bool QCandlestickLegendMarker_SuperIsSignalConnected(const QCandlestickLegendMarker* self, const QMetaMethod* signal) {
     auto* vqcandlesticklegendmarker = const_cast<VirtualQCandlestickLegendMarker*>(dynamic_cast<const VirtualQCandlestickLegendMarker*>(self));
     if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
         vqcandlesticklegendmarker->setQCandlestickLegendMarker_IsSignalConnected_IsBase(true);

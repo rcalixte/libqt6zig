@@ -284,7 +284,7 @@ bool QFile_Open33(QFile* self, int fd, int ioFlags, int handleFlags) {
 }
 
 // Base class handler implementation
-QMetaObject* QFile_QBaseMetaObject(const QFile* self) {
+QMetaObject* QFile_SuperMetaObject(const QFile* self) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_MetaObject_IsBase(true);
@@ -303,7 +303,7 @@ void QFile_OnMetaObject(const QFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QFile_QBaseMetacast(QFile* self, const char* param1) {
+void* QFile_SuperMetacast(QFile* self, const char* param1) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_Metacast_IsBase(true);
@@ -322,7 +322,7 @@ void QFile_OnMetacast(QFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QFile_QBaseMetacall(QFile* self, int param1, int param2, void** param3) {
+int QFile_SuperMetacall(QFile* self, int param1, int param2, void** param3) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_Metacall_IsBase(true);
@@ -341,7 +341,7 @@ void QFile_OnMetacall(QFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string QFile_QBaseFileName(const QFile* self) {
+libqt_string QFile_SuperFileName(const QFile* self) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_FileName_IsBase(true);
@@ -376,7 +376,7 @@ void QFile_OnFileName(const QFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QFile_QBaseOpen(QFile* self, int flags) {
+bool QFile_SuperOpen(QFile* self, int flags) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_Open_IsBase(true);
@@ -395,7 +395,7 @@ void QFile_OnOpen(QFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QFile_QBaseSize(const QFile* self) {
+long long QFile_SuperSize(const QFile* self) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_Size_IsBase(true);
@@ -414,7 +414,7 @@ void QFile_OnSize(const QFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QFile_QBaseResize(QFile* self, long long sz) {
+bool QFile_SuperResize(QFile* self, long long sz) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_Resize_IsBase(true);
@@ -433,7 +433,7 @@ void QFile_OnResize(QFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QFile_QBasePermissions(const QFile* self) {
+int QFile_SuperPermissions(const QFile* self) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_Permissions_IsBase(true);
@@ -452,7 +452,7 @@ void QFile_OnPermissions(const QFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool QFile_QBaseSetPermissions(QFile* self, int permissionSpec) {
+bool QFile_SuperSetPermissions(QFile* self, int permissionSpec) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_SetPermissions_IsBase(true);
@@ -481,7 +481,7 @@ void QFile_Close(QFile* self) {
 }
 
 // Base class handler implementation
-void QFile_QBaseClose(QFile* self) {
+void QFile_SuperClose(QFile* self) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_Close_IsBase(true);
@@ -510,7 +510,7 @@ bool QFile_IsSequential(const QFile* self) {
 }
 
 // Base class handler implementation
-bool QFile_QBaseIsSequential(const QFile* self) {
+bool QFile_SuperIsSequential(const QFile* self) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_IsSequential_IsBase(true);
@@ -539,7 +539,7 @@ long long QFile_Pos(const QFile* self) {
 }
 
 // Base class handler implementation
-long long QFile_QBasePos(const QFile* self) {
+long long QFile_SuperPos(const QFile* self) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_Pos_IsBase(true);
@@ -568,7 +568,7 @@ bool QFile_Seek(QFile* self, long long offset) {
 }
 
 // Base class handler implementation
-bool QFile_QBaseSeek(QFile* self, long long offset) {
+bool QFile_SuperSeek(QFile* self, long long offset) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_Seek_IsBase(true);
@@ -597,7 +597,7 @@ bool QFile_AtEnd(const QFile* self) {
 }
 
 // Base class handler implementation
-bool QFile_QBaseAtEnd(const QFile* self) {
+bool QFile_SuperAtEnd(const QFile* self) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_AtEnd_IsBase(true);
@@ -626,7 +626,7 @@ long long QFile_ReadData(QFile* self, char* data, long long maxlen) {
 }
 
 // Base class handler implementation
-long long QFile_QBaseReadData(QFile* self, char* data, long long maxlen) {
+long long QFile_SuperReadData(QFile* self, char* data, long long maxlen) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_ReadData_IsBase(true);
@@ -655,7 +655,7 @@ long long QFile_WriteData(QFile* self, const char* data, long long lenVal) {
 }
 
 // Base class handler implementation
-long long QFile_QBaseWriteData(QFile* self, const char* data, long long lenVal) {
+long long QFile_SuperWriteData(QFile* self, const char* data, long long lenVal) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_WriteData_IsBase(true);
@@ -684,7 +684,7 @@ long long QFile_ReadLineData(QFile* self, char* data, long long maxlen) {
 }
 
 // Base class handler implementation
-long long QFile_QBaseReadLineData(QFile* self, char* data, long long maxlen) {
+long long QFile_SuperReadLineData(QFile* self, char* data, long long maxlen) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_ReadLineData_IsBase(true);
@@ -713,7 +713,7 @@ bool QFile_Reset(QFile* self) {
 }
 
 // Base class handler implementation
-bool QFile_QBaseReset(QFile* self) {
+bool QFile_SuperReset(QFile* self) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_Reset_IsBase(true);
@@ -742,7 +742,7 @@ long long QFile_BytesAvailable(const QFile* self) {
 }
 
 // Base class handler implementation
-long long QFile_QBaseBytesAvailable(const QFile* self) {
+long long QFile_SuperBytesAvailable(const QFile* self) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_BytesAvailable_IsBase(true);
@@ -771,7 +771,7 @@ long long QFile_BytesToWrite(const QFile* self) {
 }
 
 // Base class handler implementation
-long long QFile_QBaseBytesToWrite(const QFile* self) {
+long long QFile_SuperBytesToWrite(const QFile* self) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_BytesToWrite_IsBase(true);
@@ -800,7 +800,7 @@ bool QFile_CanReadLine(const QFile* self) {
 }
 
 // Base class handler implementation
-bool QFile_QBaseCanReadLine(const QFile* self) {
+bool QFile_SuperCanReadLine(const QFile* self) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_CanReadLine_IsBase(true);
@@ -829,7 +829,7 @@ bool QFile_WaitForReadyRead(QFile* self, int msecs) {
 }
 
 // Base class handler implementation
-bool QFile_QBaseWaitForReadyRead(QFile* self, int msecs) {
+bool QFile_SuperWaitForReadyRead(QFile* self, int msecs) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_WaitForReadyRead_IsBase(true);
@@ -858,7 +858,7 @@ bool QFile_WaitForBytesWritten(QFile* self, int msecs) {
 }
 
 // Base class handler implementation
-bool QFile_QBaseWaitForBytesWritten(QFile* self, int msecs) {
+bool QFile_SuperWaitForBytesWritten(QFile* self, int msecs) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_WaitForBytesWritten_IsBase(true);
@@ -887,7 +887,7 @@ long long QFile_SkipData(QFile* self, long long maxSize) {
 }
 
 // Base class handler implementation
-long long QFile_QBaseSkipData(QFile* self, long long maxSize) {
+long long QFile_SuperSkipData(QFile* self, long long maxSize) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_SkipData_IsBase(true);
@@ -916,7 +916,7 @@ bool QFile_Event(QFile* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QFile_QBaseEvent(QFile* self, QEvent* event) {
+bool QFile_SuperEvent(QFile* self, QEvent* event) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_Event_IsBase(true);
@@ -945,7 +945,7 @@ bool QFile_EventFilter(QFile* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QFile_QBaseEventFilter(QFile* self, QObject* watched, QEvent* event) {
+bool QFile_SuperEventFilter(QFile* self, QObject* watched, QEvent* event) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_EventFilter_IsBase(true);
@@ -974,7 +974,7 @@ void QFile_TimerEvent(QFile* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QFile_QBaseTimerEvent(QFile* self, QTimerEvent* event) {
+void QFile_SuperTimerEvent(QFile* self, QTimerEvent* event) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_TimerEvent_IsBase(true);
@@ -1003,7 +1003,7 @@ void QFile_ChildEvent(QFile* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QFile_QBaseChildEvent(QFile* self, QChildEvent* event) {
+void QFile_SuperChildEvent(QFile* self, QChildEvent* event) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_ChildEvent_IsBase(true);
@@ -1032,7 +1032,7 @@ void QFile_CustomEvent(QFile* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QFile_QBaseCustomEvent(QFile* self, QEvent* event) {
+void QFile_SuperCustomEvent(QFile* self, QEvent* event) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_CustomEvent_IsBase(true);
@@ -1061,7 +1061,7 @@ void QFile_ConnectNotify(QFile* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QFile_QBaseConnectNotify(QFile* self, const QMetaMethod* signal) {
+void QFile_SuperConnectNotify(QFile* self, const QMetaMethod* signal) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_ConnectNotify_IsBase(true);
@@ -1090,7 +1090,7 @@ void QFile_DisconnectNotify(QFile* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QFile_QBaseDisconnectNotify(QFile* self, const QMetaMethod* signal) {
+void QFile_SuperDisconnectNotify(QFile* self, const QMetaMethod* signal) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_DisconnectNotify_IsBase(true);
@@ -1119,7 +1119,7 @@ void QFile_SetOpenMode(QFile* self, int openMode) {
 }
 
 // Base class handler implementation
-void QFile_QBaseSetOpenMode(QFile* self, int openMode) {
+void QFile_SuperSetOpenMode(QFile* self, int openMode) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_SetOpenMode_IsBase(true);
@@ -1149,7 +1149,7 @@ void QFile_SetErrorString(QFile* self, const libqt_string errorString) {
 }
 
 // Base class handler implementation
-void QFile_QBaseSetErrorString(QFile* self, const libqt_string errorString) {
+void QFile_SuperSetErrorString(QFile* self, const libqt_string errorString) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
     if (vqfile && vqfile->isVirtualQFile) {
@@ -1179,7 +1179,7 @@ QObject* QFile_Sender(const QFile* self) {
 }
 
 // Base class handler implementation
-QObject* QFile_QBaseSender(const QFile* self) {
+QObject* QFile_SuperSender(const QFile* self) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_Sender_IsBase(true);
@@ -1208,7 +1208,7 @@ int QFile_SenderSignalIndex(const QFile* self) {
 }
 
 // Base class handler implementation
-int QFile_QBaseSenderSignalIndex(const QFile* self) {
+int QFile_SuperSenderSignalIndex(const QFile* self) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_SenderSignalIndex_IsBase(true);
@@ -1237,7 +1237,7 @@ int QFile_Receivers(const QFile* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QFile_QBaseReceivers(const QFile* self, const char* signal) {
+int QFile_SuperReceivers(const QFile* self, const char* signal) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_Receivers_IsBase(true);
@@ -1266,7 +1266,7 @@ bool QFile_IsSignalConnected(const QFile* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-bool QFile_QBaseIsSignalConnected(const QFile* self, const QMetaMethod* signal) {
+bool QFile_SuperIsSignalConnected(const QFile* self, const QMetaMethod* signal) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_IsSignalConnected_IsBase(true);

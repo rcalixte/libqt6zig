@@ -326,6 +326,10 @@ pub const qcborstreamwriter = struct {
         qtc.QCborStreamWriter_Append22(@ptrCast(self), str_Cstring, @bitCast(size));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamwriter.html#dtor.QCborStreamWriter)
     ///
     /// Delete this object from C++ memory.
@@ -334,7 +338,7 @@ pub const qcborstreamwriter = struct {
     ///
     /// ` self: QtC.QCborStreamWriter `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCborStreamWriter_Delete(@ptrCast(self));
     }
 };

@@ -84,7 +84,7 @@ void KSslInfoDialog_SetAuxiliaryPartsEncrypted(KSslInfoDialog* self, bool auxili
 }
 
 // Base class handler implementation
-QMetaObject* KSslInfoDialog_QBaseMetaObject(const KSslInfoDialog* self) {
+QMetaObject* KSslInfoDialog_SuperMetaObject(const KSslInfoDialog* self) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_MetaObject_IsBase(true);
@@ -103,7 +103,7 @@ void KSslInfoDialog_OnMetaObject(const KSslInfoDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KSslInfoDialog_QBaseMetacast(KSslInfoDialog* self, const char* param1) {
+void* KSslInfoDialog_SuperMetacast(KSslInfoDialog* self, const char* param1) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_Metacast_IsBase(true);
@@ -122,7 +122,7 @@ void KSslInfoDialog_OnMetacast(KSslInfoDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KSslInfoDialog_QBaseMetacall(KSslInfoDialog* self, int param1, int param2, void** param3) {
+int KSslInfoDialog_SuperMetacall(KSslInfoDialog* self, int param1, int param2, void** param3) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_Metacall_IsBase(true);
@@ -151,7 +151,7 @@ void KSslInfoDialog_SetVisible(KSslInfoDialog* self, bool visible) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseSetVisible(KSslInfoDialog* self, bool visible) {
+void KSslInfoDialog_SuperSetVisible(KSslInfoDialog* self, bool visible) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_SetVisible_IsBase(true);
@@ -180,7 +180,7 @@ QSize* KSslInfoDialog_SizeHint(const KSslInfoDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KSslInfoDialog_QBaseSizeHint(const KSslInfoDialog* self) {
+QSize* KSslInfoDialog_SuperSizeHint(const KSslInfoDialog* self) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_SizeHint_IsBase(true);
@@ -209,7 +209,7 @@ QSize* KSslInfoDialog_MinimumSizeHint(const KSslInfoDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KSslInfoDialog_QBaseMinimumSizeHint(const KSslInfoDialog* self) {
+QSize* KSslInfoDialog_SuperMinimumSizeHint(const KSslInfoDialog* self) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_MinimumSizeHint_IsBase(true);
@@ -238,7 +238,7 @@ void KSslInfoDialog_Open(KSslInfoDialog* self) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseOpen(KSslInfoDialog* self) {
+void KSslInfoDialog_SuperOpen(KSslInfoDialog* self) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_Open_IsBase(true);
@@ -267,7 +267,7 @@ int KSslInfoDialog_Exec(KSslInfoDialog* self) {
 }
 
 // Base class handler implementation
-int KSslInfoDialog_QBaseExec(KSslInfoDialog* self) {
+int KSslInfoDialog_SuperExec(KSslInfoDialog* self) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_Exec_IsBase(true);
@@ -296,7 +296,7 @@ void KSslInfoDialog_Done(KSslInfoDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseDone(KSslInfoDialog* self, int param1) {
+void KSslInfoDialog_SuperDone(KSslInfoDialog* self, int param1) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_Done_IsBase(true);
@@ -325,7 +325,7 @@ void KSslInfoDialog_Accept(KSslInfoDialog* self) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseAccept(KSslInfoDialog* self) {
+void KSslInfoDialog_SuperAccept(KSslInfoDialog* self) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_Accept_IsBase(true);
@@ -354,7 +354,7 @@ void KSslInfoDialog_Reject(KSslInfoDialog* self) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseReject(KSslInfoDialog* self) {
+void KSslInfoDialog_SuperReject(KSslInfoDialog* self) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_Reject_IsBase(true);
@@ -383,7 +383,7 @@ void KSslInfoDialog_KeyPressEvent(KSslInfoDialog* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseKeyPressEvent(KSslInfoDialog* self, QKeyEvent* param1) {
+void KSslInfoDialog_SuperKeyPressEvent(KSslInfoDialog* self, QKeyEvent* param1) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_KeyPressEvent_IsBase(true);
@@ -412,7 +412,7 @@ void KSslInfoDialog_CloseEvent(KSslInfoDialog* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseCloseEvent(KSslInfoDialog* self, QCloseEvent* param1) {
+void KSslInfoDialog_SuperCloseEvent(KSslInfoDialog* self, QCloseEvent* param1) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_CloseEvent_IsBase(true);
@@ -441,7 +441,7 @@ void KSslInfoDialog_ShowEvent(KSslInfoDialog* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseShowEvent(KSslInfoDialog* self, QShowEvent* param1) {
+void KSslInfoDialog_SuperShowEvent(KSslInfoDialog* self, QShowEvent* param1) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_ShowEvent_IsBase(true);
@@ -470,7 +470,7 @@ void KSslInfoDialog_ResizeEvent(KSslInfoDialog* self, QResizeEvent* param1) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseResizeEvent(KSslInfoDialog* self, QResizeEvent* param1) {
+void KSslInfoDialog_SuperResizeEvent(KSslInfoDialog* self, QResizeEvent* param1) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_ResizeEvent_IsBase(true);
@@ -499,7 +499,7 @@ void KSslInfoDialog_ContextMenuEvent(KSslInfoDialog* self, QContextMenuEvent* pa
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseContextMenuEvent(KSslInfoDialog* self, QContextMenuEvent* param1) {
+void KSslInfoDialog_SuperContextMenuEvent(KSslInfoDialog* self, QContextMenuEvent* param1) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_ContextMenuEvent_IsBase(true);
@@ -528,7 +528,7 @@ bool KSslInfoDialog_EventFilter(KSslInfoDialog* self, QObject* param1, QEvent* p
 }
 
 // Base class handler implementation
-bool KSslInfoDialog_QBaseEventFilter(KSslInfoDialog* self, QObject* param1, QEvent* param2) {
+bool KSslInfoDialog_SuperEventFilter(KSslInfoDialog* self, QObject* param1, QEvent* param2) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_EventFilter_IsBase(true);
@@ -557,7 +557,7 @@ int KSslInfoDialog_DevType(const KSslInfoDialog* self) {
 }
 
 // Base class handler implementation
-int KSslInfoDialog_QBaseDevType(const KSslInfoDialog* self) {
+int KSslInfoDialog_SuperDevType(const KSslInfoDialog* self) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_DevType_IsBase(true);
@@ -586,7 +586,7 @@ int KSslInfoDialog_HeightForWidth(const KSslInfoDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KSslInfoDialog_QBaseHeightForWidth(const KSslInfoDialog* self, int param1) {
+int KSslInfoDialog_SuperHeightForWidth(const KSslInfoDialog* self, int param1) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_HeightForWidth_IsBase(true);
@@ -615,7 +615,7 @@ bool KSslInfoDialog_HasHeightForWidth(const KSslInfoDialog* self) {
 }
 
 // Base class handler implementation
-bool KSslInfoDialog_QBaseHasHeightForWidth(const KSslInfoDialog* self) {
+bool KSslInfoDialog_SuperHasHeightForWidth(const KSslInfoDialog* self) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_HasHeightForWidth_IsBase(true);
@@ -644,7 +644,7 @@ QPaintEngine* KSslInfoDialog_PaintEngine(const KSslInfoDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KSslInfoDialog_QBasePaintEngine(const KSslInfoDialog* self) {
+QPaintEngine* KSslInfoDialog_SuperPaintEngine(const KSslInfoDialog* self) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_PaintEngine_IsBase(true);
@@ -673,7 +673,7 @@ bool KSslInfoDialog_Event(KSslInfoDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KSslInfoDialog_QBaseEvent(KSslInfoDialog* self, QEvent* event) {
+bool KSslInfoDialog_SuperEvent(KSslInfoDialog* self, QEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_Event_IsBase(true);
@@ -702,7 +702,7 @@ void KSslInfoDialog_MousePressEvent(KSslInfoDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseMousePressEvent(KSslInfoDialog* self, QMouseEvent* event) {
+void KSslInfoDialog_SuperMousePressEvent(KSslInfoDialog* self, QMouseEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_MousePressEvent_IsBase(true);
@@ -731,7 +731,7 @@ void KSslInfoDialog_MouseReleaseEvent(KSslInfoDialog* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseMouseReleaseEvent(KSslInfoDialog* self, QMouseEvent* event) {
+void KSslInfoDialog_SuperMouseReleaseEvent(KSslInfoDialog* self, QMouseEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_MouseReleaseEvent_IsBase(true);
@@ -760,7 +760,7 @@ void KSslInfoDialog_MouseDoubleClickEvent(KSslInfoDialog* self, QMouseEvent* eve
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseMouseDoubleClickEvent(KSslInfoDialog* self, QMouseEvent* event) {
+void KSslInfoDialog_SuperMouseDoubleClickEvent(KSslInfoDialog* self, QMouseEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_MouseDoubleClickEvent_IsBase(true);
@@ -789,7 +789,7 @@ void KSslInfoDialog_MouseMoveEvent(KSslInfoDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseMouseMoveEvent(KSslInfoDialog* self, QMouseEvent* event) {
+void KSslInfoDialog_SuperMouseMoveEvent(KSslInfoDialog* self, QMouseEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_MouseMoveEvent_IsBase(true);
@@ -818,7 +818,7 @@ void KSslInfoDialog_WheelEvent(KSslInfoDialog* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseWheelEvent(KSslInfoDialog* self, QWheelEvent* event) {
+void KSslInfoDialog_SuperWheelEvent(KSslInfoDialog* self, QWheelEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_WheelEvent_IsBase(true);
@@ -847,7 +847,7 @@ void KSslInfoDialog_KeyReleaseEvent(KSslInfoDialog* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseKeyReleaseEvent(KSslInfoDialog* self, QKeyEvent* event) {
+void KSslInfoDialog_SuperKeyReleaseEvent(KSslInfoDialog* self, QKeyEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_KeyReleaseEvent_IsBase(true);
@@ -876,7 +876,7 @@ void KSslInfoDialog_FocusInEvent(KSslInfoDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseFocusInEvent(KSslInfoDialog* self, QFocusEvent* event) {
+void KSslInfoDialog_SuperFocusInEvent(KSslInfoDialog* self, QFocusEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_FocusInEvent_IsBase(true);
@@ -905,7 +905,7 @@ void KSslInfoDialog_FocusOutEvent(KSslInfoDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseFocusOutEvent(KSslInfoDialog* self, QFocusEvent* event) {
+void KSslInfoDialog_SuperFocusOutEvent(KSslInfoDialog* self, QFocusEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_FocusOutEvent_IsBase(true);
@@ -934,7 +934,7 @@ void KSslInfoDialog_EnterEvent(KSslInfoDialog* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseEnterEvent(KSslInfoDialog* self, QEnterEvent* event) {
+void KSslInfoDialog_SuperEnterEvent(KSslInfoDialog* self, QEnterEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_EnterEvent_IsBase(true);
@@ -963,7 +963,7 @@ void KSslInfoDialog_LeaveEvent(KSslInfoDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseLeaveEvent(KSslInfoDialog* self, QEvent* event) {
+void KSslInfoDialog_SuperLeaveEvent(KSslInfoDialog* self, QEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_LeaveEvent_IsBase(true);
@@ -992,7 +992,7 @@ void KSslInfoDialog_PaintEvent(KSslInfoDialog* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBasePaintEvent(KSslInfoDialog* self, QPaintEvent* event) {
+void KSslInfoDialog_SuperPaintEvent(KSslInfoDialog* self, QPaintEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_PaintEvent_IsBase(true);
@@ -1021,7 +1021,7 @@ void KSslInfoDialog_MoveEvent(KSslInfoDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseMoveEvent(KSslInfoDialog* self, QMoveEvent* event) {
+void KSslInfoDialog_SuperMoveEvent(KSslInfoDialog* self, QMoveEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_MoveEvent_IsBase(true);
@@ -1050,7 +1050,7 @@ void KSslInfoDialog_TabletEvent(KSslInfoDialog* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseTabletEvent(KSslInfoDialog* self, QTabletEvent* event) {
+void KSslInfoDialog_SuperTabletEvent(KSslInfoDialog* self, QTabletEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_TabletEvent_IsBase(true);
@@ -1079,7 +1079,7 @@ void KSslInfoDialog_ActionEvent(KSslInfoDialog* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseActionEvent(KSslInfoDialog* self, QActionEvent* event) {
+void KSslInfoDialog_SuperActionEvent(KSslInfoDialog* self, QActionEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_ActionEvent_IsBase(true);
@@ -1108,7 +1108,7 @@ void KSslInfoDialog_DragEnterEvent(KSslInfoDialog* self, QDragEnterEvent* event)
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseDragEnterEvent(KSslInfoDialog* self, QDragEnterEvent* event) {
+void KSslInfoDialog_SuperDragEnterEvent(KSslInfoDialog* self, QDragEnterEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_DragEnterEvent_IsBase(true);
@@ -1137,7 +1137,7 @@ void KSslInfoDialog_DragMoveEvent(KSslInfoDialog* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseDragMoveEvent(KSslInfoDialog* self, QDragMoveEvent* event) {
+void KSslInfoDialog_SuperDragMoveEvent(KSslInfoDialog* self, QDragMoveEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_DragMoveEvent_IsBase(true);
@@ -1166,7 +1166,7 @@ void KSslInfoDialog_DragLeaveEvent(KSslInfoDialog* self, QDragLeaveEvent* event)
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseDragLeaveEvent(KSslInfoDialog* self, QDragLeaveEvent* event) {
+void KSslInfoDialog_SuperDragLeaveEvent(KSslInfoDialog* self, QDragLeaveEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_DragLeaveEvent_IsBase(true);
@@ -1195,7 +1195,7 @@ void KSslInfoDialog_DropEvent(KSslInfoDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseDropEvent(KSslInfoDialog* self, QDropEvent* event) {
+void KSslInfoDialog_SuperDropEvent(KSslInfoDialog* self, QDropEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_DropEvent_IsBase(true);
@@ -1224,7 +1224,7 @@ void KSslInfoDialog_HideEvent(KSslInfoDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseHideEvent(KSslInfoDialog* self, QHideEvent* event) {
+void KSslInfoDialog_SuperHideEvent(KSslInfoDialog* self, QHideEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_HideEvent_IsBase(true);
@@ -1254,7 +1254,7 @@ bool KSslInfoDialog_NativeEvent(KSslInfoDialog* self, const libqt_string eventTy
 }
 
 // Base class handler implementation
-bool KSslInfoDialog_QBaseNativeEvent(KSslInfoDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KSslInfoDialog_SuperNativeEvent(KSslInfoDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
@@ -1284,7 +1284,7 @@ void KSslInfoDialog_ChangeEvent(KSslInfoDialog* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseChangeEvent(KSslInfoDialog* self, QEvent* param1) {
+void KSslInfoDialog_SuperChangeEvent(KSslInfoDialog* self, QEvent* param1) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_ChangeEvent_IsBase(true);
@@ -1313,7 +1313,7 @@ int KSslInfoDialog_Metric(const KSslInfoDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KSslInfoDialog_QBaseMetric(const KSslInfoDialog* self, int param1) {
+int KSslInfoDialog_SuperMetric(const KSslInfoDialog* self, int param1) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_Metric_IsBase(true);
@@ -1342,7 +1342,7 @@ void KSslInfoDialog_InitPainter(const KSslInfoDialog* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseInitPainter(const KSslInfoDialog* self, QPainter* painter) {
+void KSslInfoDialog_SuperInitPainter(const KSslInfoDialog* self, QPainter* painter) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_InitPainter_IsBase(true);
@@ -1371,7 +1371,7 @@ QPaintDevice* KSslInfoDialog_Redirected(const KSslInfoDialog* self, QPoint* offs
 }
 
 // Base class handler implementation
-QPaintDevice* KSslInfoDialog_QBaseRedirected(const KSslInfoDialog* self, QPoint* offset) {
+QPaintDevice* KSslInfoDialog_SuperRedirected(const KSslInfoDialog* self, QPoint* offset) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_Redirected_IsBase(true);
@@ -1400,7 +1400,7 @@ QPainter* KSslInfoDialog_SharedPainter(const KSslInfoDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* KSslInfoDialog_QBaseSharedPainter(const KSslInfoDialog* self) {
+QPainter* KSslInfoDialog_SuperSharedPainter(const KSslInfoDialog* self) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_SharedPainter_IsBase(true);
@@ -1429,7 +1429,7 @@ void KSslInfoDialog_InputMethodEvent(KSslInfoDialog* self, QInputMethodEvent* pa
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseInputMethodEvent(KSslInfoDialog* self, QInputMethodEvent* param1) {
+void KSslInfoDialog_SuperInputMethodEvent(KSslInfoDialog* self, QInputMethodEvent* param1) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_InputMethodEvent_IsBase(true);
@@ -1458,7 +1458,7 @@ QVariant* KSslInfoDialog_InputMethodQuery(const KSslInfoDialog* self, int param1
 }
 
 // Base class handler implementation
-QVariant* KSslInfoDialog_QBaseInputMethodQuery(const KSslInfoDialog* self, int param1) {
+QVariant* KSslInfoDialog_SuperInputMethodQuery(const KSslInfoDialog* self, int param1) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_InputMethodQuery_IsBase(true);
@@ -1487,7 +1487,7 @@ bool KSslInfoDialog_FocusNextPrevChild(KSslInfoDialog* self, bool next) {
 }
 
 // Base class handler implementation
-bool KSslInfoDialog_QBaseFocusNextPrevChild(KSslInfoDialog* self, bool next) {
+bool KSslInfoDialog_SuperFocusNextPrevChild(KSslInfoDialog* self, bool next) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_FocusNextPrevChild_IsBase(true);
@@ -1516,7 +1516,7 @@ void KSslInfoDialog_TimerEvent(KSslInfoDialog* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseTimerEvent(KSslInfoDialog* self, QTimerEvent* event) {
+void KSslInfoDialog_SuperTimerEvent(KSslInfoDialog* self, QTimerEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_TimerEvent_IsBase(true);
@@ -1545,7 +1545,7 @@ void KSslInfoDialog_ChildEvent(KSslInfoDialog* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseChildEvent(KSslInfoDialog* self, QChildEvent* event) {
+void KSslInfoDialog_SuperChildEvent(KSslInfoDialog* self, QChildEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_ChildEvent_IsBase(true);
@@ -1574,7 +1574,7 @@ void KSslInfoDialog_CustomEvent(KSslInfoDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseCustomEvent(KSslInfoDialog* self, QEvent* event) {
+void KSslInfoDialog_SuperCustomEvent(KSslInfoDialog* self, QEvent* event) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_CustomEvent_IsBase(true);
@@ -1603,7 +1603,7 @@ void KSslInfoDialog_ConnectNotify(KSslInfoDialog* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseConnectNotify(KSslInfoDialog* self, const QMetaMethod* signal) {
+void KSslInfoDialog_SuperConnectNotify(KSslInfoDialog* self, const QMetaMethod* signal) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_ConnectNotify_IsBase(true);
@@ -1632,7 +1632,7 @@ void KSslInfoDialog_DisconnectNotify(KSslInfoDialog* self, const QMetaMethod* si
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseDisconnectNotify(KSslInfoDialog* self, const QMetaMethod* signal) {
+void KSslInfoDialog_SuperDisconnectNotify(KSslInfoDialog* self, const QMetaMethod* signal) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_DisconnectNotify_IsBase(true);
@@ -1661,7 +1661,7 @@ void KSslInfoDialog_AdjustPosition(KSslInfoDialog* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseAdjustPosition(KSslInfoDialog* self, QWidget* param1) {
+void KSslInfoDialog_SuperAdjustPosition(KSslInfoDialog* self, QWidget* param1) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_AdjustPosition_IsBase(true);
@@ -1690,7 +1690,7 @@ void KSslInfoDialog_UpdateMicroFocus(KSslInfoDialog* self) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseUpdateMicroFocus(KSslInfoDialog* self) {
+void KSslInfoDialog_SuperUpdateMicroFocus(KSslInfoDialog* self) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_UpdateMicroFocus_IsBase(true);
@@ -1719,7 +1719,7 @@ void KSslInfoDialog_Create(KSslInfoDialog* self) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseCreate(KSslInfoDialog* self) {
+void KSslInfoDialog_SuperCreate(KSslInfoDialog* self) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_Create_IsBase(true);
@@ -1748,7 +1748,7 @@ void KSslInfoDialog_Destroy(KSslInfoDialog* self) {
 }
 
 // Base class handler implementation
-void KSslInfoDialog_QBaseDestroy(KSslInfoDialog* self) {
+void KSslInfoDialog_SuperDestroy(KSslInfoDialog* self) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_Destroy_IsBase(true);
@@ -1777,7 +1777,7 @@ bool KSslInfoDialog_FocusNextChild(KSslInfoDialog* self) {
 }
 
 // Base class handler implementation
-bool KSslInfoDialog_QBaseFocusNextChild(KSslInfoDialog* self) {
+bool KSslInfoDialog_SuperFocusNextChild(KSslInfoDialog* self) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_FocusNextChild_IsBase(true);
@@ -1806,7 +1806,7 @@ bool KSslInfoDialog_FocusPreviousChild(KSslInfoDialog* self) {
 }
 
 // Base class handler implementation
-bool KSslInfoDialog_QBaseFocusPreviousChild(KSslInfoDialog* self) {
+bool KSslInfoDialog_SuperFocusPreviousChild(KSslInfoDialog* self) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_FocusPreviousChild_IsBase(true);
@@ -1835,7 +1835,7 @@ QObject* KSslInfoDialog_Sender(const KSslInfoDialog* self) {
 }
 
 // Base class handler implementation
-QObject* KSslInfoDialog_QBaseSender(const KSslInfoDialog* self) {
+QObject* KSslInfoDialog_SuperSender(const KSslInfoDialog* self) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_Sender_IsBase(true);
@@ -1864,7 +1864,7 @@ int KSslInfoDialog_SenderSignalIndex(const KSslInfoDialog* self) {
 }
 
 // Base class handler implementation
-int KSslInfoDialog_QBaseSenderSignalIndex(const KSslInfoDialog* self) {
+int KSslInfoDialog_SuperSenderSignalIndex(const KSslInfoDialog* self) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_SenderSignalIndex_IsBase(true);
@@ -1893,7 +1893,7 @@ int KSslInfoDialog_Receivers(const KSslInfoDialog* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KSslInfoDialog_QBaseReceivers(const KSslInfoDialog* self, const char* signal) {
+int KSslInfoDialog_SuperReceivers(const KSslInfoDialog* self, const char* signal) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_Receivers_IsBase(true);
@@ -1922,7 +1922,7 @@ bool KSslInfoDialog_IsSignalConnected(const KSslInfoDialog* self, const QMetaMet
 }
 
 // Base class handler implementation
-bool KSslInfoDialog_QBaseIsSignalConnected(const KSslInfoDialog* self, const QMetaMethod* signal) {
+bool KSslInfoDialog_SuperIsSignalConnected(const KSslInfoDialog* self, const QMetaMethod* signal) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_IsSignalConnected_IsBase(true);
@@ -1951,7 +1951,7 @@ double KSslInfoDialog_GetDecodedMetricF(const KSslInfoDialog* self, int metricA,
 }
 
 // Base class handler implementation
-double KSslInfoDialog_QBaseGetDecodedMetricF(const KSslInfoDialog* self, int metricA, int metricB) {
+double KSslInfoDialog_SuperGetDecodedMetricF(const KSslInfoDialog* self, int metricA, int metricB) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
     if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
         vksslinfodialog->setKSslInfoDialog_GetDecodedMetricF_IsBase(true);

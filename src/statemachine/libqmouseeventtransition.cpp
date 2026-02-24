@@ -99,7 +99,7 @@ bool QMouseEventTransition_EventTest(QMouseEventTransition* self, QEvent* event)
 }
 
 // Base class handler implementation
-QMetaObject* QMouseEventTransition_QBaseMetaObject(const QMouseEventTransition* self) {
+QMetaObject* QMouseEventTransition_SuperMetaObject(const QMouseEventTransition* self) {
     auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
     if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
         vqmouseeventtransition->setQMouseEventTransition_MetaObject_IsBase(true);
@@ -118,7 +118,7 @@ void QMouseEventTransition_OnMetaObject(const QMouseEventTransition* self, intpt
 }
 
 // Base class handler implementation
-void* QMouseEventTransition_QBaseMetacast(QMouseEventTransition* self, const char* param1) {
+void* QMouseEventTransition_SuperMetacast(QMouseEventTransition* self, const char* param1) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
     if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
         vqmouseeventtransition->setQMouseEventTransition_Metacast_IsBase(true);
@@ -137,7 +137,7 @@ void QMouseEventTransition_OnMetacast(QMouseEventTransition* self, intptr_t slot
 }
 
 // Base class handler implementation
-int QMouseEventTransition_QBaseMetacall(QMouseEventTransition* self, int param1, int param2, void** param3) {
+int QMouseEventTransition_SuperMetacall(QMouseEventTransition* self, int param1, int param2, void** param3) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
     if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
         vqmouseeventtransition->setQMouseEventTransition_Metacall_IsBase(true);
@@ -156,7 +156,7 @@ void QMouseEventTransition_OnMetacall(QMouseEventTransition* self, intptr_t slot
 }
 
 // Base class handler implementation
-void QMouseEventTransition_QBaseOnTransition(QMouseEventTransition* self, QEvent* event) {
+void QMouseEventTransition_SuperOnTransition(QMouseEventTransition* self, QEvent* event) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
     if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
         vqmouseeventtransition->setQMouseEventTransition_OnTransition_IsBase(true);
@@ -175,7 +175,7 @@ void QMouseEventTransition_OnOnTransition(QMouseEventTransition* self, intptr_t 
 }
 
 // Base class handler implementation
-bool QMouseEventTransition_QBaseEventTest(QMouseEventTransition* self, QEvent* event) {
+bool QMouseEventTransition_SuperEventTest(QMouseEventTransition* self, QEvent* event) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
     if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
         vqmouseeventtransition->setQMouseEventTransition_EventTest_IsBase(true);
@@ -204,7 +204,7 @@ bool QMouseEventTransition_Event(QMouseEventTransition* self, QEvent* e) {
 }
 
 // Base class handler implementation
-bool QMouseEventTransition_QBaseEvent(QMouseEventTransition* self, QEvent* e) {
+bool QMouseEventTransition_SuperEvent(QMouseEventTransition* self, QEvent* e) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
     if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
         vqmouseeventtransition->setQMouseEventTransition_Event_IsBase(true);
@@ -233,7 +233,7 @@ bool QMouseEventTransition_EventFilter(QMouseEventTransition* self, QObject* wat
 }
 
 // Base class handler implementation
-bool QMouseEventTransition_QBaseEventFilter(QMouseEventTransition* self, QObject* watched, QEvent* event) {
+bool QMouseEventTransition_SuperEventFilter(QMouseEventTransition* self, QObject* watched, QEvent* event) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
     if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
         vqmouseeventtransition->setQMouseEventTransition_EventFilter_IsBase(true);
@@ -262,7 +262,7 @@ void QMouseEventTransition_TimerEvent(QMouseEventTransition* self, QTimerEvent* 
 }
 
 // Base class handler implementation
-void QMouseEventTransition_QBaseTimerEvent(QMouseEventTransition* self, QTimerEvent* event) {
+void QMouseEventTransition_SuperTimerEvent(QMouseEventTransition* self, QTimerEvent* event) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
     if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
         vqmouseeventtransition->setQMouseEventTransition_TimerEvent_IsBase(true);
@@ -291,7 +291,7 @@ void QMouseEventTransition_ChildEvent(QMouseEventTransition* self, QChildEvent* 
 }
 
 // Base class handler implementation
-void QMouseEventTransition_QBaseChildEvent(QMouseEventTransition* self, QChildEvent* event) {
+void QMouseEventTransition_SuperChildEvent(QMouseEventTransition* self, QChildEvent* event) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
     if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
         vqmouseeventtransition->setQMouseEventTransition_ChildEvent_IsBase(true);
@@ -320,7 +320,7 @@ void QMouseEventTransition_CustomEvent(QMouseEventTransition* self, QEvent* even
 }
 
 // Base class handler implementation
-void QMouseEventTransition_QBaseCustomEvent(QMouseEventTransition* self, QEvent* event) {
+void QMouseEventTransition_SuperCustomEvent(QMouseEventTransition* self, QEvent* event) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
     if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
         vqmouseeventtransition->setQMouseEventTransition_CustomEvent_IsBase(true);
@@ -349,7 +349,7 @@ void QMouseEventTransition_ConnectNotify(QMouseEventTransition* self, const QMet
 }
 
 // Base class handler implementation
-void QMouseEventTransition_QBaseConnectNotify(QMouseEventTransition* self, const QMetaMethod* signal) {
+void QMouseEventTransition_SuperConnectNotify(QMouseEventTransition* self, const QMetaMethod* signal) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
     if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
         vqmouseeventtransition->setQMouseEventTransition_ConnectNotify_IsBase(true);
@@ -378,7 +378,7 @@ void QMouseEventTransition_DisconnectNotify(QMouseEventTransition* self, const Q
 }
 
 // Base class handler implementation
-void QMouseEventTransition_QBaseDisconnectNotify(QMouseEventTransition* self, const QMetaMethod* signal) {
+void QMouseEventTransition_SuperDisconnectNotify(QMouseEventTransition* self, const QMetaMethod* signal) {
     auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
     if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
         vqmouseeventtransition->setQMouseEventTransition_DisconnectNotify_IsBase(true);
@@ -407,7 +407,7 @@ QObject* QMouseEventTransition_Sender(const QMouseEventTransition* self) {
 }
 
 // Base class handler implementation
-QObject* QMouseEventTransition_QBaseSender(const QMouseEventTransition* self) {
+QObject* QMouseEventTransition_SuperSender(const QMouseEventTransition* self) {
     auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
     if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
         vqmouseeventtransition->setQMouseEventTransition_Sender_IsBase(true);
@@ -436,7 +436,7 @@ int QMouseEventTransition_SenderSignalIndex(const QMouseEventTransition* self) {
 }
 
 // Base class handler implementation
-int QMouseEventTransition_QBaseSenderSignalIndex(const QMouseEventTransition* self) {
+int QMouseEventTransition_SuperSenderSignalIndex(const QMouseEventTransition* self) {
     auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
     if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
         vqmouseeventtransition->setQMouseEventTransition_SenderSignalIndex_IsBase(true);
@@ -465,7 +465,7 @@ int QMouseEventTransition_Receivers(const QMouseEventTransition* self, const cha
 }
 
 // Base class handler implementation
-int QMouseEventTransition_QBaseReceivers(const QMouseEventTransition* self, const char* signal) {
+int QMouseEventTransition_SuperReceivers(const QMouseEventTransition* self, const char* signal) {
     auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
     if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
         vqmouseeventtransition->setQMouseEventTransition_Receivers_IsBase(true);
@@ -494,7 +494,7 @@ bool QMouseEventTransition_IsSignalConnected(const QMouseEventTransition* self, 
 }
 
 // Base class handler implementation
-bool QMouseEventTransition_QBaseIsSignalConnected(const QMouseEventTransition* self, const QMetaMethod* signal) {
+bool QMouseEventTransition_SuperIsSignalConnected(const QMouseEventTransition* self, const QMetaMethod* signal) {
     auto* vqmouseeventtransition = const_cast<VirtualQMouseEventTransition*>(dynamic_cast<const VirtualQMouseEventTransition*>(self));
     if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
         vqmouseeventtransition->setQMouseEventTransition_IsSignalConnected_IsBase(true);

@@ -115,6 +115,10 @@ pub const qgeoshape = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoshape.html#dtor.QGeoShape)
     ///
     /// Delete this object from C++ memory.
@@ -123,7 +127,7 @@ pub const qgeoshape = struct {
     ///
     /// ` self: QtC.QGeoShape `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGeoShape_Delete(@ptrCast(self));
     }
 };

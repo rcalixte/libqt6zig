@@ -376,6 +376,10 @@ pub const kuser = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kuser.html#dtor.KUser)
     ///
     /// Delete this object from C++ memory.
@@ -384,7 +388,7 @@ pub const kuser = struct {
     ///
     /// ` self: QtC.KUser `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KUser_Delete(@ptrCast(self));
     }
 };
@@ -692,6 +696,10 @@ pub const kusergroup = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kusergroup.html#dtor.KUserGroup)
     ///
     /// Delete this object from C++ memory.
@@ -700,7 +708,7 @@ pub const kusergroup = struct {
     ///
     /// ` self: QtC.KUserGroup `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KUserGroup_Delete(@ptrCast(self));
     }
 };

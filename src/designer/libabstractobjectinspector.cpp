@@ -95,7 +95,7 @@ void QDesignerObjectInspectorInterface_SetFormWindow(QDesignerObjectInspectorInt
 }
 
 // Base class handler implementation
-QMetaObject* QDesignerObjectInspectorInterface_QBaseMetaObject(const QDesignerObjectInspectorInterface* self) {
+QMetaObject* QDesignerObjectInspectorInterface_SuperMetaObject(const QDesignerObjectInspectorInterface* self) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_MetaObject_IsBase(true);
@@ -114,7 +114,7 @@ void QDesignerObjectInspectorInterface_OnMetaObject(const QDesignerObjectInspect
 }
 
 // Base class handler implementation
-void* QDesignerObjectInspectorInterface_QBaseMetacast(QDesignerObjectInspectorInterface* self, const char* param1) {
+void* QDesignerObjectInspectorInterface_SuperMetacast(QDesignerObjectInspectorInterface* self, const char* param1) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Metacast_IsBase(true);
@@ -133,7 +133,7 @@ void QDesignerObjectInspectorInterface_OnMetacast(QDesignerObjectInspectorInterf
 }
 
 // Base class handler implementation
-int QDesignerObjectInspectorInterface_QBaseMetacall(QDesignerObjectInspectorInterface* self, int param1, int param2, void** param3) {
+int QDesignerObjectInspectorInterface_SuperMetacall(QDesignerObjectInspectorInterface* self, int param1, int param2, void** param3) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Metacall_IsBase(true);
@@ -152,7 +152,7 @@ void QDesignerObjectInspectorInterface_OnMetacall(QDesignerObjectInspectorInterf
 }
 
 // Base class handler implementation
-QDesignerFormEditorInterface* QDesignerObjectInspectorInterface_QBaseCore(const QDesignerObjectInspectorInterface* self) {
+QDesignerFormEditorInterface* QDesignerObjectInspectorInterface_SuperCore(const QDesignerObjectInspectorInterface* self) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Core_IsBase(true);
@@ -171,7 +171,7 @@ void QDesignerObjectInspectorInterface_OnCore(const QDesignerObjectInspectorInte
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseSetFormWindow(QDesignerObjectInspectorInterface* self, QDesignerFormWindowInterface* formWindow) {
+void QDesignerObjectInspectorInterface_SuperSetFormWindow(QDesignerObjectInspectorInterface* self, QDesignerFormWindowInterface* formWindow) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_SetFormWindow_IsBase(true);
@@ -200,7 +200,7 @@ int QDesignerObjectInspectorInterface_DevType(const QDesignerObjectInspectorInte
 }
 
 // Base class handler implementation
-int QDesignerObjectInspectorInterface_QBaseDevType(const QDesignerObjectInspectorInterface* self) {
+int QDesignerObjectInspectorInterface_SuperDevType(const QDesignerObjectInspectorInterface* self) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_DevType_IsBase(true);
@@ -229,7 +229,7 @@ void QDesignerObjectInspectorInterface_SetVisible(QDesignerObjectInspectorInterf
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseSetVisible(QDesignerObjectInspectorInterface* self, bool visible) {
+void QDesignerObjectInspectorInterface_SuperSetVisible(QDesignerObjectInspectorInterface* self, bool visible) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_SetVisible_IsBase(true);
@@ -258,7 +258,7 @@ QSize* QDesignerObjectInspectorInterface_SizeHint(const QDesignerObjectInspector
 }
 
 // Base class handler implementation
-QSize* QDesignerObjectInspectorInterface_QBaseSizeHint(const QDesignerObjectInspectorInterface* self) {
+QSize* QDesignerObjectInspectorInterface_SuperSizeHint(const QDesignerObjectInspectorInterface* self) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_SizeHint_IsBase(true);
@@ -287,7 +287,7 @@ QSize* QDesignerObjectInspectorInterface_MinimumSizeHint(const QDesignerObjectIn
 }
 
 // Base class handler implementation
-QSize* QDesignerObjectInspectorInterface_QBaseMinimumSizeHint(const QDesignerObjectInspectorInterface* self) {
+QSize* QDesignerObjectInspectorInterface_SuperMinimumSizeHint(const QDesignerObjectInspectorInterface* self) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_MinimumSizeHint_IsBase(true);
@@ -316,7 +316,7 @@ int QDesignerObjectInspectorInterface_HeightForWidth(const QDesignerObjectInspec
 }
 
 // Base class handler implementation
-int QDesignerObjectInspectorInterface_QBaseHeightForWidth(const QDesignerObjectInspectorInterface* self, int param1) {
+int QDesignerObjectInspectorInterface_SuperHeightForWidth(const QDesignerObjectInspectorInterface* self, int param1) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_HeightForWidth_IsBase(true);
@@ -345,7 +345,7 @@ bool QDesignerObjectInspectorInterface_HasHeightForWidth(const QDesignerObjectIn
 }
 
 // Base class handler implementation
-bool QDesignerObjectInspectorInterface_QBaseHasHeightForWidth(const QDesignerObjectInspectorInterface* self) {
+bool QDesignerObjectInspectorInterface_SuperHasHeightForWidth(const QDesignerObjectInspectorInterface* self) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_HasHeightForWidth_IsBase(true);
@@ -374,7 +374,7 @@ QPaintEngine* QDesignerObjectInspectorInterface_PaintEngine(const QDesignerObjec
 }
 
 // Base class handler implementation
-QPaintEngine* QDesignerObjectInspectorInterface_QBasePaintEngine(const QDesignerObjectInspectorInterface* self) {
+QPaintEngine* QDesignerObjectInspectorInterface_SuperPaintEngine(const QDesignerObjectInspectorInterface* self) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_PaintEngine_IsBase(true);
@@ -403,7 +403,7 @@ bool QDesignerObjectInspectorInterface_Event(QDesignerObjectInspectorInterface* 
 }
 
 // Base class handler implementation
-bool QDesignerObjectInspectorInterface_QBaseEvent(QDesignerObjectInspectorInterface* self, QEvent* event) {
+bool QDesignerObjectInspectorInterface_SuperEvent(QDesignerObjectInspectorInterface* self, QEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Event_IsBase(true);
@@ -432,7 +432,7 @@ void QDesignerObjectInspectorInterface_MousePressEvent(QDesignerObjectInspectorI
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseMousePressEvent(QDesignerObjectInspectorInterface* self, QMouseEvent* event) {
+void QDesignerObjectInspectorInterface_SuperMousePressEvent(QDesignerObjectInspectorInterface* self, QMouseEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_MousePressEvent_IsBase(true);
@@ -461,7 +461,7 @@ void QDesignerObjectInspectorInterface_MouseReleaseEvent(QDesignerObjectInspecto
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseMouseReleaseEvent(QDesignerObjectInspectorInterface* self, QMouseEvent* event) {
+void QDesignerObjectInspectorInterface_SuperMouseReleaseEvent(QDesignerObjectInspectorInterface* self, QMouseEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_MouseReleaseEvent_IsBase(true);
@@ -490,7 +490,7 @@ void QDesignerObjectInspectorInterface_MouseDoubleClickEvent(QDesignerObjectInsp
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseMouseDoubleClickEvent(QDesignerObjectInspectorInterface* self, QMouseEvent* event) {
+void QDesignerObjectInspectorInterface_SuperMouseDoubleClickEvent(QDesignerObjectInspectorInterface* self, QMouseEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_MouseDoubleClickEvent_IsBase(true);
@@ -519,7 +519,7 @@ void QDesignerObjectInspectorInterface_MouseMoveEvent(QDesignerObjectInspectorIn
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseMouseMoveEvent(QDesignerObjectInspectorInterface* self, QMouseEvent* event) {
+void QDesignerObjectInspectorInterface_SuperMouseMoveEvent(QDesignerObjectInspectorInterface* self, QMouseEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_MouseMoveEvent_IsBase(true);
@@ -548,7 +548,7 @@ void QDesignerObjectInspectorInterface_WheelEvent(QDesignerObjectInspectorInterf
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseWheelEvent(QDesignerObjectInspectorInterface* self, QWheelEvent* event) {
+void QDesignerObjectInspectorInterface_SuperWheelEvent(QDesignerObjectInspectorInterface* self, QWheelEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_WheelEvent_IsBase(true);
@@ -577,7 +577,7 @@ void QDesignerObjectInspectorInterface_KeyPressEvent(QDesignerObjectInspectorInt
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseKeyPressEvent(QDesignerObjectInspectorInterface* self, QKeyEvent* event) {
+void QDesignerObjectInspectorInterface_SuperKeyPressEvent(QDesignerObjectInspectorInterface* self, QKeyEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_KeyPressEvent_IsBase(true);
@@ -606,7 +606,7 @@ void QDesignerObjectInspectorInterface_KeyReleaseEvent(QDesignerObjectInspectorI
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseKeyReleaseEvent(QDesignerObjectInspectorInterface* self, QKeyEvent* event) {
+void QDesignerObjectInspectorInterface_SuperKeyReleaseEvent(QDesignerObjectInspectorInterface* self, QKeyEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_KeyReleaseEvent_IsBase(true);
@@ -635,7 +635,7 @@ void QDesignerObjectInspectorInterface_FocusInEvent(QDesignerObjectInspectorInte
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseFocusInEvent(QDesignerObjectInspectorInterface* self, QFocusEvent* event) {
+void QDesignerObjectInspectorInterface_SuperFocusInEvent(QDesignerObjectInspectorInterface* self, QFocusEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_FocusInEvent_IsBase(true);
@@ -664,7 +664,7 @@ void QDesignerObjectInspectorInterface_FocusOutEvent(QDesignerObjectInspectorInt
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseFocusOutEvent(QDesignerObjectInspectorInterface* self, QFocusEvent* event) {
+void QDesignerObjectInspectorInterface_SuperFocusOutEvent(QDesignerObjectInspectorInterface* self, QFocusEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_FocusOutEvent_IsBase(true);
@@ -693,7 +693,7 @@ void QDesignerObjectInspectorInterface_EnterEvent(QDesignerObjectInspectorInterf
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseEnterEvent(QDesignerObjectInspectorInterface* self, QEnterEvent* event) {
+void QDesignerObjectInspectorInterface_SuperEnterEvent(QDesignerObjectInspectorInterface* self, QEnterEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_EnterEvent_IsBase(true);
@@ -722,7 +722,7 @@ void QDesignerObjectInspectorInterface_LeaveEvent(QDesignerObjectInspectorInterf
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseLeaveEvent(QDesignerObjectInspectorInterface* self, QEvent* event) {
+void QDesignerObjectInspectorInterface_SuperLeaveEvent(QDesignerObjectInspectorInterface* self, QEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_LeaveEvent_IsBase(true);
@@ -751,7 +751,7 @@ void QDesignerObjectInspectorInterface_PaintEvent(QDesignerObjectInspectorInterf
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBasePaintEvent(QDesignerObjectInspectorInterface* self, QPaintEvent* event) {
+void QDesignerObjectInspectorInterface_SuperPaintEvent(QDesignerObjectInspectorInterface* self, QPaintEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_PaintEvent_IsBase(true);
@@ -780,7 +780,7 @@ void QDesignerObjectInspectorInterface_MoveEvent(QDesignerObjectInspectorInterfa
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseMoveEvent(QDesignerObjectInspectorInterface* self, QMoveEvent* event) {
+void QDesignerObjectInspectorInterface_SuperMoveEvent(QDesignerObjectInspectorInterface* self, QMoveEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_MoveEvent_IsBase(true);
@@ -809,7 +809,7 @@ void QDesignerObjectInspectorInterface_ResizeEvent(QDesignerObjectInspectorInter
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseResizeEvent(QDesignerObjectInspectorInterface* self, QResizeEvent* event) {
+void QDesignerObjectInspectorInterface_SuperResizeEvent(QDesignerObjectInspectorInterface* self, QResizeEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_ResizeEvent_IsBase(true);
@@ -838,7 +838,7 @@ void QDesignerObjectInspectorInterface_CloseEvent(QDesignerObjectInspectorInterf
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseCloseEvent(QDesignerObjectInspectorInterface* self, QCloseEvent* event) {
+void QDesignerObjectInspectorInterface_SuperCloseEvent(QDesignerObjectInspectorInterface* self, QCloseEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_CloseEvent_IsBase(true);
@@ -867,7 +867,7 @@ void QDesignerObjectInspectorInterface_ContextMenuEvent(QDesignerObjectInspector
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseContextMenuEvent(QDesignerObjectInspectorInterface* self, QContextMenuEvent* event) {
+void QDesignerObjectInspectorInterface_SuperContextMenuEvent(QDesignerObjectInspectorInterface* self, QContextMenuEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_ContextMenuEvent_IsBase(true);
@@ -896,7 +896,7 @@ void QDesignerObjectInspectorInterface_TabletEvent(QDesignerObjectInspectorInter
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseTabletEvent(QDesignerObjectInspectorInterface* self, QTabletEvent* event) {
+void QDesignerObjectInspectorInterface_SuperTabletEvent(QDesignerObjectInspectorInterface* self, QTabletEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_TabletEvent_IsBase(true);
@@ -925,7 +925,7 @@ void QDesignerObjectInspectorInterface_ActionEvent(QDesignerObjectInspectorInter
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseActionEvent(QDesignerObjectInspectorInterface* self, QActionEvent* event) {
+void QDesignerObjectInspectorInterface_SuperActionEvent(QDesignerObjectInspectorInterface* self, QActionEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_ActionEvent_IsBase(true);
@@ -954,7 +954,7 @@ void QDesignerObjectInspectorInterface_DragEnterEvent(QDesignerObjectInspectorIn
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseDragEnterEvent(QDesignerObjectInspectorInterface* self, QDragEnterEvent* event) {
+void QDesignerObjectInspectorInterface_SuperDragEnterEvent(QDesignerObjectInspectorInterface* self, QDragEnterEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_DragEnterEvent_IsBase(true);
@@ -983,7 +983,7 @@ void QDesignerObjectInspectorInterface_DragMoveEvent(QDesignerObjectInspectorInt
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseDragMoveEvent(QDesignerObjectInspectorInterface* self, QDragMoveEvent* event) {
+void QDesignerObjectInspectorInterface_SuperDragMoveEvent(QDesignerObjectInspectorInterface* self, QDragMoveEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_DragMoveEvent_IsBase(true);
@@ -1012,7 +1012,7 @@ void QDesignerObjectInspectorInterface_DragLeaveEvent(QDesignerObjectInspectorIn
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseDragLeaveEvent(QDesignerObjectInspectorInterface* self, QDragLeaveEvent* event) {
+void QDesignerObjectInspectorInterface_SuperDragLeaveEvent(QDesignerObjectInspectorInterface* self, QDragLeaveEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_DragLeaveEvent_IsBase(true);
@@ -1041,7 +1041,7 @@ void QDesignerObjectInspectorInterface_DropEvent(QDesignerObjectInspectorInterfa
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseDropEvent(QDesignerObjectInspectorInterface* self, QDropEvent* event) {
+void QDesignerObjectInspectorInterface_SuperDropEvent(QDesignerObjectInspectorInterface* self, QDropEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_DropEvent_IsBase(true);
@@ -1070,7 +1070,7 @@ void QDesignerObjectInspectorInterface_ShowEvent(QDesignerObjectInspectorInterfa
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseShowEvent(QDesignerObjectInspectorInterface* self, QShowEvent* event) {
+void QDesignerObjectInspectorInterface_SuperShowEvent(QDesignerObjectInspectorInterface* self, QShowEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_ShowEvent_IsBase(true);
@@ -1099,7 +1099,7 @@ void QDesignerObjectInspectorInterface_HideEvent(QDesignerObjectInspectorInterfa
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseHideEvent(QDesignerObjectInspectorInterface* self, QHideEvent* event) {
+void QDesignerObjectInspectorInterface_SuperHideEvent(QDesignerObjectInspectorInterface* self, QHideEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_HideEvent_IsBase(true);
@@ -1129,7 +1129,7 @@ bool QDesignerObjectInspectorInterface_NativeEvent(QDesignerObjectInspectorInter
 }
 
 // Base class handler implementation
-bool QDesignerObjectInspectorInterface_QBaseNativeEvent(QDesignerObjectInspectorInterface* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QDesignerObjectInspectorInterface_SuperNativeEvent(QDesignerObjectInspectorInterface* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
@@ -1159,7 +1159,7 @@ void QDesignerObjectInspectorInterface_ChangeEvent(QDesignerObjectInspectorInter
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseChangeEvent(QDesignerObjectInspectorInterface* self, QEvent* param1) {
+void QDesignerObjectInspectorInterface_SuperChangeEvent(QDesignerObjectInspectorInterface* self, QEvent* param1) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_ChangeEvent_IsBase(true);
@@ -1188,7 +1188,7 @@ int QDesignerObjectInspectorInterface_Metric(const QDesignerObjectInspectorInter
 }
 
 // Base class handler implementation
-int QDesignerObjectInspectorInterface_QBaseMetric(const QDesignerObjectInspectorInterface* self, int param1) {
+int QDesignerObjectInspectorInterface_SuperMetric(const QDesignerObjectInspectorInterface* self, int param1) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Metric_IsBase(true);
@@ -1217,7 +1217,7 @@ void QDesignerObjectInspectorInterface_InitPainter(const QDesignerObjectInspecto
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseInitPainter(const QDesignerObjectInspectorInterface* self, QPainter* painter) {
+void QDesignerObjectInspectorInterface_SuperInitPainter(const QDesignerObjectInspectorInterface* self, QPainter* painter) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_InitPainter_IsBase(true);
@@ -1246,7 +1246,7 @@ QPaintDevice* QDesignerObjectInspectorInterface_Redirected(const QDesignerObject
 }
 
 // Base class handler implementation
-QPaintDevice* QDesignerObjectInspectorInterface_QBaseRedirected(const QDesignerObjectInspectorInterface* self, QPoint* offset) {
+QPaintDevice* QDesignerObjectInspectorInterface_SuperRedirected(const QDesignerObjectInspectorInterface* self, QPoint* offset) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Redirected_IsBase(true);
@@ -1275,7 +1275,7 @@ QPainter* QDesignerObjectInspectorInterface_SharedPainter(const QDesignerObjectI
 }
 
 // Base class handler implementation
-QPainter* QDesignerObjectInspectorInterface_QBaseSharedPainter(const QDesignerObjectInspectorInterface* self) {
+QPainter* QDesignerObjectInspectorInterface_SuperSharedPainter(const QDesignerObjectInspectorInterface* self) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_SharedPainter_IsBase(true);
@@ -1304,7 +1304,7 @@ void QDesignerObjectInspectorInterface_InputMethodEvent(QDesignerObjectInspector
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseInputMethodEvent(QDesignerObjectInspectorInterface* self, QInputMethodEvent* param1) {
+void QDesignerObjectInspectorInterface_SuperInputMethodEvent(QDesignerObjectInspectorInterface* self, QInputMethodEvent* param1) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_InputMethodEvent_IsBase(true);
@@ -1333,7 +1333,7 @@ QVariant* QDesignerObjectInspectorInterface_InputMethodQuery(const QDesignerObje
 }
 
 // Base class handler implementation
-QVariant* QDesignerObjectInspectorInterface_QBaseInputMethodQuery(const QDesignerObjectInspectorInterface* self, int param1) {
+QVariant* QDesignerObjectInspectorInterface_SuperInputMethodQuery(const QDesignerObjectInspectorInterface* self, int param1) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_InputMethodQuery_IsBase(true);
@@ -1362,7 +1362,7 @@ bool QDesignerObjectInspectorInterface_FocusNextPrevChild(QDesignerObjectInspect
 }
 
 // Base class handler implementation
-bool QDesignerObjectInspectorInterface_QBaseFocusNextPrevChild(QDesignerObjectInspectorInterface* self, bool next) {
+bool QDesignerObjectInspectorInterface_SuperFocusNextPrevChild(QDesignerObjectInspectorInterface* self, bool next) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_FocusNextPrevChild_IsBase(true);
@@ -1391,7 +1391,7 @@ bool QDesignerObjectInspectorInterface_EventFilter(QDesignerObjectInspectorInter
 }
 
 // Base class handler implementation
-bool QDesignerObjectInspectorInterface_QBaseEventFilter(QDesignerObjectInspectorInterface* self, QObject* watched, QEvent* event) {
+bool QDesignerObjectInspectorInterface_SuperEventFilter(QDesignerObjectInspectorInterface* self, QObject* watched, QEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_EventFilter_IsBase(true);
@@ -1420,7 +1420,7 @@ void QDesignerObjectInspectorInterface_TimerEvent(QDesignerObjectInspectorInterf
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseTimerEvent(QDesignerObjectInspectorInterface* self, QTimerEvent* event) {
+void QDesignerObjectInspectorInterface_SuperTimerEvent(QDesignerObjectInspectorInterface* self, QTimerEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_TimerEvent_IsBase(true);
@@ -1449,7 +1449,7 @@ void QDesignerObjectInspectorInterface_ChildEvent(QDesignerObjectInspectorInterf
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseChildEvent(QDesignerObjectInspectorInterface* self, QChildEvent* event) {
+void QDesignerObjectInspectorInterface_SuperChildEvent(QDesignerObjectInspectorInterface* self, QChildEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_ChildEvent_IsBase(true);
@@ -1478,7 +1478,7 @@ void QDesignerObjectInspectorInterface_CustomEvent(QDesignerObjectInspectorInter
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseCustomEvent(QDesignerObjectInspectorInterface* self, QEvent* event) {
+void QDesignerObjectInspectorInterface_SuperCustomEvent(QDesignerObjectInspectorInterface* self, QEvent* event) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_CustomEvent_IsBase(true);
@@ -1507,7 +1507,7 @@ void QDesignerObjectInspectorInterface_ConnectNotify(QDesignerObjectInspectorInt
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseConnectNotify(QDesignerObjectInspectorInterface* self, const QMetaMethod* signal) {
+void QDesignerObjectInspectorInterface_SuperConnectNotify(QDesignerObjectInspectorInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_ConnectNotify_IsBase(true);
@@ -1536,7 +1536,7 @@ void QDesignerObjectInspectorInterface_DisconnectNotify(QDesignerObjectInspector
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseDisconnectNotify(QDesignerObjectInspectorInterface* self, const QMetaMethod* signal) {
+void QDesignerObjectInspectorInterface_SuperDisconnectNotify(QDesignerObjectInspectorInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_DisconnectNotify_IsBase(true);
@@ -1565,7 +1565,7 @@ void QDesignerObjectInspectorInterface_UpdateMicroFocus(QDesignerObjectInspector
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseUpdateMicroFocus(QDesignerObjectInspectorInterface* self) {
+void QDesignerObjectInspectorInterface_SuperUpdateMicroFocus(QDesignerObjectInspectorInterface* self) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_UpdateMicroFocus_IsBase(true);
@@ -1594,7 +1594,7 @@ void QDesignerObjectInspectorInterface_Create(QDesignerObjectInspectorInterface*
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseCreate(QDesignerObjectInspectorInterface* self) {
+void QDesignerObjectInspectorInterface_SuperCreate(QDesignerObjectInspectorInterface* self) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Create_IsBase(true);
@@ -1623,7 +1623,7 @@ void QDesignerObjectInspectorInterface_Destroy(QDesignerObjectInspectorInterface
 }
 
 // Base class handler implementation
-void QDesignerObjectInspectorInterface_QBaseDestroy(QDesignerObjectInspectorInterface* self) {
+void QDesignerObjectInspectorInterface_SuperDestroy(QDesignerObjectInspectorInterface* self) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Destroy_IsBase(true);
@@ -1652,7 +1652,7 @@ bool QDesignerObjectInspectorInterface_FocusNextChild(QDesignerObjectInspectorIn
 }
 
 // Base class handler implementation
-bool QDesignerObjectInspectorInterface_QBaseFocusNextChild(QDesignerObjectInspectorInterface* self) {
+bool QDesignerObjectInspectorInterface_SuperFocusNextChild(QDesignerObjectInspectorInterface* self) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_FocusNextChild_IsBase(true);
@@ -1681,7 +1681,7 @@ bool QDesignerObjectInspectorInterface_FocusPreviousChild(QDesignerObjectInspect
 }
 
 // Base class handler implementation
-bool QDesignerObjectInspectorInterface_QBaseFocusPreviousChild(QDesignerObjectInspectorInterface* self) {
+bool QDesignerObjectInspectorInterface_SuperFocusPreviousChild(QDesignerObjectInspectorInterface* self) {
     auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_FocusPreviousChild_IsBase(true);
@@ -1710,7 +1710,7 @@ QObject* QDesignerObjectInspectorInterface_Sender(const QDesignerObjectInspector
 }
 
 // Base class handler implementation
-QObject* QDesignerObjectInspectorInterface_QBaseSender(const QDesignerObjectInspectorInterface* self) {
+QObject* QDesignerObjectInspectorInterface_SuperSender(const QDesignerObjectInspectorInterface* self) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Sender_IsBase(true);
@@ -1739,7 +1739,7 @@ int QDesignerObjectInspectorInterface_SenderSignalIndex(const QDesignerObjectIns
 }
 
 // Base class handler implementation
-int QDesignerObjectInspectorInterface_QBaseSenderSignalIndex(const QDesignerObjectInspectorInterface* self) {
+int QDesignerObjectInspectorInterface_SuperSenderSignalIndex(const QDesignerObjectInspectorInterface* self) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_SenderSignalIndex_IsBase(true);
@@ -1768,7 +1768,7 @@ int QDesignerObjectInspectorInterface_Receivers(const QDesignerObjectInspectorIn
 }
 
 // Base class handler implementation
-int QDesignerObjectInspectorInterface_QBaseReceivers(const QDesignerObjectInspectorInterface* self, const char* signal) {
+int QDesignerObjectInspectorInterface_SuperReceivers(const QDesignerObjectInspectorInterface* self, const char* signal) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Receivers_IsBase(true);
@@ -1797,7 +1797,7 @@ bool QDesignerObjectInspectorInterface_IsSignalConnected(const QDesignerObjectIn
 }
 
 // Base class handler implementation
-bool QDesignerObjectInspectorInterface_QBaseIsSignalConnected(const QDesignerObjectInspectorInterface* self, const QMetaMethod* signal) {
+bool QDesignerObjectInspectorInterface_SuperIsSignalConnected(const QDesignerObjectInspectorInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_IsSignalConnected_IsBase(true);
@@ -1826,7 +1826,7 @@ double QDesignerObjectInspectorInterface_GetDecodedMetricF(const QDesignerObject
 }
 
 // Base class handler implementation
-double QDesignerObjectInspectorInterface_QBaseGetDecodedMetricF(const QDesignerObjectInspectorInterface* self, int metricA, int metricB) {
+double QDesignerObjectInspectorInterface_SuperGetDecodedMetricF(const QDesignerObjectInspectorInterface* self, int metricA, int metricB) {
     auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
     if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
         vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_GetDecodedMetricF_IsBase(true);

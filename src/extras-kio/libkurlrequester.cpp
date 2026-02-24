@@ -377,7 +377,7 @@ bool KUrlRequester_EventFilter(KUrlRequester* self, QObject* obj, QEvent* ev) {
 }
 
 // Base class handler implementation
-QMetaObject* KUrlRequester_QBaseMetaObject(const KUrlRequester* self) {
+QMetaObject* KUrlRequester_SuperMetaObject(const KUrlRequester* self) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_MetaObject_IsBase(true);
@@ -396,7 +396,7 @@ void KUrlRequester_OnMetaObject(const KUrlRequester* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KUrlRequester_QBaseMetacast(KUrlRequester* self, const char* param1) {
+void* KUrlRequester_SuperMetacast(KUrlRequester* self, const char* param1) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_Metacast_IsBase(true);
@@ -415,7 +415,7 @@ void KUrlRequester_OnMetacast(KUrlRequester* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KUrlRequester_QBaseMetacall(KUrlRequester* self, int param1, int param2, void** param3) {
+int KUrlRequester_SuperMetacall(KUrlRequester* self, int param1, int param2, void** param3) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_Metacall_IsBase(true);
@@ -434,7 +434,7 @@ void KUrlRequester_OnMetacall(KUrlRequester* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QFileDialog* KUrlRequester_QBaseFileDialog(const KUrlRequester* self) {
+QFileDialog* KUrlRequester_SuperFileDialog(const KUrlRequester* self) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_FileDialog_IsBase(true);
@@ -453,7 +453,7 @@ void KUrlRequester_OnFileDialog(const KUrlRequester* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseChangeEvent(KUrlRequester* self, QEvent* e) {
+void KUrlRequester_SuperChangeEvent(KUrlRequester* self, QEvent* e) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_ChangeEvent_IsBase(true);
@@ -472,7 +472,7 @@ void KUrlRequester_OnChangeEvent(KUrlRequester* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KUrlRequester_QBaseEventFilter(KUrlRequester* self, QObject* obj, QEvent* ev) {
+bool KUrlRequester_SuperEventFilter(KUrlRequester* self, QObject* obj, QEvent* ev) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_EventFilter_IsBase(true);
@@ -501,7 +501,7 @@ int KUrlRequester_DevType(const KUrlRequester* self) {
 }
 
 // Base class handler implementation
-int KUrlRequester_QBaseDevType(const KUrlRequester* self) {
+int KUrlRequester_SuperDevType(const KUrlRequester* self) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_DevType_IsBase(true);
@@ -530,7 +530,7 @@ void KUrlRequester_SetVisible(KUrlRequester* self, bool visible) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseSetVisible(KUrlRequester* self, bool visible) {
+void KUrlRequester_SuperSetVisible(KUrlRequester* self, bool visible) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_SetVisible_IsBase(true);
@@ -559,7 +559,7 @@ QSize* KUrlRequester_SizeHint(const KUrlRequester* self) {
 }
 
 // Base class handler implementation
-QSize* KUrlRequester_QBaseSizeHint(const KUrlRequester* self) {
+QSize* KUrlRequester_SuperSizeHint(const KUrlRequester* self) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_SizeHint_IsBase(true);
@@ -588,7 +588,7 @@ QSize* KUrlRequester_MinimumSizeHint(const KUrlRequester* self) {
 }
 
 // Base class handler implementation
-QSize* KUrlRequester_QBaseMinimumSizeHint(const KUrlRequester* self) {
+QSize* KUrlRequester_SuperMinimumSizeHint(const KUrlRequester* self) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_MinimumSizeHint_IsBase(true);
@@ -617,7 +617,7 @@ int KUrlRequester_HeightForWidth(const KUrlRequester* self, int param1) {
 }
 
 // Base class handler implementation
-int KUrlRequester_QBaseHeightForWidth(const KUrlRequester* self, int param1) {
+int KUrlRequester_SuperHeightForWidth(const KUrlRequester* self, int param1) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_HeightForWidth_IsBase(true);
@@ -646,7 +646,7 @@ bool KUrlRequester_HasHeightForWidth(const KUrlRequester* self) {
 }
 
 // Base class handler implementation
-bool KUrlRequester_QBaseHasHeightForWidth(const KUrlRequester* self) {
+bool KUrlRequester_SuperHasHeightForWidth(const KUrlRequester* self) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_HasHeightForWidth_IsBase(true);
@@ -675,7 +675,7 @@ QPaintEngine* KUrlRequester_PaintEngine(const KUrlRequester* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KUrlRequester_QBasePaintEngine(const KUrlRequester* self) {
+QPaintEngine* KUrlRequester_SuperPaintEngine(const KUrlRequester* self) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_PaintEngine_IsBase(true);
@@ -704,7 +704,7 @@ bool KUrlRequester_Event(KUrlRequester* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KUrlRequester_QBaseEvent(KUrlRequester* self, QEvent* event) {
+bool KUrlRequester_SuperEvent(KUrlRequester* self, QEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_Event_IsBase(true);
@@ -733,7 +733,7 @@ void KUrlRequester_MousePressEvent(KUrlRequester* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseMousePressEvent(KUrlRequester* self, QMouseEvent* event) {
+void KUrlRequester_SuperMousePressEvent(KUrlRequester* self, QMouseEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_MousePressEvent_IsBase(true);
@@ -762,7 +762,7 @@ void KUrlRequester_MouseReleaseEvent(KUrlRequester* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseMouseReleaseEvent(KUrlRequester* self, QMouseEvent* event) {
+void KUrlRequester_SuperMouseReleaseEvent(KUrlRequester* self, QMouseEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_MouseReleaseEvent_IsBase(true);
@@ -791,7 +791,7 @@ void KUrlRequester_MouseDoubleClickEvent(KUrlRequester* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseMouseDoubleClickEvent(KUrlRequester* self, QMouseEvent* event) {
+void KUrlRequester_SuperMouseDoubleClickEvent(KUrlRequester* self, QMouseEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_MouseDoubleClickEvent_IsBase(true);
@@ -820,7 +820,7 @@ void KUrlRequester_MouseMoveEvent(KUrlRequester* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseMouseMoveEvent(KUrlRequester* self, QMouseEvent* event) {
+void KUrlRequester_SuperMouseMoveEvent(KUrlRequester* self, QMouseEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_MouseMoveEvent_IsBase(true);
@@ -849,7 +849,7 @@ void KUrlRequester_WheelEvent(KUrlRequester* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseWheelEvent(KUrlRequester* self, QWheelEvent* event) {
+void KUrlRequester_SuperWheelEvent(KUrlRequester* self, QWheelEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_WheelEvent_IsBase(true);
@@ -878,7 +878,7 @@ void KUrlRequester_KeyPressEvent(KUrlRequester* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseKeyPressEvent(KUrlRequester* self, QKeyEvent* event) {
+void KUrlRequester_SuperKeyPressEvent(KUrlRequester* self, QKeyEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_KeyPressEvent_IsBase(true);
@@ -907,7 +907,7 @@ void KUrlRequester_KeyReleaseEvent(KUrlRequester* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseKeyReleaseEvent(KUrlRequester* self, QKeyEvent* event) {
+void KUrlRequester_SuperKeyReleaseEvent(KUrlRequester* self, QKeyEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_KeyReleaseEvent_IsBase(true);
@@ -936,7 +936,7 @@ void KUrlRequester_FocusInEvent(KUrlRequester* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseFocusInEvent(KUrlRequester* self, QFocusEvent* event) {
+void KUrlRequester_SuperFocusInEvent(KUrlRequester* self, QFocusEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_FocusInEvent_IsBase(true);
@@ -965,7 +965,7 @@ void KUrlRequester_FocusOutEvent(KUrlRequester* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseFocusOutEvent(KUrlRequester* self, QFocusEvent* event) {
+void KUrlRequester_SuperFocusOutEvent(KUrlRequester* self, QFocusEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_FocusOutEvent_IsBase(true);
@@ -994,7 +994,7 @@ void KUrlRequester_EnterEvent(KUrlRequester* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseEnterEvent(KUrlRequester* self, QEnterEvent* event) {
+void KUrlRequester_SuperEnterEvent(KUrlRequester* self, QEnterEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_EnterEvent_IsBase(true);
@@ -1023,7 +1023,7 @@ void KUrlRequester_LeaveEvent(KUrlRequester* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseLeaveEvent(KUrlRequester* self, QEvent* event) {
+void KUrlRequester_SuperLeaveEvent(KUrlRequester* self, QEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_LeaveEvent_IsBase(true);
@@ -1052,7 +1052,7 @@ void KUrlRequester_PaintEvent(KUrlRequester* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBasePaintEvent(KUrlRequester* self, QPaintEvent* event) {
+void KUrlRequester_SuperPaintEvent(KUrlRequester* self, QPaintEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_PaintEvent_IsBase(true);
@@ -1081,7 +1081,7 @@ void KUrlRequester_MoveEvent(KUrlRequester* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseMoveEvent(KUrlRequester* self, QMoveEvent* event) {
+void KUrlRequester_SuperMoveEvent(KUrlRequester* self, QMoveEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_MoveEvent_IsBase(true);
@@ -1110,7 +1110,7 @@ void KUrlRequester_ResizeEvent(KUrlRequester* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseResizeEvent(KUrlRequester* self, QResizeEvent* event) {
+void KUrlRequester_SuperResizeEvent(KUrlRequester* self, QResizeEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_ResizeEvent_IsBase(true);
@@ -1139,7 +1139,7 @@ void KUrlRequester_CloseEvent(KUrlRequester* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseCloseEvent(KUrlRequester* self, QCloseEvent* event) {
+void KUrlRequester_SuperCloseEvent(KUrlRequester* self, QCloseEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_CloseEvent_IsBase(true);
@@ -1168,7 +1168,7 @@ void KUrlRequester_ContextMenuEvent(KUrlRequester* self, QContextMenuEvent* even
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseContextMenuEvent(KUrlRequester* self, QContextMenuEvent* event) {
+void KUrlRequester_SuperContextMenuEvent(KUrlRequester* self, QContextMenuEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_ContextMenuEvent_IsBase(true);
@@ -1197,7 +1197,7 @@ void KUrlRequester_TabletEvent(KUrlRequester* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseTabletEvent(KUrlRequester* self, QTabletEvent* event) {
+void KUrlRequester_SuperTabletEvent(KUrlRequester* self, QTabletEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_TabletEvent_IsBase(true);
@@ -1226,7 +1226,7 @@ void KUrlRequester_ActionEvent(KUrlRequester* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseActionEvent(KUrlRequester* self, QActionEvent* event) {
+void KUrlRequester_SuperActionEvent(KUrlRequester* self, QActionEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_ActionEvent_IsBase(true);
@@ -1255,7 +1255,7 @@ void KUrlRequester_DragEnterEvent(KUrlRequester* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseDragEnterEvent(KUrlRequester* self, QDragEnterEvent* event) {
+void KUrlRequester_SuperDragEnterEvent(KUrlRequester* self, QDragEnterEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_DragEnterEvent_IsBase(true);
@@ -1284,7 +1284,7 @@ void KUrlRequester_DragMoveEvent(KUrlRequester* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseDragMoveEvent(KUrlRequester* self, QDragMoveEvent* event) {
+void KUrlRequester_SuperDragMoveEvent(KUrlRequester* self, QDragMoveEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_DragMoveEvent_IsBase(true);
@@ -1313,7 +1313,7 @@ void KUrlRequester_DragLeaveEvent(KUrlRequester* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseDragLeaveEvent(KUrlRequester* self, QDragLeaveEvent* event) {
+void KUrlRequester_SuperDragLeaveEvent(KUrlRequester* self, QDragLeaveEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_DragLeaveEvent_IsBase(true);
@@ -1342,7 +1342,7 @@ void KUrlRequester_DropEvent(KUrlRequester* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseDropEvent(KUrlRequester* self, QDropEvent* event) {
+void KUrlRequester_SuperDropEvent(KUrlRequester* self, QDropEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_DropEvent_IsBase(true);
@@ -1371,7 +1371,7 @@ void KUrlRequester_ShowEvent(KUrlRequester* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseShowEvent(KUrlRequester* self, QShowEvent* event) {
+void KUrlRequester_SuperShowEvent(KUrlRequester* self, QShowEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_ShowEvent_IsBase(true);
@@ -1400,7 +1400,7 @@ void KUrlRequester_HideEvent(KUrlRequester* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseHideEvent(KUrlRequester* self, QHideEvent* event) {
+void KUrlRequester_SuperHideEvent(KUrlRequester* self, QHideEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_HideEvent_IsBase(true);
@@ -1430,7 +1430,7 @@ bool KUrlRequester_NativeEvent(KUrlRequester* self, const libqt_string eventType
 }
 
 // Base class handler implementation
-bool KUrlRequester_QBaseNativeEvent(KUrlRequester* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KUrlRequester_SuperNativeEvent(KUrlRequester* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
@@ -1460,7 +1460,7 @@ int KUrlRequester_Metric(const KUrlRequester* self, int param1) {
 }
 
 // Base class handler implementation
-int KUrlRequester_QBaseMetric(const KUrlRequester* self, int param1) {
+int KUrlRequester_SuperMetric(const KUrlRequester* self, int param1) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_Metric_IsBase(true);
@@ -1489,7 +1489,7 @@ void KUrlRequester_InitPainter(const KUrlRequester* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseInitPainter(const KUrlRequester* self, QPainter* painter) {
+void KUrlRequester_SuperInitPainter(const KUrlRequester* self, QPainter* painter) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_InitPainter_IsBase(true);
@@ -1518,7 +1518,7 @@ QPaintDevice* KUrlRequester_Redirected(const KUrlRequester* self, QPoint* offset
 }
 
 // Base class handler implementation
-QPaintDevice* KUrlRequester_QBaseRedirected(const KUrlRequester* self, QPoint* offset) {
+QPaintDevice* KUrlRequester_SuperRedirected(const KUrlRequester* self, QPoint* offset) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_Redirected_IsBase(true);
@@ -1547,7 +1547,7 @@ QPainter* KUrlRequester_SharedPainter(const KUrlRequester* self) {
 }
 
 // Base class handler implementation
-QPainter* KUrlRequester_QBaseSharedPainter(const KUrlRequester* self) {
+QPainter* KUrlRequester_SuperSharedPainter(const KUrlRequester* self) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_SharedPainter_IsBase(true);
@@ -1576,7 +1576,7 @@ void KUrlRequester_InputMethodEvent(KUrlRequester* self, QInputMethodEvent* para
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseInputMethodEvent(KUrlRequester* self, QInputMethodEvent* param1) {
+void KUrlRequester_SuperInputMethodEvent(KUrlRequester* self, QInputMethodEvent* param1) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_InputMethodEvent_IsBase(true);
@@ -1605,7 +1605,7 @@ QVariant* KUrlRequester_InputMethodQuery(const KUrlRequester* self, int param1) 
 }
 
 // Base class handler implementation
-QVariant* KUrlRequester_QBaseInputMethodQuery(const KUrlRequester* self, int param1) {
+QVariant* KUrlRequester_SuperInputMethodQuery(const KUrlRequester* self, int param1) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_InputMethodQuery_IsBase(true);
@@ -1634,7 +1634,7 @@ bool KUrlRequester_FocusNextPrevChild(KUrlRequester* self, bool next) {
 }
 
 // Base class handler implementation
-bool KUrlRequester_QBaseFocusNextPrevChild(KUrlRequester* self, bool next) {
+bool KUrlRequester_SuperFocusNextPrevChild(KUrlRequester* self, bool next) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_FocusNextPrevChild_IsBase(true);
@@ -1663,7 +1663,7 @@ void KUrlRequester_TimerEvent(KUrlRequester* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseTimerEvent(KUrlRequester* self, QTimerEvent* event) {
+void KUrlRequester_SuperTimerEvent(KUrlRequester* self, QTimerEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_TimerEvent_IsBase(true);
@@ -1692,7 +1692,7 @@ void KUrlRequester_ChildEvent(KUrlRequester* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseChildEvent(KUrlRequester* self, QChildEvent* event) {
+void KUrlRequester_SuperChildEvent(KUrlRequester* self, QChildEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_ChildEvent_IsBase(true);
@@ -1721,7 +1721,7 @@ void KUrlRequester_CustomEvent(KUrlRequester* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseCustomEvent(KUrlRequester* self, QEvent* event) {
+void KUrlRequester_SuperCustomEvent(KUrlRequester* self, QEvent* event) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_CustomEvent_IsBase(true);
@@ -1750,7 +1750,7 @@ void KUrlRequester_ConnectNotify(KUrlRequester* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseConnectNotify(KUrlRequester* self, const QMetaMethod* signal) {
+void KUrlRequester_SuperConnectNotify(KUrlRequester* self, const QMetaMethod* signal) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_ConnectNotify_IsBase(true);
@@ -1779,7 +1779,7 @@ void KUrlRequester_DisconnectNotify(KUrlRequester* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseDisconnectNotify(KUrlRequester* self, const QMetaMethod* signal) {
+void KUrlRequester_SuperDisconnectNotify(KUrlRequester* self, const QMetaMethod* signal) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_DisconnectNotify_IsBase(true);
@@ -1808,7 +1808,7 @@ void KUrlRequester_UpdateMicroFocus(KUrlRequester* self) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseUpdateMicroFocus(KUrlRequester* self) {
+void KUrlRequester_SuperUpdateMicroFocus(KUrlRequester* self) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_UpdateMicroFocus_IsBase(true);
@@ -1837,7 +1837,7 @@ void KUrlRequester_Create(KUrlRequester* self) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseCreate(KUrlRequester* self) {
+void KUrlRequester_SuperCreate(KUrlRequester* self) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_Create_IsBase(true);
@@ -1866,7 +1866,7 @@ void KUrlRequester_Destroy(KUrlRequester* self) {
 }
 
 // Base class handler implementation
-void KUrlRequester_QBaseDestroy(KUrlRequester* self) {
+void KUrlRequester_SuperDestroy(KUrlRequester* self) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_Destroy_IsBase(true);
@@ -1895,7 +1895,7 @@ bool KUrlRequester_FocusNextChild(KUrlRequester* self) {
 }
 
 // Base class handler implementation
-bool KUrlRequester_QBaseFocusNextChild(KUrlRequester* self) {
+bool KUrlRequester_SuperFocusNextChild(KUrlRequester* self) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_FocusNextChild_IsBase(true);
@@ -1924,7 +1924,7 @@ bool KUrlRequester_FocusPreviousChild(KUrlRequester* self) {
 }
 
 // Base class handler implementation
-bool KUrlRequester_QBaseFocusPreviousChild(KUrlRequester* self) {
+bool KUrlRequester_SuperFocusPreviousChild(KUrlRequester* self) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_FocusPreviousChild_IsBase(true);
@@ -1953,7 +1953,7 @@ QObject* KUrlRequester_Sender(const KUrlRequester* self) {
 }
 
 // Base class handler implementation
-QObject* KUrlRequester_QBaseSender(const KUrlRequester* self) {
+QObject* KUrlRequester_SuperSender(const KUrlRequester* self) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_Sender_IsBase(true);
@@ -1982,7 +1982,7 @@ int KUrlRequester_SenderSignalIndex(const KUrlRequester* self) {
 }
 
 // Base class handler implementation
-int KUrlRequester_QBaseSenderSignalIndex(const KUrlRequester* self) {
+int KUrlRequester_SuperSenderSignalIndex(const KUrlRequester* self) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_SenderSignalIndex_IsBase(true);
@@ -2011,7 +2011,7 @@ int KUrlRequester_Receivers(const KUrlRequester* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KUrlRequester_QBaseReceivers(const KUrlRequester* self, const char* signal) {
+int KUrlRequester_SuperReceivers(const KUrlRequester* self, const char* signal) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_Receivers_IsBase(true);
@@ -2040,7 +2040,7 @@ bool KUrlRequester_IsSignalConnected(const KUrlRequester* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool KUrlRequester_QBaseIsSignalConnected(const KUrlRequester* self, const QMetaMethod* signal) {
+bool KUrlRequester_SuperIsSignalConnected(const KUrlRequester* self, const QMetaMethod* signal) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_IsSignalConnected_IsBase(true);
@@ -2069,7 +2069,7 @@ double KUrlRequester_GetDecodedMetricF(const KUrlRequester* self, int metricA, i
 }
 
 // Base class handler implementation
-double KUrlRequester_QBaseGetDecodedMetricF(const KUrlRequester* self, int metricA, int metricB) {
+double KUrlRequester_SuperGetDecodedMetricF(const KUrlRequester* self, int metricA, int metricB) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
     if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
         vkurlrequester->setKUrlRequester_GetDecodedMetricF_IsBase(true);
@@ -2127,7 +2127,7 @@ int KUrlComboRequester_Metacall(KUrlComboRequester* self, int param1, int param2
 }
 
 // Base class handler implementation
-QMetaObject* KUrlComboRequester_QBaseMetaObject(const KUrlComboRequester* self) {
+QMetaObject* KUrlComboRequester_SuperMetaObject(const KUrlComboRequester* self) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_MetaObject_IsBase(true);
@@ -2146,7 +2146,7 @@ void KUrlComboRequester_OnMetaObject(const KUrlComboRequester* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* KUrlComboRequester_QBaseMetacast(KUrlComboRequester* self, const char* param1) {
+void* KUrlComboRequester_SuperMetacast(KUrlComboRequester* self, const char* param1) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_Metacast_IsBase(true);
@@ -2165,7 +2165,7 @@ void KUrlComboRequester_OnMetacast(KUrlComboRequester* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KUrlComboRequester_QBaseMetacall(KUrlComboRequester* self, int param1, int param2, void** param3) {
+int KUrlComboRequester_SuperMetacall(KUrlComboRequester* self, int param1, int param2, void** param3) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_Metacall_IsBase(true);
@@ -2194,7 +2194,7 @@ QFileDialog* KUrlComboRequester_FileDialog(const KUrlComboRequester* self) {
 }
 
 // Base class handler implementation
-QFileDialog* KUrlComboRequester_QBaseFileDialog(const KUrlComboRequester* self) {
+QFileDialog* KUrlComboRequester_SuperFileDialog(const KUrlComboRequester* self) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_FileDialog_IsBase(true);
@@ -2223,7 +2223,7 @@ void KUrlComboRequester_ChangeEvent(KUrlComboRequester* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseChangeEvent(KUrlComboRequester* self, QEvent* e) {
+void KUrlComboRequester_SuperChangeEvent(KUrlComboRequester* self, QEvent* e) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_ChangeEvent_IsBase(true);
@@ -2252,7 +2252,7 @@ bool KUrlComboRequester_EventFilter(KUrlComboRequester* self, QObject* obj, QEve
 }
 
 // Base class handler implementation
-bool KUrlComboRequester_QBaseEventFilter(KUrlComboRequester* self, QObject* obj, QEvent* ev) {
+bool KUrlComboRequester_SuperEventFilter(KUrlComboRequester* self, QObject* obj, QEvent* ev) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_EventFilter_IsBase(true);
@@ -2281,7 +2281,7 @@ int KUrlComboRequester_DevType(const KUrlComboRequester* self) {
 }
 
 // Base class handler implementation
-int KUrlComboRequester_QBaseDevType(const KUrlComboRequester* self) {
+int KUrlComboRequester_SuperDevType(const KUrlComboRequester* self) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_DevType_IsBase(true);
@@ -2310,7 +2310,7 @@ void KUrlComboRequester_SetVisible(KUrlComboRequester* self, bool visible) {
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseSetVisible(KUrlComboRequester* self, bool visible) {
+void KUrlComboRequester_SuperSetVisible(KUrlComboRequester* self, bool visible) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_SetVisible_IsBase(true);
@@ -2339,7 +2339,7 @@ QSize* KUrlComboRequester_SizeHint(const KUrlComboRequester* self) {
 }
 
 // Base class handler implementation
-QSize* KUrlComboRequester_QBaseSizeHint(const KUrlComboRequester* self) {
+QSize* KUrlComboRequester_SuperSizeHint(const KUrlComboRequester* self) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_SizeHint_IsBase(true);
@@ -2368,7 +2368,7 @@ QSize* KUrlComboRequester_MinimumSizeHint(const KUrlComboRequester* self) {
 }
 
 // Base class handler implementation
-QSize* KUrlComboRequester_QBaseMinimumSizeHint(const KUrlComboRequester* self) {
+QSize* KUrlComboRequester_SuperMinimumSizeHint(const KUrlComboRequester* self) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_MinimumSizeHint_IsBase(true);
@@ -2397,7 +2397,7 @@ int KUrlComboRequester_HeightForWidth(const KUrlComboRequester* self, int param1
 }
 
 // Base class handler implementation
-int KUrlComboRequester_QBaseHeightForWidth(const KUrlComboRequester* self, int param1) {
+int KUrlComboRequester_SuperHeightForWidth(const KUrlComboRequester* self, int param1) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_HeightForWidth_IsBase(true);
@@ -2426,7 +2426,7 @@ bool KUrlComboRequester_HasHeightForWidth(const KUrlComboRequester* self) {
 }
 
 // Base class handler implementation
-bool KUrlComboRequester_QBaseHasHeightForWidth(const KUrlComboRequester* self) {
+bool KUrlComboRequester_SuperHasHeightForWidth(const KUrlComboRequester* self) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_HasHeightForWidth_IsBase(true);
@@ -2455,7 +2455,7 @@ QPaintEngine* KUrlComboRequester_PaintEngine(const KUrlComboRequester* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KUrlComboRequester_QBasePaintEngine(const KUrlComboRequester* self) {
+QPaintEngine* KUrlComboRequester_SuperPaintEngine(const KUrlComboRequester* self) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_PaintEngine_IsBase(true);
@@ -2484,7 +2484,7 @@ bool KUrlComboRequester_Event(KUrlComboRequester* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KUrlComboRequester_QBaseEvent(KUrlComboRequester* self, QEvent* event) {
+bool KUrlComboRequester_SuperEvent(KUrlComboRequester* self, QEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_Event_IsBase(true);
@@ -2513,7 +2513,7 @@ void KUrlComboRequester_MousePressEvent(KUrlComboRequester* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseMousePressEvent(KUrlComboRequester* self, QMouseEvent* event) {
+void KUrlComboRequester_SuperMousePressEvent(KUrlComboRequester* self, QMouseEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_MousePressEvent_IsBase(true);
@@ -2542,7 +2542,7 @@ void KUrlComboRequester_MouseReleaseEvent(KUrlComboRequester* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseMouseReleaseEvent(KUrlComboRequester* self, QMouseEvent* event) {
+void KUrlComboRequester_SuperMouseReleaseEvent(KUrlComboRequester* self, QMouseEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_MouseReleaseEvent_IsBase(true);
@@ -2571,7 +2571,7 @@ void KUrlComboRequester_MouseDoubleClickEvent(KUrlComboRequester* self, QMouseEv
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseMouseDoubleClickEvent(KUrlComboRequester* self, QMouseEvent* event) {
+void KUrlComboRequester_SuperMouseDoubleClickEvent(KUrlComboRequester* self, QMouseEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_MouseDoubleClickEvent_IsBase(true);
@@ -2600,7 +2600,7 @@ void KUrlComboRequester_MouseMoveEvent(KUrlComboRequester* self, QMouseEvent* ev
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseMouseMoveEvent(KUrlComboRequester* self, QMouseEvent* event) {
+void KUrlComboRequester_SuperMouseMoveEvent(KUrlComboRequester* self, QMouseEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_MouseMoveEvent_IsBase(true);
@@ -2629,7 +2629,7 @@ void KUrlComboRequester_WheelEvent(KUrlComboRequester* self, QWheelEvent* event)
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseWheelEvent(KUrlComboRequester* self, QWheelEvent* event) {
+void KUrlComboRequester_SuperWheelEvent(KUrlComboRequester* self, QWheelEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_WheelEvent_IsBase(true);
@@ -2658,7 +2658,7 @@ void KUrlComboRequester_KeyPressEvent(KUrlComboRequester* self, QKeyEvent* event
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseKeyPressEvent(KUrlComboRequester* self, QKeyEvent* event) {
+void KUrlComboRequester_SuperKeyPressEvent(KUrlComboRequester* self, QKeyEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_KeyPressEvent_IsBase(true);
@@ -2687,7 +2687,7 @@ void KUrlComboRequester_KeyReleaseEvent(KUrlComboRequester* self, QKeyEvent* eve
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseKeyReleaseEvent(KUrlComboRequester* self, QKeyEvent* event) {
+void KUrlComboRequester_SuperKeyReleaseEvent(KUrlComboRequester* self, QKeyEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_KeyReleaseEvent_IsBase(true);
@@ -2716,7 +2716,7 @@ void KUrlComboRequester_FocusInEvent(KUrlComboRequester* self, QFocusEvent* even
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseFocusInEvent(KUrlComboRequester* self, QFocusEvent* event) {
+void KUrlComboRequester_SuperFocusInEvent(KUrlComboRequester* self, QFocusEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_FocusInEvent_IsBase(true);
@@ -2745,7 +2745,7 @@ void KUrlComboRequester_FocusOutEvent(KUrlComboRequester* self, QFocusEvent* eve
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseFocusOutEvent(KUrlComboRequester* self, QFocusEvent* event) {
+void KUrlComboRequester_SuperFocusOutEvent(KUrlComboRequester* self, QFocusEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_FocusOutEvent_IsBase(true);
@@ -2774,7 +2774,7 @@ void KUrlComboRequester_EnterEvent(KUrlComboRequester* self, QEnterEvent* event)
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseEnterEvent(KUrlComboRequester* self, QEnterEvent* event) {
+void KUrlComboRequester_SuperEnterEvent(KUrlComboRequester* self, QEnterEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_EnterEvent_IsBase(true);
@@ -2803,7 +2803,7 @@ void KUrlComboRequester_LeaveEvent(KUrlComboRequester* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseLeaveEvent(KUrlComboRequester* self, QEvent* event) {
+void KUrlComboRequester_SuperLeaveEvent(KUrlComboRequester* self, QEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_LeaveEvent_IsBase(true);
@@ -2832,7 +2832,7 @@ void KUrlComboRequester_PaintEvent(KUrlComboRequester* self, QPaintEvent* event)
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBasePaintEvent(KUrlComboRequester* self, QPaintEvent* event) {
+void KUrlComboRequester_SuperPaintEvent(KUrlComboRequester* self, QPaintEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_PaintEvent_IsBase(true);
@@ -2861,7 +2861,7 @@ void KUrlComboRequester_MoveEvent(KUrlComboRequester* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseMoveEvent(KUrlComboRequester* self, QMoveEvent* event) {
+void KUrlComboRequester_SuperMoveEvent(KUrlComboRequester* self, QMoveEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_MoveEvent_IsBase(true);
@@ -2890,7 +2890,7 @@ void KUrlComboRequester_ResizeEvent(KUrlComboRequester* self, QResizeEvent* even
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseResizeEvent(KUrlComboRequester* self, QResizeEvent* event) {
+void KUrlComboRequester_SuperResizeEvent(KUrlComboRequester* self, QResizeEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_ResizeEvent_IsBase(true);
@@ -2919,7 +2919,7 @@ void KUrlComboRequester_CloseEvent(KUrlComboRequester* self, QCloseEvent* event)
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseCloseEvent(KUrlComboRequester* self, QCloseEvent* event) {
+void KUrlComboRequester_SuperCloseEvent(KUrlComboRequester* self, QCloseEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_CloseEvent_IsBase(true);
@@ -2948,7 +2948,7 @@ void KUrlComboRequester_ContextMenuEvent(KUrlComboRequester* self, QContextMenuE
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseContextMenuEvent(KUrlComboRequester* self, QContextMenuEvent* event) {
+void KUrlComboRequester_SuperContextMenuEvent(KUrlComboRequester* self, QContextMenuEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_ContextMenuEvent_IsBase(true);
@@ -2977,7 +2977,7 @@ void KUrlComboRequester_TabletEvent(KUrlComboRequester* self, QTabletEvent* even
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseTabletEvent(KUrlComboRequester* self, QTabletEvent* event) {
+void KUrlComboRequester_SuperTabletEvent(KUrlComboRequester* self, QTabletEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_TabletEvent_IsBase(true);
@@ -3006,7 +3006,7 @@ void KUrlComboRequester_ActionEvent(KUrlComboRequester* self, QActionEvent* even
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseActionEvent(KUrlComboRequester* self, QActionEvent* event) {
+void KUrlComboRequester_SuperActionEvent(KUrlComboRequester* self, QActionEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_ActionEvent_IsBase(true);
@@ -3035,7 +3035,7 @@ void KUrlComboRequester_DragEnterEvent(KUrlComboRequester* self, QDragEnterEvent
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseDragEnterEvent(KUrlComboRequester* self, QDragEnterEvent* event) {
+void KUrlComboRequester_SuperDragEnterEvent(KUrlComboRequester* self, QDragEnterEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_DragEnterEvent_IsBase(true);
@@ -3064,7 +3064,7 @@ void KUrlComboRequester_DragMoveEvent(KUrlComboRequester* self, QDragMoveEvent* 
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseDragMoveEvent(KUrlComboRequester* self, QDragMoveEvent* event) {
+void KUrlComboRequester_SuperDragMoveEvent(KUrlComboRequester* self, QDragMoveEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_DragMoveEvent_IsBase(true);
@@ -3093,7 +3093,7 @@ void KUrlComboRequester_DragLeaveEvent(KUrlComboRequester* self, QDragLeaveEvent
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseDragLeaveEvent(KUrlComboRequester* self, QDragLeaveEvent* event) {
+void KUrlComboRequester_SuperDragLeaveEvent(KUrlComboRequester* self, QDragLeaveEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_DragLeaveEvent_IsBase(true);
@@ -3122,7 +3122,7 @@ void KUrlComboRequester_DropEvent(KUrlComboRequester* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseDropEvent(KUrlComboRequester* self, QDropEvent* event) {
+void KUrlComboRequester_SuperDropEvent(KUrlComboRequester* self, QDropEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_DropEvent_IsBase(true);
@@ -3151,7 +3151,7 @@ void KUrlComboRequester_ShowEvent(KUrlComboRequester* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseShowEvent(KUrlComboRequester* self, QShowEvent* event) {
+void KUrlComboRequester_SuperShowEvent(KUrlComboRequester* self, QShowEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_ShowEvent_IsBase(true);
@@ -3180,7 +3180,7 @@ void KUrlComboRequester_HideEvent(KUrlComboRequester* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseHideEvent(KUrlComboRequester* self, QHideEvent* event) {
+void KUrlComboRequester_SuperHideEvent(KUrlComboRequester* self, QHideEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_HideEvent_IsBase(true);
@@ -3210,7 +3210,7 @@ bool KUrlComboRequester_NativeEvent(KUrlComboRequester* self, const libqt_string
 }
 
 // Base class handler implementation
-bool KUrlComboRequester_QBaseNativeEvent(KUrlComboRequester* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KUrlComboRequester_SuperNativeEvent(KUrlComboRequester* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
@@ -3240,7 +3240,7 @@ int KUrlComboRequester_Metric(const KUrlComboRequester* self, int param1) {
 }
 
 // Base class handler implementation
-int KUrlComboRequester_QBaseMetric(const KUrlComboRequester* self, int param1) {
+int KUrlComboRequester_SuperMetric(const KUrlComboRequester* self, int param1) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_Metric_IsBase(true);
@@ -3269,7 +3269,7 @@ void KUrlComboRequester_InitPainter(const KUrlComboRequester* self, QPainter* pa
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseInitPainter(const KUrlComboRequester* self, QPainter* painter) {
+void KUrlComboRequester_SuperInitPainter(const KUrlComboRequester* self, QPainter* painter) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_InitPainter_IsBase(true);
@@ -3298,7 +3298,7 @@ QPaintDevice* KUrlComboRequester_Redirected(const KUrlComboRequester* self, QPoi
 }
 
 // Base class handler implementation
-QPaintDevice* KUrlComboRequester_QBaseRedirected(const KUrlComboRequester* self, QPoint* offset) {
+QPaintDevice* KUrlComboRequester_SuperRedirected(const KUrlComboRequester* self, QPoint* offset) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_Redirected_IsBase(true);
@@ -3327,7 +3327,7 @@ QPainter* KUrlComboRequester_SharedPainter(const KUrlComboRequester* self) {
 }
 
 // Base class handler implementation
-QPainter* KUrlComboRequester_QBaseSharedPainter(const KUrlComboRequester* self) {
+QPainter* KUrlComboRequester_SuperSharedPainter(const KUrlComboRequester* self) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_SharedPainter_IsBase(true);
@@ -3356,7 +3356,7 @@ void KUrlComboRequester_InputMethodEvent(KUrlComboRequester* self, QInputMethodE
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseInputMethodEvent(KUrlComboRequester* self, QInputMethodEvent* param1) {
+void KUrlComboRequester_SuperInputMethodEvent(KUrlComboRequester* self, QInputMethodEvent* param1) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_InputMethodEvent_IsBase(true);
@@ -3385,7 +3385,7 @@ QVariant* KUrlComboRequester_InputMethodQuery(const KUrlComboRequester* self, in
 }
 
 // Base class handler implementation
-QVariant* KUrlComboRequester_QBaseInputMethodQuery(const KUrlComboRequester* self, int param1) {
+QVariant* KUrlComboRequester_SuperInputMethodQuery(const KUrlComboRequester* self, int param1) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_InputMethodQuery_IsBase(true);
@@ -3414,7 +3414,7 @@ bool KUrlComboRequester_FocusNextPrevChild(KUrlComboRequester* self, bool next) 
 }
 
 // Base class handler implementation
-bool KUrlComboRequester_QBaseFocusNextPrevChild(KUrlComboRequester* self, bool next) {
+bool KUrlComboRequester_SuperFocusNextPrevChild(KUrlComboRequester* self, bool next) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_FocusNextPrevChild_IsBase(true);
@@ -3443,7 +3443,7 @@ void KUrlComboRequester_TimerEvent(KUrlComboRequester* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseTimerEvent(KUrlComboRequester* self, QTimerEvent* event) {
+void KUrlComboRequester_SuperTimerEvent(KUrlComboRequester* self, QTimerEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_TimerEvent_IsBase(true);
@@ -3472,7 +3472,7 @@ void KUrlComboRequester_ChildEvent(KUrlComboRequester* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseChildEvent(KUrlComboRequester* self, QChildEvent* event) {
+void KUrlComboRequester_SuperChildEvent(KUrlComboRequester* self, QChildEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_ChildEvent_IsBase(true);
@@ -3501,7 +3501,7 @@ void KUrlComboRequester_CustomEvent(KUrlComboRequester* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseCustomEvent(KUrlComboRequester* self, QEvent* event) {
+void KUrlComboRequester_SuperCustomEvent(KUrlComboRequester* self, QEvent* event) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_CustomEvent_IsBase(true);
@@ -3530,7 +3530,7 @@ void KUrlComboRequester_ConnectNotify(KUrlComboRequester* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseConnectNotify(KUrlComboRequester* self, const QMetaMethod* signal) {
+void KUrlComboRequester_SuperConnectNotify(KUrlComboRequester* self, const QMetaMethod* signal) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_ConnectNotify_IsBase(true);
@@ -3559,7 +3559,7 @@ void KUrlComboRequester_DisconnectNotify(KUrlComboRequester* self, const QMetaMe
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseDisconnectNotify(KUrlComboRequester* self, const QMetaMethod* signal) {
+void KUrlComboRequester_SuperDisconnectNotify(KUrlComboRequester* self, const QMetaMethod* signal) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_DisconnectNotify_IsBase(true);
@@ -3588,7 +3588,7 @@ void KUrlComboRequester_UpdateMicroFocus(KUrlComboRequester* self) {
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseUpdateMicroFocus(KUrlComboRequester* self) {
+void KUrlComboRequester_SuperUpdateMicroFocus(KUrlComboRequester* self) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_UpdateMicroFocus_IsBase(true);
@@ -3617,7 +3617,7 @@ void KUrlComboRequester_Create(KUrlComboRequester* self) {
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseCreate(KUrlComboRequester* self) {
+void KUrlComboRequester_SuperCreate(KUrlComboRequester* self) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_Create_IsBase(true);
@@ -3646,7 +3646,7 @@ void KUrlComboRequester_Destroy(KUrlComboRequester* self) {
 }
 
 // Base class handler implementation
-void KUrlComboRequester_QBaseDestroy(KUrlComboRequester* self) {
+void KUrlComboRequester_SuperDestroy(KUrlComboRequester* self) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_Destroy_IsBase(true);
@@ -3675,7 +3675,7 @@ bool KUrlComboRequester_FocusNextChild(KUrlComboRequester* self) {
 }
 
 // Base class handler implementation
-bool KUrlComboRequester_QBaseFocusNextChild(KUrlComboRequester* self) {
+bool KUrlComboRequester_SuperFocusNextChild(KUrlComboRequester* self) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_FocusNextChild_IsBase(true);
@@ -3704,7 +3704,7 @@ bool KUrlComboRequester_FocusPreviousChild(KUrlComboRequester* self) {
 }
 
 // Base class handler implementation
-bool KUrlComboRequester_QBaseFocusPreviousChild(KUrlComboRequester* self) {
+bool KUrlComboRequester_SuperFocusPreviousChild(KUrlComboRequester* self) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_FocusPreviousChild_IsBase(true);
@@ -3733,7 +3733,7 @@ QObject* KUrlComboRequester_Sender(const KUrlComboRequester* self) {
 }
 
 // Base class handler implementation
-QObject* KUrlComboRequester_QBaseSender(const KUrlComboRequester* self) {
+QObject* KUrlComboRequester_SuperSender(const KUrlComboRequester* self) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_Sender_IsBase(true);
@@ -3762,7 +3762,7 @@ int KUrlComboRequester_SenderSignalIndex(const KUrlComboRequester* self) {
 }
 
 // Base class handler implementation
-int KUrlComboRequester_QBaseSenderSignalIndex(const KUrlComboRequester* self) {
+int KUrlComboRequester_SuperSenderSignalIndex(const KUrlComboRequester* self) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_SenderSignalIndex_IsBase(true);
@@ -3791,7 +3791,7 @@ int KUrlComboRequester_Receivers(const KUrlComboRequester* self, const char* sig
 }
 
 // Base class handler implementation
-int KUrlComboRequester_QBaseReceivers(const KUrlComboRequester* self, const char* signal) {
+int KUrlComboRequester_SuperReceivers(const KUrlComboRequester* self, const char* signal) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_Receivers_IsBase(true);
@@ -3820,7 +3820,7 @@ bool KUrlComboRequester_IsSignalConnected(const KUrlComboRequester* self, const 
 }
 
 // Base class handler implementation
-bool KUrlComboRequester_QBaseIsSignalConnected(const KUrlComboRequester* self, const QMetaMethod* signal) {
+bool KUrlComboRequester_SuperIsSignalConnected(const KUrlComboRequester* self, const QMetaMethod* signal) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_IsSignalConnected_IsBase(true);
@@ -3849,7 +3849,7 @@ double KUrlComboRequester_GetDecodedMetricF(const KUrlComboRequester* self, int 
 }
 
 // Base class handler implementation
-double KUrlComboRequester_QBaseGetDecodedMetricF(const KUrlComboRequester* self, int metricA, int metricB) {
+double KUrlComboRequester_SuperGetDecodedMetricF(const KUrlComboRequester* self, int metricA, int metricB) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
     if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
         vkurlcomborequester->setKUrlComboRequester_GetDecodedMetricF_IsBase(true);

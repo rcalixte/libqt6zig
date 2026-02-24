@@ -98,7 +98,7 @@ void KArchiveEntry_VirtualHook(KArchiveEntry* self, int id, void* data) {
 }
 
 // Base class handler implementation
-bool KArchiveEntry_QBaseIsFile(const KArchiveEntry* self) {
+bool KArchiveEntry_SuperIsFile(const KArchiveEntry* self) {
     auto* vkarchiveentry = const_cast<VirtualKArchiveEntry*>(dynamic_cast<const VirtualKArchiveEntry*>(self));
     if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry) {
         vkarchiveentry->setKArchiveEntry_IsFile_IsBase(true);
@@ -117,7 +117,7 @@ void KArchiveEntry_OnIsFile(const KArchiveEntry* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KArchiveEntry_QBaseIsDirectory(const KArchiveEntry* self) {
+bool KArchiveEntry_SuperIsDirectory(const KArchiveEntry* self) {
     auto* vkarchiveentry = const_cast<VirtualKArchiveEntry*>(dynamic_cast<const VirtualKArchiveEntry*>(self));
     if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry) {
         vkarchiveentry->setKArchiveEntry_IsDirectory_IsBase(true);
@@ -136,7 +136,7 @@ void KArchiveEntry_OnIsDirectory(const KArchiveEntry* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KArchiveEntry_QBaseVirtualHook(KArchiveEntry* self, int id, void* data) {
+void KArchiveEntry_SuperVirtualHook(KArchiveEntry* self, int id, void* data) {
     auto* vkarchiveentry = dynamic_cast<VirtualKArchiveEntry*>(self);
     if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry) {
         vkarchiveentry->setKArchiveEntry_VirtualHook_IsBase(true);
@@ -165,7 +165,7 @@ KArchive* KArchiveEntry_Archive(const KArchiveEntry* self) {
 }
 
 // Base class handler implementation
-KArchive* KArchiveEntry_QBaseArchive(const KArchiveEntry* self) {
+KArchive* KArchiveEntry_SuperArchive(const KArchiveEntry* self) {
     auto* vkarchiveentry = const_cast<VirtualKArchiveEntry*>(dynamic_cast<const VirtualKArchiveEntry*>(self));
     if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry) {
         vkarchiveentry->setKArchiveEntry_Archive_IsBase(true);

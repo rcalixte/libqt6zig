@@ -234,7 +234,7 @@ void Sonnet__BackgroundChecker_FinishedCurrentFeed(Sonnet__BackgroundChecker* se
 }
 
 // Base class handler implementation
-QMetaObject* Sonnet__BackgroundChecker_QBaseMetaObject(const Sonnet__BackgroundChecker* self) {
+QMetaObject* Sonnet__BackgroundChecker_SuperMetaObject(const Sonnet__BackgroundChecker* self) {
     auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self));
     if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnetbackgroundchecker->setSonnet__BackgroundChecker_MetaObject_IsBase(true);
@@ -253,7 +253,7 @@ void Sonnet__BackgroundChecker_OnMetaObject(const Sonnet__BackgroundChecker* sel
 }
 
 // Base class handler implementation
-void* Sonnet__BackgroundChecker_QBaseMetacast(Sonnet__BackgroundChecker* self, const char* param1) {
+void* Sonnet__BackgroundChecker_SuperMetacast(Sonnet__BackgroundChecker* self, const char* param1) {
     auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
     if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Metacast_IsBase(true);
@@ -272,7 +272,7 @@ void Sonnet__BackgroundChecker_OnMetacast(Sonnet__BackgroundChecker* self, intpt
 }
 
 // Base class handler implementation
-int Sonnet__BackgroundChecker_QBaseMetacall(Sonnet__BackgroundChecker* self, int param1, int param2, void** param3) {
+int Sonnet__BackgroundChecker_SuperMetacall(Sonnet__BackgroundChecker* self, int param1, int param2, void** param3) {
     auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
     if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Metacall_IsBase(true);
@@ -291,7 +291,7 @@ void Sonnet__BackgroundChecker_OnMetacall(Sonnet__BackgroundChecker* self, intpt
 }
 
 // Base class handler implementation
-void Sonnet__BackgroundChecker_QBaseStart(Sonnet__BackgroundChecker* self) {
+void Sonnet__BackgroundChecker_SuperStart(Sonnet__BackgroundChecker* self) {
     auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
     if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Start_IsBase(true);
@@ -310,7 +310,7 @@ void Sonnet__BackgroundChecker_OnStart(Sonnet__BackgroundChecker* self, intptr_t
 }
 
 // Base class handler implementation
-void Sonnet__BackgroundChecker_QBaseStop(Sonnet__BackgroundChecker* self) {
+void Sonnet__BackgroundChecker_SuperStop(Sonnet__BackgroundChecker* self) {
     auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
     if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Stop_IsBase(true);
@@ -329,7 +329,7 @@ void Sonnet__BackgroundChecker_OnStop(Sonnet__BackgroundChecker* self, intptr_t 
 }
 
 // Base class handler implementation
-void Sonnet__BackgroundChecker_QBaseContinueChecking(Sonnet__BackgroundChecker* self) {
+void Sonnet__BackgroundChecker_SuperContinueChecking(Sonnet__BackgroundChecker* self) {
     auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
     if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnetbackgroundchecker->setSonnet__BackgroundChecker_ContinueChecking_IsBase(true);
@@ -348,7 +348,7 @@ void Sonnet__BackgroundChecker_OnContinueChecking(Sonnet__BackgroundChecker* sel
 }
 
 // Base class handler implementation
-libqt_string Sonnet__BackgroundChecker_QBaseFetchMoreText(Sonnet__BackgroundChecker* self) {
+libqt_string Sonnet__BackgroundChecker_SuperFetchMoreText(Sonnet__BackgroundChecker* self) {
     auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
     if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnetbackgroundchecker->setSonnet__BackgroundChecker_FetchMoreText_IsBase(true);
@@ -383,7 +383,7 @@ void Sonnet__BackgroundChecker_OnFetchMoreText(Sonnet__BackgroundChecker* self, 
 }
 
 // Base class handler implementation
-void Sonnet__BackgroundChecker_QBaseFinishedCurrentFeed(Sonnet__BackgroundChecker* self) {
+void Sonnet__BackgroundChecker_SuperFinishedCurrentFeed(Sonnet__BackgroundChecker* self) {
     auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
     if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnetbackgroundchecker->setSonnet__BackgroundChecker_FinishedCurrentFeed_IsBase(true);
@@ -412,7 +412,7 @@ bool Sonnet__BackgroundChecker_Event(Sonnet__BackgroundChecker* self, QEvent* ev
 }
 
 // Base class handler implementation
-bool Sonnet__BackgroundChecker_QBaseEvent(Sonnet__BackgroundChecker* self, QEvent* event) {
+bool Sonnet__BackgroundChecker_SuperEvent(Sonnet__BackgroundChecker* self, QEvent* event) {
     auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
     if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Event_IsBase(true);
@@ -441,7 +441,7 @@ bool Sonnet__BackgroundChecker_EventFilter(Sonnet__BackgroundChecker* self, QObj
 }
 
 // Base class handler implementation
-bool Sonnet__BackgroundChecker_QBaseEventFilter(Sonnet__BackgroundChecker* self, QObject* watched, QEvent* event) {
+bool Sonnet__BackgroundChecker_SuperEventFilter(Sonnet__BackgroundChecker* self, QObject* watched, QEvent* event) {
     auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
     if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnetbackgroundchecker->setSonnet__BackgroundChecker_EventFilter_IsBase(true);
@@ -470,7 +470,7 @@ void Sonnet__BackgroundChecker_TimerEvent(Sonnet__BackgroundChecker* self, QTime
 }
 
 // Base class handler implementation
-void Sonnet__BackgroundChecker_QBaseTimerEvent(Sonnet__BackgroundChecker* self, QTimerEvent* event) {
+void Sonnet__BackgroundChecker_SuperTimerEvent(Sonnet__BackgroundChecker* self, QTimerEvent* event) {
     auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
     if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnetbackgroundchecker->setSonnet__BackgroundChecker_TimerEvent_IsBase(true);
@@ -499,7 +499,7 @@ void Sonnet__BackgroundChecker_ChildEvent(Sonnet__BackgroundChecker* self, QChil
 }
 
 // Base class handler implementation
-void Sonnet__BackgroundChecker_QBaseChildEvent(Sonnet__BackgroundChecker* self, QChildEvent* event) {
+void Sonnet__BackgroundChecker_SuperChildEvent(Sonnet__BackgroundChecker* self, QChildEvent* event) {
     auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
     if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnetbackgroundchecker->setSonnet__BackgroundChecker_ChildEvent_IsBase(true);
@@ -528,7 +528,7 @@ void Sonnet__BackgroundChecker_CustomEvent(Sonnet__BackgroundChecker* self, QEve
 }
 
 // Base class handler implementation
-void Sonnet__BackgroundChecker_QBaseCustomEvent(Sonnet__BackgroundChecker* self, QEvent* event) {
+void Sonnet__BackgroundChecker_SuperCustomEvent(Sonnet__BackgroundChecker* self, QEvent* event) {
     auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
     if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnetbackgroundchecker->setSonnet__BackgroundChecker_CustomEvent_IsBase(true);
@@ -557,7 +557,7 @@ void Sonnet__BackgroundChecker_ConnectNotify(Sonnet__BackgroundChecker* self, co
 }
 
 // Base class handler implementation
-void Sonnet__BackgroundChecker_QBaseConnectNotify(Sonnet__BackgroundChecker* self, const QMetaMethod* signal) {
+void Sonnet__BackgroundChecker_SuperConnectNotify(Sonnet__BackgroundChecker* self, const QMetaMethod* signal) {
     auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
     if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnetbackgroundchecker->setSonnet__BackgroundChecker_ConnectNotify_IsBase(true);
@@ -586,7 +586,7 @@ void Sonnet__BackgroundChecker_DisconnectNotify(Sonnet__BackgroundChecker* self,
 }
 
 // Base class handler implementation
-void Sonnet__BackgroundChecker_QBaseDisconnectNotify(Sonnet__BackgroundChecker* self, const QMetaMethod* signal) {
+void Sonnet__BackgroundChecker_SuperDisconnectNotify(Sonnet__BackgroundChecker* self, const QMetaMethod* signal) {
     auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
     if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnetbackgroundchecker->setSonnet__BackgroundChecker_DisconnectNotify_IsBase(true);
@@ -615,7 +615,7 @@ void Sonnet__BackgroundChecker_SlotEngineDone(Sonnet__BackgroundChecker* self) {
 }
 
 // Base class handler implementation
-void Sonnet__BackgroundChecker_QBaseSlotEngineDone(Sonnet__BackgroundChecker* self) {
+void Sonnet__BackgroundChecker_SuperSlotEngineDone(Sonnet__BackgroundChecker* self) {
     auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
     if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnetbackgroundchecker->setSonnet__BackgroundChecker_SlotEngineDone_IsBase(true);
@@ -644,7 +644,7 @@ QObject* Sonnet__BackgroundChecker_Sender(const Sonnet__BackgroundChecker* self)
 }
 
 // Base class handler implementation
-QObject* Sonnet__BackgroundChecker_QBaseSender(const Sonnet__BackgroundChecker* self) {
+QObject* Sonnet__BackgroundChecker_SuperSender(const Sonnet__BackgroundChecker* self) {
     auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self));
     if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Sender_IsBase(true);
@@ -673,7 +673,7 @@ int Sonnet__BackgroundChecker_SenderSignalIndex(const Sonnet__BackgroundChecker*
 }
 
 // Base class handler implementation
-int Sonnet__BackgroundChecker_QBaseSenderSignalIndex(const Sonnet__BackgroundChecker* self) {
+int Sonnet__BackgroundChecker_SuperSenderSignalIndex(const Sonnet__BackgroundChecker* self) {
     auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self));
     if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnetbackgroundchecker->setSonnet__BackgroundChecker_SenderSignalIndex_IsBase(true);
@@ -702,7 +702,7 @@ int Sonnet__BackgroundChecker_Receivers(const Sonnet__BackgroundChecker* self, c
 }
 
 // Base class handler implementation
-int Sonnet__BackgroundChecker_QBaseReceivers(const Sonnet__BackgroundChecker* self, const char* signal) {
+int Sonnet__BackgroundChecker_SuperReceivers(const Sonnet__BackgroundChecker* self, const char* signal) {
     auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self));
     if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Receivers_IsBase(true);
@@ -731,7 +731,7 @@ bool Sonnet__BackgroundChecker_IsSignalConnected(const Sonnet__BackgroundChecker
 }
 
 // Base class handler implementation
-bool Sonnet__BackgroundChecker_QBaseIsSignalConnected(const Sonnet__BackgroundChecker* self, const QMetaMethod* signal) {
+bool Sonnet__BackgroundChecker_SuperIsSignalConnected(const Sonnet__BackgroundChecker* self, const QMetaMethod* signal) {
     auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self));
     if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnetbackgroundchecker->setSonnet__BackgroundChecker_IsSignalConnected_IsBase(true);

@@ -349,27 +349,27 @@ class VirtualKToggleAction final : public KToggleAction {
 
     // Friend functions
     friend void KToggleAction_SlotToggled(KToggleAction* self, bool checked);
-    friend void KToggleAction_QBaseSlotToggled(KToggleAction* self, bool checked);
+    friend void KToggleAction_SuperSlotToggled(KToggleAction* self, bool checked);
     friend bool KToggleAction_Event(KToggleAction* self, QEvent* param1);
-    friend bool KToggleAction_QBaseEvent(KToggleAction* self, QEvent* param1);
+    friend bool KToggleAction_SuperEvent(KToggleAction* self, QEvent* param1);
     friend void KToggleAction_TimerEvent(KToggleAction* self, QTimerEvent* event);
-    friend void KToggleAction_QBaseTimerEvent(KToggleAction* self, QTimerEvent* event);
+    friend void KToggleAction_SuperTimerEvent(KToggleAction* self, QTimerEvent* event);
     friend void KToggleAction_ChildEvent(KToggleAction* self, QChildEvent* event);
-    friend void KToggleAction_QBaseChildEvent(KToggleAction* self, QChildEvent* event);
+    friend void KToggleAction_SuperChildEvent(KToggleAction* self, QChildEvent* event);
     friend void KToggleAction_CustomEvent(KToggleAction* self, QEvent* event);
-    friend void KToggleAction_QBaseCustomEvent(KToggleAction* self, QEvent* event);
+    friend void KToggleAction_SuperCustomEvent(KToggleAction* self, QEvent* event);
     friend void KToggleAction_ConnectNotify(KToggleAction* self, const QMetaMethod* signal);
-    friend void KToggleAction_QBaseConnectNotify(KToggleAction* self, const QMetaMethod* signal);
+    friend void KToggleAction_SuperConnectNotify(KToggleAction* self, const QMetaMethod* signal);
     friend void KToggleAction_DisconnectNotify(KToggleAction* self, const QMetaMethod* signal);
-    friend void KToggleAction_QBaseDisconnectNotify(KToggleAction* self, const QMetaMethod* signal);
+    friend void KToggleAction_SuperDisconnectNotify(KToggleAction* self, const QMetaMethod* signal);
     friend QObject* KToggleAction_Sender(const KToggleAction* self);
-    friend QObject* KToggleAction_QBaseSender(const KToggleAction* self);
+    friend QObject* KToggleAction_SuperSender(const KToggleAction* self);
     friend int KToggleAction_SenderSignalIndex(const KToggleAction* self);
-    friend int KToggleAction_QBaseSenderSignalIndex(const KToggleAction* self);
+    friend int KToggleAction_SuperSenderSignalIndex(const KToggleAction* self);
     friend int KToggleAction_Receivers(const KToggleAction* self, const char* signal);
-    friend int KToggleAction_QBaseReceivers(const KToggleAction* self, const char* signal);
+    friend int KToggleAction_SuperReceivers(const KToggleAction* self, const char* signal);
     friend bool KToggleAction_IsSignalConnected(const KToggleAction* self, const QMetaMethod* signal);
-    friend bool KToggleAction_QBaseIsSignalConnected(const KToggleAction* self, const QMetaMethod* signal);
+    friend bool KToggleAction_SuperIsSignalConnected(const KToggleAction* self, const QMetaMethod* signal);
 };
 
 #endif

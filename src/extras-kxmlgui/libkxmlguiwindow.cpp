@@ -259,7 +259,7 @@ void KXmlGuiWindow_SetupGUI3(KXmlGuiWindow* self, const QSize* defaultSize, int 
 }
 
 // Base class handler implementation
-QMetaObject* KXmlGuiWindow_QBaseMetaObject(const KXmlGuiWindow* self) {
+QMetaObject* KXmlGuiWindow_SuperMetaObject(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_MetaObject_IsBase(true);
@@ -278,7 +278,7 @@ void KXmlGuiWindow_OnMetaObject(const KXmlGuiWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KXmlGuiWindow_QBaseMetacast(KXmlGuiWindow* self, const char* param1) {
+void* KXmlGuiWindow_SuperMetacast(KXmlGuiWindow* self, const char* param1) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_Metacast_IsBase(true);
@@ -297,7 +297,7 @@ void KXmlGuiWindow_OnMetacast(KXmlGuiWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KXmlGuiWindow_QBaseMetacall(KXmlGuiWindow* self, int param1, int param2, void** param3) {
+int KXmlGuiWindow_SuperMetacall(KXmlGuiWindow* self, int param1, int param2, void** param3) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_Metacall_IsBase(true);
@@ -316,7 +316,7 @@ void KXmlGuiWindow_OnMetacall(KXmlGuiWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KXMLGUIFactory* KXmlGuiWindow_QBaseGuiFactory(KXmlGuiWindow* self) {
+KXMLGUIFactory* KXmlGuiWindow_SuperGuiFactory(KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_GuiFactory_IsBase(true);
@@ -335,7 +335,7 @@ void KXmlGuiWindow_OnGuiFactory(KXmlGuiWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseApplyMainWindowSettings(KXmlGuiWindow* self, const KConfigGroup* config) {
+void KXmlGuiWindow_SuperApplyMainWindowSettings(KXmlGuiWindow* self, const KConfigGroup* config) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_ApplyMainWindowSettings_IsBase(true);
@@ -354,7 +354,7 @@ void KXmlGuiWindow_OnApplyMainWindowSettings(KXmlGuiWindow* self, intptr_t slot)
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseConfigureToolbars(KXmlGuiWindow* self) {
+void KXmlGuiWindow_SuperConfigureToolbars(KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_ConfigureToolbars_IsBase(true);
@@ -373,7 +373,7 @@ void KXmlGuiWindow_OnConfigureToolbars(KXmlGuiWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseSlotStateChanged(KXmlGuiWindow* self, const libqt_string newstate) {
+void KXmlGuiWindow_SuperSlotStateChanged(KXmlGuiWindow* self, const libqt_string newstate) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     QString newstate_QString = QString::fromUtf8(newstate.data, newstate.len);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
@@ -393,7 +393,7 @@ void KXmlGuiWindow_OnSlotStateChanged(KXmlGuiWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KXmlGuiWindow_QBaseEvent(KXmlGuiWindow* self, QEvent* event) {
+bool KXmlGuiWindow_SuperEvent(KXmlGuiWindow* self, QEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_Event_IsBase(true);
@@ -412,7 +412,7 @@ void KXmlGuiWindow_OnEvent(KXmlGuiWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseSaveNewToolbarConfig(KXmlGuiWindow* self) {
+void KXmlGuiWindow_SuperSaveNewToolbarConfig(KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_SaveNewToolbarConfig_IsBase(true);
@@ -442,7 +442,7 @@ void KXmlGuiWindow_SetCaption(KXmlGuiWindow* self, const libqt_string caption) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseSetCaption(KXmlGuiWindow* self, const libqt_string caption) {
+void KXmlGuiWindow_SuperSetCaption(KXmlGuiWindow* self, const libqt_string caption) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     QString caption_QString = QString::fromUtf8(caption.data, caption.len);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
@@ -473,7 +473,7 @@ void KXmlGuiWindow_SetPlainCaption(KXmlGuiWindow* self, const libqt_string capti
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseSetPlainCaption(KXmlGuiWindow* self, const libqt_string caption) {
+void KXmlGuiWindow_SuperSetPlainCaption(KXmlGuiWindow* self, const libqt_string caption) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     QString caption_QString = QString::fromUtf8(caption.data, caption.len);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
@@ -503,7 +503,7 @@ void KXmlGuiWindow_KeyPressEvent(KXmlGuiWindow* self, QKeyEvent* keyEvent) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseKeyPressEvent(KXmlGuiWindow* self, QKeyEvent* keyEvent) {
+void KXmlGuiWindow_SuperKeyPressEvent(KXmlGuiWindow* self, QKeyEvent* keyEvent) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_KeyPressEvent_IsBase(true);
@@ -532,7 +532,7 @@ void KXmlGuiWindow_CloseEvent(KXmlGuiWindow* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseCloseEvent(KXmlGuiWindow* self, QCloseEvent* param1) {
+void KXmlGuiWindow_SuperCloseEvent(KXmlGuiWindow* self, QCloseEvent* param1) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_CloseEvent_IsBase(true);
@@ -561,7 +561,7 @@ bool KXmlGuiWindow_QueryClose(KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-bool KXmlGuiWindow_QBaseQueryClose(KXmlGuiWindow* self) {
+bool KXmlGuiWindow_SuperQueryClose(KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_QueryClose_IsBase(true);
@@ -590,7 +590,7 @@ void KXmlGuiWindow_SaveProperties(KXmlGuiWindow* self, KConfigGroup* param1) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseSaveProperties(KXmlGuiWindow* self, KConfigGroup* param1) {
+void KXmlGuiWindow_SuperSaveProperties(KXmlGuiWindow* self, KConfigGroup* param1) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_SaveProperties_IsBase(true);
@@ -619,7 +619,7 @@ void KXmlGuiWindow_ReadProperties(KXmlGuiWindow* self, const KConfigGroup* param
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseReadProperties(KXmlGuiWindow* self, const KConfigGroup* param1) {
+void KXmlGuiWindow_SuperReadProperties(KXmlGuiWindow* self, const KConfigGroup* param1) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_ReadProperties_IsBase(true);
@@ -648,7 +648,7 @@ void KXmlGuiWindow_SaveGlobalProperties(KXmlGuiWindow* self, KConfig* sessionCon
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseSaveGlobalProperties(KXmlGuiWindow* self, KConfig* sessionConfig) {
+void KXmlGuiWindow_SuperSaveGlobalProperties(KXmlGuiWindow* self, KConfig* sessionConfig) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_SaveGlobalProperties_IsBase(true);
@@ -677,7 +677,7 @@ void KXmlGuiWindow_ReadGlobalProperties(KXmlGuiWindow* self, KConfig* sessionCon
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseReadGlobalProperties(KXmlGuiWindow* self, KConfig* sessionConfig) {
+void KXmlGuiWindow_SuperReadGlobalProperties(KXmlGuiWindow* self, KConfig* sessionConfig) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_ReadGlobalProperties_IsBase(true);
@@ -706,7 +706,7 @@ QMenu* KXmlGuiWindow_CreatePopupMenu(KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-QMenu* KXmlGuiWindow_QBaseCreatePopupMenu(KXmlGuiWindow* self) {
+QMenu* KXmlGuiWindow_SuperCreatePopupMenu(KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_CreatePopupMenu_IsBase(true);
@@ -735,7 +735,7 @@ void KXmlGuiWindow_ContextMenuEvent(KXmlGuiWindow* self, QContextMenuEvent* even
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseContextMenuEvent(KXmlGuiWindow* self, QContextMenuEvent* event) {
+void KXmlGuiWindow_SuperContextMenuEvent(KXmlGuiWindow* self, QContextMenuEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_ContextMenuEvent_IsBase(true);
@@ -764,7 +764,7 @@ int KXmlGuiWindow_DevType(const KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-int KXmlGuiWindow_QBaseDevType(const KXmlGuiWindow* self) {
+int KXmlGuiWindow_SuperDevType(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_DevType_IsBase(true);
@@ -793,7 +793,7 @@ void KXmlGuiWindow_SetVisible(KXmlGuiWindow* self, bool visible) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseSetVisible(KXmlGuiWindow* self, bool visible) {
+void KXmlGuiWindow_SuperSetVisible(KXmlGuiWindow* self, bool visible) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_SetVisible_IsBase(true);
@@ -822,7 +822,7 @@ QSize* KXmlGuiWindow_SizeHint(const KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-QSize* KXmlGuiWindow_QBaseSizeHint(const KXmlGuiWindow* self) {
+QSize* KXmlGuiWindow_SuperSizeHint(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_SizeHint_IsBase(true);
@@ -851,7 +851,7 @@ QSize* KXmlGuiWindow_MinimumSizeHint(const KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-QSize* KXmlGuiWindow_QBaseMinimumSizeHint(const KXmlGuiWindow* self) {
+QSize* KXmlGuiWindow_SuperMinimumSizeHint(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_MinimumSizeHint_IsBase(true);
@@ -880,7 +880,7 @@ int KXmlGuiWindow_HeightForWidth(const KXmlGuiWindow* self, int param1) {
 }
 
 // Base class handler implementation
-int KXmlGuiWindow_QBaseHeightForWidth(const KXmlGuiWindow* self, int param1) {
+int KXmlGuiWindow_SuperHeightForWidth(const KXmlGuiWindow* self, int param1) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_HeightForWidth_IsBase(true);
@@ -909,7 +909,7 @@ bool KXmlGuiWindow_HasHeightForWidth(const KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-bool KXmlGuiWindow_QBaseHasHeightForWidth(const KXmlGuiWindow* self) {
+bool KXmlGuiWindow_SuperHasHeightForWidth(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_HasHeightForWidth_IsBase(true);
@@ -938,7 +938,7 @@ QPaintEngine* KXmlGuiWindow_PaintEngine(const KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KXmlGuiWindow_QBasePaintEngine(const KXmlGuiWindow* self) {
+QPaintEngine* KXmlGuiWindow_SuperPaintEngine(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_PaintEngine_IsBase(true);
@@ -967,7 +967,7 @@ void KXmlGuiWindow_MousePressEvent(KXmlGuiWindow* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseMousePressEvent(KXmlGuiWindow* self, QMouseEvent* event) {
+void KXmlGuiWindow_SuperMousePressEvent(KXmlGuiWindow* self, QMouseEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_MousePressEvent_IsBase(true);
@@ -996,7 +996,7 @@ void KXmlGuiWindow_MouseReleaseEvent(KXmlGuiWindow* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseMouseReleaseEvent(KXmlGuiWindow* self, QMouseEvent* event) {
+void KXmlGuiWindow_SuperMouseReleaseEvent(KXmlGuiWindow* self, QMouseEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_MouseReleaseEvent_IsBase(true);
@@ -1025,7 +1025,7 @@ void KXmlGuiWindow_MouseDoubleClickEvent(KXmlGuiWindow* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseMouseDoubleClickEvent(KXmlGuiWindow* self, QMouseEvent* event) {
+void KXmlGuiWindow_SuperMouseDoubleClickEvent(KXmlGuiWindow* self, QMouseEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_MouseDoubleClickEvent_IsBase(true);
@@ -1054,7 +1054,7 @@ void KXmlGuiWindow_MouseMoveEvent(KXmlGuiWindow* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseMouseMoveEvent(KXmlGuiWindow* self, QMouseEvent* event) {
+void KXmlGuiWindow_SuperMouseMoveEvent(KXmlGuiWindow* self, QMouseEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_MouseMoveEvent_IsBase(true);
@@ -1083,7 +1083,7 @@ void KXmlGuiWindow_WheelEvent(KXmlGuiWindow* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseWheelEvent(KXmlGuiWindow* self, QWheelEvent* event) {
+void KXmlGuiWindow_SuperWheelEvent(KXmlGuiWindow* self, QWheelEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_WheelEvent_IsBase(true);
@@ -1112,7 +1112,7 @@ void KXmlGuiWindow_KeyReleaseEvent(KXmlGuiWindow* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseKeyReleaseEvent(KXmlGuiWindow* self, QKeyEvent* event) {
+void KXmlGuiWindow_SuperKeyReleaseEvent(KXmlGuiWindow* self, QKeyEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_KeyReleaseEvent_IsBase(true);
@@ -1141,7 +1141,7 @@ void KXmlGuiWindow_FocusInEvent(KXmlGuiWindow* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseFocusInEvent(KXmlGuiWindow* self, QFocusEvent* event) {
+void KXmlGuiWindow_SuperFocusInEvent(KXmlGuiWindow* self, QFocusEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_FocusInEvent_IsBase(true);
@@ -1170,7 +1170,7 @@ void KXmlGuiWindow_FocusOutEvent(KXmlGuiWindow* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseFocusOutEvent(KXmlGuiWindow* self, QFocusEvent* event) {
+void KXmlGuiWindow_SuperFocusOutEvent(KXmlGuiWindow* self, QFocusEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_FocusOutEvent_IsBase(true);
@@ -1199,7 +1199,7 @@ void KXmlGuiWindow_EnterEvent(KXmlGuiWindow* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseEnterEvent(KXmlGuiWindow* self, QEnterEvent* event) {
+void KXmlGuiWindow_SuperEnterEvent(KXmlGuiWindow* self, QEnterEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_EnterEvent_IsBase(true);
@@ -1228,7 +1228,7 @@ void KXmlGuiWindow_LeaveEvent(KXmlGuiWindow* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseLeaveEvent(KXmlGuiWindow* self, QEvent* event) {
+void KXmlGuiWindow_SuperLeaveEvent(KXmlGuiWindow* self, QEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_LeaveEvent_IsBase(true);
@@ -1257,7 +1257,7 @@ void KXmlGuiWindow_PaintEvent(KXmlGuiWindow* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBasePaintEvent(KXmlGuiWindow* self, QPaintEvent* event) {
+void KXmlGuiWindow_SuperPaintEvent(KXmlGuiWindow* self, QPaintEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_PaintEvent_IsBase(true);
@@ -1286,7 +1286,7 @@ void KXmlGuiWindow_MoveEvent(KXmlGuiWindow* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseMoveEvent(KXmlGuiWindow* self, QMoveEvent* event) {
+void KXmlGuiWindow_SuperMoveEvent(KXmlGuiWindow* self, QMoveEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_MoveEvent_IsBase(true);
@@ -1315,7 +1315,7 @@ void KXmlGuiWindow_ResizeEvent(KXmlGuiWindow* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseResizeEvent(KXmlGuiWindow* self, QResizeEvent* event) {
+void KXmlGuiWindow_SuperResizeEvent(KXmlGuiWindow* self, QResizeEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_ResizeEvent_IsBase(true);
@@ -1344,7 +1344,7 @@ void KXmlGuiWindow_TabletEvent(KXmlGuiWindow* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseTabletEvent(KXmlGuiWindow* self, QTabletEvent* event) {
+void KXmlGuiWindow_SuperTabletEvent(KXmlGuiWindow* self, QTabletEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_TabletEvent_IsBase(true);
@@ -1373,7 +1373,7 @@ void KXmlGuiWindow_ActionEvent(KXmlGuiWindow* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseActionEvent(KXmlGuiWindow* self, QActionEvent* event) {
+void KXmlGuiWindow_SuperActionEvent(KXmlGuiWindow* self, QActionEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_ActionEvent_IsBase(true);
@@ -1402,7 +1402,7 @@ void KXmlGuiWindow_DragEnterEvent(KXmlGuiWindow* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseDragEnterEvent(KXmlGuiWindow* self, QDragEnterEvent* event) {
+void KXmlGuiWindow_SuperDragEnterEvent(KXmlGuiWindow* self, QDragEnterEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_DragEnterEvent_IsBase(true);
@@ -1431,7 +1431,7 @@ void KXmlGuiWindow_DragMoveEvent(KXmlGuiWindow* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseDragMoveEvent(KXmlGuiWindow* self, QDragMoveEvent* event) {
+void KXmlGuiWindow_SuperDragMoveEvent(KXmlGuiWindow* self, QDragMoveEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_DragMoveEvent_IsBase(true);
@@ -1460,7 +1460,7 @@ void KXmlGuiWindow_DragLeaveEvent(KXmlGuiWindow* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseDragLeaveEvent(KXmlGuiWindow* self, QDragLeaveEvent* event) {
+void KXmlGuiWindow_SuperDragLeaveEvent(KXmlGuiWindow* self, QDragLeaveEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_DragLeaveEvent_IsBase(true);
@@ -1489,7 +1489,7 @@ void KXmlGuiWindow_DropEvent(KXmlGuiWindow* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseDropEvent(KXmlGuiWindow* self, QDropEvent* event) {
+void KXmlGuiWindow_SuperDropEvent(KXmlGuiWindow* self, QDropEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_DropEvent_IsBase(true);
@@ -1518,7 +1518,7 @@ void KXmlGuiWindow_ShowEvent(KXmlGuiWindow* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseShowEvent(KXmlGuiWindow* self, QShowEvent* event) {
+void KXmlGuiWindow_SuperShowEvent(KXmlGuiWindow* self, QShowEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_ShowEvent_IsBase(true);
@@ -1547,7 +1547,7 @@ void KXmlGuiWindow_HideEvent(KXmlGuiWindow* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseHideEvent(KXmlGuiWindow* self, QHideEvent* event) {
+void KXmlGuiWindow_SuperHideEvent(KXmlGuiWindow* self, QHideEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_HideEvent_IsBase(true);
@@ -1577,7 +1577,7 @@ bool KXmlGuiWindow_NativeEvent(KXmlGuiWindow* self, const libqt_string eventType
 }
 
 // Base class handler implementation
-bool KXmlGuiWindow_QBaseNativeEvent(KXmlGuiWindow* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KXmlGuiWindow_SuperNativeEvent(KXmlGuiWindow* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
@@ -1607,7 +1607,7 @@ void KXmlGuiWindow_ChangeEvent(KXmlGuiWindow* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseChangeEvent(KXmlGuiWindow* self, QEvent* param1) {
+void KXmlGuiWindow_SuperChangeEvent(KXmlGuiWindow* self, QEvent* param1) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_ChangeEvent_IsBase(true);
@@ -1636,7 +1636,7 @@ int KXmlGuiWindow_Metric(const KXmlGuiWindow* self, int param1) {
 }
 
 // Base class handler implementation
-int KXmlGuiWindow_QBaseMetric(const KXmlGuiWindow* self, int param1) {
+int KXmlGuiWindow_SuperMetric(const KXmlGuiWindow* self, int param1) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_Metric_IsBase(true);
@@ -1665,7 +1665,7 @@ void KXmlGuiWindow_InitPainter(const KXmlGuiWindow* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseInitPainter(const KXmlGuiWindow* self, QPainter* painter) {
+void KXmlGuiWindow_SuperInitPainter(const KXmlGuiWindow* self, QPainter* painter) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_InitPainter_IsBase(true);
@@ -1694,7 +1694,7 @@ QPaintDevice* KXmlGuiWindow_Redirected(const KXmlGuiWindow* self, QPoint* offset
 }
 
 // Base class handler implementation
-QPaintDevice* KXmlGuiWindow_QBaseRedirected(const KXmlGuiWindow* self, QPoint* offset) {
+QPaintDevice* KXmlGuiWindow_SuperRedirected(const KXmlGuiWindow* self, QPoint* offset) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_Redirected_IsBase(true);
@@ -1723,7 +1723,7 @@ QPainter* KXmlGuiWindow_SharedPainter(const KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-QPainter* KXmlGuiWindow_QBaseSharedPainter(const KXmlGuiWindow* self) {
+QPainter* KXmlGuiWindow_SuperSharedPainter(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_SharedPainter_IsBase(true);
@@ -1752,7 +1752,7 @@ void KXmlGuiWindow_InputMethodEvent(KXmlGuiWindow* self, QInputMethodEvent* para
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseInputMethodEvent(KXmlGuiWindow* self, QInputMethodEvent* param1) {
+void KXmlGuiWindow_SuperInputMethodEvent(KXmlGuiWindow* self, QInputMethodEvent* param1) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_InputMethodEvent_IsBase(true);
@@ -1781,7 +1781,7 @@ QVariant* KXmlGuiWindow_InputMethodQuery(const KXmlGuiWindow* self, int param1) 
 }
 
 // Base class handler implementation
-QVariant* KXmlGuiWindow_QBaseInputMethodQuery(const KXmlGuiWindow* self, int param1) {
+QVariant* KXmlGuiWindow_SuperInputMethodQuery(const KXmlGuiWindow* self, int param1) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_InputMethodQuery_IsBase(true);
@@ -1810,7 +1810,7 @@ bool KXmlGuiWindow_FocusNextPrevChild(KXmlGuiWindow* self, bool next) {
 }
 
 // Base class handler implementation
-bool KXmlGuiWindow_QBaseFocusNextPrevChild(KXmlGuiWindow* self, bool next) {
+bool KXmlGuiWindow_SuperFocusNextPrevChild(KXmlGuiWindow* self, bool next) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_FocusNextPrevChild_IsBase(true);
@@ -1839,7 +1839,7 @@ bool KXmlGuiWindow_EventFilter(KXmlGuiWindow* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool KXmlGuiWindow_QBaseEventFilter(KXmlGuiWindow* self, QObject* watched, QEvent* event) {
+bool KXmlGuiWindow_SuperEventFilter(KXmlGuiWindow* self, QObject* watched, QEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_EventFilter_IsBase(true);
@@ -1868,7 +1868,7 @@ void KXmlGuiWindow_TimerEvent(KXmlGuiWindow* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseTimerEvent(KXmlGuiWindow* self, QTimerEvent* event) {
+void KXmlGuiWindow_SuperTimerEvent(KXmlGuiWindow* self, QTimerEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_TimerEvent_IsBase(true);
@@ -1897,7 +1897,7 @@ void KXmlGuiWindow_ChildEvent(KXmlGuiWindow* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseChildEvent(KXmlGuiWindow* self, QChildEvent* event) {
+void KXmlGuiWindow_SuperChildEvent(KXmlGuiWindow* self, QChildEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_ChildEvent_IsBase(true);
@@ -1926,7 +1926,7 @@ void KXmlGuiWindow_CustomEvent(KXmlGuiWindow* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseCustomEvent(KXmlGuiWindow* self, QEvent* event) {
+void KXmlGuiWindow_SuperCustomEvent(KXmlGuiWindow* self, QEvent* event) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_CustomEvent_IsBase(true);
@@ -1955,7 +1955,7 @@ void KXmlGuiWindow_ConnectNotify(KXmlGuiWindow* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseConnectNotify(KXmlGuiWindow* self, const QMetaMethod* signal) {
+void KXmlGuiWindow_SuperConnectNotify(KXmlGuiWindow* self, const QMetaMethod* signal) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_ConnectNotify_IsBase(true);
@@ -1984,7 +1984,7 @@ void KXmlGuiWindow_DisconnectNotify(KXmlGuiWindow* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseDisconnectNotify(KXmlGuiWindow* self, const QMetaMethod* signal) {
+void KXmlGuiWindow_SuperDisconnectNotify(KXmlGuiWindow* self, const QMetaMethod* signal) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_DisconnectNotify_IsBase(true);
@@ -2047,7 +2047,7 @@ libqt_list /* of libqt_string */ KXmlGuiWindow_ContainerTags(const KXmlGuiWindow
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KXmlGuiWindow_QBaseContainerTags(const KXmlGuiWindow* self) {
+libqt_list /* of libqt_string */ KXmlGuiWindow_SuperContainerTags(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_ContainerTags_IsBase(true);
@@ -2110,7 +2110,7 @@ QWidget* KXmlGuiWindow_CreateContainer(KXmlGuiWindow* self, QWidget* parent, int
 }
 
 // Base class handler implementation
-QWidget* KXmlGuiWindow_QBaseCreateContainer(KXmlGuiWindow* self, QWidget* parent, int index, const QDomElement* element, QAction** containerAction) {
+QWidget* KXmlGuiWindow_SuperCreateContainer(KXmlGuiWindow* self, QWidget* parent, int index, const QDomElement* element, QAction** containerAction) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_CreateContainer_IsBase(true);
@@ -2139,7 +2139,7 @@ void KXmlGuiWindow_RemoveContainer(KXmlGuiWindow* self, QWidget* container, QWid
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseRemoveContainer(KXmlGuiWindow* self, QWidget* container, QWidget* parent, QDomElement* element, QAction* containerAction) {
+void KXmlGuiWindow_SuperRemoveContainer(KXmlGuiWindow* self, QWidget* container, QWidget* parent, QDomElement* element, QAction* containerAction) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_RemoveContainer_IsBase(true);
@@ -2202,7 +2202,7 @@ libqt_list /* of libqt_string */ KXmlGuiWindow_CustomTags(const KXmlGuiWindow* s
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KXmlGuiWindow_QBaseCustomTags(const KXmlGuiWindow* self) {
+libqt_list /* of libqt_string */ KXmlGuiWindow_SuperCustomTags(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_CustomTags_IsBase(true);
@@ -2265,7 +2265,7 @@ QAction* KXmlGuiWindow_CreateCustomElement(KXmlGuiWindow* self, QWidget* parent,
 }
 
 // Base class handler implementation
-QAction* KXmlGuiWindow_QBaseCreateCustomElement(KXmlGuiWindow* self, QWidget* parent, int index, const QDomElement* element) {
+QAction* KXmlGuiWindow_SuperCreateCustomElement(KXmlGuiWindow* self, QWidget* parent, int index, const QDomElement* element) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_CreateCustomElement_IsBase(true);
@@ -2294,7 +2294,7 @@ QAction* KXmlGuiWindow_Action2(const KXmlGuiWindow* self, const QDomElement* ele
 }
 
 // Base class handler implementation
-QAction* KXmlGuiWindow_QBaseAction2(const KXmlGuiWindow* self, const QDomElement* element) {
+QAction* KXmlGuiWindow_SuperAction2(const KXmlGuiWindow* self, const QDomElement* element) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_Action2_IsBase(true);
@@ -2323,7 +2323,7 @@ KActionCollection* KXmlGuiWindow_ActionCollection(const KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-KActionCollection* KXmlGuiWindow_QBaseActionCollection(const KXmlGuiWindow* self) {
+KActionCollection* KXmlGuiWindow_SuperActionCollection(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_ActionCollection_IsBase(true);
@@ -2368,7 +2368,7 @@ libqt_string KXmlGuiWindow_ComponentName(const KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-libqt_string KXmlGuiWindow_QBaseComponentName(const KXmlGuiWindow* self) {
+libqt_string KXmlGuiWindow_SuperComponentName(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_ComponentName_IsBase(true);
@@ -2413,7 +2413,7 @@ QDomDocument* KXmlGuiWindow_DomDocument(const KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-QDomDocument* KXmlGuiWindow_QBaseDomDocument(const KXmlGuiWindow* self) {
+QDomDocument* KXmlGuiWindow_SuperDomDocument(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_DomDocument_IsBase(true);
@@ -2458,7 +2458,7 @@ libqt_string KXmlGuiWindow_XmlFile(const KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-libqt_string KXmlGuiWindow_QBaseXmlFile(const KXmlGuiWindow* self) {
+libqt_string KXmlGuiWindow_SuperXmlFile(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_XmlFile_IsBase(true);
@@ -2519,7 +2519,7 @@ libqt_string KXmlGuiWindow_LocalXMLFile(const KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-libqt_string KXmlGuiWindow_QBaseLocalXMLFile(const KXmlGuiWindow* self) {
+libqt_string KXmlGuiWindow_SuperLocalXMLFile(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_LocalXMLFile_IsBase(true);
@@ -2566,7 +2566,7 @@ void KXmlGuiWindow_SetComponentName(KXmlGuiWindow* self, const libqt_string comp
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseSetComponentName(KXmlGuiWindow* self, const libqt_string componentName, const libqt_string componentDisplayName) {
+void KXmlGuiWindow_SuperSetComponentName(KXmlGuiWindow* self, const libqt_string componentName, const libqt_string componentDisplayName) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     QString componentName_QString = QString::fromUtf8(componentName.data, componentName.len);
     QString componentDisplayName_QString = QString::fromUtf8(componentDisplayName.data, componentDisplayName.len);
@@ -2598,7 +2598,7 @@ void KXmlGuiWindow_SetXMLFile(KXmlGuiWindow* self, const libqt_string file, bool
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseSetXMLFile(KXmlGuiWindow* self, const libqt_string file, bool merge, bool setXMLDoc) {
+void KXmlGuiWindow_SuperSetXMLFile(KXmlGuiWindow* self, const libqt_string file, bool merge, bool setXMLDoc) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
@@ -2629,7 +2629,7 @@ void KXmlGuiWindow_SetLocalXMLFile(KXmlGuiWindow* self, const libqt_string file)
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseSetLocalXMLFile(KXmlGuiWindow* self, const libqt_string file) {
+void KXmlGuiWindow_SuperSetLocalXMLFile(KXmlGuiWindow* self, const libqt_string file) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
@@ -2660,7 +2660,7 @@ void KXmlGuiWindow_SetXML(KXmlGuiWindow* self, const libqt_string document, bool
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseSetXML(KXmlGuiWindow* self, const libqt_string document, bool merge) {
+void KXmlGuiWindow_SuperSetXML(KXmlGuiWindow* self, const libqt_string document, bool merge) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     QString document_QString = QString::fromUtf8(document.data, document.len);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
@@ -2690,7 +2690,7 @@ void KXmlGuiWindow_SetDOMDocument(KXmlGuiWindow* self, const QDomDocument* docum
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseSetDOMDocument(KXmlGuiWindow* self, const QDomDocument* document, bool merge) {
+void KXmlGuiWindow_SuperSetDOMDocument(KXmlGuiWindow* self, const QDomDocument* document, bool merge) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_SetDOMDocument_IsBase(true);
@@ -2720,7 +2720,7 @@ void KXmlGuiWindow_StateChanged(KXmlGuiWindow* self, const libqt_string newstate
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseStateChanged(KXmlGuiWindow* self, const libqt_string newstate, int reverse) {
+void KXmlGuiWindow_SuperStateChanged(KXmlGuiWindow* self, const libqt_string newstate, int reverse) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     QString newstate_QString = QString::fromUtf8(newstate.data, newstate.len);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
@@ -2750,7 +2750,7 @@ void KXmlGuiWindow_CheckAmbiguousShortcuts(KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseCheckAmbiguousShortcuts(KXmlGuiWindow* self) {
+void KXmlGuiWindow_SuperCheckAmbiguousShortcuts(KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_CheckAmbiguousShortcuts_IsBase(true);
@@ -2779,7 +2779,7 @@ void KXmlGuiWindow_SavePropertiesInternal(KXmlGuiWindow* self, KConfig* param1, 
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseSavePropertiesInternal(KXmlGuiWindow* self, KConfig* param1, int param2) {
+void KXmlGuiWindow_SuperSavePropertiesInternal(KXmlGuiWindow* self, KConfig* param1, int param2) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_SavePropertiesInternal_IsBase(true);
@@ -2808,7 +2808,7 @@ bool KXmlGuiWindow_ReadPropertiesInternal(KXmlGuiWindow* self, KConfig* param1, 
 }
 
 // Base class handler implementation
-bool KXmlGuiWindow_QBaseReadPropertiesInternal(KXmlGuiWindow* self, KConfig* param1, int param2) {
+bool KXmlGuiWindow_SuperReadPropertiesInternal(KXmlGuiWindow* self, KConfig* param1, int param2) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_ReadPropertiesInternal_IsBase(true);
@@ -2837,7 +2837,7 @@ bool KXmlGuiWindow_SettingsDirty(const KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-bool KXmlGuiWindow_QBaseSettingsDirty(const KXmlGuiWindow* self) {
+bool KXmlGuiWindow_SuperSettingsDirty(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_SettingsDirty_IsBase(true);
@@ -2866,7 +2866,7 @@ void KXmlGuiWindow_SaveAutoSaveSettings(KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseSaveAutoSaveSettings(KXmlGuiWindow* self) {
+void KXmlGuiWindow_SuperSaveAutoSaveSettings(KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_SaveAutoSaveSettings_IsBase(true);
@@ -2895,7 +2895,7 @@ void KXmlGuiWindow_UpdateMicroFocus(KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseUpdateMicroFocus(KXmlGuiWindow* self) {
+void KXmlGuiWindow_SuperUpdateMicroFocus(KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_UpdateMicroFocus_IsBase(true);
@@ -2924,7 +2924,7 @@ void KXmlGuiWindow_Create(KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseCreate(KXmlGuiWindow* self) {
+void KXmlGuiWindow_SuperCreate(KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_Create_IsBase(true);
@@ -2953,7 +2953,7 @@ void KXmlGuiWindow_Destroy(KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseDestroy(KXmlGuiWindow* self) {
+void KXmlGuiWindow_SuperDestroy(KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_Destroy_IsBase(true);
@@ -2982,7 +2982,7 @@ bool KXmlGuiWindow_FocusNextChild(KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-bool KXmlGuiWindow_QBaseFocusNextChild(KXmlGuiWindow* self) {
+bool KXmlGuiWindow_SuperFocusNextChild(KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_FocusNextChild_IsBase(true);
@@ -3011,7 +3011,7 @@ bool KXmlGuiWindow_FocusPreviousChild(KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-bool KXmlGuiWindow_QBaseFocusPreviousChild(KXmlGuiWindow* self) {
+bool KXmlGuiWindow_SuperFocusPreviousChild(KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_FocusPreviousChild_IsBase(true);
@@ -3040,7 +3040,7 @@ QObject* KXmlGuiWindow_Sender(const KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-QObject* KXmlGuiWindow_QBaseSender(const KXmlGuiWindow* self) {
+QObject* KXmlGuiWindow_SuperSender(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_Sender_IsBase(true);
@@ -3069,7 +3069,7 @@ int KXmlGuiWindow_SenderSignalIndex(const KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-int KXmlGuiWindow_QBaseSenderSignalIndex(const KXmlGuiWindow* self) {
+int KXmlGuiWindow_SuperSenderSignalIndex(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_SenderSignalIndex_IsBase(true);
@@ -3098,7 +3098,7 @@ int KXmlGuiWindow_Receivers(const KXmlGuiWindow* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KXmlGuiWindow_QBaseReceivers(const KXmlGuiWindow* self, const char* signal) {
+int KXmlGuiWindow_SuperReceivers(const KXmlGuiWindow* self, const char* signal) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_Receivers_IsBase(true);
@@ -3127,7 +3127,7 @@ bool KXmlGuiWindow_IsSignalConnected(const KXmlGuiWindow* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool KXmlGuiWindow_QBaseIsSignalConnected(const KXmlGuiWindow* self, const QMetaMethod* signal) {
+bool KXmlGuiWindow_SuperIsSignalConnected(const KXmlGuiWindow* self, const QMetaMethod* signal) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_IsSignalConnected_IsBase(true);
@@ -3156,7 +3156,7 @@ double KXmlGuiWindow_GetDecodedMetricF(const KXmlGuiWindow* self, int metricA, i
 }
 
 // Base class handler implementation
-double KXmlGuiWindow_QBaseGetDecodedMetricF(const KXmlGuiWindow* self, int metricA, int metricB) {
+double KXmlGuiWindow_SuperGetDecodedMetricF(const KXmlGuiWindow* self, int metricA, int metricB) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_GetDecodedMetricF_IsBase(true);
@@ -3201,7 +3201,7 @@ libqt_string KXmlGuiWindow_StandardsXmlFileLocation(KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-libqt_string KXmlGuiWindow_QBaseStandardsXmlFileLocation(KXmlGuiWindow* self) {
+libqt_string KXmlGuiWindow_SuperStandardsXmlFileLocation(KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_StandardsXmlFileLocation_IsBase(true);
@@ -3246,7 +3246,7 @@ void KXmlGuiWindow_LoadStandardsXmlFile(KXmlGuiWindow* self) {
 }
 
 // Base class handler implementation
-void KXmlGuiWindow_QBaseLoadStandardsXmlFile(KXmlGuiWindow* self) {
+void KXmlGuiWindow_SuperLoadStandardsXmlFile(KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_LoadStandardsXmlFile_IsBase(true);

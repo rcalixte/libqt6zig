@@ -328,25 +328,25 @@ class VirtualKColumnResizer final : public KColumnResizer {
 
     // Friend functions
     friend bool KColumnResizer_EventFilter(KColumnResizer* self, QObject* param1, QEvent* event);
-    friend bool KColumnResizer_QBaseEventFilter(KColumnResizer* self, QObject* param1, QEvent* event);
+    friend bool KColumnResizer_SuperEventFilter(KColumnResizer* self, QObject* param1, QEvent* event);
     friend void KColumnResizer_TimerEvent(KColumnResizer* self, QTimerEvent* event);
-    friend void KColumnResizer_QBaseTimerEvent(KColumnResizer* self, QTimerEvent* event);
+    friend void KColumnResizer_SuperTimerEvent(KColumnResizer* self, QTimerEvent* event);
     friend void KColumnResizer_ChildEvent(KColumnResizer* self, QChildEvent* event);
-    friend void KColumnResizer_QBaseChildEvent(KColumnResizer* self, QChildEvent* event);
+    friend void KColumnResizer_SuperChildEvent(KColumnResizer* self, QChildEvent* event);
     friend void KColumnResizer_CustomEvent(KColumnResizer* self, QEvent* event);
-    friend void KColumnResizer_QBaseCustomEvent(KColumnResizer* self, QEvent* event);
+    friend void KColumnResizer_SuperCustomEvent(KColumnResizer* self, QEvent* event);
     friend void KColumnResizer_ConnectNotify(KColumnResizer* self, const QMetaMethod* signal);
-    friend void KColumnResizer_QBaseConnectNotify(KColumnResizer* self, const QMetaMethod* signal);
+    friend void KColumnResizer_SuperConnectNotify(KColumnResizer* self, const QMetaMethod* signal);
     friend void KColumnResizer_DisconnectNotify(KColumnResizer* self, const QMetaMethod* signal);
-    friend void KColumnResizer_QBaseDisconnectNotify(KColumnResizer* self, const QMetaMethod* signal);
+    friend void KColumnResizer_SuperDisconnectNotify(KColumnResizer* self, const QMetaMethod* signal);
     friend QObject* KColumnResizer_Sender(const KColumnResizer* self);
-    friend QObject* KColumnResizer_QBaseSender(const KColumnResizer* self);
+    friend QObject* KColumnResizer_SuperSender(const KColumnResizer* self);
     friend int KColumnResizer_SenderSignalIndex(const KColumnResizer* self);
-    friend int KColumnResizer_QBaseSenderSignalIndex(const KColumnResizer* self);
+    friend int KColumnResizer_SuperSenderSignalIndex(const KColumnResizer* self);
     friend int KColumnResizer_Receivers(const KColumnResizer* self, const char* signal);
-    friend int KColumnResizer_QBaseReceivers(const KColumnResizer* self, const char* signal);
+    friend int KColumnResizer_SuperReceivers(const KColumnResizer* self, const char* signal);
     friend bool KColumnResizer_IsSignalConnected(const KColumnResizer* self, const QMetaMethod* signal);
-    friend bool KColumnResizer_QBaseIsSignalConnected(const KColumnResizer* self, const QMetaMethod* signal);
+    friend bool KColumnResizer_SuperIsSignalConnected(const KColumnResizer* self, const QMetaMethod* signal);
 };
 
 #endif

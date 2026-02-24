@@ -300,11 +300,11 @@ class VirtualQGraphicsGridLayout final : public QGraphicsGridLayout {
 
     // Friend functions
     friend void QGraphicsGridLayout_AddChildLayoutItem(QGraphicsGridLayout* self, QGraphicsLayoutItem* layoutItem);
-    friend void QGraphicsGridLayout_QBaseAddChildLayoutItem(QGraphicsGridLayout* self, QGraphicsLayoutItem* layoutItem);
+    friend void QGraphicsGridLayout_SuperAddChildLayoutItem(QGraphicsGridLayout* self, QGraphicsLayoutItem* layoutItem);
     friend void QGraphicsGridLayout_SetGraphicsItem(QGraphicsGridLayout* self, QGraphicsItem* item);
-    friend void QGraphicsGridLayout_QBaseSetGraphicsItem(QGraphicsGridLayout* self, QGraphicsItem* item);
+    friend void QGraphicsGridLayout_SuperSetGraphicsItem(QGraphicsGridLayout* self, QGraphicsItem* item);
     friend void QGraphicsGridLayout_SetOwnedByLayout(QGraphicsGridLayout* self, bool ownedByLayout);
-    friend void QGraphicsGridLayout_QBaseSetOwnedByLayout(QGraphicsGridLayout* self, bool ownedByLayout);
+    friend void QGraphicsGridLayout_SuperSetOwnedByLayout(QGraphicsGridLayout* self, bool ownedByLayout);
 };
 
 #endif

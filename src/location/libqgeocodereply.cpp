@@ -163,7 +163,7 @@ void QGeoCodeReply_Connect_ErrorOccurred2(QGeoCodeReply* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QGeoCodeReply_QBaseMetaObject(const QGeoCodeReply* self) {
+QMetaObject* QGeoCodeReply_SuperMetaObject(const QGeoCodeReply* self) {
     auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
     if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
         vqgeocodereply->setQGeoCodeReply_MetaObject_IsBase(true);
@@ -182,7 +182,7 @@ void QGeoCodeReply_OnMetaObject(const QGeoCodeReply* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QGeoCodeReply_QBaseMetacast(QGeoCodeReply* self, const char* param1) {
+void* QGeoCodeReply_SuperMetacast(QGeoCodeReply* self, const char* param1) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
     if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
         vqgeocodereply->setQGeoCodeReply_Metacast_IsBase(true);
@@ -201,7 +201,7 @@ void QGeoCodeReply_OnMetacast(QGeoCodeReply* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QGeoCodeReply_QBaseMetacall(QGeoCodeReply* self, int param1, int param2, void** param3) {
+int QGeoCodeReply_SuperMetacall(QGeoCodeReply* self, int param1, int param2, void** param3) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
     if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
         vqgeocodereply->setQGeoCodeReply_Metacall_IsBase(true);
@@ -220,7 +220,7 @@ void QGeoCodeReply_OnMetacall(QGeoCodeReply* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QGeoCodeReply_QBaseAbort(QGeoCodeReply* self) {
+void QGeoCodeReply_SuperAbort(QGeoCodeReply* self) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
     if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
         vqgeocodereply->setQGeoCodeReply_Abort_IsBase(true);
@@ -249,7 +249,7 @@ bool QGeoCodeReply_Event(QGeoCodeReply* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QGeoCodeReply_QBaseEvent(QGeoCodeReply* self, QEvent* event) {
+bool QGeoCodeReply_SuperEvent(QGeoCodeReply* self, QEvent* event) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
     if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
         vqgeocodereply->setQGeoCodeReply_Event_IsBase(true);
@@ -278,7 +278,7 @@ bool QGeoCodeReply_EventFilter(QGeoCodeReply* self, QObject* watched, QEvent* ev
 }
 
 // Base class handler implementation
-bool QGeoCodeReply_QBaseEventFilter(QGeoCodeReply* self, QObject* watched, QEvent* event) {
+bool QGeoCodeReply_SuperEventFilter(QGeoCodeReply* self, QObject* watched, QEvent* event) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
     if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
         vqgeocodereply->setQGeoCodeReply_EventFilter_IsBase(true);
@@ -307,7 +307,7 @@ void QGeoCodeReply_TimerEvent(QGeoCodeReply* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QGeoCodeReply_QBaseTimerEvent(QGeoCodeReply* self, QTimerEvent* event) {
+void QGeoCodeReply_SuperTimerEvent(QGeoCodeReply* self, QTimerEvent* event) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
     if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
         vqgeocodereply->setQGeoCodeReply_TimerEvent_IsBase(true);
@@ -336,7 +336,7 @@ void QGeoCodeReply_ChildEvent(QGeoCodeReply* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QGeoCodeReply_QBaseChildEvent(QGeoCodeReply* self, QChildEvent* event) {
+void QGeoCodeReply_SuperChildEvent(QGeoCodeReply* self, QChildEvent* event) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
     if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
         vqgeocodereply->setQGeoCodeReply_ChildEvent_IsBase(true);
@@ -365,7 +365,7 @@ void QGeoCodeReply_CustomEvent(QGeoCodeReply* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QGeoCodeReply_QBaseCustomEvent(QGeoCodeReply* self, QEvent* event) {
+void QGeoCodeReply_SuperCustomEvent(QGeoCodeReply* self, QEvent* event) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
     if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
         vqgeocodereply->setQGeoCodeReply_CustomEvent_IsBase(true);
@@ -394,7 +394,7 @@ void QGeoCodeReply_ConnectNotify(QGeoCodeReply* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-void QGeoCodeReply_QBaseConnectNotify(QGeoCodeReply* self, const QMetaMethod* signal) {
+void QGeoCodeReply_SuperConnectNotify(QGeoCodeReply* self, const QMetaMethod* signal) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
     if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
         vqgeocodereply->setQGeoCodeReply_ConnectNotify_IsBase(true);
@@ -423,7 +423,7 @@ void QGeoCodeReply_DisconnectNotify(QGeoCodeReply* self, const QMetaMethod* sign
 }
 
 // Base class handler implementation
-void QGeoCodeReply_QBaseDisconnectNotify(QGeoCodeReply* self, const QMetaMethod* signal) {
+void QGeoCodeReply_SuperDisconnectNotify(QGeoCodeReply* self, const QMetaMethod* signal) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
     if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
         vqgeocodereply->setQGeoCodeReply_DisconnectNotify_IsBase(true);
@@ -453,7 +453,7 @@ void QGeoCodeReply_SetError(QGeoCodeReply* self, int errorVal, const libqt_strin
 }
 
 // Base class handler implementation
-void QGeoCodeReply_QBaseSetError(QGeoCodeReply* self, int errorVal, const libqt_string errorString) {
+void QGeoCodeReply_SuperSetError(QGeoCodeReply* self, int errorVal, const libqt_string errorString) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
     QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
     if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
@@ -483,7 +483,7 @@ void QGeoCodeReply_SetFinished(QGeoCodeReply* self, bool finished) {
 }
 
 // Base class handler implementation
-void QGeoCodeReply_QBaseSetFinished(QGeoCodeReply* self, bool finished) {
+void QGeoCodeReply_SuperSetFinished(QGeoCodeReply* self, bool finished) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
     if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
         vqgeocodereply->setQGeoCodeReply_SetFinished_IsBase(true);
@@ -512,7 +512,7 @@ void QGeoCodeReply_SetViewport(QGeoCodeReply* self, const QGeoShape* viewport) {
 }
 
 // Base class handler implementation
-void QGeoCodeReply_QBaseSetViewport(QGeoCodeReply* self, const QGeoShape* viewport) {
+void QGeoCodeReply_SuperSetViewport(QGeoCodeReply* self, const QGeoShape* viewport) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
     if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
         vqgeocodereply->setQGeoCodeReply_SetViewport_IsBase(true);
@@ -541,7 +541,7 @@ void QGeoCodeReply_AddLocation(QGeoCodeReply* self, const QGeoLocation* location
 }
 
 // Base class handler implementation
-void QGeoCodeReply_QBaseAddLocation(QGeoCodeReply* self, const QGeoLocation* location) {
+void QGeoCodeReply_SuperAddLocation(QGeoCodeReply* self, const QGeoLocation* location) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
     if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
         vqgeocodereply->setQGeoCodeReply_AddLocation_IsBase(true);
@@ -576,7 +576,7 @@ void QGeoCodeReply_SetLocations(QGeoCodeReply* self, const libqt_list /* of QGeo
 }
 
 // Base class handler implementation
-void QGeoCodeReply_QBaseSetLocations(QGeoCodeReply* self, const libqt_list /* of QGeoLocation* */ locations) {
+void QGeoCodeReply_SuperSetLocations(QGeoCodeReply* self, const libqt_list /* of QGeoLocation* */ locations) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
     QList<QGeoLocation> locations_QList;
     locations_QList.reserve(locations.len);
@@ -611,7 +611,7 @@ void QGeoCodeReply_SetLimit(QGeoCodeReply* self, ptrdiff_t limit) {
 }
 
 // Base class handler implementation
-void QGeoCodeReply_QBaseSetLimit(QGeoCodeReply* self, ptrdiff_t limit) {
+void QGeoCodeReply_SuperSetLimit(QGeoCodeReply* self, ptrdiff_t limit) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
     if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
         vqgeocodereply->setQGeoCodeReply_SetLimit_IsBase(true);
@@ -640,7 +640,7 @@ void QGeoCodeReply_SetOffset(QGeoCodeReply* self, ptrdiff_t offset) {
 }
 
 // Base class handler implementation
-void QGeoCodeReply_QBaseSetOffset(QGeoCodeReply* self, ptrdiff_t offset) {
+void QGeoCodeReply_SuperSetOffset(QGeoCodeReply* self, ptrdiff_t offset) {
     auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
     if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
         vqgeocodereply->setQGeoCodeReply_SetOffset_IsBase(true);
@@ -669,7 +669,7 @@ QObject* QGeoCodeReply_Sender(const QGeoCodeReply* self) {
 }
 
 // Base class handler implementation
-QObject* QGeoCodeReply_QBaseSender(const QGeoCodeReply* self) {
+QObject* QGeoCodeReply_SuperSender(const QGeoCodeReply* self) {
     auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
     if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
         vqgeocodereply->setQGeoCodeReply_Sender_IsBase(true);
@@ -698,7 +698,7 @@ int QGeoCodeReply_SenderSignalIndex(const QGeoCodeReply* self) {
 }
 
 // Base class handler implementation
-int QGeoCodeReply_QBaseSenderSignalIndex(const QGeoCodeReply* self) {
+int QGeoCodeReply_SuperSenderSignalIndex(const QGeoCodeReply* self) {
     auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
     if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
         vqgeocodereply->setQGeoCodeReply_SenderSignalIndex_IsBase(true);
@@ -727,7 +727,7 @@ int QGeoCodeReply_Receivers(const QGeoCodeReply* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QGeoCodeReply_QBaseReceivers(const QGeoCodeReply* self, const char* signal) {
+int QGeoCodeReply_SuperReceivers(const QGeoCodeReply* self, const char* signal) {
     auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
     if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
         vqgeocodereply->setQGeoCodeReply_Receivers_IsBase(true);
@@ -756,7 +756,7 @@ bool QGeoCodeReply_IsSignalConnected(const QGeoCodeReply* self, const QMetaMetho
 }
 
 // Base class handler implementation
-bool QGeoCodeReply_QBaseIsSignalConnected(const QGeoCodeReply* self, const QMetaMethod* signal) {
+bool QGeoCodeReply_SuperIsSignalConnected(const QGeoCodeReply* self, const QMetaMethod* signal) {
     auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
     if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
         vqgeocodereply->setQGeoCodeReply_IsSignalConnected_IsBase(true);

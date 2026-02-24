@@ -35,6 +35,10 @@ pub const qabstractvideobuffer = struct {
         qtc.QAbstractVideoBuffer_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractvideobuffer.html#dtor.QAbstractVideoBuffer)
     ///
     /// Delete this object from C++ memory.
@@ -43,7 +47,7 @@ pub const qabstractvideobuffer = struct {
     ///
     /// ` self: QtC.QAbstractVideoBuffer `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAbstractVideoBuffer_Delete(@ptrCast(self));
     }
 };
@@ -116,13 +120,17 @@ pub const qabstractvideobuffer__mapdata = struct {
         qtc.QAbstractVideoBuffer__MapData_SetPlaneCount(@ptrCast(self), @bitCast(planeCount));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QAbstractVideoBuffer__MapData `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QAbstractVideoBuffer__MapData_Delete(@ptrCast(self));
     }
 };

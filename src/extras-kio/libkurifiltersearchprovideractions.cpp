@@ -70,7 +70,7 @@ void KIO__KUriFilterSearchProviderActions_AddWebShortcutsToMenu(KIO__KUriFilterS
 }
 
 // Base class handler implementation
-QMetaObject* KIO__KUriFilterSearchProviderActions_QBaseMetaObject(const KIO__KUriFilterSearchProviderActions* self) {
+QMetaObject* KIO__KUriFilterSearchProviderActions_SuperMetaObject(const KIO__KUriFilterSearchProviderActions* self) {
     auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
     if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_MetaObject_IsBase(true);
@@ -89,7 +89,7 @@ void KIO__KUriFilterSearchProviderActions_OnMetaObject(const KIO__KUriFilterSear
 }
 
 // Base class handler implementation
-void* KIO__KUriFilterSearchProviderActions_QBaseMetacast(KIO__KUriFilterSearchProviderActions* self, const char* param1) {
+void* KIO__KUriFilterSearchProviderActions_SuperMetacast(KIO__KUriFilterSearchProviderActions* self, const char* param1) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
     if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Metacast_IsBase(true);
@@ -108,7 +108,7 @@ void KIO__KUriFilterSearchProviderActions_OnMetacast(KIO__KUriFilterSearchProvid
 }
 
 // Base class handler implementation
-int KIO__KUriFilterSearchProviderActions_QBaseMetacall(KIO__KUriFilterSearchProviderActions* self, int param1, int param2, void** param3) {
+int KIO__KUriFilterSearchProviderActions_SuperMetacall(KIO__KUriFilterSearchProviderActions* self, int param1, int param2, void** param3) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
     if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Metacall_IsBase(true);
@@ -137,7 +137,7 @@ bool KIO__KUriFilterSearchProviderActions_Event(KIO__KUriFilterSearchProviderAct
 }
 
 // Base class handler implementation
-bool KIO__KUriFilterSearchProviderActions_QBaseEvent(KIO__KUriFilterSearchProviderActions* self, QEvent* event) {
+bool KIO__KUriFilterSearchProviderActions_SuperEvent(KIO__KUriFilterSearchProviderActions* self, QEvent* event) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
     if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Event_IsBase(true);
@@ -166,7 +166,7 @@ bool KIO__KUriFilterSearchProviderActions_EventFilter(KIO__KUriFilterSearchProvi
 }
 
 // Base class handler implementation
-bool KIO__KUriFilterSearchProviderActions_QBaseEventFilter(KIO__KUriFilterSearchProviderActions* self, QObject* watched, QEvent* event) {
+bool KIO__KUriFilterSearchProviderActions_SuperEventFilter(KIO__KUriFilterSearchProviderActions* self, QObject* watched, QEvent* event) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
     if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_EventFilter_IsBase(true);
@@ -195,7 +195,7 @@ void KIO__KUriFilterSearchProviderActions_TimerEvent(KIO__KUriFilterSearchProvid
 }
 
 // Base class handler implementation
-void KIO__KUriFilterSearchProviderActions_QBaseTimerEvent(KIO__KUriFilterSearchProviderActions* self, QTimerEvent* event) {
+void KIO__KUriFilterSearchProviderActions_SuperTimerEvent(KIO__KUriFilterSearchProviderActions* self, QTimerEvent* event) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
     if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_TimerEvent_IsBase(true);
@@ -224,7 +224,7 @@ void KIO__KUriFilterSearchProviderActions_ChildEvent(KIO__KUriFilterSearchProvid
 }
 
 // Base class handler implementation
-void KIO__KUriFilterSearchProviderActions_QBaseChildEvent(KIO__KUriFilterSearchProviderActions* self, QChildEvent* event) {
+void KIO__KUriFilterSearchProviderActions_SuperChildEvent(KIO__KUriFilterSearchProviderActions* self, QChildEvent* event) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
     if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_ChildEvent_IsBase(true);
@@ -253,7 +253,7 @@ void KIO__KUriFilterSearchProviderActions_CustomEvent(KIO__KUriFilterSearchProvi
 }
 
 // Base class handler implementation
-void KIO__KUriFilterSearchProviderActions_QBaseCustomEvent(KIO__KUriFilterSearchProviderActions* self, QEvent* event) {
+void KIO__KUriFilterSearchProviderActions_SuperCustomEvent(KIO__KUriFilterSearchProviderActions* self, QEvent* event) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
     if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_CustomEvent_IsBase(true);
@@ -282,7 +282,7 @@ void KIO__KUriFilterSearchProviderActions_ConnectNotify(KIO__KUriFilterSearchPro
 }
 
 // Base class handler implementation
-void KIO__KUriFilterSearchProviderActions_QBaseConnectNotify(KIO__KUriFilterSearchProviderActions* self, const QMetaMethod* signal) {
+void KIO__KUriFilterSearchProviderActions_SuperConnectNotify(KIO__KUriFilterSearchProviderActions* self, const QMetaMethod* signal) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
     if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_ConnectNotify_IsBase(true);
@@ -311,7 +311,7 @@ void KIO__KUriFilterSearchProviderActions_DisconnectNotify(KIO__KUriFilterSearch
 }
 
 // Base class handler implementation
-void KIO__KUriFilterSearchProviderActions_QBaseDisconnectNotify(KIO__KUriFilterSearchProviderActions* self, const QMetaMethod* signal) {
+void KIO__KUriFilterSearchProviderActions_SuperDisconnectNotify(KIO__KUriFilterSearchProviderActions* self, const QMetaMethod* signal) {
     auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
     if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_DisconnectNotify_IsBase(true);
@@ -340,7 +340,7 @@ QObject* KIO__KUriFilterSearchProviderActions_Sender(const KIO__KUriFilterSearch
 }
 
 // Base class handler implementation
-QObject* KIO__KUriFilterSearchProviderActions_QBaseSender(const KIO__KUriFilterSearchProviderActions* self) {
+QObject* KIO__KUriFilterSearchProviderActions_SuperSender(const KIO__KUriFilterSearchProviderActions* self) {
     auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
     if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Sender_IsBase(true);
@@ -369,7 +369,7 @@ int KIO__KUriFilterSearchProviderActions_SenderSignalIndex(const KIO__KUriFilter
 }
 
 // Base class handler implementation
-int KIO__KUriFilterSearchProviderActions_QBaseSenderSignalIndex(const KIO__KUriFilterSearchProviderActions* self) {
+int KIO__KUriFilterSearchProviderActions_SuperSenderSignalIndex(const KIO__KUriFilterSearchProviderActions* self) {
     auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
     if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_SenderSignalIndex_IsBase(true);
@@ -398,7 +398,7 @@ int KIO__KUriFilterSearchProviderActions_Receivers(const KIO__KUriFilterSearchPr
 }
 
 // Base class handler implementation
-int KIO__KUriFilterSearchProviderActions_QBaseReceivers(const KIO__KUriFilterSearchProviderActions* self, const char* signal) {
+int KIO__KUriFilterSearchProviderActions_SuperReceivers(const KIO__KUriFilterSearchProviderActions* self, const char* signal) {
     auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
     if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Receivers_IsBase(true);
@@ -427,7 +427,7 @@ bool KIO__KUriFilterSearchProviderActions_IsSignalConnected(const KIO__KUriFilte
 }
 
 // Base class handler implementation
-bool KIO__KUriFilterSearchProviderActions_QBaseIsSignalConnected(const KIO__KUriFilterSearchProviderActions* self, const QMetaMethod* signal) {
+bool KIO__KUriFilterSearchProviderActions_SuperIsSignalConnected(const KIO__KUriFilterSearchProviderActions* self, const QMetaMethod* signal) {
     auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
     if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
         vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_IsSignalConnected_IsBase(true);

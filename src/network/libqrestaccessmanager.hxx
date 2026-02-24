@@ -328,23 +328,23 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
 
     // Friend functions
     friend void QRestAccessManager_TimerEvent(QRestAccessManager* self, QTimerEvent* event);
-    friend void QRestAccessManager_QBaseTimerEvent(QRestAccessManager* self, QTimerEvent* event);
+    friend void QRestAccessManager_SuperTimerEvent(QRestAccessManager* self, QTimerEvent* event);
     friend void QRestAccessManager_ChildEvent(QRestAccessManager* self, QChildEvent* event);
-    friend void QRestAccessManager_QBaseChildEvent(QRestAccessManager* self, QChildEvent* event);
+    friend void QRestAccessManager_SuperChildEvent(QRestAccessManager* self, QChildEvent* event);
     friend void QRestAccessManager_CustomEvent(QRestAccessManager* self, QEvent* event);
-    friend void QRestAccessManager_QBaseCustomEvent(QRestAccessManager* self, QEvent* event);
+    friend void QRestAccessManager_SuperCustomEvent(QRestAccessManager* self, QEvent* event);
     friend void QRestAccessManager_ConnectNotify(QRestAccessManager* self, const QMetaMethod* signal);
-    friend void QRestAccessManager_QBaseConnectNotify(QRestAccessManager* self, const QMetaMethod* signal);
+    friend void QRestAccessManager_SuperConnectNotify(QRestAccessManager* self, const QMetaMethod* signal);
     friend void QRestAccessManager_DisconnectNotify(QRestAccessManager* self, const QMetaMethod* signal);
-    friend void QRestAccessManager_QBaseDisconnectNotify(QRestAccessManager* self, const QMetaMethod* signal);
+    friend void QRestAccessManager_SuperDisconnectNotify(QRestAccessManager* self, const QMetaMethod* signal);
     friend QObject* QRestAccessManager_Sender(const QRestAccessManager* self);
-    friend QObject* QRestAccessManager_QBaseSender(const QRestAccessManager* self);
+    friend QObject* QRestAccessManager_SuperSender(const QRestAccessManager* self);
     friend int QRestAccessManager_SenderSignalIndex(const QRestAccessManager* self);
-    friend int QRestAccessManager_QBaseSenderSignalIndex(const QRestAccessManager* self);
+    friend int QRestAccessManager_SuperSenderSignalIndex(const QRestAccessManager* self);
     friend int QRestAccessManager_Receivers(const QRestAccessManager* self, const char* signal);
-    friend int QRestAccessManager_QBaseReceivers(const QRestAccessManager* self, const char* signal);
+    friend int QRestAccessManager_SuperReceivers(const QRestAccessManager* self, const char* signal);
     friend bool QRestAccessManager_IsSignalConnected(const QRestAccessManager* self, const QMetaMethod* signal);
-    friend bool QRestAccessManager_QBaseIsSignalConnected(const QRestAccessManager* self, const QMetaMethod* signal);
+    friend bool QRestAccessManager_SuperIsSignalConnected(const QRestAccessManager* self, const QMetaMethod* signal);
 };
 
 #endif

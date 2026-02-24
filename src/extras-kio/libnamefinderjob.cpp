@@ -78,7 +78,7 @@ libqt_string KIO__NameFinderJob_FinalName(const KIO__NameFinderJob* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KIO__NameFinderJob_QBaseMetaObject(const KIO__NameFinderJob* self) {
+QMetaObject* KIO__NameFinderJob_SuperMetaObject(const KIO__NameFinderJob* self) {
     auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_MetaObject_IsBase(true);
@@ -97,7 +97,7 @@ void KIO__NameFinderJob_OnMetaObject(const KIO__NameFinderJob* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* KIO__NameFinderJob_QBaseMetacast(KIO__NameFinderJob* self, const char* param1) {
+void* KIO__NameFinderJob_SuperMetacast(KIO__NameFinderJob* self, const char* param1) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_Metacast_IsBase(true);
@@ -116,7 +116,7 @@ void KIO__NameFinderJob_OnMetacast(KIO__NameFinderJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KIO__NameFinderJob_QBaseMetacall(KIO__NameFinderJob* self, int param1, int param2, void** param3) {
+int KIO__NameFinderJob_SuperMetacall(KIO__NameFinderJob* self, int param1, int param2, void** param3) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_Metacall_IsBase(true);
@@ -135,7 +135,7 @@ void KIO__NameFinderJob_OnMetacall(KIO__NameFinderJob* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KIO__NameFinderJob_QBaseStart(KIO__NameFinderJob* self) {
+void KIO__NameFinderJob_SuperStart(KIO__NameFinderJob* self) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_Start_IsBase(true);
@@ -164,7 +164,7 @@ bool KIO__NameFinderJob_AddSubjob(KIO__NameFinderJob* self, KJob* job) {
 }
 
 // Base class handler implementation
-bool KIO__NameFinderJob_QBaseAddSubjob(KIO__NameFinderJob* self, KJob* job) {
+bool KIO__NameFinderJob_SuperAddSubjob(KIO__NameFinderJob* self, KJob* job) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_AddSubjob_IsBase(true);
@@ -193,7 +193,7 @@ bool KIO__NameFinderJob_RemoveSubjob(KIO__NameFinderJob* self, KJob* job) {
 }
 
 // Base class handler implementation
-bool KIO__NameFinderJob_QBaseRemoveSubjob(KIO__NameFinderJob* self, KJob* job) {
+bool KIO__NameFinderJob_SuperRemoveSubjob(KIO__NameFinderJob* self, KJob* job) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_RemoveSubjob_IsBase(true);
@@ -222,7 +222,7 @@ void KIO__NameFinderJob_SlotResult(KIO__NameFinderJob* self, KJob* job) {
 }
 
 // Base class handler implementation
-void KIO__NameFinderJob_QBaseSlotResult(KIO__NameFinderJob* self, KJob* job) {
+void KIO__NameFinderJob_SuperSlotResult(KIO__NameFinderJob* self, KJob* job) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_SlotResult_IsBase(true);
@@ -252,7 +252,7 @@ void KIO__NameFinderJob_SlotInfoMessage(KIO__NameFinderJob* self, KJob* job, con
 }
 
 // Base class handler implementation
-void KIO__NameFinderJob_QBaseSlotInfoMessage(KIO__NameFinderJob* self, KJob* job, const libqt_string message) {
+void KIO__NameFinderJob_SuperSlotInfoMessage(KIO__NameFinderJob* self, KJob* job, const libqt_string message) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     QString message_QString = QString::fromUtf8(message.data, message.len);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
@@ -282,7 +282,7 @@ bool KIO__NameFinderJob_DoKill(KIO__NameFinderJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__NameFinderJob_QBaseDoKill(KIO__NameFinderJob* self) {
+bool KIO__NameFinderJob_SuperDoKill(KIO__NameFinderJob* self) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_DoKill_IsBase(true);
@@ -311,7 +311,7 @@ bool KIO__NameFinderJob_DoSuspend(KIO__NameFinderJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__NameFinderJob_QBaseDoSuspend(KIO__NameFinderJob* self) {
+bool KIO__NameFinderJob_SuperDoSuspend(KIO__NameFinderJob* self) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_DoSuspend_IsBase(true);
@@ -340,7 +340,7 @@ bool KIO__NameFinderJob_DoResume(KIO__NameFinderJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__NameFinderJob_QBaseDoResume(KIO__NameFinderJob* self) {
+bool KIO__NameFinderJob_SuperDoResume(KIO__NameFinderJob* self) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_DoResume_IsBase(true);
@@ -385,7 +385,7 @@ libqt_string KIO__NameFinderJob_ErrorString(const KIO__NameFinderJob* self) {
 }
 
 // Base class handler implementation
-libqt_string KIO__NameFinderJob_QBaseErrorString(const KIO__NameFinderJob* self) {
+libqt_string KIO__NameFinderJob_SuperErrorString(const KIO__NameFinderJob* self) {
     auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_ErrorString_IsBase(true);
@@ -430,7 +430,7 @@ bool KIO__NameFinderJob_Event(KIO__NameFinderJob* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KIO__NameFinderJob_QBaseEvent(KIO__NameFinderJob* self, QEvent* event) {
+bool KIO__NameFinderJob_SuperEvent(KIO__NameFinderJob* self, QEvent* event) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_Event_IsBase(true);
@@ -459,7 +459,7 @@ bool KIO__NameFinderJob_EventFilter(KIO__NameFinderJob* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool KIO__NameFinderJob_QBaseEventFilter(KIO__NameFinderJob* self, QObject* watched, QEvent* event) {
+bool KIO__NameFinderJob_SuperEventFilter(KIO__NameFinderJob* self, QObject* watched, QEvent* event) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_EventFilter_IsBase(true);
@@ -488,7 +488,7 @@ void KIO__NameFinderJob_TimerEvent(KIO__NameFinderJob* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void KIO__NameFinderJob_QBaseTimerEvent(KIO__NameFinderJob* self, QTimerEvent* event) {
+void KIO__NameFinderJob_SuperTimerEvent(KIO__NameFinderJob* self, QTimerEvent* event) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_TimerEvent_IsBase(true);
@@ -517,7 +517,7 @@ void KIO__NameFinderJob_ChildEvent(KIO__NameFinderJob* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void KIO__NameFinderJob_QBaseChildEvent(KIO__NameFinderJob* self, QChildEvent* event) {
+void KIO__NameFinderJob_SuperChildEvent(KIO__NameFinderJob* self, QChildEvent* event) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_ChildEvent_IsBase(true);
@@ -546,7 +546,7 @@ void KIO__NameFinderJob_CustomEvent(KIO__NameFinderJob* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KIO__NameFinderJob_QBaseCustomEvent(KIO__NameFinderJob* self, QEvent* event) {
+void KIO__NameFinderJob_SuperCustomEvent(KIO__NameFinderJob* self, QEvent* event) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_CustomEvent_IsBase(true);
@@ -575,7 +575,7 @@ void KIO__NameFinderJob_ConnectNotify(KIO__NameFinderJob* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void KIO__NameFinderJob_QBaseConnectNotify(KIO__NameFinderJob* self, const QMetaMethod* signal) {
+void KIO__NameFinderJob_SuperConnectNotify(KIO__NameFinderJob* self, const QMetaMethod* signal) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_ConnectNotify_IsBase(true);
@@ -604,7 +604,7 @@ void KIO__NameFinderJob_DisconnectNotify(KIO__NameFinderJob* self, const QMetaMe
 }
 
 // Base class handler implementation
-void KIO__NameFinderJob_QBaseDisconnectNotify(KIO__NameFinderJob* self, const QMetaMethod* signal) {
+void KIO__NameFinderJob_SuperDisconnectNotify(KIO__NameFinderJob* self, const QMetaMethod* signal) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_DisconnectNotify_IsBase(true);
@@ -633,7 +633,7 @@ bool KIO__NameFinderJob_HasSubjobs(const KIO__NameFinderJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__NameFinderJob_QBaseHasSubjobs(const KIO__NameFinderJob* self) {
+bool KIO__NameFinderJob_SuperHasSubjobs(const KIO__NameFinderJob* self) {
     auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_HasSubjobs_IsBase(true);
@@ -680,7 +680,7 @@ libqt_list /* of KJob* */ KIO__NameFinderJob_Subjobs(const KIO__NameFinderJob* s
 }
 
 // Base class handler implementation
-libqt_list /* of KJob* */ KIO__NameFinderJob_QBaseSubjobs(const KIO__NameFinderJob* self) {
+libqt_list /* of KJob* */ KIO__NameFinderJob_SuperSubjobs(const KIO__NameFinderJob* self) {
     auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_Subjobs_IsBase(true);
@@ -727,7 +727,7 @@ void KIO__NameFinderJob_ClearSubjobs(KIO__NameFinderJob* self) {
 }
 
 // Base class handler implementation
-void KIO__NameFinderJob_QBaseClearSubjobs(KIO__NameFinderJob* self) {
+void KIO__NameFinderJob_SuperClearSubjobs(KIO__NameFinderJob* self) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_ClearSubjobs_IsBase(true);
@@ -756,7 +756,7 @@ void KIO__NameFinderJob_SetCapabilities(KIO__NameFinderJob* self, int capabiliti
 }
 
 // Base class handler implementation
-void KIO__NameFinderJob_QBaseSetCapabilities(KIO__NameFinderJob* self, int capabilities) {
+void KIO__NameFinderJob_SuperSetCapabilities(KIO__NameFinderJob* self, int capabilities) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_SetCapabilities_IsBase(true);
@@ -785,7 +785,7 @@ bool KIO__NameFinderJob_IsFinished(const KIO__NameFinderJob* self) {
 }
 
 // Base class handler implementation
-bool KIO__NameFinderJob_QBaseIsFinished(const KIO__NameFinderJob* self) {
+bool KIO__NameFinderJob_SuperIsFinished(const KIO__NameFinderJob* self) {
     auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_IsFinished_IsBase(true);
@@ -814,7 +814,7 @@ void KIO__NameFinderJob_SetError(KIO__NameFinderJob* self, int errorCode) {
 }
 
 // Base class handler implementation
-void KIO__NameFinderJob_QBaseSetError(KIO__NameFinderJob* self, int errorCode) {
+void KIO__NameFinderJob_SuperSetError(KIO__NameFinderJob* self, int errorCode) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_SetError_IsBase(true);
@@ -844,7 +844,7 @@ void KIO__NameFinderJob_SetErrorText(KIO__NameFinderJob* self, const libqt_strin
 }
 
 // Base class handler implementation
-void KIO__NameFinderJob_QBaseSetErrorText(KIO__NameFinderJob* self, const libqt_string errorText) {
+void KIO__NameFinderJob_SuperSetErrorText(KIO__NameFinderJob* self, const libqt_string errorText) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
@@ -874,7 +874,7 @@ void KIO__NameFinderJob_SetProcessedAmount(KIO__NameFinderJob* self, int unit, u
 }
 
 // Base class handler implementation
-void KIO__NameFinderJob_QBaseSetProcessedAmount(KIO__NameFinderJob* self, int unit, unsigned long long amount) {
+void KIO__NameFinderJob_SuperSetProcessedAmount(KIO__NameFinderJob* self, int unit, unsigned long long amount) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_SetProcessedAmount_IsBase(true);
@@ -903,7 +903,7 @@ void KIO__NameFinderJob_SetTotalAmount(KIO__NameFinderJob* self, int unit, unsig
 }
 
 // Base class handler implementation
-void KIO__NameFinderJob_QBaseSetTotalAmount(KIO__NameFinderJob* self, int unit, unsigned long long amount) {
+void KIO__NameFinderJob_SuperSetTotalAmount(KIO__NameFinderJob* self, int unit, unsigned long long amount) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_SetTotalAmount_IsBase(true);
@@ -932,7 +932,7 @@ void KIO__NameFinderJob_SetProgressUnit(KIO__NameFinderJob* self, int unit) {
 }
 
 // Base class handler implementation
-void KIO__NameFinderJob_QBaseSetProgressUnit(KIO__NameFinderJob* self, int unit) {
+void KIO__NameFinderJob_SuperSetProgressUnit(KIO__NameFinderJob* self, int unit) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_SetProgressUnit_IsBase(true);
@@ -961,7 +961,7 @@ void KIO__NameFinderJob_SetPercent(KIO__NameFinderJob* self, unsigned long perce
 }
 
 // Base class handler implementation
-void KIO__NameFinderJob_QBaseSetPercent(KIO__NameFinderJob* self, unsigned long percentage) {
+void KIO__NameFinderJob_SuperSetPercent(KIO__NameFinderJob* self, unsigned long percentage) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_SetPercent_IsBase(true);
@@ -990,7 +990,7 @@ void KIO__NameFinderJob_EmitResult(KIO__NameFinderJob* self) {
 }
 
 // Base class handler implementation
-void KIO__NameFinderJob_QBaseEmitResult(KIO__NameFinderJob* self) {
+void KIO__NameFinderJob_SuperEmitResult(KIO__NameFinderJob* self) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_EmitResult_IsBase(true);
@@ -1019,7 +1019,7 @@ void KIO__NameFinderJob_EmitPercent(KIO__NameFinderJob* self, unsigned long long
 }
 
 // Base class handler implementation
-void KIO__NameFinderJob_QBaseEmitPercent(KIO__NameFinderJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
+void KIO__NameFinderJob_SuperEmitPercent(KIO__NameFinderJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_EmitPercent_IsBase(true);
@@ -1048,7 +1048,7 @@ void KIO__NameFinderJob_EmitSpeed(KIO__NameFinderJob* self, unsigned long speed)
 }
 
 // Base class handler implementation
-void KIO__NameFinderJob_QBaseEmitSpeed(KIO__NameFinderJob* self, unsigned long speed) {
+void KIO__NameFinderJob_SuperEmitSpeed(KIO__NameFinderJob* self, unsigned long speed) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_EmitSpeed_IsBase(true);
@@ -1077,7 +1077,7 @@ void KIO__NameFinderJob_StartElapsedTimer(KIO__NameFinderJob* self) {
 }
 
 // Base class handler implementation
-void KIO__NameFinderJob_QBaseStartElapsedTimer(KIO__NameFinderJob* self) {
+void KIO__NameFinderJob_SuperStartElapsedTimer(KIO__NameFinderJob* self) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_StartElapsedTimer_IsBase(true);
@@ -1106,7 +1106,7 @@ QObject* KIO__NameFinderJob_Sender(const KIO__NameFinderJob* self) {
 }
 
 // Base class handler implementation
-QObject* KIO__NameFinderJob_QBaseSender(const KIO__NameFinderJob* self) {
+QObject* KIO__NameFinderJob_SuperSender(const KIO__NameFinderJob* self) {
     auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_Sender_IsBase(true);
@@ -1135,7 +1135,7 @@ int KIO__NameFinderJob_SenderSignalIndex(const KIO__NameFinderJob* self) {
 }
 
 // Base class handler implementation
-int KIO__NameFinderJob_QBaseSenderSignalIndex(const KIO__NameFinderJob* self) {
+int KIO__NameFinderJob_SuperSenderSignalIndex(const KIO__NameFinderJob* self) {
     auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_SenderSignalIndex_IsBase(true);
@@ -1164,7 +1164,7 @@ int KIO__NameFinderJob_Receivers(const KIO__NameFinderJob* self, const char* sig
 }
 
 // Base class handler implementation
-int KIO__NameFinderJob_QBaseReceivers(const KIO__NameFinderJob* self, const char* signal) {
+int KIO__NameFinderJob_SuperReceivers(const KIO__NameFinderJob* self, const char* signal) {
     auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_Receivers_IsBase(true);
@@ -1193,7 +1193,7 @@ bool KIO__NameFinderJob_IsSignalConnected(const KIO__NameFinderJob* self, const 
 }
 
 // Base class handler implementation
-bool KIO__NameFinderJob_QBaseIsSignalConnected(const KIO__NameFinderJob* self, const QMetaMethod* signal) {
+bool KIO__NameFinderJob_SuperIsSignalConnected(const KIO__NameFinderJob* self, const QMetaMethod* signal) {
     auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_IsSignalConnected_IsBase(true);

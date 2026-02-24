@@ -55,13 +55,17 @@ pub const knscore__tagsfilterchecker = struct {
         return qtc.KNSCore__TagsFilterChecker_FilterAccepts(@ptrCast(self), tags_list);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KNSCore__TagsFilterChecker `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KNSCore__TagsFilterChecker_Delete(@ptrCast(self));
     }
 };

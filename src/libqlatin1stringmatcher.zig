@@ -36,6 +36,10 @@ pub const qlatin1stringmatcher = struct {
         return qtc.QLatin1StringMatcher_CaseSensitivity(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1stringmatcher.html#dtor.QLatin1StringMatcher)
     ///
     /// Delete this object from C++ memory.
@@ -44,7 +48,7 @@ pub const qlatin1stringmatcher = struct {
     ///
     /// ` self: QtC.QLatin1StringMatcher `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QLatin1StringMatcher_Delete(@ptrCast(self));
     }
 };

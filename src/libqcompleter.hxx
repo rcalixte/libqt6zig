@@ -394,27 +394,27 @@ class VirtualQCompleter final : public QCompleter {
 
     // Friend functions
     friend bool QCompleter_EventFilter(QCompleter* self, QObject* o, QEvent* e);
-    friend bool QCompleter_QBaseEventFilter(QCompleter* self, QObject* o, QEvent* e);
+    friend bool QCompleter_SuperEventFilter(QCompleter* self, QObject* o, QEvent* e);
     friend bool QCompleter_Event(QCompleter* self, QEvent* param1);
-    friend bool QCompleter_QBaseEvent(QCompleter* self, QEvent* param1);
+    friend bool QCompleter_SuperEvent(QCompleter* self, QEvent* param1);
     friend void QCompleter_TimerEvent(QCompleter* self, QTimerEvent* event);
-    friend void QCompleter_QBaseTimerEvent(QCompleter* self, QTimerEvent* event);
+    friend void QCompleter_SuperTimerEvent(QCompleter* self, QTimerEvent* event);
     friend void QCompleter_ChildEvent(QCompleter* self, QChildEvent* event);
-    friend void QCompleter_QBaseChildEvent(QCompleter* self, QChildEvent* event);
+    friend void QCompleter_SuperChildEvent(QCompleter* self, QChildEvent* event);
     friend void QCompleter_CustomEvent(QCompleter* self, QEvent* event);
-    friend void QCompleter_QBaseCustomEvent(QCompleter* self, QEvent* event);
+    friend void QCompleter_SuperCustomEvent(QCompleter* self, QEvent* event);
     friend void QCompleter_ConnectNotify(QCompleter* self, const QMetaMethod* signal);
-    friend void QCompleter_QBaseConnectNotify(QCompleter* self, const QMetaMethod* signal);
+    friend void QCompleter_SuperConnectNotify(QCompleter* self, const QMetaMethod* signal);
     friend void QCompleter_DisconnectNotify(QCompleter* self, const QMetaMethod* signal);
-    friend void QCompleter_QBaseDisconnectNotify(QCompleter* self, const QMetaMethod* signal);
+    friend void QCompleter_SuperDisconnectNotify(QCompleter* self, const QMetaMethod* signal);
     friend QObject* QCompleter_Sender(const QCompleter* self);
-    friend QObject* QCompleter_QBaseSender(const QCompleter* self);
+    friend QObject* QCompleter_SuperSender(const QCompleter* self);
     friend int QCompleter_SenderSignalIndex(const QCompleter* self);
-    friend int QCompleter_QBaseSenderSignalIndex(const QCompleter* self);
+    friend int QCompleter_SuperSenderSignalIndex(const QCompleter* self);
     friend int QCompleter_Receivers(const QCompleter* self, const char* signal);
-    friend int QCompleter_QBaseReceivers(const QCompleter* self, const char* signal);
+    friend int QCompleter_SuperReceivers(const QCompleter* self, const char* signal);
     friend bool QCompleter_IsSignalConnected(const QCompleter* self, const QMetaMethod* signal);
-    friend bool QCompleter_QBaseIsSignalConnected(const QCompleter* self, const QMetaMethod* signal);
+    friend bool QCompleter_SuperIsSignalConnected(const QCompleter* self, const QMetaMethod* signal);
 };
 
 #endif

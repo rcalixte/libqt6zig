@@ -1118,31 +1118,31 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
 
     // Friend functions
     friend bool QsciLexerYAML_ReadProperties(QsciLexerYAML* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerYAML_QBaseReadProperties(QsciLexerYAML* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerYAML_SuperReadProperties(QsciLexerYAML* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerYAML_WriteProperties(const QsciLexerYAML* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerYAML_QBaseWriteProperties(const QsciLexerYAML* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerYAML_SuperWriteProperties(const QsciLexerYAML* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerYAML_TimerEvent(QsciLexerYAML* self, QTimerEvent* event);
-    friend void QsciLexerYAML_QBaseTimerEvent(QsciLexerYAML* self, QTimerEvent* event);
+    friend void QsciLexerYAML_SuperTimerEvent(QsciLexerYAML* self, QTimerEvent* event);
     friend void QsciLexerYAML_ChildEvent(QsciLexerYAML* self, QChildEvent* event);
-    friend void QsciLexerYAML_QBaseChildEvent(QsciLexerYAML* self, QChildEvent* event);
+    friend void QsciLexerYAML_SuperChildEvent(QsciLexerYAML* self, QChildEvent* event);
     friend void QsciLexerYAML_CustomEvent(QsciLexerYAML* self, QEvent* event);
-    friend void QsciLexerYAML_QBaseCustomEvent(QsciLexerYAML* self, QEvent* event);
+    friend void QsciLexerYAML_SuperCustomEvent(QsciLexerYAML* self, QEvent* event);
     friend void QsciLexerYAML_ConnectNotify(QsciLexerYAML* self, const QMetaMethod* signal);
-    friend void QsciLexerYAML_QBaseConnectNotify(QsciLexerYAML* self, const QMetaMethod* signal);
+    friend void QsciLexerYAML_SuperConnectNotify(QsciLexerYAML* self, const QMetaMethod* signal);
     friend void QsciLexerYAML_DisconnectNotify(QsciLexerYAML* self, const QMetaMethod* signal);
-    friend void QsciLexerYAML_QBaseDisconnectNotify(QsciLexerYAML* self, const QMetaMethod* signal);
+    friend void QsciLexerYAML_SuperDisconnectNotify(QsciLexerYAML* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerYAML_TextAsBytes(const QsciLexerYAML* self, const libqt_string text);
-    friend libqt_string QsciLexerYAML_QBaseTextAsBytes(const QsciLexerYAML* self, const libqt_string text);
+    friend libqt_string QsciLexerYAML_SuperTextAsBytes(const QsciLexerYAML* self, const libqt_string text);
     friend libqt_string QsciLexerYAML_BytesAsText(const QsciLexerYAML* self, const char* bytes, int size);
-    friend libqt_string QsciLexerYAML_QBaseBytesAsText(const QsciLexerYAML* self, const char* bytes, int size);
+    friend libqt_string QsciLexerYAML_SuperBytesAsText(const QsciLexerYAML* self, const char* bytes, int size);
     friend QObject* QsciLexerYAML_Sender(const QsciLexerYAML* self);
-    friend QObject* QsciLexerYAML_QBaseSender(const QsciLexerYAML* self);
+    friend QObject* QsciLexerYAML_SuperSender(const QsciLexerYAML* self);
     friend int QsciLexerYAML_SenderSignalIndex(const QsciLexerYAML* self);
-    friend int QsciLexerYAML_QBaseSenderSignalIndex(const QsciLexerYAML* self);
+    friend int QsciLexerYAML_SuperSenderSignalIndex(const QsciLexerYAML* self);
     friend int QsciLexerYAML_Receivers(const QsciLexerYAML* self, const char* signal);
-    friend int QsciLexerYAML_QBaseReceivers(const QsciLexerYAML* self, const char* signal);
+    friend int QsciLexerYAML_SuperReceivers(const QsciLexerYAML* self, const char* signal);
     friend bool QsciLexerYAML_IsSignalConnected(const QsciLexerYAML* self, const QMetaMethod* signal);
-    friend bool QsciLexerYAML_QBaseIsSignalConnected(const QsciLexerYAML* self, const QMetaMethod* signal);
+    friend bool QsciLexerYAML_SuperIsSignalConnected(const QsciLexerYAML* self, const QMetaMethod* signal);
 };
 
 #endif

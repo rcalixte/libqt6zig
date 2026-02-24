@@ -962,6 +962,9 @@ pub const knotificationjobuidelegate = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/knotificationjobuidelegate.html#dtor.KNotificationJobUiDelegate)
     ///
@@ -971,7 +974,7 @@ pub const knotificationjobuidelegate = struct {
     ///
     /// ` self: QtC.KNotificationJobUiDelegate `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KNotificationJobUiDelegate_Delete(@ptrCast(self));
     }
 };

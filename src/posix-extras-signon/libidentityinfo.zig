@@ -580,6 +580,10 @@ pub const signon__identityinfo = struct {
         qtc.SignOn__IdentityInfo_SetSecret2(@ptrCast(self), secret_str, storeSecret);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
     ///
     /// Delete this object from C++ memory.
@@ -588,7 +592,7 @@ pub const signon__identityinfo = struct {
     ///
     /// ` self: QtC.SignOn__IdentityInfo `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.SignOn__IdentityInfo_Delete(@ptrCast(self));
     }
 };

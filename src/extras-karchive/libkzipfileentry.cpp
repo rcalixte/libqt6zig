@@ -95,7 +95,7 @@ QIODevice* KZipFileEntry_CreateDevice(const KZipFileEntry* self) {
 }
 
 // Base class handler implementation
-libqt_string KZipFileEntry_QBaseData(const KZipFileEntry* self) {
+libqt_string KZipFileEntry_SuperData(const KZipFileEntry* self) {
     auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
     if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
         vkzipfileentry->setKZipFileEntry_Data_IsBase(true);
@@ -124,7 +124,7 @@ void KZipFileEntry_OnData(const KZipFileEntry* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QIODevice* KZipFileEntry_QBaseCreateDevice(const KZipFileEntry* self) {
+QIODevice* KZipFileEntry_SuperCreateDevice(const KZipFileEntry* self) {
     auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
     if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
         vkzipfileentry->setKZipFileEntry_CreateDevice_IsBase(true);
@@ -153,7 +153,7 @@ bool KZipFileEntry_IsFile(const KZipFileEntry* self) {
 }
 
 // Base class handler implementation
-bool KZipFileEntry_QBaseIsFile(const KZipFileEntry* self) {
+bool KZipFileEntry_SuperIsFile(const KZipFileEntry* self) {
     auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
     if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
         vkzipfileentry->setKZipFileEntry_IsFile_IsBase(true);
@@ -182,7 +182,7 @@ void KZipFileEntry_VirtualHook(KZipFileEntry* self, int id, void* data) {
 }
 
 // Base class handler implementation
-void KZipFileEntry_QBaseVirtualHook(KZipFileEntry* self, int id, void* data) {
+void KZipFileEntry_SuperVirtualHook(KZipFileEntry* self, int id, void* data) {
     auto* vkzipfileentry = dynamic_cast<VirtualKZipFileEntry*>(self);
     if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
         vkzipfileentry->setKZipFileEntry_VirtualHook_IsBase(true);
@@ -211,7 +211,7 @@ bool KZipFileEntry_IsDirectory(const KZipFileEntry* self) {
 }
 
 // Base class handler implementation
-bool KZipFileEntry_QBaseIsDirectory(const KZipFileEntry* self) {
+bool KZipFileEntry_SuperIsDirectory(const KZipFileEntry* self) {
     auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
     if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
         vkzipfileentry->setKZipFileEntry_IsDirectory_IsBase(true);
@@ -240,7 +240,7 @@ KArchive* KZipFileEntry_Archive(const KZipFileEntry* self) {
 }
 
 // Base class handler implementation
-KArchive* KZipFileEntry_QBaseArchive(const KZipFileEntry* self) {
+KArchive* KZipFileEntry_SuperArchive(const KZipFileEntry* self) {
     auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
     if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
         vkzipfileentry->setKZipFileEntry_Archive_IsBase(true);

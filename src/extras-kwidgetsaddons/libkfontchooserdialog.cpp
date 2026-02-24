@@ -131,7 +131,7 @@ int KFontChooserDialog_GetFontDiff4(QFont* theFont, int* diffFlags, const int* f
 }
 
 // Base class handler implementation
-QMetaObject* KFontChooserDialog_QBaseMetaObject(const KFontChooserDialog* self) {
+QMetaObject* KFontChooserDialog_SuperMetaObject(const KFontChooserDialog* self) {
     auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_MetaObject_IsBase(true);
@@ -150,7 +150,7 @@ void KFontChooserDialog_OnMetaObject(const KFontChooserDialog* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* KFontChooserDialog_QBaseMetacast(KFontChooserDialog* self, const char* param1) {
+void* KFontChooserDialog_SuperMetacast(KFontChooserDialog* self, const char* param1) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_Metacast_IsBase(true);
@@ -169,7 +169,7 @@ void KFontChooserDialog_OnMetacast(KFontChooserDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KFontChooserDialog_QBaseMetacall(KFontChooserDialog* self, int param1, int param2, void** param3) {
+int KFontChooserDialog_SuperMetacall(KFontChooserDialog* self, int param1, int param2, void** param3) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_Metacall_IsBase(true);
@@ -198,7 +198,7 @@ void KFontChooserDialog_SetVisible(KFontChooserDialog* self, bool visible) {
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseSetVisible(KFontChooserDialog* self, bool visible) {
+void KFontChooserDialog_SuperSetVisible(KFontChooserDialog* self, bool visible) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_SetVisible_IsBase(true);
@@ -227,7 +227,7 @@ QSize* KFontChooserDialog_SizeHint(const KFontChooserDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KFontChooserDialog_QBaseSizeHint(const KFontChooserDialog* self) {
+QSize* KFontChooserDialog_SuperSizeHint(const KFontChooserDialog* self) {
     auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_SizeHint_IsBase(true);
@@ -256,7 +256,7 @@ QSize* KFontChooserDialog_MinimumSizeHint(const KFontChooserDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KFontChooserDialog_QBaseMinimumSizeHint(const KFontChooserDialog* self) {
+QSize* KFontChooserDialog_SuperMinimumSizeHint(const KFontChooserDialog* self) {
     auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_MinimumSizeHint_IsBase(true);
@@ -285,7 +285,7 @@ void KFontChooserDialog_Open(KFontChooserDialog* self) {
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseOpen(KFontChooserDialog* self) {
+void KFontChooserDialog_SuperOpen(KFontChooserDialog* self) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_Open_IsBase(true);
@@ -314,7 +314,7 @@ int KFontChooserDialog_Exec(KFontChooserDialog* self) {
 }
 
 // Base class handler implementation
-int KFontChooserDialog_QBaseExec(KFontChooserDialog* self) {
+int KFontChooserDialog_SuperExec(KFontChooserDialog* self) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_Exec_IsBase(true);
@@ -343,7 +343,7 @@ void KFontChooserDialog_Done(KFontChooserDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseDone(KFontChooserDialog* self, int param1) {
+void KFontChooserDialog_SuperDone(KFontChooserDialog* self, int param1) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_Done_IsBase(true);
@@ -372,7 +372,7 @@ void KFontChooserDialog_Accept(KFontChooserDialog* self) {
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseAccept(KFontChooserDialog* self) {
+void KFontChooserDialog_SuperAccept(KFontChooserDialog* self) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_Accept_IsBase(true);
@@ -401,7 +401,7 @@ void KFontChooserDialog_Reject(KFontChooserDialog* self) {
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseReject(KFontChooserDialog* self) {
+void KFontChooserDialog_SuperReject(KFontChooserDialog* self) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_Reject_IsBase(true);
@@ -430,7 +430,7 @@ void KFontChooserDialog_KeyPressEvent(KFontChooserDialog* self, QKeyEvent* param
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseKeyPressEvent(KFontChooserDialog* self, QKeyEvent* param1) {
+void KFontChooserDialog_SuperKeyPressEvent(KFontChooserDialog* self, QKeyEvent* param1) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_KeyPressEvent_IsBase(true);
@@ -459,7 +459,7 @@ void KFontChooserDialog_CloseEvent(KFontChooserDialog* self, QCloseEvent* param1
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseCloseEvent(KFontChooserDialog* self, QCloseEvent* param1) {
+void KFontChooserDialog_SuperCloseEvent(KFontChooserDialog* self, QCloseEvent* param1) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_CloseEvent_IsBase(true);
@@ -488,7 +488,7 @@ void KFontChooserDialog_ShowEvent(KFontChooserDialog* self, QShowEvent* param1) 
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseShowEvent(KFontChooserDialog* self, QShowEvent* param1) {
+void KFontChooserDialog_SuperShowEvent(KFontChooserDialog* self, QShowEvent* param1) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_ShowEvent_IsBase(true);
@@ -517,7 +517,7 @@ void KFontChooserDialog_ResizeEvent(KFontChooserDialog* self, QResizeEvent* para
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseResizeEvent(KFontChooserDialog* self, QResizeEvent* param1) {
+void KFontChooserDialog_SuperResizeEvent(KFontChooserDialog* self, QResizeEvent* param1) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_ResizeEvent_IsBase(true);
@@ -546,7 +546,7 @@ void KFontChooserDialog_ContextMenuEvent(KFontChooserDialog* self, QContextMenuE
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseContextMenuEvent(KFontChooserDialog* self, QContextMenuEvent* param1) {
+void KFontChooserDialog_SuperContextMenuEvent(KFontChooserDialog* self, QContextMenuEvent* param1) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_ContextMenuEvent_IsBase(true);
@@ -575,7 +575,7 @@ bool KFontChooserDialog_EventFilter(KFontChooserDialog* self, QObject* param1, Q
 }
 
 // Base class handler implementation
-bool KFontChooserDialog_QBaseEventFilter(KFontChooserDialog* self, QObject* param1, QEvent* param2) {
+bool KFontChooserDialog_SuperEventFilter(KFontChooserDialog* self, QObject* param1, QEvent* param2) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_EventFilter_IsBase(true);
@@ -604,7 +604,7 @@ int KFontChooserDialog_DevType(const KFontChooserDialog* self) {
 }
 
 // Base class handler implementation
-int KFontChooserDialog_QBaseDevType(const KFontChooserDialog* self) {
+int KFontChooserDialog_SuperDevType(const KFontChooserDialog* self) {
     auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_DevType_IsBase(true);
@@ -633,7 +633,7 @@ int KFontChooserDialog_HeightForWidth(const KFontChooserDialog* self, int param1
 }
 
 // Base class handler implementation
-int KFontChooserDialog_QBaseHeightForWidth(const KFontChooserDialog* self, int param1) {
+int KFontChooserDialog_SuperHeightForWidth(const KFontChooserDialog* self, int param1) {
     auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_HeightForWidth_IsBase(true);
@@ -662,7 +662,7 @@ bool KFontChooserDialog_HasHeightForWidth(const KFontChooserDialog* self) {
 }
 
 // Base class handler implementation
-bool KFontChooserDialog_QBaseHasHeightForWidth(const KFontChooserDialog* self) {
+bool KFontChooserDialog_SuperHasHeightForWidth(const KFontChooserDialog* self) {
     auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_HasHeightForWidth_IsBase(true);
@@ -691,7 +691,7 @@ QPaintEngine* KFontChooserDialog_PaintEngine(const KFontChooserDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KFontChooserDialog_QBasePaintEngine(const KFontChooserDialog* self) {
+QPaintEngine* KFontChooserDialog_SuperPaintEngine(const KFontChooserDialog* self) {
     auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_PaintEngine_IsBase(true);
@@ -720,7 +720,7 @@ bool KFontChooserDialog_Event(KFontChooserDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KFontChooserDialog_QBaseEvent(KFontChooserDialog* self, QEvent* event) {
+bool KFontChooserDialog_SuperEvent(KFontChooserDialog* self, QEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_Event_IsBase(true);
@@ -749,7 +749,7 @@ void KFontChooserDialog_MousePressEvent(KFontChooserDialog* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseMousePressEvent(KFontChooserDialog* self, QMouseEvent* event) {
+void KFontChooserDialog_SuperMousePressEvent(KFontChooserDialog* self, QMouseEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_MousePressEvent_IsBase(true);
@@ -778,7 +778,7 @@ void KFontChooserDialog_MouseReleaseEvent(KFontChooserDialog* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseMouseReleaseEvent(KFontChooserDialog* self, QMouseEvent* event) {
+void KFontChooserDialog_SuperMouseReleaseEvent(KFontChooserDialog* self, QMouseEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_MouseReleaseEvent_IsBase(true);
@@ -807,7 +807,7 @@ void KFontChooserDialog_MouseDoubleClickEvent(KFontChooserDialog* self, QMouseEv
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseMouseDoubleClickEvent(KFontChooserDialog* self, QMouseEvent* event) {
+void KFontChooserDialog_SuperMouseDoubleClickEvent(KFontChooserDialog* self, QMouseEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_MouseDoubleClickEvent_IsBase(true);
@@ -836,7 +836,7 @@ void KFontChooserDialog_MouseMoveEvent(KFontChooserDialog* self, QMouseEvent* ev
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseMouseMoveEvent(KFontChooserDialog* self, QMouseEvent* event) {
+void KFontChooserDialog_SuperMouseMoveEvent(KFontChooserDialog* self, QMouseEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_MouseMoveEvent_IsBase(true);
@@ -865,7 +865,7 @@ void KFontChooserDialog_WheelEvent(KFontChooserDialog* self, QWheelEvent* event)
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseWheelEvent(KFontChooserDialog* self, QWheelEvent* event) {
+void KFontChooserDialog_SuperWheelEvent(KFontChooserDialog* self, QWheelEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_WheelEvent_IsBase(true);
@@ -894,7 +894,7 @@ void KFontChooserDialog_KeyReleaseEvent(KFontChooserDialog* self, QKeyEvent* eve
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseKeyReleaseEvent(KFontChooserDialog* self, QKeyEvent* event) {
+void KFontChooserDialog_SuperKeyReleaseEvent(KFontChooserDialog* self, QKeyEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_KeyReleaseEvent_IsBase(true);
@@ -923,7 +923,7 @@ void KFontChooserDialog_FocusInEvent(KFontChooserDialog* self, QFocusEvent* even
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseFocusInEvent(KFontChooserDialog* self, QFocusEvent* event) {
+void KFontChooserDialog_SuperFocusInEvent(KFontChooserDialog* self, QFocusEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_FocusInEvent_IsBase(true);
@@ -952,7 +952,7 @@ void KFontChooserDialog_FocusOutEvent(KFontChooserDialog* self, QFocusEvent* eve
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseFocusOutEvent(KFontChooserDialog* self, QFocusEvent* event) {
+void KFontChooserDialog_SuperFocusOutEvent(KFontChooserDialog* self, QFocusEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_FocusOutEvent_IsBase(true);
@@ -981,7 +981,7 @@ void KFontChooserDialog_EnterEvent(KFontChooserDialog* self, QEnterEvent* event)
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseEnterEvent(KFontChooserDialog* self, QEnterEvent* event) {
+void KFontChooserDialog_SuperEnterEvent(KFontChooserDialog* self, QEnterEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_EnterEvent_IsBase(true);
@@ -1010,7 +1010,7 @@ void KFontChooserDialog_LeaveEvent(KFontChooserDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseLeaveEvent(KFontChooserDialog* self, QEvent* event) {
+void KFontChooserDialog_SuperLeaveEvent(KFontChooserDialog* self, QEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_LeaveEvent_IsBase(true);
@@ -1039,7 +1039,7 @@ void KFontChooserDialog_PaintEvent(KFontChooserDialog* self, QPaintEvent* event)
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBasePaintEvent(KFontChooserDialog* self, QPaintEvent* event) {
+void KFontChooserDialog_SuperPaintEvent(KFontChooserDialog* self, QPaintEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_PaintEvent_IsBase(true);
@@ -1068,7 +1068,7 @@ void KFontChooserDialog_MoveEvent(KFontChooserDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseMoveEvent(KFontChooserDialog* self, QMoveEvent* event) {
+void KFontChooserDialog_SuperMoveEvent(KFontChooserDialog* self, QMoveEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_MoveEvent_IsBase(true);
@@ -1097,7 +1097,7 @@ void KFontChooserDialog_TabletEvent(KFontChooserDialog* self, QTabletEvent* even
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseTabletEvent(KFontChooserDialog* self, QTabletEvent* event) {
+void KFontChooserDialog_SuperTabletEvent(KFontChooserDialog* self, QTabletEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_TabletEvent_IsBase(true);
@@ -1126,7 +1126,7 @@ void KFontChooserDialog_ActionEvent(KFontChooserDialog* self, QActionEvent* even
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseActionEvent(KFontChooserDialog* self, QActionEvent* event) {
+void KFontChooserDialog_SuperActionEvent(KFontChooserDialog* self, QActionEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_ActionEvent_IsBase(true);
@@ -1155,7 +1155,7 @@ void KFontChooserDialog_DragEnterEvent(KFontChooserDialog* self, QDragEnterEvent
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseDragEnterEvent(KFontChooserDialog* self, QDragEnterEvent* event) {
+void KFontChooserDialog_SuperDragEnterEvent(KFontChooserDialog* self, QDragEnterEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_DragEnterEvent_IsBase(true);
@@ -1184,7 +1184,7 @@ void KFontChooserDialog_DragMoveEvent(KFontChooserDialog* self, QDragMoveEvent* 
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseDragMoveEvent(KFontChooserDialog* self, QDragMoveEvent* event) {
+void KFontChooserDialog_SuperDragMoveEvent(KFontChooserDialog* self, QDragMoveEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_DragMoveEvent_IsBase(true);
@@ -1213,7 +1213,7 @@ void KFontChooserDialog_DragLeaveEvent(KFontChooserDialog* self, QDragLeaveEvent
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseDragLeaveEvent(KFontChooserDialog* self, QDragLeaveEvent* event) {
+void KFontChooserDialog_SuperDragLeaveEvent(KFontChooserDialog* self, QDragLeaveEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_DragLeaveEvent_IsBase(true);
@@ -1242,7 +1242,7 @@ void KFontChooserDialog_DropEvent(KFontChooserDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseDropEvent(KFontChooserDialog* self, QDropEvent* event) {
+void KFontChooserDialog_SuperDropEvent(KFontChooserDialog* self, QDropEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_DropEvent_IsBase(true);
@@ -1271,7 +1271,7 @@ void KFontChooserDialog_HideEvent(KFontChooserDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseHideEvent(KFontChooserDialog* self, QHideEvent* event) {
+void KFontChooserDialog_SuperHideEvent(KFontChooserDialog* self, QHideEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_HideEvent_IsBase(true);
@@ -1301,7 +1301,7 @@ bool KFontChooserDialog_NativeEvent(KFontChooserDialog* self, const libqt_string
 }
 
 // Base class handler implementation
-bool KFontChooserDialog_QBaseNativeEvent(KFontChooserDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KFontChooserDialog_SuperNativeEvent(KFontChooserDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
@@ -1331,7 +1331,7 @@ void KFontChooserDialog_ChangeEvent(KFontChooserDialog* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseChangeEvent(KFontChooserDialog* self, QEvent* param1) {
+void KFontChooserDialog_SuperChangeEvent(KFontChooserDialog* self, QEvent* param1) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_ChangeEvent_IsBase(true);
@@ -1360,7 +1360,7 @@ int KFontChooserDialog_Metric(const KFontChooserDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KFontChooserDialog_QBaseMetric(const KFontChooserDialog* self, int param1) {
+int KFontChooserDialog_SuperMetric(const KFontChooserDialog* self, int param1) {
     auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_Metric_IsBase(true);
@@ -1389,7 +1389,7 @@ void KFontChooserDialog_InitPainter(const KFontChooserDialog* self, QPainter* pa
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseInitPainter(const KFontChooserDialog* self, QPainter* painter) {
+void KFontChooserDialog_SuperInitPainter(const KFontChooserDialog* self, QPainter* painter) {
     auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_InitPainter_IsBase(true);
@@ -1418,7 +1418,7 @@ QPaintDevice* KFontChooserDialog_Redirected(const KFontChooserDialog* self, QPoi
 }
 
 // Base class handler implementation
-QPaintDevice* KFontChooserDialog_QBaseRedirected(const KFontChooserDialog* self, QPoint* offset) {
+QPaintDevice* KFontChooserDialog_SuperRedirected(const KFontChooserDialog* self, QPoint* offset) {
     auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_Redirected_IsBase(true);
@@ -1447,7 +1447,7 @@ QPainter* KFontChooserDialog_SharedPainter(const KFontChooserDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* KFontChooserDialog_QBaseSharedPainter(const KFontChooserDialog* self) {
+QPainter* KFontChooserDialog_SuperSharedPainter(const KFontChooserDialog* self) {
     auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_SharedPainter_IsBase(true);
@@ -1476,7 +1476,7 @@ void KFontChooserDialog_InputMethodEvent(KFontChooserDialog* self, QInputMethodE
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseInputMethodEvent(KFontChooserDialog* self, QInputMethodEvent* param1) {
+void KFontChooserDialog_SuperInputMethodEvent(KFontChooserDialog* self, QInputMethodEvent* param1) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_InputMethodEvent_IsBase(true);
@@ -1505,7 +1505,7 @@ QVariant* KFontChooserDialog_InputMethodQuery(const KFontChooserDialog* self, in
 }
 
 // Base class handler implementation
-QVariant* KFontChooserDialog_QBaseInputMethodQuery(const KFontChooserDialog* self, int param1) {
+QVariant* KFontChooserDialog_SuperInputMethodQuery(const KFontChooserDialog* self, int param1) {
     auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_InputMethodQuery_IsBase(true);
@@ -1534,7 +1534,7 @@ bool KFontChooserDialog_FocusNextPrevChild(KFontChooserDialog* self, bool next) 
 }
 
 // Base class handler implementation
-bool KFontChooserDialog_QBaseFocusNextPrevChild(KFontChooserDialog* self, bool next) {
+bool KFontChooserDialog_SuperFocusNextPrevChild(KFontChooserDialog* self, bool next) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_FocusNextPrevChild_IsBase(true);
@@ -1563,7 +1563,7 @@ void KFontChooserDialog_TimerEvent(KFontChooserDialog* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseTimerEvent(KFontChooserDialog* self, QTimerEvent* event) {
+void KFontChooserDialog_SuperTimerEvent(KFontChooserDialog* self, QTimerEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_TimerEvent_IsBase(true);
@@ -1592,7 +1592,7 @@ void KFontChooserDialog_ChildEvent(KFontChooserDialog* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseChildEvent(KFontChooserDialog* self, QChildEvent* event) {
+void KFontChooserDialog_SuperChildEvent(KFontChooserDialog* self, QChildEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_ChildEvent_IsBase(true);
@@ -1621,7 +1621,7 @@ void KFontChooserDialog_CustomEvent(KFontChooserDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseCustomEvent(KFontChooserDialog* self, QEvent* event) {
+void KFontChooserDialog_SuperCustomEvent(KFontChooserDialog* self, QEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_CustomEvent_IsBase(true);
@@ -1650,7 +1650,7 @@ void KFontChooserDialog_ConnectNotify(KFontChooserDialog* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseConnectNotify(KFontChooserDialog* self, const QMetaMethod* signal) {
+void KFontChooserDialog_SuperConnectNotify(KFontChooserDialog* self, const QMetaMethod* signal) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_ConnectNotify_IsBase(true);
@@ -1679,7 +1679,7 @@ void KFontChooserDialog_DisconnectNotify(KFontChooserDialog* self, const QMetaMe
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseDisconnectNotify(KFontChooserDialog* self, const QMetaMethod* signal) {
+void KFontChooserDialog_SuperDisconnectNotify(KFontChooserDialog* self, const QMetaMethod* signal) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_DisconnectNotify_IsBase(true);
@@ -1708,7 +1708,7 @@ void KFontChooserDialog_AdjustPosition(KFontChooserDialog* self, QWidget* param1
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseAdjustPosition(KFontChooserDialog* self, QWidget* param1) {
+void KFontChooserDialog_SuperAdjustPosition(KFontChooserDialog* self, QWidget* param1) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_AdjustPosition_IsBase(true);
@@ -1737,7 +1737,7 @@ void KFontChooserDialog_UpdateMicroFocus(KFontChooserDialog* self) {
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseUpdateMicroFocus(KFontChooserDialog* self) {
+void KFontChooserDialog_SuperUpdateMicroFocus(KFontChooserDialog* self) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_UpdateMicroFocus_IsBase(true);
@@ -1766,7 +1766,7 @@ void KFontChooserDialog_Create(KFontChooserDialog* self) {
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseCreate(KFontChooserDialog* self) {
+void KFontChooserDialog_SuperCreate(KFontChooserDialog* self) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_Create_IsBase(true);
@@ -1795,7 +1795,7 @@ void KFontChooserDialog_Destroy(KFontChooserDialog* self) {
 }
 
 // Base class handler implementation
-void KFontChooserDialog_QBaseDestroy(KFontChooserDialog* self) {
+void KFontChooserDialog_SuperDestroy(KFontChooserDialog* self) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_Destroy_IsBase(true);
@@ -1824,7 +1824,7 @@ bool KFontChooserDialog_FocusNextChild(KFontChooserDialog* self) {
 }
 
 // Base class handler implementation
-bool KFontChooserDialog_QBaseFocusNextChild(KFontChooserDialog* self) {
+bool KFontChooserDialog_SuperFocusNextChild(KFontChooserDialog* self) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_FocusNextChild_IsBase(true);
@@ -1853,7 +1853,7 @@ bool KFontChooserDialog_FocusPreviousChild(KFontChooserDialog* self) {
 }
 
 // Base class handler implementation
-bool KFontChooserDialog_QBaseFocusPreviousChild(KFontChooserDialog* self) {
+bool KFontChooserDialog_SuperFocusPreviousChild(KFontChooserDialog* self) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_FocusPreviousChild_IsBase(true);
@@ -1882,7 +1882,7 @@ QObject* KFontChooserDialog_Sender(const KFontChooserDialog* self) {
 }
 
 // Base class handler implementation
-QObject* KFontChooserDialog_QBaseSender(const KFontChooserDialog* self) {
+QObject* KFontChooserDialog_SuperSender(const KFontChooserDialog* self) {
     auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_Sender_IsBase(true);
@@ -1911,7 +1911,7 @@ int KFontChooserDialog_SenderSignalIndex(const KFontChooserDialog* self) {
 }
 
 // Base class handler implementation
-int KFontChooserDialog_QBaseSenderSignalIndex(const KFontChooserDialog* self) {
+int KFontChooserDialog_SuperSenderSignalIndex(const KFontChooserDialog* self) {
     auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_SenderSignalIndex_IsBase(true);
@@ -1940,7 +1940,7 @@ int KFontChooserDialog_Receivers(const KFontChooserDialog* self, const char* sig
 }
 
 // Base class handler implementation
-int KFontChooserDialog_QBaseReceivers(const KFontChooserDialog* self, const char* signal) {
+int KFontChooserDialog_SuperReceivers(const KFontChooserDialog* self, const char* signal) {
     auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_Receivers_IsBase(true);
@@ -1969,7 +1969,7 @@ bool KFontChooserDialog_IsSignalConnected(const KFontChooserDialog* self, const 
 }
 
 // Base class handler implementation
-bool KFontChooserDialog_QBaseIsSignalConnected(const KFontChooserDialog* self, const QMetaMethod* signal) {
+bool KFontChooserDialog_SuperIsSignalConnected(const KFontChooserDialog* self, const QMetaMethod* signal) {
     auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_IsSignalConnected_IsBase(true);
@@ -1998,7 +1998,7 @@ double KFontChooserDialog_GetDecodedMetricF(const KFontChooserDialog* self, int 
 }
 
 // Base class handler implementation
-double KFontChooserDialog_QBaseGetDecodedMetricF(const KFontChooserDialog* self, int metricA, int metricB) {
+double KFontChooserDialog_SuperGetDecodedMetricF(const KFontChooserDialog* self, int metricA, int metricB) {
     auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
     if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
         vkfontchooserdialog->setKFontChooserDialog_GetDecodedMetricF_IsBase(true);

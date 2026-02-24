@@ -153,9 +153,9 @@ class VirtualKZipFileEntry final : public KZipFileEntry {
 
     // Friend functions
     friend void KZipFileEntry_VirtualHook(KZipFileEntry* self, int id, void* data);
-    friend void KZipFileEntry_QBaseVirtualHook(KZipFileEntry* self, int id, void* data);
+    friend void KZipFileEntry_SuperVirtualHook(KZipFileEntry* self, int id, void* data);
     friend KArchive* KZipFileEntry_Archive(const KZipFileEntry* self);
-    friend KArchive* KZipFileEntry_QBaseArchive(const KZipFileEntry* self);
+    friend KArchive* KZipFileEntry_SuperArchive(const KZipFileEntry* self);
 };
 
 #endif

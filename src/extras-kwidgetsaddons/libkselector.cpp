@@ -158,7 +158,7 @@ void KSelector_WheelEvent(KSelector* self, QWheelEvent* param1) {
 }
 
 // Base class handler implementation
-QMetaObject* KSelector_QBaseMetaObject(const KSelector* self) {
+QMetaObject* KSelector_SuperMetaObject(const KSelector* self) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_MetaObject_IsBase(true);
@@ -177,7 +177,7 @@ void KSelector_OnMetaObject(const KSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KSelector_QBaseMetacast(KSelector* self, const char* param1) {
+void* KSelector_SuperMetacast(KSelector* self, const char* param1) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_Metacast_IsBase(true);
@@ -196,7 +196,7 @@ void KSelector_OnMetacast(KSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KSelector_QBaseMetacall(KSelector* self, int param1, int param2, void** param3) {
+int KSelector_SuperMetacall(KSelector* self, int param1, int param2, void** param3) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_Metacall_IsBase(true);
@@ -215,7 +215,7 @@ void KSelector_OnMetacall(KSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseDrawContents(KSelector* self, QPainter* param1) {
+void KSelector_SuperDrawContents(KSelector* self, QPainter* param1) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_DrawContents_IsBase(true);
@@ -234,7 +234,7 @@ void KSelector_OnDrawContents(KSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseDrawArrow(KSelector* self, QPainter* painter, const QPoint* pos) {
+void KSelector_SuperDrawArrow(KSelector* self, QPainter* painter, const QPoint* pos) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_DrawArrow_IsBase(true);
@@ -253,7 +253,7 @@ void KSelector_OnDrawArrow(KSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KSelector_QBasePaintEvent(KSelector* self, QPaintEvent* param1) {
+void KSelector_SuperPaintEvent(KSelector* self, QPaintEvent* param1) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_PaintEvent_IsBase(true);
@@ -272,7 +272,7 @@ void KSelector_OnPaintEvent(KSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseMousePressEvent(KSelector* self, QMouseEvent* e) {
+void KSelector_SuperMousePressEvent(KSelector* self, QMouseEvent* e) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_MousePressEvent_IsBase(true);
@@ -291,7 +291,7 @@ void KSelector_OnMousePressEvent(KSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseMouseMoveEvent(KSelector* self, QMouseEvent* e) {
+void KSelector_SuperMouseMoveEvent(KSelector* self, QMouseEvent* e) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_MouseMoveEvent_IsBase(true);
@@ -310,7 +310,7 @@ void KSelector_OnMouseMoveEvent(KSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseMouseReleaseEvent(KSelector* self, QMouseEvent* e) {
+void KSelector_SuperMouseReleaseEvent(KSelector* self, QMouseEvent* e) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_MouseReleaseEvent_IsBase(true);
@@ -329,7 +329,7 @@ void KSelector_OnMouseReleaseEvent(KSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseWheelEvent(KSelector* self, QWheelEvent* param1) {
+void KSelector_SuperWheelEvent(KSelector* self, QWheelEvent* param1) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_WheelEvent_IsBase(true);
@@ -358,7 +358,7 @@ bool KSelector_Event(KSelector* self, QEvent* e) {
 }
 
 // Base class handler implementation
-bool KSelector_QBaseEvent(KSelector* self, QEvent* e) {
+bool KSelector_SuperEvent(KSelector* self, QEvent* e) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_Event_IsBase(true);
@@ -387,7 +387,7 @@ void KSelector_SliderChange(KSelector* self, int change) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseSliderChange(KSelector* self, int change) {
+void KSelector_SuperSliderChange(KSelector* self, int change) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_SliderChange_IsBase(true);
@@ -416,7 +416,7 @@ void KSelector_KeyPressEvent(KSelector* self, QKeyEvent* ev) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseKeyPressEvent(KSelector* self, QKeyEvent* ev) {
+void KSelector_SuperKeyPressEvent(KSelector* self, QKeyEvent* ev) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_KeyPressEvent_IsBase(true);
@@ -445,7 +445,7 @@ void KSelector_TimerEvent(KSelector* self, QTimerEvent* param1) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseTimerEvent(KSelector* self, QTimerEvent* param1) {
+void KSelector_SuperTimerEvent(KSelector* self, QTimerEvent* param1) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_TimerEvent_IsBase(true);
@@ -474,7 +474,7 @@ void KSelector_ChangeEvent(KSelector* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseChangeEvent(KSelector* self, QEvent* e) {
+void KSelector_SuperChangeEvent(KSelector* self, QEvent* e) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_ChangeEvent_IsBase(true);
@@ -503,7 +503,7 @@ int KSelector_DevType(const KSelector* self) {
 }
 
 // Base class handler implementation
-int KSelector_QBaseDevType(const KSelector* self) {
+int KSelector_SuperDevType(const KSelector* self) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_DevType_IsBase(true);
@@ -532,7 +532,7 @@ void KSelector_SetVisible(KSelector* self, bool visible) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseSetVisible(KSelector* self, bool visible) {
+void KSelector_SuperSetVisible(KSelector* self, bool visible) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_SetVisible_IsBase(true);
@@ -561,7 +561,7 @@ QSize* KSelector_SizeHint(const KSelector* self) {
 }
 
 // Base class handler implementation
-QSize* KSelector_QBaseSizeHint(const KSelector* self) {
+QSize* KSelector_SuperSizeHint(const KSelector* self) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_SizeHint_IsBase(true);
@@ -590,7 +590,7 @@ QSize* KSelector_MinimumSizeHint(const KSelector* self) {
 }
 
 // Base class handler implementation
-QSize* KSelector_QBaseMinimumSizeHint(const KSelector* self) {
+QSize* KSelector_SuperMinimumSizeHint(const KSelector* self) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_MinimumSizeHint_IsBase(true);
@@ -619,7 +619,7 @@ int KSelector_HeightForWidth(const KSelector* self, int param1) {
 }
 
 // Base class handler implementation
-int KSelector_QBaseHeightForWidth(const KSelector* self, int param1) {
+int KSelector_SuperHeightForWidth(const KSelector* self, int param1) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_HeightForWidth_IsBase(true);
@@ -648,7 +648,7 @@ bool KSelector_HasHeightForWidth(const KSelector* self) {
 }
 
 // Base class handler implementation
-bool KSelector_QBaseHasHeightForWidth(const KSelector* self) {
+bool KSelector_SuperHasHeightForWidth(const KSelector* self) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_HasHeightForWidth_IsBase(true);
@@ -677,7 +677,7 @@ QPaintEngine* KSelector_PaintEngine(const KSelector* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KSelector_QBasePaintEngine(const KSelector* self) {
+QPaintEngine* KSelector_SuperPaintEngine(const KSelector* self) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_PaintEngine_IsBase(true);
@@ -706,7 +706,7 @@ void KSelector_MouseDoubleClickEvent(KSelector* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseMouseDoubleClickEvent(KSelector* self, QMouseEvent* event) {
+void KSelector_SuperMouseDoubleClickEvent(KSelector* self, QMouseEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_MouseDoubleClickEvent_IsBase(true);
@@ -735,7 +735,7 @@ void KSelector_KeyReleaseEvent(KSelector* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseKeyReleaseEvent(KSelector* self, QKeyEvent* event) {
+void KSelector_SuperKeyReleaseEvent(KSelector* self, QKeyEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_KeyReleaseEvent_IsBase(true);
@@ -764,7 +764,7 @@ void KSelector_FocusInEvent(KSelector* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseFocusInEvent(KSelector* self, QFocusEvent* event) {
+void KSelector_SuperFocusInEvent(KSelector* self, QFocusEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_FocusInEvent_IsBase(true);
@@ -793,7 +793,7 @@ void KSelector_FocusOutEvent(KSelector* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseFocusOutEvent(KSelector* self, QFocusEvent* event) {
+void KSelector_SuperFocusOutEvent(KSelector* self, QFocusEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_FocusOutEvent_IsBase(true);
@@ -822,7 +822,7 @@ void KSelector_EnterEvent(KSelector* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseEnterEvent(KSelector* self, QEnterEvent* event) {
+void KSelector_SuperEnterEvent(KSelector* self, QEnterEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_EnterEvent_IsBase(true);
@@ -851,7 +851,7 @@ void KSelector_LeaveEvent(KSelector* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseLeaveEvent(KSelector* self, QEvent* event) {
+void KSelector_SuperLeaveEvent(KSelector* self, QEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_LeaveEvent_IsBase(true);
@@ -880,7 +880,7 @@ void KSelector_MoveEvent(KSelector* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseMoveEvent(KSelector* self, QMoveEvent* event) {
+void KSelector_SuperMoveEvent(KSelector* self, QMoveEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_MoveEvent_IsBase(true);
@@ -909,7 +909,7 @@ void KSelector_ResizeEvent(KSelector* self, QResizeEvent* event) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseResizeEvent(KSelector* self, QResizeEvent* event) {
+void KSelector_SuperResizeEvent(KSelector* self, QResizeEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_ResizeEvent_IsBase(true);
@@ -938,7 +938,7 @@ void KSelector_CloseEvent(KSelector* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseCloseEvent(KSelector* self, QCloseEvent* event) {
+void KSelector_SuperCloseEvent(KSelector* self, QCloseEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_CloseEvent_IsBase(true);
@@ -967,7 +967,7 @@ void KSelector_ContextMenuEvent(KSelector* self, QContextMenuEvent* event) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseContextMenuEvent(KSelector* self, QContextMenuEvent* event) {
+void KSelector_SuperContextMenuEvent(KSelector* self, QContextMenuEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_ContextMenuEvent_IsBase(true);
@@ -996,7 +996,7 @@ void KSelector_TabletEvent(KSelector* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseTabletEvent(KSelector* self, QTabletEvent* event) {
+void KSelector_SuperTabletEvent(KSelector* self, QTabletEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_TabletEvent_IsBase(true);
@@ -1025,7 +1025,7 @@ void KSelector_ActionEvent(KSelector* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseActionEvent(KSelector* self, QActionEvent* event) {
+void KSelector_SuperActionEvent(KSelector* self, QActionEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_ActionEvent_IsBase(true);
@@ -1054,7 +1054,7 @@ void KSelector_DragEnterEvent(KSelector* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseDragEnterEvent(KSelector* self, QDragEnterEvent* event) {
+void KSelector_SuperDragEnterEvent(KSelector* self, QDragEnterEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_DragEnterEvent_IsBase(true);
@@ -1083,7 +1083,7 @@ void KSelector_DragMoveEvent(KSelector* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseDragMoveEvent(KSelector* self, QDragMoveEvent* event) {
+void KSelector_SuperDragMoveEvent(KSelector* self, QDragMoveEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_DragMoveEvent_IsBase(true);
@@ -1112,7 +1112,7 @@ void KSelector_DragLeaveEvent(KSelector* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseDragLeaveEvent(KSelector* self, QDragLeaveEvent* event) {
+void KSelector_SuperDragLeaveEvent(KSelector* self, QDragLeaveEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_DragLeaveEvent_IsBase(true);
@@ -1141,7 +1141,7 @@ void KSelector_DropEvent(KSelector* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseDropEvent(KSelector* self, QDropEvent* event) {
+void KSelector_SuperDropEvent(KSelector* self, QDropEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_DropEvent_IsBase(true);
@@ -1170,7 +1170,7 @@ void KSelector_ShowEvent(KSelector* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseShowEvent(KSelector* self, QShowEvent* event) {
+void KSelector_SuperShowEvent(KSelector* self, QShowEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_ShowEvent_IsBase(true);
@@ -1199,7 +1199,7 @@ void KSelector_HideEvent(KSelector* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseHideEvent(KSelector* self, QHideEvent* event) {
+void KSelector_SuperHideEvent(KSelector* self, QHideEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_HideEvent_IsBase(true);
@@ -1229,7 +1229,7 @@ bool KSelector_NativeEvent(KSelector* self, const libqt_string eventType, void* 
 }
 
 // Base class handler implementation
-bool KSelector_QBaseNativeEvent(KSelector* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KSelector_SuperNativeEvent(KSelector* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkselector && vkselector->isVirtualKSelector) {
@@ -1259,7 +1259,7 @@ int KSelector_Metric(const KSelector* self, int param1) {
 }
 
 // Base class handler implementation
-int KSelector_QBaseMetric(const KSelector* self, int param1) {
+int KSelector_SuperMetric(const KSelector* self, int param1) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_Metric_IsBase(true);
@@ -1288,7 +1288,7 @@ void KSelector_InitPainter(const KSelector* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseInitPainter(const KSelector* self, QPainter* painter) {
+void KSelector_SuperInitPainter(const KSelector* self, QPainter* painter) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_InitPainter_IsBase(true);
@@ -1317,7 +1317,7 @@ QPaintDevice* KSelector_Redirected(const KSelector* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* KSelector_QBaseRedirected(const KSelector* self, QPoint* offset) {
+QPaintDevice* KSelector_SuperRedirected(const KSelector* self, QPoint* offset) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_Redirected_IsBase(true);
@@ -1346,7 +1346,7 @@ QPainter* KSelector_SharedPainter(const KSelector* self) {
 }
 
 // Base class handler implementation
-QPainter* KSelector_QBaseSharedPainter(const KSelector* self) {
+QPainter* KSelector_SuperSharedPainter(const KSelector* self) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_SharedPainter_IsBase(true);
@@ -1375,7 +1375,7 @@ void KSelector_InputMethodEvent(KSelector* self, QInputMethodEvent* param1) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseInputMethodEvent(KSelector* self, QInputMethodEvent* param1) {
+void KSelector_SuperInputMethodEvent(KSelector* self, QInputMethodEvent* param1) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_InputMethodEvent_IsBase(true);
@@ -1404,7 +1404,7 @@ QVariant* KSelector_InputMethodQuery(const KSelector* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* KSelector_QBaseInputMethodQuery(const KSelector* self, int param1) {
+QVariant* KSelector_SuperInputMethodQuery(const KSelector* self, int param1) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_InputMethodQuery_IsBase(true);
@@ -1433,7 +1433,7 @@ bool KSelector_FocusNextPrevChild(KSelector* self, bool next) {
 }
 
 // Base class handler implementation
-bool KSelector_QBaseFocusNextPrevChild(KSelector* self, bool next) {
+bool KSelector_SuperFocusNextPrevChild(KSelector* self, bool next) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_FocusNextPrevChild_IsBase(true);
@@ -1462,7 +1462,7 @@ bool KSelector_EventFilter(KSelector* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KSelector_QBaseEventFilter(KSelector* self, QObject* watched, QEvent* event) {
+bool KSelector_SuperEventFilter(KSelector* self, QObject* watched, QEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_EventFilter_IsBase(true);
@@ -1491,7 +1491,7 @@ void KSelector_ChildEvent(KSelector* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseChildEvent(KSelector* self, QChildEvent* event) {
+void KSelector_SuperChildEvent(KSelector* self, QChildEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_ChildEvent_IsBase(true);
@@ -1520,7 +1520,7 @@ void KSelector_CustomEvent(KSelector* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseCustomEvent(KSelector* self, QEvent* event) {
+void KSelector_SuperCustomEvent(KSelector* self, QEvent* event) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_CustomEvent_IsBase(true);
@@ -1549,7 +1549,7 @@ void KSelector_ConnectNotify(KSelector* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseConnectNotify(KSelector* self, const QMetaMethod* signal) {
+void KSelector_SuperConnectNotify(KSelector* self, const QMetaMethod* signal) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_ConnectNotify_IsBase(true);
@@ -1578,7 +1578,7 @@ void KSelector_DisconnectNotify(KSelector* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseDisconnectNotify(KSelector* self, const QMetaMethod* signal) {
+void KSelector_SuperDisconnectNotify(KSelector* self, const QMetaMethod* signal) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_DisconnectNotify_IsBase(true);
@@ -1607,7 +1607,7 @@ void KSelector_SetRepeatAction(KSelector* self, int action) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseSetRepeatAction(KSelector* self, int action) {
+void KSelector_SuperSetRepeatAction(KSelector* self, int action) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_SetRepeatAction_IsBase(true);
@@ -1636,7 +1636,7 @@ int KSelector_RepeatAction(const KSelector* self) {
 }
 
 // Base class handler implementation
-int KSelector_QBaseRepeatAction(const KSelector* self) {
+int KSelector_SuperRepeatAction(const KSelector* self) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_RepeatAction_IsBase(true);
@@ -1665,7 +1665,7 @@ void KSelector_UpdateMicroFocus(KSelector* self) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseUpdateMicroFocus(KSelector* self) {
+void KSelector_SuperUpdateMicroFocus(KSelector* self) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_UpdateMicroFocus_IsBase(true);
@@ -1694,7 +1694,7 @@ void KSelector_Create(KSelector* self) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseCreate(KSelector* self) {
+void KSelector_SuperCreate(KSelector* self) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_Create_IsBase(true);
@@ -1723,7 +1723,7 @@ void KSelector_Destroy(KSelector* self) {
 }
 
 // Base class handler implementation
-void KSelector_QBaseDestroy(KSelector* self) {
+void KSelector_SuperDestroy(KSelector* self) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_Destroy_IsBase(true);
@@ -1752,7 +1752,7 @@ bool KSelector_FocusNextChild(KSelector* self) {
 }
 
 // Base class handler implementation
-bool KSelector_QBaseFocusNextChild(KSelector* self) {
+bool KSelector_SuperFocusNextChild(KSelector* self) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_FocusNextChild_IsBase(true);
@@ -1781,7 +1781,7 @@ bool KSelector_FocusPreviousChild(KSelector* self) {
 }
 
 // Base class handler implementation
-bool KSelector_QBaseFocusPreviousChild(KSelector* self) {
+bool KSelector_SuperFocusPreviousChild(KSelector* self) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_FocusPreviousChild_IsBase(true);
@@ -1810,7 +1810,7 @@ QObject* KSelector_Sender(const KSelector* self) {
 }
 
 // Base class handler implementation
-QObject* KSelector_QBaseSender(const KSelector* self) {
+QObject* KSelector_SuperSender(const KSelector* self) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_Sender_IsBase(true);
@@ -1839,7 +1839,7 @@ int KSelector_SenderSignalIndex(const KSelector* self) {
 }
 
 // Base class handler implementation
-int KSelector_QBaseSenderSignalIndex(const KSelector* self) {
+int KSelector_SuperSenderSignalIndex(const KSelector* self) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_SenderSignalIndex_IsBase(true);
@@ -1868,7 +1868,7 @@ int KSelector_Receivers(const KSelector* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KSelector_QBaseReceivers(const KSelector* self, const char* signal) {
+int KSelector_SuperReceivers(const KSelector* self, const char* signal) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_Receivers_IsBase(true);
@@ -1897,7 +1897,7 @@ bool KSelector_IsSignalConnected(const KSelector* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool KSelector_QBaseIsSignalConnected(const KSelector* self, const QMetaMethod* signal) {
+bool KSelector_SuperIsSignalConnected(const KSelector* self, const QMetaMethod* signal) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_IsSignalConnected_IsBase(true);
@@ -1926,7 +1926,7 @@ double KSelector_GetDecodedMetricF(const KSelector* self, int metricA, int metri
 }
 
 // Base class handler implementation
-double KSelector_QBaseGetDecodedMetricF(const KSelector* self, int metricA, int metricB) {
+double KSelector_SuperGetDecodedMetricF(const KSelector* self, int metricA, int metricB) {
     auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->setKSelector_GetDecodedMetricF_IsBase(true);
@@ -2098,7 +2098,7 @@ QSize* KGradientSelector_MinimumSize(const KGradientSelector* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KGradientSelector_QBaseMetaObject(const KGradientSelector* self) {
+QMetaObject* KGradientSelector_SuperMetaObject(const KGradientSelector* self) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_MetaObject_IsBase(true);
@@ -2117,7 +2117,7 @@ void KGradientSelector_OnMetaObject(const KGradientSelector* self, intptr_t slot
 }
 
 // Base class handler implementation
-void* KGradientSelector_QBaseMetacast(KGradientSelector* self, const char* param1) {
+void* KGradientSelector_SuperMetacast(KGradientSelector* self, const char* param1) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_Metacast_IsBase(true);
@@ -2136,7 +2136,7 @@ void KGradientSelector_OnMetacast(KGradientSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KGradientSelector_QBaseMetacall(KGradientSelector* self, int param1, int param2, void** param3) {
+int KGradientSelector_SuperMetacall(KGradientSelector* self, int param1, int param2, void** param3) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_Metacall_IsBase(true);
@@ -2155,7 +2155,7 @@ void KGradientSelector_OnMetacall(KGradientSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseDrawContents(KGradientSelector* self, QPainter* param1) {
+void KGradientSelector_SuperDrawContents(KGradientSelector* self, QPainter* param1) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_DrawContents_IsBase(true);
@@ -2174,7 +2174,7 @@ void KGradientSelector_OnDrawContents(KGradientSelector* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* KGradientSelector_QBaseMinimumSize(const KGradientSelector* self) {
+QSize* KGradientSelector_SuperMinimumSize(const KGradientSelector* self) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_MinimumSize_IsBase(true);
@@ -2202,7 +2202,7 @@ void KGradientSelector_DrawArrow(KGradientSelector* self, QPainter* painter, con
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseDrawArrow(KGradientSelector* self, QPainter* painter, const QPoint* pos) {
+void KGradientSelector_SuperDrawArrow(KGradientSelector* self, QPainter* painter, const QPoint* pos) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_DrawArrow_IsBase(true);
@@ -2231,7 +2231,7 @@ void KGradientSelector_PaintEvent(KGradientSelector* self, QPaintEvent* param1) 
 }
 
 // Base class handler implementation
-void KGradientSelector_QBasePaintEvent(KGradientSelector* self, QPaintEvent* param1) {
+void KGradientSelector_SuperPaintEvent(KGradientSelector* self, QPaintEvent* param1) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_PaintEvent_IsBase(true);
@@ -2260,7 +2260,7 @@ void KGradientSelector_MousePressEvent(KGradientSelector* self, QMouseEvent* e) 
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseMousePressEvent(KGradientSelector* self, QMouseEvent* e) {
+void KGradientSelector_SuperMousePressEvent(KGradientSelector* self, QMouseEvent* e) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_MousePressEvent_IsBase(true);
@@ -2289,7 +2289,7 @@ void KGradientSelector_MouseMoveEvent(KGradientSelector* self, QMouseEvent* e) {
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseMouseMoveEvent(KGradientSelector* self, QMouseEvent* e) {
+void KGradientSelector_SuperMouseMoveEvent(KGradientSelector* self, QMouseEvent* e) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_MouseMoveEvent_IsBase(true);
@@ -2318,7 +2318,7 @@ void KGradientSelector_MouseReleaseEvent(KGradientSelector* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseMouseReleaseEvent(KGradientSelector* self, QMouseEvent* e) {
+void KGradientSelector_SuperMouseReleaseEvent(KGradientSelector* self, QMouseEvent* e) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_MouseReleaseEvent_IsBase(true);
@@ -2347,7 +2347,7 @@ void KGradientSelector_WheelEvent(KGradientSelector* self, QWheelEvent* param1) 
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseWheelEvent(KGradientSelector* self, QWheelEvent* param1) {
+void KGradientSelector_SuperWheelEvent(KGradientSelector* self, QWheelEvent* param1) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_WheelEvent_IsBase(true);
@@ -2376,7 +2376,7 @@ bool KGradientSelector_Event(KGradientSelector* self, QEvent* e) {
 }
 
 // Base class handler implementation
-bool KGradientSelector_QBaseEvent(KGradientSelector* self, QEvent* e) {
+bool KGradientSelector_SuperEvent(KGradientSelector* self, QEvent* e) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_Event_IsBase(true);
@@ -2405,7 +2405,7 @@ void KGradientSelector_SliderChange(KGradientSelector* self, int change) {
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseSliderChange(KGradientSelector* self, int change) {
+void KGradientSelector_SuperSliderChange(KGradientSelector* self, int change) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_SliderChange_IsBase(true);
@@ -2434,7 +2434,7 @@ void KGradientSelector_KeyPressEvent(KGradientSelector* self, QKeyEvent* ev) {
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseKeyPressEvent(KGradientSelector* self, QKeyEvent* ev) {
+void KGradientSelector_SuperKeyPressEvent(KGradientSelector* self, QKeyEvent* ev) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_KeyPressEvent_IsBase(true);
@@ -2463,7 +2463,7 @@ void KGradientSelector_TimerEvent(KGradientSelector* self, QTimerEvent* param1) 
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseTimerEvent(KGradientSelector* self, QTimerEvent* param1) {
+void KGradientSelector_SuperTimerEvent(KGradientSelector* self, QTimerEvent* param1) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_TimerEvent_IsBase(true);
@@ -2492,7 +2492,7 @@ void KGradientSelector_ChangeEvent(KGradientSelector* self, QEvent* e) {
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseChangeEvent(KGradientSelector* self, QEvent* e) {
+void KGradientSelector_SuperChangeEvent(KGradientSelector* self, QEvent* e) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_ChangeEvent_IsBase(true);
@@ -2521,7 +2521,7 @@ int KGradientSelector_DevType(const KGradientSelector* self) {
 }
 
 // Base class handler implementation
-int KGradientSelector_QBaseDevType(const KGradientSelector* self) {
+int KGradientSelector_SuperDevType(const KGradientSelector* self) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_DevType_IsBase(true);
@@ -2550,7 +2550,7 @@ void KGradientSelector_SetVisible(KGradientSelector* self, bool visible) {
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseSetVisible(KGradientSelector* self, bool visible) {
+void KGradientSelector_SuperSetVisible(KGradientSelector* self, bool visible) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_SetVisible_IsBase(true);
@@ -2579,7 +2579,7 @@ QSize* KGradientSelector_SizeHint(const KGradientSelector* self) {
 }
 
 // Base class handler implementation
-QSize* KGradientSelector_QBaseSizeHint(const KGradientSelector* self) {
+QSize* KGradientSelector_SuperSizeHint(const KGradientSelector* self) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_SizeHint_IsBase(true);
@@ -2608,7 +2608,7 @@ QSize* KGradientSelector_MinimumSizeHint(const KGradientSelector* self) {
 }
 
 // Base class handler implementation
-QSize* KGradientSelector_QBaseMinimumSizeHint(const KGradientSelector* self) {
+QSize* KGradientSelector_SuperMinimumSizeHint(const KGradientSelector* self) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_MinimumSizeHint_IsBase(true);
@@ -2637,7 +2637,7 @@ int KGradientSelector_HeightForWidth(const KGradientSelector* self, int param1) 
 }
 
 // Base class handler implementation
-int KGradientSelector_QBaseHeightForWidth(const KGradientSelector* self, int param1) {
+int KGradientSelector_SuperHeightForWidth(const KGradientSelector* self, int param1) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_HeightForWidth_IsBase(true);
@@ -2666,7 +2666,7 @@ bool KGradientSelector_HasHeightForWidth(const KGradientSelector* self) {
 }
 
 // Base class handler implementation
-bool KGradientSelector_QBaseHasHeightForWidth(const KGradientSelector* self) {
+bool KGradientSelector_SuperHasHeightForWidth(const KGradientSelector* self) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_HasHeightForWidth_IsBase(true);
@@ -2695,7 +2695,7 @@ QPaintEngine* KGradientSelector_PaintEngine(const KGradientSelector* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KGradientSelector_QBasePaintEngine(const KGradientSelector* self) {
+QPaintEngine* KGradientSelector_SuperPaintEngine(const KGradientSelector* self) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_PaintEngine_IsBase(true);
@@ -2724,7 +2724,7 @@ void KGradientSelector_MouseDoubleClickEvent(KGradientSelector* self, QMouseEven
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseMouseDoubleClickEvent(KGradientSelector* self, QMouseEvent* event) {
+void KGradientSelector_SuperMouseDoubleClickEvent(KGradientSelector* self, QMouseEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_MouseDoubleClickEvent_IsBase(true);
@@ -2753,7 +2753,7 @@ void KGradientSelector_KeyReleaseEvent(KGradientSelector* self, QKeyEvent* event
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseKeyReleaseEvent(KGradientSelector* self, QKeyEvent* event) {
+void KGradientSelector_SuperKeyReleaseEvent(KGradientSelector* self, QKeyEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_KeyReleaseEvent_IsBase(true);
@@ -2782,7 +2782,7 @@ void KGradientSelector_FocusInEvent(KGradientSelector* self, QFocusEvent* event)
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseFocusInEvent(KGradientSelector* self, QFocusEvent* event) {
+void KGradientSelector_SuperFocusInEvent(KGradientSelector* self, QFocusEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_FocusInEvent_IsBase(true);
@@ -2811,7 +2811,7 @@ void KGradientSelector_FocusOutEvent(KGradientSelector* self, QFocusEvent* event
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseFocusOutEvent(KGradientSelector* self, QFocusEvent* event) {
+void KGradientSelector_SuperFocusOutEvent(KGradientSelector* self, QFocusEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_FocusOutEvent_IsBase(true);
@@ -2840,7 +2840,7 @@ void KGradientSelector_EnterEvent(KGradientSelector* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseEnterEvent(KGradientSelector* self, QEnterEvent* event) {
+void KGradientSelector_SuperEnterEvent(KGradientSelector* self, QEnterEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_EnterEvent_IsBase(true);
@@ -2869,7 +2869,7 @@ void KGradientSelector_LeaveEvent(KGradientSelector* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseLeaveEvent(KGradientSelector* self, QEvent* event) {
+void KGradientSelector_SuperLeaveEvent(KGradientSelector* self, QEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_LeaveEvent_IsBase(true);
@@ -2898,7 +2898,7 @@ void KGradientSelector_MoveEvent(KGradientSelector* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseMoveEvent(KGradientSelector* self, QMoveEvent* event) {
+void KGradientSelector_SuperMoveEvent(KGradientSelector* self, QMoveEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_MoveEvent_IsBase(true);
@@ -2927,7 +2927,7 @@ void KGradientSelector_ResizeEvent(KGradientSelector* self, QResizeEvent* event)
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseResizeEvent(KGradientSelector* self, QResizeEvent* event) {
+void KGradientSelector_SuperResizeEvent(KGradientSelector* self, QResizeEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_ResizeEvent_IsBase(true);
@@ -2956,7 +2956,7 @@ void KGradientSelector_CloseEvent(KGradientSelector* self, QCloseEvent* event) {
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseCloseEvent(KGradientSelector* self, QCloseEvent* event) {
+void KGradientSelector_SuperCloseEvent(KGradientSelector* self, QCloseEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_CloseEvent_IsBase(true);
@@ -2985,7 +2985,7 @@ void KGradientSelector_ContextMenuEvent(KGradientSelector* self, QContextMenuEve
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseContextMenuEvent(KGradientSelector* self, QContextMenuEvent* event) {
+void KGradientSelector_SuperContextMenuEvent(KGradientSelector* self, QContextMenuEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_ContextMenuEvent_IsBase(true);
@@ -3014,7 +3014,7 @@ void KGradientSelector_TabletEvent(KGradientSelector* self, QTabletEvent* event)
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseTabletEvent(KGradientSelector* self, QTabletEvent* event) {
+void KGradientSelector_SuperTabletEvent(KGradientSelector* self, QTabletEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_TabletEvent_IsBase(true);
@@ -3043,7 +3043,7 @@ void KGradientSelector_ActionEvent(KGradientSelector* self, QActionEvent* event)
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseActionEvent(KGradientSelector* self, QActionEvent* event) {
+void KGradientSelector_SuperActionEvent(KGradientSelector* self, QActionEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_ActionEvent_IsBase(true);
@@ -3072,7 +3072,7 @@ void KGradientSelector_DragEnterEvent(KGradientSelector* self, QDragEnterEvent* 
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseDragEnterEvent(KGradientSelector* self, QDragEnterEvent* event) {
+void KGradientSelector_SuperDragEnterEvent(KGradientSelector* self, QDragEnterEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_DragEnterEvent_IsBase(true);
@@ -3101,7 +3101,7 @@ void KGradientSelector_DragMoveEvent(KGradientSelector* self, QDragMoveEvent* ev
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseDragMoveEvent(KGradientSelector* self, QDragMoveEvent* event) {
+void KGradientSelector_SuperDragMoveEvent(KGradientSelector* self, QDragMoveEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_DragMoveEvent_IsBase(true);
@@ -3130,7 +3130,7 @@ void KGradientSelector_DragLeaveEvent(KGradientSelector* self, QDragLeaveEvent* 
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseDragLeaveEvent(KGradientSelector* self, QDragLeaveEvent* event) {
+void KGradientSelector_SuperDragLeaveEvent(KGradientSelector* self, QDragLeaveEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_DragLeaveEvent_IsBase(true);
@@ -3159,7 +3159,7 @@ void KGradientSelector_DropEvent(KGradientSelector* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseDropEvent(KGradientSelector* self, QDropEvent* event) {
+void KGradientSelector_SuperDropEvent(KGradientSelector* self, QDropEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_DropEvent_IsBase(true);
@@ -3188,7 +3188,7 @@ void KGradientSelector_ShowEvent(KGradientSelector* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseShowEvent(KGradientSelector* self, QShowEvent* event) {
+void KGradientSelector_SuperShowEvent(KGradientSelector* self, QShowEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_ShowEvent_IsBase(true);
@@ -3217,7 +3217,7 @@ void KGradientSelector_HideEvent(KGradientSelector* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseHideEvent(KGradientSelector* self, QHideEvent* event) {
+void KGradientSelector_SuperHideEvent(KGradientSelector* self, QHideEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_HideEvent_IsBase(true);
@@ -3247,7 +3247,7 @@ bool KGradientSelector_NativeEvent(KGradientSelector* self, const libqt_string e
 }
 
 // Base class handler implementation
-bool KGradientSelector_QBaseNativeEvent(KGradientSelector* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KGradientSelector_SuperNativeEvent(KGradientSelector* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
@@ -3277,7 +3277,7 @@ int KGradientSelector_Metric(const KGradientSelector* self, int param1) {
 }
 
 // Base class handler implementation
-int KGradientSelector_QBaseMetric(const KGradientSelector* self, int param1) {
+int KGradientSelector_SuperMetric(const KGradientSelector* self, int param1) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_Metric_IsBase(true);
@@ -3306,7 +3306,7 @@ void KGradientSelector_InitPainter(const KGradientSelector* self, QPainter* pain
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseInitPainter(const KGradientSelector* self, QPainter* painter) {
+void KGradientSelector_SuperInitPainter(const KGradientSelector* self, QPainter* painter) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_InitPainter_IsBase(true);
@@ -3335,7 +3335,7 @@ QPaintDevice* KGradientSelector_Redirected(const KGradientSelector* self, QPoint
 }
 
 // Base class handler implementation
-QPaintDevice* KGradientSelector_QBaseRedirected(const KGradientSelector* self, QPoint* offset) {
+QPaintDevice* KGradientSelector_SuperRedirected(const KGradientSelector* self, QPoint* offset) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_Redirected_IsBase(true);
@@ -3364,7 +3364,7 @@ QPainter* KGradientSelector_SharedPainter(const KGradientSelector* self) {
 }
 
 // Base class handler implementation
-QPainter* KGradientSelector_QBaseSharedPainter(const KGradientSelector* self) {
+QPainter* KGradientSelector_SuperSharedPainter(const KGradientSelector* self) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_SharedPainter_IsBase(true);
@@ -3393,7 +3393,7 @@ void KGradientSelector_InputMethodEvent(KGradientSelector* self, QInputMethodEve
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseInputMethodEvent(KGradientSelector* self, QInputMethodEvent* param1) {
+void KGradientSelector_SuperInputMethodEvent(KGradientSelector* self, QInputMethodEvent* param1) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_InputMethodEvent_IsBase(true);
@@ -3422,7 +3422,7 @@ QVariant* KGradientSelector_InputMethodQuery(const KGradientSelector* self, int 
 }
 
 // Base class handler implementation
-QVariant* KGradientSelector_QBaseInputMethodQuery(const KGradientSelector* self, int param1) {
+QVariant* KGradientSelector_SuperInputMethodQuery(const KGradientSelector* self, int param1) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_InputMethodQuery_IsBase(true);
@@ -3451,7 +3451,7 @@ bool KGradientSelector_FocusNextPrevChild(KGradientSelector* self, bool next) {
 }
 
 // Base class handler implementation
-bool KGradientSelector_QBaseFocusNextPrevChild(KGradientSelector* self, bool next) {
+bool KGradientSelector_SuperFocusNextPrevChild(KGradientSelector* self, bool next) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_FocusNextPrevChild_IsBase(true);
@@ -3480,7 +3480,7 @@ bool KGradientSelector_EventFilter(KGradientSelector* self, QObject* watched, QE
 }
 
 // Base class handler implementation
-bool KGradientSelector_QBaseEventFilter(KGradientSelector* self, QObject* watched, QEvent* event) {
+bool KGradientSelector_SuperEventFilter(KGradientSelector* self, QObject* watched, QEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_EventFilter_IsBase(true);
@@ -3509,7 +3509,7 @@ void KGradientSelector_ChildEvent(KGradientSelector* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseChildEvent(KGradientSelector* self, QChildEvent* event) {
+void KGradientSelector_SuperChildEvent(KGradientSelector* self, QChildEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_ChildEvent_IsBase(true);
@@ -3538,7 +3538,7 @@ void KGradientSelector_CustomEvent(KGradientSelector* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseCustomEvent(KGradientSelector* self, QEvent* event) {
+void KGradientSelector_SuperCustomEvent(KGradientSelector* self, QEvent* event) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_CustomEvent_IsBase(true);
@@ -3567,7 +3567,7 @@ void KGradientSelector_ConnectNotify(KGradientSelector* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseConnectNotify(KGradientSelector* self, const QMetaMethod* signal) {
+void KGradientSelector_SuperConnectNotify(KGradientSelector* self, const QMetaMethod* signal) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_ConnectNotify_IsBase(true);
@@ -3596,7 +3596,7 @@ void KGradientSelector_DisconnectNotify(KGradientSelector* self, const QMetaMeth
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseDisconnectNotify(KGradientSelector* self, const QMetaMethod* signal) {
+void KGradientSelector_SuperDisconnectNotify(KGradientSelector* self, const QMetaMethod* signal) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_DisconnectNotify_IsBase(true);
@@ -3625,7 +3625,7 @@ void KGradientSelector_SetRepeatAction(KGradientSelector* self, int action) {
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseSetRepeatAction(KGradientSelector* self, int action) {
+void KGradientSelector_SuperSetRepeatAction(KGradientSelector* self, int action) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_SetRepeatAction_IsBase(true);
@@ -3654,7 +3654,7 @@ int KGradientSelector_RepeatAction(const KGradientSelector* self) {
 }
 
 // Base class handler implementation
-int KGradientSelector_QBaseRepeatAction(const KGradientSelector* self) {
+int KGradientSelector_SuperRepeatAction(const KGradientSelector* self) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_RepeatAction_IsBase(true);
@@ -3683,7 +3683,7 @@ void KGradientSelector_UpdateMicroFocus(KGradientSelector* self) {
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseUpdateMicroFocus(KGradientSelector* self) {
+void KGradientSelector_SuperUpdateMicroFocus(KGradientSelector* self) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_UpdateMicroFocus_IsBase(true);
@@ -3712,7 +3712,7 @@ void KGradientSelector_Create(KGradientSelector* self) {
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseCreate(KGradientSelector* self) {
+void KGradientSelector_SuperCreate(KGradientSelector* self) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_Create_IsBase(true);
@@ -3741,7 +3741,7 @@ void KGradientSelector_Destroy(KGradientSelector* self) {
 }
 
 // Base class handler implementation
-void KGradientSelector_QBaseDestroy(KGradientSelector* self) {
+void KGradientSelector_SuperDestroy(KGradientSelector* self) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_Destroy_IsBase(true);
@@ -3770,7 +3770,7 @@ bool KGradientSelector_FocusNextChild(KGradientSelector* self) {
 }
 
 // Base class handler implementation
-bool KGradientSelector_QBaseFocusNextChild(KGradientSelector* self) {
+bool KGradientSelector_SuperFocusNextChild(KGradientSelector* self) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_FocusNextChild_IsBase(true);
@@ -3799,7 +3799,7 @@ bool KGradientSelector_FocusPreviousChild(KGradientSelector* self) {
 }
 
 // Base class handler implementation
-bool KGradientSelector_QBaseFocusPreviousChild(KGradientSelector* self) {
+bool KGradientSelector_SuperFocusPreviousChild(KGradientSelector* self) {
     auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_FocusPreviousChild_IsBase(true);
@@ -3828,7 +3828,7 @@ QObject* KGradientSelector_Sender(const KGradientSelector* self) {
 }
 
 // Base class handler implementation
-QObject* KGradientSelector_QBaseSender(const KGradientSelector* self) {
+QObject* KGradientSelector_SuperSender(const KGradientSelector* self) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_Sender_IsBase(true);
@@ -3857,7 +3857,7 @@ int KGradientSelector_SenderSignalIndex(const KGradientSelector* self) {
 }
 
 // Base class handler implementation
-int KGradientSelector_QBaseSenderSignalIndex(const KGradientSelector* self) {
+int KGradientSelector_SuperSenderSignalIndex(const KGradientSelector* self) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_SenderSignalIndex_IsBase(true);
@@ -3886,7 +3886,7 @@ int KGradientSelector_Receivers(const KGradientSelector* self, const char* signa
 }
 
 // Base class handler implementation
-int KGradientSelector_QBaseReceivers(const KGradientSelector* self, const char* signal) {
+int KGradientSelector_SuperReceivers(const KGradientSelector* self, const char* signal) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_Receivers_IsBase(true);
@@ -3915,7 +3915,7 @@ bool KGradientSelector_IsSignalConnected(const KGradientSelector* self, const QM
 }
 
 // Base class handler implementation
-bool KGradientSelector_QBaseIsSignalConnected(const KGradientSelector* self, const QMetaMethod* signal) {
+bool KGradientSelector_SuperIsSignalConnected(const KGradientSelector* self, const QMetaMethod* signal) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_IsSignalConnected_IsBase(true);
@@ -3944,7 +3944,7 @@ double KGradientSelector_GetDecodedMetricF(const KGradientSelector* self, int me
 }
 
 // Base class handler implementation
-double KGradientSelector_QBaseGetDecodedMetricF(const KGradientSelector* self, int metricA, int metricB) {
+double KGradientSelector_SuperGetDecodedMetricF(const KGradientSelector* self, int metricA, int metricB) {
     auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
     if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
         vkgradientselector->setKGradientSelector_GetDecodedMetricF_IsBase(true);

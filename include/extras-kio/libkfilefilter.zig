@@ -238,6 +238,10 @@ pub const kfilefilter = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kfilefilter.html#dtor.KFileFilter)
     ///
     /// Delete this object from C++ memory.
@@ -246,7 +250,7 @@ pub const kfilefilter = struct {
     ///
     /// ` self: QtC.KFileFilter `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KFileFilter_Delete(@ptrCast(self));
     }
 };

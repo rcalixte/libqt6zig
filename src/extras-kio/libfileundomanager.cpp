@@ -198,7 +198,7 @@ void KIO__FileUndoManager__UiInterface_VirtualHook(KIO__FileUndoManager__UiInter
 }
 
 // Base class handler implementation
-void KIO__FileUndoManager__UiInterface_QBaseJobError(KIO__FileUndoManager__UiInterface* self, KIO__Job* job) {
+void KIO__FileUndoManager__UiInterface_SuperJobError(KIO__FileUndoManager__UiInterface* self, KIO__Job* job) {
     auto* vkiofileundomanageruiinterface = dynamic_cast<VirtualKIOFileUndoManagerUiInterface*>(self);
     if (vkiofileundomanageruiinterface && vkiofileundomanageruiinterface->isVirtualKIOFileUndoManagerUiInterface) {
         vkiofileundomanageruiinterface->setKIO__FileUndoManager__UiInterface_JobError_IsBase(true);
@@ -217,7 +217,7 @@ void KIO__FileUndoManager__UiInterface_OnJobError(KIO__FileUndoManager__UiInterf
 }
 
 // Base class handler implementation
-bool KIO__FileUndoManager__UiInterface_QBaseCopiedFileWasModified(KIO__FileUndoManager__UiInterface* self, const QUrl* src, const QUrl* dest, const QDateTime* srcTime, const QDateTime* destTime) {
+bool KIO__FileUndoManager__UiInterface_SuperCopiedFileWasModified(KIO__FileUndoManager__UiInterface* self, const QUrl* src, const QUrl* dest, const QDateTime* srcTime, const QDateTime* destTime) {
     auto* vkiofileundomanageruiinterface = dynamic_cast<VirtualKIOFileUndoManagerUiInterface*>(self);
     if (vkiofileundomanageruiinterface && vkiofileundomanageruiinterface->isVirtualKIOFileUndoManagerUiInterface) {
         vkiofileundomanageruiinterface->setKIO__FileUndoManager__UiInterface_CopiedFileWasModified_IsBase(true);
@@ -236,7 +236,7 @@ void KIO__FileUndoManager__UiInterface_OnCopiedFileWasModified(KIO__FileUndoMana
 }
 
 // Base class handler implementation
-void KIO__FileUndoManager__UiInterface_QBaseVirtualHook(KIO__FileUndoManager__UiInterface* self, int id, void* data) {
+void KIO__FileUndoManager__UiInterface_SuperVirtualHook(KIO__FileUndoManager__UiInterface* self, int id, void* data) {
     auto* vkiofileundomanageruiinterface = dynamic_cast<VirtualKIOFileUndoManagerUiInterface*>(self);
     if (vkiofileundomanageruiinterface && vkiofileundomanageruiinterface->isVirtualKIOFileUndoManagerUiInterface) {
         vkiofileundomanageruiinterface->setKIO__FileUndoManager__UiInterface_VirtualHook_IsBase(true);

@@ -118,6 +118,10 @@ pub const qplaceattribute = struct {
         return qtc.QPlaceAttribute_IsEmpty(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceattribute.html#dtor.QPlaceAttribute)
     ///
     /// Delete this object from C++ memory.
@@ -126,7 +130,7 @@ pub const qplaceattribute = struct {
     ///
     /// ` self: QtC.QPlaceAttribute `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPlaceAttribute_Delete(@ptrCast(self));
     }
 };

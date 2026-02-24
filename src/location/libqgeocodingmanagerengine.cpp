@@ -169,7 +169,7 @@ void QGeoCodingManagerEngine_Connect_ErrorOccurred3(QGeoCodingManagerEngine* sel
 }
 
 // Base class handler implementation
-QMetaObject* QGeoCodingManagerEngine_QBaseMetaObject(const QGeoCodingManagerEngine* self) {
+QMetaObject* QGeoCodingManagerEngine_SuperMetaObject(const QGeoCodingManagerEngine* self) {
     auto* vqgeocodingmanagerengine = const_cast<VirtualQGeoCodingManagerEngine*>(dynamic_cast<const VirtualQGeoCodingManagerEngine*>(self));
     if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
         vqgeocodingmanagerengine->setQGeoCodingManagerEngine_MetaObject_IsBase(true);
@@ -188,7 +188,7 @@ void QGeoCodingManagerEngine_OnMetaObject(const QGeoCodingManagerEngine* self, i
 }
 
 // Base class handler implementation
-void* QGeoCodingManagerEngine_QBaseMetacast(QGeoCodingManagerEngine* self, const char* param1) {
+void* QGeoCodingManagerEngine_SuperMetacast(QGeoCodingManagerEngine* self, const char* param1) {
     auto* vqgeocodingmanagerengine = dynamic_cast<VirtualQGeoCodingManagerEngine*>(self);
     if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
         vqgeocodingmanagerengine->setQGeoCodingManagerEngine_Metacast_IsBase(true);
@@ -207,7 +207,7 @@ void QGeoCodingManagerEngine_OnMetacast(QGeoCodingManagerEngine* self, intptr_t 
 }
 
 // Base class handler implementation
-int QGeoCodingManagerEngine_QBaseMetacall(QGeoCodingManagerEngine* self, int param1, int param2, void** param3) {
+int QGeoCodingManagerEngine_SuperMetacall(QGeoCodingManagerEngine* self, int param1, int param2, void** param3) {
     auto* vqgeocodingmanagerengine = dynamic_cast<VirtualQGeoCodingManagerEngine*>(self);
     if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
         vqgeocodingmanagerengine->setQGeoCodingManagerEngine_Metacall_IsBase(true);
@@ -226,7 +226,7 @@ void QGeoCodingManagerEngine_OnMetacall(QGeoCodingManagerEngine* self, intptr_t 
 }
 
 // Base class handler implementation
-QGeoCodeReply* QGeoCodingManagerEngine_QBaseGeocode(QGeoCodingManagerEngine* self, const QGeoAddress* address, const QGeoShape* bounds) {
+QGeoCodeReply* QGeoCodingManagerEngine_SuperGeocode(QGeoCodingManagerEngine* self, const QGeoAddress* address, const QGeoShape* bounds) {
     auto* vqgeocodingmanagerengine = dynamic_cast<VirtualQGeoCodingManagerEngine*>(self);
     if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
         vqgeocodingmanagerengine->setQGeoCodingManagerEngine_Geocode_IsBase(true);
@@ -245,7 +245,7 @@ void QGeoCodingManagerEngine_OnGeocode(QGeoCodingManagerEngine* self, intptr_t s
 }
 
 // Base class handler implementation
-QGeoCodeReply* QGeoCodingManagerEngine_QBaseGeocode2(QGeoCodingManagerEngine* self, const libqt_string address, int limit, int offset, const QGeoShape* bounds) {
+QGeoCodeReply* QGeoCodingManagerEngine_SuperGeocode2(QGeoCodingManagerEngine* self, const libqt_string address, int limit, int offset, const QGeoShape* bounds) {
     auto* vqgeocodingmanagerengine = dynamic_cast<VirtualQGeoCodingManagerEngine*>(self);
     QString address_QString = QString::fromUtf8(address.data, address.len);
     if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
@@ -265,7 +265,7 @@ void QGeoCodingManagerEngine_OnGeocode2(QGeoCodingManagerEngine* self, intptr_t 
 }
 
 // Base class handler implementation
-QGeoCodeReply* QGeoCodingManagerEngine_QBaseReverseGeocode(QGeoCodingManagerEngine* self, const QGeoCoordinate* coordinate, const QGeoShape* bounds) {
+QGeoCodeReply* QGeoCodingManagerEngine_SuperReverseGeocode(QGeoCodingManagerEngine* self, const QGeoCoordinate* coordinate, const QGeoShape* bounds) {
     auto* vqgeocodingmanagerengine = dynamic_cast<VirtualQGeoCodingManagerEngine*>(self);
     if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
         vqgeocodingmanagerengine->setQGeoCodingManagerEngine_ReverseGeocode_IsBase(true);
@@ -294,7 +294,7 @@ bool QGeoCodingManagerEngine_Event(QGeoCodingManagerEngine* self, QEvent* event)
 }
 
 // Base class handler implementation
-bool QGeoCodingManagerEngine_QBaseEvent(QGeoCodingManagerEngine* self, QEvent* event) {
+bool QGeoCodingManagerEngine_SuperEvent(QGeoCodingManagerEngine* self, QEvent* event) {
     auto* vqgeocodingmanagerengine = dynamic_cast<VirtualQGeoCodingManagerEngine*>(self);
     if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
         vqgeocodingmanagerengine->setQGeoCodingManagerEngine_Event_IsBase(true);
@@ -323,7 +323,7 @@ bool QGeoCodingManagerEngine_EventFilter(QGeoCodingManagerEngine* self, QObject*
 }
 
 // Base class handler implementation
-bool QGeoCodingManagerEngine_QBaseEventFilter(QGeoCodingManagerEngine* self, QObject* watched, QEvent* event) {
+bool QGeoCodingManagerEngine_SuperEventFilter(QGeoCodingManagerEngine* self, QObject* watched, QEvent* event) {
     auto* vqgeocodingmanagerengine = dynamic_cast<VirtualQGeoCodingManagerEngine*>(self);
     if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
         vqgeocodingmanagerengine->setQGeoCodingManagerEngine_EventFilter_IsBase(true);
@@ -352,7 +352,7 @@ void QGeoCodingManagerEngine_TimerEvent(QGeoCodingManagerEngine* self, QTimerEve
 }
 
 // Base class handler implementation
-void QGeoCodingManagerEngine_QBaseTimerEvent(QGeoCodingManagerEngine* self, QTimerEvent* event) {
+void QGeoCodingManagerEngine_SuperTimerEvent(QGeoCodingManagerEngine* self, QTimerEvent* event) {
     auto* vqgeocodingmanagerengine = dynamic_cast<VirtualQGeoCodingManagerEngine*>(self);
     if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
         vqgeocodingmanagerengine->setQGeoCodingManagerEngine_TimerEvent_IsBase(true);
@@ -381,7 +381,7 @@ void QGeoCodingManagerEngine_ChildEvent(QGeoCodingManagerEngine* self, QChildEve
 }
 
 // Base class handler implementation
-void QGeoCodingManagerEngine_QBaseChildEvent(QGeoCodingManagerEngine* self, QChildEvent* event) {
+void QGeoCodingManagerEngine_SuperChildEvent(QGeoCodingManagerEngine* self, QChildEvent* event) {
     auto* vqgeocodingmanagerengine = dynamic_cast<VirtualQGeoCodingManagerEngine*>(self);
     if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
         vqgeocodingmanagerengine->setQGeoCodingManagerEngine_ChildEvent_IsBase(true);
@@ -410,7 +410,7 @@ void QGeoCodingManagerEngine_CustomEvent(QGeoCodingManagerEngine* self, QEvent* 
 }
 
 // Base class handler implementation
-void QGeoCodingManagerEngine_QBaseCustomEvent(QGeoCodingManagerEngine* self, QEvent* event) {
+void QGeoCodingManagerEngine_SuperCustomEvent(QGeoCodingManagerEngine* self, QEvent* event) {
     auto* vqgeocodingmanagerengine = dynamic_cast<VirtualQGeoCodingManagerEngine*>(self);
     if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
         vqgeocodingmanagerengine->setQGeoCodingManagerEngine_CustomEvent_IsBase(true);
@@ -439,7 +439,7 @@ void QGeoCodingManagerEngine_ConnectNotify(QGeoCodingManagerEngine* self, const 
 }
 
 // Base class handler implementation
-void QGeoCodingManagerEngine_QBaseConnectNotify(QGeoCodingManagerEngine* self, const QMetaMethod* signal) {
+void QGeoCodingManagerEngine_SuperConnectNotify(QGeoCodingManagerEngine* self, const QMetaMethod* signal) {
     auto* vqgeocodingmanagerengine = dynamic_cast<VirtualQGeoCodingManagerEngine*>(self);
     if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
         vqgeocodingmanagerengine->setQGeoCodingManagerEngine_ConnectNotify_IsBase(true);
@@ -468,7 +468,7 @@ void QGeoCodingManagerEngine_DisconnectNotify(QGeoCodingManagerEngine* self, con
 }
 
 // Base class handler implementation
-void QGeoCodingManagerEngine_QBaseDisconnectNotify(QGeoCodingManagerEngine* self, const QMetaMethod* signal) {
+void QGeoCodingManagerEngine_SuperDisconnectNotify(QGeoCodingManagerEngine* self, const QMetaMethod* signal) {
     auto* vqgeocodingmanagerengine = dynamic_cast<VirtualQGeoCodingManagerEngine*>(self);
     if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
         vqgeocodingmanagerengine->setQGeoCodingManagerEngine_DisconnectNotify_IsBase(true);
@@ -497,7 +497,7 @@ QObject* QGeoCodingManagerEngine_Sender(const QGeoCodingManagerEngine* self) {
 }
 
 // Base class handler implementation
-QObject* QGeoCodingManagerEngine_QBaseSender(const QGeoCodingManagerEngine* self) {
+QObject* QGeoCodingManagerEngine_SuperSender(const QGeoCodingManagerEngine* self) {
     auto* vqgeocodingmanagerengine = const_cast<VirtualQGeoCodingManagerEngine*>(dynamic_cast<const VirtualQGeoCodingManagerEngine*>(self));
     if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
         vqgeocodingmanagerengine->setQGeoCodingManagerEngine_Sender_IsBase(true);
@@ -526,7 +526,7 @@ int QGeoCodingManagerEngine_SenderSignalIndex(const QGeoCodingManagerEngine* sel
 }
 
 // Base class handler implementation
-int QGeoCodingManagerEngine_QBaseSenderSignalIndex(const QGeoCodingManagerEngine* self) {
+int QGeoCodingManagerEngine_SuperSenderSignalIndex(const QGeoCodingManagerEngine* self) {
     auto* vqgeocodingmanagerengine = const_cast<VirtualQGeoCodingManagerEngine*>(dynamic_cast<const VirtualQGeoCodingManagerEngine*>(self));
     if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
         vqgeocodingmanagerengine->setQGeoCodingManagerEngine_SenderSignalIndex_IsBase(true);
@@ -555,7 +555,7 @@ int QGeoCodingManagerEngine_Receivers(const QGeoCodingManagerEngine* self, const
 }
 
 // Base class handler implementation
-int QGeoCodingManagerEngine_QBaseReceivers(const QGeoCodingManagerEngine* self, const char* signal) {
+int QGeoCodingManagerEngine_SuperReceivers(const QGeoCodingManagerEngine* self, const char* signal) {
     auto* vqgeocodingmanagerengine = const_cast<VirtualQGeoCodingManagerEngine*>(dynamic_cast<const VirtualQGeoCodingManagerEngine*>(self));
     if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
         vqgeocodingmanagerengine->setQGeoCodingManagerEngine_Receivers_IsBase(true);
@@ -584,7 +584,7 @@ bool QGeoCodingManagerEngine_IsSignalConnected(const QGeoCodingManagerEngine* se
 }
 
 // Base class handler implementation
-bool QGeoCodingManagerEngine_QBaseIsSignalConnected(const QGeoCodingManagerEngine* self, const QMetaMethod* signal) {
+bool QGeoCodingManagerEngine_SuperIsSignalConnected(const QGeoCodingManagerEngine* self, const QMetaMethod* signal) {
     auto* vqgeocodingmanagerengine = const_cast<VirtualQGeoCodingManagerEngine*>(dynamic_cast<const VirtualQGeoCodingManagerEngine*>(self));
     if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
         vqgeocodingmanagerengine->setQGeoCodingManagerEngine_IsSignalConnected_IsBase(true);

@@ -601,35 +601,35 @@ class VirtualQPdfWriter final : public QPdfWriter {
 
     // Friend functions
     friend QPaintEngine* QPdfWriter_PaintEngine(const QPdfWriter* self);
-    friend QPaintEngine* QPdfWriter_QBasePaintEngine(const QPdfWriter* self);
+    friend QPaintEngine* QPdfWriter_SuperPaintEngine(const QPdfWriter* self);
     friend int QPdfWriter_Metric(const QPdfWriter* self, int id);
-    friend int QPdfWriter_QBaseMetric(const QPdfWriter* self, int id);
+    friend int QPdfWriter_SuperMetric(const QPdfWriter* self, int id);
     friend void QPdfWriter_TimerEvent(QPdfWriter* self, QTimerEvent* event);
-    friend void QPdfWriter_QBaseTimerEvent(QPdfWriter* self, QTimerEvent* event);
+    friend void QPdfWriter_SuperTimerEvent(QPdfWriter* self, QTimerEvent* event);
     friend void QPdfWriter_ChildEvent(QPdfWriter* self, QChildEvent* event);
-    friend void QPdfWriter_QBaseChildEvent(QPdfWriter* self, QChildEvent* event);
+    friend void QPdfWriter_SuperChildEvent(QPdfWriter* self, QChildEvent* event);
     friend void QPdfWriter_CustomEvent(QPdfWriter* self, QEvent* event);
-    friend void QPdfWriter_QBaseCustomEvent(QPdfWriter* self, QEvent* event);
+    friend void QPdfWriter_SuperCustomEvent(QPdfWriter* self, QEvent* event);
     friend void QPdfWriter_ConnectNotify(QPdfWriter* self, const QMetaMethod* signal);
-    friend void QPdfWriter_QBaseConnectNotify(QPdfWriter* self, const QMetaMethod* signal);
+    friend void QPdfWriter_SuperConnectNotify(QPdfWriter* self, const QMetaMethod* signal);
     friend void QPdfWriter_DisconnectNotify(QPdfWriter* self, const QMetaMethod* signal);
-    friend void QPdfWriter_QBaseDisconnectNotify(QPdfWriter* self, const QMetaMethod* signal);
+    friend void QPdfWriter_SuperDisconnectNotify(QPdfWriter* self, const QMetaMethod* signal);
     friend void QPdfWriter_InitPainter(const QPdfWriter* self, QPainter* painter);
-    friend void QPdfWriter_QBaseInitPainter(const QPdfWriter* self, QPainter* painter);
+    friend void QPdfWriter_SuperInitPainter(const QPdfWriter* self, QPainter* painter);
     friend QPaintDevice* QPdfWriter_Redirected(const QPdfWriter* self, QPoint* offset);
-    friend QPaintDevice* QPdfWriter_QBaseRedirected(const QPdfWriter* self, QPoint* offset);
+    friend QPaintDevice* QPdfWriter_SuperRedirected(const QPdfWriter* self, QPoint* offset);
     friend QPainter* QPdfWriter_SharedPainter(const QPdfWriter* self);
-    friend QPainter* QPdfWriter_QBaseSharedPainter(const QPdfWriter* self);
+    friend QPainter* QPdfWriter_SuperSharedPainter(const QPdfWriter* self);
     friend QObject* QPdfWriter_Sender(const QPdfWriter* self);
-    friend QObject* QPdfWriter_QBaseSender(const QPdfWriter* self);
+    friend QObject* QPdfWriter_SuperSender(const QPdfWriter* self);
     friend int QPdfWriter_SenderSignalIndex(const QPdfWriter* self);
-    friend int QPdfWriter_QBaseSenderSignalIndex(const QPdfWriter* self);
+    friend int QPdfWriter_SuperSenderSignalIndex(const QPdfWriter* self);
     friend int QPdfWriter_Receivers(const QPdfWriter* self, const char* signal);
-    friend int QPdfWriter_QBaseReceivers(const QPdfWriter* self, const char* signal);
+    friend int QPdfWriter_SuperReceivers(const QPdfWriter* self, const char* signal);
     friend bool QPdfWriter_IsSignalConnected(const QPdfWriter* self, const QMetaMethod* signal);
-    friend bool QPdfWriter_QBaseIsSignalConnected(const QPdfWriter* self, const QMetaMethod* signal);
+    friend bool QPdfWriter_SuperIsSignalConnected(const QPdfWriter* self, const QMetaMethod* signal);
     friend double QPdfWriter_GetDecodedMetricF(const QPdfWriter* self, int metricA, int metricB);
-    friend double QPdfWriter_QBaseGetDecodedMetricF(const QPdfWriter* self, int metricA, int metricB);
+    friend double QPdfWriter_SuperGetDecodedMetricF(const QPdfWriter* self, int metricA, int metricB);
 };
 
 #endif

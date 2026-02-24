@@ -211,7 +211,7 @@ void KOpenWithDialog_Accept(KOpenWithDialog* self) {
 }
 
 // Base class handler implementation
-QMetaObject* KOpenWithDialog_QBaseMetaObject(const KOpenWithDialog* self) {
+QMetaObject* KOpenWithDialog_SuperMetaObject(const KOpenWithDialog* self) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_MetaObject_IsBase(true);
@@ -230,7 +230,7 @@ void KOpenWithDialog_OnMetaObject(const KOpenWithDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KOpenWithDialog_QBaseMetacast(KOpenWithDialog* self, const char* param1) {
+void* KOpenWithDialog_SuperMetacast(KOpenWithDialog* self, const char* param1) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_Metacast_IsBase(true);
@@ -249,7 +249,7 @@ void KOpenWithDialog_OnMetacast(KOpenWithDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KOpenWithDialog_QBaseMetacall(KOpenWithDialog* self, int param1, int param2, void** param3) {
+int KOpenWithDialog_SuperMetacall(KOpenWithDialog* self, int param1, int param2, void** param3) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_Metacall_IsBase(true);
@@ -268,7 +268,7 @@ void KOpenWithDialog_OnMetacall(KOpenWithDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseAccept(KOpenWithDialog* self) {
+void KOpenWithDialog_SuperAccept(KOpenWithDialog* self) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_Accept_IsBase(true);
@@ -297,7 +297,7 @@ void KOpenWithDialog_SetVisible(KOpenWithDialog* self, bool visible) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseSetVisible(KOpenWithDialog* self, bool visible) {
+void KOpenWithDialog_SuperSetVisible(KOpenWithDialog* self, bool visible) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_SetVisible_IsBase(true);
@@ -326,7 +326,7 @@ QSize* KOpenWithDialog_SizeHint(const KOpenWithDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KOpenWithDialog_QBaseSizeHint(const KOpenWithDialog* self) {
+QSize* KOpenWithDialog_SuperSizeHint(const KOpenWithDialog* self) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_SizeHint_IsBase(true);
@@ -355,7 +355,7 @@ QSize* KOpenWithDialog_MinimumSizeHint(const KOpenWithDialog* self) {
 }
 
 // Base class handler implementation
-QSize* KOpenWithDialog_QBaseMinimumSizeHint(const KOpenWithDialog* self) {
+QSize* KOpenWithDialog_SuperMinimumSizeHint(const KOpenWithDialog* self) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_MinimumSizeHint_IsBase(true);
@@ -384,7 +384,7 @@ void KOpenWithDialog_Open(KOpenWithDialog* self) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseOpen(KOpenWithDialog* self) {
+void KOpenWithDialog_SuperOpen(KOpenWithDialog* self) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_Open_IsBase(true);
@@ -413,7 +413,7 @@ int KOpenWithDialog_Exec(KOpenWithDialog* self) {
 }
 
 // Base class handler implementation
-int KOpenWithDialog_QBaseExec(KOpenWithDialog* self) {
+int KOpenWithDialog_SuperExec(KOpenWithDialog* self) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_Exec_IsBase(true);
@@ -442,7 +442,7 @@ void KOpenWithDialog_Done(KOpenWithDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseDone(KOpenWithDialog* self, int param1) {
+void KOpenWithDialog_SuperDone(KOpenWithDialog* self, int param1) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_Done_IsBase(true);
@@ -471,7 +471,7 @@ void KOpenWithDialog_Reject(KOpenWithDialog* self) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseReject(KOpenWithDialog* self) {
+void KOpenWithDialog_SuperReject(KOpenWithDialog* self) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_Reject_IsBase(true);
@@ -500,7 +500,7 @@ void KOpenWithDialog_KeyPressEvent(KOpenWithDialog* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseKeyPressEvent(KOpenWithDialog* self, QKeyEvent* param1) {
+void KOpenWithDialog_SuperKeyPressEvent(KOpenWithDialog* self, QKeyEvent* param1) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_KeyPressEvent_IsBase(true);
@@ -529,7 +529,7 @@ void KOpenWithDialog_CloseEvent(KOpenWithDialog* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseCloseEvent(KOpenWithDialog* self, QCloseEvent* param1) {
+void KOpenWithDialog_SuperCloseEvent(KOpenWithDialog* self, QCloseEvent* param1) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_CloseEvent_IsBase(true);
@@ -558,7 +558,7 @@ void KOpenWithDialog_ShowEvent(KOpenWithDialog* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseShowEvent(KOpenWithDialog* self, QShowEvent* param1) {
+void KOpenWithDialog_SuperShowEvent(KOpenWithDialog* self, QShowEvent* param1) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_ShowEvent_IsBase(true);
@@ -587,7 +587,7 @@ void KOpenWithDialog_ResizeEvent(KOpenWithDialog* self, QResizeEvent* param1) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseResizeEvent(KOpenWithDialog* self, QResizeEvent* param1) {
+void KOpenWithDialog_SuperResizeEvent(KOpenWithDialog* self, QResizeEvent* param1) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_ResizeEvent_IsBase(true);
@@ -616,7 +616,7 @@ void KOpenWithDialog_ContextMenuEvent(KOpenWithDialog* self, QContextMenuEvent* 
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseContextMenuEvent(KOpenWithDialog* self, QContextMenuEvent* param1) {
+void KOpenWithDialog_SuperContextMenuEvent(KOpenWithDialog* self, QContextMenuEvent* param1) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_ContextMenuEvent_IsBase(true);
@@ -645,7 +645,7 @@ int KOpenWithDialog_DevType(const KOpenWithDialog* self) {
 }
 
 // Base class handler implementation
-int KOpenWithDialog_QBaseDevType(const KOpenWithDialog* self) {
+int KOpenWithDialog_SuperDevType(const KOpenWithDialog* self) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_DevType_IsBase(true);
@@ -674,7 +674,7 @@ int KOpenWithDialog_HeightForWidth(const KOpenWithDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KOpenWithDialog_QBaseHeightForWidth(const KOpenWithDialog* self, int param1) {
+int KOpenWithDialog_SuperHeightForWidth(const KOpenWithDialog* self, int param1) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_HeightForWidth_IsBase(true);
@@ -703,7 +703,7 @@ bool KOpenWithDialog_HasHeightForWidth(const KOpenWithDialog* self) {
 }
 
 // Base class handler implementation
-bool KOpenWithDialog_QBaseHasHeightForWidth(const KOpenWithDialog* self) {
+bool KOpenWithDialog_SuperHasHeightForWidth(const KOpenWithDialog* self) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_HasHeightForWidth_IsBase(true);
@@ -732,7 +732,7 @@ QPaintEngine* KOpenWithDialog_PaintEngine(const KOpenWithDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KOpenWithDialog_QBasePaintEngine(const KOpenWithDialog* self) {
+QPaintEngine* KOpenWithDialog_SuperPaintEngine(const KOpenWithDialog* self) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_PaintEngine_IsBase(true);
@@ -761,7 +761,7 @@ bool KOpenWithDialog_Event(KOpenWithDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KOpenWithDialog_QBaseEvent(KOpenWithDialog* self, QEvent* event) {
+bool KOpenWithDialog_SuperEvent(KOpenWithDialog* self, QEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_Event_IsBase(true);
@@ -790,7 +790,7 @@ void KOpenWithDialog_MousePressEvent(KOpenWithDialog* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseMousePressEvent(KOpenWithDialog* self, QMouseEvent* event) {
+void KOpenWithDialog_SuperMousePressEvent(KOpenWithDialog* self, QMouseEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_MousePressEvent_IsBase(true);
@@ -819,7 +819,7 @@ void KOpenWithDialog_MouseReleaseEvent(KOpenWithDialog* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseMouseReleaseEvent(KOpenWithDialog* self, QMouseEvent* event) {
+void KOpenWithDialog_SuperMouseReleaseEvent(KOpenWithDialog* self, QMouseEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_MouseReleaseEvent_IsBase(true);
@@ -848,7 +848,7 @@ void KOpenWithDialog_MouseDoubleClickEvent(KOpenWithDialog* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseMouseDoubleClickEvent(KOpenWithDialog* self, QMouseEvent* event) {
+void KOpenWithDialog_SuperMouseDoubleClickEvent(KOpenWithDialog* self, QMouseEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_MouseDoubleClickEvent_IsBase(true);
@@ -877,7 +877,7 @@ void KOpenWithDialog_MouseMoveEvent(KOpenWithDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseMouseMoveEvent(KOpenWithDialog* self, QMouseEvent* event) {
+void KOpenWithDialog_SuperMouseMoveEvent(KOpenWithDialog* self, QMouseEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_MouseMoveEvent_IsBase(true);
@@ -906,7 +906,7 @@ void KOpenWithDialog_WheelEvent(KOpenWithDialog* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseWheelEvent(KOpenWithDialog* self, QWheelEvent* event) {
+void KOpenWithDialog_SuperWheelEvent(KOpenWithDialog* self, QWheelEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_WheelEvent_IsBase(true);
@@ -935,7 +935,7 @@ void KOpenWithDialog_KeyReleaseEvent(KOpenWithDialog* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseKeyReleaseEvent(KOpenWithDialog* self, QKeyEvent* event) {
+void KOpenWithDialog_SuperKeyReleaseEvent(KOpenWithDialog* self, QKeyEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_KeyReleaseEvent_IsBase(true);
@@ -964,7 +964,7 @@ void KOpenWithDialog_FocusInEvent(KOpenWithDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseFocusInEvent(KOpenWithDialog* self, QFocusEvent* event) {
+void KOpenWithDialog_SuperFocusInEvent(KOpenWithDialog* self, QFocusEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_FocusInEvent_IsBase(true);
@@ -993,7 +993,7 @@ void KOpenWithDialog_FocusOutEvent(KOpenWithDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseFocusOutEvent(KOpenWithDialog* self, QFocusEvent* event) {
+void KOpenWithDialog_SuperFocusOutEvent(KOpenWithDialog* self, QFocusEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_FocusOutEvent_IsBase(true);
@@ -1022,7 +1022,7 @@ void KOpenWithDialog_EnterEvent(KOpenWithDialog* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseEnterEvent(KOpenWithDialog* self, QEnterEvent* event) {
+void KOpenWithDialog_SuperEnterEvent(KOpenWithDialog* self, QEnterEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_EnterEvent_IsBase(true);
@@ -1051,7 +1051,7 @@ void KOpenWithDialog_LeaveEvent(KOpenWithDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseLeaveEvent(KOpenWithDialog* self, QEvent* event) {
+void KOpenWithDialog_SuperLeaveEvent(KOpenWithDialog* self, QEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_LeaveEvent_IsBase(true);
@@ -1080,7 +1080,7 @@ void KOpenWithDialog_PaintEvent(KOpenWithDialog* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBasePaintEvent(KOpenWithDialog* self, QPaintEvent* event) {
+void KOpenWithDialog_SuperPaintEvent(KOpenWithDialog* self, QPaintEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_PaintEvent_IsBase(true);
@@ -1109,7 +1109,7 @@ void KOpenWithDialog_MoveEvent(KOpenWithDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseMoveEvent(KOpenWithDialog* self, QMoveEvent* event) {
+void KOpenWithDialog_SuperMoveEvent(KOpenWithDialog* self, QMoveEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_MoveEvent_IsBase(true);
@@ -1138,7 +1138,7 @@ void KOpenWithDialog_TabletEvent(KOpenWithDialog* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseTabletEvent(KOpenWithDialog* self, QTabletEvent* event) {
+void KOpenWithDialog_SuperTabletEvent(KOpenWithDialog* self, QTabletEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_TabletEvent_IsBase(true);
@@ -1167,7 +1167,7 @@ void KOpenWithDialog_ActionEvent(KOpenWithDialog* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseActionEvent(KOpenWithDialog* self, QActionEvent* event) {
+void KOpenWithDialog_SuperActionEvent(KOpenWithDialog* self, QActionEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_ActionEvent_IsBase(true);
@@ -1196,7 +1196,7 @@ void KOpenWithDialog_DragEnterEvent(KOpenWithDialog* self, QDragEnterEvent* even
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseDragEnterEvent(KOpenWithDialog* self, QDragEnterEvent* event) {
+void KOpenWithDialog_SuperDragEnterEvent(KOpenWithDialog* self, QDragEnterEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_DragEnterEvent_IsBase(true);
@@ -1225,7 +1225,7 @@ void KOpenWithDialog_DragMoveEvent(KOpenWithDialog* self, QDragMoveEvent* event)
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseDragMoveEvent(KOpenWithDialog* self, QDragMoveEvent* event) {
+void KOpenWithDialog_SuperDragMoveEvent(KOpenWithDialog* self, QDragMoveEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_DragMoveEvent_IsBase(true);
@@ -1254,7 +1254,7 @@ void KOpenWithDialog_DragLeaveEvent(KOpenWithDialog* self, QDragLeaveEvent* even
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseDragLeaveEvent(KOpenWithDialog* self, QDragLeaveEvent* event) {
+void KOpenWithDialog_SuperDragLeaveEvent(KOpenWithDialog* self, QDragLeaveEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_DragLeaveEvent_IsBase(true);
@@ -1283,7 +1283,7 @@ void KOpenWithDialog_DropEvent(KOpenWithDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseDropEvent(KOpenWithDialog* self, QDropEvent* event) {
+void KOpenWithDialog_SuperDropEvent(KOpenWithDialog* self, QDropEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_DropEvent_IsBase(true);
@@ -1312,7 +1312,7 @@ void KOpenWithDialog_HideEvent(KOpenWithDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseHideEvent(KOpenWithDialog* self, QHideEvent* event) {
+void KOpenWithDialog_SuperHideEvent(KOpenWithDialog* self, QHideEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_HideEvent_IsBase(true);
@@ -1342,7 +1342,7 @@ bool KOpenWithDialog_NativeEvent(KOpenWithDialog* self, const libqt_string event
 }
 
 // Base class handler implementation
-bool KOpenWithDialog_QBaseNativeEvent(KOpenWithDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KOpenWithDialog_SuperNativeEvent(KOpenWithDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
@@ -1372,7 +1372,7 @@ void KOpenWithDialog_ChangeEvent(KOpenWithDialog* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseChangeEvent(KOpenWithDialog* self, QEvent* param1) {
+void KOpenWithDialog_SuperChangeEvent(KOpenWithDialog* self, QEvent* param1) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_ChangeEvent_IsBase(true);
@@ -1401,7 +1401,7 @@ int KOpenWithDialog_Metric(const KOpenWithDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int KOpenWithDialog_QBaseMetric(const KOpenWithDialog* self, int param1) {
+int KOpenWithDialog_SuperMetric(const KOpenWithDialog* self, int param1) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_Metric_IsBase(true);
@@ -1430,7 +1430,7 @@ void KOpenWithDialog_InitPainter(const KOpenWithDialog* self, QPainter* painter)
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseInitPainter(const KOpenWithDialog* self, QPainter* painter) {
+void KOpenWithDialog_SuperInitPainter(const KOpenWithDialog* self, QPainter* painter) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_InitPainter_IsBase(true);
@@ -1459,7 +1459,7 @@ QPaintDevice* KOpenWithDialog_Redirected(const KOpenWithDialog* self, QPoint* of
 }
 
 // Base class handler implementation
-QPaintDevice* KOpenWithDialog_QBaseRedirected(const KOpenWithDialog* self, QPoint* offset) {
+QPaintDevice* KOpenWithDialog_SuperRedirected(const KOpenWithDialog* self, QPoint* offset) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_Redirected_IsBase(true);
@@ -1488,7 +1488,7 @@ QPainter* KOpenWithDialog_SharedPainter(const KOpenWithDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* KOpenWithDialog_QBaseSharedPainter(const KOpenWithDialog* self) {
+QPainter* KOpenWithDialog_SuperSharedPainter(const KOpenWithDialog* self) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_SharedPainter_IsBase(true);
@@ -1517,7 +1517,7 @@ void KOpenWithDialog_InputMethodEvent(KOpenWithDialog* self, QInputMethodEvent* 
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseInputMethodEvent(KOpenWithDialog* self, QInputMethodEvent* param1) {
+void KOpenWithDialog_SuperInputMethodEvent(KOpenWithDialog* self, QInputMethodEvent* param1) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_InputMethodEvent_IsBase(true);
@@ -1546,7 +1546,7 @@ QVariant* KOpenWithDialog_InputMethodQuery(const KOpenWithDialog* self, int para
 }
 
 // Base class handler implementation
-QVariant* KOpenWithDialog_QBaseInputMethodQuery(const KOpenWithDialog* self, int param1) {
+QVariant* KOpenWithDialog_SuperInputMethodQuery(const KOpenWithDialog* self, int param1) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_InputMethodQuery_IsBase(true);
@@ -1575,7 +1575,7 @@ bool KOpenWithDialog_FocusNextPrevChild(KOpenWithDialog* self, bool next) {
 }
 
 // Base class handler implementation
-bool KOpenWithDialog_QBaseFocusNextPrevChild(KOpenWithDialog* self, bool next) {
+bool KOpenWithDialog_SuperFocusNextPrevChild(KOpenWithDialog* self, bool next) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_FocusNextPrevChild_IsBase(true);
@@ -1604,7 +1604,7 @@ void KOpenWithDialog_TimerEvent(KOpenWithDialog* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseTimerEvent(KOpenWithDialog* self, QTimerEvent* event) {
+void KOpenWithDialog_SuperTimerEvent(KOpenWithDialog* self, QTimerEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_TimerEvent_IsBase(true);
@@ -1633,7 +1633,7 @@ void KOpenWithDialog_ChildEvent(KOpenWithDialog* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseChildEvent(KOpenWithDialog* self, QChildEvent* event) {
+void KOpenWithDialog_SuperChildEvent(KOpenWithDialog* self, QChildEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_ChildEvent_IsBase(true);
@@ -1662,7 +1662,7 @@ void KOpenWithDialog_CustomEvent(KOpenWithDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseCustomEvent(KOpenWithDialog* self, QEvent* event) {
+void KOpenWithDialog_SuperCustomEvent(KOpenWithDialog* self, QEvent* event) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_CustomEvent_IsBase(true);
@@ -1691,7 +1691,7 @@ void KOpenWithDialog_ConnectNotify(KOpenWithDialog* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseConnectNotify(KOpenWithDialog* self, const QMetaMethod* signal) {
+void KOpenWithDialog_SuperConnectNotify(KOpenWithDialog* self, const QMetaMethod* signal) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_ConnectNotify_IsBase(true);
@@ -1720,7 +1720,7 @@ void KOpenWithDialog_DisconnectNotify(KOpenWithDialog* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseDisconnectNotify(KOpenWithDialog* self, const QMetaMethod* signal) {
+void KOpenWithDialog_SuperDisconnectNotify(KOpenWithDialog* self, const QMetaMethod* signal) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_DisconnectNotify_IsBase(true);
@@ -1749,7 +1749,7 @@ void KOpenWithDialog_AdjustPosition(KOpenWithDialog* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseAdjustPosition(KOpenWithDialog* self, QWidget* param1) {
+void KOpenWithDialog_SuperAdjustPosition(KOpenWithDialog* self, QWidget* param1) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_AdjustPosition_IsBase(true);
@@ -1778,7 +1778,7 @@ void KOpenWithDialog_UpdateMicroFocus(KOpenWithDialog* self) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseUpdateMicroFocus(KOpenWithDialog* self) {
+void KOpenWithDialog_SuperUpdateMicroFocus(KOpenWithDialog* self) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_UpdateMicroFocus_IsBase(true);
@@ -1807,7 +1807,7 @@ void KOpenWithDialog_Create(KOpenWithDialog* self) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseCreate(KOpenWithDialog* self) {
+void KOpenWithDialog_SuperCreate(KOpenWithDialog* self) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_Create_IsBase(true);
@@ -1836,7 +1836,7 @@ void KOpenWithDialog_Destroy(KOpenWithDialog* self) {
 }
 
 // Base class handler implementation
-void KOpenWithDialog_QBaseDestroy(KOpenWithDialog* self) {
+void KOpenWithDialog_SuperDestroy(KOpenWithDialog* self) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_Destroy_IsBase(true);
@@ -1865,7 +1865,7 @@ bool KOpenWithDialog_FocusNextChild(KOpenWithDialog* self) {
 }
 
 // Base class handler implementation
-bool KOpenWithDialog_QBaseFocusNextChild(KOpenWithDialog* self) {
+bool KOpenWithDialog_SuperFocusNextChild(KOpenWithDialog* self) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_FocusNextChild_IsBase(true);
@@ -1894,7 +1894,7 @@ bool KOpenWithDialog_FocusPreviousChild(KOpenWithDialog* self) {
 }
 
 // Base class handler implementation
-bool KOpenWithDialog_QBaseFocusPreviousChild(KOpenWithDialog* self) {
+bool KOpenWithDialog_SuperFocusPreviousChild(KOpenWithDialog* self) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_FocusPreviousChild_IsBase(true);
@@ -1923,7 +1923,7 @@ QObject* KOpenWithDialog_Sender(const KOpenWithDialog* self) {
 }
 
 // Base class handler implementation
-QObject* KOpenWithDialog_QBaseSender(const KOpenWithDialog* self) {
+QObject* KOpenWithDialog_SuperSender(const KOpenWithDialog* self) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_Sender_IsBase(true);
@@ -1952,7 +1952,7 @@ int KOpenWithDialog_SenderSignalIndex(const KOpenWithDialog* self) {
 }
 
 // Base class handler implementation
-int KOpenWithDialog_QBaseSenderSignalIndex(const KOpenWithDialog* self) {
+int KOpenWithDialog_SuperSenderSignalIndex(const KOpenWithDialog* self) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_SenderSignalIndex_IsBase(true);
@@ -1981,7 +1981,7 @@ int KOpenWithDialog_Receivers(const KOpenWithDialog* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KOpenWithDialog_QBaseReceivers(const KOpenWithDialog* self, const char* signal) {
+int KOpenWithDialog_SuperReceivers(const KOpenWithDialog* self, const char* signal) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_Receivers_IsBase(true);
@@ -2010,7 +2010,7 @@ bool KOpenWithDialog_IsSignalConnected(const KOpenWithDialog* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KOpenWithDialog_QBaseIsSignalConnected(const KOpenWithDialog* self, const QMetaMethod* signal) {
+bool KOpenWithDialog_SuperIsSignalConnected(const KOpenWithDialog* self, const QMetaMethod* signal) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_IsSignalConnected_IsBase(true);
@@ -2039,7 +2039,7 @@ double KOpenWithDialog_GetDecodedMetricF(const KOpenWithDialog* self, int metric
 }
 
 // Base class handler implementation
-double KOpenWithDialog_QBaseGetDecodedMetricF(const KOpenWithDialog* self, int metricA, int metricB) {
+double KOpenWithDialog_SuperGetDecodedMetricF(const KOpenWithDialog* self, int metricA, int metricB) {
     auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->setKOpenWithDialog_GetDecodedMetricF_IsBase(true);

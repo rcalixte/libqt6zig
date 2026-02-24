@@ -1122,7 +1122,7 @@ void QOpenGLFunctions_3_3_Core_GlVertexAttribDivisor(QOpenGLFunctions_3_3_Core* 
 }
 
 // Base class handler implementation
-bool QOpenGLFunctions_3_3_Core_QBaseInitializeOpenGLFunctions(QOpenGLFunctions_3_3_Core* self) {
+bool QOpenGLFunctions_3_3_Core_SuperInitializeOpenGLFunctions(QOpenGLFunctions_3_3_Core* self) {
     auto* vqopenglfunctions_3_3_core = dynamic_cast<VirtualQOpenGLFunctions_3_3_Core*>(self);
     if (vqopenglfunctions_3_3_core && vqopenglfunctions_3_3_core->isVirtualQOpenGLFunctions_3_3_Core) {
         vqopenglfunctions_3_3_core->setQOpenGLFunctions_3_3_Core_InitializeOpenGLFunctions_IsBase(true);
@@ -1151,7 +1151,7 @@ bool QOpenGLFunctions_3_3_Core_IsInitialized(const QOpenGLFunctions_3_3_Core* se
 }
 
 // Base class handler implementation
-bool QOpenGLFunctions_3_3_Core_QBaseIsInitialized(const QOpenGLFunctions_3_3_Core* self) {
+bool QOpenGLFunctions_3_3_Core_SuperIsInitialized(const QOpenGLFunctions_3_3_Core* self) {
     auto* vqopenglfunctions_3_3_core = const_cast<VirtualQOpenGLFunctions_3_3_Core*>(dynamic_cast<const VirtualQOpenGLFunctions_3_3_Core*>(self));
     if (vqopenglfunctions_3_3_core && vqopenglfunctions_3_3_core->isVirtualQOpenGLFunctions_3_3_Core) {
         vqopenglfunctions_3_3_core->setQOpenGLFunctions_3_3_Core_IsInitialized_IsBase(true);
@@ -1180,7 +1180,7 @@ void QOpenGLFunctions_3_3_Core_SetOwningContext(QOpenGLFunctions_3_3_Core* self,
 }
 
 // Base class handler implementation
-void QOpenGLFunctions_3_3_Core_QBaseSetOwningContext(QOpenGLFunctions_3_3_Core* self, const QOpenGLContext* context) {
+void QOpenGLFunctions_3_3_Core_SuperSetOwningContext(QOpenGLFunctions_3_3_Core* self, const QOpenGLContext* context) {
     auto* vqopenglfunctions_3_3_core = dynamic_cast<VirtualQOpenGLFunctions_3_3_Core*>(self);
     if (vqopenglfunctions_3_3_core && vqopenglfunctions_3_3_core->isVirtualQOpenGLFunctions_3_3_Core) {
         vqopenglfunctions_3_3_core->setQOpenGLFunctions_3_3_Core_SetOwningContext_IsBase(true);
@@ -1209,7 +1209,7 @@ QOpenGLContext* QOpenGLFunctions_3_3_Core_OwningContext(const QOpenGLFunctions_3
 }
 
 // Base class handler implementation
-QOpenGLContext* QOpenGLFunctions_3_3_Core_QBaseOwningContext(const QOpenGLFunctions_3_3_Core* self) {
+QOpenGLContext* QOpenGLFunctions_3_3_Core_SuperOwningContext(const QOpenGLFunctions_3_3_Core* self) {
     auto* vqopenglfunctions_3_3_core = const_cast<VirtualQOpenGLFunctions_3_3_Core*>(dynamic_cast<const VirtualQOpenGLFunctions_3_3_Core*>(self));
     if (vqopenglfunctions_3_3_core && vqopenglfunctions_3_3_core->isVirtualQOpenGLFunctions_3_3_Core) {
         vqopenglfunctions_3_3_core->setQOpenGLFunctions_3_3_Core_OwningContext_IsBase(true);

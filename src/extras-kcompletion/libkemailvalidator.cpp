@@ -69,7 +69,7 @@ void KEmailValidator_Fixup(const KEmailValidator* self, libqt_string str) {
 }
 
 // Base class handler implementation
-QMetaObject* KEmailValidator_QBaseMetaObject(const KEmailValidator* self) {
+QMetaObject* KEmailValidator_SuperMetaObject(const KEmailValidator* self) {
     auto* vkemailvalidator = const_cast<VirtualKEmailValidator*>(dynamic_cast<const VirtualKEmailValidator*>(self));
     if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
         vkemailvalidator->setKEmailValidator_MetaObject_IsBase(true);
@@ -88,7 +88,7 @@ void KEmailValidator_OnMetaObject(const KEmailValidator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KEmailValidator_QBaseMetacast(KEmailValidator* self, const char* param1) {
+void* KEmailValidator_SuperMetacast(KEmailValidator* self, const char* param1) {
     auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
     if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
         vkemailvalidator->setKEmailValidator_Metacast_IsBase(true);
@@ -107,7 +107,7 @@ void KEmailValidator_OnMetacast(KEmailValidator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KEmailValidator_QBaseMetacall(KEmailValidator* self, int param1, int param2, void** param3) {
+int KEmailValidator_SuperMetacall(KEmailValidator* self, int param1, int param2, void** param3) {
     auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
     if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
         vkemailvalidator->setKEmailValidator_Metacall_IsBase(true);
@@ -126,7 +126,7 @@ void KEmailValidator_OnMetacall(KEmailValidator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KEmailValidator_QBaseValidate(const KEmailValidator* self, libqt_string str, int* pos) {
+int KEmailValidator_SuperValidate(const KEmailValidator* self, libqt_string str, int* pos) {
     auto* vkemailvalidator = const_cast<VirtualKEmailValidator*>(dynamic_cast<const VirtualKEmailValidator*>(self));
     QString str_QString = QString::fromUtf8(str.data, str.len);
     if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
@@ -146,7 +146,7 @@ void KEmailValidator_OnValidate(const KEmailValidator* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KEmailValidator_QBaseFixup(const KEmailValidator* self, libqt_string str) {
+void KEmailValidator_SuperFixup(const KEmailValidator* self, libqt_string str) {
     auto* vkemailvalidator = const_cast<VirtualKEmailValidator*>(dynamic_cast<const VirtualKEmailValidator*>(self));
     QString str_QString = QString::fromUtf8(str.data, str.len);
     if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
@@ -176,7 +176,7 @@ bool KEmailValidator_Event(KEmailValidator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KEmailValidator_QBaseEvent(KEmailValidator* self, QEvent* event) {
+bool KEmailValidator_SuperEvent(KEmailValidator* self, QEvent* event) {
     auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
     if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
         vkemailvalidator->setKEmailValidator_Event_IsBase(true);
@@ -205,7 +205,7 @@ bool KEmailValidator_EventFilter(KEmailValidator* self, QObject* watched, QEvent
 }
 
 // Base class handler implementation
-bool KEmailValidator_QBaseEventFilter(KEmailValidator* self, QObject* watched, QEvent* event) {
+bool KEmailValidator_SuperEventFilter(KEmailValidator* self, QObject* watched, QEvent* event) {
     auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
     if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
         vkemailvalidator->setKEmailValidator_EventFilter_IsBase(true);
@@ -234,7 +234,7 @@ void KEmailValidator_TimerEvent(KEmailValidator* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KEmailValidator_QBaseTimerEvent(KEmailValidator* self, QTimerEvent* event) {
+void KEmailValidator_SuperTimerEvent(KEmailValidator* self, QTimerEvent* event) {
     auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
     if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
         vkemailvalidator->setKEmailValidator_TimerEvent_IsBase(true);
@@ -263,7 +263,7 @@ void KEmailValidator_ChildEvent(KEmailValidator* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KEmailValidator_QBaseChildEvent(KEmailValidator* self, QChildEvent* event) {
+void KEmailValidator_SuperChildEvent(KEmailValidator* self, QChildEvent* event) {
     auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
     if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
         vkemailvalidator->setKEmailValidator_ChildEvent_IsBase(true);
@@ -292,7 +292,7 @@ void KEmailValidator_CustomEvent(KEmailValidator* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KEmailValidator_QBaseCustomEvent(KEmailValidator* self, QEvent* event) {
+void KEmailValidator_SuperCustomEvent(KEmailValidator* self, QEvent* event) {
     auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
     if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
         vkemailvalidator->setKEmailValidator_CustomEvent_IsBase(true);
@@ -321,7 +321,7 @@ void KEmailValidator_ConnectNotify(KEmailValidator* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void KEmailValidator_QBaseConnectNotify(KEmailValidator* self, const QMetaMethod* signal) {
+void KEmailValidator_SuperConnectNotify(KEmailValidator* self, const QMetaMethod* signal) {
     auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
     if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
         vkemailvalidator->setKEmailValidator_ConnectNotify_IsBase(true);
@@ -350,7 +350,7 @@ void KEmailValidator_DisconnectNotify(KEmailValidator* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void KEmailValidator_QBaseDisconnectNotify(KEmailValidator* self, const QMetaMethod* signal) {
+void KEmailValidator_SuperDisconnectNotify(KEmailValidator* self, const QMetaMethod* signal) {
     auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
     if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
         vkemailvalidator->setKEmailValidator_DisconnectNotify_IsBase(true);
@@ -379,7 +379,7 @@ QObject* KEmailValidator_Sender(const KEmailValidator* self) {
 }
 
 // Base class handler implementation
-QObject* KEmailValidator_QBaseSender(const KEmailValidator* self) {
+QObject* KEmailValidator_SuperSender(const KEmailValidator* self) {
     auto* vkemailvalidator = const_cast<VirtualKEmailValidator*>(dynamic_cast<const VirtualKEmailValidator*>(self));
     if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
         vkemailvalidator->setKEmailValidator_Sender_IsBase(true);
@@ -408,7 +408,7 @@ int KEmailValidator_SenderSignalIndex(const KEmailValidator* self) {
 }
 
 // Base class handler implementation
-int KEmailValidator_QBaseSenderSignalIndex(const KEmailValidator* self) {
+int KEmailValidator_SuperSenderSignalIndex(const KEmailValidator* self) {
     auto* vkemailvalidator = const_cast<VirtualKEmailValidator*>(dynamic_cast<const VirtualKEmailValidator*>(self));
     if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
         vkemailvalidator->setKEmailValidator_SenderSignalIndex_IsBase(true);
@@ -437,7 +437,7 @@ int KEmailValidator_Receivers(const KEmailValidator* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KEmailValidator_QBaseReceivers(const KEmailValidator* self, const char* signal) {
+int KEmailValidator_SuperReceivers(const KEmailValidator* self, const char* signal) {
     auto* vkemailvalidator = const_cast<VirtualKEmailValidator*>(dynamic_cast<const VirtualKEmailValidator*>(self));
     if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
         vkemailvalidator->setKEmailValidator_Receivers_IsBase(true);
@@ -466,7 +466,7 @@ bool KEmailValidator_IsSignalConnected(const KEmailValidator* self, const QMetaM
 }
 
 // Base class handler implementation
-bool KEmailValidator_QBaseIsSignalConnected(const KEmailValidator* self, const QMetaMethod* signal) {
+bool KEmailValidator_SuperIsSignalConnected(const KEmailValidator* self, const QMetaMethod* signal) {
     auto* vkemailvalidator = const_cast<VirtualKEmailValidator*>(dynamic_cast<const VirtualKEmailValidator*>(self));
     if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
         vkemailvalidator->setKEmailValidator_IsSignalConnected_IsBase(true);

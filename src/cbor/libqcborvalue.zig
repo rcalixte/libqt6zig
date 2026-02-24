@@ -110,6 +110,10 @@ pub const qcborparsererror = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborparsererror.html#dtor.QCborParserError)
     ///
     /// Delete this object from C++ memory.
@@ -118,7 +122,7 @@ pub const qcborparsererror = struct {
     ///
     /// ` self: QtC.QCborParserError `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCborParserError_Delete(@ptrCast(self));
     }
 };
@@ -1249,6 +1253,10 @@ pub const qcborvalue = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#dtor.QCborValue)
     ///
     /// Delete this object from C++ memory.
@@ -1257,7 +1265,7 @@ pub const qcborvalue = struct {
     ///
     /// ` self: QtC.QCborValue `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCborValue_Delete(@ptrCast(self));
     }
 };
@@ -2020,6 +2028,10 @@ pub const qcborvalueconstref = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#dtor.QCborValueConstRef)
     ///
     /// Delete this object from C++ memory.
@@ -2028,7 +2040,7 @@ pub const qcborvalueconstref = struct {
     ///
     /// ` self: QtC.QCborValueConstRef `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCborValueConstRef_Delete(@ptrCast(self));
     }
 };
@@ -2853,6 +2865,10 @@ pub const qcborvalueref = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#dtor.QCborValueRef)
     ///
     /// Delete this object from C++ memory.
@@ -2861,7 +2877,7 @@ pub const qcborvalueref = struct {
     ///
     /// ` self: QtC.QCborValueRef `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCborValueRef_Delete(@ptrCast(self));
     }
 };

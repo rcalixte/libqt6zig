@@ -1881,6 +1881,10 @@ pub const qmetamethod = struct {
         return qtc.QMetaMethod_InvokeOnGadget112(@ptrCast(self), @ptrCast(gadget), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8), @ptrCast(val9));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetamethod.html#dtor.QMetaMethod)
     ///
     /// Delete this object from C++ memory.
@@ -1889,7 +1893,7 @@ pub const qmetamethod = struct {
     ///
     /// ` self: QtC.QMetaMethod `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMetaMethod_Delete(@ptrCast(self));
     }
 };
@@ -2161,6 +2165,10 @@ pub const qmetaenum = struct {
         return qtc.QMetaEnum_KeysToValue2(@ptrCast(self), keys_Cstring, @ptrCast(ok));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaenum.html#dtor.QMetaEnum)
     ///
     /// Delete this object from C++ memory.
@@ -2169,7 +2177,7 @@ pub const qmetaenum = struct {
     ///
     /// ` self: QtC.QMetaEnum `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMetaEnum_Delete(@ptrCast(self));
     }
 };
@@ -2620,6 +2628,10 @@ pub const qmetaproperty = struct {
         return qtc.QMetaProperty_EnclosingMetaObject(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaproperty.html#dtor.QMetaProperty)
     ///
     /// Delete this object from C++ memory.
@@ -2628,7 +2640,7 @@ pub const qmetaproperty = struct {
     ///
     /// ` self: QtC.QMetaProperty `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMetaProperty_Delete(@ptrCast(self));
     }
 };
@@ -2727,6 +2739,10 @@ pub const qmetaclassinfo = struct {
         return qtc.QMetaClassInfo_EnclosingMetaObject(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaclassinfo.html#dtor.QMetaClassInfo)
     ///
     /// Delete this object from C++ memory.
@@ -2735,7 +2751,7 @@ pub const qmetaclassinfo = struct {
     ///
     /// ` self: QtC.QMetaClassInfo `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QMetaClassInfo_Delete(@ptrCast(self));
     }
 };

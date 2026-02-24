@@ -121,6 +121,10 @@ pub const qwhatsthis = struct {
         return qtc.QWhatsThis_CreateAction1(@ptrCast(parent));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwhatsthis.html#dtor.QWhatsThis)
     ///
     /// Delete this object from C++ memory.
@@ -129,7 +133,7 @@ pub const qwhatsthis = struct {
     ///
     /// ` self: QtC.QWhatsThis `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QWhatsThis_Delete(@ptrCast(self));
     }
 };

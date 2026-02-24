@@ -53,6 +53,10 @@ pub const layershellqt__shell = struct {
         qtc.LayerShellQt__Shell_UseLayerShell();
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
     ///
     /// Delete this object from C++ memory.
@@ -61,7 +65,7 @@ pub const layershellqt__shell = struct {
     ///
     /// ` self: QtC.LayerShellQt__Shell `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.LayerShellQt__Shell_Delete(@ptrCast(self));
     }
 };

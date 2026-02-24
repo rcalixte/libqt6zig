@@ -125,7 +125,7 @@ void QVideoSink_Connect_VideoSizeChanged(QVideoSink* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QMetaObject* QVideoSink_QBaseMetaObject(const QVideoSink* self) {
+QMetaObject* QVideoSink_SuperMetaObject(const QVideoSink* self) {
     auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
     if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
         vqvideosink->setQVideoSink_MetaObject_IsBase(true);
@@ -144,7 +144,7 @@ void QVideoSink_OnMetaObject(const QVideoSink* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QVideoSink_QBaseMetacast(QVideoSink* self, const char* param1) {
+void* QVideoSink_SuperMetacast(QVideoSink* self, const char* param1) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
     if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
         vqvideosink->setQVideoSink_Metacast_IsBase(true);
@@ -163,7 +163,7 @@ void QVideoSink_OnMetacast(QVideoSink* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QVideoSink_QBaseMetacall(QVideoSink* self, int param1, int param2, void** param3) {
+int QVideoSink_SuperMetacall(QVideoSink* self, int param1, int param2, void** param3) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
     if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
         vqvideosink->setQVideoSink_Metacall_IsBase(true);
@@ -192,7 +192,7 @@ bool QVideoSink_Event(QVideoSink* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QVideoSink_QBaseEvent(QVideoSink* self, QEvent* event) {
+bool QVideoSink_SuperEvent(QVideoSink* self, QEvent* event) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
     if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
         vqvideosink->setQVideoSink_Event_IsBase(true);
@@ -221,7 +221,7 @@ bool QVideoSink_EventFilter(QVideoSink* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QVideoSink_QBaseEventFilter(QVideoSink* self, QObject* watched, QEvent* event) {
+bool QVideoSink_SuperEventFilter(QVideoSink* self, QObject* watched, QEvent* event) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
     if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
         vqvideosink->setQVideoSink_EventFilter_IsBase(true);
@@ -250,7 +250,7 @@ void QVideoSink_TimerEvent(QVideoSink* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoSink_QBaseTimerEvent(QVideoSink* self, QTimerEvent* event) {
+void QVideoSink_SuperTimerEvent(QVideoSink* self, QTimerEvent* event) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
     if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
         vqvideosink->setQVideoSink_TimerEvent_IsBase(true);
@@ -279,7 +279,7 @@ void QVideoSink_ChildEvent(QVideoSink* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoSink_QBaseChildEvent(QVideoSink* self, QChildEvent* event) {
+void QVideoSink_SuperChildEvent(QVideoSink* self, QChildEvent* event) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
     if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
         vqvideosink->setQVideoSink_ChildEvent_IsBase(true);
@@ -308,7 +308,7 @@ void QVideoSink_CustomEvent(QVideoSink* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QVideoSink_QBaseCustomEvent(QVideoSink* self, QEvent* event) {
+void QVideoSink_SuperCustomEvent(QVideoSink* self, QEvent* event) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
     if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
         vqvideosink->setQVideoSink_CustomEvent_IsBase(true);
@@ -337,7 +337,7 @@ void QVideoSink_ConnectNotify(QVideoSink* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QVideoSink_QBaseConnectNotify(QVideoSink* self, const QMetaMethod* signal) {
+void QVideoSink_SuperConnectNotify(QVideoSink* self, const QMetaMethod* signal) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
     if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
         vqvideosink->setQVideoSink_ConnectNotify_IsBase(true);
@@ -366,7 +366,7 @@ void QVideoSink_DisconnectNotify(QVideoSink* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QVideoSink_QBaseDisconnectNotify(QVideoSink* self, const QMetaMethod* signal) {
+void QVideoSink_SuperDisconnectNotify(QVideoSink* self, const QMetaMethod* signal) {
     auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
     if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
         vqvideosink->setQVideoSink_DisconnectNotify_IsBase(true);
@@ -395,7 +395,7 @@ QObject* QVideoSink_Sender(const QVideoSink* self) {
 }
 
 // Base class handler implementation
-QObject* QVideoSink_QBaseSender(const QVideoSink* self) {
+QObject* QVideoSink_SuperSender(const QVideoSink* self) {
     auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
     if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
         vqvideosink->setQVideoSink_Sender_IsBase(true);
@@ -424,7 +424,7 @@ int QVideoSink_SenderSignalIndex(const QVideoSink* self) {
 }
 
 // Base class handler implementation
-int QVideoSink_QBaseSenderSignalIndex(const QVideoSink* self) {
+int QVideoSink_SuperSenderSignalIndex(const QVideoSink* self) {
     auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
     if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
         vqvideosink->setQVideoSink_SenderSignalIndex_IsBase(true);
@@ -453,7 +453,7 @@ int QVideoSink_Receivers(const QVideoSink* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QVideoSink_QBaseReceivers(const QVideoSink* self, const char* signal) {
+int QVideoSink_SuperReceivers(const QVideoSink* self, const char* signal) {
     auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
     if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
         vqvideosink->setQVideoSink_Receivers_IsBase(true);
@@ -482,7 +482,7 @@ bool QVideoSink_IsSignalConnected(const QVideoSink* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-bool QVideoSink_QBaseIsSignalConnected(const QVideoSink* self, const QMetaMethod* signal) {
+bool QVideoSink_SuperIsSignalConnected(const QVideoSink* self, const QMetaMethod* signal) {
     auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
     if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
         vqvideosink->setQVideoSink_IsSignalConnected_IsBase(true);

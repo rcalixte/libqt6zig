@@ -247,7 +247,7 @@ void QProgressDialog_ShowEvent(QProgressDialog* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-QMetaObject* QProgressDialog_QBaseMetaObject(const QProgressDialog* self) {
+QMetaObject* QProgressDialog_SuperMetaObject(const QProgressDialog* self) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_MetaObject_IsBase(true);
@@ -266,7 +266,7 @@ void QProgressDialog_OnMetaObject(const QProgressDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QProgressDialog_QBaseMetacast(QProgressDialog* self, const char* param1) {
+void* QProgressDialog_SuperMetacast(QProgressDialog* self, const char* param1) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_Metacast_IsBase(true);
@@ -285,7 +285,7 @@ void QProgressDialog_OnMetacast(QProgressDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QProgressDialog_QBaseMetacall(QProgressDialog* self, int param1, int param2, void** param3) {
+int QProgressDialog_SuperMetacall(QProgressDialog* self, int param1, int param2, void** param3) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_Metacall_IsBase(true);
@@ -304,7 +304,7 @@ void QProgressDialog_OnMetacall(QProgressDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* QProgressDialog_QBaseSizeHint(const QProgressDialog* self) {
+QSize* QProgressDialog_SuperSizeHint(const QProgressDialog* self) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_SizeHint_IsBase(true);
@@ -323,7 +323,7 @@ void QProgressDialog_OnSizeHint(const QProgressDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseResizeEvent(QProgressDialog* self, QResizeEvent* event) {
+void QProgressDialog_SuperResizeEvent(QProgressDialog* self, QResizeEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_ResizeEvent_IsBase(true);
@@ -342,7 +342,7 @@ void QProgressDialog_OnResizeEvent(QProgressDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseCloseEvent(QProgressDialog* self, QCloseEvent* event) {
+void QProgressDialog_SuperCloseEvent(QProgressDialog* self, QCloseEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_CloseEvent_IsBase(true);
@@ -361,7 +361,7 @@ void QProgressDialog_OnCloseEvent(QProgressDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseChangeEvent(QProgressDialog* self, QEvent* event) {
+void QProgressDialog_SuperChangeEvent(QProgressDialog* self, QEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_ChangeEvent_IsBase(true);
@@ -380,7 +380,7 @@ void QProgressDialog_OnChangeEvent(QProgressDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseShowEvent(QProgressDialog* self, QShowEvent* event) {
+void QProgressDialog_SuperShowEvent(QProgressDialog* self, QShowEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_ShowEvent_IsBase(true);
@@ -409,7 +409,7 @@ void QProgressDialog_SetVisible(QProgressDialog* self, bool visible) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseSetVisible(QProgressDialog* self, bool visible) {
+void QProgressDialog_SuperSetVisible(QProgressDialog* self, bool visible) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_SetVisible_IsBase(true);
@@ -438,7 +438,7 @@ QSize* QProgressDialog_MinimumSizeHint(const QProgressDialog* self) {
 }
 
 // Base class handler implementation
-QSize* QProgressDialog_QBaseMinimumSizeHint(const QProgressDialog* self) {
+QSize* QProgressDialog_SuperMinimumSizeHint(const QProgressDialog* self) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_MinimumSizeHint_IsBase(true);
@@ -467,7 +467,7 @@ void QProgressDialog_Open(QProgressDialog* self) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseOpen(QProgressDialog* self) {
+void QProgressDialog_SuperOpen(QProgressDialog* self) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_Open_IsBase(true);
@@ -496,7 +496,7 @@ int QProgressDialog_Exec(QProgressDialog* self) {
 }
 
 // Base class handler implementation
-int QProgressDialog_QBaseExec(QProgressDialog* self) {
+int QProgressDialog_SuperExec(QProgressDialog* self) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_Exec_IsBase(true);
@@ -525,7 +525,7 @@ void QProgressDialog_Done(QProgressDialog* self, int param1) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseDone(QProgressDialog* self, int param1) {
+void QProgressDialog_SuperDone(QProgressDialog* self, int param1) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_Done_IsBase(true);
@@ -554,7 +554,7 @@ void QProgressDialog_Accept(QProgressDialog* self) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseAccept(QProgressDialog* self) {
+void QProgressDialog_SuperAccept(QProgressDialog* self) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_Accept_IsBase(true);
@@ -583,7 +583,7 @@ void QProgressDialog_Reject(QProgressDialog* self) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseReject(QProgressDialog* self) {
+void QProgressDialog_SuperReject(QProgressDialog* self) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_Reject_IsBase(true);
@@ -612,7 +612,7 @@ void QProgressDialog_KeyPressEvent(QProgressDialog* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseKeyPressEvent(QProgressDialog* self, QKeyEvent* param1) {
+void QProgressDialog_SuperKeyPressEvent(QProgressDialog* self, QKeyEvent* param1) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_KeyPressEvent_IsBase(true);
@@ -641,7 +641,7 @@ void QProgressDialog_ContextMenuEvent(QProgressDialog* self, QContextMenuEvent* 
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseContextMenuEvent(QProgressDialog* self, QContextMenuEvent* param1) {
+void QProgressDialog_SuperContextMenuEvent(QProgressDialog* self, QContextMenuEvent* param1) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_ContextMenuEvent_IsBase(true);
@@ -670,7 +670,7 @@ bool QProgressDialog_EventFilter(QProgressDialog* self, QObject* param1, QEvent*
 }
 
 // Base class handler implementation
-bool QProgressDialog_QBaseEventFilter(QProgressDialog* self, QObject* param1, QEvent* param2) {
+bool QProgressDialog_SuperEventFilter(QProgressDialog* self, QObject* param1, QEvent* param2) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_EventFilter_IsBase(true);
@@ -699,7 +699,7 @@ int QProgressDialog_DevType(const QProgressDialog* self) {
 }
 
 // Base class handler implementation
-int QProgressDialog_QBaseDevType(const QProgressDialog* self) {
+int QProgressDialog_SuperDevType(const QProgressDialog* self) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_DevType_IsBase(true);
@@ -728,7 +728,7 @@ int QProgressDialog_HeightForWidth(const QProgressDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int QProgressDialog_QBaseHeightForWidth(const QProgressDialog* self, int param1) {
+int QProgressDialog_SuperHeightForWidth(const QProgressDialog* self, int param1) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_HeightForWidth_IsBase(true);
@@ -757,7 +757,7 @@ bool QProgressDialog_HasHeightForWidth(const QProgressDialog* self) {
 }
 
 // Base class handler implementation
-bool QProgressDialog_QBaseHasHeightForWidth(const QProgressDialog* self) {
+bool QProgressDialog_SuperHasHeightForWidth(const QProgressDialog* self) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_HasHeightForWidth_IsBase(true);
@@ -786,7 +786,7 @@ QPaintEngine* QProgressDialog_PaintEngine(const QProgressDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QProgressDialog_QBasePaintEngine(const QProgressDialog* self) {
+QPaintEngine* QProgressDialog_SuperPaintEngine(const QProgressDialog* self) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_PaintEngine_IsBase(true);
@@ -815,7 +815,7 @@ bool QProgressDialog_Event(QProgressDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QProgressDialog_QBaseEvent(QProgressDialog* self, QEvent* event) {
+bool QProgressDialog_SuperEvent(QProgressDialog* self, QEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_Event_IsBase(true);
@@ -844,7 +844,7 @@ void QProgressDialog_MousePressEvent(QProgressDialog* self, QMouseEvent* event) 
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseMousePressEvent(QProgressDialog* self, QMouseEvent* event) {
+void QProgressDialog_SuperMousePressEvent(QProgressDialog* self, QMouseEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_MousePressEvent_IsBase(true);
@@ -873,7 +873,7 @@ void QProgressDialog_MouseReleaseEvent(QProgressDialog* self, QMouseEvent* event
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseMouseReleaseEvent(QProgressDialog* self, QMouseEvent* event) {
+void QProgressDialog_SuperMouseReleaseEvent(QProgressDialog* self, QMouseEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_MouseReleaseEvent_IsBase(true);
@@ -902,7 +902,7 @@ void QProgressDialog_MouseDoubleClickEvent(QProgressDialog* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseMouseDoubleClickEvent(QProgressDialog* self, QMouseEvent* event) {
+void QProgressDialog_SuperMouseDoubleClickEvent(QProgressDialog* self, QMouseEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_MouseDoubleClickEvent_IsBase(true);
@@ -931,7 +931,7 @@ void QProgressDialog_MouseMoveEvent(QProgressDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseMouseMoveEvent(QProgressDialog* self, QMouseEvent* event) {
+void QProgressDialog_SuperMouseMoveEvent(QProgressDialog* self, QMouseEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_MouseMoveEvent_IsBase(true);
@@ -960,7 +960,7 @@ void QProgressDialog_WheelEvent(QProgressDialog* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseWheelEvent(QProgressDialog* self, QWheelEvent* event) {
+void QProgressDialog_SuperWheelEvent(QProgressDialog* self, QWheelEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_WheelEvent_IsBase(true);
@@ -989,7 +989,7 @@ void QProgressDialog_KeyReleaseEvent(QProgressDialog* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseKeyReleaseEvent(QProgressDialog* self, QKeyEvent* event) {
+void QProgressDialog_SuperKeyReleaseEvent(QProgressDialog* self, QKeyEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_KeyReleaseEvent_IsBase(true);
@@ -1018,7 +1018,7 @@ void QProgressDialog_FocusInEvent(QProgressDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseFocusInEvent(QProgressDialog* self, QFocusEvent* event) {
+void QProgressDialog_SuperFocusInEvent(QProgressDialog* self, QFocusEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_FocusInEvent_IsBase(true);
@@ -1047,7 +1047,7 @@ void QProgressDialog_FocusOutEvent(QProgressDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseFocusOutEvent(QProgressDialog* self, QFocusEvent* event) {
+void QProgressDialog_SuperFocusOutEvent(QProgressDialog* self, QFocusEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_FocusOutEvent_IsBase(true);
@@ -1076,7 +1076,7 @@ void QProgressDialog_EnterEvent(QProgressDialog* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseEnterEvent(QProgressDialog* self, QEnterEvent* event) {
+void QProgressDialog_SuperEnterEvent(QProgressDialog* self, QEnterEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_EnterEvent_IsBase(true);
@@ -1105,7 +1105,7 @@ void QProgressDialog_LeaveEvent(QProgressDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseLeaveEvent(QProgressDialog* self, QEvent* event) {
+void QProgressDialog_SuperLeaveEvent(QProgressDialog* self, QEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_LeaveEvent_IsBase(true);
@@ -1134,7 +1134,7 @@ void QProgressDialog_PaintEvent(QProgressDialog* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBasePaintEvent(QProgressDialog* self, QPaintEvent* event) {
+void QProgressDialog_SuperPaintEvent(QProgressDialog* self, QPaintEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_PaintEvent_IsBase(true);
@@ -1163,7 +1163,7 @@ void QProgressDialog_MoveEvent(QProgressDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseMoveEvent(QProgressDialog* self, QMoveEvent* event) {
+void QProgressDialog_SuperMoveEvent(QProgressDialog* self, QMoveEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_MoveEvent_IsBase(true);
@@ -1192,7 +1192,7 @@ void QProgressDialog_TabletEvent(QProgressDialog* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseTabletEvent(QProgressDialog* self, QTabletEvent* event) {
+void QProgressDialog_SuperTabletEvent(QProgressDialog* self, QTabletEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_TabletEvent_IsBase(true);
@@ -1221,7 +1221,7 @@ void QProgressDialog_ActionEvent(QProgressDialog* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseActionEvent(QProgressDialog* self, QActionEvent* event) {
+void QProgressDialog_SuperActionEvent(QProgressDialog* self, QActionEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_ActionEvent_IsBase(true);
@@ -1250,7 +1250,7 @@ void QProgressDialog_DragEnterEvent(QProgressDialog* self, QDragEnterEvent* even
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseDragEnterEvent(QProgressDialog* self, QDragEnterEvent* event) {
+void QProgressDialog_SuperDragEnterEvent(QProgressDialog* self, QDragEnterEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_DragEnterEvent_IsBase(true);
@@ -1279,7 +1279,7 @@ void QProgressDialog_DragMoveEvent(QProgressDialog* self, QDragMoveEvent* event)
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseDragMoveEvent(QProgressDialog* self, QDragMoveEvent* event) {
+void QProgressDialog_SuperDragMoveEvent(QProgressDialog* self, QDragMoveEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_DragMoveEvent_IsBase(true);
@@ -1308,7 +1308,7 @@ void QProgressDialog_DragLeaveEvent(QProgressDialog* self, QDragLeaveEvent* even
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseDragLeaveEvent(QProgressDialog* self, QDragLeaveEvent* event) {
+void QProgressDialog_SuperDragLeaveEvent(QProgressDialog* self, QDragLeaveEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_DragLeaveEvent_IsBase(true);
@@ -1337,7 +1337,7 @@ void QProgressDialog_DropEvent(QProgressDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseDropEvent(QProgressDialog* self, QDropEvent* event) {
+void QProgressDialog_SuperDropEvent(QProgressDialog* self, QDropEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_DropEvent_IsBase(true);
@@ -1366,7 +1366,7 @@ void QProgressDialog_HideEvent(QProgressDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseHideEvent(QProgressDialog* self, QHideEvent* event) {
+void QProgressDialog_SuperHideEvent(QProgressDialog* self, QHideEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_HideEvent_IsBase(true);
@@ -1396,7 +1396,7 @@ bool QProgressDialog_NativeEvent(QProgressDialog* self, const libqt_string event
 }
 
 // Base class handler implementation
-bool QProgressDialog_QBaseNativeEvent(QProgressDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QProgressDialog_SuperNativeEvent(QProgressDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
@@ -1426,7 +1426,7 @@ int QProgressDialog_Metric(const QProgressDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int QProgressDialog_QBaseMetric(const QProgressDialog* self, int param1) {
+int QProgressDialog_SuperMetric(const QProgressDialog* self, int param1) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_Metric_IsBase(true);
@@ -1455,7 +1455,7 @@ void QProgressDialog_InitPainter(const QProgressDialog* self, QPainter* painter)
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseInitPainter(const QProgressDialog* self, QPainter* painter) {
+void QProgressDialog_SuperInitPainter(const QProgressDialog* self, QPainter* painter) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_InitPainter_IsBase(true);
@@ -1484,7 +1484,7 @@ QPaintDevice* QProgressDialog_Redirected(const QProgressDialog* self, QPoint* of
 }
 
 // Base class handler implementation
-QPaintDevice* QProgressDialog_QBaseRedirected(const QProgressDialog* self, QPoint* offset) {
+QPaintDevice* QProgressDialog_SuperRedirected(const QProgressDialog* self, QPoint* offset) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_Redirected_IsBase(true);
@@ -1513,7 +1513,7 @@ QPainter* QProgressDialog_SharedPainter(const QProgressDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* QProgressDialog_QBaseSharedPainter(const QProgressDialog* self) {
+QPainter* QProgressDialog_SuperSharedPainter(const QProgressDialog* self) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_SharedPainter_IsBase(true);
@@ -1542,7 +1542,7 @@ void QProgressDialog_InputMethodEvent(QProgressDialog* self, QInputMethodEvent* 
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseInputMethodEvent(QProgressDialog* self, QInputMethodEvent* param1) {
+void QProgressDialog_SuperInputMethodEvent(QProgressDialog* self, QInputMethodEvent* param1) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_InputMethodEvent_IsBase(true);
@@ -1571,7 +1571,7 @@ QVariant* QProgressDialog_InputMethodQuery(const QProgressDialog* self, int para
 }
 
 // Base class handler implementation
-QVariant* QProgressDialog_QBaseInputMethodQuery(const QProgressDialog* self, int param1) {
+QVariant* QProgressDialog_SuperInputMethodQuery(const QProgressDialog* self, int param1) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_InputMethodQuery_IsBase(true);
@@ -1600,7 +1600,7 @@ bool QProgressDialog_FocusNextPrevChild(QProgressDialog* self, bool next) {
 }
 
 // Base class handler implementation
-bool QProgressDialog_QBaseFocusNextPrevChild(QProgressDialog* self, bool next) {
+bool QProgressDialog_SuperFocusNextPrevChild(QProgressDialog* self, bool next) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_FocusNextPrevChild_IsBase(true);
@@ -1629,7 +1629,7 @@ void QProgressDialog_TimerEvent(QProgressDialog* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseTimerEvent(QProgressDialog* self, QTimerEvent* event) {
+void QProgressDialog_SuperTimerEvent(QProgressDialog* self, QTimerEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_TimerEvent_IsBase(true);
@@ -1658,7 +1658,7 @@ void QProgressDialog_ChildEvent(QProgressDialog* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseChildEvent(QProgressDialog* self, QChildEvent* event) {
+void QProgressDialog_SuperChildEvent(QProgressDialog* self, QChildEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_ChildEvent_IsBase(true);
@@ -1687,7 +1687,7 @@ void QProgressDialog_CustomEvent(QProgressDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseCustomEvent(QProgressDialog* self, QEvent* event) {
+void QProgressDialog_SuperCustomEvent(QProgressDialog* self, QEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_CustomEvent_IsBase(true);
@@ -1716,7 +1716,7 @@ void QProgressDialog_ConnectNotify(QProgressDialog* self, const QMetaMethod* sig
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseConnectNotify(QProgressDialog* self, const QMetaMethod* signal) {
+void QProgressDialog_SuperConnectNotify(QProgressDialog* self, const QMetaMethod* signal) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_ConnectNotify_IsBase(true);
@@ -1745,7 +1745,7 @@ void QProgressDialog_DisconnectNotify(QProgressDialog* self, const QMetaMethod* 
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseDisconnectNotify(QProgressDialog* self, const QMetaMethod* signal) {
+void QProgressDialog_SuperDisconnectNotify(QProgressDialog* self, const QMetaMethod* signal) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_DisconnectNotify_IsBase(true);
@@ -1774,7 +1774,7 @@ void QProgressDialog_ForceShow(QProgressDialog* self) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseForceShow(QProgressDialog* self) {
+void QProgressDialog_SuperForceShow(QProgressDialog* self) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_ForceShow_IsBase(true);
@@ -1803,7 +1803,7 @@ void QProgressDialog_AdjustPosition(QProgressDialog* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseAdjustPosition(QProgressDialog* self, QWidget* param1) {
+void QProgressDialog_SuperAdjustPosition(QProgressDialog* self, QWidget* param1) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_AdjustPosition_IsBase(true);
@@ -1832,7 +1832,7 @@ void QProgressDialog_UpdateMicroFocus(QProgressDialog* self) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseUpdateMicroFocus(QProgressDialog* self) {
+void QProgressDialog_SuperUpdateMicroFocus(QProgressDialog* self) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_UpdateMicroFocus_IsBase(true);
@@ -1861,7 +1861,7 @@ void QProgressDialog_Create(QProgressDialog* self) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseCreate(QProgressDialog* self) {
+void QProgressDialog_SuperCreate(QProgressDialog* self) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_Create_IsBase(true);
@@ -1890,7 +1890,7 @@ void QProgressDialog_Destroy(QProgressDialog* self) {
 }
 
 // Base class handler implementation
-void QProgressDialog_QBaseDestroy(QProgressDialog* self) {
+void QProgressDialog_SuperDestroy(QProgressDialog* self) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_Destroy_IsBase(true);
@@ -1919,7 +1919,7 @@ bool QProgressDialog_FocusNextChild(QProgressDialog* self) {
 }
 
 // Base class handler implementation
-bool QProgressDialog_QBaseFocusNextChild(QProgressDialog* self) {
+bool QProgressDialog_SuperFocusNextChild(QProgressDialog* self) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_FocusNextChild_IsBase(true);
@@ -1948,7 +1948,7 @@ bool QProgressDialog_FocusPreviousChild(QProgressDialog* self) {
 }
 
 // Base class handler implementation
-bool QProgressDialog_QBaseFocusPreviousChild(QProgressDialog* self) {
+bool QProgressDialog_SuperFocusPreviousChild(QProgressDialog* self) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_FocusPreviousChild_IsBase(true);
@@ -1977,7 +1977,7 @@ QObject* QProgressDialog_Sender(const QProgressDialog* self) {
 }
 
 // Base class handler implementation
-QObject* QProgressDialog_QBaseSender(const QProgressDialog* self) {
+QObject* QProgressDialog_SuperSender(const QProgressDialog* self) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_Sender_IsBase(true);
@@ -2006,7 +2006,7 @@ int QProgressDialog_SenderSignalIndex(const QProgressDialog* self) {
 }
 
 // Base class handler implementation
-int QProgressDialog_QBaseSenderSignalIndex(const QProgressDialog* self) {
+int QProgressDialog_SuperSenderSignalIndex(const QProgressDialog* self) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_SenderSignalIndex_IsBase(true);
@@ -2035,7 +2035,7 @@ int QProgressDialog_Receivers(const QProgressDialog* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QProgressDialog_QBaseReceivers(const QProgressDialog* self, const char* signal) {
+int QProgressDialog_SuperReceivers(const QProgressDialog* self, const char* signal) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_Receivers_IsBase(true);
@@ -2064,7 +2064,7 @@ bool QProgressDialog_IsSignalConnected(const QProgressDialog* self, const QMetaM
 }
 
 // Base class handler implementation
-bool QProgressDialog_QBaseIsSignalConnected(const QProgressDialog* self, const QMetaMethod* signal) {
+bool QProgressDialog_SuperIsSignalConnected(const QProgressDialog* self, const QMetaMethod* signal) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_IsSignalConnected_IsBase(true);
@@ -2093,7 +2093,7 @@ double QProgressDialog_GetDecodedMetricF(const QProgressDialog* self, int metric
 }
 
 // Base class handler implementation
-double QProgressDialog_QBaseGetDecodedMetricF(const QProgressDialog* self, int metricA, int metricB) {
+double QProgressDialog_SuperGetDecodedMetricF(const QProgressDialog* self, int metricA, int metricB) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->setQProgressDialog_GetDecodedMetricF_IsBase(true);

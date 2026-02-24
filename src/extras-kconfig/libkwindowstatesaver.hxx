@@ -286,21 +286,21 @@ class VirtualKWindowStateSaver final : public KWindowStateSaver {
 
     // Friend functions
     friend void KWindowStateSaver_ChildEvent(KWindowStateSaver* self, QChildEvent* event);
-    friend void KWindowStateSaver_QBaseChildEvent(KWindowStateSaver* self, QChildEvent* event);
+    friend void KWindowStateSaver_SuperChildEvent(KWindowStateSaver* self, QChildEvent* event);
     friend void KWindowStateSaver_CustomEvent(KWindowStateSaver* self, QEvent* event);
-    friend void KWindowStateSaver_QBaseCustomEvent(KWindowStateSaver* self, QEvent* event);
+    friend void KWindowStateSaver_SuperCustomEvent(KWindowStateSaver* self, QEvent* event);
     friend void KWindowStateSaver_ConnectNotify(KWindowStateSaver* self, const QMetaMethod* signal);
-    friend void KWindowStateSaver_QBaseConnectNotify(KWindowStateSaver* self, const QMetaMethod* signal);
+    friend void KWindowStateSaver_SuperConnectNotify(KWindowStateSaver* self, const QMetaMethod* signal);
     friend void KWindowStateSaver_DisconnectNotify(KWindowStateSaver* self, const QMetaMethod* signal);
-    friend void KWindowStateSaver_QBaseDisconnectNotify(KWindowStateSaver* self, const QMetaMethod* signal);
+    friend void KWindowStateSaver_SuperDisconnectNotify(KWindowStateSaver* self, const QMetaMethod* signal);
     friend QObject* KWindowStateSaver_Sender(const KWindowStateSaver* self);
-    friend QObject* KWindowStateSaver_QBaseSender(const KWindowStateSaver* self);
+    friend QObject* KWindowStateSaver_SuperSender(const KWindowStateSaver* self);
     friend int KWindowStateSaver_SenderSignalIndex(const KWindowStateSaver* self);
-    friend int KWindowStateSaver_QBaseSenderSignalIndex(const KWindowStateSaver* self);
+    friend int KWindowStateSaver_SuperSenderSignalIndex(const KWindowStateSaver* self);
     friend int KWindowStateSaver_Receivers(const KWindowStateSaver* self, const char* signal);
-    friend int KWindowStateSaver_QBaseReceivers(const KWindowStateSaver* self, const char* signal);
+    friend int KWindowStateSaver_SuperReceivers(const KWindowStateSaver* self, const char* signal);
     friend bool KWindowStateSaver_IsSignalConnected(const KWindowStateSaver* self, const QMetaMethod* signal);
-    friend bool KWindowStateSaver_QBaseIsSignalConnected(const KWindowStateSaver* self, const QMetaMethod* signal);
+    friend bool KWindowStateSaver_SuperIsSignalConnected(const KWindowStateSaver* self, const QMetaMethod* signal);
 };
 
 #endif

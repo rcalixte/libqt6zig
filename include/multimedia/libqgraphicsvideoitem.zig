@@ -47,6 +47,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -55,8 +59,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` self: QtC.QGraphicsVideoItem `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QGraphicsVideoItem_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QGraphicsVideoItem_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -82,6 +86,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -90,9 +98,9 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QGraphicsVideoItem_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QGraphicsVideoItem_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -121,6 +129,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -133,8 +145,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsVideoItem_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QGraphicsVideoItem_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -268,6 +280,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_OnBoundingRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperBoundingRect` instead
+    ///
+    pub const QBaseBoundingRect = SuperBoundingRect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#boundingRect)
     ///
     /// Base class method implementation
@@ -276,8 +292,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` self: QtC.QGraphicsVideoItem `
     ///
-    pub fn QBaseBoundingRect(self: ?*anyopaque) QtC.QRectF {
-        return qtc.QGraphicsVideoItem_QBaseBoundingRect(@ptrCast(self));
+    pub fn SuperBoundingRect(self: ?*anyopaque) QtC.QRectF {
+        return qtc.QGraphicsVideoItem_SuperBoundingRect(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#paint)
@@ -310,6 +326,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPaint` instead
+    ///
+    pub const QBasePaint = SuperPaint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#paint)
     ///
     /// Base class method implementation
@@ -324,8 +344,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` widget: QtC.QWidget `
     ///
-    pub fn QBasePaint(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBasePaint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(widget));
+    pub fn SuperPaint(self: ?*anyopaque, painter: ?*anyopaque, option: ?*anyopaque, widget: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperPaint(@ptrCast(self), @ptrCast(painter), @ptrCast(option), @ptrCast(widget));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#type)
@@ -352,6 +372,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperType` instead
+    ///
+    pub const QBaseType = SuperType;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#type)
     ///
     /// Base class method implementation
@@ -360,8 +384,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` self: QtC.QGraphicsVideoItem `
     ///
-    pub fn QBaseType(self: ?*anyopaque) i32 {
-        return qtc.QGraphicsVideoItem_QBaseType(@ptrCast(self));
+    pub fn SuperType(self: ?*anyopaque) i32 {
+        return qtc.QGraphicsVideoItem_SuperType(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#nativeSizeChanged)
@@ -414,6 +438,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#timerEvent)
     ///
     /// Base class method implementation
@@ -424,8 +452,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#itemChange)
@@ -456,6 +484,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_OnItemChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperItemChange` instead
+    ///
+    pub const QBaseItemChange = SuperItemChange;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#itemChange)
     ///
     /// Base class method implementation
@@ -468,8 +500,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn QBaseItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsVideoItem_QBaseItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
+    pub fn SuperItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
+        return qtc.QGraphicsVideoItem_SuperItemChange(@ptrCast(self), @bitCast(change), @ptrCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -4000,6 +4032,10 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_Event(@ptrCast(self), @ptrCast(ev));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#event)
@@ -4012,8 +4048,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` ev: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, ev: ?*anyopaque) bool {
-        return qtc.QGraphicsVideoItem_QBaseEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperEvent(self: ?*anyopaque, ev: ?*anyopaque) bool {
+        return qtc.QGraphicsVideoItem_SuperEvent(@ptrCast(self), @ptrCast(ev));
     }
 
     /// Inherited from QGraphicsObject
@@ -4050,6 +4086,10 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
@@ -4064,8 +4104,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGraphicsVideoItem_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGraphicsVideoItem_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4100,6 +4140,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -4112,8 +4156,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4148,6 +4192,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -4160,8 +4208,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -4196,6 +4244,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -4208,8 +4260,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4244,6 +4296,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -4256,8 +4312,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -4292,6 +4348,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_Advance(@ptrCast(self), @bitCast(phase));
     }
 
+    /// ### DEPRECATED: Use `SuperAdvance` instead
+    ///
+    pub const QBaseAdvance = SuperAdvance;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
@@ -4304,8 +4364,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` phase: i32 `
     ///
-    pub fn QBaseAdvance(self: ?*anyopaque, phase: i32) void {
-        qtc.QGraphicsVideoItem_QBaseAdvance(@ptrCast(self), @bitCast(phase));
+    pub fn SuperAdvance(self: ?*anyopaque, phase: i32) void {
+        qtc.QGraphicsVideoItem_SuperAdvance(@ptrCast(self), @bitCast(phase));
     }
 
     /// Inherited from QGraphicsItem
@@ -4338,6 +4398,10 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_Shape(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperShape` instead
+    ///
+    pub const QBaseShape = SuperShape;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#shape)
@@ -4348,8 +4412,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` self: QtC.QGraphicsVideoItem `
     ///
-    pub fn QBaseShape(self: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsVideoItem_QBaseShape(@ptrCast(self));
+    pub fn SuperShape(self: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsVideoItem_SuperShape(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsItem
@@ -4384,6 +4448,10 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_Contains(@ptrCast(self), @ptrCast(point));
     }
 
+    /// ### DEPRECATED: Use `SuperContains` instead
+    ///
+    pub const QBaseContains = SuperContains;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
@@ -4396,8 +4464,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` point: QtC.QPointF `
     ///
-    pub fn QBaseContains(self: ?*anyopaque, point: ?*anyopaque) bool {
-        return qtc.QGraphicsVideoItem_QBaseContains(@ptrCast(self), @ptrCast(point));
+    pub fn SuperContains(self: ?*anyopaque, point: ?*anyopaque) bool {
+        return qtc.QGraphicsVideoItem_SuperContains(@ptrCast(self), @ptrCast(point));
     }
 
     /// Inherited from QGraphicsItem
@@ -4434,6 +4502,10 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `SuperCollidesWithItem` instead
+    ///
+    pub const QBaseCollidesWithItem = SuperCollidesWithItem;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
@@ -4448,8 +4520,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
-    pub fn QBaseCollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsVideoItem_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
+    pub fn SuperCollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
+        return qtc.QGraphicsVideoItem_SuperCollidesWithItem(@ptrCast(self), @ptrCast(other), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -4486,6 +4558,10 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `SuperCollidesWithPath` instead
+    ///
+    pub const QBaseCollidesWithPath = SuperCollidesWithPath;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
@@ -4500,8 +4576,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` mode: qnamespace_enums.ItemSelectionMode `
     ///
-    pub fn QBaseCollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
-        return qtc.QGraphicsVideoItem_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
+    pub fn SuperCollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
+        return qtc.QGraphicsVideoItem_SuperCollidesWithPath(@ptrCast(self), @ptrCast(path), @bitCast(mode));
     }
 
     /// Inherited from QGraphicsItem
@@ -4536,6 +4612,10 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_IsObscuredBy(@ptrCast(self), @ptrCast(item));
     }
 
+    /// ### DEPRECATED: Use `SuperIsObscuredBy` instead
+    ///
+    pub const QBaseIsObscuredBy = SuperIsObscuredBy;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
@@ -4548,8 +4628,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` item: QtC.QGraphicsItem `
     ///
-    pub fn QBaseIsObscuredBy(self: ?*anyopaque, item: ?*anyopaque) bool {
-        return qtc.QGraphicsVideoItem_QBaseIsObscuredBy(@ptrCast(self), @ptrCast(item));
+    pub fn SuperIsObscuredBy(self: ?*anyopaque, item: ?*anyopaque) bool {
+        return qtc.QGraphicsVideoItem_SuperIsObscuredBy(@ptrCast(self), @ptrCast(item));
     }
 
     /// Inherited from QGraphicsItem
@@ -4582,6 +4662,10 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_OpaqueArea(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperOpaqueArea` instead
+    ///
+    pub const QBaseOpaqueArea = SuperOpaqueArea;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
@@ -4592,8 +4676,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` self: QtC.QGraphicsVideoItem `
     ///
-    pub fn QBaseOpaqueArea(self: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsVideoItem_QBaseOpaqueArea(@ptrCast(self));
+    pub fn SuperOpaqueArea(self: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsVideoItem_SuperOpaqueArea(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsItem
@@ -4630,6 +4714,10 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_SceneEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperSceneEventFilter` instead
+    ///
+    pub const QBaseSceneEventFilter = SuperSceneEventFilter;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
@@ -4644,8 +4732,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseSceneEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGraphicsVideoItem_QBaseSceneEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperSceneEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGraphicsVideoItem_SuperSceneEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -4680,6 +4768,10 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_SceneEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperSceneEvent` instead
+    ///
+    pub const QBaseSceneEvent = SuperSceneEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEvent)
@@ -4692,8 +4784,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseSceneEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGraphicsVideoItem_QBaseSceneEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperSceneEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QGraphicsVideoItem_SuperSceneEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -4728,6 +4820,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_ContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    ///
+    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#contextMenuEvent)
@@ -4740,8 +4836,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QGraphicsSceneContextMenuEvent `
     ///
-    pub fn QBaseContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperContextMenuEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -4776,6 +4872,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_DragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    ///
+    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragEnterEvent)
@@ -4788,8 +4888,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QGraphicsSceneDragDropEvent `
     ///
-    pub fn QBaseDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -4824,6 +4924,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    ///
+    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragLeaveEvent)
@@ -4836,8 +4940,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QGraphicsSceneDragDropEvent `
     ///
-    pub fn QBaseDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -4872,6 +4976,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_DragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    ///
+    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dragMoveEvent)
@@ -4884,8 +4992,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QGraphicsSceneDragDropEvent `
     ///
-    pub fn QBaseDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -4920,6 +5028,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_DropEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    ///
+    pub const QBaseDropEvent = SuperDropEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#dropEvent)
@@ -4932,8 +5044,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QGraphicsSceneDragDropEvent `
     ///
-    pub fn QBaseDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperDropEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -4968,6 +5080,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_FocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    ///
+    pub const QBaseFocusInEvent = SuperFocusInEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusInEvent)
@@ -4980,8 +5096,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -5016,6 +5132,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_FocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    ///
+    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#focusOutEvent)
@@ -5028,8 +5148,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QFocusEvent `
     ///
-    pub fn QBaseFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -5064,6 +5184,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_HoverEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHoverEnterEvent` instead
+    ///
+    pub const QBaseHoverEnterEvent = SuperHoverEnterEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverEnterEvent)
@@ -5076,8 +5200,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QGraphicsSceneHoverEvent `
     ///
-    pub fn QBaseHoverEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseHoverEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHoverEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperHoverEnterEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -5112,6 +5236,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_HoverMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHoverMoveEvent` instead
+    ///
+    pub const QBaseHoverMoveEvent = SuperHoverMoveEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverMoveEvent)
@@ -5124,8 +5252,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QGraphicsSceneHoverEvent `
     ///
-    pub fn QBaseHoverMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseHoverMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHoverMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperHoverMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -5160,6 +5288,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_HoverLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperHoverLeaveEvent` instead
+    ///
+    pub const QBaseHoverLeaveEvent = SuperHoverLeaveEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverLeaveEvent)
@@ -5172,8 +5304,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QGraphicsSceneHoverEvent `
     ///
-    pub fn QBaseHoverLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseHoverLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHoverLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperHoverLeaveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -5208,6 +5340,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_KeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    ///
+    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyPressEvent)
@@ -5220,8 +5356,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseKeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperKeyPressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -5256,6 +5392,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    ///
+    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#keyReleaseEvent)
@@ -5268,8 +5408,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QKeyEvent `
     ///
-    pub fn QBaseKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -5304,6 +5444,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_MousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    ///
+    pub const QBaseMousePressEvent = SuperMousePressEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mousePressEvent)
@@ -5316,8 +5460,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QGraphicsSceneMouseEvent `
     ///
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -5352,6 +5496,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    ///
+    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseMoveEvent)
@@ -5364,8 +5512,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QGraphicsSceneMouseEvent `
     ///
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -5400,6 +5548,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    ///
+    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseReleaseEvent)
@@ -5412,8 +5564,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QGraphicsSceneMouseEvent `
     ///
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -5448,6 +5600,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    ///
+    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseDoubleClickEvent)
@@ -5460,8 +5616,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QGraphicsSceneMouseEvent `
     ///
-    pub fn QBaseMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -5496,6 +5652,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_WheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    ///
+    pub const QBaseWheelEvent = SuperWheelEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#wheelEvent)
@@ -5508,8 +5668,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QGraphicsSceneWheelEvent `
     ///
-    pub fn QBaseWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -5544,6 +5704,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_InputMethodEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    ///
+    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodEvent)
@@ -5556,8 +5720,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` event: QtC.QInputMethodEvent `
     ///
-    pub fn QBaseInputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseInputMethodEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperInputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperInputMethodEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QGraphicsItem
@@ -5592,6 +5756,10 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_InputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
+    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    ///
+    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodQuery)
@@ -5604,8 +5772,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QGraphicsVideoItem_QBaseInputMethodQuery(@ptrCast(self), @bitCast(query));
+    pub fn SuperInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
+        return qtc.QGraphicsVideoItem_SuperInputMethodQuery(@ptrCast(self), @bitCast(query));
     }
 
     /// Inherited from QGraphicsItem
@@ -5640,6 +5808,10 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_SupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
+    /// ### DEPRECATED: Use `SuperSupportsExtension` instead
+    ///
+    pub const QBaseSupportsExtension = SuperSupportsExtension;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
@@ -5652,8 +5824,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
-        return qtc.QGraphicsVideoItem_QBaseSupportsExtension(@ptrCast(self), @bitCast(extension));
+    pub fn SuperSupportsExtension(self: ?*anyopaque, extension: i32) bool {
+        return qtc.QGraphicsVideoItem_SuperSupportsExtension(@ptrCast(self), @bitCast(extension));
     }
 
     /// Inherited from QGraphicsItem
@@ -5690,6 +5862,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_SetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
+    /// ### DEPRECATED: Use `SuperSetExtension` instead
+    ///
+    pub const QBaseSetExtension = SuperSetExtension;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
@@ -5704,8 +5880,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseSetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
+    pub fn SuperSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperSetExtension(@ptrCast(self), @bitCast(extension), @ptrCast(variant));
     }
 
     /// Inherited from QGraphicsItem
@@ -5740,6 +5916,10 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_Extension(@ptrCast(self), @ptrCast(variant));
     }
 
+    /// ### DEPRECATED: Use `SuperExtension` instead
+    ///
+    pub const QBaseExtension = SuperExtension;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
@@ -5752,8 +5932,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn QBaseExtension(self: ?*anyopaque, variant: ?*anyopaque) QtC.QVariant {
-        return qtc.QGraphicsVideoItem_QBaseExtension(@ptrCast(self), @ptrCast(variant));
+    pub fn SuperExtension(self: ?*anyopaque, variant: ?*anyopaque) QtC.QVariant {
+        return qtc.QGraphicsVideoItem_SuperExtension(@ptrCast(self), @ptrCast(variant));
     }
 
     /// Inherited from QGraphicsItem
@@ -5786,6 +5966,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_UpdateMicroFocus(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    ///
+    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+
     /// Inherited from QGraphicsObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
@@ -5796,8 +5980,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` self: QtC.QGraphicsVideoItem `
     ///
-    pub fn QBaseUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperUpdateMicroFocus(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsObject
@@ -5830,6 +6014,10 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -5840,8 +6028,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` self: QtC.QGraphicsVideoItem `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QGraphicsVideoItem_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QGraphicsVideoItem_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -5874,6 +6062,10 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -5884,8 +6076,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` self: QtC.QGraphicsVideoItem `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QGraphicsVideoItem_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QGraphicsVideoItem_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -5921,6 +6113,10 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -5933,9 +6129,9 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QGraphicsVideoItem_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QGraphicsVideoItem_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5970,6 +6166,10 @@ pub const qgraphicsvideoitem = struct {
         return qtc.QGraphicsVideoItem_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -5982,8 +6182,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QGraphicsVideoItem_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QGraphicsVideoItem_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -6016,6 +6216,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_AddToIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperAddToIndex` instead
+    ///
+    pub const QBaseAddToIndex = SuperAddToIndex;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
@@ -6026,8 +6230,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` self: QtC.QGraphicsVideoItem `
     ///
-    pub fn QBaseAddToIndex(self: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseAddToIndex(@ptrCast(self));
+    pub fn SuperAddToIndex(self: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperAddToIndex(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsItem
@@ -6060,6 +6264,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_RemoveFromIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperRemoveFromIndex` instead
+    ///
+    pub const QBaseRemoveFromIndex = SuperRemoveFromIndex;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
@@ -6070,8 +6278,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` self: QtC.QGraphicsVideoItem `
     ///
-    pub fn QBaseRemoveFromIndex(self: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBaseRemoveFromIndex(@ptrCast(self));
+    pub fn SuperRemoveFromIndex(self: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperRemoveFromIndex(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsItem
@@ -6104,6 +6312,10 @@ pub const qgraphicsvideoitem = struct {
         qtc.QGraphicsVideoItem_PrepareGeometryChange(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperPrepareGeometryChange` instead
+    ///
+    pub const QBasePrepareGeometryChange = SuperPrepareGeometryChange;
+
     /// Inherited from QGraphicsItem
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
@@ -6114,8 +6326,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` self: QtC.QGraphicsVideoItem `
     ///
-    pub fn QBasePrepareGeometryChange(self: ?*anyopaque) void {
-        qtc.QGraphicsVideoItem_QBasePrepareGeometryChange(@ptrCast(self));
+    pub fn SuperPrepareGeometryChange(self: ?*anyopaque) void {
+        qtc.QGraphicsVideoItem_SuperPrepareGeometryChange(@ptrCast(self));
     }
 
     /// Inherited from QGraphicsItem
@@ -6149,6 +6361,9 @@ pub const qgraphicsvideoitem = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsvideoitem.html#dtor.QGraphicsVideoItem)
     ///
@@ -6158,7 +6373,7 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// ` self: QtC.QGraphicsVideoItem `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGraphicsVideoItem_Delete(@ptrCast(self));
     }
 };

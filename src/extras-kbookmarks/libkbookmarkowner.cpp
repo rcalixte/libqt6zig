@@ -155,7 +155,7 @@ void KBookmarkOwner_OpenInNewWindow(KBookmarkOwner* self, const KBookmark* bm) {
 }
 
 // Base class handler implementation
-libqt_string KBookmarkOwner_QBaseCurrentTitle(const KBookmarkOwner* self) {
+libqt_string KBookmarkOwner_SuperCurrentTitle(const KBookmarkOwner* self) {
     auto* vkbookmarkowner = const_cast<VirtualKBookmarkOwner*>(dynamic_cast<const VirtualKBookmarkOwner*>(self));
     if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
         vkbookmarkowner->setKBookmarkOwner_CurrentTitle_IsBase(true);
@@ -190,7 +190,7 @@ void KBookmarkOwner_OnCurrentTitle(const KBookmarkOwner* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QUrl* KBookmarkOwner_QBaseCurrentUrl(const KBookmarkOwner* self) {
+QUrl* KBookmarkOwner_SuperCurrentUrl(const KBookmarkOwner* self) {
     auto* vkbookmarkowner = const_cast<VirtualKBookmarkOwner*>(dynamic_cast<const VirtualKBookmarkOwner*>(self));
     if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
         vkbookmarkowner->setKBookmarkOwner_CurrentUrl_IsBase(true);
@@ -209,7 +209,7 @@ void KBookmarkOwner_OnCurrentUrl(const KBookmarkOwner* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string KBookmarkOwner_QBaseCurrentIcon(const KBookmarkOwner* self) {
+libqt_string KBookmarkOwner_SuperCurrentIcon(const KBookmarkOwner* self) {
     auto* vkbookmarkowner = const_cast<VirtualKBookmarkOwner*>(dynamic_cast<const VirtualKBookmarkOwner*>(self));
     if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
         vkbookmarkowner->setKBookmarkOwner_CurrentIcon_IsBase(true);
@@ -244,7 +244,7 @@ void KBookmarkOwner_OnCurrentIcon(const KBookmarkOwner* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KBookmarkOwner_QBaseSupportsTabs(const KBookmarkOwner* self) {
+bool KBookmarkOwner_SuperSupportsTabs(const KBookmarkOwner* self) {
     auto* vkbookmarkowner = const_cast<VirtualKBookmarkOwner*>(dynamic_cast<const VirtualKBookmarkOwner*>(self));
     if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
         vkbookmarkowner->setKBookmarkOwner_SupportsTabs_IsBase(true);
@@ -263,7 +263,7 @@ void KBookmarkOwner_OnSupportsTabs(const KBookmarkOwner* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of KBookmarkOwner__FutureBookmark* */ KBookmarkOwner_QBaseCurrentBookmarkList(const KBookmarkOwner* self) {
+libqt_list /* of KBookmarkOwner__FutureBookmark* */ KBookmarkOwner_SuperCurrentBookmarkList(const KBookmarkOwner* self) {
     auto* vkbookmarkowner = const_cast<VirtualKBookmarkOwner*>(dynamic_cast<const VirtualKBookmarkOwner*>(self));
     if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
         vkbookmarkowner->setKBookmarkOwner_CurrentBookmarkList_IsBase(true);
@@ -300,7 +300,7 @@ void KBookmarkOwner_OnCurrentBookmarkList(const KBookmarkOwner* self, intptr_t s
 }
 
 // Base class handler implementation
-bool KBookmarkOwner_QBaseEnableOption(const KBookmarkOwner* self, int option) {
+bool KBookmarkOwner_SuperEnableOption(const KBookmarkOwner* self, int option) {
     auto* vkbookmarkowner = const_cast<VirtualKBookmarkOwner*>(dynamic_cast<const VirtualKBookmarkOwner*>(self));
     if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
         vkbookmarkowner->setKBookmarkOwner_EnableOption_IsBase(true);
@@ -319,7 +319,7 @@ void KBookmarkOwner_OnEnableOption(const KBookmarkOwner* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KBookmarkOwner_QBaseOpenBookmark(KBookmarkOwner* self, const KBookmark* bm, int mb, int km) {
+void KBookmarkOwner_SuperOpenBookmark(KBookmarkOwner* self, const KBookmark* bm, int mb, int km) {
     auto* vkbookmarkowner = dynamic_cast<VirtualKBookmarkOwner*>(self);
     if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
         vkbookmarkowner->setKBookmarkOwner_OpenBookmark_IsBase(true);
@@ -338,7 +338,7 @@ void KBookmarkOwner_OnOpenBookmark(KBookmarkOwner* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KBookmarkOwner_QBaseOpenFolderinTabs(KBookmarkOwner* self, const KBookmarkGroup* bm) {
+void KBookmarkOwner_SuperOpenFolderinTabs(KBookmarkOwner* self, const KBookmarkGroup* bm) {
     auto* vkbookmarkowner = dynamic_cast<VirtualKBookmarkOwner*>(self);
     if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
         vkbookmarkowner->setKBookmarkOwner_OpenFolderinTabs_IsBase(true);
@@ -357,7 +357,7 @@ void KBookmarkOwner_OnOpenFolderinTabs(KBookmarkOwner* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KBookmarkOwner_QBaseOpenInNewTab(KBookmarkOwner* self, const KBookmark* bm) {
+void KBookmarkOwner_SuperOpenInNewTab(KBookmarkOwner* self, const KBookmark* bm) {
     auto* vkbookmarkowner = dynamic_cast<VirtualKBookmarkOwner*>(self);
     if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
         vkbookmarkowner->setKBookmarkOwner_OpenInNewTab_IsBase(true);
@@ -376,7 +376,7 @@ void KBookmarkOwner_OnOpenInNewTab(KBookmarkOwner* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KBookmarkOwner_QBaseOpenInNewWindow(KBookmarkOwner* self, const KBookmark* bm) {
+void KBookmarkOwner_SuperOpenInNewWindow(KBookmarkOwner* self, const KBookmark* bm) {
     auto* vkbookmarkowner = dynamic_cast<VirtualKBookmarkOwner*>(self);
     if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
         vkbookmarkowner->setKBookmarkOwner_OpenInNewWindow_IsBase(true);

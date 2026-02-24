@@ -585,23 +585,23 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
 
     // Friend functions
     friend void KFileItemDelegate_TimerEvent(KFileItemDelegate* self, QTimerEvent* event);
-    friend void KFileItemDelegate_QBaseTimerEvent(KFileItemDelegate* self, QTimerEvent* event);
+    friend void KFileItemDelegate_SuperTimerEvent(KFileItemDelegate* self, QTimerEvent* event);
     friend void KFileItemDelegate_ChildEvent(KFileItemDelegate* self, QChildEvent* event);
-    friend void KFileItemDelegate_QBaseChildEvent(KFileItemDelegate* self, QChildEvent* event);
+    friend void KFileItemDelegate_SuperChildEvent(KFileItemDelegate* self, QChildEvent* event);
     friend void KFileItemDelegate_CustomEvent(KFileItemDelegate* self, QEvent* event);
-    friend void KFileItemDelegate_QBaseCustomEvent(KFileItemDelegate* self, QEvent* event);
+    friend void KFileItemDelegate_SuperCustomEvent(KFileItemDelegate* self, QEvent* event);
     friend void KFileItemDelegate_ConnectNotify(KFileItemDelegate* self, const QMetaMethod* signal);
-    friend void KFileItemDelegate_QBaseConnectNotify(KFileItemDelegate* self, const QMetaMethod* signal);
+    friend void KFileItemDelegate_SuperConnectNotify(KFileItemDelegate* self, const QMetaMethod* signal);
     friend void KFileItemDelegate_DisconnectNotify(KFileItemDelegate* self, const QMetaMethod* signal);
-    friend void KFileItemDelegate_QBaseDisconnectNotify(KFileItemDelegate* self, const QMetaMethod* signal);
+    friend void KFileItemDelegate_SuperDisconnectNotify(KFileItemDelegate* self, const QMetaMethod* signal);
     friend QObject* KFileItemDelegate_Sender(const KFileItemDelegate* self);
-    friend QObject* KFileItemDelegate_QBaseSender(const KFileItemDelegate* self);
+    friend QObject* KFileItemDelegate_SuperSender(const KFileItemDelegate* self);
     friend int KFileItemDelegate_SenderSignalIndex(const KFileItemDelegate* self);
-    friend int KFileItemDelegate_QBaseSenderSignalIndex(const KFileItemDelegate* self);
+    friend int KFileItemDelegate_SuperSenderSignalIndex(const KFileItemDelegate* self);
     friend int KFileItemDelegate_Receivers(const KFileItemDelegate* self, const char* signal);
-    friend int KFileItemDelegate_QBaseReceivers(const KFileItemDelegate* self, const char* signal);
+    friend int KFileItemDelegate_SuperReceivers(const KFileItemDelegate* self, const char* signal);
     friend bool KFileItemDelegate_IsSignalConnected(const KFileItemDelegate* self, const QMetaMethod* signal);
-    friend bool KFileItemDelegate_QBaseIsSignalConnected(const KFileItemDelegate* self, const QMetaMethod* signal);
+    friend bool KFileItemDelegate_SuperIsSignalConnected(const KFileItemDelegate* self, const QMetaMethod* signal);
 };
 
 #endif

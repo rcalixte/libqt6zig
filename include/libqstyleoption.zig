@@ -258,6 +258,10 @@ pub const qstyleoption = struct {
         qtc.QStyleOption_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#dtor.QStyleOption)
     ///
     /// Delete this object from C++ memory.
@@ -266,7 +270,7 @@ pub const qstyleoption = struct {
     ///
     /// ` self: QtC.QStyleOption `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOption_Delete(@ptrCast(self));
     }
 };
@@ -553,6 +557,10 @@ pub const qstyleoptionfocusrect = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionfocusrect.html#dtor.QStyleOptionFocusRect)
     ///
     /// Delete this object from C++ memory.
@@ -561,7 +569,7 @@ pub const qstyleoptionfocusrect = struct {
     ///
     /// ` self: QtC.QStyleOptionFocusRect `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionFocusRect_Delete(@ptrCast(self));
     }
 };
@@ -922,6 +930,10 @@ pub const qstyleoptionframe = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionframe.html#dtor.QStyleOptionFrame)
     ///
     /// Delete this object from C++ memory.
@@ -930,7 +942,7 @@ pub const qstyleoptionframe = struct {
     ///
     /// ` self: QtC.QStyleOptionFrame `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionFrame_Delete(@ptrCast(self));
     }
 };
@@ -1375,6 +1387,10 @@ pub const qstyleoptiontabwidgetframe = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#dtor.QStyleOptionTabWidgetFrame)
     ///
     /// Delete this object from C++ memory.
@@ -1383,7 +1399,7 @@ pub const qstyleoptiontabwidgetframe = struct {
     ///
     /// ` self: QtC.QStyleOptionTabWidgetFrame `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionTabWidgetFrame_Delete(@ptrCast(self));
     }
 };
@@ -1740,6 +1756,10 @@ pub const qstyleoptiontabbarbase = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabbarbase.html#dtor.QStyleOptionTabBarBase)
     ///
     /// Delete this object from C++ memory.
@@ -1748,7 +1768,7 @@ pub const qstyleoptiontabbarbase = struct {
     ///
     /// ` self: QtC.QStyleOptionTabBarBase `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionTabBarBase_Delete(@ptrCast(self));
     }
 };
@@ -2245,6 +2265,10 @@ pub const qstyleoptionheader = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#dtor.QStyleOptionHeader)
     ///
     /// Delete this object from C++ memory.
@@ -2253,7 +2277,7 @@ pub const qstyleoptionheader = struct {
     ///
     /// ` self: QtC.QStyleOptionHeader `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionHeader_Delete(@ptrCast(self));
     }
 };
@@ -2856,6 +2880,10 @@ pub const qstyleoptionheaderv2 = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheaderv2.html#dtor.QStyleOptionHeaderV2)
     ///
     /// Delete this object from C++ memory.
@@ -2864,7 +2892,7 @@ pub const qstyleoptionheaderv2 = struct {
     ///
     /// ` self: QtC.QStyleOptionHeaderV2 `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionHeaderV2_Delete(@ptrCast(self));
     }
 };
@@ -3231,6 +3259,10 @@ pub const qstyleoptionbutton = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionbutton.html#dtor.QStyleOptionButton)
     ///
     /// Delete this object from C++ memory.
@@ -3239,7 +3271,7 @@ pub const qstyleoptionbutton = struct {
     ///
     /// ` self: QtC.QStyleOptionButton `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionButton_Delete(@ptrCast(self));
     }
 };
@@ -3820,6 +3852,10 @@ pub const qstyleoptiontab = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#dtor.QStyleOptionTab)
     ///
     /// Delete this object from C++ memory.
@@ -3828,7 +3864,7 @@ pub const qstyleoptiontab = struct {
     ///
     /// ` self: QtC.QStyleOptionTab `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionTab_Delete(@ptrCast(self));
     }
 };
@@ -4241,6 +4277,10 @@ pub const qstyleoptiontoolbar = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#dtor.QStyleOptionToolBar)
     ///
     /// Delete this object from C++ memory.
@@ -4249,7 +4289,7 @@ pub const qstyleoptiontoolbar = struct {
     ///
     /// ` self: QtC.QStyleOptionToolBar `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionToolBar_Delete(@ptrCast(self));
     }
 };
@@ -4704,6 +4744,10 @@ pub const qstyleoptionprogressbar = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#dtor.QStyleOptionProgressBar)
     ///
     /// Delete this object from C++ memory.
@@ -4712,7 +4756,7 @@ pub const qstyleoptionprogressbar = struct {
     ///
     /// ` self: QtC.QStyleOptionProgressBar `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionProgressBar_Delete(@ptrCast(self));
     }
 };
@@ -5215,6 +5259,10 @@ pub const qstyleoptionmenuitem = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#dtor.QStyleOptionMenuItem)
     ///
     /// Delete this object from C++ memory.
@@ -5223,7 +5271,7 @@ pub const qstyleoptionmenuitem = struct {
     ///
     /// ` self: QtC.QStyleOptionMenuItem `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionMenuItem_Delete(@ptrCast(self));
     }
 };
@@ -5608,6 +5656,10 @@ pub const qstyleoptiondockwidget = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiondockwidget.html#dtor.QStyleOptionDockWidget)
     ///
     /// Delete this object from C++ memory.
@@ -5616,7 +5668,7 @@ pub const qstyleoptiondockwidget = struct {
     ///
     /// ` self: QtC.QStyleOptionDockWidget `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionDockWidget_Delete(@ptrCast(self));
     }
 };
@@ -6271,6 +6323,10 @@ pub const qstyleoptionviewitem = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#dtor.QStyleOptionViewItem)
     ///
     /// Delete this object from C++ memory.
@@ -6279,7 +6335,7 @@ pub const qstyleoptionviewitem = struct {
     ///
     /// ` self: QtC.QStyleOptionViewItem `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionViewItem_Delete(@ptrCast(self));
     }
 };
@@ -6650,6 +6706,10 @@ pub const qstyleoptiontoolbox = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbox.html#dtor.QStyleOptionToolBox)
     ///
     /// Delete this object from C++ memory.
@@ -6658,7 +6718,7 @@ pub const qstyleoptiontoolbox = struct {
     ///
     /// ` self: QtC.QStyleOptionToolBox `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionToolBox_Delete(@ptrCast(self));
     }
 };
@@ -6971,6 +7031,10 @@ pub const qstyleoptionrubberband = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionrubberband.html#dtor.QStyleOptionRubberBand)
     ///
     /// Delete this object from C++ memory.
@@ -6979,7 +7043,7 @@ pub const qstyleoptionrubberband = struct {
     ///
     /// ` self: QtC.QStyleOptionRubberBand `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionRubberBand_Delete(@ptrCast(self));
     }
 };
@@ -7318,6 +7382,10 @@ pub const qstyleoptioncomplex = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#dtor.QStyleOptionComplex)
     ///
     /// Delete this object from C++ memory.
@@ -7326,7 +7394,7 @@ pub const qstyleoptioncomplex = struct {
     ///
     /// ` self: QtC.QStyleOptionComplex `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionComplex_Delete(@ptrCast(self));
     }
 };
@@ -7949,6 +8017,10 @@ pub const qstyleoptionslider = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#dtor.QStyleOptionSlider)
     ///
     /// Delete this object from C++ memory.
@@ -7957,7 +8029,7 @@ pub const qstyleoptionslider = struct {
     ///
     /// ` self: QtC.QStyleOptionSlider `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionSlider_Delete(@ptrCast(self));
     }
 };
@@ -8356,6 +8428,10 @@ pub const qstyleoptionspinbox = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionspinbox.html#dtor.QStyleOptionSpinBox)
     ///
     /// Delete this object from C++ memory.
@@ -8364,7 +8440,7 @@ pub const qstyleoptionspinbox = struct {
     ///
     /// ` self: QtC.QStyleOptionSpinBox `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionSpinBox_Delete(@ptrCast(self));
     }
 };
@@ -8887,6 +8963,10 @@ pub const qstyleoptiontoolbutton = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#dtor.QStyleOptionToolButton)
     ///
     /// Delete this object from C++ memory.
@@ -8895,7 +8975,7 @@ pub const qstyleoptiontoolbutton = struct {
     ///
     /// ` self: QtC.QStyleOptionToolButton `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionToolButton_Delete(@ptrCast(self));
     }
 };
@@ -9388,6 +9468,10 @@ pub const qstyleoptioncombobox = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#dtor.QStyleOptionComboBox)
     ///
     /// Delete this object from C++ memory.
@@ -9396,7 +9480,7 @@ pub const qstyleoptioncombobox = struct {
     ///
     /// ` self: QtC.QStyleOptionComboBox `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionComboBox_Delete(@ptrCast(self));
     }
 };
@@ -9823,6 +9907,10 @@ pub const qstyleoptiontitlebar = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontitlebar.html#dtor.QStyleOptionTitleBar)
     ///
     /// Delete this object from C++ memory.
@@ -9831,7 +9919,7 @@ pub const qstyleoptiontitlebar = struct {
     ///
     /// ` self: QtC.QStyleOptionTitleBar `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionTitleBar_Delete(@ptrCast(self));
     }
 };
@@ -10306,6 +10394,10 @@ pub const qstyleoptiongroupbox = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#dtor.QStyleOptionGroupBox)
     ///
     /// Delete this object from C++ memory.
@@ -10314,7 +10406,7 @@ pub const qstyleoptiongroupbox = struct {
     ///
     /// ` self: QtC.QStyleOptionGroupBox `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionGroupBox_Delete(@ptrCast(self));
     }
 };
@@ -10665,6 +10757,10 @@ pub const qstyleoptionsizegrip = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionsizegrip.html#dtor.QStyleOptionSizeGrip)
     ///
     /// Delete this object from C++ memory.
@@ -10673,7 +10769,7 @@ pub const qstyleoptionsizegrip = struct {
     ///
     /// ` self: QtC.QStyleOptionSizeGrip `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionSizeGrip_Delete(@ptrCast(self));
     }
 };
@@ -10970,6 +11066,10 @@ pub const qstyleoptiongraphicsitem = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongraphicsitem.html#dtor.QStyleOptionGraphicsItem)
     ///
     /// Delete this object from C++ memory.
@@ -10978,7 +11078,7 @@ pub const qstyleoptiongraphicsitem = struct {
     ///
     /// ` self: QtC.QStyleOptionGraphicsItem `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleOptionGraphicsItem_Delete(@ptrCast(self));
     }
 };
@@ -11079,6 +11179,10 @@ pub const qstylehintreturn = struct {
         qtc.QStyleHintReturn_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturn.html#dtor.QStyleHintReturn)
     ///
     /// Delete this object from C++ memory.
@@ -11087,7 +11191,7 @@ pub const qstylehintreturn = struct {
     ///
     /// ` self: QtC.QStyleHintReturn `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleHintReturn_Delete(@ptrCast(self));
     }
 };
@@ -11196,6 +11300,10 @@ pub const qstylehintreturnmask = struct {
         qtc.QStyleHintReturn_SetType(@ptrCast(self), @bitCast(_type));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturnmask.html#dtor.QStyleHintReturnMask)
     ///
     /// Delete this object from C++ memory.
@@ -11204,7 +11312,7 @@ pub const qstylehintreturnmask = struct {
     ///
     /// ` self: QtC.QStyleHintReturnMask `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleHintReturnMask_Delete(@ptrCast(self));
     }
 };
@@ -11313,6 +11421,10 @@ pub const qstylehintreturnvariant = struct {
         qtc.QStyleHintReturn_SetType(@ptrCast(self), @bitCast(_type));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturnvariant.html#dtor.QStyleHintReturnVariant)
     ///
     /// Delete this object from C++ memory.
@@ -11321,7 +11433,7 @@ pub const qstylehintreturnvariant = struct {
     ///
     /// ` self: QtC.QStyleHintReturnVariant `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QStyleHintReturnVariant_Delete(@ptrCast(self));
     }
 };

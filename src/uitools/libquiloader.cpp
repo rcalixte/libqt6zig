@@ -213,7 +213,7 @@ QWidget* QUiLoader_Load2(QUiLoader* self, QIODevice* device, QWidget* parentWidg
 }
 
 // Base class handler implementation
-QMetaObject* QUiLoader_QBaseMetaObject(const QUiLoader* self) {
+QMetaObject* QUiLoader_SuperMetaObject(const QUiLoader* self) {
     auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
     if (vquiloader && vquiloader->isVirtualQUiLoader) {
         vquiloader->setQUiLoader_MetaObject_IsBase(true);
@@ -232,7 +232,7 @@ void QUiLoader_OnMetaObject(const QUiLoader* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QUiLoader_QBaseMetacast(QUiLoader* self, const char* param1) {
+void* QUiLoader_SuperMetacast(QUiLoader* self, const char* param1) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
     if (vquiloader && vquiloader->isVirtualQUiLoader) {
         vquiloader->setQUiLoader_Metacast_IsBase(true);
@@ -251,7 +251,7 @@ void QUiLoader_OnMetacast(QUiLoader* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QUiLoader_QBaseMetacall(QUiLoader* self, int param1, int param2, void** param3) {
+int QUiLoader_SuperMetacall(QUiLoader* self, int param1, int param2, void** param3) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
     if (vquiloader && vquiloader->isVirtualQUiLoader) {
         vquiloader->setQUiLoader_Metacall_IsBase(true);
@@ -270,7 +270,7 @@ void QUiLoader_OnMetacall(QUiLoader* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QWidget* QUiLoader_QBaseCreateWidget(QUiLoader* self, const libqt_string className, QWidget* parent, const libqt_string name) {
+QWidget* QUiLoader_SuperCreateWidget(QUiLoader* self, const libqt_string className, QWidget* parent, const libqt_string name) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
     QString className_QString = QString::fromUtf8(className.data, className.len);
     QString name_QString = QString::fromUtf8(name.data, name.len);
@@ -291,7 +291,7 @@ void QUiLoader_OnCreateWidget(QUiLoader* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QLayout* QUiLoader_QBaseCreateLayout(QUiLoader* self, const libqt_string className, QObject* parent, const libqt_string name) {
+QLayout* QUiLoader_SuperCreateLayout(QUiLoader* self, const libqt_string className, QObject* parent, const libqt_string name) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
     QString className_QString = QString::fromUtf8(className.data, className.len);
     QString name_QString = QString::fromUtf8(name.data, name.len);
@@ -312,7 +312,7 @@ void QUiLoader_OnCreateLayout(QUiLoader* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QActionGroup* QUiLoader_QBaseCreateActionGroup(QUiLoader* self, QObject* parent, const libqt_string name) {
+QActionGroup* QUiLoader_SuperCreateActionGroup(QUiLoader* self, QObject* parent, const libqt_string name) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vquiloader && vquiloader->isVirtualQUiLoader) {
@@ -332,7 +332,7 @@ void QUiLoader_OnCreateActionGroup(QUiLoader* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QAction* QUiLoader_QBaseCreateAction(QUiLoader* self, QObject* parent, const libqt_string name) {
+QAction* QUiLoader_SuperCreateAction(QUiLoader* self, QObject* parent, const libqt_string name) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vquiloader && vquiloader->isVirtualQUiLoader) {
@@ -362,7 +362,7 @@ bool QUiLoader_Event(QUiLoader* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QUiLoader_QBaseEvent(QUiLoader* self, QEvent* event) {
+bool QUiLoader_SuperEvent(QUiLoader* self, QEvent* event) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
     if (vquiloader && vquiloader->isVirtualQUiLoader) {
         vquiloader->setQUiLoader_Event_IsBase(true);
@@ -391,7 +391,7 @@ bool QUiLoader_EventFilter(QUiLoader* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QUiLoader_QBaseEventFilter(QUiLoader* self, QObject* watched, QEvent* event) {
+bool QUiLoader_SuperEventFilter(QUiLoader* self, QObject* watched, QEvent* event) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
     if (vquiloader && vquiloader->isVirtualQUiLoader) {
         vquiloader->setQUiLoader_EventFilter_IsBase(true);
@@ -420,7 +420,7 @@ void QUiLoader_TimerEvent(QUiLoader* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QUiLoader_QBaseTimerEvent(QUiLoader* self, QTimerEvent* event) {
+void QUiLoader_SuperTimerEvent(QUiLoader* self, QTimerEvent* event) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
     if (vquiloader && vquiloader->isVirtualQUiLoader) {
         vquiloader->setQUiLoader_TimerEvent_IsBase(true);
@@ -449,7 +449,7 @@ void QUiLoader_ChildEvent(QUiLoader* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QUiLoader_QBaseChildEvent(QUiLoader* self, QChildEvent* event) {
+void QUiLoader_SuperChildEvent(QUiLoader* self, QChildEvent* event) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
     if (vquiloader && vquiloader->isVirtualQUiLoader) {
         vquiloader->setQUiLoader_ChildEvent_IsBase(true);
@@ -478,7 +478,7 @@ void QUiLoader_CustomEvent(QUiLoader* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QUiLoader_QBaseCustomEvent(QUiLoader* self, QEvent* event) {
+void QUiLoader_SuperCustomEvent(QUiLoader* self, QEvent* event) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
     if (vquiloader && vquiloader->isVirtualQUiLoader) {
         vquiloader->setQUiLoader_CustomEvent_IsBase(true);
@@ -507,7 +507,7 @@ void QUiLoader_ConnectNotify(QUiLoader* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QUiLoader_QBaseConnectNotify(QUiLoader* self, const QMetaMethod* signal) {
+void QUiLoader_SuperConnectNotify(QUiLoader* self, const QMetaMethod* signal) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
     if (vquiloader && vquiloader->isVirtualQUiLoader) {
         vquiloader->setQUiLoader_ConnectNotify_IsBase(true);
@@ -536,7 +536,7 @@ void QUiLoader_DisconnectNotify(QUiLoader* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QUiLoader_QBaseDisconnectNotify(QUiLoader* self, const QMetaMethod* signal) {
+void QUiLoader_SuperDisconnectNotify(QUiLoader* self, const QMetaMethod* signal) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
     if (vquiloader && vquiloader->isVirtualQUiLoader) {
         vquiloader->setQUiLoader_DisconnectNotify_IsBase(true);
@@ -565,7 +565,7 @@ QObject* QUiLoader_Sender(const QUiLoader* self) {
 }
 
 // Base class handler implementation
-QObject* QUiLoader_QBaseSender(const QUiLoader* self) {
+QObject* QUiLoader_SuperSender(const QUiLoader* self) {
     auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
     if (vquiloader && vquiloader->isVirtualQUiLoader) {
         vquiloader->setQUiLoader_Sender_IsBase(true);
@@ -594,7 +594,7 @@ int QUiLoader_SenderSignalIndex(const QUiLoader* self) {
 }
 
 // Base class handler implementation
-int QUiLoader_QBaseSenderSignalIndex(const QUiLoader* self) {
+int QUiLoader_SuperSenderSignalIndex(const QUiLoader* self) {
     auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
     if (vquiloader && vquiloader->isVirtualQUiLoader) {
         vquiloader->setQUiLoader_SenderSignalIndex_IsBase(true);
@@ -623,7 +623,7 @@ int QUiLoader_Receivers(const QUiLoader* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QUiLoader_QBaseReceivers(const QUiLoader* self, const char* signal) {
+int QUiLoader_SuperReceivers(const QUiLoader* self, const char* signal) {
     auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
     if (vquiloader && vquiloader->isVirtualQUiLoader) {
         vquiloader->setQUiLoader_Receivers_IsBase(true);
@@ -652,7 +652,7 @@ bool QUiLoader_IsSignalConnected(const QUiLoader* self, const QMetaMethod* signa
 }
 
 // Base class handler implementation
-bool QUiLoader_QBaseIsSignalConnected(const QUiLoader* self, const QMetaMethod* signal) {
+bool QUiLoader_SuperIsSignalConnected(const QUiLoader* self, const QMetaMethod* signal) {
     auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
     if (vquiloader && vquiloader->isVirtualQUiLoader) {
         vquiloader->setQUiLoader_IsSignalConnected_IsBase(true);

@@ -126,7 +126,7 @@ void KParts__MainWindow_CreateShellGUI(KParts__MainWindow* self, bool create) {
 }
 
 // Base class handler implementation
-QMetaObject* KParts__MainWindow_QBaseMetaObject(const KParts__MainWindow* self) {
+QMetaObject* KParts__MainWindow_SuperMetaObject(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_MetaObject_IsBase(true);
@@ -145,7 +145,7 @@ void KParts__MainWindow_OnMetaObject(const KParts__MainWindow* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* KParts__MainWindow_QBaseMetacast(KParts__MainWindow* self, const char* param1) {
+void* KParts__MainWindow_SuperMetacast(KParts__MainWindow* self, const char* param1) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_Metacast_IsBase(true);
@@ -164,7 +164,7 @@ void KParts__MainWindow_OnMetacast(KParts__MainWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KParts__MainWindow_QBaseMetacall(KParts__MainWindow* self, int param1, int param2, void** param3) {
+int KParts__MainWindow_SuperMetacall(KParts__MainWindow* self, int param1, int param2, void** param3) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_Metacall_IsBase(true);
@@ -183,7 +183,7 @@ void KParts__MainWindow_OnMetacall(KParts__MainWindow* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseConfigureToolbars(KParts__MainWindow* self) {
+void KParts__MainWindow_SuperConfigureToolbars(KParts__MainWindow* self) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_ConfigureToolbars_IsBase(true);
@@ -202,7 +202,7 @@ void KParts__MainWindow_OnConfigureToolbars(KParts__MainWindow* self, intptr_t s
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseSlotSetStatusBarText(KParts__MainWindow* self, const libqt_string param1) {
+void KParts__MainWindow_SuperSlotSetStatusBarText(KParts__MainWindow* self, const libqt_string param1) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
@@ -222,7 +222,7 @@ void KParts__MainWindow_OnSlotSetStatusBarText(KParts__MainWindow* self, intptr_
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseSaveNewToolbarConfig(KParts__MainWindow* self) {
+void KParts__MainWindow_SuperSaveNewToolbarConfig(KParts__MainWindow* self) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_SaveNewToolbarConfig_IsBase(true);
@@ -241,7 +241,7 @@ void KParts__MainWindow_OnSaveNewToolbarConfig(KParts__MainWindow* self, intptr_
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseCreateShellGUI(KParts__MainWindow* self, bool create) {
+void KParts__MainWindow_SuperCreateShellGUI(KParts__MainWindow* self, bool create) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_CreateShellGUI_IsBase(true);
@@ -270,7 +270,7 @@ KXMLGUIFactory* KParts__MainWindow_GuiFactory(KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-KXMLGUIFactory* KParts__MainWindow_QBaseGuiFactory(KParts__MainWindow* self) {
+KXMLGUIFactory* KParts__MainWindow_SuperGuiFactory(KParts__MainWindow* self) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_GuiFactory_IsBase(true);
@@ -299,7 +299,7 @@ void KParts__MainWindow_ApplyMainWindowSettings(KParts__MainWindow* self, const 
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseApplyMainWindowSettings(KParts__MainWindow* self, const KConfigGroup* config) {
+void KParts__MainWindow_SuperApplyMainWindowSettings(KParts__MainWindow* self, const KConfigGroup* config) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_ApplyMainWindowSettings_IsBase(true);
@@ -329,7 +329,7 @@ void KParts__MainWindow_SlotStateChanged(KParts__MainWindow* self, const libqt_s
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseSlotStateChanged(KParts__MainWindow* self, const libqt_string newstate) {
+void KParts__MainWindow_SuperSlotStateChanged(KParts__MainWindow* self, const libqt_string newstate) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString newstate_QString = QString::fromUtf8(newstate.data, newstate.len);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
@@ -359,7 +359,7 @@ bool KParts__MainWindow_Event(KParts__MainWindow* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KParts__MainWindow_QBaseEvent(KParts__MainWindow* self, QEvent* event) {
+bool KParts__MainWindow_SuperEvent(KParts__MainWindow* self, QEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_Event_IsBase(true);
@@ -389,7 +389,7 @@ void KParts__MainWindow_SetCaption(KParts__MainWindow* self, const libqt_string 
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseSetCaption(KParts__MainWindow* self, const libqt_string caption) {
+void KParts__MainWindow_SuperSetCaption(KParts__MainWindow* self, const libqt_string caption) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString caption_QString = QString::fromUtf8(caption.data, caption.len);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
@@ -420,7 +420,7 @@ void KParts__MainWindow_SetPlainCaption(KParts__MainWindow* self, const libqt_st
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseSetPlainCaption(KParts__MainWindow* self, const libqt_string caption) {
+void KParts__MainWindow_SuperSetPlainCaption(KParts__MainWindow* self, const libqt_string caption) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString caption_QString = QString::fromUtf8(caption.data, caption.len);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
@@ -450,7 +450,7 @@ void KParts__MainWindow_KeyPressEvent(KParts__MainWindow* self, QKeyEvent* keyEv
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseKeyPressEvent(KParts__MainWindow* self, QKeyEvent* keyEvent) {
+void KParts__MainWindow_SuperKeyPressEvent(KParts__MainWindow* self, QKeyEvent* keyEvent) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_KeyPressEvent_IsBase(true);
@@ -479,7 +479,7 @@ void KParts__MainWindow_CloseEvent(KParts__MainWindow* self, QCloseEvent* param1
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseCloseEvent(KParts__MainWindow* self, QCloseEvent* param1) {
+void KParts__MainWindow_SuperCloseEvent(KParts__MainWindow* self, QCloseEvent* param1) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_CloseEvent_IsBase(true);
@@ -508,7 +508,7 @@ bool KParts__MainWindow_QueryClose(KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-bool KParts__MainWindow_QBaseQueryClose(KParts__MainWindow* self) {
+bool KParts__MainWindow_SuperQueryClose(KParts__MainWindow* self) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_QueryClose_IsBase(true);
@@ -537,7 +537,7 @@ void KParts__MainWindow_SaveProperties(KParts__MainWindow* self, KConfigGroup* p
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseSaveProperties(KParts__MainWindow* self, KConfigGroup* param1) {
+void KParts__MainWindow_SuperSaveProperties(KParts__MainWindow* self, KConfigGroup* param1) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_SaveProperties_IsBase(true);
@@ -566,7 +566,7 @@ void KParts__MainWindow_ReadProperties(KParts__MainWindow* self, const KConfigGr
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseReadProperties(KParts__MainWindow* self, const KConfigGroup* param1) {
+void KParts__MainWindow_SuperReadProperties(KParts__MainWindow* self, const KConfigGroup* param1) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_ReadProperties_IsBase(true);
@@ -595,7 +595,7 @@ void KParts__MainWindow_SaveGlobalProperties(KParts__MainWindow* self, KConfig* 
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseSaveGlobalProperties(KParts__MainWindow* self, KConfig* sessionConfig) {
+void KParts__MainWindow_SuperSaveGlobalProperties(KParts__MainWindow* self, KConfig* sessionConfig) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_SaveGlobalProperties_IsBase(true);
@@ -624,7 +624,7 @@ void KParts__MainWindow_ReadGlobalProperties(KParts__MainWindow* self, KConfig* 
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseReadGlobalProperties(KParts__MainWindow* self, KConfig* sessionConfig) {
+void KParts__MainWindow_SuperReadGlobalProperties(KParts__MainWindow* self, KConfig* sessionConfig) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_ReadGlobalProperties_IsBase(true);
@@ -653,7 +653,7 @@ QMenu* KParts__MainWindow_CreatePopupMenu(KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-QMenu* KParts__MainWindow_QBaseCreatePopupMenu(KParts__MainWindow* self) {
+QMenu* KParts__MainWindow_SuperCreatePopupMenu(KParts__MainWindow* self) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_CreatePopupMenu_IsBase(true);
@@ -682,7 +682,7 @@ void KParts__MainWindow_ContextMenuEvent(KParts__MainWindow* self, QContextMenuE
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseContextMenuEvent(KParts__MainWindow* self, QContextMenuEvent* event) {
+void KParts__MainWindow_SuperContextMenuEvent(KParts__MainWindow* self, QContextMenuEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_ContextMenuEvent_IsBase(true);
@@ -711,7 +711,7 @@ int KParts__MainWindow_DevType(const KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-int KParts__MainWindow_QBaseDevType(const KParts__MainWindow* self) {
+int KParts__MainWindow_SuperDevType(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_DevType_IsBase(true);
@@ -740,7 +740,7 @@ void KParts__MainWindow_SetVisible(KParts__MainWindow* self, bool visible) {
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseSetVisible(KParts__MainWindow* self, bool visible) {
+void KParts__MainWindow_SuperSetVisible(KParts__MainWindow* self, bool visible) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_SetVisible_IsBase(true);
@@ -769,7 +769,7 @@ QSize* KParts__MainWindow_SizeHint(const KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-QSize* KParts__MainWindow_QBaseSizeHint(const KParts__MainWindow* self) {
+QSize* KParts__MainWindow_SuperSizeHint(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_SizeHint_IsBase(true);
@@ -798,7 +798,7 @@ QSize* KParts__MainWindow_MinimumSizeHint(const KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-QSize* KParts__MainWindow_QBaseMinimumSizeHint(const KParts__MainWindow* self) {
+QSize* KParts__MainWindow_SuperMinimumSizeHint(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_MinimumSizeHint_IsBase(true);
@@ -827,7 +827,7 @@ int KParts__MainWindow_HeightForWidth(const KParts__MainWindow* self, int param1
 }
 
 // Base class handler implementation
-int KParts__MainWindow_QBaseHeightForWidth(const KParts__MainWindow* self, int param1) {
+int KParts__MainWindow_SuperHeightForWidth(const KParts__MainWindow* self, int param1) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_HeightForWidth_IsBase(true);
@@ -856,7 +856,7 @@ bool KParts__MainWindow_HasHeightForWidth(const KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-bool KParts__MainWindow_QBaseHasHeightForWidth(const KParts__MainWindow* self) {
+bool KParts__MainWindow_SuperHasHeightForWidth(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_HasHeightForWidth_IsBase(true);
@@ -885,7 +885,7 @@ QPaintEngine* KParts__MainWindow_PaintEngine(const KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KParts__MainWindow_QBasePaintEngine(const KParts__MainWindow* self) {
+QPaintEngine* KParts__MainWindow_SuperPaintEngine(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_PaintEngine_IsBase(true);
@@ -914,7 +914,7 @@ void KParts__MainWindow_MousePressEvent(KParts__MainWindow* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseMousePressEvent(KParts__MainWindow* self, QMouseEvent* event) {
+void KParts__MainWindow_SuperMousePressEvent(KParts__MainWindow* self, QMouseEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_MousePressEvent_IsBase(true);
@@ -943,7 +943,7 @@ void KParts__MainWindow_MouseReleaseEvent(KParts__MainWindow* self, QMouseEvent*
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseMouseReleaseEvent(KParts__MainWindow* self, QMouseEvent* event) {
+void KParts__MainWindow_SuperMouseReleaseEvent(KParts__MainWindow* self, QMouseEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_MouseReleaseEvent_IsBase(true);
@@ -972,7 +972,7 @@ void KParts__MainWindow_MouseDoubleClickEvent(KParts__MainWindow* self, QMouseEv
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseMouseDoubleClickEvent(KParts__MainWindow* self, QMouseEvent* event) {
+void KParts__MainWindow_SuperMouseDoubleClickEvent(KParts__MainWindow* self, QMouseEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_MouseDoubleClickEvent_IsBase(true);
@@ -1001,7 +1001,7 @@ void KParts__MainWindow_MouseMoveEvent(KParts__MainWindow* self, QMouseEvent* ev
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseMouseMoveEvent(KParts__MainWindow* self, QMouseEvent* event) {
+void KParts__MainWindow_SuperMouseMoveEvent(KParts__MainWindow* self, QMouseEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_MouseMoveEvent_IsBase(true);
@@ -1030,7 +1030,7 @@ void KParts__MainWindow_WheelEvent(KParts__MainWindow* self, QWheelEvent* event)
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseWheelEvent(KParts__MainWindow* self, QWheelEvent* event) {
+void KParts__MainWindow_SuperWheelEvent(KParts__MainWindow* self, QWheelEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_WheelEvent_IsBase(true);
@@ -1059,7 +1059,7 @@ void KParts__MainWindow_KeyReleaseEvent(KParts__MainWindow* self, QKeyEvent* eve
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseKeyReleaseEvent(KParts__MainWindow* self, QKeyEvent* event) {
+void KParts__MainWindow_SuperKeyReleaseEvent(KParts__MainWindow* self, QKeyEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_KeyReleaseEvent_IsBase(true);
@@ -1088,7 +1088,7 @@ void KParts__MainWindow_FocusInEvent(KParts__MainWindow* self, QFocusEvent* even
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseFocusInEvent(KParts__MainWindow* self, QFocusEvent* event) {
+void KParts__MainWindow_SuperFocusInEvent(KParts__MainWindow* self, QFocusEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_FocusInEvent_IsBase(true);
@@ -1117,7 +1117,7 @@ void KParts__MainWindow_FocusOutEvent(KParts__MainWindow* self, QFocusEvent* eve
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseFocusOutEvent(KParts__MainWindow* self, QFocusEvent* event) {
+void KParts__MainWindow_SuperFocusOutEvent(KParts__MainWindow* self, QFocusEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_FocusOutEvent_IsBase(true);
@@ -1146,7 +1146,7 @@ void KParts__MainWindow_EnterEvent(KParts__MainWindow* self, QEnterEvent* event)
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseEnterEvent(KParts__MainWindow* self, QEnterEvent* event) {
+void KParts__MainWindow_SuperEnterEvent(KParts__MainWindow* self, QEnterEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_EnterEvent_IsBase(true);
@@ -1175,7 +1175,7 @@ void KParts__MainWindow_LeaveEvent(KParts__MainWindow* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseLeaveEvent(KParts__MainWindow* self, QEvent* event) {
+void KParts__MainWindow_SuperLeaveEvent(KParts__MainWindow* self, QEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_LeaveEvent_IsBase(true);
@@ -1204,7 +1204,7 @@ void KParts__MainWindow_PaintEvent(KParts__MainWindow* self, QPaintEvent* event)
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBasePaintEvent(KParts__MainWindow* self, QPaintEvent* event) {
+void KParts__MainWindow_SuperPaintEvent(KParts__MainWindow* self, QPaintEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_PaintEvent_IsBase(true);
@@ -1233,7 +1233,7 @@ void KParts__MainWindow_MoveEvent(KParts__MainWindow* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseMoveEvent(KParts__MainWindow* self, QMoveEvent* event) {
+void KParts__MainWindow_SuperMoveEvent(KParts__MainWindow* self, QMoveEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_MoveEvent_IsBase(true);
@@ -1262,7 +1262,7 @@ void KParts__MainWindow_ResizeEvent(KParts__MainWindow* self, QResizeEvent* even
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseResizeEvent(KParts__MainWindow* self, QResizeEvent* event) {
+void KParts__MainWindow_SuperResizeEvent(KParts__MainWindow* self, QResizeEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_ResizeEvent_IsBase(true);
@@ -1291,7 +1291,7 @@ void KParts__MainWindow_TabletEvent(KParts__MainWindow* self, QTabletEvent* even
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseTabletEvent(KParts__MainWindow* self, QTabletEvent* event) {
+void KParts__MainWindow_SuperTabletEvent(KParts__MainWindow* self, QTabletEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_TabletEvent_IsBase(true);
@@ -1320,7 +1320,7 @@ void KParts__MainWindow_ActionEvent(KParts__MainWindow* self, QActionEvent* even
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseActionEvent(KParts__MainWindow* self, QActionEvent* event) {
+void KParts__MainWindow_SuperActionEvent(KParts__MainWindow* self, QActionEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_ActionEvent_IsBase(true);
@@ -1349,7 +1349,7 @@ void KParts__MainWindow_DragEnterEvent(KParts__MainWindow* self, QDragEnterEvent
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseDragEnterEvent(KParts__MainWindow* self, QDragEnterEvent* event) {
+void KParts__MainWindow_SuperDragEnterEvent(KParts__MainWindow* self, QDragEnterEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_DragEnterEvent_IsBase(true);
@@ -1378,7 +1378,7 @@ void KParts__MainWindow_DragMoveEvent(KParts__MainWindow* self, QDragMoveEvent* 
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseDragMoveEvent(KParts__MainWindow* self, QDragMoveEvent* event) {
+void KParts__MainWindow_SuperDragMoveEvent(KParts__MainWindow* self, QDragMoveEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_DragMoveEvent_IsBase(true);
@@ -1407,7 +1407,7 @@ void KParts__MainWindow_DragLeaveEvent(KParts__MainWindow* self, QDragLeaveEvent
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseDragLeaveEvent(KParts__MainWindow* self, QDragLeaveEvent* event) {
+void KParts__MainWindow_SuperDragLeaveEvent(KParts__MainWindow* self, QDragLeaveEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_DragLeaveEvent_IsBase(true);
@@ -1436,7 +1436,7 @@ void KParts__MainWindow_DropEvent(KParts__MainWindow* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseDropEvent(KParts__MainWindow* self, QDropEvent* event) {
+void KParts__MainWindow_SuperDropEvent(KParts__MainWindow* self, QDropEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_DropEvent_IsBase(true);
@@ -1465,7 +1465,7 @@ void KParts__MainWindow_ShowEvent(KParts__MainWindow* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseShowEvent(KParts__MainWindow* self, QShowEvent* event) {
+void KParts__MainWindow_SuperShowEvent(KParts__MainWindow* self, QShowEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_ShowEvent_IsBase(true);
@@ -1494,7 +1494,7 @@ void KParts__MainWindow_HideEvent(KParts__MainWindow* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseHideEvent(KParts__MainWindow* self, QHideEvent* event) {
+void KParts__MainWindow_SuperHideEvent(KParts__MainWindow* self, QHideEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_HideEvent_IsBase(true);
@@ -1524,7 +1524,7 @@ bool KParts__MainWindow_NativeEvent(KParts__MainWindow* self, const libqt_string
 }
 
 // Base class handler implementation
-bool KParts__MainWindow_QBaseNativeEvent(KParts__MainWindow* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KParts__MainWindow_SuperNativeEvent(KParts__MainWindow* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
@@ -1554,7 +1554,7 @@ void KParts__MainWindow_ChangeEvent(KParts__MainWindow* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseChangeEvent(KParts__MainWindow* self, QEvent* param1) {
+void KParts__MainWindow_SuperChangeEvent(KParts__MainWindow* self, QEvent* param1) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_ChangeEvent_IsBase(true);
@@ -1583,7 +1583,7 @@ int KParts__MainWindow_Metric(const KParts__MainWindow* self, int param1) {
 }
 
 // Base class handler implementation
-int KParts__MainWindow_QBaseMetric(const KParts__MainWindow* self, int param1) {
+int KParts__MainWindow_SuperMetric(const KParts__MainWindow* self, int param1) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_Metric_IsBase(true);
@@ -1612,7 +1612,7 @@ void KParts__MainWindow_InitPainter(const KParts__MainWindow* self, QPainter* pa
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseInitPainter(const KParts__MainWindow* self, QPainter* painter) {
+void KParts__MainWindow_SuperInitPainter(const KParts__MainWindow* self, QPainter* painter) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_InitPainter_IsBase(true);
@@ -1641,7 +1641,7 @@ QPaintDevice* KParts__MainWindow_Redirected(const KParts__MainWindow* self, QPoi
 }
 
 // Base class handler implementation
-QPaintDevice* KParts__MainWindow_QBaseRedirected(const KParts__MainWindow* self, QPoint* offset) {
+QPaintDevice* KParts__MainWindow_SuperRedirected(const KParts__MainWindow* self, QPoint* offset) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_Redirected_IsBase(true);
@@ -1670,7 +1670,7 @@ QPainter* KParts__MainWindow_SharedPainter(const KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-QPainter* KParts__MainWindow_QBaseSharedPainter(const KParts__MainWindow* self) {
+QPainter* KParts__MainWindow_SuperSharedPainter(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_SharedPainter_IsBase(true);
@@ -1699,7 +1699,7 @@ void KParts__MainWindow_InputMethodEvent(KParts__MainWindow* self, QInputMethodE
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseInputMethodEvent(KParts__MainWindow* self, QInputMethodEvent* param1) {
+void KParts__MainWindow_SuperInputMethodEvent(KParts__MainWindow* self, QInputMethodEvent* param1) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_InputMethodEvent_IsBase(true);
@@ -1728,7 +1728,7 @@ QVariant* KParts__MainWindow_InputMethodQuery(const KParts__MainWindow* self, in
 }
 
 // Base class handler implementation
-QVariant* KParts__MainWindow_QBaseInputMethodQuery(const KParts__MainWindow* self, int param1) {
+QVariant* KParts__MainWindow_SuperInputMethodQuery(const KParts__MainWindow* self, int param1) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_InputMethodQuery_IsBase(true);
@@ -1757,7 +1757,7 @@ bool KParts__MainWindow_FocusNextPrevChild(KParts__MainWindow* self, bool next) 
 }
 
 // Base class handler implementation
-bool KParts__MainWindow_QBaseFocusNextPrevChild(KParts__MainWindow* self, bool next) {
+bool KParts__MainWindow_SuperFocusNextPrevChild(KParts__MainWindow* self, bool next) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_FocusNextPrevChild_IsBase(true);
@@ -1786,7 +1786,7 @@ bool KParts__MainWindow_EventFilter(KParts__MainWindow* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool KParts__MainWindow_QBaseEventFilter(KParts__MainWindow* self, QObject* watched, QEvent* event) {
+bool KParts__MainWindow_SuperEventFilter(KParts__MainWindow* self, QObject* watched, QEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_EventFilter_IsBase(true);
@@ -1815,7 +1815,7 @@ void KParts__MainWindow_TimerEvent(KParts__MainWindow* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseTimerEvent(KParts__MainWindow* self, QTimerEvent* event) {
+void KParts__MainWindow_SuperTimerEvent(KParts__MainWindow* self, QTimerEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_TimerEvent_IsBase(true);
@@ -1844,7 +1844,7 @@ void KParts__MainWindow_ChildEvent(KParts__MainWindow* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseChildEvent(KParts__MainWindow* self, QChildEvent* event) {
+void KParts__MainWindow_SuperChildEvent(KParts__MainWindow* self, QChildEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_ChildEvent_IsBase(true);
@@ -1873,7 +1873,7 @@ void KParts__MainWindow_CustomEvent(KParts__MainWindow* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseCustomEvent(KParts__MainWindow* self, QEvent* event) {
+void KParts__MainWindow_SuperCustomEvent(KParts__MainWindow* self, QEvent* event) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_CustomEvent_IsBase(true);
@@ -1902,7 +1902,7 @@ void KParts__MainWindow_ConnectNotify(KParts__MainWindow* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseConnectNotify(KParts__MainWindow* self, const QMetaMethod* signal) {
+void KParts__MainWindow_SuperConnectNotify(KParts__MainWindow* self, const QMetaMethod* signal) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_ConnectNotify_IsBase(true);
@@ -1931,7 +1931,7 @@ void KParts__MainWindow_DisconnectNotify(KParts__MainWindow* self, const QMetaMe
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseDisconnectNotify(KParts__MainWindow* self, const QMetaMethod* signal) {
+void KParts__MainWindow_SuperDisconnectNotify(KParts__MainWindow* self, const QMetaMethod* signal) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_DisconnectNotify_IsBase(true);
@@ -1994,7 +1994,7 @@ libqt_list /* of libqt_string */ KParts__MainWindow_ContainerTags(const KParts__
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KParts__MainWindow_QBaseContainerTags(const KParts__MainWindow* self) {
+libqt_list /* of libqt_string */ KParts__MainWindow_SuperContainerTags(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_ContainerTags_IsBase(true);
@@ -2057,7 +2057,7 @@ QWidget* KParts__MainWindow_CreateContainer(KParts__MainWindow* self, QWidget* p
 }
 
 // Base class handler implementation
-QWidget* KParts__MainWindow_QBaseCreateContainer(KParts__MainWindow* self, QWidget* parent, int index, const QDomElement* element, QAction** containerAction) {
+QWidget* KParts__MainWindow_SuperCreateContainer(KParts__MainWindow* self, QWidget* parent, int index, const QDomElement* element, QAction** containerAction) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_CreateContainer_IsBase(true);
@@ -2086,7 +2086,7 @@ void KParts__MainWindow_RemoveContainer(KParts__MainWindow* self, QWidget* conta
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseRemoveContainer(KParts__MainWindow* self, QWidget* container, QWidget* parent, QDomElement* element, QAction* containerAction) {
+void KParts__MainWindow_SuperRemoveContainer(KParts__MainWindow* self, QWidget* container, QWidget* parent, QDomElement* element, QAction* containerAction) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_RemoveContainer_IsBase(true);
@@ -2149,7 +2149,7 @@ libqt_list /* of libqt_string */ KParts__MainWindow_CustomTags(const KParts__Mai
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KParts__MainWindow_QBaseCustomTags(const KParts__MainWindow* self) {
+libqt_list /* of libqt_string */ KParts__MainWindow_SuperCustomTags(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_CustomTags_IsBase(true);
@@ -2212,7 +2212,7 @@ QAction* KParts__MainWindow_CreateCustomElement(KParts__MainWindow* self, QWidge
 }
 
 // Base class handler implementation
-QAction* KParts__MainWindow_QBaseCreateCustomElement(KParts__MainWindow* self, QWidget* parent, int index, const QDomElement* element) {
+QAction* KParts__MainWindow_SuperCreateCustomElement(KParts__MainWindow* self, QWidget* parent, int index, const QDomElement* element) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_CreateCustomElement_IsBase(true);
@@ -2241,7 +2241,7 @@ void KParts__MainWindow_FinalizeGUI(KParts__MainWindow* self, KXMLGUIClient* cli
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseFinalizeGUI(KParts__MainWindow* self, KXMLGUIClient* client) {
+void KParts__MainWindow_SuperFinalizeGUI(KParts__MainWindow* self, KXMLGUIClient* client) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_FinalizeGUI_IsBase(true);
@@ -2270,7 +2270,7 @@ QAction* KParts__MainWindow_Action2(const KParts__MainWindow* self, const QDomEl
 }
 
 // Base class handler implementation
-QAction* KParts__MainWindow_QBaseAction2(const KParts__MainWindow* self, const QDomElement* element) {
+QAction* KParts__MainWindow_SuperAction2(const KParts__MainWindow* self, const QDomElement* element) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_Action2_IsBase(true);
@@ -2299,7 +2299,7 @@ KActionCollection* KParts__MainWindow_ActionCollection(const KParts__MainWindow*
 }
 
 // Base class handler implementation
-KActionCollection* KParts__MainWindow_QBaseActionCollection(const KParts__MainWindow* self) {
+KActionCollection* KParts__MainWindow_SuperActionCollection(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_ActionCollection_IsBase(true);
@@ -2344,7 +2344,7 @@ libqt_string KParts__MainWindow_ComponentName(const KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-libqt_string KParts__MainWindow_QBaseComponentName(const KParts__MainWindow* self) {
+libqt_string KParts__MainWindow_SuperComponentName(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_ComponentName_IsBase(true);
@@ -2389,7 +2389,7 @@ QDomDocument* KParts__MainWindow_DomDocument(const KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-QDomDocument* KParts__MainWindow_QBaseDomDocument(const KParts__MainWindow* self) {
+QDomDocument* KParts__MainWindow_SuperDomDocument(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_DomDocument_IsBase(true);
@@ -2434,7 +2434,7 @@ libqt_string KParts__MainWindow_XmlFile(const KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-libqt_string KParts__MainWindow_QBaseXmlFile(const KParts__MainWindow* self) {
+libqt_string KParts__MainWindow_SuperXmlFile(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_XmlFile_IsBase(true);
@@ -2495,7 +2495,7 @@ libqt_string KParts__MainWindow_LocalXMLFile(const KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-libqt_string KParts__MainWindow_QBaseLocalXMLFile(const KParts__MainWindow* self) {
+libqt_string KParts__MainWindow_SuperLocalXMLFile(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_LocalXMLFile_IsBase(true);
@@ -2542,7 +2542,7 @@ void KParts__MainWindow_SetComponentName(KParts__MainWindow* self, const libqt_s
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseSetComponentName(KParts__MainWindow* self, const libqt_string componentName, const libqt_string componentDisplayName) {
+void KParts__MainWindow_SuperSetComponentName(KParts__MainWindow* self, const libqt_string componentName, const libqt_string componentDisplayName) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString componentName_QString = QString::fromUtf8(componentName.data, componentName.len);
     QString componentDisplayName_QString = QString::fromUtf8(componentDisplayName.data, componentDisplayName.len);
@@ -2574,7 +2574,7 @@ void KParts__MainWindow_SetXMLFile(KParts__MainWindow* self, const libqt_string 
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseSetXMLFile(KParts__MainWindow* self, const libqt_string file, bool merge, bool setXMLDoc) {
+void KParts__MainWindow_SuperSetXMLFile(KParts__MainWindow* self, const libqt_string file, bool merge, bool setXMLDoc) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
@@ -2605,7 +2605,7 @@ void KParts__MainWindow_SetLocalXMLFile(KParts__MainWindow* self, const libqt_st
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseSetLocalXMLFile(KParts__MainWindow* self, const libqt_string file) {
+void KParts__MainWindow_SuperSetLocalXMLFile(KParts__MainWindow* self, const libqt_string file) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
@@ -2636,7 +2636,7 @@ void KParts__MainWindow_SetXML(KParts__MainWindow* self, const libqt_string docu
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseSetXML(KParts__MainWindow* self, const libqt_string document, bool merge) {
+void KParts__MainWindow_SuperSetXML(KParts__MainWindow* self, const libqt_string document, bool merge) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString document_QString = QString::fromUtf8(document.data, document.len);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
@@ -2666,7 +2666,7 @@ void KParts__MainWindow_SetDOMDocument(KParts__MainWindow* self, const QDomDocum
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseSetDOMDocument(KParts__MainWindow* self, const QDomDocument* document, bool merge) {
+void KParts__MainWindow_SuperSetDOMDocument(KParts__MainWindow* self, const QDomDocument* document, bool merge) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_SetDOMDocument_IsBase(true);
@@ -2696,7 +2696,7 @@ void KParts__MainWindow_StateChanged(KParts__MainWindow* self, const libqt_strin
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseStateChanged(KParts__MainWindow* self, const libqt_string newstate, int reverse) {
+void KParts__MainWindow_SuperStateChanged(KParts__MainWindow* self, const libqt_string newstate, int reverse) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     QString newstate_QString = QString::fromUtf8(newstate.data, newstate.len);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
@@ -2726,7 +2726,7 @@ void KParts__MainWindow_CreateGUI(KParts__MainWindow* self, KParts__Part* part) 
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseCreateGUI(KParts__MainWindow* self, KParts__Part* part) {
+void KParts__MainWindow_SuperCreateGUI(KParts__MainWindow* self, KParts__Part* part) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_CreateGUI_IsBase(true);
@@ -2755,7 +2755,7 @@ void KParts__MainWindow_SetWindowTitleHandling(KParts__MainWindow* self, bool en
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseSetWindowTitleHandling(KParts__MainWindow* self, bool enabled) {
+void KParts__MainWindow_SuperSetWindowTitleHandling(KParts__MainWindow* self, bool enabled) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_SetWindowTitleHandling_IsBase(true);
@@ -2784,7 +2784,7 @@ void KParts__MainWindow_CheckAmbiguousShortcuts(KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseCheckAmbiguousShortcuts(KParts__MainWindow* self) {
+void KParts__MainWindow_SuperCheckAmbiguousShortcuts(KParts__MainWindow* self) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_CheckAmbiguousShortcuts_IsBase(true);
@@ -2813,7 +2813,7 @@ void KParts__MainWindow_SavePropertiesInternal(KParts__MainWindow* self, KConfig
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseSavePropertiesInternal(KParts__MainWindow* self, KConfig* param1, int param2) {
+void KParts__MainWindow_SuperSavePropertiesInternal(KParts__MainWindow* self, KConfig* param1, int param2) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_SavePropertiesInternal_IsBase(true);
@@ -2842,7 +2842,7 @@ bool KParts__MainWindow_ReadPropertiesInternal(KParts__MainWindow* self, KConfig
 }
 
 // Base class handler implementation
-bool KParts__MainWindow_QBaseReadPropertiesInternal(KParts__MainWindow* self, KConfig* param1, int param2) {
+bool KParts__MainWindow_SuperReadPropertiesInternal(KParts__MainWindow* self, KConfig* param1, int param2) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_ReadPropertiesInternal_IsBase(true);
@@ -2871,7 +2871,7 @@ bool KParts__MainWindow_SettingsDirty(const KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-bool KParts__MainWindow_QBaseSettingsDirty(const KParts__MainWindow* self) {
+bool KParts__MainWindow_SuperSettingsDirty(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_SettingsDirty_IsBase(true);
@@ -2900,7 +2900,7 @@ void KParts__MainWindow_SaveAutoSaveSettings(KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseSaveAutoSaveSettings(KParts__MainWindow* self) {
+void KParts__MainWindow_SuperSaveAutoSaveSettings(KParts__MainWindow* self) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_SaveAutoSaveSettings_IsBase(true);
@@ -2929,7 +2929,7 @@ void KParts__MainWindow_UpdateMicroFocus(KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseUpdateMicroFocus(KParts__MainWindow* self) {
+void KParts__MainWindow_SuperUpdateMicroFocus(KParts__MainWindow* self) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_UpdateMicroFocus_IsBase(true);
@@ -2958,7 +2958,7 @@ void KParts__MainWindow_Create(KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseCreate(KParts__MainWindow* self) {
+void KParts__MainWindow_SuperCreate(KParts__MainWindow* self) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_Create_IsBase(true);
@@ -2987,7 +2987,7 @@ void KParts__MainWindow_Destroy(KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseDestroy(KParts__MainWindow* self) {
+void KParts__MainWindow_SuperDestroy(KParts__MainWindow* self) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_Destroy_IsBase(true);
@@ -3016,7 +3016,7 @@ bool KParts__MainWindow_FocusNextChild(KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-bool KParts__MainWindow_QBaseFocusNextChild(KParts__MainWindow* self) {
+bool KParts__MainWindow_SuperFocusNextChild(KParts__MainWindow* self) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_FocusNextChild_IsBase(true);
@@ -3045,7 +3045,7 @@ bool KParts__MainWindow_FocusPreviousChild(KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-bool KParts__MainWindow_QBaseFocusPreviousChild(KParts__MainWindow* self) {
+bool KParts__MainWindow_SuperFocusPreviousChild(KParts__MainWindow* self) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_FocusPreviousChild_IsBase(true);
@@ -3074,7 +3074,7 @@ QObject* KParts__MainWindow_Sender(const KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-QObject* KParts__MainWindow_QBaseSender(const KParts__MainWindow* self) {
+QObject* KParts__MainWindow_SuperSender(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_Sender_IsBase(true);
@@ -3103,7 +3103,7 @@ int KParts__MainWindow_SenderSignalIndex(const KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-int KParts__MainWindow_QBaseSenderSignalIndex(const KParts__MainWindow* self) {
+int KParts__MainWindow_SuperSenderSignalIndex(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_SenderSignalIndex_IsBase(true);
@@ -3132,7 +3132,7 @@ int KParts__MainWindow_Receivers(const KParts__MainWindow* self, const char* sig
 }
 
 // Base class handler implementation
-int KParts__MainWindow_QBaseReceivers(const KParts__MainWindow* self, const char* signal) {
+int KParts__MainWindow_SuperReceivers(const KParts__MainWindow* self, const char* signal) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_Receivers_IsBase(true);
@@ -3161,7 +3161,7 @@ bool KParts__MainWindow_IsSignalConnected(const KParts__MainWindow* self, const 
 }
 
 // Base class handler implementation
-bool KParts__MainWindow_QBaseIsSignalConnected(const KParts__MainWindow* self, const QMetaMethod* signal) {
+bool KParts__MainWindow_SuperIsSignalConnected(const KParts__MainWindow* self, const QMetaMethod* signal) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_IsSignalConnected_IsBase(true);
@@ -3190,7 +3190,7 @@ double KParts__MainWindow_GetDecodedMetricF(const KParts__MainWindow* self, int 
 }
 
 // Base class handler implementation
-double KParts__MainWindow_QBaseGetDecodedMetricF(const KParts__MainWindow* self, int metricA, int metricB) {
+double KParts__MainWindow_SuperGetDecodedMetricF(const KParts__MainWindow* self, int metricA, int metricB) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_GetDecodedMetricF_IsBase(true);
@@ -3235,7 +3235,7 @@ libqt_string KParts__MainWindow_StandardsXmlFileLocation(KParts__MainWindow* sel
 }
 
 // Base class handler implementation
-libqt_string KParts__MainWindow_QBaseStandardsXmlFileLocation(KParts__MainWindow* self) {
+libqt_string KParts__MainWindow_SuperStandardsXmlFileLocation(KParts__MainWindow* self) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_StandardsXmlFileLocation_IsBase(true);
@@ -3280,7 +3280,7 @@ void KParts__MainWindow_LoadStandardsXmlFile(KParts__MainWindow* self) {
 }
 
 // Base class handler implementation
-void KParts__MainWindow_QBaseLoadStandardsXmlFile(KParts__MainWindow* self) {
+void KParts__MainWindow_SuperLoadStandardsXmlFile(KParts__MainWindow* self) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_LoadStandardsXmlFile_IsBase(true);

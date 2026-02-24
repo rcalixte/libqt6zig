@@ -121,6 +121,10 @@ pub const qcompleter = struct {
         qtc.QCompleter_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// Base class method implementation
@@ -129,8 +133,8 @@ pub const qcompleter = struct {
     ///
     /// ` self: QtC.QCompleter `
     ///
-    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QCompleter_QBaseMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QCompleter_SuperMetaObject(@ptrCast(self));
     }
 
     /// ## Parameter(s):
@@ -156,6 +160,10 @@ pub const qcompleter = struct {
         qtc.QCompleter_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -164,9 +172,9 @@ pub const qcompleter = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QCompleter_QBaseMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QCompleter_SuperMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -195,6 +203,10 @@ pub const qcompleter = struct {
         qtc.QCompleter_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
     /// Base class method implementation
     ///
     /// ## Parameter(s):
@@ -207,8 +219,8 @@ pub const qcompleter = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QCompleter_QBaseMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QCompleter_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -630,6 +642,10 @@ pub const qcompleter = struct {
         qtc.QCompleter_OnPathFromIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperPathFromIndex` instead
+    ///
+    pub const QBasePathFromIndex = SuperPathFromIndex;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#pathFromIndex)
     ///
     /// Base class method implementation
@@ -642,8 +658,8 @@ pub const qcompleter = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBasePathFromIndex(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QCompleter_QBasePathFromIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SuperPathFromIndex(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QCompleter_SuperPathFromIndex(@ptrCast(self), @ptrCast(index));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcompleter.PathFromIndex: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -699,6 +715,10 @@ pub const qcompleter = struct {
         qtc.QCompleter_OnSplitPath(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSplitPath` instead
+    ///
+    pub const QBaseSplitPath = SuperSplitPath;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#splitPath)
     ///
     /// Base class method implementation
@@ -711,12 +731,12 @@ pub const qcompleter = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSplitPath(self: ?*anyopaque, path: []const u8, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn SuperSplitPath(self: ?*anyopaque, path: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QCompleter_QBaseSplitPath(@ptrCast(self), path_str);
+        const _arr: qtc.libqt_list = qtc.QCompleter_SuperSplitPath(@ptrCast(self), path_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -762,6 +782,10 @@ pub const qcompleter = struct {
         qtc.QCompleter_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#eventFilter)
     ///
     /// Base class method implementation
@@ -774,8 +798,8 @@ pub const qcompleter = struct {
     ///
     /// ` e: QtC.QEvent `
     ///
-    pub fn QBaseEventFilter(self: ?*anyopaque, o: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QCompleter_QBaseEventFilter(@ptrCast(self), @ptrCast(o), @ptrCast(e));
+    pub fn SuperEventFilter(self: ?*anyopaque, o: ?*anyopaque, e: ?*anyopaque) bool {
+        return qtc.QCompleter_SuperEventFilter(@ptrCast(self), @ptrCast(o), @ptrCast(e));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#event)
@@ -804,6 +828,10 @@ pub const qcompleter = struct {
         qtc.QCompleter_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#event)
     ///
     /// Base class method implementation
@@ -814,8 +842,8 @@ pub const qcompleter = struct {
     ///
     /// ` param1: QtC.QEvent `
     ///
-    pub fn QBaseEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QCompleter_QBaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
+        return qtc.QCompleter_SuperEvent(@ptrCast(self), @ptrCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#activated)
@@ -1682,6 +1710,10 @@ pub const qcompleter = struct {
         qtc.QCompleter_TimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
@@ -1694,8 +1726,8 @@ pub const qcompleter = struct {
     ///
     /// ` event: QtC.QTimerEvent `
     ///
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QCompleter_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QCompleter_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1730,6 +1762,10 @@ pub const qcompleter = struct {
         qtc.QCompleter_ChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
@@ -1742,8 +1778,8 @@ pub const qcompleter = struct {
     ///
     /// ` event: QtC.QChildEvent `
     ///
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QCompleter_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QCompleter_SuperChildEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1778,6 +1814,10 @@ pub const qcompleter = struct {
         qtc.QCompleter_CustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
@@ -1790,8 +1830,8 @@ pub const qcompleter = struct {
     ///
     /// ` event: QtC.QEvent `
     ///
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QCompleter_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QCompleter_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -1826,6 +1866,10 @@ pub const qcompleter = struct {
         qtc.QCompleter_ConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1838,8 +1882,8 @@ pub const qcompleter = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QCompleter_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QCompleter_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1874,6 +1918,10 @@ pub const qcompleter = struct {
         qtc.QCompleter_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
@@ -1886,8 +1934,8 @@ pub const qcompleter = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QCompleter_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QCompleter_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -1920,6 +1968,10 @@ pub const qcompleter = struct {
         return qtc.QCompleter_Sender(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
@@ -1930,8 +1982,8 @@ pub const qcompleter = struct {
     ///
     /// ` self: QtC.QCompleter `
     ///
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QCompleter_QBaseSender(@ptrCast(self));
+    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QCompleter_SuperSender(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -1964,6 +2016,10 @@ pub const qcompleter = struct {
         return qtc.QCompleter_SenderSignalIndex(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
@@ -1974,8 +2030,8 @@ pub const qcompleter = struct {
     ///
     /// ` self: QtC.QCompleter `
     ///
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QCompleter_QBaseSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QCompleter_SuperSenderSignalIndex(@ptrCast(self));
     }
 
     /// Inherited from QObject
@@ -2011,6 +2067,10 @@ pub const qcompleter = struct {
         return qtc.QCompleter_Receivers(@ptrCast(self), signal_Cstring);
     }
 
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
@@ -2023,9 +2083,9 @@ pub const qcompleter = struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QCompleter_QBaseReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QCompleter_SuperReceivers(@ptrCast(self), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2060,6 +2120,10 @@ pub const qcompleter = struct {
         return qtc.QCompleter_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
@@ -2072,8 +2136,8 @@ pub const qcompleter = struct {
     ///
     /// ` signal: QtC.QMetaMethod `
     ///
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QCompleter_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QCompleter_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
     }
 
     /// Inherited from QObject
@@ -2107,6 +2171,9 @@ pub const qcompleter = struct {
     pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompleter.html#dtor.QCompleter)
     ///
@@ -2116,7 +2183,7 @@ pub const qcompleter = struct {
     ///
     /// ` self: QtC.QCompleter `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QCompleter_Delete(@ptrCast(self));
     }
 };

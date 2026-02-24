@@ -1118,31 +1118,31 @@ class VirtualQsciLexerCMake final : public QsciLexerCMake {
 
     // Friend functions
     friend bool QsciLexerCMake_ReadProperties(QsciLexerCMake* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerCMake_QBaseReadProperties(QsciLexerCMake* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerCMake_SuperReadProperties(QsciLexerCMake* self, QSettings* qs, const libqt_string prefix);
     friend bool QsciLexerCMake_WriteProperties(const QsciLexerCMake* self, QSettings* qs, const libqt_string prefix);
-    friend bool QsciLexerCMake_QBaseWriteProperties(const QsciLexerCMake* self, QSettings* qs, const libqt_string prefix);
+    friend bool QsciLexerCMake_SuperWriteProperties(const QsciLexerCMake* self, QSettings* qs, const libqt_string prefix);
     friend void QsciLexerCMake_TimerEvent(QsciLexerCMake* self, QTimerEvent* event);
-    friend void QsciLexerCMake_QBaseTimerEvent(QsciLexerCMake* self, QTimerEvent* event);
+    friend void QsciLexerCMake_SuperTimerEvent(QsciLexerCMake* self, QTimerEvent* event);
     friend void QsciLexerCMake_ChildEvent(QsciLexerCMake* self, QChildEvent* event);
-    friend void QsciLexerCMake_QBaseChildEvent(QsciLexerCMake* self, QChildEvent* event);
+    friend void QsciLexerCMake_SuperChildEvent(QsciLexerCMake* self, QChildEvent* event);
     friend void QsciLexerCMake_CustomEvent(QsciLexerCMake* self, QEvent* event);
-    friend void QsciLexerCMake_QBaseCustomEvent(QsciLexerCMake* self, QEvent* event);
+    friend void QsciLexerCMake_SuperCustomEvent(QsciLexerCMake* self, QEvent* event);
     friend void QsciLexerCMake_ConnectNotify(QsciLexerCMake* self, const QMetaMethod* signal);
-    friend void QsciLexerCMake_QBaseConnectNotify(QsciLexerCMake* self, const QMetaMethod* signal);
+    friend void QsciLexerCMake_SuperConnectNotify(QsciLexerCMake* self, const QMetaMethod* signal);
     friend void QsciLexerCMake_DisconnectNotify(QsciLexerCMake* self, const QMetaMethod* signal);
-    friend void QsciLexerCMake_QBaseDisconnectNotify(QsciLexerCMake* self, const QMetaMethod* signal);
+    friend void QsciLexerCMake_SuperDisconnectNotify(QsciLexerCMake* self, const QMetaMethod* signal);
     friend libqt_string QsciLexerCMake_TextAsBytes(const QsciLexerCMake* self, const libqt_string text);
-    friend libqt_string QsciLexerCMake_QBaseTextAsBytes(const QsciLexerCMake* self, const libqt_string text);
+    friend libqt_string QsciLexerCMake_SuperTextAsBytes(const QsciLexerCMake* self, const libqt_string text);
     friend libqt_string QsciLexerCMake_BytesAsText(const QsciLexerCMake* self, const char* bytes, int size);
-    friend libqt_string QsciLexerCMake_QBaseBytesAsText(const QsciLexerCMake* self, const char* bytes, int size);
+    friend libqt_string QsciLexerCMake_SuperBytesAsText(const QsciLexerCMake* self, const char* bytes, int size);
     friend QObject* QsciLexerCMake_Sender(const QsciLexerCMake* self);
-    friend QObject* QsciLexerCMake_QBaseSender(const QsciLexerCMake* self);
+    friend QObject* QsciLexerCMake_SuperSender(const QsciLexerCMake* self);
     friend int QsciLexerCMake_SenderSignalIndex(const QsciLexerCMake* self);
-    friend int QsciLexerCMake_QBaseSenderSignalIndex(const QsciLexerCMake* self);
+    friend int QsciLexerCMake_SuperSenderSignalIndex(const QsciLexerCMake* self);
     friend int QsciLexerCMake_Receivers(const QsciLexerCMake* self, const char* signal);
-    friend int QsciLexerCMake_QBaseReceivers(const QsciLexerCMake* self, const char* signal);
+    friend int QsciLexerCMake_SuperReceivers(const QsciLexerCMake* self, const char* signal);
     friend bool QsciLexerCMake_IsSignalConnected(const QsciLexerCMake* self, const QMetaMethod* signal);
-    friend bool QsciLexerCMake_QBaseIsSignalConnected(const QsciLexerCMake* self, const QMetaMethod* signal);
+    friend bool QsciLexerCMake_SuperIsSignalConnected(const QsciLexerCMake* self, const QMetaMethod* signal);
 };
 
 #endif

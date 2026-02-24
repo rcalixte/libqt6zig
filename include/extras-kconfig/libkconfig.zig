@@ -177,6 +177,10 @@ pub const kconfig = struct {
         qtc.KConfig_OnSync(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperSync` instead
+    ///
+    pub const QBaseSync = SuperSync;
+
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#sync)
     ///
     /// Base class method implementation
@@ -185,8 +189,8 @@ pub const kconfig = struct {
     ///
     /// ` self: QtC.KConfig `
     ///
-    pub fn QBaseSync(self: ?*anyopaque) bool {
-        return qtc.KConfig_QBaseSync(@ptrCast(self));
+    pub fn SuperSync(self: ?*anyopaque) bool {
+        return qtc.KConfig_SuperSync(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#isDirty)
@@ -223,6 +227,10 @@ pub const kconfig = struct {
         qtc.KConfig_OnMarkAsClean(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperMarkAsClean` instead
+    ///
+    pub const QBaseMarkAsClean = SuperMarkAsClean;
+
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#markAsClean)
     ///
     /// Base class method implementation
@@ -231,8 +239,8 @@ pub const kconfig = struct {
     ///
     /// ` self: QtC.KConfig `
     ///
-    pub fn QBaseMarkAsClean(self: ?*anyopaque) void {
-        qtc.KConfig_QBaseMarkAsClean(@ptrCast(self));
+    pub fn SuperMarkAsClean(self: ?*anyopaque) void {
+        qtc.KConfig_SuperMarkAsClean(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#accessMode)
@@ -263,6 +271,10 @@ pub const kconfig = struct {
         qtc.KConfig_OnAccessMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperAccessMode` instead
+    ///
+    pub const QBaseAccessMode = SuperAccessMode;
+
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#accessMode)
     ///
     /// Base class method implementation
@@ -275,8 +287,8 @@ pub const kconfig = struct {
     ///
     /// ` kconfigbase_enums.AccessMode `
     ///
-    pub fn QBaseAccessMode(self: ?*anyopaque) i32 {
-        return qtc.KConfig_QBaseAccessMode(@ptrCast(self));
+    pub fn SuperAccessMode(self: ?*anyopaque) i32 {
+        return qtc.KConfig_SuperAccessMode(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#isConfigWritable)
@@ -470,6 +482,10 @@ pub const kconfig = struct {
         qtc.KConfig_OnIsImmutable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsImmutable` instead
+    ///
+    pub const QBaseIsImmutable = SuperIsImmutable;
+
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#isImmutable)
     ///
     /// Base class method implementation
@@ -478,8 +494,8 @@ pub const kconfig = struct {
     ///
     /// ` self: QtC.KConfig `
     ///
-    pub fn QBaseIsImmutable(self: ?*anyopaque) bool {
-        return qtc.KConfig_QBaseIsImmutable(@ptrCast(self));
+    pub fn SuperIsImmutable(self: ?*anyopaque) bool {
+        return qtc.KConfig_SuperIsImmutable(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupList)
@@ -525,6 +541,10 @@ pub const kconfig = struct {
         qtc.KConfig_OnGroupList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGroupList` instead
+    ///
+    pub const QBaseGroupList = SuperGroupList;
+
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupList)
     ///
     /// Base class method implementation
@@ -535,8 +555,8 @@ pub const kconfig = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseGroupList(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KConfig_QBaseGroupList(@ptrCast(self));
+    pub fn SuperGroupList(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KConfig_SuperGroupList(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -648,6 +668,10 @@ pub const kconfig = struct {
         qtc.KConfig_OnHasGroupImpl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperHasGroupImpl` instead
+    ///
+    pub const QBaseHasGroupImpl = SuperHasGroupImpl;
+
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#hasGroupImpl)
     ///
     /// Base class method implementation
@@ -658,12 +682,12 @@ pub const kconfig = struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn QBaseHasGroupImpl(self: ?*anyopaque, groupName: []const u8) bool {
+    pub fn SuperHasGroupImpl(self: ?*anyopaque, groupName: []const u8) bool {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
-        return qtc.KConfig_QBaseHasGroupImpl(@ptrCast(self), groupName_str);
+        return qtc.KConfig_SuperHasGroupImpl(@ptrCast(self), groupName_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
@@ -696,6 +720,10 @@ pub const kconfig = struct {
         qtc.KConfig_OnGroupImpl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGroupImpl` instead
+    ///
+    pub const QBaseGroupImpl = SuperGroupImpl;
+
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
     ///
     /// Base class method implementation
@@ -706,12 +734,12 @@ pub const kconfig = struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn QBaseGroupImpl(self: ?*anyopaque, groupName: []const u8) QtC.KConfigGroup {
+    pub fn SuperGroupImpl(self: ?*anyopaque, groupName: []const u8) QtC.KConfigGroup {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
-        return qtc.KConfig_QBaseGroupImpl(@ptrCast(self), groupName_str);
+        return qtc.KConfig_SuperGroupImpl(@ptrCast(self), groupName_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
@@ -744,6 +772,10 @@ pub const kconfig = struct {
         qtc.KConfig_OnGroupImpl2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperGroupImpl2` instead
+    ///
+    pub const QBaseGroupImpl2 = SuperGroupImpl2;
+
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
     ///
     /// Base class method implementation
@@ -754,12 +786,12 @@ pub const kconfig = struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn QBaseGroupImpl2(self: ?*anyopaque, groupName: []const u8) QtC.KConfigGroup {
+    pub fn SuperGroupImpl2(self: ?*anyopaque, groupName: []const u8) QtC.KConfigGroup {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
-        return qtc.KConfig_QBaseGroupImpl2(@ptrCast(self), groupName_str);
+        return qtc.KConfig_SuperGroupImpl2(@ptrCast(self), groupName_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#deleteGroupImpl)
@@ -794,6 +826,10 @@ pub const kconfig = struct {
         qtc.KConfig_OnDeleteGroupImpl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperDeleteGroupImpl` instead
+    ///
+    pub const QBaseDeleteGroupImpl = SuperDeleteGroupImpl;
+
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#deleteGroupImpl)
     ///
     /// Base class method implementation
@@ -806,12 +842,12 @@ pub const kconfig = struct {
     ///
     /// ` flags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn QBaseDeleteGroupImpl(self: ?*anyopaque, groupName: []const u8, flags: i32) void {
+    pub fn SuperDeleteGroupImpl(self: ?*anyopaque, groupName: []const u8, flags: i32) void {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
-        qtc.KConfig_QBaseDeleteGroupImpl(@ptrCast(self), groupName_str, @bitCast(flags));
+        qtc.KConfig_SuperDeleteGroupImpl(@ptrCast(self), groupName_str, @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#isGroupImmutableImpl)
@@ -844,6 +880,10 @@ pub const kconfig = struct {
         qtc.KConfig_OnIsGroupImmutableImpl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsGroupImmutableImpl` instead
+    ///
+    pub const QBaseIsGroupImmutableImpl = SuperIsGroupImmutableImpl;
+
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#isGroupImmutableImpl)
     ///
     /// Base class method implementation
@@ -854,12 +894,12 @@ pub const kconfig = struct {
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn QBaseIsGroupImmutableImpl(self: ?*anyopaque, groupName: []const u8) bool {
+    pub fn SuperIsGroupImmutableImpl(self: ?*anyopaque, groupName: []const u8) bool {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
-        return qtc.KConfig_QBaseIsGroupImmutableImpl(@ptrCast(self), groupName_str);
+        return qtc.KConfig_SuperIsGroupImmutableImpl(@ptrCast(self), groupName_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#virtual_hook)
@@ -890,6 +930,10 @@ pub const kconfig = struct {
         qtc.KConfig_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperVirtualHook` instead
+    ///
+    pub const QBaseVirtualHook = SuperVirtualHook;
+
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#virtual_hook)
     ///
     /// Base class method implementation
@@ -902,8 +946,8 @@ pub const kconfig = struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KConfig_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
+    pub fn SuperVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
+        qtc.KConfig_SuperVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#copyTo)
@@ -1076,6 +1120,10 @@ pub const kconfig = struct {
         qtc.KConfigBase_DeleteGroup2(@ptrCast(self), group_str, @bitCast(flags));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#dtor.KConfig)
     ///
     /// Delete this object from C++ memory.
@@ -1084,7 +1132,7 @@ pub const kconfig = struct {
     ///
     /// ` self: QtC.KConfig `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KConfig_Delete(@ptrCast(self));
     }
 };

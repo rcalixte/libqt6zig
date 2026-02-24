@@ -145,7 +145,7 @@ int QLibrary_LoadHints(const QLibrary* self) {
 }
 
 // Base class handler implementation
-QMetaObject* QLibrary_QBaseMetaObject(const QLibrary* self) {
+QMetaObject* QLibrary_SuperMetaObject(const QLibrary* self) {
     auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
     if (vqlibrary && vqlibrary->isVirtualQLibrary) {
         vqlibrary->setQLibrary_MetaObject_IsBase(true);
@@ -164,7 +164,7 @@ void QLibrary_OnMetaObject(const QLibrary* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QLibrary_QBaseMetacast(QLibrary* self, const char* param1) {
+void* QLibrary_SuperMetacast(QLibrary* self, const char* param1) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
     if (vqlibrary && vqlibrary->isVirtualQLibrary) {
         vqlibrary->setQLibrary_Metacast_IsBase(true);
@@ -183,7 +183,7 @@ void QLibrary_OnMetacast(QLibrary* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QLibrary_QBaseMetacall(QLibrary* self, int param1, int param2, void** param3) {
+int QLibrary_SuperMetacall(QLibrary* self, int param1, int param2, void** param3) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
     if (vqlibrary && vqlibrary->isVirtualQLibrary) {
         vqlibrary->setQLibrary_Metacall_IsBase(true);
@@ -212,7 +212,7 @@ bool QLibrary_Event(QLibrary* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QLibrary_QBaseEvent(QLibrary* self, QEvent* event) {
+bool QLibrary_SuperEvent(QLibrary* self, QEvent* event) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
     if (vqlibrary && vqlibrary->isVirtualQLibrary) {
         vqlibrary->setQLibrary_Event_IsBase(true);
@@ -241,7 +241,7 @@ bool QLibrary_EventFilter(QLibrary* self, QObject* watched, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QLibrary_QBaseEventFilter(QLibrary* self, QObject* watched, QEvent* event) {
+bool QLibrary_SuperEventFilter(QLibrary* self, QObject* watched, QEvent* event) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
     if (vqlibrary && vqlibrary->isVirtualQLibrary) {
         vqlibrary->setQLibrary_EventFilter_IsBase(true);
@@ -270,7 +270,7 @@ void QLibrary_TimerEvent(QLibrary* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QLibrary_QBaseTimerEvent(QLibrary* self, QTimerEvent* event) {
+void QLibrary_SuperTimerEvent(QLibrary* self, QTimerEvent* event) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
     if (vqlibrary && vqlibrary->isVirtualQLibrary) {
         vqlibrary->setQLibrary_TimerEvent_IsBase(true);
@@ -299,7 +299,7 @@ void QLibrary_ChildEvent(QLibrary* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QLibrary_QBaseChildEvent(QLibrary* self, QChildEvent* event) {
+void QLibrary_SuperChildEvent(QLibrary* self, QChildEvent* event) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
     if (vqlibrary && vqlibrary->isVirtualQLibrary) {
         vqlibrary->setQLibrary_ChildEvent_IsBase(true);
@@ -328,7 +328,7 @@ void QLibrary_CustomEvent(QLibrary* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QLibrary_QBaseCustomEvent(QLibrary* self, QEvent* event) {
+void QLibrary_SuperCustomEvent(QLibrary* self, QEvent* event) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
     if (vqlibrary && vqlibrary->isVirtualQLibrary) {
         vqlibrary->setQLibrary_CustomEvent_IsBase(true);
@@ -357,7 +357,7 @@ void QLibrary_ConnectNotify(QLibrary* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QLibrary_QBaseConnectNotify(QLibrary* self, const QMetaMethod* signal) {
+void QLibrary_SuperConnectNotify(QLibrary* self, const QMetaMethod* signal) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
     if (vqlibrary && vqlibrary->isVirtualQLibrary) {
         vqlibrary->setQLibrary_ConnectNotify_IsBase(true);
@@ -386,7 +386,7 @@ void QLibrary_DisconnectNotify(QLibrary* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QLibrary_QBaseDisconnectNotify(QLibrary* self, const QMetaMethod* signal) {
+void QLibrary_SuperDisconnectNotify(QLibrary* self, const QMetaMethod* signal) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
     if (vqlibrary && vqlibrary->isVirtualQLibrary) {
         vqlibrary->setQLibrary_DisconnectNotify_IsBase(true);
@@ -415,7 +415,7 @@ QObject* QLibrary_Sender(const QLibrary* self) {
 }
 
 // Base class handler implementation
-QObject* QLibrary_QBaseSender(const QLibrary* self) {
+QObject* QLibrary_SuperSender(const QLibrary* self) {
     auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
     if (vqlibrary && vqlibrary->isVirtualQLibrary) {
         vqlibrary->setQLibrary_Sender_IsBase(true);
@@ -444,7 +444,7 @@ int QLibrary_SenderSignalIndex(const QLibrary* self) {
 }
 
 // Base class handler implementation
-int QLibrary_QBaseSenderSignalIndex(const QLibrary* self) {
+int QLibrary_SuperSenderSignalIndex(const QLibrary* self) {
     auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
     if (vqlibrary && vqlibrary->isVirtualQLibrary) {
         vqlibrary->setQLibrary_SenderSignalIndex_IsBase(true);
@@ -473,7 +473,7 @@ int QLibrary_Receivers(const QLibrary* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QLibrary_QBaseReceivers(const QLibrary* self, const char* signal) {
+int QLibrary_SuperReceivers(const QLibrary* self, const char* signal) {
     auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
     if (vqlibrary && vqlibrary->isVirtualQLibrary) {
         vqlibrary->setQLibrary_Receivers_IsBase(true);
@@ -502,7 +502,7 @@ bool QLibrary_IsSignalConnected(const QLibrary* self, const QMetaMethod* signal)
 }
 
 // Base class handler implementation
-bool QLibrary_QBaseIsSignalConnected(const QLibrary* self, const QMetaMethod* signal) {
+bool QLibrary_SuperIsSignalConnected(const QLibrary* self, const QMetaMethod* signal) {
     auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
     if (vqlibrary && vqlibrary->isVirtualQLibrary) {
         vqlibrary->setQLibrary_IsSignalConnected_IsBase(true);

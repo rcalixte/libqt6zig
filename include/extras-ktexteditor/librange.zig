@@ -438,13 +438,17 @@ pub const ktexteditor__range = struct {
         return qtc.KTextEditor__Range_Encompass(@ptrCast(self), @ptrCast(range));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KTextEditor__Range `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KTextEditor__Range_Delete(@ptrCast(self));
     }
 };

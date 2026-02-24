@@ -160,6 +160,10 @@ pub const qpdfdocumentrenderoptions = struct {
         qtc.QPdfDocumentRenderOptions_SetScaledSize(@ptrCast(self), @ptrCast(s));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#dtor.QPdfDocumentRenderOptions)
     ///
     /// Delete this object from C++ memory.
@@ -168,7 +172,7 @@ pub const qpdfdocumentrenderoptions = struct {
     ///
     /// ` self: QtC.QPdfDocumentRenderOptions `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPdfDocumentRenderOptions_Delete(@ptrCast(self));
     }
 };

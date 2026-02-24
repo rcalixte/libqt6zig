@@ -149,7 +149,7 @@ void KTextEditor__Command_ProcessText(KTextEditor__Command* self, KTextEditor__V
 }
 
 // Base class handler implementation
-QMetaObject* KTextEditor__Command_QBaseMetaObject(const KTextEditor__Command* self) {
+QMetaObject* KTextEditor__Command_SuperMetaObject(const KTextEditor__Command* self) {
     auto* vktexteditorcommand = const_cast<VirtualKTextEditorCommand*>(dynamic_cast<const VirtualKTextEditorCommand*>(self));
     if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
         vktexteditorcommand->setKTextEditor__Command_MetaObject_IsBase(true);
@@ -168,7 +168,7 @@ void KTextEditor__Command_OnMetaObject(const KTextEditor__Command* self, intptr_
 }
 
 // Base class handler implementation
-void* KTextEditor__Command_QBaseMetacast(KTextEditor__Command* self, const char* param1) {
+void* KTextEditor__Command_SuperMetacast(KTextEditor__Command* self, const char* param1) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
     if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
         vktexteditorcommand->setKTextEditor__Command_Metacast_IsBase(true);
@@ -187,7 +187,7 @@ void KTextEditor__Command_OnMetacast(KTextEditor__Command* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-int KTextEditor__Command_QBaseMetacall(KTextEditor__Command* self, int param1, int param2, void** param3) {
+int KTextEditor__Command_SuperMetacall(KTextEditor__Command* self, int param1, int param2, void** param3) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
     if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
         vktexteditorcommand->setKTextEditor__Command_Metacall_IsBase(true);
@@ -206,7 +206,7 @@ void KTextEditor__Command_OnMetacall(KTextEditor__Command* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-bool KTextEditor__Command_QBaseSupportsRange(KTextEditor__Command* self, const libqt_string cmd) {
+bool KTextEditor__Command_SuperSupportsRange(KTextEditor__Command* self, const libqt_string cmd) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
     QString cmd_QString = QString::fromUtf8(cmd.data, cmd.len);
     if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
@@ -226,7 +226,7 @@ void KTextEditor__Command_OnSupportsRange(KTextEditor__Command* self, intptr_t s
 }
 
 // Base class handler implementation
-bool KTextEditor__Command_QBaseExec(KTextEditor__Command* self, KTextEditor__View* view, const libqt_string cmd, libqt_string msg, const KTextEditor__Range* range) {
+bool KTextEditor__Command_SuperExec(KTextEditor__Command* self, KTextEditor__View* view, const libqt_string cmd, libqt_string msg, const KTextEditor__Range* range) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
     QString cmd_QString = QString::fromUtf8(cmd.data, cmd.len);
     QString msg_QString = QString::fromUtf8(msg.data, msg.len);
@@ -247,7 +247,7 @@ void KTextEditor__Command_OnExec(KTextEditor__Command* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-bool KTextEditor__Command_QBaseHelp(KTextEditor__Command* self, KTextEditor__View* view, const libqt_string cmd, libqt_string msg) {
+bool KTextEditor__Command_SuperHelp(KTextEditor__Command* self, KTextEditor__View* view, const libqt_string cmd, libqt_string msg) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
     QString cmd_QString = QString::fromUtf8(cmd.data, cmd.len);
     QString msg_QString = QString::fromUtf8(msg.data, msg.len);
@@ -268,7 +268,7 @@ void KTextEditor__Command_OnHelp(KTextEditor__Command* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-KCompletion* KTextEditor__Command_QBaseCompletionObject(KTextEditor__Command* self, KTextEditor__View* view, const libqt_string cmdname) {
+KCompletion* KTextEditor__Command_SuperCompletionObject(KTextEditor__Command* self, KTextEditor__View* view, const libqt_string cmdname) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
     QString cmdname_QString = QString::fromUtf8(cmdname.data, cmdname.len);
     if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
@@ -288,7 +288,7 @@ void KTextEditor__Command_OnCompletionObject(KTextEditor__Command* self, intptr_
 }
 
 // Base class handler implementation
-bool KTextEditor__Command_QBaseWantsToProcessText(KTextEditor__Command* self, const libqt_string cmdname) {
+bool KTextEditor__Command_SuperWantsToProcessText(KTextEditor__Command* self, const libqt_string cmdname) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
     QString cmdname_QString = QString::fromUtf8(cmdname.data, cmdname.len);
     if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
@@ -308,7 +308,7 @@ void KTextEditor__Command_OnWantsToProcessText(KTextEditor__Command* self, intpt
 }
 
 // Base class handler implementation
-void KTextEditor__Command_QBaseProcessText(KTextEditor__Command* self, KTextEditor__View* view, const libqt_string text) {
+void KTextEditor__Command_SuperProcessText(KTextEditor__Command* self, KTextEditor__View* view, const libqt_string text) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
@@ -338,7 +338,7 @@ bool KTextEditor__Command_Event(KTextEditor__Command* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool KTextEditor__Command_QBaseEvent(KTextEditor__Command* self, QEvent* event) {
+bool KTextEditor__Command_SuperEvent(KTextEditor__Command* self, QEvent* event) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
     if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
         vktexteditorcommand->setKTextEditor__Command_Event_IsBase(true);
@@ -367,7 +367,7 @@ bool KTextEditor__Command_EventFilter(KTextEditor__Command* self, QObject* watch
 }
 
 // Base class handler implementation
-bool KTextEditor__Command_QBaseEventFilter(KTextEditor__Command* self, QObject* watched, QEvent* event) {
+bool KTextEditor__Command_SuperEventFilter(KTextEditor__Command* self, QObject* watched, QEvent* event) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
     if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
         vktexteditorcommand->setKTextEditor__Command_EventFilter_IsBase(true);
@@ -396,7 +396,7 @@ void KTextEditor__Command_TimerEvent(KTextEditor__Command* self, QTimerEvent* ev
 }
 
 // Base class handler implementation
-void KTextEditor__Command_QBaseTimerEvent(KTextEditor__Command* self, QTimerEvent* event) {
+void KTextEditor__Command_SuperTimerEvent(KTextEditor__Command* self, QTimerEvent* event) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
     if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
         vktexteditorcommand->setKTextEditor__Command_TimerEvent_IsBase(true);
@@ -425,7 +425,7 @@ void KTextEditor__Command_ChildEvent(KTextEditor__Command* self, QChildEvent* ev
 }
 
 // Base class handler implementation
-void KTextEditor__Command_QBaseChildEvent(KTextEditor__Command* self, QChildEvent* event) {
+void KTextEditor__Command_SuperChildEvent(KTextEditor__Command* self, QChildEvent* event) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
     if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
         vktexteditorcommand->setKTextEditor__Command_ChildEvent_IsBase(true);
@@ -454,7 +454,7 @@ void KTextEditor__Command_CustomEvent(KTextEditor__Command* self, QEvent* event)
 }
 
 // Base class handler implementation
-void KTextEditor__Command_QBaseCustomEvent(KTextEditor__Command* self, QEvent* event) {
+void KTextEditor__Command_SuperCustomEvent(KTextEditor__Command* self, QEvent* event) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
     if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
         vktexteditorcommand->setKTextEditor__Command_CustomEvent_IsBase(true);
@@ -483,7 +483,7 @@ void KTextEditor__Command_ConnectNotify(KTextEditor__Command* self, const QMetaM
 }
 
 // Base class handler implementation
-void KTextEditor__Command_QBaseConnectNotify(KTextEditor__Command* self, const QMetaMethod* signal) {
+void KTextEditor__Command_SuperConnectNotify(KTextEditor__Command* self, const QMetaMethod* signal) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
     if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
         vktexteditorcommand->setKTextEditor__Command_ConnectNotify_IsBase(true);
@@ -512,7 +512,7 @@ void KTextEditor__Command_DisconnectNotify(KTextEditor__Command* self, const QMe
 }
 
 // Base class handler implementation
-void KTextEditor__Command_QBaseDisconnectNotify(KTextEditor__Command* self, const QMetaMethod* signal) {
+void KTextEditor__Command_SuperDisconnectNotify(KTextEditor__Command* self, const QMetaMethod* signal) {
     auto* vktexteditorcommand = dynamic_cast<VirtualKTextEditorCommand*>(self);
     if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
         vktexteditorcommand->setKTextEditor__Command_DisconnectNotify_IsBase(true);
@@ -541,7 +541,7 @@ QObject* KTextEditor__Command_Sender(const KTextEditor__Command* self) {
 }
 
 // Base class handler implementation
-QObject* KTextEditor__Command_QBaseSender(const KTextEditor__Command* self) {
+QObject* KTextEditor__Command_SuperSender(const KTextEditor__Command* self) {
     auto* vktexteditorcommand = const_cast<VirtualKTextEditorCommand*>(dynamic_cast<const VirtualKTextEditorCommand*>(self));
     if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
         vktexteditorcommand->setKTextEditor__Command_Sender_IsBase(true);
@@ -570,7 +570,7 @@ int KTextEditor__Command_SenderSignalIndex(const KTextEditor__Command* self) {
 }
 
 // Base class handler implementation
-int KTextEditor__Command_QBaseSenderSignalIndex(const KTextEditor__Command* self) {
+int KTextEditor__Command_SuperSenderSignalIndex(const KTextEditor__Command* self) {
     auto* vktexteditorcommand = const_cast<VirtualKTextEditorCommand*>(dynamic_cast<const VirtualKTextEditorCommand*>(self));
     if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
         vktexteditorcommand->setKTextEditor__Command_SenderSignalIndex_IsBase(true);
@@ -599,7 +599,7 @@ int KTextEditor__Command_Receivers(const KTextEditor__Command* self, const char*
 }
 
 // Base class handler implementation
-int KTextEditor__Command_QBaseReceivers(const KTextEditor__Command* self, const char* signal) {
+int KTextEditor__Command_SuperReceivers(const KTextEditor__Command* self, const char* signal) {
     auto* vktexteditorcommand = const_cast<VirtualKTextEditorCommand*>(dynamic_cast<const VirtualKTextEditorCommand*>(self));
     if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
         vktexteditorcommand->setKTextEditor__Command_Receivers_IsBase(true);
@@ -628,7 +628,7 @@ bool KTextEditor__Command_IsSignalConnected(const KTextEditor__Command* self, co
 }
 
 // Base class handler implementation
-bool KTextEditor__Command_QBaseIsSignalConnected(const KTextEditor__Command* self, const QMetaMethod* signal) {
+bool KTextEditor__Command_SuperIsSignalConnected(const KTextEditor__Command* self, const QMetaMethod* signal) {
     auto* vktexteditorcommand = const_cast<VirtualKTextEditorCommand*>(dynamic_cast<const VirtualKTextEditorCommand*>(self));
     if (vktexteditorcommand && vktexteditorcommand->isVirtualKTextEditorCommand) {
         vktexteditorcommand->setKTextEditor__Command_IsSignalConnected_IsBase(true);

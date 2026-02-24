@@ -372,27 +372,27 @@ class VirtualQApplication final : public QApplication {
 
     // Friend functions
     friend bool QApplication_Event(QApplication* self, QEvent* param1);
-    friend bool QApplication_QBaseEvent(QApplication* self, QEvent* param1);
+    friend bool QApplication_SuperEvent(QApplication* self, QEvent* param1);
     friend void QApplication_TimerEvent(QApplication* self, QTimerEvent* event);
-    friend void QApplication_QBaseTimerEvent(QApplication* self, QTimerEvent* event);
+    friend void QApplication_SuperTimerEvent(QApplication* self, QTimerEvent* event);
     friend void QApplication_ChildEvent(QApplication* self, QChildEvent* event);
-    friend void QApplication_QBaseChildEvent(QApplication* self, QChildEvent* event);
+    friend void QApplication_SuperChildEvent(QApplication* self, QChildEvent* event);
     friend void QApplication_CustomEvent(QApplication* self, QEvent* event);
-    friend void QApplication_QBaseCustomEvent(QApplication* self, QEvent* event);
+    friend void QApplication_SuperCustomEvent(QApplication* self, QEvent* event);
     friend void QApplication_ConnectNotify(QApplication* self, const QMetaMethod* signal);
-    friend void QApplication_QBaseConnectNotify(QApplication* self, const QMetaMethod* signal);
+    friend void QApplication_SuperConnectNotify(QApplication* self, const QMetaMethod* signal);
     friend void QApplication_DisconnectNotify(QApplication* self, const QMetaMethod* signal);
-    friend void QApplication_QBaseDisconnectNotify(QApplication* self, const QMetaMethod* signal);
+    friend void QApplication_SuperDisconnectNotify(QApplication* self, const QMetaMethod* signal);
     friend void* QApplication_ResolveInterface(const QApplication* self, const char* name, int revision);
-    friend void* QApplication_QBaseResolveInterface(const QApplication* self, const char* name, int revision);
+    friend void* QApplication_SuperResolveInterface(const QApplication* self, const char* name, int revision);
     friend QObject* QApplication_Sender(const QApplication* self);
-    friend QObject* QApplication_QBaseSender(const QApplication* self);
+    friend QObject* QApplication_SuperSender(const QApplication* self);
     friend int QApplication_SenderSignalIndex(const QApplication* self);
-    friend int QApplication_QBaseSenderSignalIndex(const QApplication* self);
+    friend int QApplication_SuperSenderSignalIndex(const QApplication* self);
     friend int QApplication_Receivers(const QApplication* self, const char* signal);
-    friend int QApplication_QBaseReceivers(const QApplication* self, const char* signal);
+    friend int QApplication_SuperReceivers(const QApplication* self, const char* signal);
     friend bool QApplication_IsSignalConnected(const QApplication* self, const QMetaMethod* signal);
-    friend bool QApplication_QBaseIsSignalConnected(const QApplication* self, const QMetaMethod* signal);
+    friend bool QApplication_SuperIsSignalConnected(const QApplication* self, const QMetaMethod* signal);
 };
 
 #endif

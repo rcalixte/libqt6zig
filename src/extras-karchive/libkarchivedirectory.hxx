@@ -114,9 +114,9 @@ class VirtualKArchiveDirectory final : public KArchiveDirectory {
 
     // Friend functions
     friend void KArchiveDirectory_VirtualHook(KArchiveDirectory* self, int id, void* data);
-    friend void KArchiveDirectory_QBaseVirtualHook(KArchiveDirectory* self, int id, void* data);
+    friend void KArchiveDirectory_SuperVirtualHook(KArchiveDirectory* self, int id, void* data);
     friend KArchive* KArchiveDirectory_Archive(const KArchiveDirectory* self);
-    friend KArchive* KArchiveDirectory_QBaseArchive(const KArchiveDirectory* self);
+    friend KArchive* KArchiveDirectory_SuperArchive(const KArchiveDirectory* self);
 };
 
 #endif

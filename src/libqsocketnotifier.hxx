@@ -330,25 +330,25 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
 
     // Friend functions
     friend bool QSocketNotifier_Event(QSocketNotifier* self, QEvent* param1);
-    friend bool QSocketNotifier_QBaseEvent(QSocketNotifier* self, QEvent* param1);
+    friend bool QSocketNotifier_SuperEvent(QSocketNotifier* self, QEvent* param1);
     friend void QSocketNotifier_TimerEvent(QSocketNotifier* self, QTimerEvent* event);
-    friend void QSocketNotifier_QBaseTimerEvent(QSocketNotifier* self, QTimerEvent* event);
+    friend void QSocketNotifier_SuperTimerEvent(QSocketNotifier* self, QTimerEvent* event);
     friend void QSocketNotifier_ChildEvent(QSocketNotifier* self, QChildEvent* event);
-    friend void QSocketNotifier_QBaseChildEvent(QSocketNotifier* self, QChildEvent* event);
+    friend void QSocketNotifier_SuperChildEvent(QSocketNotifier* self, QChildEvent* event);
     friend void QSocketNotifier_CustomEvent(QSocketNotifier* self, QEvent* event);
-    friend void QSocketNotifier_QBaseCustomEvent(QSocketNotifier* self, QEvent* event);
+    friend void QSocketNotifier_SuperCustomEvent(QSocketNotifier* self, QEvent* event);
     friend void QSocketNotifier_ConnectNotify(QSocketNotifier* self, const QMetaMethod* signal);
-    friend void QSocketNotifier_QBaseConnectNotify(QSocketNotifier* self, const QMetaMethod* signal);
+    friend void QSocketNotifier_SuperConnectNotify(QSocketNotifier* self, const QMetaMethod* signal);
     friend void QSocketNotifier_DisconnectNotify(QSocketNotifier* self, const QMetaMethod* signal);
-    friend void QSocketNotifier_QBaseDisconnectNotify(QSocketNotifier* self, const QMetaMethod* signal);
+    friend void QSocketNotifier_SuperDisconnectNotify(QSocketNotifier* self, const QMetaMethod* signal);
     friend QObject* QSocketNotifier_Sender(const QSocketNotifier* self);
-    friend QObject* QSocketNotifier_QBaseSender(const QSocketNotifier* self);
+    friend QObject* QSocketNotifier_SuperSender(const QSocketNotifier* self);
     friend int QSocketNotifier_SenderSignalIndex(const QSocketNotifier* self);
-    friend int QSocketNotifier_QBaseSenderSignalIndex(const QSocketNotifier* self);
+    friend int QSocketNotifier_SuperSenderSignalIndex(const QSocketNotifier* self);
     friend int QSocketNotifier_Receivers(const QSocketNotifier* self, const char* signal);
-    friend int QSocketNotifier_QBaseReceivers(const QSocketNotifier* self, const char* signal);
+    friend int QSocketNotifier_SuperReceivers(const QSocketNotifier* self, const char* signal);
     friend bool QSocketNotifier_IsSignalConnected(const QSocketNotifier* self, const QMetaMethod* signal);
-    friend bool QSocketNotifier_QBaseIsSignalConnected(const QSocketNotifier* self, const QMetaMethod* signal);
+    friend bool QSocketNotifier_SuperIsSignalConnected(const QSocketNotifier* self, const QMetaMethod* signal);
 };
 
 #endif

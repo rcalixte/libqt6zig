@@ -347,23 +347,23 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
 
     // Friend functions
     friend void QPercentBarSeries_TimerEvent(QPercentBarSeries* self, QTimerEvent* event);
-    friend void QPercentBarSeries_QBaseTimerEvent(QPercentBarSeries* self, QTimerEvent* event);
+    friend void QPercentBarSeries_SuperTimerEvent(QPercentBarSeries* self, QTimerEvent* event);
     friend void QPercentBarSeries_ChildEvent(QPercentBarSeries* self, QChildEvent* event);
-    friend void QPercentBarSeries_QBaseChildEvent(QPercentBarSeries* self, QChildEvent* event);
+    friend void QPercentBarSeries_SuperChildEvent(QPercentBarSeries* self, QChildEvent* event);
     friend void QPercentBarSeries_CustomEvent(QPercentBarSeries* self, QEvent* event);
-    friend void QPercentBarSeries_QBaseCustomEvent(QPercentBarSeries* self, QEvent* event);
+    friend void QPercentBarSeries_SuperCustomEvent(QPercentBarSeries* self, QEvent* event);
     friend void QPercentBarSeries_ConnectNotify(QPercentBarSeries* self, const QMetaMethod* signal);
-    friend void QPercentBarSeries_QBaseConnectNotify(QPercentBarSeries* self, const QMetaMethod* signal);
+    friend void QPercentBarSeries_SuperConnectNotify(QPercentBarSeries* self, const QMetaMethod* signal);
     friend void QPercentBarSeries_DisconnectNotify(QPercentBarSeries* self, const QMetaMethod* signal);
-    friend void QPercentBarSeries_QBaseDisconnectNotify(QPercentBarSeries* self, const QMetaMethod* signal);
+    friend void QPercentBarSeries_SuperDisconnectNotify(QPercentBarSeries* self, const QMetaMethod* signal);
     friend QObject* QPercentBarSeries_Sender(const QPercentBarSeries* self);
-    friend QObject* QPercentBarSeries_QBaseSender(const QPercentBarSeries* self);
+    friend QObject* QPercentBarSeries_SuperSender(const QPercentBarSeries* self);
     friend int QPercentBarSeries_SenderSignalIndex(const QPercentBarSeries* self);
-    friend int QPercentBarSeries_QBaseSenderSignalIndex(const QPercentBarSeries* self);
+    friend int QPercentBarSeries_SuperSenderSignalIndex(const QPercentBarSeries* self);
     friend int QPercentBarSeries_Receivers(const QPercentBarSeries* self, const char* signal);
-    friend int QPercentBarSeries_QBaseReceivers(const QPercentBarSeries* self, const char* signal);
+    friend int QPercentBarSeries_SuperReceivers(const QPercentBarSeries* self, const char* signal);
     friend bool QPercentBarSeries_IsSignalConnected(const QPercentBarSeries* self, const QMetaMethod* signal);
-    friend bool QPercentBarSeries_QBaseIsSignalConnected(const QPercentBarSeries* self, const QMetaMethod* signal);
+    friend bool QPercentBarSeries_SuperIsSignalConnected(const QPercentBarSeries* self, const QMetaMethod* signal);
 };
 
 #endif

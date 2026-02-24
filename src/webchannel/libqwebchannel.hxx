@@ -328,23 +328,23 @@ class VirtualQWebChannel final : public QWebChannel {
 
     // Friend functions
     friend void QWebChannel_TimerEvent(QWebChannel* self, QTimerEvent* event);
-    friend void QWebChannel_QBaseTimerEvent(QWebChannel* self, QTimerEvent* event);
+    friend void QWebChannel_SuperTimerEvent(QWebChannel* self, QTimerEvent* event);
     friend void QWebChannel_ChildEvent(QWebChannel* self, QChildEvent* event);
-    friend void QWebChannel_QBaseChildEvent(QWebChannel* self, QChildEvent* event);
+    friend void QWebChannel_SuperChildEvent(QWebChannel* self, QChildEvent* event);
     friend void QWebChannel_CustomEvent(QWebChannel* self, QEvent* event);
-    friend void QWebChannel_QBaseCustomEvent(QWebChannel* self, QEvent* event);
+    friend void QWebChannel_SuperCustomEvent(QWebChannel* self, QEvent* event);
     friend void QWebChannel_ConnectNotify(QWebChannel* self, const QMetaMethod* signal);
-    friend void QWebChannel_QBaseConnectNotify(QWebChannel* self, const QMetaMethod* signal);
+    friend void QWebChannel_SuperConnectNotify(QWebChannel* self, const QMetaMethod* signal);
     friend void QWebChannel_DisconnectNotify(QWebChannel* self, const QMetaMethod* signal);
-    friend void QWebChannel_QBaseDisconnectNotify(QWebChannel* self, const QMetaMethod* signal);
+    friend void QWebChannel_SuperDisconnectNotify(QWebChannel* self, const QMetaMethod* signal);
     friend QObject* QWebChannel_Sender(const QWebChannel* self);
-    friend QObject* QWebChannel_QBaseSender(const QWebChannel* self);
+    friend QObject* QWebChannel_SuperSender(const QWebChannel* self);
     friend int QWebChannel_SenderSignalIndex(const QWebChannel* self);
-    friend int QWebChannel_QBaseSenderSignalIndex(const QWebChannel* self);
+    friend int QWebChannel_SuperSenderSignalIndex(const QWebChannel* self);
     friend int QWebChannel_Receivers(const QWebChannel* self, const char* signal);
-    friend int QWebChannel_QBaseReceivers(const QWebChannel* self, const char* signal);
+    friend int QWebChannel_SuperReceivers(const QWebChannel* self, const char* signal);
     friend bool QWebChannel_IsSignalConnected(const QWebChannel* self, const QMetaMethod* signal);
-    friend bool QWebChannel_QBaseIsSignalConnected(const QWebChannel* self, const QMetaMethod* signal);
+    friend bool QWebChannel_SuperIsSignalConnected(const QWebChannel* self, const QMetaMethod* signal);
 };
 
 #endif

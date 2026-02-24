@@ -33,6 +33,10 @@ pub const qrunnable = struct {
         qtc.QRunnable_OnRun(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRun` instead
+    ///
+    pub const QBaseRun = SuperRun;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrunnable.html#run)
     ///
     /// Base class method implementation
@@ -41,8 +45,8 @@ pub const qrunnable = struct {
     ///
     /// ` self: QtC.QRunnable `
     ///
-    pub fn QBaseRun(self: ?*anyopaque) void {
-        qtc.QRunnable_QBaseRun(@ptrCast(self));
+    pub fn SuperRun(self: ?*anyopaque) void {
+        qtc.QRunnable_SuperRun(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrunnable.html#autoDelete)
@@ -67,6 +71,10 @@ pub const qrunnable = struct {
         qtc.QRunnable_SetAutoDelete(@ptrCast(self), autoDelete);
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrunnable.html#dtor.QRunnable)
     ///
     /// Delete this object from C++ memory.
@@ -75,7 +83,7 @@ pub const qrunnable = struct {
     ///
     /// ` self: QtC.QRunnable `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QRunnable_Delete(@ptrCast(self));
     }
 };

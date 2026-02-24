@@ -245,7 +245,7 @@ void KNewFileMenu_SlotResult(KNewFileMenu* self, KJob* job) {
 }
 
 // Base class handler implementation
-QMetaObject* KNewFileMenu_QBaseMetaObject(const KNewFileMenu* self) {
+QMetaObject* KNewFileMenu_SuperMetaObject(const KNewFileMenu* self) {
     auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
     if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
         vknewfilemenu->setKNewFileMenu_MetaObject_IsBase(true);
@@ -264,7 +264,7 @@ void KNewFileMenu_OnMetaObject(const KNewFileMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KNewFileMenu_QBaseMetacast(KNewFileMenu* self, const char* param1) {
+void* KNewFileMenu_SuperMetacast(KNewFileMenu* self, const char* param1) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
     if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
         vknewfilemenu->setKNewFileMenu_Metacast_IsBase(true);
@@ -283,7 +283,7 @@ void KNewFileMenu_OnMetacast(KNewFileMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KNewFileMenu_QBaseMetacall(KNewFileMenu* self, int param1, int param2, void** param3) {
+int KNewFileMenu_SuperMetacall(KNewFileMenu* self, int param1, int param2, void** param3) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
     if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
         vknewfilemenu->setKNewFileMenu_Metacall_IsBase(true);
@@ -302,7 +302,7 @@ void KNewFileMenu_OnMetacall(KNewFileMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KNewFileMenu_QBaseSlotResult(KNewFileMenu* self, KJob* job) {
+void KNewFileMenu_SuperSlotResult(KNewFileMenu* self, KJob* job) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
     if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
         vknewfilemenu->setKNewFileMenu_SlotResult_IsBase(true);
@@ -331,7 +331,7 @@ QWidget* KNewFileMenu_CreateWidget(KNewFileMenu* self, QWidget* parent) {
 }
 
 // Base class handler implementation
-QWidget* KNewFileMenu_QBaseCreateWidget(KNewFileMenu* self, QWidget* parent) {
+QWidget* KNewFileMenu_SuperCreateWidget(KNewFileMenu* self, QWidget* parent) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
     if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
         vknewfilemenu->setKNewFileMenu_CreateWidget_IsBase(true);
@@ -360,7 +360,7 @@ bool KNewFileMenu_Event(KNewFileMenu* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool KNewFileMenu_QBaseEvent(KNewFileMenu* self, QEvent* param1) {
+bool KNewFileMenu_SuperEvent(KNewFileMenu* self, QEvent* param1) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
     if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
         vknewfilemenu->setKNewFileMenu_Event_IsBase(true);
@@ -389,7 +389,7 @@ bool KNewFileMenu_EventFilter(KNewFileMenu* self, QObject* param1, QEvent* param
 }
 
 // Base class handler implementation
-bool KNewFileMenu_QBaseEventFilter(KNewFileMenu* self, QObject* param1, QEvent* param2) {
+bool KNewFileMenu_SuperEventFilter(KNewFileMenu* self, QObject* param1, QEvent* param2) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
     if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
         vknewfilemenu->setKNewFileMenu_EventFilter_IsBase(true);
@@ -418,7 +418,7 @@ void KNewFileMenu_DeleteWidget(KNewFileMenu* self, QWidget* widget) {
 }
 
 // Base class handler implementation
-void KNewFileMenu_QBaseDeleteWidget(KNewFileMenu* self, QWidget* widget) {
+void KNewFileMenu_SuperDeleteWidget(KNewFileMenu* self, QWidget* widget) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
     if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
         vknewfilemenu->setKNewFileMenu_DeleteWidget_IsBase(true);
@@ -447,7 +447,7 @@ void KNewFileMenu_TimerEvent(KNewFileMenu* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KNewFileMenu_QBaseTimerEvent(KNewFileMenu* self, QTimerEvent* event) {
+void KNewFileMenu_SuperTimerEvent(KNewFileMenu* self, QTimerEvent* event) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
     if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
         vknewfilemenu->setKNewFileMenu_TimerEvent_IsBase(true);
@@ -476,7 +476,7 @@ void KNewFileMenu_ChildEvent(KNewFileMenu* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KNewFileMenu_QBaseChildEvent(KNewFileMenu* self, QChildEvent* event) {
+void KNewFileMenu_SuperChildEvent(KNewFileMenu* self, QChildEvent* event) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
     if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
         vknewfilemenu->setKNewFileMenu_ChildEvent_IsBase(true);
@@ -505,7 +505,7 @@ void KNewFileMenu_CustomEvent(KNewFileMenu* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KNewFileMenu_QBaseCustomEvent(KNewFileMenu* self, QEvent* event) {
+void KNewFileMenu_SuperCustomEvent(KNewFileMenu* self, QEvent* event) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
     if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
         vknewfilemenu->setKNewFileMenu_CustomEvent_IsBase(true);
@@ -534,7 +534,7 @@ void KNewFileMenu_ConnectNotify(KNewFileMenu* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KNewFileMenu_QBaseConnectNotify(KNewFileMenu* self, const QMetaMethod* signal) {
+void KNewFileMenu_SuperConnectNotify(KNewFileMenu* self, const QMetaMethod* signal) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
     if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
         vknewfilemenu->setKNewFileMenu_ConnectNotify_IsBase(true);
@@ -563,7 +563,7 @@ void KNewFileMenu_DisconnectNotify(KNewFileMenu* self, const QMetaMethod* signal
 }
 
 // Base class handler implementation
-void KNewFileMenu_QBaseDisconnectNotify(KNewFileMenu* self, const QMetaMethod* signal) {
+void KNewFileMenu_SuperDisconnectNotify(KNewFileMenu* self, const QMetaMethod* signal) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
     if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
         vknewfilemenu->setKNewFileMenu_DisconnectNotify_IsBase(true);
@@ -610,7 +610,7 @@ libqt_list /* of QWidget* */ KNewFileMenu_CreatedWidgets(const KNewFileMenu* sel
 }
 
 // Base class handler implementation
-libqt_list /* of QWidget* */ KNewFileMenu_QBaseCreatedWidgets(const KNewFileMenu* self) {
+libqt_list /* of QWidget* */ KNewFileMenu_SuperCreatedWidgets(const KNewFileMenu* self) {
     auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
     if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
         vknewfilemenu->setKNewFileMenu_CreatedWidgets_IsBase(true);
@@ -657,7 +657,7 @@ QObject* KNewFileMenu_Sender(const KNewFileMenu* self) {
 }
 
 // Base class handler implementation
-QObject* KNewFileMenu_QBaseSender(const KNewFileMenu* self) {
+QObject* KNewFileMenu_SuperSender(const KNewFileMenu* self) {
     auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
     if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
         vknewfilemenu->setKNewFileMenu_Sender_IsBase(true);
@@ -686,7 +686,7 @@ int KNewFileMenu_SenderSignalIndex(const KNewFileMenu* self) {
 }
 
 // Base class handler implementation
-int KNewFileMenu_QBaseSenderSignalIndex(const KNewFileMenu* self) {
+int KNewFileMenu_SuperSenderSignalIndex(const KNewFileMenu* self) {
     auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
     if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
         vknewfilemenu->setKNewFileMenu_SenderSignalIndex_IsBase(true);
@@ -715,7 +715,7 @@ int KNewFileMenu_Receivers(const KNewFileMenu* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KNewFileMenu_QBaseReceivers(const KNewFileMenu* self, const char* signal) {
+int KNewFileMenu_SuperReceivers(const KNewFileMenu* self, const char* signal) {
     auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
     if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
         vknewfilemenu->setKNewFileMenu_Receivers_IsBase(true);
@@ -744,7 +744,7 @@ bool KNewFileMenu_IsSignalConnected(const KNewFileMenu* self, const QMetaMethod*
 }
 
 // Base class handler implementation
-bool KNewFileMenu_QBaseIsSignalConnected(const KNewFileMenu* self, const QMetaMethod* signal) {
+bool KNewFileMenu_SuperIsSignalConnected(const KNewFileMenu* self, const QMetaMethod* signal) {
     auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
     if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
         vknewfilemenu->setKNewFileMenu_IsSignalConnected_IsBase(true);

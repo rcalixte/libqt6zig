@@ -283,6 +283,10 @@ pub const qplacesearchrequest = struct {
         qtc.QPlaceSearchRequest_Clear(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#dtor.QPlaceSearchRequest)
     ///
     /// Delete this object from C++ memory.
@@ -291,7 +295,7 @@ pub const qplacesearchrequest = struct {
     ///
     /// ` self: QtC.QPlaceSearchRequest `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QPlaceSearchRequest_Delete(@ptrCast(self));
     }
 };

@@ -1330,6 +1330,10 @@ pub const qfont = struct {
         qtc.QFont_SetStyleHint2(@ptrCast(self), @bitCast(param1), @bitCast(param2));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#dtor.QFont)
     ///
     /// Delete this object from C++ memory.
@@ -1338,7 +1342,7 @@ pub const qfont = struct {
     ///
     /// ` self: QtC.QFont `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QFont_Delete(@ptrCast(self));
     }
 };
@@ -1441,13 +1445,17 @@ pub const qfont__tag = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QFont__Tag `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QFont__Tag_Delete(@ptrCast(self));
     }
 };

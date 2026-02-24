@@ -180,7 +180,7 @@ void KTextEditor__CodeCompletionModel_Connect_HasGroupsChanged(KTextEditor__Code
 }
 
 // Base class handler implementation
-QMetaObject* KTextEditor__CodeCompletionModel_QBaseMetaObject(const KTextEditor__CodeCompletionModel* self) {
+QMetaObject* KTextEditor__CodeCompletionModel_SuperMetaObject(const KTextEditor__CodeCompletionModel* self) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_MetaObject_IsBase(true);
@@ -199,7 +199,7 @@ void KTextEditor__CodeCompletionModel_OnMetaObject(const KTextEditor__CodeComple
 }
 
 // Base class handler implementation
-void* KTextEditor__CodeCompletionModel_QBaseMetacast(KTextEditor__CodeCompletionModel* self, const char* param1) {
+void* KTextEditor__CodeCompletionModel_SuperMetacast(KTextEditor__CodeCompletionModel* self, const char* param1) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Metacast_IsBase(true);
@@ -218,7 +218,7 @@ void KTextEditor__CodeCompletionModel_OnMetacast(KTextEditor__CodeCompletionMode
 }
 
 // Base class handler implementation
-int KTextEditor__CodeCompletionModel_QBaseMetacall(KTextEditor__CodeCompletionModel* self, int param1, int param2, void** param3) {
+int KTextEditor__CodeCompletionModel_SuperMetacall(KTextEditor__CodeCompletionModel* self, int param1, int param2, void** param3) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Metacall_IsBase(true);
@@ -237,7 +237,7 @@ void KTextEditor__CodeCompletionModel_OnMetacall(KTextEditor__CodeCompletionMode
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseCompletionInvoked(KTextEditor__CodeCompletionModel* self, KTextEditor__View* view, const KTextEditor__Range* range, int invocationType) {
+void KTextEditor__CodeCompletionModel_SuperCompletionInvoked(KTextEditor__CodeCompletionModel* self, KTextEditor__View* view, const KTextEditor__Range* range, int invocationType) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_CompletionInvoked_IsBase(true);
@@ -256,7 +256,7 @@ void KTextEditor__CodeCompletionModel_OnCompletionInvoked(KTextEditor__CodeCompl
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseExecuteCompletionItem(const KTextEditor__CodeCompletionModel* self, KTextEditor__View* view, const KTextEditor__Range* word, const QModelIndex* index) {
+void KTextEditor__CodeCompletionModel_SuperExecuteCompletionItem(const KTextEditor__CodeCompletionModel* self, KTextEditor__View* view, const KTextEditor__Range* word, const QModelIndex* index) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_ExecuteCompletionItem_IsBase(true);
@@ -275,7 +275,7 @@ void KTextEditor__CodeCompletionModel_OnExecuteCompletionItem(const KTextEditor_
 }
 
 // Base class handler implementation
-int KTextEditor__CodeCompletionModel_QBaseColumnCount(const KTextEditor__CodeCompletionModel* self, const QModelIndex* parent) {
+int KTextEditor__CodeCompletionModel_SuperColumnCount(const KTextEditor__CodeCompletionModel* self, const QModelIndex* parent) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_ColumnCount_IsBase(true);
@@ -294,7 +294,7 @@ void KTextEditor__CodeCompletionModel_OnColumnCount(const KTextEditor__CodeCompl
 }
 
 // Base class handler implementation
-QModelIndex* KTextEditor__CodeCompletionModel_QBaseIndex(const KTextEditor__CodeCompletionModel* self, int row, int column, const QModelIndex* parent) {
+QModelIndex* KTextEditor__CodeCompletionModel_SuperIndex(const KTextEditor__CodeCompletionModel* self, int row, int column, const QModelIndex* parent) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Index_IsBase(true);
@@ -313,7 +313,7 @@ void KTextEditor__CodeCompletionModel_OnIndex(const KTextEditor__CodeCompletionM
 }
 
 // Base class handler implementation
-libqt_map /* of int to QVariant* */ KTextEditor__CodeCompletionModel_QBaseItemData(const KTextEditor__CodeCompletionModel* self, const QModelIndex* index) {
+libqt_map /* of int to QVariant* */ KTextEditor__CodeCompletionModel_SuperItemData(const KTextEditor__CodeCompletionModel* self, const QModelIndex* index) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_ItemData_IsBase(true);
@@ -360,7 +360,7 @@ void KTextEditor__CodeCompletionModel_OnItemData(const KTextEditor__CodeCompleti
 }
 
 // Base class handler implementation
-QModelIndex* KTextEditor__CodeCompletionModel_QBaseParent(const KTextEditor__CodeCompletionModel* self, const QModelIndex* index) {
+QModelIndex* KTextEditor__CodeCompletionModel_SuperParent(const KTextEditor__CodeCompletionModel* self, const QModelIndex* index) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Parent_IsBase(true);
@@ -379,7 +379,7 @@ void KTextEditor__CodeCompletionModel_OnParent(const KTextEditor__CodeCompletion
 }
 
 // Base class handler implementation
-int KTextEditor__CodeCompletionModel_QBaseRowCount(const KTextEditor__CodeCompletionModel* self, const QModelIndex* parent) {
+int KTextEditor__CodeCompletionModel_SuperRowCount(const KTextEditor__CodeCompletionModel* self, const QModelIndex* parent) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_RowCount_IsBase(true);
@@ -408,7 +408,7 @@ QModelIndex* KTextEditor__CodeCompletionModel_Sibling(const KTextEditor__CodeCom
 }
 
 // Base class handler implementation
-QModelIndex* KTextEditor__CodeCompletionModel_QBaseSibling(const KTextEditor__CodeCompletionModel* self, int row, int column, const QModelIndex* idx) {
+QModelIndex* KTextEditor__CodeCompletionModel_SuperSibling(const KTextEditor__CodeCompletionModel* self, int row, int column, const QModelIndex* idx) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Sibling_IsBase(true);
@@ -437,7 +437,7 @@ bool KTextEditor__CodeCompletionModel_HasChildren(const KTextEditor__CodeComplet
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModel_QBaseHasChildren(const KTextEditor__CodeCompletionModel* self, const QModelIndex* parent) {
+bool KTextEditor__CodeCompletionModel_SuperHasChildren(const KTextEditor__CodeCompletionModel* self, const QModelIndex* parent) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_HasChildren_IsBase(true);
@@ -466,7 +466,7 @@ QVariant* KTextEditor__CodeCompletionModel_Data(const KTextEditor__CodeCompletio
 }
 
 // Base class handler implementation
-QVariant* KTextEditor__CodeCompletionModel_QBaseData(const KTextEditor__CodeCompletionModel* self, const QModelIndex* index, int role) {
+QVariant* KTextEditor__CodeCompletionModel_SuperData(const KTextEditor__CodeCompletionModel* self, const QModelIndex* index, int role) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Data_IsBase(true);
@@ -495,7 +495,7 @@ bool KTextEditor__CodeCompletionModel_SetData(KTextEditor__CodeCompletionModel* 
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModel_QBaseSetData(KTextEditor__CodeCompletionModel* self, const QModelIndex* index, const QVariant* value, int role) {
+bool KTextEditor__CodeCompletionModel_SuperSetData(KTextEditor__CodeCompletionModel* self, const QModelIndex* index, const QVariant* value, int role) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_SetData_IsBase(true);
@@ -524,7 +524,7 @@ QVariant* KTextEditor__CodeCompletionModel_HeaderData(const KTextEditor__CodeCom
 }
 
 // Base class handler implementation
-QVariant* KTextEditor__CodeCompletionModel_QBaseHeaderData(const KTextEditor__CodeCompletionModel* self, int section, int orientation, int role) {
+QVariant* KTextEditor__CodeCompletionModel_SuperHeaderData(const KTextEditor__CodeCompletionModel* self, int section, int orientation, int role) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_HeaderData_IsBase(true);
@@ -553,7 +553,7 @@ bool KTextEditor__CodeCompletionModel_SetHeaderData(KTextEditor__CodeCompletionM
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModel_QBaseSetHeaderData(KTextEditor__CodeCompletionModel* self, int section, int orientation, const QVariant* value, int role) {
+bool KTextEditor__CodeCompletionModel_SuperSetHeaderData(KTextEditor__CodeCompletionModel* self, int section, int orientation, const QVariant* value, int role) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_SetHeaderData_IsBase(true);
@@ -588,7 +588,7 @@ bool KTextEditor__CodeCompletionModel_SetItemData(KTextEditor__CodeCompletionMod
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModel_QBaseSetItemData(KTextEditor__CodeCompletionModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
+bool KTextEditor__CodeCompletionModel_SuperSetItemData(KTextEditor__CodeCompletionModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
@@ -623,7 +623,7 @@ bool KTextEditor__CodeCompletionModel_ClearItemData(KTextEditor__CodeCompletionM
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModel_QBaseClearItemData(KTextEditor__CodeCompletionModel* self, const QModelIndex* index) {
+bool KTextEditor__CodeCompletionModel_SuperClearItemData(KTextEditor__CodeCompletionModel* self, const QModelIndex* index) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_ClearItemData_IsBase(true);
@@ -686,7 +686,7 @@ libqt_list /* of libqt_string */ KTextEditor__CodeCompletionModel_MimeTypes(cons
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ KTextEditor__CodeCompletionModel_QBaseMimeTypes(const KTextEditor__CodeCompletionModel* self) {
+libqt_list /* of libqt_string */ KTextEditor__CodeCompletionModel_SuperMimeTypes(const KTextEditor__CodeCompletionModel* self) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_MimeTypes_IsBase(true);
@@ -755,7 +755,7 @@ QMimeData* KTextEditor__CodeCompletionModel_MimeData(const KTextEditor__CodeComp
 }
 
 // Base class handler implementation
-QMimeData* KTextEditor__CodeCompletionModel_QBaseMimeData(const KTextEditor__CodeCompletionModel* self, const libqt_list /* of QModelIndex* */ indexes) {
+QMimeData* KTextEditor__CodeCompletionModel_SuperMimeData(const KTextEditor__CodeCompletionModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -790,7 +790,7 @@ bool KTextEditor__CodeCompletionModel_CanDropMimeData(const KTextEditor__CodeCom
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModel_QBaseCanDropMimeData(const KTextEditor__CodeCompletionModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KTextEditor__CodeCompletionModel_SuperCanDropMimeData(const KTextEditor__CodeCompletionModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_CanDropMimeData_IsBase(true);
@@ -819,7 +819,7 @@ bool KTextEditor__CodeCompletionModel_DropMimeData(KTextEditor__CodeCompletionMo
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModel_QBaseDropMimeData(KTextEditor__CodeCompletionModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
+bool KTextEditor__CodeCompletionModel_SuperDropMimeData(KTextEditor__CodeCompletionModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_DropMimeData_IsBase(true);
@@ -848,7 +848,7 @@ int KTextEditor__CodeCompletionModel_SupportedDropActions(const KTextEditor__Cod
 }
 
 // Base class handler implementation
-int KTextEditor__CodeCompletionModel_QBaseSupportedDropActions(const KTextEditor__CodeCompletionModel* self) {
+int KTextEditor__CodeCompletionModel_SuperSupportedDropActions(const KTextEditor__CodeCompletionModel* self) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_SupportedDropActions_IsBase(true);
@@ -877,7 +877,7 @@ int KTextEditor__CodeCompletionModel_SupportedDragActions(const KTextEditor__Cod
 }
 
 // Base class handler implementation
-int KTextEditor__CodeCompletionModel_QBaseSupportedDragActions(const KTextEditor__CodeCompletionModel* self) {
+int KTextEditor__CodeCompletionModel_SuperSupportedDragActions(const KTextEditor__CodeCompletionModel* self) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_SupportedDragActions_IsBase(true);
@@ -906,7 +906,7 @@ bool KTextEditor__CodeCompletionModel_InsertRows(KTextEditor__CodeCompletionMode
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModel_QBaseInsertRows(KTextEditor__CodeCompletionModel* self, int row, int count, const QModelIndex* parent) {
+bool KTextEditor__CodeCompletionModel_SuperInsertRows(KTextEditor__CodeCompletionModel* self, int row, int count, const QModelIndex* parent) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_InsertRows_IsBase(true);
@@ -935,7 +935,7 @@ bool KTextEditor__CodeCompletionModel_InsertColumns(KTextEditor__CodeCompletionM
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModel_QBaseInsertColumns(KTextEditor__CodeCompletionModel* self, int column, int count, const QModelIndex* parent) {
+bool KTextEditor__CodeCompletionModel_SuperInsertColumns(KTextEditor__CodeCompletionModel* self, int column, int count, const QModelIndex* parent) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_InsertColumns_IsBase(true);
@@ -964,7 +964,7 @@ bool KTextEditor__CodeCompletionModel_RemoveRows(KTextEditor__CodeCompletionMode
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModel_QBaseRemoveRows(KTextEditor__CodeCompletionModel* self, int row, int count, const QModelIndex* parent) {
+bool KTextEditor__CodeCompletionModel_SuperRemoveRows(KTextEditor__CodeCompletionModel* self, int row, int count, const QModelIndex* parent) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_RemoveRows_IsBase(true);
@@ -993,7 +993,7 @@ bool KTextEditor__CodeCompletionModel_RemoveColumns(KTextEditor__CodeCompletionM
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModel_QBaseRemoveColumns(KTextEditor__CodeCompletionModel* self, int column, int count, const QModelIndex* parent) {
+bool KTextEditor__CodeCompletionModel_SuperRemoveColumns(KTextEditor__CodeCompletionModel* self, int column, int count, const QModelIndex* parent) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_RemoveColumns_IsBase(true);
@@ -1022,7 +1022,7 @@ bool KTextEditor__CodeCompletionModel_MoveRows(KTextEditor__CodeCompletionModel*
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModel_QBaseMoveRows(KTextEditor__CodeCompletionModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KTextEditor__CodeCompletionModel_SuperMoveRows(KTextEditor__CodeCompletionModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_MoveRows_IsBase(true);
@@ -1051,7 +1051,7 @@ bool KTextEditor__CodeCompletionModel_MoveColumns(KTextEditor__CodeCompletionMod
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModel_QBaseMoveColumns(KTextEditor__CodeCompletionModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
+bool KTextEditor__CodeCompletionModel_SuperMoveColumns(KTextEditor__CodeCompletionModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_MoveColumns_IsBase(true);
@@ -1080,7 +1080,7 @@ void KTextEditor__CodeCompletionModel_FetchMore(KTextEditor__CodeCompletionModel
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseFetchMore(KTextEditor__CodeCompletionModel* self, const QModelIndex* parent) {
+void KTextEditor__CodeCompletionModel_SuperFetchMore(KTextEditor__CodeCompletionModel* self, const QModelIndex* parent) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_FetchMore_IsBase(true);
@@ -1109,7 +1109,7 @@ bool KTextEditor__CodeCompletionModel_CanFetchMore(const KTextEditor__CodeComple
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModel_QBaseCanFetchMore(const KTextEditor__CodeCompletionModel* self, const QModelIndex* parent) {
+bool KTextEditor__CodeCompletionModel_SuperCanFetchMore(const KTextEditor__CodeCompletionModel* self, const QModelIndex* parent) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_CanFetchMore_IsBase(true);
@@ -1138,7 +1138,7 @@ int KTextEditor__CodeCompletionModel_Flags(const KTextEditor__CodeCompletionMode
 }
 
 // Base class handler implementation
-int KTextEditor__CodeCompletionModel_QBaseFlags(const KTextEditor__CodeCompletionModel* self, const QModelIndex* index) {
+int KTextEditor__CodeCompletionModel_SuperFlags(const KTextEditor__CodeCompletionModel* self, const QModelIndex* index) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Flags_IsBase(true);
@@ -1167,7 +1167,7 @@ void KTextEditor__CodeCompletionModel_Sort(KTextEditor__CodeCompletionModel* sel
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseSort(KTextEditor__CodeCompletionModel* self, int column, int order) {
+void KTextEditor__CodeCompletionModel_SuperSort(KTextEditor__CodeCompletionModel* self, int column, int order) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Sort_IsBase(true);
@@ -1196,7 +1196,7 @@ QModelIndex* KTextEditor__CodeCompletionModel_Buddy(const KTextEditor__CodeCompl
 }
 
 // Base class handler implementation
-QModelIndex* KTextEditor__CodeCompletionModel_QBaseBuddy(const KTextEditor__CodeCompletionModel* self, const QModelIndex* index) {
+QModelIndex* KTextEditor__CodeCompletionModel_SuperBuddy(const KTextEditor__CodeCompletionModel* self, const QModelIndex* index) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Buddy_IsBase(true);
@@ -1243,7 +1243,7 @@ libqt_list /* of QModelIndex* */ KTextEditor__CodeCompletionModel_Match(const KT
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KTextEditor__CodeCompletionModel_QBaseMatch(const KTextEditor__CodeCompletionModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
+libqt_list /* of QModelIndex* */ KTextEditor__CodeCompletionModel_SuperMatch(const KTextEditor__CodeCompletionModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Match_IsBase(true);
@@ -1290,7 +1290,7 @@ QSize* KTextEditor__CodeCompletionModel_Span(const KTextEditor__CodeCompletionMo
 }
 
 // Base class handler implementation
-QSize* KTextEditor__CodeCompletionModel_QBaseSpan(const KTextEditor__CodeCompletionModel* self, const QModelIndex* index) {
+QSize* KTextEditor__CodeCompletionModel_SuperSpan(const KTextEditor__CodeCompletionModel* self, const QModelIndex* index) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Span_IsBase(true);
@@ -1357,7 +1357,7 @@ libqt_map /* of int to libqt_string */ KTextEditor__CodeCompletionModel_RoleName
 }
 
 // Base class handler implementation
-libqt_map /* of int to libqt_string */ KTextEditor__CodeCompletionModel_QBaseRoleNames(const KTextEditor__CodeCompletionModel* self) {
+libqt_map /* of int to libqt_string */ KTextEditor__CodeCompletionModel_SuperRoleNames(const KTextEditor__CodeCompletionModel* self) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_RoleNames_IsBase(true);
@@ -1424,7 +1424,7 @@ void KTextEditor__CodeCompletionModel_MultiData(const KTextEditor__CodeCompletio
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseMultiData(const KTextEditor__CodeCompletionModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
+void KTextEditor__CodeCompletionModel_SuperMultiData(const KTextEditor__CodeCompletionModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_MultiData_IsBase(true);
@@ -1453,7 +1453,7 @@ bool KTextEditor__CodeCompletionModel_Submit(KTextEditor__CodeCompletionModel* s
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModel_QBaseSubmit(KTextEditor__CodeCompletionModel* self) {
+bool KTextEditor__CodeCompletionModel_SuperSubmit(KTextEditor__CodeCompletionModel* self) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Submit_IsBase(true);
@@ -1482,7 +1482,7 @@ void KTextEditor__CodeCompletionModel_Revert(KTextEditor__CodeCompletionModel* s
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseRevert(KTextEditor__CodeCompletionModel* self) {
+void KTextEditor__CodeCompletionModel_SuperRevert(KTextEditor__CodeCompletionModel* self) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Revert_IsBase(true);
@@ -1511,7 +1511,7 @@ void KTextEditor__CodeCompletionModel_ResetInternalData(KTextEditor__CodeComplet
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseResetInternalData(KTextEditor__CodeCompletionModel* self) {
+void KTextEditor__CodeCompletionModel_SuperResetInternalData(KTextEditor__CodeCompletionModel* self) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_ResetInternalData_IsBase(true);
@@ -1540,7 +1540,7 @@ bool KTextEditor__CodeCompletionModel_Event(KTextEditor__CodeCompletionModel* se
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModel_QBaseEvent(KTextEditor__CodeCompletionModel* self, QEvent* event) {
+bool KTextEditor__CodeCompletionModel_SuperEvent(KTextEditor__CodeCompletionModel* self, QEvent* event) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Event_IsBase(true);
@@ -1569,7 +1569,7 @@ bool KTextEditor__CodeCompletionModel_EventFilter(KTextEditor__CodeCompletionMod
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModel_QBaseEventFilter(KTextEditor__CodeCompletionModel* self, QObject* watched, QEvent* event) {
+bool KTextEditor__CodeCompletionModel_SuperEventFilter(KTextEditor__CodeCompletionModel* self, QObject* watched, QEvent* event) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_EventFilter_IsBase(true);
@@ -1598,7 +1598,7 @@ void KTextEditor__CodeCompletionModel_TimerEvent(KTextEditor__CodeCompletionMode
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseTimerEvent(KTextEditor__CodeCompletionModel* self, QTimerEvent* event) {
+void KTextEditor__CodeCompletionModel_SuperTimerEvent(KTextEditor__CodeCompletionModel* self, QTimerEvent* event) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_TimerEvent_IsBase(true);
@@ -1627,7 +1627,7 @@ void KTextEditor__CodeCompletionModel_ChildEvent(KTextEditor__CodeCompletionMode
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseChildEvent(KTextEditor__CodeCompletionModel* self, QChildEvent* event) {
+void KTextEditor__CodeCompletionModel_SuperChildEvent(KTextEditor__CodeCompletionModel* self, QChildEvent* event) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_ChildEvent_IsBase(true);
@@ -1656,7 +1656,7 @@ void KTextEditor__CodeCompletionModel_CustomEvent(KTextEditor__CodeCompletionMod
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseCustomEvent(KTextEditor__CodeCompletionModel* self, QEvent* event) {
+void KTextEditor__CodeCompletionModel_SuperCustomEvent(KTextEditor__CodeCompletionModel* self, QEvent* event) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_CustomEvent_IsBase(true);
@@ -1685,7 +1685,7 @@ void KTextEditor__CodeCompletionModel_ConnectNotify(KTextEditor__CodeCompletionM
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseConnectNotify(KTextEditor__CodeCompletionModel* self, const QMetaMethod* signal) {
+void KTextEditor__CodeCompletionModel_SuperConnectNotify(KTextEditor__CodeCompletionModel* self, const QMetaMethod* signal) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_ConnectNotify_IsBase(true);
@@ -1714,7 +1714,7 @@ void KTextEditor__CodeCompletionModel_DisconnectNotify(KTextEditor__CodeCompleti
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseDisconnectNotify(KTextEditor__CodeCompletionModel* self, const QMetaMethod* signal) {
+void KTextEditor__CodeCompletionModel_SuperDisconnectNotify(KTextEditor__CodeCompletionModel* self, const QMetaMethod* signal) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_DisconnectNotify_IsBase(true);
@@ -1743,7 +1743,7 @@ void KTextEditor__CodeCompletionModel_SetHasGroups(KTextEditor__CodeCompletionMo
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseSetHasGroups(KTextEditor__CodeCompletionModel* self, bool hasGroups) {
+void KTextEditor__CodeCompletionModel_SuperSetHasGroups(KTextEditor__CodeCompletionModel* self, bool hasGroups) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_SetHasGroups_IsBase(true);
@@ -1771,7 +1771,7 @@ QModelIndex* KTextEditor__CodeCompletionModel_CreateIndex(const KTextEditor__Cod
 }
 
 // Base class handler implementation
-QModelIndex* KTextEditor__CodeCompletionModel_QBaseCreateIndex(const KTextEditor__CodeCompletionModel* self, int row, int column) {
+QModelIndex* KTextEditor__CodeCompletionModel_SuperCreateIndex(const KTextEditor__CodeCompletionModel* self, int row, int column) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_CreateIndex_IsBase(true);
@@ -1805,7 +1805,7 @@ void KTextEditor__CodeCompletionModel_EncodeData(const KTextEditor__CodeCompleti
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseEncodeData(const KTextEditor__CodeCompletionModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
+void KTextEditor__CodeCompletionModel_SuperEncodeData(const KTextEditor__CodeCompletionModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
@@ -1840,7 +1840,7 @@ bool KTextEditor__CodeCompletionModel_DecodeData(KTextEditor__CodeCompletionMode
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModel_QBaseDecodeData(KTextEditor__CodeCompletionModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
+bool KTextEditor__CodeCompletionModel_SuperDecodeData(KTextEditor__CodeCompletionModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_DecodeData_IsBase(true);
@@ -1869,7 +1869,7 @@ void KTextEditor__CodeCompletionModel_BeginInsertRows(KTextEditor__CodeCompletio
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseBeginInsertRows(KTextEditor__CodeCompletionModel* self, const QModelIndex* parent, int first, int last) {
+void KTextEditor__CodeCompletionModel_SuperBeginInsertRows(KTextEditor__CodeCompletionModel* self, const QModelIndex* parent, int first, int last) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_BeginInsertRows_IsBase(true);
@@ -1898,7 +1898,7 @@ void KTextEditor__CodeCompletionModel_EndInsertRows(KTextEditor__CodeCompletionM
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseEndInsertRows(KTextEditor__CodeCompletionModel* self) {
+void KTextEditor__CodeCompletionModel_SuperEndInsertRows(KTextEditor__CodeCompletionModel* self) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_EndInsertRows_IsBase(true);
@@ -1927,7 +1927,7 @@ void KTextEditor__CodeCompletionModel_BeginRemoveRows(KTextEditor__CodeCompletio
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseBeginRemoveRows(KTextEditor__CodeCompletionModel* self, const QModelIndex* parent, int first, int last) {
+void KTextEditor__CodeCompletionModel_SuperBeginRemoveRows(KTextEditor__CodeCompletionModel* self, const QModelIndex* parent, int first, int last) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_BeginRemoveRows_IsBase(true);
@@ -1956,7 +1956,7 @@ void KTextEditor__CodeCompletionModel_EndRemoveRows(KTextEditor__CodeCompletionM
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseEndRemoveRows(KTextEditor__CodeCompletionModel* self) {
+void KTextEditor__CodeCompletionModel_SuperEndRemoveRows(KTextEditor__CodeCompletionModel* self) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_EndRemoveRows_IsBase(true);
@@ -1985,7 +1985,7 @@ bool KTextEditor__CodeCompletionModel_BeginMoveRows(KTextEditor__CodeCompletionM
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModel_QBaseBeginMoveRows(KTextEditor__CodeCompletionModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
+bool KTextEditor__CodeCompletionModel_SuperBeginMoveRows(KTextEditor__CodeCompletionModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_BeginMoveRows_IsBase(true);
@@ -2014,7 +2014,7 @@ void KTextEditor__CodeCompletionModel_EndMoveRows(KTextEditor__CodeCompletionMod
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseEndMoveRows(KTextEditor__CodeCompletionModel* self) {
+void KTextEditor__CodeCompletionModel_SuperEndMoveRows(KTextEditor__CodeCompletionModel* self) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_EndMoveRows_IsBase(true);
@@ -2043,7 +2043,7 @@ void KTextEditor__CodeCompletionModel_BeginInsertColumns(KTextEditor__CodeComple
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseBeginInsertColumns(KTextEditor__CodeCompletionModel* self, const QModelIndex* parent, int first, int last) {
+void KTextEditor__CodeCompletionModel_SuperBeginInsertColumns(KTextEditor__CodeCompletionModel* self, const QModelIndex* parent, int first, int last) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_BeginInsertColumns_IsBase(true);
@@ -2072,7 +2072,7 @@ void KTextEditor__CodeCompletionModel_EndInsertColumns(KTextEditor__CodeCompleti
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseEndInsertColumns(KTextEditor__CodeCompletionModel* self) {
+void KTextEditor__CodeCompletionModel_SuperEndInsertColumns(KTextEditor__CodeCompletionModel* self) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_EndInsertColumns_IsBase(true);
@@ -2101,7 +2101,7 @@ void KTextEditor__CodeCompletionModel_BeginRemoveColumns(KTextEditor__CodeComple
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseBeginRemoveColumns(KTextEditor__CodeCompletionModel* self, const QModelIndex* parent, int first, int last) {
+void KTextEditor__CodeCompletionModel_SuperBeginRemoveColumns(KTextEditor__CodeCompletionModel* self, const QModelIndex* parent, int first, int last) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_BeginRemoveColumns_IsBase(true);
@@ -2130,7 +2130,7 @@ void KTextEditor__CodeCompletionModel_EndRemoveColumns(KTextEditor__CodeCompleti
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseEndRemoveColumns(KTextEditor__CodeCompletionModel* self) {
+void KTextEditor__CodeCompletionModel_SuperEndRemoveColumns(KTextEditor__CodeCompletionModel* self) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_EndRemoveColumns_IsBase(true);
@@ -2159,7 +2159,7 @@ bool KTextEditor__CodeCompletionModel_BeginMoveColumns(KTextEditor__CodeCompleti
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModel_QBaseBeginMoveColumns(KTextEditor__CodeCompletionModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
+bool KTextEditor__CodeCompletionModel_SuperBeginMoveColumns(KTextEditor__CodeCompletionModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_BeginMoveColumns_IsBase(true);
@@ -2188,7 +2188,7 @@ void KTextEditor__CodeCompletionModel_EndMoveColumns(KTextEditor__CodeCompletion
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseEndMoveColumns(KTextEditor__CodeCompletionModel* self) {
+void KTextEditor__CodeCompletionModel_SuperEndMoveColumns(KTextEditor__CodeCompletionModel* self) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_EndMoveColumns_IsBase(true);
@@ -2217,7 +2217,7 @@ void KTextEditor__CodeCompletionModel_BeginResetModel(KTextEditor__CodeCompletio
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseBeginResetModel(KTextEditor__CodeCompletionModel* self) {
+void KTextEditor__CodeCompletionModel_SuperBeginResetModel(KTextEditor__CodeCompletionModel* self) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_BeginResetModel_IsBase(true);
@@ -2246,7 +2246,7 @@ void KTextEditor__CodeCompletionModel_EndResetModel(KTextEditor__CodeCompletionM
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseEndResetModel(KTextEditor__CodeCompletionModel* self) {
+void KTextEditor__CodeCompletionModel_SuperEndResetModel(KTextEditor__CodeCompletionModel* self) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_EndResetModel_IsBase(true);
@@ -2275,7 +2275,7 @@ void KTextEditor__CodeCompletionModel_ChangePersistentIndex(KTextEditor__CodeCom
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseChangePersistentIndex(KTextEditor__CodeCompletionModel* self, const QModelIndex* from, const QModelIndex* to) {
+void KTextEditor__CodeCompletionModel_SuperChangePersistentIndex(KTextEditor__CodeCompletionModel* self, const QModelIndex* from, const QModelIndex* to) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_ChangePersistentIndex_IsBase(true);
@@ -2316,7 +2316,7 @@ void KTextEditor__CodeCompletionModel_ChangePersistentIndexList(KTextEditor__Cod
 }
 
 // Base class handler implementation
-void KTextEditor__CodeCompletionModel_QBaseChangePersistentIndexList(KTextEditor__CodeCompletionModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
+void KTextEditor__CodeCompletionModel_SuperChangePersistentIndexList(KTextEditor__CodeCompletionModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
     QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
@@ -2375,7 +2375,7 @@ libqt_list /* of QModelIndex* */ KTextEditor__CodeCompletionModel_PersistentInde
 }
 
 // Base class handler implementation
-libqt_list /* of QModelIndex* */ KTextEditor__CodeCompletionModel_QBasePersistentIndexList(const KTextEditor__CodeCompletionModel* self) {
+libqt_list /* of QModelIndex* */ KTextEditor__CodeCompletionModel_SuperPersistentIndexList(const KTextEditor__CodeCompletionModel* self) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_PersistentIndexList_IsBase(true);
@@ -2422,7 +2422,7 @@ QObject* KTextEditor__CodeCompletionModel_Sender(const KTextEditor__CodeCompleti
 }
 
 // Base class handler implementation
-QObject* KTextEditor__CodeCompletionModel_QBaseSender(const KTextEditor__CodeCompletionModel* self) {
+QObject* KTextEditor__CodeCompletionModel_SuperSender(const KTextEditor__CodeCompletionModel* self) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Sender_IsBase(true);
@@ -2451,7 +2451,7 @@ int KTextEditor__CodeCompletionModel_SenderSignalIndex(const KTextEditor__CodeCo
 }
 
 // Base class handler implementation
-int KTextEditor__CodeCompletionModel_QBaseSenderSignalIndex(const KTextEditor__CodeCompletionModel* self) {
+int KTextEditor__CodeCompletionModel_SuperSenderSignalIndex(const KTextEditor__CodeCompletionModel* self) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_SenderSignalIndex_IsBase(true);
@@ -2480,7 +2480,7 @@ int KTextEditor__CodeCompletionModel_Receivers(const KTextEditor__CodeCompletion
 }
 
 // Base class handler implementation
-int KTextEditor__CodeCompletionModel_QBaseReceivers(const KTextEditor__CodeCompletionModel* self, const char* signal) {
+int KTextEditor__CodeCompletionModel_SuperReceivers(const KTextEditor__CodeCompletionModel* self, const char* signal) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Receivers_IsBase(true);
@@ -2509,7 +2509,7 @@ bool KTextEditor__CodeCompletionModel_IsSignalConnected(const KTextEditor__CodeC
 }
 
 // Base class handler implementation
-bool KTextEditor__CodeCompletionModel_QBaseIsSignalConnected(const KTextEditor__CodeCompletionModel* self, const QMetaMethod* signal) {
+bool KTextEditor__CodeCompletionModel_SuperIsSignalConnected(const KTextEditor__CodeCompletionModel* self, const QMetaMethod* signal) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_IsSignalConnected_IsBase(true);

@@ -196,6 +196,10 @@ pub const qtextinlineobject = struct {
         return qtc.QTextInlineObject_Format(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextinlineobject.html#dtor.QTextInlineObject)
     ///
     /// Delete this object from C++ memory.
@@ -204,7 +208,7 @@ pub const qtextinlineobject = struct {
     ///
     /// ` self: QtC.QTextInlineObject `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTextInlineObject_Delete(@ptrCast(self));
     }
 };
@@ -897,6 +901,10 @@ pub const qtextlayout = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlayout.html#dtor.QTextLayout)
     ///
     /// Delete this object from C++ memory.
@@ -905,7 +913,7 @@ pub const qtextlayout = struct {
     ///
     /// ` self: QtC.QTextLayout `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTextLayout_Delete(@ptrCast(self));
     }
 };
@@ -1366,6 +1374,10 @@ pub const qtextline = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextline.html#dtor.QTextLine)
     ///
     /// Delete this object from C++ memory.
@@ -1374,7 +1386,7 @@ pub const qtextline = struct {
     ///
     /// ` self: QtC.QTextLine `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTextLine_Delete(@ptrCast(self));
     }
 };
@@ -1463,13 +1475,17 @@ pub const qtextlayout__formatrange = struct {
         qtc.QTextLayout__FormatRange_SetFormat(@ptrCast(self), @ptrCast(format));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.QTextLayout__FormatRange `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QTextLayout__FormatRange_Delete(@ptrCast(self));
     }
 };

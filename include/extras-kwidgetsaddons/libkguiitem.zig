@@ -407,6 +407,10 @@ pub const kguiitem = struct {
         qtc.KGuiItem_Assign(@ptrCast(button), @ptrCast(item));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kguiitem.html#dtor.KGuiItem)
     ///
     /// Delete this object from C++ memory.
@@ -415,7 +419,7 @@ pub const kguiitem = struct {
     ///
     /// ` self: QtC.KGuiItem `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KGuiItem_Delete(@ptrCast(self));
     }
 };

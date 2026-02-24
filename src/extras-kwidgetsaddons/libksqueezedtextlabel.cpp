@@ -182,7 +182,7 @@ void KSqueezedTextLabel_ContextMenuEvent(KSqueezedTextLabel* self, QContextMenuE
 }
 
 // Base class handler implementation
-QMetaObject* KSqueezedTextLabel_QBaseMetaObject(const KSqueezedTextLabel* self) {
+QMetaObject* KSqueezedTextLabel_SuperMetaObject(const KSqueezedTextLabel* self) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_MetaObject_IsBase(true);
@@ -201,7 +201,7 @@ void KSqueezedTextLabel_OnMetaObject(const KSqueezedTextLabel* self, intptr_t sl
 }
 
 // Base class handler implementation
-void* KSqueezedTextLabel_QBaseMetacast(KSqueezedTextLabel* self, const char* param1) {
+void* KSqueezedTextLabel_SuperMetacast(KSqueezedTextLabel* self, const char* param1) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_Metacast_IsBase(true);
@@ -220,7 +220,7 @@ void KSqueezedTextLabel_OnMetacast(KSqueezedTextLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KSqueezedTextLabel_QBaseMetacall(KSqueezedTextLabel* self, int param1, int param2, void** param3) {
+int KSqueezedTextLabel_SuperMetacall(KSqueezedTextLabel* self, int param1, int param2, void** param3) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_Metacall_IsBase(true);
@@ -239,7 +239,7 @@ void KSqueezedTextLabel_OnMetacall(KSqueezedTextLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QSize* KSqueezedTextLabel_QBaseMinimumSizeHint(const KSqueezedTextLabel* self) {
+QSize* KSqueezedTextLabel_SuperMinimumSizeHint(const KSqueezedTextLabel* self) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_MinimumSizeHint_IsBase(true);
@@ -258,7 +258,7 @@ void KSqueezedTextLabel_OnMinimumSizeHint(const KSqueezedTextLabel* self, intptr
 }
 
 // Base class handler implementation
-QSize* KSqueezedTextLabel_QBaseSizeHint(const KSqueezedTextLabel* self) {
+QSize* KSqueezedTextLabel_SuperSizeHint(const KSqueezedTextLabel* self) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_SizeHint_IsBase(true);
@@ -277,7 +277,7 @@ void KSqueezedTextLabel_OnSizeHint(const KSqueezedTextLabel* self, intptr_t slot
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseSetAlignment(KSqueezedTextLabel* self, int alignment) {
+void KSqueezedTextLabel_SuperSetAlignment(KSqueezedTextLabel* self, int alignment) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_SetAlignment_IsBase(true);
@@ -296,7 +296,7 @@ void KSqueezedTextLabel_OnSetAlignment(KSqueezedTextLabel* self, intptr_t slot) 
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseMouseReleaseEvent(KSqueezedTextLabel* self, QMouseEvent* param1) {
+void KSqueezedTextLabel_SuperMouseReleaseEvent(KSqueezedTextLabel* self, QMouseEvent* param1) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_MouseReleaseEvent_IsBase(true);
@@ -315,7 +315,7 @@ void KSqueezedTextLabel_OnMouseReleaseEvent(KSqueezedTextLabel* self, intptr_t s
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseResizeEvent(KSqueezedTextLabel* self, QResizeEvent* param1) {
+void KSqueezedTextLabel_SuperResizeEvent(KSqueezedTextLabel* self, QResizeEvent* param1) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_ResizeEvent_IsBase(true);
@@ -334,7 +334,7 @@ void KSqueezedTextLabel_OnResizeEvent(KSqueezedTextLabel* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseContextMenuEvent(KSqueezedTextLabel* self, QContextMenuEvent* param1) {
+void KSqueezedTextLabel_SuperContextMenuEvent(KSqueezedTextLabel* self, QContextMenuEvent* param1) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_ContextMenuEvent_IsBase(true);
@@ -363,7 +363,7 @@ int KSqueezedTextLabel_HeightForWidth(const KSqueezedTextLabel* self, int param1
 }
 
 // Base class handler implementation
-int KSqueezedTextLabel_QBaseHeightForWidth(const KSqueezedTextLabel* self, int param1) {
+int KSqueezedTextLabel_SuperHeightForWidth(const KSqueezedTextLabel* self, int param1) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_HeightForWidth_IsBase(true);
@@ -392,7 +392,7 @@ bool KSqueezedTextLabel_Event(KSqueezedTextLabel* self, QEvent* e) {
 }
 
 // Base class handler implementation
-bool KSqueezedTextLabel_QBaseEvent(KSqueezedTextLabel* self, QEvent* e) {
+bool KSqueezedTextLabel_SuperEvent(KSqueezedTextLabel* self, QEvent* e) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_Event_IsBase(true);
@@ -421,7 +421,7 @@ void KSqueezedTextLabel_KeyPressEvent(KSqueezedTextLabel* self, QKeyEvent* ev) {
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseKeyPressEvent(KSqueezedTextLabel* self, QKeyEvent* ev) {
+void KSqueezedTextLabel_SuperKeyPressEvent(KSqueezedTextLabel* self, QKeyEvent* ev) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_KeyPressEvent_IsBase(true);
@@ -450,7 +450,7 @@ void KSqueezedTextLabel_PaintEvent(KSqueezedTextLabel* self, QPaintEvent* param1
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBasePaintEvent(KSqueezedTextLabel* self, QPaintEvent* param1) {
+void KSqueezedTextLabel_SuperPaintEvent(KSqueezedTextLabel* self, QPaintEvent* param1) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_PaintEvent_IsBase(true);
@@ -479,7 +479,7 @@ void KSqueezedTextLabel_ChangeEvent(KSqueezedTextLabel* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseChangeEvent(KSqueezedTextLabel* self, QEvent* param1) {
+void KSqueezedTextLabel_SuperChangeEvent(KSqueezedTextLabel* self, QEvent* param1) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_ChangeEvent_IsBase(true);
@@ -508,7 +508,7 @@ void KSqueezedTextLabel_MousePressEvent(KSqueezedTextLabel* self, QMouseEvent* e
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseMousePressEvent(KSqueezedTextLabel* self, QMouseEvent* ev) {
+void KSqueezedTextLabel_SuperMousePressEvent(KSqueezedTextLabel* self, QMouseEvent* ev) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_MousePressEvent_IsBase(true);
@@ -537,7 +537,7 @@ void KSqueezedTextLabel_MouseMoveEvent(KSqueezedTextLabel* self, QMouseEvent* ev
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseMouseMoveEvent(KSqueezedTextLabel* self, QMouseEvent* ev) {
+void KSqueezedTextLabel_SuperMouseMoveEvent(KSqueezedTextLabel* self, QMouseEvent* ev) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_MouseMoveEvent_IsBase(true);
@@ -566,7 +566,7 @@ void KSqueezedTextLabel_FocusInEvent(KSqueezedTextLabel* self, QFocusEvent* ev) 
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseFocusInEvent(KSqueezedTextLabel* self, QFocusEvent* ev) {
+void KSqueezedTextLabel_SuperFocusInEvent(KSqueezedTextLabel* self, QFocusEvent* ev) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_FocusInEvent_IsBase(true);
@@ -595,7 +595,7 @@ void KSqueezedTextLabel_FocusOutEvent(KSqueezedTextLabel* self, QFocusEvent* ev)
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseFocusOutEvent(KSqueezedTextLabel* self, QFocusEvent* ev) {
+void KSqueezedTextLabel_SuperFocusOutEvent(KSqueezedTextLabel* self, QFocusEvent* ev) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_FocusOutEvent_IsBase(true);
@@ -624,7 +624,7 @@ bool KSqueezedTextLabel_FocusNextPrevChild(KSqueezedTextLabel* self, bool next) 
 }
 
 // Base class handler implementation
-bool KSqueezedTextLabel_QBaseFocusNextPrevChild(KSqueezedTextLabel* self, bool next) {
+bool KSqueezedTextLabel_SuperFocusNextPrevChild(KSqueezedTextLabel* self, bool next) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_FocusNextPrevChild_IsBase(true);
@@ -653,7 +653,7 @@ void KSqueezedTextLabel_InitStyleOption(const KSqueezedTextLabel* self, QStyleOp
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseInitStyleOption(const KSqueezedTextLabel* self, QStyleOptionFrame* option) {
+void KSqueezedTextLabel_SuperInitStyleOption(const KSqueezedTextLabel* self, QStyleOptionFrame* option) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_InitStyleOption_IsBase(true);
@@ -682,7 +682,7 @@ int KSqueezedTextLabel_DevType(const KSqueezedTextLabel* self) {
 }
 
 // Base class handler implementation
-int KSqueezedTextLabel_QBaseDevType(const KSqueezedTextLabel* self) {
+int KSqueezedTextLabel_SuperDevType(const KSqueezedTextLabel* self) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_DevType_IsBase(true);
@@ -711,7 +711,7 @@ void KSqueezedTextLabel_SetVisible(KSqueezedTextLabel* self, bool visible) {
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseSetVisible(KSqueezedTextLabel* self, bool visible) {
+void KSqueezedTextLabel_SuperSetVisible(KSqueezedTextLabel* self, bool visible) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_SetVisible_IsBase(true);
@@ -740,7 +740,7 @@ bool KSqueezedTextLabel_HasHeightForWidth(const KSqueezedTextLabel* self) {
 }
 
 // Base class handler implementation
-bool KSqueezedTextLabel_QBaseHasHeightForWidth(const KSqueezedTextLabel* self) {
+bool KSqueezedTextLabel_SuperHasHeightForWidth(const KSqueezedTextLabel* self) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_HasHeightForWidth_IsBase(true);
@@ -769,7 +769,7 @@ QPaintEngine* KSqueezedTextLabel_PaintEngine(const KSqueezedTextLabel* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* KSqueezedTextLabel_QBasePaintEngine(const KSqueezedTextLabel* self) {
+QPaintEngine* KSqueezedTextLabel_SuperPaintEngine(const KSqueezedTextLabel* self) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_PaintEngine_IsBase(true);
@@ -798,7 +798,7 @@ void KSqueezedTextLabel_MouseDoubleClickEvent(KSqueezedTextLabel* self, QMouseEv
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseMouseDoubleClickEvent(KSqueezedTextLabel* self, QMouseEvent* event) {
+void KSqueezedTextLabel_SuperMouseDoubleClickEvent(KSqueezedTextLabel* self, QMouseEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_MouseDoubleClickEvent_IsBase(true);
@@ -827,7 +827,7 @@ void KSqueezedTextLabel_WheelEvent(KSqueezedTextLabel* self, QWheelEvent* event)
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseWheelEvent(KSqueezedTextLabel* self, QWheelEvent* event) {
+void KSqueezedTextLabel_SuperWheelEvent(KSqueezedTextLabel* self, QWheelEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_WheelEvent_IsBase(true);
@@ -856,7 +856,7 @@ void KSqueezedTextLabel_KeyReleaseEvent(KSqueezedTextLabel* self, QKeyEvent* eve
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseKeyReleaseEvent(KSqueezedTextLabel* self, QKeyEvent* event) {
+void KSqueezedTextLabel_SuperKeyReleaseEvent(KSqueezedTextLabel* self, QKeyEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_KeyReleaseEvent_IsBase(true);
@@ -885,7 +885,7 @@ void KSqueezedTextLabel_EnterEvent(KSqueezedTextLabel* self, QEnterEvent* event)
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseEnterEvent(KSqueezedTextLabel* self, QEnterEvent* event) {
+void KSqueezedTextLabel_SuperEnterEvent(KSqueezedTextLabel* self, QEnterEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_EnterEvent_IsBase(true);
@@ -914,7 +914,7 @@ void KSqueezedTextLabel_LeaveEvent(KSqueezedTextLabel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseLeaveEvent(KSqueezedTextLabel* self, QEvent* event) {
+void KSqueezedTextLabel_SuperLeaveEvent(KSqueezedTextLabel* self, QEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_LeaveEvent_IsBase(true);
@@ -943,7 +943,7 @@ void KSqueezedTextLabel_MoveEvent(KSqueezedTextLabel* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseMoveEvent(KSqueezedTextLabel* self, QMoveEvent* event) {
+void KSqueezedTextLabel_SuperMoveEvent(KSqueezedTextLabel* self, QMoveEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_MoveEvent_IsBase(true);
@@ -972,7 +972,7 @@ void KSqueezedTextLabel_CloseEvent(KSqueezedTextLabel* self, QCloseEvent* event)
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseCloseEvent(KSqueezedTextLabel* self, QCloseEvent* event) {
+void KSqueezedTextLabel_SuperCloseEvent(KSqueezedTextLabel* self, QCloseEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_CloseEvent_IsBase(true);
@@ -1001,7 +1001,7 @@ void KSqueezedTextLabel_TabletEvent(KSqueezedTextLabel* self, QTabletEvent* even
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseTabletEvent(KSqueezedTextLabel* self, QTabletEvent* event) {
+void KSqueezedTextLabel_SuperTabletEvent(KSqueezedTextLabel* self, QTabletEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_TabletEvent_IsBase(true);
@@ -1030,7 +1030,7 @@ void KSqueezedTextLabel_ActionEvent(KSqueezedTextLabel* self, QActionEvent* even
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseActionEvent(KSqueezedTextLabel* self, QActionEvent* event) {
+void KSqueezedTextLabel_SuperActionEvent(KSqueezedTextLabel* self, QActionEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_ActionEvent_IsBase(true);
@@ -1059,7 +1059,7 @@ void KSqueezedTextLabel_DragEnterEvent(KSqueezedTextLabel* self, QDragEnterEvent
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseDragEnterEvent(KSqueezedTextLabel* self, QDragEnterEvent* event) {
+void KSqueezedTextLabel_SuperDragEnterEvent(KSqueezedTextLabel* self, QDragEnterEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_DragEnterEvent_IsBase(true);
@@ -1088,7 +1088,7 @@ void KSqueezedTextLabel_DragMoveEvent(KSqueezedTextLabel* self, QDragMoveEvent* 
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseDragMoveEvent(KSqueezedTextLabel* self, QDragMoveEvent* event) {
+void KSqueezedTextLabel_SuperDragMoveEvent(KSqueezedTextLabel* self, QDragMoveEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_DragMoveEvent_IsBase(true);
@@ -1117,7 +1117,7 @@ void KSqueezedTextLabel_DragLeaveEvent(KSqueezedTextLabel* self, QDragLeaveEvent
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseDragLeaveEvent(KSqueezedTextLabel* self, QDragLeaveEvent* event) {
+void KSqueezedTextLabel_SuperDragLeaveEvent(KSqueezedTextLabel* self, QDragLeaveEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_DragLeaveEvent_IsBase(true);
@@ -1146,7 +1146,7 @@ void KSqueezedTextLabel_DropEvent(KSqueezedTextLabel* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseDropEvent(KSqueezedTextLabel* self, QDropEvent* event) {
+void KSqueezedTextLabel_SuperDropEvent(KSqueezedTextLabel* self, QDropEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_DropEvent_IsBase(true);
@@ -1175,7 +1175,7 @@ void KSqueezedTextLabel_ShowEvent(KSqueezedTextLabel* self, QShowEvent* event) {
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseShowEvent(KSqueezedTextLabel* self, QShowEvent* event) {
+void KSqueezedTextLabel_SuperShowEvent(KSqueezedTextLabel* self, QShowEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_ShowEvent_IsBase(true);
@@ -1204,7 +1204,7 @@ void KSqueezedTextLabel_HideEvent(KSqueezedTextLabel* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseHideEvent(KSqueezedTextLabel* self, QHideEvent* event) {
+void KSqueezedTextLabel_SuperHideEvent(KSqueezedTextLabel* self, QHideEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_HideEvent_IsBase(true);
@@ -1234,7 +1234,7 @@ bool KSqueezedTextLabel_NativeEvent(KSqueezedTextLabel* self, const libqt_string
 }
 
 // Base class handler implementation
-bool KSqueezedTextLabel_QBaseNativeEvent(KSqueezedTextLabel* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool KSqueezedTextLabel_SuperNativeEvent(KSqueezedTextLabel* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
@@ -1264,7 +1264,7 @@ int KSqueezedTextLabel_Metric(const KSqueezedTextLabel* self, int param1) {
 }
 
 // Base class handler implementation
-int KSqueezedTextLabel_QBaseMetric(const KSqueezedTextLabel* self, int param1) {
+int KSqueezedTextLabel_SuperMetric(const KSqueezedTextLabel* self, int param1) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_Metric_IsBase(true);
@@ -1293,7 +1293,7 @@ void KSqueezedTextLabel_InitPainter(const KSqueezedTextLabel* self, QPainter* pa
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseInitPainter(const KSqueezedTextLabel* self, QPainter* painter) {
+void KSqueezedTextLabel_SuperInitPainter(const KSqueezedTextLabel* self, QPainter* painter) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_InitPainter_IsBase(true);
@@ -1322,7 +1322,7 @@ QPaintDevice* KSqueezedTextLabel_Redirected(const KSqueezedTextLabel* self, QPoi
 }
 
 // Base class handler implementation
-QPaintDevice* KSqueezedTextLabel_QBaseRedirected(const KSqueezedTextLabel* self, QPoint* offset) {
+QPaintDevice* KSqueezedTextLabel_SuperRedirected(const KSqueezedTextLabel* self, QPoint* offset) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_Redirected_IsBase(true);
@@ -1351,7 +1351,7 @@ QPainter* KSqueezedTextLabel_SharedPainter(const KSqueezedTextLabel* self) {
 }
 
 // Base class handler implementation
-QPainter* KSqueezedTextLabel_QBaseSharedPainter(const KSqueezedTextLabel* self) {
+QPainter* KSqueezedTextLabel_SuperSharedPainter(const KSqueezedTextLabel* self) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_SharedPainter_IsBase(true);
@@ -1380,7 +1380,7 @@ void KSqueezedTextLabel_InputMethodEvent(KSqueezedTextLabel* self, QInputMethodE
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseInputMethodEvent(KSqueezedTextLabel* self, QInputMethodEvent* param1) {
+void KSqueezedTextLabel_SuperInputMethodEvent(KSqueezedTextLabel* self, QInputMethodEvent* param1) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_InputMethodEvent_IsBase(true);
@@ -1409,7 +1409,7 @@ QVariant* KSqueezedTextLabel_InputMethodQuery(const KSqueezedTextLabel* self, in
 }
 
 // Base class handler implementation
-QVariant* KSqueezedTextLabel_QBaseInputMethodQuery(const KSqueezedTextLabel* self, int param1) {
+QVariant* KSqueezedTextLabel_SuperInputMethodQuery(const KSqueezedTextLabel* self, int param1) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_InputMethodQuery_IsBase(true);
@@ -1438,7 +1438,7 @@ bool KSqueezedTextLabel_EventFilter(KSqueezedTextLabel* self, QObject* watched, 
 }
 
 // Base class handler implementation
-bool KSqueezedTextLabel_QBaseEventFilter(KSqueezedTextLabel* self, QObject* watched, QEvent* event) {
+bool KSqueezedTextLabel_SuperEventFilter(KSqueezedTextLabel* self, QObject* watched, QEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_EventFilter_IsBase(true);
@@ -1467,7 +1467,7 @@ void KSqueezedTextLabel_TimerEvent(KSqueezedTextLabel* self, QTimerEvent* event)
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseTimerEvent(KSqueezedTextLabel* self, QTimerEvent* event) {
+void KSqueezedTextLabel_SuperTimerEvent(KSqueezedTextLabel* self, QTimerEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_TimerEvent_IsBase(true);
@@ -1496,7 +1496,7 @@ void KSqueezedTextLabel_ChildEvent(KSqueezedTextLabel* self, QChildEvent* event)
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseChildEvent(KSqueezedTextLabel* self, QChildEvent* event) {
+void KSqueezedTextLabel_SuperChildEvent(KSqueezedTextLabel* self, QChildEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_ChildEvent_IsBase(true);
@@ -1525,7 +1525,7 @@ void KSqueezedTextLabel_CustomEvent(KSqueezedTextLabel* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseCustomEvent(KSqueezedTextLabel* self, QEvent* event) {
+void KSqueezedTextLabel_SuperCustomEvent(KSqueezedTextLabel* self, QEvent* event) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_CustomEvent_IsBase(true);
@@ -1554,7 +1554,7 @@ void KSqueezedTextLabel_ConnectNotify(KSqueezedTextLabel* self, const QMetaMetho
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseConnectNotify(KSqueezedTextLabel* self, const QMetaMethod* signal) {
+void KSqueezedTextLabel_SuperConnectNotify(KSqueezedTextLabel* self, const QMetaMethod* signal) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_ConnectNotify_IsBase(true);
@@ -1583,7 +1583,7 @@ void KSqueezedTextLabel_DisconnectNotify(KSqueezedTextLabel* self, const QMetaMe
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseDisconnectNotify(KSqueezedTextLabel* self, const QMetaMethod* signal) {
+void KSqueezedTextLabel_SuperDisconnectNotify(KSqueezedTextLabel* self, const QMetaMethod* signal) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_DisconnectNotify_IsBase(true);
@@ -1612,7 +1612,7 @@ void KSqueezedTextLabel_SqueezeTextToLabel(KSqueezedTextLabel* self) {
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseSqueezeTextToLabel(KSqueezedTextLabel* self) {
+void KSqueezedTextLabel_SuperSqueezeTextToLabel(KSqueezedTextLabel* self) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_SqueezeTextToLabel_IsBase(true);
@@ -1641,7 +1641,7 @@ void KSqueezedTextLabel_DrawFrame(KSqueezedTextLabel* self, QPainter* param1) {
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseDrawFrame(KSqueezedTextLabel* self, QPainter* param1) {
+void KSqueezedTextLabel_SuperDrawFrame(KSqueezedTextLabel* self, QPainter* param1) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_DrawFrame_IsBase(true);
@@ -1670,7 +1670,7 @@ void KSqueezedTextLabel_UpdateMicroFocus(KSqueezedTextLabel* self) {
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseUpdateMicroFocus(KSqueezedTextLabel* self) {
+void KSqueezedTextLabel_SuperUpdateMicroFocus(KSqueezedTextLabel* self) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_UpdateMicroFocus_IsBase(true);
@@ -1699,7 +1699,7 @@ void KSqueezedTextLabel_Create(KSqueezedTextLabel* self) {
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseCreate(KSqueezedTextLabel* self) {
+void KSqueezedTextLabel_SuperCreate(KSqueezedTextLabel* self) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_Create_IsBase(true);
@@ -1728,7 +1728,7 @@ void KSqueezedTextLabel_Destroy(KSqueezedTextLabel* self) {
 }
 
 // Base class handler implementation
-void KSqueezedTextLabel_QBaseDestroy(KSqueezedTextLabel* self) {
+void KSqueezedTextLabel_SuperDestroy(KSqueezedTextLabel* self) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_Destroy_IsBase(true);
@@ -1757,7 +1757,7 @@ bool KSqueezedTextLabel_FocusNextChild(KSqueezedTextLabel* self) {
 }
 
 // Base class handler implementation
-bool KSqueezedTextLabel_QBaseFocusNextChild(KSqueezedTextLabel* self) {
+bool KSqueezedTextLabel_SuperFocusNextChild(KSqueezedTextLabel* self) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_FocusNextChild_IsBase(true);
@@ -1786,7 +1786,7 @@ bool KSqueezedTextLabel_FocusPreviousChild(KSqueezedTextLabel* self) {
 }
 
 // Base class handler implementation
-bool KSqueezedTextLabel_QBaseFocusPreviousChild(KSqueezedTextLabel* self) {
+bool KSqueezedTextLabel_SuperFocusPreviousChild(KSqueezedTextLabel* self) {
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_FocusPreviousChild_IsBase(true);
@@ -1815,7 +1815,7 @@ QObject* KSqueezedTextLabel_Sender(const KSqueezedTextLabel* self) {
 }
 
 // Base class handler implementation
-QObject* KSqueezedTextLabel_QBaseSender(const KSqueezedTextLabel* self) {
+QObject* KSqueezedTextLabel_SuperSender(const KSqueezedTextLabel* self) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_Sender_IsBase(true);
@@ -1844,7 +1844,7 @@ int KSqueezedTextLabel_SenderSignalIndex(const KSqueezedTextLabel* self) {
 }
 
 // Base class handler implementation
-int KSqueezedTextLabel_QBaseSenderSignalIndex(const KSqueezedTextLabel* self) {
+int KSqueezedTextLabel_SuperSenderSignalIndex(const KSqueezedTextLabel* self) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_SenderSignalIndex_IsBase(true);
@@ -1873,7 +1873,7 @@ int KSqueezedTextLabel_Receivers(const KSqueezedTextLabel* self, const char* sig
 }
 
 // Base class handler implementation
-int KSqueezedTextLabel_QBaseReceivers(const KSqueezedTextLabel* self, const char* signal) {
+int KSqueezedTextLabel_SuperReceivers(const KSqueezedTextLabel* self, const char* signal) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_Receivers_IsBase(true);
@@ -1902,7 +1902,7 @@ bool KSqueezedTextLabel_IsSignalConnected(const KSqueezedTextLabel* self, const 
 }
 
 // Base class handler implementation
-bool KSqueezedTextLabel_QBaseIsSignalConnected(const KSqueezedTextLabel* self, const QMetaMethod* signal) {
+bool KSqueezedTextLabel_SuperIsSignalConnected(const KSqueezedTextLabel* self, const QMetaMethod* signal) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_IsSignalConnected_IsBase(true);
@@ -1931,7 +1931,7 @@ double KSqueezedTextLabel_GetDecodedMetricF(const KSqueezedTextLabel* self, int 
 }
 
 // Base class handler implementation
-double KSqueezedTextLabel_QBaseGetDecodedMetricF(const KSqueezedTextLabel* self, int metricA, int metricB) {
+double KSqueezedTextLabel_SuperGetDecodedMetricF(const KSqueezedTextLabel* self, int metricA, int metricB) {
     auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->setKSqueezedTextLabel_GetDecodedMetricF_IsBase(true);

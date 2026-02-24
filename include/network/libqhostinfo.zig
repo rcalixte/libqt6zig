@@ -271,6 +271,10 @@ pub const qhostinfo = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#dtor.QHostInfo)
     ///
     /// Delete this object from C++ memory.
@@ -279,7 +283,7 @@ pub const qhostinfo = struct {
     ///
     /// ` self: QtC.QHostInfo `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QHostInfo_Delete(@ptrCast(self));
     }
 };

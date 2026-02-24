@@ -373,6 +373,10 @@ pub const kosrelease = struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kosrelease.html#dtor.KOSRelease)
     ///
     /// Delete this object from C++ memory.
@@ -381,7 +385,7 @@ pub const kosrelease = struct {
     ///
     /// ` self: QtC.KOSRelease `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KOSRelease_Delete(@ptrCast(self));
     }
 };

@@ -328,23 +328,23 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
 
     // Friend functions
     friend void KParts__StatusBarExtension_TimerEvent(KParts::StatusBarExtension* self, QTimerEvent* event);
-    friend void KParts__StatusBarExtension_QBaseTimerEvent(KParts::StatusBarExtension* self, QTimerEvent* event);
+    friend void KParts__StatusBarExtension_SuperTimerEvent(KParts::StatusBarExtension* self, QTimerEvent* event);
     friend void KParts__StatusBarExtension_ChildEvent(KParts::StatusBarExtension* self, QChildEvent* event);
-    friend void KParts__StatusBarExtension_QBaseChildEvent(KParts::StatusBarExtension* self, QChildEvent* event);
+    friend void KParts__StatusBarExtension_SuperChildEvent(KParts::StatusBarExtension* self, QChildEvent* event);
     friend void KParts__StatusBarExtension_CustomEvent(KParts::StatusBarExtension* self, QEvent* event);
-    friend void KParts__StatusBarExtension_QBaseCustomEvent(KParts::StatusBarExtension* self, QEvent* event);
+    friend void KParts__StatusBarExtension_SuperCustomEvent(KParts::StatusBarExtension* self, QEvent* event);
     friend void KParts__StatusBarExtension_ConnectNotify(KParts::StatusBarExtension* self, const QMetaMethod* signal);
-    friend void KParts__StatusBarExtension_QBaseConnectNotify(KParts::StatusBarExtension* self, const QMetaMethod* signal);
+    friend void KParts__StatusBarExtension_SuperConnectNotify(KParts::StatusBarExtension* self, const QMetaMethod* signal);
     friend void KParts__StatusBarExtension_DisconnectNotify(KParts::StatusBarExtension* self, const QMetaMethod* signal);
-    friend void KParts__StatusBarExtension_QBaseDisconnectNotify(KParts::StatusBarExtension* self, const QMetaMethod* signal);
+    friend void KParts__StatusBarExtension_SuperDisconnectNotify(KParts::StatusBarExtension* self, const QMetaMethod* signal);
     friend QObject* KParts__StatusBarExtension_Sender(const KParts::StatusBarExtension* self);
-    friend QObject* KParts__StatusBarExtension_QBaseSender(const KParts::StatusBarExtension* self);
+    friend QObject* KParts__StatusBarExtension_SuperSender(const KParts::StatusBarExtension* self);
     friend int KParts__StatusBarExtension_SenderSignalIndex(const KParts::StatusBarExtension* self);
-    friend int KParts__StatusBarExtension_QBaseSenderSignalIndex(const KParts::StatusBarExtension* self);
+    friend int KParts__StatusBarExtension_SuperSenderSignalIndex(const KParts::StatusBarExtension* self);
     friend int KParts__StatusBarExtension_Receivers(const KParts::StatusBarExtension* self, const char* signal);
-    friend int KParts__StatusBarExtension_QBaseReceivers(const KParts::StatusBarExtension* self, const char* signal);
+    friend int KParts__StatusBarExtension_SuperReceivers(const KParts::StatusBarExtension* self, const char* signal);
     friend bool KParts__StatusBarExtension_IsSignalConnected(const KParts::StatusBarExtension* self, const QMetaMethod* signal);
-    friend bool KParts__StatusBarExtension_QBaseIsSignalConnected(const KParts::StatusBarExtension* self, const QMetaMethod* signal);
+    friend bool KParts__StatusBarExtension_SuperIsSignalConnected(const KParts::StatusBarExtension* self, const QMetaMethod* signal);
 };
 
 #endif

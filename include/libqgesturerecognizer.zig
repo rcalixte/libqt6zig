@@ -37,6 +37,10 @@ pub const qgesturerecognizer = struct {
         qtc.QGestureRecognizer_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreate` instead
+    ///
+    pub const QBaseCreate = SuperCreate;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#create)
     ///
     /// Base class method implementation
@@ -47,8 +51,8 @@ pub const qgesturerecognizer = struct {
     ///
     /// ` target: QtC.QObject `
     ///
-    pub fn QBaseCreate(self: ?*anyopaque, target: ?*anyopaque) QtC.QGesture {
-        return qtc.QGestureRecognizer_QBaseCreate(@ptrCast(self), @ptrCast(target));
+    pub fn SuperCreate(self: ?*anyopaque, target: ?*anyopaque) QtC.QGesture {
+        return qtc.QGestureRecognizer_SuperCreate(@ptrCast(self), @ptrCast(target));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#recognize)
@@ -85,6 +89,10 @@ pub const qgesturerecognizer = struct {
         qtc.QGestureRecognizer_OnRecognize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperRecognize` instead
+    ///
+    pub const QBaseRecognize = SuperRecognize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#recognize)
     ///
     /// Base class method implementation
@@ -103,8 +111,8 @@ pub const qgesturerecognizer = struct {
     ///
     /// ` flag of qgesturerecognizer_enums.ResultFlag `
     ///
-    pub fn QBaseRecognize(self: ?*anyopaque, state: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i32 {
-        return qtc.QGestureRecognizer_QBaseRecognize(@ptrCast(self), @ptrCast(state), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperRecognize(self: ?*anyopaque, state: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i32 {
+        return qtc.QGestureRecognizer_SuperRecognize(@ptrCast(self), @ptrCast(state), @ptrCast(watched), @ptrCast(event));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
@@ -133,6 +141,10 @@ pub const qgesturerecognizer = struct {
         qtc.QGestureRecognizer_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperReset` instead
+    ///
+    pub const QBaseReset = SuperReset;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
     ///
     /// Base class method implementation
@@ -143,8 +155,8 @@ pub const qgesturerecognizer = struct {
     ///
     /// ` state: QtC.QGesture `
     ///
-    pub fn QBaseReset(self: ?*anyopaque, state: ?*anyopaque) void {
-        qtc.QGestureRecognizer_QBaseReset(@ptrCast(self), @ptrCast(state));
+    pub fn SuperReset(self: ?*anyopaque, state: ?*anyopaque) void {
+        qtc.QGestureRecognizer_SuperReset(@ptrCast(self), @ptrCast(state));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#registerRecognizer)
@@ -183,6 +195,10 @@ pub const qgesturerecognizer = struct {
         qtc.QGestureRecognizer_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#dtor.QGestureRecognizer)
     ///
     /// Delete this object from C++ memory.
@@ -191,7 +207,7 @@ pub const qgesturerecognizer = struct {
     ///
     /// ` self: QtC.QGestureRecognizer `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.QGestureRecognizer_Delete(@ptrCast(self));
     }
 };

@@ -307,7 +307,7 @@ libqt_list /* of libqt_string */ QAccessibleWidget_KeyBindingsForAction(const QA
 }
 
 // Base class handler implementation
-bool QAccessibleWidget_QBaseIsValid(const QAccessibleWidget* self) {
+bool QAccessibleWidget_SuperIsValid(const QAccessibleWidget* self) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_IsValid_IsBase(true);
@@ -326,7 +326,7 @@ void QAccessibleWidget_OnIsValid(const QAccessibleWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QWindow* QAccessibleWidget_QBaseWindow(const QAccessibleWidget* self) {
+QWindow* QAccessibleWidget_SuperWindow(const QAccessibleWidget* self) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_Window_IsBase(true);
@@ -345,7 +345,7 @@ void QAccessibleWidget_OnWindow(const QAccessibleWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAccessibleWidget_QBaseChildCount(const QAccessibleWidget* self) {
+int QAccessibleWidget_SuperChildCount(const QAccessibleWidget* self) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_ChildCount_IsBase(true);
@@ -364,7 +364,7 @@ void QAccessibleWidget_OnChildCount(const QAccessibleWidget* self, intptr_t slot
 }
 
 // Base class handler implementation
-int QAccessibleWidget_QBaseIndexOfChild(const QAccessibleWidget* self, const QAccessibleInterface* child) {
+int QAccessibleWidget_SuperIndexOfChild(const QAccessibleWidget* self, const QAccessibleInterface* child) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_IndexOfChild_IsBase(true);
@@ -383,7 +383,7 @@ void QAccessibleWidget_OnIndexOfChild(const QAccessibleWidget* self, intptr_t sl
 }
 
 // Base class handler implementation
-libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ QAccessibleWidget_QBaseRelations(const QAccessibleWidget* self, int match) {
+libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ QAccessibleWidget_SuperRelations(const QAccessibleWidget* self, int match) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_Relations_IsBase(true);
@@ -430,7 +430,7 @@ void QAccessibleWidget_OnRelations(const QAccessibleWidget* self, intptr_t slot)
 }
 
 // Base class handler implementation
-QAccessibleInterface* QAccessibleWidget_QBaseFocusChild(const QAccessibleWidget* self) {
+QAccessibleInterface* QAccessibleWidget_SuperFocusChild(const QAccessibleWidget* self) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_FocusChild_IsBase(true);
@@ -449,7 +449,7 @@ void QAccessibleWidget_OnFocusChild(const QAccessibleWidget* self, intptr_t slot
 }
 
 // Base class handler implementation
-QRect* QAccessibleWidget_QBaseRect(const QAccessibleWidget* self) {
+QRect* QAccessibleWidget_SuperRect(const QAccessibleWidget* self) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_Rect_IsBase(true);
@@ -468,7 +468,7 @@ void QAccessibleWidget_OnRect(const QAccessibleWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QAccessibleInterface* QAccessibleWidget_QBaseParent(const QAccessibleWidget* self) {
+QAccessibleInterface* QAccessibleWidget_SuperParent(const QAccessibleWidget* self) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_Parent_IsBase(true);
@@ -487,7 +487,7 @@ void QAccessibleWidget_OnParent(const QAccessibleWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QAccessibleInterface* QAccessibleWidget_QBaseChild(const QAccessibleWidget* self, int index) {
+QAccessibleInterface* QAccessibleWidget_SuperChild(const QAccessibleWidget* self, int index) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_Child_IsBase(true);
@@ -506,7 +506,7 @@ void QAccessibleWidget_OnChild(const QAccessibleWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string QAccessibleWidget_QBaseText(const QAccessibleWidget* self, int t) {
+libqt_string QAccessibleWidget_SuperText(const QAccessibleWidget* self, int t) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_Text_IsBase(true);
@@ -541,7 +541,7 @@ void QAccessibleWidget_OnText(const QAccessibleWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QAccessibleWidget_QBaseRole(const QAccessibleWidget* self) {
+int QAccessibleWidget_SuperRole(const QAccessibleWidget* self) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_Role_IsBase(true);
@@ -560,7 +560,7 @@ void QAccessibleWidget_OnRole(const QAccessibleWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QAccessible__State* QAccessibleWidget_QBaseState(const QAccessibleWidget* self) {
+QAccessible__State* QAccessibleWidget_SuperState(const QAccessibleWidget* self) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_State_IsBase(true);
@@ -579,7 +579,7 @@ void QAccessibleWidget_OnState(const QAccessibleWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QColor* QAccessibleWidget_QBaseForegroundColor(const QAccessibleWidget* self) {
+QColor* QAccessibleWidget_SuperForegroundColor(const QAccessibleWidget* self) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_ForegroundColor_IsBase(true);
@@ -598,7 +598,7 @@ void QAccessibleWidget_OnForegroundColor(const QAccessibleWidget* self, intptr_t
 }
 
 // Base class handler implementation
-QColor* QAccessibleWidget_QBaseBackgroundColor(const QAccessibleWidget* self) {
+QColor* QAccessibleWidget_SuperBackgroundColor(const QAccessibleWidget* self) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_BackgroundColor_IsBase(true);
@@ -617,7 +617,7 @@ void QAccessibleWidget_OnBackgroundColor(const QAccessibleWidget* self, intptr_t
 }
 
 // Base class handler implementation
-void* QAccessibleWidget_QBaseInterfaceCast(QAccessibleWidget* self, int t) {
+void* QAccessibleWidget_SuperInterfaceCast(QAccessibleWidget* self, int t) {
     auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self);
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_InterfaceCast_IsBase(true);
@@ -636,7 +636,7 @@ void QAccessibleWidget_OnInterfaceCast(QAccessibleWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QAccessibleWidget_QBaseActionNames(const QAccessibleWidget* self) {
+libqt_list /* of libqt_string */ QAccessibleWidget_SuperActionNames(const QAccessibleWidget* self) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_ActionNames_IsBase(true);
@@ -689,7 +689,7 @@ void QAccessibleWidget_OnActionNames(const QAccessibleWidget* self, intptr_t slo
 }
 
 // Base class handler implementation
-void QAccessibleWidget_QBaseDoAction(QAccessibleWidget* self, const libqt_string actionName) {
+void QAccessibleWidget_SuperDoAction(QAccessibleWidget* self, const libqt_string actionName) {
     auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self);
     QString actionName_QString = QString::fromUtf8(actionName.data, actionName.len);
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
@@ -709,7 +709,7 @@ void QAccessibleWidget_OnDoAction(QAccessibleWidget* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QAccessibleWidget_QBaseKeyBindingsForAction(const QAccessibleWidget* self, const libqt_string actionName) {
+libqt_list /* of libqt_string */ QAccessibleWidget_SuperKeyBindingsForAction(const QAccessibleWidget* self, const libqt_string actionName) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     QString actionName_QString = QString::fromUtf8(actionName.data, actionName.len);
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
@@ -773,7 +773,7 @@ QObject* QAccessibleWidget_Object(const QAccessibleWidget* self) {
 }
 
 // Base class handler implementation
-QObject* QAccessibleWidget_QBaseObject(const QAccessibleWidget* self) {
+QObject* QAccessibleWidget_SuperObject(const QAccessibleWidget* self) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_Object_IsBase(true);
@@ -803,7 +803,7 @@ void QAccessibleWidget_SetText(QAccessibleWidget* self, int t, const libqt_strin
 }
 
 // Base class handler implementation
-void QAccessibleWidget_QBaseSetText(QAccessibleWidget* self, int t, const libqt_string text) {
+void QAccessibleWidget_SuperSetText(QAccessibleWidget* self, int t, const libqt_string text) {
     auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
@@ -833,7 +833,7 @@ QAccessibleInterface* QAccessibleWidget_ChildAt(const QAccessibleWidget* self, i
 }
 
 // Base class handler implementation
-QAccessibleInterface* QAccessibleWidget_QBaseChildAt(const QAccessibleWidget* self, int x, int y) {
+QAccessibleInterface* QAccessibleWidget_SuperChildAt(const QAccessibleWidget* self, int x, int y) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_ChildAt_IsBase(true);
@@ -862,7 +862,7 @@ void QAccessibleWidget_VirtualHook(QAccessibleWidget* self, int id, void* data) 
 }
 
 // Base class handler implementation
-void QAccessibleWidget_QBaseVirtualHook(QAccessibleWidget* self, int id, void* data) {
+void QAccessibleWidget_SuperVirtualHook(QAccessibleWidget* self, int id, void* data) {
     auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self);
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_VirtualHook_IsBase(true);
@@ -908,7 +908,7 @@ libqt_string QAccessibleWidget_LocalizedActionName(const QAccessibleWidget* self
 }
 
 // Base class handler implementation
-libqt_string QAccessibleWidget_QBaseLocalizedActionName(const QAccessibleWidget* self, const libqt_string name) {
+libqt_string QAccessibleWidget_SuperLocalizedActionName(const QAccessibleWidget* self, const libqt_string name) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
@@ -971,7 +971,7 @@ libqt_string QAccessibleWidget_LocalizedActionDescription(const QAccessibleWidge
 }
 
 // Base class handler implementation
-libqt_string QAccessibleWidget_QBaseLocalizedActionDescription(const QAccessibleWidget* self, const libqt_string name) {
+libqt_string QAccessibleWidget_SuperLocalizedActionDescription(const QAccessibleWidget* self, const libqt_string name) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
@@ -1017,7 +1017,7 @@ QWidget* QAccessibleWidget_Widget(const QAccessibleWidget* self) {
 }
 
 // Base class handler implementation
-QWidget* QAccessibleWidget_QBaseWidget(const QAccessibleWidget* self) {
+QWidget* QAccessibleWidget_SuperWidget(const QAccessibleWidget* self) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_Widget_IsBase(true);
@@ -1046,7 +1046,7 @@ QObject* QAccessibleWidget_ParentObject(const QAccessibleWidget* self) {
 }
 
 // Base class handler implementation
-QObject* QAccessibleWidget_QBaseParentObject(const QAccessibleWidget* self) {
+QObject* QAccessibleWidget_SuperParentObject(const QAccessibleWidget* self) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_ParentObject_IsBase(true);
@@ -1076,7 +1076,7 @@ void QAccessibleWidget_AddControllingSignal(QAccessibleWidget* self, const libqt
 }
 
 // Base class handler implementation
-void QAccessibleWidget_QBaseAddControllingSignal(QAccessibleWidget* self, const libqt_string signal) {
+void QAccessibleWidget_SuperAddControllingSignal(QAccessibleWidget* self, const libqt_string signal) {
     auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self);
     QString signal_QString = QString::fromUtf8(signal.data, signal.len);
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {

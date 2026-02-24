@@ -557,6 +557,10 @@ pub const kbookmark = struct {
         qtc.KBookmark_SetMetaDataItem3(@ptrCast(self), key_str, value_str, @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmark.html#dtor.KBookmark)
     ///
     /// Delete this object from C++ memory.
@@ -565,7 +569,7 @@ pub const kbookmark = struct {
     ///
     /// ` self: QtC.KBookmark `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KBookmark_Delete(@ptrCast(self));
     }
 };
@@ -1365,6 +1369,10 @@ pub const kbookmarkgroup = struct {
         qtc.KBookmark_SetMetaDataItem3(@ptrCast(self), key_str, value_str, @bitCast(mode));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// ### [Upstream resources](https://api.kde.org/kbookmarkgroup.html#dtor.KBookmarkGroup)
     ///
     /// Delete this object from C++ memory.
@@ -1373,7 +1381,7 @@ pub const kbookmarkgroup = struct {
     ///
     /// ` self: QtC.KBookmarkGroup `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KBookmarkGroup_Delete(@ptrCast(self));
     }
 };
@@ -1447,13 +1455,17 @@ pub const kbookmark__list = struct {
         return qtc.KBookmark__List_FromMimeData(@ptrCast(mimeData), @ptrCast(parentDocument));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KBookmark__List `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KBookmark__List_Delete(@ptrCast(self));
     }
 };

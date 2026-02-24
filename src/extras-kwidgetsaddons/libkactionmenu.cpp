@@ -96,7 +96,7 @@ QWidget* KActionMenu_CreateWidget(KActionMenu* self, QWidget* parent) {
 }
 
 // Base class handler implementation
-QMetaObject* KActionMenu_QBaseMetaObject(const KActionMenu* self) {
+QMetaObject* KActionMenu_SuperMetaObject(const KActionMenu* self) {
     auto* vkactionmenu = const_cast<VirtualKActionMenu*>(dynamic_cast<const VirtualKActionMenu*>(self));
     if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
         vkactionmenu->setKActionMenu_MetaObject_IsBase(true);
@@ -115,7 +115,7 @@ void KActionMenu_OnMetaObject(const KActionMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* KActionMenu_QBaseMetacast(KActionMenu* self, const char* param1) {
+void* KActionMenu_SuperMetacast(KActionMenu* self, const char* param1) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
     if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
         vkactionmenu->setKActionMenu_Metacast_IsBase(true);
@@ -134,7 +134,7 @@ void KActionMenu_OnMetacast(KActionMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int KActionMenu_QBaseMetacall(KActionMenu* self, int param1, int param2, void** param3) {
+int KActionMenu_SuperMetacall(KActionMenu* self, int param1, int param2, void** param3) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
     if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
         vkactionmenu->setKActionMenu_Metacall_IsBase(true);
@@ -153,7 +153,7 @@ void KActionMenu_OnMetacall(KActionMenu* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-QWidget* KActionMenu_QBaseCreateWidget(KActionMenu* self, QWidget* parent) {
+QWidget* KActionMenu_SuperCreateWidget(KActionMenu* self, QWidget* parent) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
     if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
         vkactionmenu->setKActionMenu_CreateWidget_IsBase(true);
@@ -182,7 +182,7 @@ bool KActionMenu_Event(KActionMenu* self, QEvent* param1) {
 }
 
 // Base class handler implementation
-bool KActionMenu_QBaseEvent(KActionMenu* self, QEvent* param1) {
+bool KActionMenu_SuperEvent(KActionMenu* self, QEvent* param1) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
     if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
         vkactionmenu->setKActionMenu_Event_IsBase(true);
@@ -211,7 +211,7 @@ bool KActionMenu_EventFilter(KActionMenu* self, QObject* param1, QEvent* param2)
 }
 
 // Base class handler implementation
-bool KActionMenu_QBaseEventFilter(KActionMenu* self, QObject* param1, QEvent* param2) {
+bool KActionMenu_SuperEventFilter(KActionMenu* self, QObject* param1, QEvent* param2) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
     if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
         vkactionmenu->setKActionMenu_EventFilter_IsBase(true);
@@ -240,7 +240,7 @@ void KActionMenu_DeleteWidget(KActionMenu* self, QWidget* widget) {
 }
 
 // Base class handler implementation
-void KActionMenu_QBaseDeleteWidget(KActionMenu* self, QWidget* widget) {
+void KActionMenu_SuperDeleteWidget(KActionMenu* self, QWidget* widget) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
     if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
         vkactionmenu->setKActionMenu_DeleteWidget_IsBase(true);
@@ -269,7 +269,7 @@ void KActionMenu_TimerEvent(KActionMenu* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void KActionMenu_QBaseTimerEvent(KActionMenu* self, QTimerEvent* event) {
+void KActionMenu_SuperTimerEvent(KActionMenu* self, QTimerEvent* event) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
     if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
         vkactionmenu->setKActionMenu_TimerEvent_IsBase(true);
@@ -298,7 +298,7 @@ void KActionMenu_ChildEvent(KActionMenu* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void KActionMenu_QBaseChildEvent(KActionMenu* self, QChildEvent* event) {
+void KActionMenu_SuperChildEvent(KActionMenu* self, QChildEvent* event) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
     if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
         vkactionmenu->setKActionMenu_ChildEvent_IsBase(true);
@@ -327,7 +327,7 @@ void KActionMenu_CustomEvent(KActionMenu* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void KActionMenu_QBaseCustomEvent(KActionMenu* self, QEvent* event) {
+void KActionMenu_SuperCustomEvent(KActionMenu* self, QEvent* event) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
     if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
         vkactionmenu->setKActionMenu_CustomEvent_IsBase(true);
@@ -356,7 +356,7 @@ void KActionMenu_ConnectNotify(KActionMenu* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void KActionMenu_QBaseConnectNotify(KActionMenu* self, const QMetaMethod* signal) {
+void KActionMenu_SuperConnectNotify(KActionMenu* self, const QMetaMethod* signal) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
     if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
         vkactionmenu->setKActionMenu_ConnectNotify_IsBase(true);
@@ -385,7 +385,7 @@ void KActionMenu_DisconnectNotify(KActionMenu* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void KActionMenu_QBaseDisconnectNotify(KActionMenu* self, const QMetaMethod* signal) {
+void KActionMenu_SuperDisconnectNotify(KActionMenu* self, const QMetaMethod* signal) {
     auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
     if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
         vkactionmenu->setKActionMenu_DisconnectNotify_IsBase(true);
@@ -432,7 +432,7 @@ libqt_list /* of QWidget* */ KActionMenu_CreatedWidgets(const KActionMenu* self)
 }
 
 // Base class handler implementation
-libqt_list /* of QWidget* */ KActionMenu_QBaseCreatedWidgets(const KActionMenu* self) {
+libqt_list /* of QWidget* */ KActionMenu_SuperCreatedWidgets(const KActionMenu* self) {
     auto* vkactionmenu = const_cast<VirtualKActionMenu*>(dynamic_cast<const VirtualKActionMenu*>(self));
     if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
         vkactionmenu->setKActionMenu_CreatedWidgets_IsBase(true);
@@ -479,7 +479,7 @@ QObject* KActionMenu_Sender(const KActionMenu* self) {
 }
 
 // Base class handler implementation
-QObject* KActionMenu_QBaseSender(const KActionMenu* self) {
+QObject* KActionMenu_SuperSender(const KActionMenu* self) {
     auto* vkactionmenu = const_cast<VirtualKActionMenu*>(dynamic_cast<const VirtualKActionMenu*>(self));
     if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
         vkactionmenu->setKActionMenu_Sender_IsBase(true);
@@ -508,7 +508,7 @@ int KActionMenu_SenderSignalIndex(const KActionMenu* self) {
 }
 
 // Base class handler implementation
-int KActionMenu_QBaseSenderSignalIndex(const KActionMenu* self) {
+int KActionMenu_SuperSenderSignalIndex(const KActionMenu* self) {
     auto* vkactionmenu = const_cast<VirtualKActionMenu*>(dynamic_cast<const VirtualKActionMenu*>(self));
     if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
         vkactionmenu->setKActionMenu_SenderSignalIndex_IsBase(true);
@@ -537,7 +537,7 @@ int KActionMenu_Receivers(const KActionMenu* self, const char* signal) {
 }
 
 // Base class handler implementation
-int KActionMenu_QBaseReceivers(const KActionMenu* self, const char* signal) {
+int KActionMenu_SuperReceivers(const KActionMenu* self, const char* signal) {
     auto* vkactionmenu = const_cast<VirtualKActionMenu*>(dynamic_cast<const VirtualKActionMenu*>(self));
     if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
         vkactionmenu->setKActionMenu_Receivers_IsBase(true);
@@ -566,7 +566,7 @@ bool KActionMenu_IsSignalConnected(const KActionMenu* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool KActionMenu_QBaseIsSignalConnected(const KActionMenu* self, const QMetaMethod* signal) {
+bool KActionMenu_SuperIsSignalConnected(const KActionMenu* self, const QMetaMethod* signal) {
     auto* vkactionmenu = const_cast<VirtualKActionMenu*>(dynamic_cast<const VirtualKActionMenu*>(self));
     if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
         vkactionmenu->setKActionMenu_IsSignalConnected_IsBase(true);

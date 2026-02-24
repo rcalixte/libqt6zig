@@ -46,7 +46,7 @@ libqt_list /* of QAction* */ QDesignerTaskMenuExtension_TaskActions(const QDesig
 }
 
 // Base class handler implementation
-QAction* QDesignerTaskMenuExtension_QBasePreferredEditAction(const QDesignerTaskMenuExtension* self) {
+QAction* QDesignerTaskMenuExtension_SuperPreferredEditAction(const QDesignerTaskMenuExtension* self) {
     auto* vqdesignertaskmenuextension = const_cast<VirtualQDesignerTaskMenuExtension*>(dynamic_cast<const VirtualQDesignerTaskMenuExtension*>(self));
     if (vqdesignertaskmenuextension && vqdesignertaskmenuextension->isVirtualQDesignerTaskMenuExtension) {
         vqdesignertaskmenuextension->setQDesignerTaskMenuExtension_PreferredEditAction_IsBase(true);
@@ -65,7 +65,7 @@ void QDesignerTaskMenuExtension_OnPreferredEditAction(const QDesignerTaskMenuExt
 }
 
 // Base class handler implementation
-libqt_list /* of QAction* */ QDesignerTaskMenuExtension_QBaseTaskActions(const QDesignerTaskMenuExtension* self) {
+libqt_list /* of QAction* */ QDesignerTaskMenuExtension_SuperTaskActions(const QDesignerTaskMenuExtension* self) {
     auto* vqdesignertaskmenuextension = const_cast<VirtualQDesignerTaskMenuExtension*>(dynamic_cast<const VirtualQDesignerTaskMenuExtension*>(self));
     if (vqdesignertaskmenuextension && vqdesignertaskmenuextension->isVirtualQDesignerTaskMenuExtension) {
         vqdesignertaskmenuextension->setQDesignerTaskMenuExtension_TaskActions_IsBase(true);

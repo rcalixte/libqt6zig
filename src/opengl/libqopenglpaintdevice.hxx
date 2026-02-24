@@ -196,15 +196,15 @@ class VirtualQOpenGLPaintDevice final : public QOpenGLPaintDevice {
 
     // Friend functions
     friend int QOpenGLPaintDevice_Metric(const QOpenGLPaintDevice* self, int metric);
-    friend int QOpenGLPaintDevice_QBaseMetric(const QOpenGLPaintDevice* self, int metric);
+    friend int QOpenGLPaintDevice_SuperMetric(const QOpenGLPaintDevice* self, int metric);
     friend void QOpenGLPaintDevice_InitPainter(const QOpenGLPaintDevice* self, QPainter* painter);
-    friend void QOpenGLPaintDevice_QBaseInitPainter(const QOpenGLPaintDevice* self, QPainter* painter);
+    friend void QOpenGLPaintDevice_SuperInitPainter(const QOpenGLPaintDevice* self, QPainter* painter);
     friend QPaintDevice* QOpenGLPaintDevice_Redirected(const QOpenGLPaintDevice* self, QPoint* offset);
-    friend QPaintDevice* QOpenGLPaintDevice_QBaseRedirected(const QOpenGLPaintDevice* self, QPoint* offset);
+    friend QPaintDevice* QOpenGLPaintDevice_SuperRedirected(const QOpenGLPaintDevice* self, QPoint* offset);
     friend QPainter* QOpenGLPaintDevice_SharedPainter(const QOpenGLPaintDevice* self);
-    friend QPainter* QOpenGLPaintDevice_QBaseSharedPainter(const QOpenGLPaintDevice* self);
+    friend QPainter* QOpenGLPaintDevice_SuperSharedPainter(const QOpenGLPaintDevice* self);
     friend double QOpenGLPaintDevice_GetDecodedMetricF(const QOpenGLPaintDevice* self, int metricA, int metricB);
-    friend double QOpenGLPaintDevice_QBaseGetDecodedMetricF(const QOpenGLPaintDevice* self, int metricA, int metricB);
+    friend double QOpenGLPaintDevice_SuperGetDecodedMetricF(const QOpenGLPaintDevice* self, int metricA, int metricB);
 };
 
 #endif

@@ -453,13 +453,17 @@ pub const kfilemetadata__usermetadata = struct {
         return qtc.KFileMetaData__UserMetaData_QueryAttributes1(@ptrCast(self), @bitCast(attributes));
     }
 
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:
     ///
     /// ` self: QtC.KFileMetaData__UserMetaData `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KFileMetaData__UserMetaData_Delete(@ptrCast(self));
     }
 };

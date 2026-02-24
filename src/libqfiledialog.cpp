@@ -1171,7 +1171,7 @@ void QFileDialog_SaveFileContent3(const libqt_string fileContent, const libqt_st
 }
 
 // Base class handler implementation
-QMetaObject* QFileDialog_QBaseMetaObject(const QFileDialog* self) {
+QMetaObject* QFileDialog_SuperMetaObject(const QFileDialog* self) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_MetaObject_IsBase(true);
@@ -1190,7 +1190,7 @@ void QFileDialog_OnMetaObject(const QFileDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void* QFileDialog_QBaseMetacast(QFileDialog* self, const char* param1) {
+void* QFileDialog_SuperMetacast(QFileDialog* self, const char* param1) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_Metacast_IsBase(true);
@@ -1209,7 +1209,7 @@ void QFileDialog_OnMetacast(QFileDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-int QFileDialog_QBaseMetacall(QFileDialog* self, int param1, int param2, void** param3) {
+int QFileDialog_SuperMetacall(QFileDialog* self, int param1, int param2, void** param3) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_Metacall_IsBase(true);
@@ -1228,7 +1228,7 @@ void QFileDialog_OnMetacall(QFileDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseSetVisible(QFileDialog* self, bool visible) {
+void QFileDialog_SuperSetVisible(QFileDialog* self, bool visible) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_SetVisible_IsBase(true);
@@ -1247,7 +1247,7 @@ void QFileDialog_OnSetVisible(QFileDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseDone(QFileDialog* self, int result) {
+void QFileDialog_SuperDone(QFileDialog* self, int result) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_Done_IsBase(true);
@@ -1266,7 +1266,7 @@ void QFileDialog_OnDone(QFileDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseAccept(QFileDialog* self) {
+void QFileDialog_SuperAccept(QFileDialog* self) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_Accept_IsBase(true);
@@ -1285,7 +1285,7 @@ void QFileDialog_OnAccept(QFileDialog* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseChangeEvent(QFileDialog* self, QEvent* e) {
+void QFileDialog_SuperChangeEvent(QFileDialog* self, QEvent* e) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_ChangeEvent_IsBase(true);
@@ -1314,7 +1314,7 @@ QSize* QFileDialog_SizeHint(const QFileDialog* self) {
 }
 
 // Base class handler implementation
-QSize* QFileDialog_QBaseSizeHint(const QFileDialog* self) {
+QSize* QFileDialog_SuperSizeHint(const QFileDialog* self) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_SizeHint_IsBase(true);
@@ -1343,7 +1343,7 @@ QSize* QFileDialog_MinimumSizeHint(const QFileDialog* self) {
 }
 
 // Base class handler implementation
-QSize* QFileDialog_QBaseMinimumSizeHint(const QFileDialog* self) {
+QSize* QFileDialog_SuperMinimumSizeHint(const QFileDialog* self) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_MinimumSizeHint_IsBase(true);
@@ -1372,7 +1372,7 @@ void QFileDialog_Open(QFileDialog* self) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseOpen(QFileDialog* self) {
+void QFileDialog_SuperOpen(QFileDialog* self) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_Open_IsBase(true);
@@ -1401,7 +1401,7 @@ int QFileDialog_Exec(QFileDialog* self) {
 }
 
 // Base class handler implementation
-int QFileDialog_QBaseExec(QFileDialog* self) {
+int QFileDialog_SuperExec(QFileDialog* self) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_Exec_IsBase(true);
@@ -1430,7 +1430,7 @@ void QFileDialog_Reject(QFileDialog* self) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseReject(QFileDialog* self) {
+void QFileDialog_SuperReject(QFileDialog* self) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_Reject_IsBase(true);
@@ -1459,7 +1459,7 @@ void QFileDialog_KeyPressEvent(QFileDialog* self, QKeyEvent* param1) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseKeyPressEvent(QFileDialog* self, QKeyEvent* param1) {
+void QFileDialog_SuperKeyPressEvent(QFileDialog* self, QKeyEvent* param1) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_KeyPressEvent_IsBase(true);
@@ -1488,7 +1488,7 @@ void QFileDialog_CloseEvent(QFileDialog* self, QCloseEvent* param1) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseCloseEvent(QFileDialog* self, QCloseEvent* param1) {
+void QFileDialog_SuperCloseEvent(QFileDialog* self, QCloseEvent* param1) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_CloseEvent_IsBase(true);
@@ -1517,7 +1517,7 @@ void QFileDialog_ShowEvent(QFileDialog* self, QShowEvent* param1) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseShowEvent(QFileDialog* self, QShowEvent* param1) {
+void QFileDialog_SuperShowEvent(QFileDialog* self, QShowEvent* param1) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_ShowEvent_IsBase(true);
@@ -1546,7 +1546,7 @@ void QFileDialog_ResizeEvent(QFileDialog* self, QResizeEvent* param1) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseResizeEvent(QFileDialog* self, QResizeEvent* param1) {
+void QFileDialog_SuperResizeEvent(QFileDialog* self, QResizeEvent* param1) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_ResizeEvent_IsBase(true);
@@ -1575,7 +1575,7 @@ void QFileDialog_ContextMenuEvent(QFileDialog* self, QContextMenuEvent* param1) 
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseContextMenuEvent(QFileDialog* self, QContextMenuEvent* param1) {
+void QFileDialog_SuperContextMenuEvent(QFileDialog* self, QContextMenuEvent* param1) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_ContextMenuEvent_IsBase(true);
@@ -1604,7 +1604,7 @@ bool QFileDialog_EventFilter(QFileDialog* self, QObject* param1, QEvent* param2)
 }
 
 // Base class handler implementation
-bool QFileDialog_QBaseEventFilter(QFileDialog* self, QObject* param1, QEvent* param2) {
+bool QFileDialog_SuperEventFilter(QFileDialog* self, QObject* param1, QEvent* param2) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_EventFilter_IsBase(true);
@@ -1633,7 +1633,7 @@ int QFileDialog_DevType(const QFileDialog* self) {
 }
 
 // Base class handler implementation
-int QFileDialog_QBaseDevType(const QFileDialog* self) {
+int QFileDialog_SuperDevType(const QFileDialog* self) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_DevType_IsBase(true);
@@ -1662,7 +1662,7 @@ int QFileDialog_HeightForWidth(const QFileDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int QFileDialog_QBaseHeightForWidth(const QFileDialog* self, int param1) {
+int QFileDialog_SuperHeightForWidth(const QFileDialog* self, int param1) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_HeightForWidth_IsBase(true);
@@ -1691,7 +1691,7 @@ bool QFileDialog_HasHeightForWidth(const QFileDialog* self) {
 }
 
 // Base class handler implementation
-bool QFileDialog_QBaseHasHeightForWidth(const QFileDialog* self) {
+bool QFileDialog_SuperHasHeightForWidth(const QFileDialog* self) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_HasHeightForWidth_IsBase(true);
@@ -1720,7 +1720,7 @@ QPaintEngine* QFileDialog_PaintEngine(const QFileDialog* self) {
 }
 
 // Base class handler implementation
-QPaintEngine* QFileDialog_QBasePaintEngine(const QFileDialog* self) {
+QPaintEngine* QFileDialog_SuperPaintEngine(const QFileDialog* self) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_PaintEngine_IsBase(true);
@@ -1749,7 +1749,7 @@ bool QFileDialog_Event(QFileDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-bool QFileDialog_QBaseEvent(QFileDialog* self, QEvent* event) {
+bool QFileDialog_SuperEvent(QFileDialog* self, QEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_Event_IsBase(true);
@@ -1778,7 +1778,7 @@ void QFileDialog_MousePressEvent(QFileDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseMousePressEvent(QFileDialog* self, QMouseEvent* event) {
+void QFileDialog_SuperMousePressEvent(QFileDialog* self, QMouseEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_MousePressEvent_IsBase(true);
@@ -1807,7 +1807,7 @@ void QFileDialog_MouseReleaseEvent(QFileDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseMouseReleaseEvent(QFileDialog* self, QMouseEvent* event) {
+void QFileDialog_SuperMouseReleaseEvent(QFileDialog* self, QMouseEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_MouseReleaseEvent_IsBase(true);
@@ -1836,7 +1836,7 @@ void QFileDialog_MouseDoubleClickEvent(QFileDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseMouseDoubleClickEvent(QFileDialog* self, QMouseEvent* event) {
+void QFileDialog_SuperMouseDoubleClickEvent(QFileDialog* self, QMouseEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_MouseDoubleClickEvent_IsBase(true);
@@ -1865,7 +1865,7 @@ void QFileDialog_MouseMoveEvent(QFileDialog* self, QMouseEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseMouseMoveEvent(QFileDialog* self, QMouseEvent* event) {
+void QFileDialog_SuperMouseMoveEvent(QFileDialog* self, QMouseEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_MouseMoveEvent_IsBase(true);
@@ -1894,7 +1894,7 @@ void QFileDialog_WheelEvent(QFileDialog* self, QWheelEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseWheelEvent(QFileDialog* self, QWheelEvent* event) {
+void QFileDialog_SuperWheelEvent(QFileDialog* self, QWheelEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_WheelEvent_IsBase(true);
@@ -1923,7 +1923,7 @@ void QFileDialog_KeyReleaseEvent(QFileDialog* self, QKeyEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseKeyReleaseEvent(QFileDialog* self, QKeyEvent* event) {
+void QFileDialog_SuperKeyReleaseEvent(QFileDialog* self, QKeyEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_KeyReleaseEvent_IsBase(true);
@@ -1952,7 +1952,7 @@ void QFileDialog_FocusInEvent(QFileDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseFocusInEvent(QFileDialog* self, QFocusEvent* event) {
+void QFileDialog_SuperFocusInEvent(QFileDialog* self, QFocusEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_FocusInEvent_IsBase(true);
@@ -1981,7 +1981,7 @@ void QFileDialog_FocusOutEvent(QFileDialog* self, QFocusEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseFocusOutEvent(QFileDialog* self, QFocusEvent* event) {
+void QFileDialog_SuperFocusOutEvent(QFileDialog* self, QFocusEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_FocusOutEvent_IsBase(true);
@@ -2010,7 +2010,7 @@ void QFileDialog_EnterEvent(QFileDialog* self, QEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseEnterEvent(QFileDialog* self, QEnterEvent* event) {
+void QFileDialog_SuperEnterEvent(QFileDialog* self, QEnterEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_EnterEvent_IsBase(true);
@@ -2039,7 +2039,7 @@ void QFileDialog_LeaveEvent(QFileDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseLeaveEvent(QFileDialog* self, QEvent* event) {
+void QFileDialog_SuperLeaveEvent(QFileDialog* self, QEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_LeaveEvent_IsBase(true);
@@ -2068,7 +2068,7 @@ void QFileDialog_PaintEvent(QFileDialog* self, QPaintEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBasePaintEvent(QFileDialog* self, QPaintEvent* event) {
+void QFileDialog_SuperPaintEvent(QFileDialog* self, QPaintEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_PaintEvent_IsBase(true);
@@ -2097,7 +2097,7 @@ void QFileDialog_MoveEvent(QFileDialog* self, QMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseMoveEvent(QFileDialog* self, QMoveEvent* event) {
+void QFileDialog_SuperMoveEvent(QFileDialog* self, QMoveEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_MoveEvent_IsBase(true);
@@ -2126,7 +2126,7 @@ void QFileDialog_TabletEvent(QFileDialog* self, QTabletEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseTabletEvent(QFileDialog* self, QTabletEvent* event) {
+void QFileDialog_SuperTabletEvent(QFileDialog* self, QTabletEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_TabletEvent_IsBase(true);
@@ -2155,7 +2155,7 @@ void QFileDialog_ActionEvent(QFileDialog* self, QActionEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseActionEvent(QFileDialog* self, QActionEvent* event) {
+void QFileDialog_SuperActionEvent(QFileDialog* self, QActionEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_ActionEvent_IsBase(true);
@@ -2184,7 +2184,7 @@ void QFileDialog_DragEnterEvent(QFileDialog* self, QDragEnterEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseDragEnterEvent(QFileDialog* self, QDragEnterEvent* event) {
+void QFileDialog_SuperDragEnterEvent(QFileDialog* self, QDragEnterEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_DragEnterEvent_IsBase(true);
@@ -2213,7 +2213,7 @@ void QFileDialog_DragMoveEvent(QFileDialog* self, QDragMoveEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseDragMoveEvent(QFileDialog* self, QDragMoveEvent* event) {
+void QFileDialog_SuperDragMoveEvent(QFileDialog* self, QDragMoveEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_DragMoveEvent_IsBase(true);
@@ -2242,7 +2242,7 @@ void QFileDialog_DragLeaveEvent(QFileDialog* self, QDragLeaveEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseDragLeaveEvent(QFileDialog* self, QDragLeaveEvent* event) {
+void QFileDialog_SuperDragLeaveEvent(QFileDialog* self, QDragLeaveEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_DragLeaveEvent_IsBase(true);
@@ -2271,7 +2271,7 @@ void QFileDialog_DropEvent(QFileDialog* self, QDropEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseDropEvent(QFileDialog* self, QDropEvent* event) {
+void QFileDialog_SuperDropEvent(QFileDialog* self, QDropEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_DropEvent_IsBase(true);
@@ -2300,7 +2300,7 @@ void QFileDialog_HideEvent(QFileDialog* self, QHideEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseHideEvent(QFileDialog* self, QHideEvent* event) {
+void QFileDialog_SuperHideEvent(QFileDialog* self, QHideEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_HideEvent_IsBase(true);
@@ -2330,7 +2330,7 @@ bool QFileDialog_NativeEvent(QFileDialog* self, const libqt_string eventType, vo
 }
 
 // Base class handler implementation
-bool QFileDialog_QBaseNativeEvent(QFileDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
+bool QFileDialog_SuperNativeEvent(QFileDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
@@ -2360,7 +2360,7 @@ int QFileDialog_Metric(const QFileDialog* self, int param1) {
 }
 
 // Base class handler implementation
-int QFileDialog_QBaseMetric(const QFileDialog* self, int param1) {
+int QFileDialog_SuperMetric(const QFileDialog* self, int param1) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_Metric_IsBase(true);
@@ -2389,7 +2389,7 @@ void QFileDialog_InitPainter(const QFileDialog* self, QPainter* painter) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseInitPainter(const QFileDialog* self, QPainter* painter) {
+void QFileDialog_SuperInitPainter(const QFileDialog* self, QPainter* painter) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_InitPainter_IsBase(true);
@@ -2418,7 +2418,7 @@ QPaintDevice* QFileDialog_Redirected(const QFileDialog* self, QPoint* offset) {
 }
 
 // Base class handler implementation
-QPaintDevice* QFileDialog_QBaseRedirected(const QFileDialog* self, QPoint* offset) {
+QPaintDevice* QFileDialog_SuperRedirected(const QFileDialog* self, QPoint* offset) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_Redirected_IsBase(true);
@@ -2447,7 +2447,7 @@ QPainter* QFileDialog_SharedPainter(const QFileDialog* self) {
 }
 
 // Base class handler implementation
-QPainter* QFileDialog_QBaseSharedPainter(const QFileDialog* self) {
+QPainter* QFileDialog_SuperSharedPainter(const QFileDialog* self) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_SharedPainter_IsBase(true);
@@ -2476,7 +2476,7 @@ void QFileDialog_InputMethodEvent(QFileDialog* self, QInputMethodEvent* param1) 
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseInputMethodEvent(QFileDialog* self, QInputMethodEvent* param1) {
+void QFileDialog_SuperInputMethodEvent(QFileDialog* self, QInputMethodEvent* param1) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_InputMethodEvent_IsBase(true);
@@ -2505,7 +2505,7 @@ QVariant* QFileDialog_InputMethodQuery(const QFileDialog* self, int param1) {
 }
 
 // Base class handler implementation
-QVariant* QFileDialog_QBaseInputMethodQuery(const QFileDialog* self, int param1) {
+QVariant* QFileDialog_SuperInputMethodQuery(const QFileDialog* self, int param1) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_InputMethodQuery_IsBase(true);
@@ -2534,7 +2534,7 @@ bool QFileDialog_FocusNextPrevChild(QFileDialog* self, bool next) {
 }
 
 // Base class handler implementation
-bool QFileDialog_QBaseFocusNextPrevChild(QFileDialog* self, bool next) {
+bool QFileDialog_SuperFocusNextPrevChild(QFileDialog* self, bool next) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_FocusNextPrevChild_IsBase(true);
@@ -2563,7 +2563,7 @@ void QFileDialog_TimerEvent(QFileDialog* self, QTimerEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseTimerEvent(QFileDialog* self, QTimerEvent* event) {
+void QFileDialog_SuperTimerEvent(QFileDialog* self, QTimerEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_TimerEvent_IsBase(true);
@@ -2592,7 +2592,7 @@ void QFileDialog_ChildEvent(QFileDialog* self, QChildEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseChildEvent(QFileDialog* self, QChildEvent* event) {
+void QFileDialog_SuperChildEvent(QFileDialog* self, QChildEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_ChildEvent_IsBase(true);
@@ -2621,7 +2621,7 @@ void QFileDialog_CustomEvent(QFileDialog* self, QEvent* event) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseCustomEvent(QFileDialog* self, QEvent* event) {
+void QFileDialog_SuperCustomEvent(QFileDialog* self, QEvent* event) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_CustomEvent_IsBase(true);
@@ -2650,7 +2650,7 @@ void QFileDialog_ConnectNotify(QFileDialog* self, const QMetaMethod* signal) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseConnectNotify(QFileDialog* self, const QMetaMethod* signal) {
+void QFileDialog_SuperConnectNotify(QFileDialog* self, const QMetaMethod* signal) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_ConnectNotify_IsBase(true);
@@ -2679,7 +2679,7 @@ void QFileDialog_DisconnectNotify(QFileDialog* self, const QMetaMethod* signal) 
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseDisconnectNotify(QFileDialog* self, const QMetaMethod* signal) {
+void QFileDialog_SuperDisconnectNotify(QFileDialog* self, const QMetaMethod* signal) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_DisconnectNotify_IsBase(true);
@@ -2708,7 +2708,7 @@ void QFileDialog_AdjustPosition(QFileDialog* self, QWidget* param1) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseAdjustPosition(QFileDialog* self, QWidget* param1) {
+void QFileDialog_SuperAdjustPosition(QFileDialog* self, QWidget* param1) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_AdjustPosition_IsBase(true);
@@ -2737,7 +2737,7 @@ void QFileDialog_UpdateMicroFocus(QFileDialog* self) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseUpdateMicroFocus(QFileDialog* self) {
+void QFileDialog_SuperUpdateMicroFocus(QFileDialog* self) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_UpdateMicroFocus_IsBase(true);
@@ -2766,7 +2766,7 @@ void QFileDialog_Create(QFileDialog* self) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseCreate(QFileDialog* self) {
+void QFileDialog_SuperCreate(QFileDialog* self) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_Create_IsBase(true);
@@ -2795,7 +2795,7 @@ void QFileDialog_Destroy(QFileDialog* self) {
 }
 
 // Base class handler implementation
-void QFileDialog_QBaseDestroy(QFileDialog* self) {
+void QFileDialog_SuperDestroy(QFileDialog* self) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_Destroy_IsBase(true);
@@ -2824,7 +2824,7 @@ bool QFileDialog_FocusNextChild(QFileDialog* self) {
 }
 
 // Base class handler implementation
-bool QFileDialog_QBaseFocusNextChild(QFileDialog* self) {
+bool QFileDialog_SuperFocusNextChild(QFileDialog* self) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_FocusNextChild_IsBase(true);
@@ -2853,7 +2853,7 @@ bool QFileDialog_FocusPreviousChild(QFileDialog* self) {
 }
 
 // Base class handler implementation
-bool QFileDialog_QBaseFocusPreviousChild(QFileDialog* self) {
+bool QFileDialog_SuperFocusPreviousChild(QFileDialog* self) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_FocusPreviousChild_IsBase(true);
@@ -2882,7 +2882,7 @@ QObject* QFileDialog_Sender(const QFileDialog* self) {
 }
 
 // Base class handler implementation
-QObject* QFileDialog_QBaseSender(const QFileDialog* self) {
+QObject* QFileDialog_SuperSender(const QFileDialog* self) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_Sender_IsBase(true);
@@ -2911,7 +2911,7 @@ int QFileDialog_SenderSignalIndex(const QFileDialog* self) {
 }
 
 // Base class handler implementation
-int QFileDialog_QBaseSenderSignalIndex(const QFileDialog* self) {
+int QFileDialog_SuperSenderSignalIndex(const QFileDialog* self) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_SenderSignalIndex_IsBase(true);
@@ -2940,7 +2940,7 @@ int QFileDialog_Receivers(const QFileDialog* self, const char* signal) {
 }
 
 // Base class handler implementation
-int QFileDialog_QBaseReceivers(const QFileDialog* self, const char* signal) {
+int QFileDialog_SuperReceivers(const QFileDialog* self, const char* signal) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_Receivers_IsBase(true);
@@ -2969,7 +2969,7 @@ bool QFileDialog_IsSignalConnected(const QFileDialog* self, const QMetaMethod* s
 }
 
 // Base class handler implementation
-bool QFileDialog_QBaseIsSignalConnected(const QFileDialog* self, const QMetaMethod* signal) {
+bool QFileDialog_SuperIsSignalConnected(const QFileDialog* self, const QMetaMethod* signal) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_IsSignalConnected_IsBase(true);
@@ -2998,7 +2998,7 @@ double QFileDialog_GetDecodedMetricF(const QFileDialog* self, int metricA, int m
 }
 
 // Base class handler implementation
-double QFileDialog_QBaseGetDecodedMetricF(const QFileDialog* self, int metricA, int metricB) {
+double QFileDialog_SuperGetDecodedMetricF(const QFileDialog* self, int metricA, int metricB) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
     if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
         vqfiledialog->setQFileDialog_GetDecodedMetricF_IsBase(true);

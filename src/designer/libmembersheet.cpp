@@ -261,7 +261,7 @@ libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_ParameterNames(co
 }
 
 // Base class handler implementation
-int QDesignerMemberSheetExtension_QBaseCount(const QDesignerMemberSheetExtension* self) {
+int QDesignerMemberSheetExtension_SuperCount(const QDesignerMemberSheetExtension* self) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_Count_IsBase(true);
@@ -280,7 +280,7 @@ void QDesignerMemberSheetExtension_OnCount(const QDesignerMemberSheetExtension* 
 }
 
 // Base class handler implementation
-int QDesignerMemberSheetExtension_QBaseIndexOf(const QDesignerMemberSheetExtension* self, const libqt_string name) {
+int QDesignerMemberSheetExtension_SuperIndexOf(const QDesignerMemberSheetExtension* self, const libqt_string name) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
@@ -300,7 +300,7 @@ void QDesignerMemberSheetExtension_OnIndexOf(const QDesignerMemberSheetExtension
 }
 
 // Base class handler implementation
-libqt_string QDesignerMemberSheetExtension_QBaseMemberName(const QDesignerMemberSheetExtension* self, int index) {
+libqt_string QDesignerMemberSheetExtension_SuperMemberName(const QDesignerMemberSheetExtension* self, int index) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_MemberName_IsBase(true);
@@ -335,7 +335,7 @@ void QDesignerMemberSheetExtension_OnMemberName(const QDesignerMemberSheetExtens
 }
 
 // Base class handler implementation
-libqt_string QDesignerMemberSheetExtension_QBaseMemberGroup(const QDesignerMemberSheetExtension* self, int index) {
+libqt_string QDesignerMemberSheetExtension_SuperMemberGroup(const QDesignerMemberSheetExtension* self, int index) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_MemberGroup_IsBase(true);
@@ -370,7 +370,7 @@ void QDesignerMemberSheetExtension_OnMemberGroup(const QDesignerMemberSheetExten
 }
 
 // Base class handler implementation
-void QDesignerMemberSheetExtension_QBaseSetMemberGroup(QDesignerMemberSheetExtension* self, int index, const libqt_string group) {
+void QDesignerMemberSheetExtension_SuperSetMemberGroup(QDesignerMemberSheetExtension* self, int index, const libqt_string group) {
     auto* vqdesignermembersheetextension = dynamic_cast<VirtualQDesignerMemberSheetExtension*>(self);
     QString group_QString = QString::fromUtf8(group.data, group.len);
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
@@ -390,7 +390,7 @@ void QDesignerMemberSheetExtension_OnSetMemberGroup(QDesignerMemberSheetExtensio
 }
 
 // Base class handler implementation
-bool QDesignerMemberSheetExtension_QBaseIsVisible(const QDesignerMemberSheetExtension* self, int index) {
+bool QDesignerMemberSheetExtension_SuperIsVisible(const QDesignerMemberSheetExtension* self, int index) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_IsVisible_IsBase(true);
@@ -409,7 +409,7 @@ void QDesignerMemberSheetExtension_OnIsVisible(const QDesignerMemberSheetExtensi
 }
 
 // Base class handler implementation
-void QDesignerMemberSheetExtension_QBaseSetVisible(QDesignerMemberSheetExtension* self, int index, bool b) {
+void QDesignerMemberSheetExtension_SuperSetVisible(QDesignerMemberSheetExtension* self, int index, bool b) {
     auto* vqdesignermembersheetextension = dynamic_cast<VirtualQDesignerMemberSheetExtension*>(self);
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_SetVisible_IsBase(true);
@@ -428,7 +428,7 @@ void QDesignerMemberSheetExtension_OnSetVisible(QDesignerMemberSheetExtension* s
 }
 
 // Base class handler implementation
-bool QDesignerMemberSheetExtension_QBaseIsSignal(const QDesignerMemberSheetExtension* self, int index) {
+bool QDesignerMemberSheetExtension_SuperIsSignal(const QDesignerMemberSheetExtension* self, int index) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_IsSignal_IsBase(true);
@@ -447,7 +447,7 @@ void QDesignerMemberSheetExtension_OnIsSignal(const QDesignerMemberSheetExtensio
 }
 
 // Base class handler implementation
-bool QDesignerMemberSheetExtension_QBaseIsSlot(const QDesignerMemberSheetExtension* self, int index) {
+bool QDesignerMemberSheetExtension_SuperIsSlot(const QDesignerMemberSheetExtension* self, int index) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_IsSlot_IsBase(true);
@@ -466,7 +466,7 @@ void QDesignerMemberSheetExtension_OnIsSlot(const QDesignerMemberSheetExtension*
 }
 
 // Base class handler implementation
-bool QDesignerMemberSheetExtension_QBaseInheritedFromWidget(const QDesignerMemberSheetExtension* self, int index) {
+bool QDesignerMemberSheetExtension_SuperInheritedFromWidget(const QDesignerMemberSheetExtension* self, int index) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_InheritedFromWidget_IsBase(true);
@@ -485,7 +485,7 @@ void QDesignerMemberSheetExtension_OnInheritedFromWidget(const QDesignerMemberSh
 }
 
 // Base class handler implementation
-libqt_string QDesignerMemberSheetExtension_QBaseDeclaredInClass(const QDesignerMemberSheetExtension* self, int index) {
+libqt_string QDesignerMemberSheetExtension_SuperDeclaredInClass(const QDesignerMemberSheetExtension* self, int index) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_DeclaredInClass_IsBase(true);
@@ -520,7 +520,7 @@ void QDesignerMemberSheetExtension_OnDeclaredInClass(const QDesignerMemberSheetE
 }
 
 // Base class handler implementation
-libqt_string QDesignerMemberSheetExtension_QBaseSignature(const QDesignerMemberSheetExtension* self, int index) {
+libqt_string QDesignerMemberSheetExtension_SuperSignature(const QDesignerMemberSheetExtension* self, int index) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_Signature_IsBase(true);
@@ -555,7 +555,7 @@ void QDesignerMemberSheetExtension_OnSignature(const QDesignerMemberSheetExtensi
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_QBaseParameterTypes(const QDesignerMemberSheetExtension* self, int index) {
+libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_SuperParameterTypes(const QDesignerMemberSheetExtension* self, int index) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_ParameterTypes_IsBase(true);
@@ -602,7 +602,7 @@ void QDesignerMemberSheetExtension_OnParameterTypes(const QDesignerMemberSheetEx
 }
 
 // Base class handler implementation
-libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_QBaseParameterNames(const QDesignerMemberSheetExtension* self, int index) {
+libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_SuperParameterNames(const QDesignerMemberSheetExtension* self, int index) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_ParameterNames_IsBase(true);

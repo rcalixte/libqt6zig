@@ -119,6 +119,10 @@ pub const karchivefile = struct {
         qtc.KArchiveFile_OnData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperData` instead
+    ///
+    pub const QBaseData = SuperData;
+
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#data)
     ///
     /// Base class method implementation
@@ -129,8 +133,8 @@ pub const karchivefile = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseData(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.KArchiveFile_QBaseData(@ptrCast(self));
+    pub fn SuperData(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.KArchiveFile_SuperData(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("karchivefile.Data: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -161,6 +165,10 @@ pub const karchivefile = struct {
         qtc.KArchiveFile_OnCreateDevice(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperCreateDevice` instead
+    ///
+    pub const QBaseCreateDevice = SuperCreateDevice;
+
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#createDevice)
     ///
     /// Base class method implementation
@@ -169,8 +177,8 @@ pub const karchivefile = struct {
     ///
     /// ` self: QtC.KArchiveFile `
     ///
-    pub fn QBaseCreateDevice(self: ?*anyopaque) QtC.QIODevice {
-        return qtc.KArchiveFile_QBaseCreateDevice(@ptrCast(self));
+    pub fn SuperCreateDevice(self: ?*anyopaque) QtC.QIODevice {
+        return qtc.KArchiveFile_SuperCreateDevice(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#isFile)
@@ -197,6 +205,10 @@ pub const karchivefile = struct {
         qtc.KArchiveFile_OnIsFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperIsFile` instead
+    ///
+    pub const QBaseIsFile = SuperIsFile;
+
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#isFile)
     ///
     /// Base class method implementation
@@ -205,8 +217,8 @@ pub const karchivefile = struct {
     ///
     /// ` self: QtC.KArchiveFile `
     ///
-    pub fn QBaseIsFile(self: ?*anyopaque) bool {
-        return qtc.KArchiveFile_QBaseIsFile(@ptrCast(self));
+    pub fn SuperIsFile(self: ?*anyopaque) bool {
+        return qtc.KArchiveFile_SuperIsFile(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#copyTo)
@@ -253,6 +265,10 @@ pub const karchivefile = struct {
         qtc.KArchiveFile_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `SuperVirtualHook` instead
+    ///
+    pub const QBaseVirtualHook = SuperVirtualHook;
+
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#virtual_hook)
     ///
     /// Base class method implementation
@@ -265,8 +281,8 @@ pub const karchivefile = struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KArchiveFile_QBaseVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
+    pub fn SuperVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
+        qtc.KArchiveFile_SuperVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from KArchiveEntry
@@ -379,6 +395,10 @@ pub const karchivefile = struct {
         return qtc.KArchiveFile_IsDirectory(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperIsDirectory` instead
+    ///
+    pub const QBaseIsDirectory = SuperIsDirectory;
+
     /// Inherited from KArchiveEntry
     ///
     /// ### [Upstream resources](https://api.kde.org/karchiveentry.html#isDirectory)
@@ -389,8 +409,8 @@ pub const karchivefile = struct {
     ///
     /// ` self: QtC.KArchiveFile `
     ///
-    pub fn QBaseIsDirectory(self: ?*anyopaque) bool {
-        return qtc.KArchiveFile_QBaseIsDirectory(@ptrCast(self));
+    pub fn SuperIsDirectory(self: ?*anyopaque) bool {
+        return qtc.KArchiveFile_SuperIsDirectory(@ptrCast(self));
     }
 
     /// Inherited from KArchiveEntry
@@ -423,6 +443,10 @@ pub const karchivefile = struct {
         return qtc.KArchiveFile_Archive(@ptrCast(self));
     }
 
+    /// ### DEPRECATED: Use `SuperArchive` instead
+    ///
+    pub const QBaseArchive = SuperArchive;
+
     /// Inherited from KArchiveEntry
     ///
     /// ### [Upstream resources](https://api.kde.org/karchiveentry.html#archive)
@@ -433,8 +457,8 @@ pub const karchivefile = struct {
     ///
     /// ` self: QtC.KArchiveFile `
     ///
-    pub fn QBaseArchive(self: ?*anyopaque) QtC.KArchive {
-        return qtc.KArchiveFile_QBaseArchive(@ptrCast(self));
+    pub fn SuperArchive(self: ?*anyopaque) QtC.KArchive {
+        return qtc.KArchiveFile_SuperArchive(@ptrCast(self));
     }
 
     /// Inherited from KArchiveEntry
@@ -452,6 +476,9 @@ pub const karchivefile = struct {
     pub fn OnArchive(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KArchive) void {
         qtc.KArchiveFile_OnArchive(@ptrCast(self), @bitCast(@intFromPtr(callback)));
     }
+    /// ### DEPRECATED: Use `Delete` instead
+    ///
+    pub const QDelete = Delete;
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#dtor.KArchiveFile)
     ///
@@ -461,7 +488,7 @@ pub const karchivefile = struct {
     ///
     /// ` self: QtC.KArchiveFile `
     ///
-    pub fn QDelete(self: ?*anyopaque) void {
+    pub fn Delete(self: ?*anyopaque) void {
         qtc.KArchiveFile_Delete(@ptrCast(self));
     }
 };
