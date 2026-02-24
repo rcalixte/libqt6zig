@@ -111,12 +111,12 @@ pub fn main() void {
     const argc = std.os.argv.len;
     const argv = std.os.argv.ptr;
     const qapp = qapplication.New(argc, argv);
-    defer qapplication.QDelete(qapp);
+    defer qapplication.Delete(qapp);
 
     const text = "Hello world!";
     const widget = qwidget.New2();
     if (widget == null) @panic("Failed to create widget");
-    defer qwidget.QDelete(widget);
+    defer qwidget.Delete(widget);
 
     // We don't need to free the button, it's a child of the widget
     const button = qpushbutton.New5(text, widget);
@@ -472,13 +472,13 @@ The `QAnyStringView`, `QByteArray`, `QByteArrayView`, `QString`, `QList<T>`, `QS
 
 - `QMap` and `QMultiMap` are iterated by key order and are projected as `AutoArrayHashMapUnmanaged` and `StringArrayHashMapUnmanaged` types. `QHash` and `QMultiHash` iterate in an undefined internal order and are projected as `AutoHashMapUnmanaged` and `StringHashMapUnmanaged` types. `QMultiHash` and `QMultiMap` `<K,V>` types are projected in the Zig API as hash map types of `<K,[]V>`.
 
-Where Qt returns a C++ object by value (e.g. `QSize`), the binding may have moved it to the heap, and in Zig, this may be represented as a pointer type. In such cases, the caller is the owner and must free the object (using either `QDelete` methods for the type or deallocating or destroying via the allocators). This means code using `libqt6zig` can look similar to the Qt C++ equivalent code but with the addition of proper memory management.
+Where Qt returns a C++ object by value (e.g. `QSize`), the binding may have moved it to the heap, and in Zig, this may be represented as a pointer type. In such cases, the caller is the owner and must free the object (using either `Delete` methods for the type or deallocating or destroying via the allocators). This means code using `libqt6zig` can look similar to the Qt C++ equivalent code but with the addition of proper memory management.
 
 The `connect(targetObject, SIGNAL(signal()), targetSlot, SLOT(slot()))` methods are projected as `OnSignal(targetObject, slot)`. While the parameters in the methods themselves are more convenient to use, the documentation comments in the Zig source code should be used for reference for the proper usage of the parameter types and Qt vtable references. The example code above includes a simple callback function that can be used as a reference.
 
-- You can also override virtual methods like `PaintEvent` in the same way. Where supported, there are additional `On` and `QBase` variants:
+- You can also override virtual methods like `PaintEvent` in the same way. Where supported, there are additional `On` and `Super` variants:
   - `OnPaintEvent`: Set an override callback function to be called when `PaintEvent` is invoked. For certain methods, even with the override set, the base class implementation can still be called by Qt internally and these calls can not be prevented.
-  - `QBasePaintEvent`: Invoke the base class implementation of `PaintEvent`. This is useful for when the custom implementation requires the base class implementation. (When there is no override set, the `QBase` implementation is equivalent to `PaintEvent`.)
+  - `SuperPaintEvent`: Invoke the base class implementation of `PaintEvent`. This is useful for when the custom implementation requires the base class implementation. (When there is no override set, the `Super` implementation is equivalent to `PaintEvent`.)
 
 Due to current limitations, QPainter does not reliably initialize within paint event callbacks, even when using manual `begin()` and `end()` calls. The result is warnings such as "A paint device can only be painted by one painter at a time" and "Painter not active." As a workaround, use QStylePainter instead for painting operations. QStylePainter inherits from QPainter, meaning that it provides access to the same drawing methods (`drawRect`, `drawLine`, `setBrush`, etc.), but it properly handles the painting context that fails to be managed with the standard QPainter. This is not Qt's official recommendation, but for practical purposes, when using this library, use QStylePainter as your standard painter class for paint event implementations.
 
@@ -508,7 +508,7 @@ delete widget;
 ```zig
 // libqt6zig API
 const widget = qwidget.New2();
-defer qwidget.QDelete(widget);
+defer qwidget.Delete(widget);
 
 qwidget.SetWindowTitle(widget, "Hello world!");
 qwidget.Show(widget);
